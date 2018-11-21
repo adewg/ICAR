@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "code":{
+            "@id": "https://www.datalinker.org/context/ICARMilkCharacteristic-code",
+            "@type": "xsd:string",
+            "type": "string",
+            "format": "uri",
+            "dldescription": "Official ICAR milking characeteristic or local identifier"
+        },
+        "value":{
+            "@id": "https://www.datalinker.org/context/ICARMilkCharaceteristic-value",
+            "@type": "xsd:decimal",
+            "type": "number",
+            "dldescription": "Value for the characteristic"
+        }
+    }
+}
