@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "namespace" : {
+            "@id": "https://www.datalinker.org/context/ICARAnimalIdentity-namespace",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "description": "URI namespace of recording scheme or ID type. See https://datalinker.org/.../identifier-namespaces"
+        },
+        "identifier": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalIdentity-identifier",
+            "@type": "xsd:string",
+            "type": "string",
+            "description": "Idenfifier of the animal within the namespace.  Typically unique but depends on namespace"
+        }
+    }
+}

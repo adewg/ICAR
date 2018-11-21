@@ -1,0 +1,94 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "animalEventId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-animalEventId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related animal"
+        },
+        "sampleId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-sampleId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the sample (if one has been taken)"
+        },
+        "sampleTaken": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-sampleTaken",
+            "@type": "xsd:boolean",
+            "type": "boolean",
+            "dldescription": "If a sample has been taken(True or False)"
+        },
+        "sample": {
+            "@id": "http://www.datalinker.org/context/DairyMilkingSample",
+            "@type": "https://www.datalinker.org/contexts/2.0/DairyMilkingSample.jsonld",
+            "type": "object",
+            "dldescription": "Sample results of this milking event"
+        },
+        "testMilkExcpetion": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-testMilkExcpetion",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Exception code that occurred during the milking"
+        },
+        "milkingMode": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-milkingMode",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Mode that the milking was done (Manual or Robotic)"
+        },
+        "startTime": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-startTime",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "dldescription": "The time the milking started"
+        },
+        "endTime": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-endTime",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "dldescription": "The time the milking ended"
+        },
+        "duration": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-duration",
+            "@type": "xsd:decimal",
+            "type": "number",
+            "dldescription": "duration of the milking"
+        },
+        "milkingSuccess": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-milkingSuccess",
+            "@type": "xsd:boolean",
+            "type": "boolean",
+            "dldescription": "If the milking was successful(True or False)"
+        },
+        "rackNumber": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-rackNumber",
+            "@type": "xsd:number",
+            "type": "integer",
+            "dldescription": "The number of the sample rack, Mandatory if the sample is taken."
+        },
+        "milkingResult": {
+            "@id": "http://www.datalinker.org/context/DairyMilkingResult",
+            "@type": "https://www.datalinker.org/contexts/2.0/DairyMilkingResult.jsonld",
+            "type": "object",
+            "dldescription": "Milking results of this milking event"
+        },
+        "quarterResults": {
+            "@id": "http://www.datalinker.org/context/DairyMilkingResult",
+            "@container": "@set",
+            "@type": "https://www.datalinker.org/contexts/2.0/DairyMilkingResult.jsonld",
+            "type": "array",
+            "items": {
+                "type": "object"
+            },
+            "dldescription": "Milking results for each quater if they are recorded"
+        },
+        "labAnalysisDetails": {
+            "@id": "http://www.datalinker.org/context/DairyMilkingResultLabDetails",
+            "@type": "https://www.datalinker.org/contexts/2.0/DairyMilkingResultLabDetails.jsonld",
+            "type": "object",
+            "dldescription": "Details of the Lab that provided the analysis"
+        }
+    }
+}

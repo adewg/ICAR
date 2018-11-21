@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "modified":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData-modified",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "description": "Date the object was modified in ISO8601 - dc:modified"
+        },
+        "created": {
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData-created",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "description": "Date the object was created in ISO8601 - dc:created"
+        },
+        "creator":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData-creator",
+            "@type": "@id",
+            "type": "string",
+            "description": "Pseron or organisation who created the object - dc:creator"
+        },
+        "source":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData-source",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "description": "URI that identified the source system - dc:source"
+        },
+        "validFrom":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData-validFrom",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "description": "Start of the validity period for the object in ISO8601 - dc:valid"
+        },
+        "validTo":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData-validTo",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "description": "End of the validity period for the object in ISO8601 - dc:valid"
+        }
+    }
+}

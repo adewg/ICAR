@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARAnimal-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the animal"
+        },
+        "animalDetails": {
+            "@id": "https://www.datalinker.org/context/Animal",
+            "@type": "http://www.datalinker.org/contexts/2.0/Animal.jsonld",
+            "type": "object",
+            "dldescription": "Animal details"
+        },
+        "animalEvents": {
+            "@id": "https://www.datalinker.org/context/ICARAnimal-AnimalEvents",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEvent",
+            "dldescription": "The list of animal related events"
+        }
+    }
+}

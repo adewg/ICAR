@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARHerd-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Primary Id of the herd"
+        },
+        "identifiers": {
+            "@id": "https://www.datalinker.org/context/ICARHerd-Identifiers",
+            "@container": "@set",
+            "@type": "xsd:string",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "dldescription": "One or more globally unique herd identifiers"
+        },
+        "animals": {
+            "@id": "https://www.datalinker.org/context/ICARHerd-Animals",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimal",
+            "dldescription": "Url to the get list of animals that are contianed in this herd"
+        },
+        "herdEventSummary": {
+            "@id": "https://www.datalinker.org/context/ICARHerd-HerdEventSummary",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "dldescription": "Url to the get list of herd related events",
+            "dltype": "https://www.datalinker.org/context/ICARHerdEventSummary"
+        },
+        "animalEvents": {
+            "@id": "https://www.datalinker.org/context/ICARHerd-AnimalEvents",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEvent",
+            "dldescription": "The list of animal related events"
+        },
+        "dateModified": {
+            "@id": "http://schema.org/dateModified",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "dldescription": "ISO8601 date format 2018-07-19T23:00:08+00:00. Date when details were last modified"
+        }
+    }
+}

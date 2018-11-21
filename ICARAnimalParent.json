@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "role": {
+            "@id" : "https://www.datalinker.org/context/ICARParentType",
+            "@type": "@id",
+            "type": "object",
+            "description": "The role of the parent (sire, dam, ect)"
+        },
+        "parentIdentity": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
+            "@type": "@id",
+            "type": "object",
+            "description": "The identity of the parent animal"
+        }
+    }
+}
