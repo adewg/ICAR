@@ -51,6 +51,46 @@
             "@type": "https://www.datalinker.org/contexts/2.0/ICARMilkingResult",
             "type": "object",
             "dldescription": "Whole animal milking result (weight, duration, characteristics)"
+        },
+        "quarters":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-quarters",
+            "@type": "xsd:array",
+            "type": "array",
+            "items": {
+                "@type": "https://www.datalinker.org/contexts/2.0/ICARMilkingResult",
+                "type": "object"
+            },
+            "dldescription": "Array of up to four milking results for quarters (or two for halves)"
+        },
+        "parlourUnit":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-parlourUnit",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Identifier of the parlour unit"
+        },
+        "box":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-box",
+            "@type": "xsd:string",
+            "typs": "string",
+            "dldescription": "Identifier of the milking box"
+        },
+        "milkingDeviceID":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-milkingDeviceID",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique identifer of the milking device"
+        },
+        "measureDeviceID":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-measureDeviceID",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique identifier of the measurement device"
+        },
+        "additionalData":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-additionalData",
+            "@type": "xsd:object",
+            "type": "object",
+            "dldescription": "Any other localised information, typically an object or an array of keys and values"
         }
     }
 }
