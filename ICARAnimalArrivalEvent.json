@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "@context":{
+            "type": "string",
+            "format": "uri"
+        },
+        "@type":{
+            "type": "string"
+        },
+        "holdingID":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-holdingID",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Government identifier for the source location"
+        },
+        "herdID":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-herdID",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Official ID of the source herd"
+        },
+        "location":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-location",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Locally defined source location"
+        },
+        "reasonCode":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-reasonCode",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Local code specifying the arrival reason"
+        },
+        "additionalData":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-additionalData",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Any other localised information"
+        }
+    }
+}
