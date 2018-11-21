@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "quarterID": {
+            "@id": "https://www.datalinker.org/context/ICARMilkingResult-quarterID",
+            "@type": "xsd:integer",
+            "type": "integer",
+            "dldescription": "Quater being milked.  Null/blank if recording the whole animal"
+        },
+        "milkingDuration":{
+            "@id": "https://www.datalinker.org/context/ICARMilkingResult-milkingDuration",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Milking duration in ISO8601 duration format"
+        },
+        "milkWeight":{
+            "@id": "https://www.datalinker.org/context/ICARMilkingResult-milkWeight",
+            "@type": "xsd:decimal",
+            "type": "number",
+            "dldescription": "Milk weight in Kilograms"
+        },
+        "sample":{
+            "@id": "https://www.datalinker.org/context/ICARMilkingResult-sample",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARMilkSample",
+            "type": "object",
+            "dldescription": "Details of a whole animal milk sample"
+        },
+        "milkCharacteristics":{
+            "@id": "https://www.datalinker.org/context/ICARMilkingResult-milkCharacteristics",
+            "@typs": "xsd:array",
+            "type": "array",
+            "items": {
+                "@type": "https://www.datalinker.org/contexts/2.0/ICARMilkCharacteristic",
+                "type": "object"
+            },
+            "dldescription": "Set of official code and value pairs"
+        },
+        "localCharacteristics":{
+            "@id": "https://www.datalinker.org/context/ICARMilkingResult-localCharacteristics",
+            "@typs": "xsd:array",
+            "type": "array",
+            "items": {
+                "@type": "https://www.datalinker.org/contexts/2.0/ICARMilkCharacteristic",
+                "type": "object"
+            },
+            "dldescription": "Set of local code and value pairs"
+        }
+    }
+}
