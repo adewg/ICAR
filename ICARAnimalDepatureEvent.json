@@ -2,5 +2,42 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
+        "@context":{
+            "type": "string",
+            "format": "uri"
+        },
+        "@type":{
+            "type": "string"
+        },
+        "holdingID":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepatureEvent-holdingID",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Government identifier for the destination location"
+        },
+        "herdID":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepatureEvent-herdID",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "OfficialID of the destination herd"
+        },
+        "location": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepatureEvent-location",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Locally defined destination location"
+        },
+        "reasonCode":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepatureEvent-reasonCode",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Local code specifying the departure reason"
+        },
+        "additionalData":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepartureEvent-additionalData",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Any other localised information"
+        }
     }
 }
