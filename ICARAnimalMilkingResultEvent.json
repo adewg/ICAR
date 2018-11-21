@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "@context":{
+            "type": "string",
+            "format": "uri"
+        },
+        "@type":{
+            "type": "string"
+        },
+        "location":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-location",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Locally defined milking location"
+        },
+        "herdID":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-herdID",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "OfficialID of the herd the animal was in at time of milking"
+        },
+        "start":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-start",
+            "@type": "xsd:string",
+            "type": "string",
+            "format": "date-time",
+            "dldescription": "The start data and time of milking in ISO8601"
+        },
+        "visitDuration":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-visitDuration",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Visit duration in ISO8601 duration format"
+        },
+        "milkingType":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-milkingType",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARMilkingType",
+            "type": "object",
+            "dldescription": "Manual or robotic"
+        },
+        "success":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-success",
+            "@type": "xsd:boolean",
+            "type": "boolean",
+            "dldescription": "Trus if milking was successful"
+        },
+        "milkingResult":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-milkingResult",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARMilkingResult",
+            "type": "object",
+            "dldescription": "Whole animal milking result (weight, duration, characteristics)"
+        }
+    }
+}
