@@ -44,7 +44,7 @@
             "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-success",
             "@type": "xsd:boolean",
             "type": "boolean",
-            "dldescription": "Trus if milking was successful"
+            "dldescription": "True if milking was successful"
         },
         "milkingResult":{
             "@id": "https://www.datalinker.org/context/ICARAnimalMilkingResultEvent-milkingResult",

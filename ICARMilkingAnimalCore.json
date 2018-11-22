@@ -87,6 +87,12 @@
             "@type": "@id",
             "type": "object",
             "description": "Any metadata for the object.  Most likely to use 'modified'"
+        },
+        "status":{
+            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-status",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The current status of this animal in the herd.  Vaild values: Alive, Dead, Transfered"
         }
     }
 }
