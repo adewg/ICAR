@@ -21,7 +21,7 @@
             "description": "Unique URL to this resource - important if returned as an item in an array or collection"
         },
         "reference":{
-            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-refrance",
+            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-reference",
             "@type": "xsd:string",
             "type": "string",
             "description": "Unique reference for this animal within the source system. May be an internal code"

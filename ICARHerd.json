@@ -23,7 +23,7 @@
             "@type": "@id",
             "type": "string",
             "format": "uri",
-            "dltype": "https://www.datalinker.org/context/ICARAnimal",
+            "dltype": "https://www.datalinker.org/context/ICARMilkingAnimalCore",
             "dldescription": "Url to the get list of animals that are contianed in this herd"
         },
         "herdEventSummary": {
