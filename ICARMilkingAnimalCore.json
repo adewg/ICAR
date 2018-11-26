@@ -18,19 +18,19 @@
             "@type": "@id",
             "type": "string",
             "format": "uri",
-            "description": "Unique URL to this resource - important if returned as an item in an array or collection"
+            "dldescription": "Unique URL to this resource - important if returned as an item in an array or collection"
         },
         "reference":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-reference",
             "@type": "xsd:string",
             "type": "string",
-            "description": "Unique reference for this animal within the source system. May be an internal code"
+            "dldescription": "Unique reference for this animal within the source system. May be an internal code"
         },
         "primaryIdentifier":{
             "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
             "@type": "@id",
             "type": "object",
-            "description": "Primary identifier for this animal within the provider's system"
+            "dldescription": "Primary identifier for this animal within the provider's system"
         },
         "identifiers":{
             "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
@@ -39,32 +39,32 @@
             "items": {
                 "type": "object"
             },
-            "description": "Array of identifiers for this animal"
+            "dldescription": "Array of identifiers for this animal"
         },
         "species":{
             "@id": "https://www.datalinker.org/context/ICARSpecies",
             "@type": "@id",
             "type": "object",
-            "description": "Species common name"
+            "dldescription": "Species common name"
         },
         "sex":{
             "@id": "https://www.datalinker.org/context/ICARAnimalSex",
             "@type": "@id",
             "type": "object",
-            "description": "Sex of the animal"
+            "dldescription": "Sex of the animal"
         },
         "birthDate":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-birthDate",
             "@type": "xsd:dateTime",
             "type": "string",
             "format": "date-time",
-            "description": "Date of birth"
+            "dldescription": "Date of birth"
         },
         "breedCode":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-breedCode",
             "@type": "xsd:string",
             "type": "string",
-            "description": "ICAR 3 character breed code from https://raw.githubusercontent.com/Farm-Data-Standards/Animal-Breed-List/master/Breedlist%20JSON%20v1.1.json"
+            "dldescription": "ICAR 3 character breed code from https://raw.githubusercontent.com/Farm-Data-Standards/Animal-Breed-List/master/Breedlist%20JSON%20v1.1.json"
         },
         "parentage":{
             "@id": "https://www.datalinker.org/context/ICARAnimalParent",
@@ -73,20 +73,20 @@
             "items": {
                 "type": "object"
             },
-            "description": "Array of parents for this animal"
+            "dldescription": "Array of parents for this animal"
         },
         "events":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-events",
             "@type": "xsd:string",
             "type": "string",
             "format": "url",
-            "description": "Navigable URL to the events for this animal,  In most implementation this will be the heard events query filtered by animal"
+            "dldescription": "Navigable URL to the events for this animal,  In most implementation this will be the heard events query filtered by animal"
         },
         "meta":{
             "@id": "https://www.datalinker.org/context/ICARObjectMetaData",
             "@type": "@id",
             "type": "object",
-            "description": "Any metadata for the object.  Most likely to use 'modified'"
+            "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
         },
         "status":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-status",

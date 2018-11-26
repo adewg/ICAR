@@ -6,13 +6,13 @@
             "@id" : "https://www.datalinker.org/context/ICARParentType",
             "@type": "@id",
             "type": "object",
-            "description": "The role of the parent (sire, dam, ect)"
+            "dldescription": "The role of the parent (sire, dam, ect)"
         },
         "parentIdentity": {
             "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
             "@type": "@id",
             "type": "object",
-            "description": "The identity of the parent animal"
+            "dldescription": "The identity of the parent animal"
         }
     }
 }
