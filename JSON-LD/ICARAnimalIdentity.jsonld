@@ -1,0 +1,1 @@
+{"@context":{"xsd":"http://www.w3.org/2001/XMLSchema#","namespace":{"@id":"https://www.datalinker.org/context/ICARAnimalIdentity-namespace","@type":"@id"},"identifier":{"@id":"https://www.datalinker.org/context/ICARAnimalIdentity-identifier","@type":"xsd:string"}}}
