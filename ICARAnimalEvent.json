@@ -19,7 +19,7 @@
             "@type": "xsd:string",
             "type": "string",
             "format": "uri",
-            "dldescription": "If this event was one of a group recorded simultaneously, the heardEvent relates the individual events"
+            "dldescription": "If this event was one of a group recorded simultaneously, the herdEvent relates the individual events"
         },
         "eventDate": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-date",

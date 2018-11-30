@@ -24,14 +24,14 @@
             "type": "string",
             "format": "uri",
             "dltype": "https://www.datalinker.org/context/ICARMilkingAnimalCore",
-            "dldescription": "Url to the get list of animals that are contianed in this herd"
+            "dldescription": "URL to get the list of animals in the herd. Can be filtered"
         },
         "herdEventSummary": {
             "@id": "https://www.datalinker.org/context/ICARHerd-HerdEventSummary",
             "@type": "@id",
             "type": "string",
             "format": "uri",
-            "dldescription": "Url to the get list of herd related events",
+            "dldescription": "URL to the list of summarised events for the herd. Can be filtered.",
             "dltype": "https://www.datalinker.org/context/ICARHerdEventSummary"
         },
         "animalEvents": {
@@ -40,7 +40,7 @@
             "type": "string",
             "format": "uri",
             "dltype": "https://www.datalinker.org/context/ICARAnimalEvent",
-            "dldescription": "The list of animal related events"
+            "dldescription": "URL to the list of individual animal events for the herd. Can be filtered"
         },
         "dateModified": {
             "@id": "http://schema.org/dateModified",

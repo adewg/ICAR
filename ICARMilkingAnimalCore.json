@@ -28,28 +28,29 @@
         },
         "primaryIdentifier":{
             "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
-            "@type": "@id",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalIdentity",
             "type": "object",
             "dldescription": "Primary identifier for this animal within the provider's system"
         },
         "identifiers":{
             "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
-            "@type":"@id",
+            "@type": "xsd:array",
             "type": "array",
             "items": {
-                "type": "object"
+                "type": "object",
+                "@type":"https://www.datalinker.org/contexts/2.0/ICARAnimalIdentity"
             },
             "dldescription": "Array of identifiers for this animal"
         },
         "species":{
             "@id": "https://www.datalinker.org/context/ICARSpecies",
-            "@type": "@id",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARSpecies",
             "type": "object",
             "dldescription": "Species common name"
         },
         "sex":{
             "@id": "https://www.datalinker.org/context/ICARAnimalSex",
-            "@type": "@id",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalSex",
             "type": "object",
             "dldescription": "Sex of the animal"
         },
@@ -68,23 +69,24 @@
         },
         "parentage":{
             "@id": "https://www.datalinker.org/context/ICARAnimalParent",
-            "@type": "@id",
+            "@type": "xsd:array",
             "type": "array",
             "items": {
+                "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalParent",
                 "type": "object"
             },
             "dldescription": "Array of parents for this animal"
         },
         "events":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-events",
-            "@type": "xsd:string",
+            "@type": "@id",
             "type": "string",
             "format": "url",
-            "dldescription": "Navigable URL to the events for this animal,  In most implementation this will be the heard events query filtered by animal"
+            "dldescription": "Navigable URL to the events for this animal,  In most implementation this will be the herd events query filtered by animal"
         },
         "meta":{
             "@id": "https://www.datalinker.org/context/ICARObjectMetaData",
-            "@type": "@id",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARObjectMetaData",
             "type": "object",
             "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
         },
