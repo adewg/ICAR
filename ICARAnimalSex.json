@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "sex": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalSex-sex",
+            "@type": "xsd: string",
+            "type": "string",
+            "enum": ["Male", "Female", null],
+            "dldescription": "Sex of the animal.  Male, Female or null"
+        }
+    }
+}
