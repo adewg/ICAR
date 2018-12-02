@@ -27,6 +27,6 @@
             "@type": "https://www.datalinker.org/contexts/2.0/ICARObjectMetaData",
             "type": "object",
             "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
-        },
+        }
     }
 }
