@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
         "role": {
-            "@id" : "https://www.datalinker.org/context/ICARAnimalParentType",
+            "@id" : "https://www.datalinker.org/context/ICARParentType",
             "@type": "https://www.datalinker.org/contexts/2.0/ICARParentType",
             "type": "object",
             "dldescription": "The role of the parent (sire, dam, ect)"

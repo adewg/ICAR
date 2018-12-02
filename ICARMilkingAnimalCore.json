@@ -91,7 +91,7 @@
             "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
         },
         "status":{
-            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-status",
+            "@id": "https://www.datalinker.org/context/ICARAnimalStatus",
             "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalStatus",
             "type": "object",
             "dldescription": "The current status of this animal in the herd.  Vaild values: Alive, Dead, Transfered"

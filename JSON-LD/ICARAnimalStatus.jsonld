@@ -1,0 +1,1 @@
+{"@context":{"xsd":"http://www.w3.org/2001/XMLSchema#","animalStatus":{"@id":"https://www.datalinker.org/context/ICARAnimalStatus-animalStatus","@type":"xsd:string"}}}
