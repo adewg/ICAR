@@ -45,12 +45,6 @@
             "type": "string",
             "dldescription": "The class specified by event type. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"
         },
-        "dateModified": {
-            "@id": "http://schema.org/dateModified",
-            "@type": "xsd:dateTime",
-            "type": "string",
-            "dldescription": "ISO8601 date format 2018-07-19T23:00:08+00:00. When details were last modified"
-        },
         "reference": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-reference",
             "@type": "xsd:string",

@@ -1,1 +1,36 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"id":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-id","@type":"xsd:string","type":"string","dldescription":"Unique Id of the animal event"},"animalId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-animalId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related animal"},"herdEventId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-herdEventId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related herd event"},"method":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-method","@type":"xsd:string","type":"string","dldescription":"Method used for the pregnancy check ( Echography : E , Palpation : P , Milk Anaylsis : M , Other : O)"},"result":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-result","@type":"xsd:string","type":"string","dldescription":"Results of the pregnancy check ( Unknown : U , Empty : E , Pregnant : P)"}}}
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the animal event"
+        },
+        "animalId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-animalId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related animal"
+        },
+        "herdEventId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-herdEventId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related herd event"
+        },
+        "method": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-method",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Method used for the pregnancy check ( Echography : E , Palpation : P , Milk Anaylsis : M , Other : O)"
+        },
+        "result": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-result",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Results of the pregnancy check ( Unknown : U , Empty : E , Pregnant : P)"
+        }
+    }
+}

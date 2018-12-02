@@ -1,1 +1,126 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"id":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-id","@type":"xsd:string","type":"string","dldescription":"Unique Id of the animal event"},"animalId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-animalId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related animal"},"herdEventId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-herdEventId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related herd event"},"animalEarNumber":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-animalEarNumber","@type":"xsd:integer","type":"string","dldescription":"The ear number of the inseminated cow"},"chargeNumber":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-chargeNumber","@type":"xsd:string","type":"string","dldescription":"The number of the batch of the production of the semen."},"containerId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-containerId","@type":"xsd:string","type":"string","dldescription":"Farm's container number from where the bull dose was taken. NULL for natural matings"},"doseUsage":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-doseUsage","@type":"xsd:string","type":"string","dldescription":"Dose usage - see codes. NULL for natural matings (1 dose used, 2 dose used, last dose used (of batch))"},"expectedCalvingDate":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-expectedCalvingDate","@type":"xsd:string","type":"string","dldescription":"Date of expected calving"},"forFlushing":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-forFlushing","@type":"xsd:boolean","type":"boolean","dldescription":"Indication whether the cow was inseminated for flushing (default: false)"},"heatStrength":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-heatStrength","@type":"xsd:string","type":"string","dldescription":"Observed sign/strength of heat (https://test.nordiccdx.com/Help/Codeset?name=HEAT_STRENGTH)"},"impregnationCode":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-impregnationCode","@type":"xsd:string","type":"string","dldescription":"Defines the type of the last impregnation event (Insemination : I, Natural Service : N, Running With Bull : R, Implantation : M)"},"technician":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-technician","@type":"xsd:string","type":"string","dldescription":"The identification of the person that performed the insemination. In case the farmer has performed the insemination a zero is applied. The possible id�s are not provided in this documentation."},"insemNumber":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-insemNumber","@type":"xsd:integer","type":"string","dldescription":"Serial number of insemination after the last calving"},"serviceSireBreed":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireBreed","@type":"xsd:integer","type":"string","dldescription":"The breed for the insemination sire (https://test.nordiccdx.com/Help/Codeset?name=BREED)"},"serviceSireHerdBookNumber":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireHerdBookNumber","@type":"xsd:string","type":"string","dldescription":"The herdbooknr for the insemination sire"},"serviceSireIndentifer":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireIndentifer","@type":"xsd:string","type":"string","dldescription":"The animal identification of the bull"},"serviceSireName":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireName","@type":"xsd:string","type":"string","dldescription":"The name for the insemination sire"},"sexedSemenType":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-sexedSemenType","@type":"xsd:string","type":"string","dldescription":"A list of codes representing the sexed semen type (Male or Female : Y, No Sexed Semen : N, Female : F, Male : M)"},"semenOfOwnStock":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-semenOfOwnStock","@type":"xsd:boolean","type":"boolean","dldescription":"Indication whether the semen used came out of the stock from the farmer, or from the technician. (default: true)"},"sharedSemenUsed":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-semenOfOwnStock","@type":"xsd:boolean","type":"boolean","dldescription":"Indication whether semen from 2 bulls was used for this insemination. (default: false)"}}}
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the animal event"
+        },
+        "animalId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-animalId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related animal"
+        },
+        "herdEventId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-herdEventId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related herd event"
+        },
+        "animalEarNumber": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-animalEarNumber",
+            "@type": "xsd:integer",
+            "type": "string",
+            "dldescription": "The ear number of the inseminated cow"
+        },
+        "chargeNumber": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-chargeNumber",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The number of the batch of the production of the semen."
+        },
+        "containerId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-containerId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Farm's container number from where the bull dose was taken. NULL for natural matings"
+        },
+        "doseUsage": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-doseUsage",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Dose usage - see codes. NULL for natural matings (1 dose used, 2 dose used, last dose used (of batch))"
+        },
+        "expectedCalvingDate": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-expectedCalvingDate",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Date of expected calving"
+        },
+        "forFlushing": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-forFlushing",
+            "@type": "xsd:boolean",
+            "type": "boolean",
+            "dldescription": "Indication whether the cow was inseminated for flushing (default: false)"
+        },
+        "heatStrength": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-heatStrength",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Observed sign/strength of heat (https://test.nordiccdx.com/Help/Codeset?name=HEAT_STRENGTH)"
+        },
+        "impregnationCode": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-impregnationCode",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Defines the type of the last impregnation event (Insemination : I, Natural Service : N, Running With Bull : R, Implantation : M)"
+        },
+        "technician": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-technician",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The identification of the person that performed the insemination. In case the farmer has performed the insemination a zero is applied. The possible id�s are not provided in this documentation."
+        },
+        "insemNumber": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-insemNumber",
+            "@type": "xsd:integer",
+            "type": "string",
+            "dldescription": "Serial number of insemination after the last calving"
+        },
+        "serviceSireBreed": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireBreed",
+            "@type": "xsd:integer",
+            "type": "string",
+            "dldescription": "The breed for the insemination sire (https://test.nordiccdx.com/Help/Codeset?name=BREED)"
+        },
+        "serviceSireHerdBookNumber": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireHerdBookNumber",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The herdbooknr for the insemination sire"
+        },
+        "serviceSireIndentifer": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireIndentifer",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The animal identification of the bull"
+        },
+        "serviceSireName": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-serviceSireName",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The name for the insemination sire"
+        },
+        "sexedSemenType": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-sexedSemenType",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "A list of codes representing the sexed semen type (Male or Female : Y, No Sexed Semen : N, Female : F, Male : M)"
+        },
+        "semenOfOwnStock": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-semenOfOwnStock",
+            "@type": "xsd:boolean",
+            "type": "boolean",
+            "dldescription": "Indication whether the semen used came out of the stock from the farmer, or from the technician. (default: true)"
+        },
+        "sharedSemenUsed": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-semenOfOwnStock",
+            "@type": "xsd:boolean",
+            "type": "boolean",
+            "dldescription": "Indication whether semen from 2 bulls was used for this insemination. (default: false)"
+        }
+    }
+}

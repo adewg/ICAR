@@ -1,1 +1,44 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"id":{"@id":"https://www.datalinker.org/context/ICARHerdEventSummary-id","@type":"xsd:string","type":"string","dldescription":"Unique Id of the event"},"date":{"@id":"https://www.datalinker.org/context/ICARHerdEventSummary-date","@type":"xsd:dateTime","type":"string","dldescription":"The date the event occured"},"animalEvents":{"@id":"https://www.datalinker.org/context/ICARHerdEventSummary-AnimalEvents","@type":"@id","type":"string","format":"uri","dltype":"https://www.datalinker.org/context/ICARAnimalEvent","dldescription":"The list of animal events related to herd event"},"eventType":{"@id":"https://www.datalinker.org/context/ICARHerdEventSummary-eventType","@type":"xsd:string","type":"string","dldescription":"The type of Event. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"},"content":{"@id":"https://www.datalinker.org/context/ICARHerdEventSummary-content","@type":"xsd:object","type":"string","dldescription":"The class specified by event type. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"},"dateModified":{"@id":"http://schema.org/dateModified","@type":"xsd:dateTime","type":"string","dldescription":"ISO8601 date format 2018-07-19T23:00:08+00:00. Date when details were last modified. Bubles up from Animal Events"}}}
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventSummary-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the event"
+        },
+        "date": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventSummary-date",
+            "@type": "xsd:dateTime",
+            "type": "string",
+            "dldescription": "The date the event occured"
+        },
+        "animalEvents": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventSummary-AnimalEvents",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEvent",
+            "dldescription": "The list of animal events related to herd event"
+        },
+        "eventType": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventSummary-eventType",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The type of Event. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"
+        },
+        "content": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventSummary-content",
+            "@type": "xsd:object",
+            "type": "string",
+            "dldescription": "The class specified by event type. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"
+        },
+        "meta":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARObjectMetaData",
+            "type": "object",
+            "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
+        },
+    }
+}

@@ -1,1 +1,48 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"id":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-id","@type":"xsd:string","type":"string","dldescription":"Unique Id of the animal event"},"animalId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-animalId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related animal"},"herdEventId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-herdEventId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related herd event"},"heatCode":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-heatCode","@type":"xsd:string","type":"string","dldescription":"Code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_CODE)"},"heatAddCode":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-heatAddCode","@type":"xsd:string","type":"string","dldescription":"Additional code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_ADD_CODE)"},"detectionAccuracy":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-detectionAccuracy","@type":"xsd:decimal","type":"number","dldescription":"What is the accuracy of the detection"},"detectionMethod":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-detectionMethod","@type":"xsd:string","type":"string","dldescription":"What is the used method fo heat (Chemical : C , Visual : V, Podometer : P, Other : O)"}}}
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the animal event"
+        },
+        "animalId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-animalId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related animal"
+        },
+        "herdEventId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-herdEventId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related herd event"
+        },
+        "heatCode": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-heatCode",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_CODE)"
+        },
+        "heatAddCode": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-heatAddCode",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Additional code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_ADD_CODE)"
+        },
+        "detectionAccuracy": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-detectionAccuracy",
+            "@type": "xsd:decimal",
+            "type": "number",
+            "dldescription": "What is the accuracy of the detection"
+        },
+        "detectionMethod": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-detectionMethod",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "What is the used method fo heat (Chemical : C , Visual : V, Podometer : P, Other : O)"
+        }
+    }
+}

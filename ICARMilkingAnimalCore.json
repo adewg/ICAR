@@ -92,8 +92,8 @@
         },
         "status":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-status",
-            "@type": "xsd:string",
-            "type": "string",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalStatus",
+            "type": "object",
             "dldescription": "The current status of this animal in the herd.  Vaild values: Alive, Dead, Transfered"
         }
     }

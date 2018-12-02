@@ -42,11 +42,11 @@
             "dltype": "https://www.datalinker.org/context/ICARAnimalEvent",
             "dldescription": "URL to the list of individual animal events for the herd. Can be filtered"
         },
-        "dateModified": {
-            "@id": "http://schema.org/dateModified",
-            "@type": "xsd:dateTime",
-            "type": "string",
-            "dldescription": "ISO8601 date format 2018-07-19T23:00:08+00:00. Date when details were last modified"
+        "meta":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARObjectMetaData",
+            "type": "object",
+            "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
         }
     }
 }

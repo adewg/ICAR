@@ -1,1 +1,32 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"id":{"@id":"https://www.datalinker.org/context/ICARHolding-Id","@type":"@id","type":"string","format":"uri","dldescription":"Unique identifier in the source system"},"identifiers":{"@id":"https://www.datalinker.org/context/ICARHolding-Identifiers","@type":"xsd:string","type":"string","@contaner":"@set","dldescription":"Array of unique URN identifiers"},"name":{"@id":"https://www.datalinker.org/context/ICARHolding-Name","@type":"xsd:string","type":"string","dldescription":"Display name for the holding"},"dateModified":{"@id":"http://schema.org/dateModified","@type":"xsd:dateTime","type":"string","dldescription":"Date when details were last modified"}}}
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARHolding-Id",
+            "@type": "@id",
+            "type": "string",
+            "format": "uri",
+            "dldescription": "Unique identifier in the source system"
+        },
+        "identifiers": {
+            "@id": "https://www.datalinker.org/context/ICARHolding-Identifiers",
+            "@type": "xsd:string",
+            "type": "string",
+            "@contaner": "@set",
+            "dldescription": "Array of unique URN identifiers"
+        },
+        "name": {
+            "@id": "https://www.datalinker.org/context/ICARHolding-Name",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Display name for the holding"
+        },
+        "meta":{
+            "@id": "https://www.datalinker.org/context/ICARObjectMetaData",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARObjectMetaData",
+            "type": "object",
+            "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
+        },
+    }
+}

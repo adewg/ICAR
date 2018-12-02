@@ -1,1 +1,40 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"id":{"@id":"https://www.datalinker.org/context/ICARHerdEventMilking-id","@type":"xsd:string","type":"string","dldescription":"Unique Id of the herd milking event"},"dairyHerdEventId":{"@id":"https://www.datalinker.org/context/ICARHerdEventMilking-dairyHerdEventId","@type":"xsd:string","type":"string","dldescription":"herd event id that this milking event is part of"},"milkingMode":{"@id":"https://www.datalinker.org/context/ICARHerdEventMilking-milkingMode","@type":"xsd:string","type":"string","dldescription":"The method of milking (Manual or Robotic)"},"sampleBatchIds":{"@id":"https://www.datalinker.org/context/ICARHerdEventMilking-sampleBatchIds","@container":"@set","@type":"xsd:string","type":"array","items":{"type":"string"},"dldescription":"The list of samples ids that were taken during the milking event"},"sampleMethod":{"@id":"https://www.datalinker.org/context/ICARHerdEventMilking-sampleMethod","@type":"xsd:string","type":"string","dldescription":"The method of sampling"}}}
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventMilking-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the herd milking event"
+        },
+        "dairyHerdEventId": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventMilking-dairyHerdEventId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "herd event id that this milking event is part of"
+        },
+        "milkingMode": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventMilking-milkingMode",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The method of milking (Manual or Robotic)"
+        },
+        "sampleBatchIds": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventMilking-sampleBatchIds",
+            "@container": "@set",
+            "@type": "xsd:string",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "dldescription": "The list of samples ids that were taken during the milking event"
+        },
+        "sampleMethod": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventMilking-sampleMethod",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The method of sampling"
+        }
+    }
+}

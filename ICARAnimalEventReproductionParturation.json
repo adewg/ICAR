@@ -1,1 +1,70 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"id":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-id","@type":"xsd:string","type":"string","dldescription":"Unique Id of the animal event"},"animalId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-animalId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related animal"},"herdEventId":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-herdEventId","@type":"xsd:string","type":"string","dldescription":"Unique Id of the related herd event"},"animalEarNumber":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-animalEarNumber","@type":"xsd:integer","type":"string","dldescription":"The ear number of the inseminated cow"},"calvingType":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-calvingType","@type":"xsd:string","type":"string","dldescription":"The type of the calving (Normal Calving, Embryo Calving, Abortion (starts lactation), Early abortion (no lactation))"},"cowUsage":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-cowUsage","@type":"xsd:string","type":"string","dldescription":"Usage of the cow in this lactation (milking, suckler)"},"embryoTransfer":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-embryoTransfer","@type":"xsd:string","type":"string","dldescription":"If the calf is born embryo (Normal Calf, Emybro Calf)"},"parity":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-herdEventId","@type":"xsd:integer","type":"string","dldescription":"The number of calving for the dam"},"parturitionEase":{"@id":"https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-herdEventId","@type":"xsd:string","type":"string","dldescription":"The ease / difficulty of calving (Unkown, Without assistance, Was assisted, Strong pull assistance, Other assistance(caesarean,etc))"},"offsprings":{"@id":"https://www.datalinker.org/context/ICARAnimalParturationOffSpring","@container":"@set","@type":"http://www.datalinker.org/contexts/2.0/ICARAnimalParturationOffSpring.jsonld","type":"array","items":{"type":"object"},"dldescription":"List of Offsprings"}}}
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-id",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the animal event"
+        },
+        "animalId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-animalId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related animal"
+        },
+        "herdEventId": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-herdEventId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related herd event"
+        },
+        "animalEarNumber": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-animalEarNumber",
+            "@type": "xsd:integer",
+            "type": "string",
+            "dldescription": "The ear number of the inseminated cow"
+        },
+        "calvingType": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-calvingType",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The type of the calving (Normal Calving, Embryo Calving, Abortion (starts lactation), Early abortion (no lactation))"
+        },
+        "cowUsage": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-cowUsage",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Usage of the cow in this lactation (milking, suckler)"
+        },
+        "embryoTransfer": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-embryoTransfer",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "If the calf is born embryo (Normal Calf, Emybro Calf)"
+        },
+        "parity": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-herdEventId",
+            "@type": "xsd:integer",
+            "type": "string",
+            "dldescription": "The number of calving for the dam"
+        },
+        "parturitionEase": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionParturation-herdEventId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The ease / difficulty of calving (Unkown, Without assistance, Was assisted, Strong pull assistance, Other assistance(caesarean,etc))"
+        },
+        "offsprings": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalParturationOffSpring",
+            "@container": "@set",
+            "@type": "http://www.datalinker.org/contexts/2.0/ICARAnimalParturationOffSpring.jsonld",
+            "type": "array",
+            "items": {
+                "type": "object"
+            },
+            "dldescription": "List of Offsprings"
+        }
+    }
+}
