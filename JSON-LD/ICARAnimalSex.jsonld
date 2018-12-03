@@ -1,0 +1,1 @@
+{"@context":{"xsd":"http://www.w3.org/2001/XMLSchema#","sex":{"@id":"https://www.datalinker.org/context/ICARAnimalSex-sex","@type":"xsd: string"}}}
