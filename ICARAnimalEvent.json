@@ -8,54 +8,33 @@
             "type": "string",
             "dldescription": "Unique Id of the animal event"
         },
-        "animal": {
-            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore",
-            "@type": "http://www.datalinker.org/contexts/2.0/ICARMilkingAnimalCore.jsonld",
-            "type": "object",
-            "dldescription": "Returns ICARMilkingAnimalCore object"
-        },
-        "herdEvent": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-herdEvent",
+        "MilkingEvents": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-MilkingEvents",
             "@type": "xsd:string",
             "type": "string",
             "format": "uri",
-            "dldescription": "If this event was one of a group recorded simultaneously, the herdEvent relates the individual events"
+            "dldescription": "URL to access Milking Events for the Animal"
         },
-        "eventDate": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-date",
-            "@type": "xsd:dateTime",
-            "type": "string",
-            "dldescription": "ISO8601 date format 2018-07-19T23:00:08+00:00. The date that the event occured"
-        },
-        "notes": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-notes",
+        "ReproductionEvents": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ReproductionEvents",
             "@type": "xsd:string",
             "type": "string",
-            "dldescription": "Any notes relating to the event"
+            "format": "uri",
+            "dldescription": "URL to access Reproduction Events for the Animal"
         },
-        "eventType": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-eventType",
+        "MovementEvents": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-MovementEvents",
             "@type": "xsd:string",
             "type": "string",
-            "dldescription": "Type of this observation from the unique list of event types at https://www.datalinker.org/context/EventTypeCatalog"
+            "format": "uri",
+            "dldescription": "URL to access Movement Events for the Animal"
         },
-        "content": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-content",
-            "@type": "xsd:object",
-            "type": "string",
-            "dldescription": "The class specified by event type. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"
-        },
-        "reference": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-reference",
+        "ParturationOffspringEvent": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ParturationOffspringEvent",
             "@type": "xsd:string",
             "type": "string",
-            "dldescription": "Unique reference for this observation within the source system.  May be an internal code"
-        },
-        "meta": {
-            "@id": "https://www.datalinker.org/context/ICARObjectMetaData",
-            "@type": "https://www.datalinker.org/contexts/2.0/ICARObjectMetaData.jsonld",
-            "type": "object",
-            "dldescription": "Any metadata for the event.  Most likely to use 'modified'"
+            "format": "uri",
+            "dldescription": "URL to access parturation offspring for the Animal"
         }
     }
 }
