@@ -9,6 +9,12 @@
         "@type":{
             "type": "string"
         },
+        "event": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventCore",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCore.jsonld",
+            "type": "object",
+            "dldescription": "the meta data for this event"
+        },
         "holdingID":{
             "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-holdingID",
             "@type": "xsd:string",
