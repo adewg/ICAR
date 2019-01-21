@@ -3,31 +3,31 @@
     "type": "object",
     "properties": {
         "id": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionDryingOff-id",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventDryingOff-id",
             "@type": "xsd:string",
             "type": "string",
             "dldescription": "Unique Id of the animal event"
         },
-        "animalEventMetaData": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventMetaData",
-            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventMetaData.jsonld",
+        "event": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventCore",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCore.jsonld",
             "type": "object",
             "dldescription": "the meta data for this event"
         },
         "animalId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionDryingOff-animalId",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventDryingOff-animalId",
             "@type": "xsd:string",
             "type": "string",
             "dldescription": "Unique Id of the related animal"
         },
         "herdEventId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionDryingOff-herdEventId",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventDryingOff-herdEventId",
             "@type": "xsd:string",
             "type": "string",
             "dldescription": "Unique Id of the related herd event"
         },
         "isDryingOff": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionDryingOff-isDryingOff",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventDryingOff-isDryingOff",
             "@type": "xsd:boolean",
             "type": "boolean",
             "dldescription": "Is the animal drying off"

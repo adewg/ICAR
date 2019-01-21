@@ -8,9 +8,9 @@
             "type": "string",
             "dldescription": "Unique Id of the animal event"
         },
-        "animalEventMetaData": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventMetaData",
-            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventMetaData.jsonld",
+        "event": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventCore",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCore.jsonld",
             "type": "object",
             "dldescription": "the meta data for this event"
         },
