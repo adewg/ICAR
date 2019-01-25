@@ -15,19 +15,47 @@
             "format": "uri",
             "dldescription": "URL to access Milking Events for the Animal"
         },
-        "ReproductionEvents": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ReproductionEvents",
+        "HeatEvent": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-HeatEvent",
             "@type": "xsd:string",
             "type": "string",
             "format": "uri",
-            "dldescription": "URL to access Reproduction Events for the Animal"
+            "dldescription": "URL to access Heat Events for the Animal"
         },
-        "MovementEvents": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-MovementEvents",
+        "InseminationEvent": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-InseminationEvent",
             "@type": "xsd:string",
             "type": "string",
             "format": "uri",
-            "dldescription": "URL to access Movement Events for the Animal"
+            "dldescription": "URL to access Insemination Events for the Animal"
+        },
+        "ParturitionEvent": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ParturitionEvent",
+            "@type": "xsd:string",
+            "type": "string",
+            "format": "uri",
+            "dldescription": "URL to access Parturition Events for the Animal"
+        },
+        "PregnancyCheckEvent": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-PregnancyCheckEvent",
+            "@type": "xsd:string",
+            "type": "string",
+            "format": "uri",
+            "dldescription": "URL to access Pregnancy Check Events for the Animal"
+        },
+        "ArrivalEvents": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ArrivalEvents",
+            "@type": "xsd:string",
+            "type": "string",
+            "format": "uri",
+            "dldescription": "URL to access Arrival Events for the Animal"
+        },
+        "DepatureEvents":{
+            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-DepatureEvents",
+            "@type": "xsd:string",
+            "type": "string",
+            "format": "uri",
+            "dldescription": "URL to access Depature Events for the Animal"
         },
         "ParturationOffspringEvent": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ParturationOffspringEvent",
