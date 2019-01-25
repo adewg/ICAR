@@ -15,28 +15,28 @@
             "format": "uri",
             "dldescription": "URL to access Milking Events for the Animal"
         },
-        "HeatEvent": {
+        "HeatEvents": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-HeatEvent",
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
             "dldescription": "URL to access Heat Events for the Animal"
         },
-        "InseminationEvent": {
+        "InseminationEvents": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-InseminationEvent",
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
             "dldescription": "URL to access Insemination Events for the Animal"
         },
-        "ParturitionEvent": {
+        "ParturitionEvents": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ParturitionEvent",
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
             "dldescription": "URL to access Parturition Events for the Animal"
         },
-        "PregnancyCheckEvent": {
+        "PregnancyCheckEvents": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-PregnancyCheckEvent",
             "@type": "xsd:url",
             "type": "string",
@@ -57,7 +57,7 @@
             "format": "uri",
             "dldescription": "URL to access Depature Events for the Animal"
         },
-        "ParturationOffspringEvent": {
+        "ParturationOffspringEvents": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ParturationOffspringEvent",
             "@type": "xsd:url",
             "type": "string",
