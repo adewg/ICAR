@@ -2,17 +2,12 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-        "id": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-id",
-            "@type": "xsd:url",
-            "type": "string",
-            "dldescription": "Unique Id of the animal event"
-        },
         "MilkingEvents": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEvent-MilkingEvents",
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventMilking",
             "dldescription": "URL to access Milking Events for the Animal"
         },
         "HeatEvents": {
@@ -20,6 +15,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventHeat",
             "dldescription": "URL to access Heat Events for the Animal"
         },
         "InseminationEvents": {
@@ -27,6 +23,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventInsemination",
             "dldescription": "URL to access Insemination Events for the Animal"
         },
         "ParturitionEvents": {
@@ -34,6 +31,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventParturition",
             "dldescription": "URL to access Parturition Events for the Animal"
         },
         "PregnancyCheckEvents": {
@@ -41,6 +39,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventPregnancyCheck",
             "dldescription": "URL to access Pregnancy Check Events for the Animal"
         },
         "ArrivalEvents": {
@@ -48,6 +47,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalArrivalEvent",
             "dldescription": "URL to access Arrival Events for the Animal"
         },
         "DepatureEvents":{
@@ -55,6 +55,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalDepatureEvent",
             "dldescription": "URL to access Depature Events for the Animal"
         },
         "ParturationOffspringEvents": {
@@ -62,6 +63,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalParturitionOffspring",
             "dldescription": "URL to access parturation offspring for the Animal"
         }
     }
