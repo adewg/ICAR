@@ -34,7 +34,7 @@
             "dldescription": "URL to the list of summarised events for the herd. Can be filtered.",
             "dltype": "https://www.datalinker.org/context/ICARHerdEventSummary"
         },
-        "animalEvents": {
+        "animalEventsCatalog": {
             "@id": "https://www.datalinker.org/context/ICARHerd-AnimalEvents",
             "@type": "@id",
             "type": "string",

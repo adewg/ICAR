@@ -14,7 +14,7 @@
             "type": "object",
             "dldescription": "Animal details"
         },
-        "animalEvents": {
+        "animalEventsCatalog": {
             "@id": "https://www.datalinker.org/context/ICARAnimal-AnimalEvents",
             "@type": "@id",
             "type": "string",
