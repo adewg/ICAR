@@ -79,10 +79,10 @@
         },
         "events":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-events",
-            "@type": "@id",
-            "type": "string",
-            "format": "url",
-            "dldescription": "Navigable URL to the events for this animal,  In most implementation this will be the herd events query filtered by animal"
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCatalog",
+            "type": "object",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventCatalog",
+            "dldescription": "Navigable URLs to the events for this animal"
         },
         "meta":{
             "@id": "https://www.datalinker.org/context/ICARObjectMetaData",

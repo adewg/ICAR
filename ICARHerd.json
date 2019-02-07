@@ -36,10 +36,9 @@
         },
         "animalEventsCatalog": {
             "@id": "https://www.datalinker.org/context/ICARHerd-AnimalEvents",
-            "@type": "@id",
-            "type": "string",
-            "format": "uri",
-            "dltype": "https://www.datalinker.org/context/ICARAnimalEvent",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCatalog",
+            "type": "object",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventCatalog",
             "dldescription": "URL to the list of individual animal events for the herd. Can be filtered"
         },
         "meta":{
