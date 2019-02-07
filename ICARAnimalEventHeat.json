@@ -2,12 +2,6 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-        "id": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-id",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the animal event"
-        },
         "event": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventCore",
             "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCore.jsonld",
@@ -20,22 +14,18 @@
             "type": "string",
             "dldescription": "Unique Id of the related animal"
         },
-        "herdEventId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-herdEventId",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the related herd event"
-        },
         "heatCode": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-heatCode",
             "@type": "xsd:string",
             "type": "string",
+            "enum": [],
             "dldescription": "Code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_CODE)"
         },
         "heatAddCode": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-heatAddCode",
             "@type": "xsd:string",
             "type": "string",
+            "enum": [],
             "dldescription": "Additional code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_ADD_CODE)"
         },
         "detectionAccuracy": {

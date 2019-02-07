@@ -2,11 +2,12 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-        "animalEventId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-animalEventId",
-            "@type": "xsd:string",
+        "@id": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventMilking-id",
+            "@type": "xsd:url",
             "type": "string",
-            "dldescription": "Unique Id of the related animal"
+            "format": "url",
+            "dldescription": "URL of the milking event"
         },
         "event": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventCore",

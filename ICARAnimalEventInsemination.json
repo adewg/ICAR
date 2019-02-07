@@ -14,24 +14,6 @@
             "type": "object",
             "dldescription": "the meta data for this event"
         },
-        "animalId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-animalId",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the related animal"
-        },
-        "herdEventId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-herdEventId",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the related herd event"
-        },
-        "animalEarNumber": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-animalEarNumber",
-            "@type": "xsd:integer",
-            "type": "string",
-            "dldescription": "The ear number of the inseminated cow"
-        },
         "chargeNumber": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-chargeNumber",
             "@type": "xsd:string",
@@ -47,7 +29,7 @@
         "doseUsage": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-doseUsage",
             "@type": "xsd:string",
-            "type": "string",
+            "enum": [null, 1, 2],
             "dldescription": "Dose usage - see codes. NULL for natural matings (1 dose used, 2 dose used, last dose used (of batch))"
         },
         "expectedCalvingDate": {
@@ -66,12 +48,14 @@
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-heatStrength",
             "@type": "xsd:string",
             "type": "string",
+            "enum": [],
             "dldescription": "Observed sign/strength of heat (https://test.nordiccdx.com/Help/Codeset?name=HEAT_STRENGTH)"
         },
         "impregnationCode": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-impregnationCode",
             "@type": "xsd:string",
             "type": "string",
+            "enum": ["I", "N", "R", "M"],
             "dldescription": "Defines the type of the last impregnation event (Insemination : I, Natural Service : N, Running With Bull : R, Implantation : M)"
         },
         "technician": {
@@ -114,6 +98,7 @@
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionInsemination-sexedSemenType",
             "@type": "xsd:string",
             "type": "string",
+            "enum": ["Y", "N", "F", "M"],
             "dldescription": "A list of codes representing the sexed semen type (Male or Female : Y, No Sexed Semen : N, Female : F, Male : M)"
         },
         "semenOfOwnStock": {

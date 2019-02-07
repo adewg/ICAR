@@ -14,28 +14,18 @@
             "type": "object",
             "dldescription": "the meta data for this event"
         },
-        "animalId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-animalId",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the related animal"
-        },
-        "herdEventId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-herdEventId",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the related herd event"
-        },
         "method": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-method",
             "@type": "xsd:string",
             "type": "string",
+            "enum": ["E", "P", "M", "O"],
             "dldescription": "Method used for the pregnancy check ( Echography : E , Palpation : P , Milk Anaylsis : M , Other : O)"
         },
         "result": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionPregnancyCheck-result",
             "@type": "xsd:string",
             "type": "string",
+            "enum": ["U", "E", "P"],
             "dldescription": "Results of the pregnancy check ( Unknown : U , Empty : E , Pregnant : P)"
         }
     }
