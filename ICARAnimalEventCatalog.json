@@ -57,14 +57,6 @@
             "format": "uri",
             "dltype": "https://www.datalinker.org/context/ICARAnimalEventDepature",
             "dldescription": "URL to access Depature Events for the Animal"
-        },
-        "ParturationOffspringEvents": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEvent-ParturationOffspringEvent",
-            "@type": "xsd:url",
-            "type": "string",
-            "format": "uri",
-            "dltype": "https://www.datalinker.org/context/ICARAnimalParturitionOffspring",
-            "dldescription": "URL to access parturation offspring for the Animal"
         }
     }
 }

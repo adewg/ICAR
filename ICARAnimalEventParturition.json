@@ -53,8 +53,10 @@
             "@type": "http://www.datalinker.org/contexts/2.0/ICARAnimalParturationOffSpring.jsonld",
             "type": "array",
             "items": {
-                "type": "object"
+                "type": "object",
+                "@type": "http://www.datalinker.org/context/ICARAnimalParturationOffspring"
             },
+            "dltype": "http://www.datalinker.org/context/ICARAnimalParturationOffspring",
             "dldescription": "List of Offsprings"
         }
     }

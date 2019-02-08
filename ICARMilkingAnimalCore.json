@@ -20,6 +20,12 @@
             "format": "uri",
             "dldescription": "Unique URL to this resource - important if returned as an item in an array or collection"
         },
+        "animalId": {
+            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-animalId",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "Unique Id of the related animal"
+        },
         "reference":{
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-reference",
             "@type": "xsd:string",
