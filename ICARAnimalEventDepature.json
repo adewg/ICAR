@@ -2,6 +2,9 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
+        "@id":{
+            "type": "string"
+        },
         "@context":{
             "type": "string",
             "format": "uri"
@@ -16,31 +19,25 @@
             "dldescription": "the meta data for this event"
         },
         "holdingID":{
-            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-holdingID",
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepatureEvent-holdingID",
             "@type": "xsd:string",
             "type": "string",
-            "dldescription": "Government identifier for the source location"
+            "dldescription": "Government identifier for the destination location"
         },
-        "herdID":{
-            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-herdID",
+        "location": {
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepatureEvent-location",
             "@type": "xsd:string",
             "type": "string",
-            "dldescription": "Official ID of the source herd"
-        },
-        "location":{
-            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-location",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Locally defined source location"
+            "dldescription": "Locally defined destination location"
         },
         "reasonCode":{
-            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-reasonCode",
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepatureEvent-reasonCode",
             "@type": "xsd:string",
             "type": "string",
-            "dldescription": "Local code specifying the arrival reason"
+            "dldescription": "Local code specifying the departure reason"
         },
         "additionalData":{
-            "@id": "https://www.datalinker.org/context/ICARAnimalArrivalEvent-additionalData",
+            "@id": "https://www.datalinker.org/context/ICARAnimalDepartureEvent-additionalData",
             "@type": "xsd:string",
             "type": "string",
             "dldescription": "Any other localised information"
