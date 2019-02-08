@@ -47,7 +47,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
-            "dltype": "https://www.datalinker.org/context/ICARAnimalArrivalEvent",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventArrival",
             "dldescription": "URL to access Arrival Events for the Animal"
         },
         "DepatureEvents":{
@@ -55,7 +55,7 @@
             "@type": "xsd:url",
             "type": "string",
             "format": "uri",
-            "dltype": "https://www.datalinker.org/context/ICARAnimalDepatureEvent",
+            "dltype": "https://www.datalinker.org/context/ICARAnimalEventDepature",
             "dldescription": "URL to access Depature Events for the Animal"
         },
         "ParturationOffspringEvents": {
