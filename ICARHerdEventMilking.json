@@ -2,11 +2,12 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-        "id": {
-            "@id": "https://www.datalinker.org/context/ICARHerdEventMilking-id",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the herd milking event"
+        "event": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventCore",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARHerdEventCore.jsonld",
+            "type": "object",
+            "dltype": "https://www.datalinker.org/context/ICARHerdEventCore",
+            "dldescription": "the meta data for this event"
         },
         "dairyHerdEventId": {
             "@id": "https://www.datalinker.org/context/ICARHerdEventMilking-dairyHerdEventId",

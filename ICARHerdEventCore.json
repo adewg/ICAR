@@ -22,23 +22,11 @@
             "dltype": "https://www.datalinker.org/context/ICARAnimalEvent",
             "dldescription": "The list of animal events related to herd event"
         },
-        "eventType": {
-            "@id": "https://www.datalinker.org/context/ICARHerdEventSummary-eventType",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "The type of Event. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"
-        },
-        "content": {
-            "@id": "https://www.datalinker.org/context/ICARHerdEventSummary-content",
-            "@type": "xsd:object",
-            "type": "string",
-            "dldescription": "The class specified by event type. For specific event types refer to https://www.datalinker.org/context/EventTypeCatalog"
-        },
         "meta":{
             "@id": "https://www.datalinker.org/context/ICARObjectMetaData",
             "@type": "https://www.datalinker.org/contexts/2.0/ICARObjectMetaData",
             "type": "object",
             "dldescription": "Any metadata for the object.  Most likely to use 'modified'"
-        },
+        }
     }
 }

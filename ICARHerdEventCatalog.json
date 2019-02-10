@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "MilkingEvents": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventCatalog-MilkingEvents",
+            "@type": "xsd:url",
+            "type": "string",
+            "format": "uri",
+            "dltype": "https://www.datalinker.org/contexts/2.0/ICARHerdEventMilking",
+            "dldescription": "URL to access Milking Events for the Herd"
+        },
+        "MovementEvents": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventCatalog-MovementEvents",
+            "@type": "xsd:url",
+            "type": "string",
+            "format": "uri",
+            "dltype": "https://www.datalinker.org/contextx/2.0/ICARHerdEventMovement",
+            "dldescription": "URL to access Movement Events for the Herd"
+        }
+    }
+}

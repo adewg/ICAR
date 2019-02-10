@@ -8,6 +8,13 @@
             "type": "string",
             "dldescription": "Unique Id of the herd movement event"
         },
+        "event": {
+            "@id": "https://www.datalinker.org/context/ICARHerdEventCore",
+            "@type": "https://www.datalinker.org/contexts/2.0/ICARHerdEventCore.jsonld",
+            "type": "object",
+            "dltype": "https://www.datalinker.org/context/ICARHerdEventCore",
+            "dldescription": "the meta data for this event"
+        },
         "dairyHerdEventId": {
             "@id": "https://www.datalinker.org/context/ICARHerdEventMovement-dairyHerdEventId",
             "@type": "xsd:string",
