@@ -26,20 +26,19 @@
             "dltype": "https://www.datalinker.org/context/ICARMilkingAnimalCore",
             "dldescription": "URL to get the list of animals in the herd. Can be filtered"
         },
-        "herdEventSummary": {
-            "@id": "https://www.datalinker.org/context/ICARHerd-HerdEventSummary",
-            "@type": "@id",
-            "type": "string",
-            "format": "uri",
-            "dldescription": "URL to the list of summarised events for the herd. Can be filtered.",
-            "dltype": "https://www.datalinker.org/context/ICARHerdEventSummary"
+        "herdEventCatalog": {
+            "@id": "https://www.datalinker.org/context/ICARHerd-HerdEventCatalog",
+            "@type": "https://www.datalinker.org.contexts/2.0/ICARHerdEventCatalog",
+            "type": "object",
+            "dldescription": "Catalog of URLs to the different types of herd events for this herd.",
+            "dltype": "https://www.datalinker.org/context/ICARHerdEventCatalog"
         },
         "animalEventsCatalog": {
-            "@id": "https://www.datalinker.org/context/ICARHerd-AnimalEvents",
+            "@id": "https://www.datalinker.org/context/ICARHerd-AnimalEventsCatalog",
             "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCatalog",
             "type": "object",
             "dltype": "https://www.datalinker.org/context/ICARAnimalEventCatalog",
-            "dldescription": "URL to the list of individual animal events for the herd. Can be filtered"
+            "dldescription": "Catalog of URLs to the different types of animal events for this herd."
         },
         "meta":{
             "@id": "https://www.datalinker.org/context/ICARObjectMetaData",

@@ -39,13 +39,14 @@
             "dldescription": "Primary identifier for this animal within the provider's system"
         },
         "identifiers":{
-            "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
+            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-identifiers",
             "@type": "xsd:array",
             "type": "array",
             "items": {
                 "type": "object",
                 "@type":"https://www.datalinker.org/contexts/2.0/ICARAnimalIdentity"
             },
+            "dltype": "https://www.datalinker.org/context/ICARAnimalIdentity",
             "dldescription": "Array of identifiers for this animal"
         },
         "species":{
@@ -74,17 +75,18 @@
             "dldescription": "ICAR 3 character breed code from https://raw.githubusercontent.com/Farm-Data-Standards/Animal-Breed-List/master/Breedlist%20JSON%20v1.1.json"
         },
         "parentage":{
-            "@id": "https://www.datalinker.org/context/ICARAnimalParent",
+            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-parentage",
             "@type": "xsd:array",
             "type": "array",
             "items": {
                 "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalParent",
                 "type": "object"
             },
+            "dltype": "https://www.datalinker.org/context/ICARAnimalParent",
             "dldescription": "Array of parents for this animal"
         },
         "events":{
-            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-events",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventCatalog",
             "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalEventCatalog",
             "type": "object",
             "dltype": "https://www.datalinker.org/context/ICARAnimalEventCatalog",
