@@ -29,14 +29,14 @@
             "@type": "xsd:string",
             "type": "string",
             "enum": [0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 74],
-            "dldescription": "Code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_CODE)"
+            "dldescription": "Code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_SIGN)"
         },
         "intensity": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-intensity",
             "@type": "xsd:string",
             "type": "string",
             "enum": [0, 1, 2, 3, 4, 5],
-            "dldescription": "Additional code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_ADD_CODE)"
+            "dldescription": "Additional code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_INTENSITY)"
         },
         "detectionAccuracy": {
             "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-detectionAccuracy",
