@@ -19,36 +19,37 @@
             "dldescription": "the meta data for this event"
         },
         "animalId": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-animalId",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventHeat-animalId",
             "@type": "xsd:string",
             "type": "string",
             "dldescription": "Unique Id of the related animal"
         },
         "signObserved": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-signObserved",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventHeat-signObserved",
             "@type": "xsd:string",
             "type": "string",
             "enum": [0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 74],
-            "dldescription": "Code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_SIGN)"
+            "dldescription": "Code for the observed sign of heat from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_SIGN)"
         },
         "intensity": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-intensity",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventHeat-intensity",
             "@type": "xsd:string",
             "type": "string",
             "enum": [0, 1, 2, 3, 4, 5],
-            "dldescription": "Additional code for the heat event from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_INTENSITY)"
+            "dldescription": "Additional code showing the strength of heat sign observed from (https://test.nordiccdx.com/Help/Codeset?name=HEAT_INTENSITY)"
         },
         "detectionAccuracy": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-detectionAccuracy",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventHeat-detectionAccuracy",
             "@type": "xsd:decimal",
             "type": "number",
             "dldescription": "What is the accuracy of the detection"
         },
         "detectionMethod": {
-            "@id": "https://www.datalinker.org/context/ICARAnimalEventReproductionHeat-detectionMethod",
+            "@id": "https://www.datalinker.org/context/ICARAnimalEventHeat-detectionMethod",
             "@type": "xsd:string",
             "type": "string",
-            "dldescription": "What is the used method fo heat (Chemical : C , Visual : V, Podometer : P, Other : O)"
+            "enum": ["C", "V", "P", "O"],
+            "dldescription": "What is the used method of heat (Chemical : C , Visual : V, Podometer : P, Other : O)"
         }
     }
 }
