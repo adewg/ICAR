@@ -2,6 +2,11 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
+        "@id": {
+            "@id": "https://www.datalinker.org/context/ICARHerd-@id",
+            "@type": "xsd:string",
+            "type": "string"
+        },
         "id": {
             "@id": "https://www.datalinker.org/context/ICARHerd-id",
             "@type": "xsd:string",
@@ -17,6 +22,12 @@
                 "type": "string"
             },
             "dldescription": "One or more globally unique herd identifiers"
+        },
+        "herdName":{
+            "@id": "https://www.datalinker.org/context/ICARHerd-HerdName",
+            "@type": "xsd:string",
+            "type": "string",
+            "dldescription": "The name of the herd"
         },
         "animals": {
             "@id": "https://www.datalinker.org/context/ICARHerd-Animals",
