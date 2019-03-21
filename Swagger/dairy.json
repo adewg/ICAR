@@ -250,7 +250,7 @@
         ],
         "summary": "",
         "description": "",
-        "operationId": "findAnimals",
+        "operationId": "findAnimal",
         "produces": [
           "application/json"
         ],
@@ -291,7 +291,7 @@
         ],
         "summary": "",
         "description": "",
-        "operationId": "updateAnimals",
+        "operationId": "updateAnimal",
         "consumes": [
           "application/json",
           "application/xml"
