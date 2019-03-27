@@ -9,8 +9,8 @@
             "dldescription": "Unique Id of the animal event"
         },
         "animal": {
-            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore",
-            "@type": "http://www.datalinker.org/contexts/2.0/ICARMilkingAnimalCore.jsonld",
+            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-animal",
+            "@type": "http://www.datalinker.org/contexts/2.0/ICARAnimalReerence.jsonld",
             "type": "object",
             "dldescription": "Returns ICARMilkingAnimalCore object"
         },
