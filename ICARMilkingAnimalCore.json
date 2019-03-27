@@ -20,18 +20,6 @@
             "format": "uri",
             "dldescription": "Unique URL to this resource - important if returned as an item in an array or collection"
         },
-        "animalId": {
-            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-animalId",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique Id of the related animal"
-        },
-        "reference":{
-            "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-reference",
-            "@type": "xsd:string",
-            "type": "string",
-            "dldescription": "Unique reference for this animal within the source system. May be an internal code"
-        },
         "primaryIdentifier":{
             "@id": "https://www.datalinker.org/context/ICARAnimalIdentity",
             "@type": "https://www.datalinker.org/contexts/2.0/ICARAnimalIdentity",
