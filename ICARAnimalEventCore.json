@@ -10,7 +10,7 @@
         },
         "animal": {
             "@id": "https://www.datalinker.org/context/ICARMilkingAnimalCore-animal",
-            "@type": "http://www.datalinker.org/contexts/2.0/ICARAnimalReerence.jsonld",
+            "@type": "http://www.datalinker.org/contexts/2.0/ICARAnimalReference.jsonld",
             "type": "object",
             "dldescription": "Returns ICARMilkingAnimalCore object"
         },
