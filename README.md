@@ -1,6 +1,4 @@
 # ICAR ADE JSON draft
-
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 This repository contains the ICAR ADE work-in-progress JSON standard.
 
 Approach
