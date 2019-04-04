@@ -1,0 +1,3352 @@
+swagger: '2.0'
+info:
+  title: JoinData Message definitions
+  version: "1.0"
+  description: |
+    The specification describes the JoinData Datahub Broker API. 
+    
+###############################################
+# General information                         #
+###############################################
+host: production.join-data.net
+basePath: /api/broker/icar-ade/v1
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+tags:
+  - name: ICAR inspired
+    description: |
+      Messages which do not exist in current ICAR-ADE standard, but which follow the same principles
+  - name: Local/other standard
+    description: |
+      Messages which are (soon) available through JoinData, but without any affiliation to ICAR
+
+###############################################
+# Security                                    #
+###############################################
+securityDefinitions:
+  jdClient:
+    type: oauth2
+    description: Secure access using client credentials grant
+    flow: application
+    tokenUrl: https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token
+    scopes:
+      fullaccess: Full access to all resources
+  jdAuthorizationCode:
+    type: oauth2
+    description: Secure access using authorization grant flow
+    flow: accessCode
+    authorizationUrl: https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth
+    tokenUrl: https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token
+    scopes:
+      fullaccess: Full access to all resources
+  jdImplicit:
+    type: oauth2
+    description: Secure access using implicit grant
+    flow: implicit
+    authorizationUrl: https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth
+    scopes:
+      fullaccess: Full access to all resources
+security:
+  - jdClient:
+    - fullaccess
+  - jdAuthorizationCode:
+    - fullaccess
+  - jdImplicit:
+    - fullaccess
+
+###############################################
+# Parameters                                  #
+###############################################
+parameters:
+  pathLocationScheme:
+    in: path
+    name: location-scheme
+    type: string
+    description: The scheme id for the location identifier.
+    required: true
+    enum:
+      - nl-v1
+      - be-v1
+  pathLocationId:
+    in: path
+    name: location-id
+    type: string
+    description: The unique identifier for the location.
+    required: true
+  pathMilkDeliveryId:
+    in: path
+    name: milk-delivery-id
+    type: string
+    description: The unique identifier for a milk delivery for a specific location.
+    required: true
+  pathMilkInvoiceId:
+    in: path
+    name: milk-invoice-id
+    type: string
+    description: The unique identifier for a milk invoice for a specific location.
+    required: true
+  pathIcarMilkingVisitId:
+    in: path
+    name: milking-visit-id
+    type: string
+    required: true
+  queryStartDateTime:
+    in: query
+    name: start-date-time
+    description: The start of the date-time range for the data to get in the request.
+    type: string
+    format: date-time
+  queryStartDateTimeRequired:
+    in: query
+    name: start-date-time
+    description: The start of the date-time range for the data to get in the request.
+    required: true
+    type: string
+    format: date-time
+  queryEndDateTime:
+    in: query
+    name: end-date-time
+    description: The end of the date-time range for the data to get in the request.
+    type: string
+    format: date-time
+  queryEndDateTimeRequired:
+    in: query
+    name: end-date-time
+    description: The end of the date-time range for the data to get in the request.
+    required: true
+    type: string    
+    format: date-time
+  queryAnimalScheme:
+    in: query
+    name: animal-scheme
+    type: string
+    description: The scheme id for the animal identifier. Should be used together with animal-id.
+    required: true
+    enum:
+      - nl-v1
+      - be-v1
+  queryAnimalId:
+    in: query
+    name: animal-id
+    type: string
+    description: The unique identifier for the animal. Should be used together with animal-scheme.
+    required: true
+  queryModifiedSince:
+    in: query
+    name: modified-since
+    description: The date-time of insertion or last update of the event.
+    type: string
+    format: date-time
+
+###############################################
+# Responses                                   #
+###############################################
+responses:
+#  okNoContent:
+#    description: The request was successful.
+  error:
+    description: An error has occured while handling the request. Check the content of the message for the error details.
+    schema:
+      type: object
+      description: A default response containing only a list of errors
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/error'
+  
+###############################################
+# Definitions                                 #
+###############################################
+definitions:
+  # ----------------------------------------------------------------------------
+  # Generic Datahub definitions
+  # ----------------------------------------------------------------------------
+  error:
+    type: object
+    description: A human-readable error message describing what went wrong.
+    properties:
+      id:
+        type: string
+        description: A unique identifier for this particular occurrence of the problem
+      status:
+        type: integer
+        format: int32
+        description: The HTTP status code applicable to this problem, expressed as a string value
+      code:
+        type: string
+        description: An application-specific error code, expressed as a string value.
+      title:
+        type: string
+        description: A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.
+      detail:
+        type: string
+        description: A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized.
+      meta:
+        type: object
+  dataSource:
+    description: Source where data is retrieved from. Details can be retrieved from the source register.
+    type: string
+  responseDataSource:
+    type: object
+    properties:
+      id: 
+        $ref: '#/definitions/dataSource'
+    required:
+      - id
+  responseErrors:
+    type: object          
+    properties: 
+     errors: 
+        type: array
+        items:
+          $ref: '#/definitions/error'
+  animalId:
+    type: string
+    description: A string which (in combination with a scheme) uniquely identifies an animal.
+  animalIdScheme:
+    type: string
+    description: Identifies the used scheme for an animal identification string. nl-v1 life numbers are formatted as NL 123456789. See https://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen for more information.
+    enum:
+      - nl-v1
+      - be-v1
+  animalIdentifier:
+    type: object
+    description: Identifies an animal
+    properties:
+      id:
+        $ref: '#/definitions/animalId'
+      scheme:
+        $ref: '#/definitions/animalIdScheme'
+    required:
+      - id
+      - scheme
+  companyId:
+    type: string
+    description: A string which (in combination with a scheme) uniquely identifies a company.
+  companyIdScheme:
+    type: string
+    description: Identifies the used scheme for a company identification string.
+    enum:
+      - nl-v1
+      - be-v1
+  companyIdentifier:
+    type: object
+    description: Identifies a company
+    properties:
+      id:
+        $ref: '#/definitions/companyId'
+      scheme:
+        $ref: '#/definitions/companyIdScheme'
+    required:
+      - id
+      - scheme
+
+  # ----------------------------
+  # ICAR ADE general definitions
+  # ----------------------------
+  icarCodeType:
+    description: |
+      A character string (letters, figures, or symbols) that for brevity and/or languange independence may be used to represent or replace a definitive value or text of an attribute together with relevant supplementary information.
+    type: string
+  icarDateType:
+    description: udt:DateType | A day of the month or year as specified by a number.
+    type: string
+    format: date
+  icarDateTimeType:
+    description: udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.
+    type: string
+    format: datetime
+  icarPeriodType:
+    type: object
+    properties:
+      start:
+        $ref: '#/definitions/icarDateTimeType'
+      end:
+        $ref: '#/definitions/icarDateTimeType'
+    required:
+      - start
+      - end
+  icarSexedSemenCode:
+    type: string
+    description: | 
+      A list of codes representing the sexed semen type; can be -Y- for sexing semen Male or Female, -N- for no sexing semen, -F- for sexing semen Female or -M- for sexing semen Male.
+    enum:
+      - Y
+      - F
+      - M
+      - N
+      
+  # -----------------
+  # Herdlist 
+  # -----------------
+  icarHerdListResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarHerdListResponseDataSources'
+  icarHerdListResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarHerdListResponseDataSource'
+  icarHerdListResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarHerdListAnimalsType'
+  icarHerdListAnimalsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarHerdListAnimalType'
+  icarHerdListAnimalType:
+    type: object
+    properties: 
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+
+  # -------------------------------
+  # Herdlist Core Data Set
+  # -------------------------------
+  icarHerdListCoreDataSetResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarHerdListCoreDataSetResponseDataSources'
+  icarHerdListCoreDataSetResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarHerdListCoreDataSetResponseDataSource'
+  icarHerdListCoreDataSetResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarHerdListCoreDataSetsType'
+  icarHerdListCoreDataSetsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarHerdListCoreDataSetType'
+  icarHerdListCoreDataSetType:
+    type: object
+    properties: 
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      specie:
+        $ref: '#/definitions/icarSpecieCodeType'
+      gender:
+        $ref: '#/definitions/icarGenderCodeType'
+      birth:
+        $ref: '#/definitions/icarDateType'
+      breed:
+        $ref: '#/definitions/icarCodeType'
+      sire:
+        $ref: '#/definitions/animalIdentifier'
+      recipientDam:
+        $ref: '#/definitions/animalIdentifier'
+      geneticDam:
+        $ref: '#/definitions/animalIdentifier'
+      number:
+        type: string
+        description: A meaningful identification code of the animal, not necessary unique within the location
+      earTagNumber: 
+        type: string
+        description: The ear tag number
+      name:
+        type: string
+        description: The name of the animal
+      officialName:
+        type: string
+        description: The official name of the animal
+      productionPurpose:
+        $ref: '#/definitions/icarProductionPurpose'
+    required:
+      - identifier
+  icarSpecieCodeType:
+    type: string
+    description: Based upon Icar sc:SpecieCodeType. Allowed values are -BUF- for Buffalo, -OVI- for Ovine, -BOV- for Bovine and -GOT- for Goat.
+    enum:
+      - BUF
+      - OVI
+      - BOV
+      - GOT
+  icarGenderCodeType:
+    type: string
+    description: Based upon Icar gc:GenderCodeType. Allowed values are -F- for female and -M- for male.
+    enum:
+      - F
+      - M
+  icarProductionPurpose:
+    type: string
+    description: Not an ICAR approval ready currently. Allowed values are -D- for Dairy and -B- for Beef. 
+    enum:
+      - D
+      - B
+
+  # ------------------
+  # Herdlist Movements 
+  # ------------------
+  icarHerdListMovementsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarHerdListMovementsResponseDataSources'
+  icarHerdListMovementsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarHerdListMovementsResponseDataSource'
+  icarHerdListMovementsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarHerdListMovementsType'
+  icarHerdListMovementsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarHerdListMovementType'
+  icarHerdListMovementType:
+    type: object
+    properties: 
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      animalMovementDataSet:
+        $ref: '#/definitions/icarAnimalMovementDataSet'
+  icarAnimalMovementDataSet:
+    type: array
+    items:
+      $ref: '#/definitions/icarAnimalMovementType'
+  icarAnimalMovementType:
+    type: object
+    properties:
+      arrival:
+        $ref: '#/definitions/icarArrivalCoreDataSetType' 
+      departure: 
+        $ref: '#/definitions/icarDepartureCoreDataSetType' 
+    required:
+      - arrival
+  icarArrivalCoreDataSetType:
+    type: object
+    description: not completely implemented yet!
+    properties:
+      arrivalDate:
+        $ref: '#/definitions/icarDateType'
+    required:
+      - arrivalDate
+  icarDepartureCoreDataSetType:
+    type: object
+    description: not completely implemented yet!
+    properties:
+      departureDate:
+        $ref: '#/definitions/icarDateType'
+      
+  # -------------------
+  # Animal Registration
+  # -------------------
+  icarAnimalRegistration:
+    type: object
+    properties: 
+      id:
+        type: string
+        format: uuid
+        description: A unique identifier for the posted message
+      registrationType:
+        $ref: '#/definitions/registrationType'
+      registrationDate:
+        $ref: '#/definitions/icarDateType'
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      specie:
+        $ref: '#/definitions/icarSpecieCodeType'
+      gender:
+        $ref: '#/definitions/icarGenderCodeType'
+      birth:
+        $ref: '#/definitions/icarDateType'
+      breed:
+        $ref: '#/definitions/icarCodeType'
+      sire:
+        $ref: '#/definitions/animalIdentifier'
+      recipientDam:
+        $ref: '#/definitions/animalIdentifier'
+      geneticDam:
+        $ref: '#/definitions/animalIdentifier'
+      number:
+        type: string
+        description: A meaningful identification code of the animal, not necessary unique within the location
+      earTagNumber: 
+        type: string
+        description: The ear tag number
+      name:
+        type: string
+        description: The name of the animal
+      officialName:
+        type: string
+        description: The official name of the animal
+      productionPurpose:
+        $ref: '#/definitions/icarProductionPurpose'
+    required:
+      - identifier
+      - registrationType
+      - registrationDate
+  icarAnimalRegistrationBody:
+    type: object
+    properties: 
+      registrationType:
+        $ref: '#/definitions/registrationType'
+      registrationDate:
+        $ref: '#/definitions/icarDateType'
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      specie:
+        $ref: '#/definitions/icarSpecieCodeType'
+      gender:
+        $ref: '#/definitions/icarGenderCodeType'
+      birth:
+        $ref: '#/definitions/icarDateType'
+      breed:
+        $ref: '#/definitions/icarCodeType'
+      sire:
+        $ref: '#/definitions/animalIdentifier'
+      recipientDam:
+        $ref: '#/definitions/animalIdentifier'
+      geneticDam:
+        $ref: '#/definitions/animalIdentifier'
+      number:
+        type: string
+        description: A meaningful identification code of the animal, not necessary unique within the location
+      earTagNumber: 
+        type: string
+        description: The ear tag number
+      name:
+        type: string
+        description: The name of the animal
+      officialName:
+        type: string
+        description: The official name of the animal
+      productionPurpose:
+        $ref: '#/definitions/icarProductionPurpose'
+    required:
+      - identifier
+      - registrationType
+      - registrationDate
+  registrationType:
+    type: string
+    description: Type of registration
+    enum:
+      - Birth
+      - Death
+      - Arrival
+      - Departure
+  icarAnimalRegistrationResponse:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/icarAnimalRegistration'
+  
+  # -------------------
+  # Milking Visits
+  # -------------------
+  icarMilkingVisitsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkingVisitsResponseDataSources'
+  icarMilkingVisitsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarMilkingVisitsResponseDataSource'
+  icarMilkingVisitsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarMilkingVisitType'
+  icarMilkingVisitType:
+    type: object
+    properties: 
+      id:
+        type: string
+        description: A unique identifier for this location for the milking visit message
+      animal:
+        $ref: '#/definitions/animalIdentifier'
+      milkingStartingDateTime:
+        $ref: '#/definitions/icarDateTimeType'
+      milkingDuration:
+        type: object
+        description: The length in time of the milking
+        properties:
+          value:
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - SEC
+              - MIN
+      milkingVisitDuration:
+        type: object
+        description: The length in time of the milking visit
+        properties:
+          value:
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - SEC
+              - MIN
+      milkingType:
+        type: string
+        description: The type of milking (manual or automated)
+        enum:
+          - Manual
+          - Automated
+      milkingMilkWeight:
+        type: object
+        description: The amount of milk milked
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+        required:
+          - value
+          - unitCode
+      milkingSuccess:
+        type: boolean
+      milkingParlourUnit:
+        description: The milking parlour unit where the milking took place.
+        type: string
+      milkingBoxNumber:
+        description: The milking box number where the milking took place.
+        type: string
+      milkingDeviceId:
+        description: The ID of the device where the milking took place
+        type: string
+      measureDeviceId:
+        description: The ID of the device where the measurement of the milking took place
+        type: string
+    required:
+    - animal
+    - milkingStartingDateTime
+    - milkingSuccess
+  
+  icarQuarterMilkingsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarQuarterMilkingsResponseDataSources'
+  icarQuarterMilkingsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarQuarterMilkingsResponseDataSource'
+  icarQuarterMilkingsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarQuarterMilkingsTypes'
+  icarQuarterMilkingsTypes:
+    type: array
+    items:
+     $ref: '#/definitions/icarQuarterMilkingType'
+  icarQuarterMilkingType:
+    type: object
+    properties:
+      icarQuarterId:
+        $ref: '#/definitions/icarQuarterId'
+      quarterMilkingDuration:
+        $ref: '#/definitions/quarterMilkingDuration'
+      quarterMilkingWeight:
+        $ref: '#/definitions/quarterMilkingWeight'
+      icarQuarterCharacteristics:
+        type: array
+        items: 
+          $ref: '#/definitions/icarMilkCharacteristicsType'
+      quarterMilkingSample:
+        $ref: '#/definitions/quarterMilkingSample'
+  icarQuarterId:
+    type: string
+    enum:
+      - LF
+      - RF
+      - LB
+      - RB 
+  quarterMilkingDuration:
+    type: object
+    description: The length in time of the milking for this quarter
+    properties:
+      value:
+        type: number
+        format: double
+      unitCode:
+        type: string
+        description: UN/CEFACT Common Code for Units of Measurement.
+        enum:
+          - SEC
+          - MIN
+  quarterMilkingWeight:
+    type: object
+    description: The weight of the milk milked of this quarter
+    properties:
+      value:
+        type: number
+        format: double
+      unitCode:
+        type: string
+        description: UN/CEFACT Common Code for Units of Measurement.
+        enum:
+          - KGM
+  quarterMilkingSample:
+    type: object
+    properties:
+      sample:
+        type: string
+  icarMilkCharacteristicsTypes:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkCharacteristicsType'
+  icarMilkCharacteristicsType:
+    type: object
+    properties:
+      characteristicsCode:
+        type: string
+        description: ICAR Milk Characteristics Code
+        enum:
+          - SCC
+          - FAT
+          - PROTEIN
+          - LAC
+          - UREA
+          - BLOOD
+          - ACETONE
+          - BHB
+          - LDH
+          - PRO
+          - AVGCOND
+          - MAXCOND
+          - AVGFLWR
+          - MAXFLWR
+          - WEIGHT
+      value:
+        type: number
+        format: decimal
+        description: Numeric value determined by measuring an object
+  
+  icarMilkCharacteristicsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkCharacteristicsResponseDataSources'
+  icarMilkCharacteristicsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarMilkCharacteristicsResponseDataSource'
+  icarMilkCharacteristicsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarMilkCharacteristicsTypes'
+  
+  icarAnimalMilkingSampleResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarAnimalMilkingSampleResponseDataSources'
+  icarAnimalMilkingSampleResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarAnimalMilkingSampleResponseDataSource'
+  icarAnimalMilkingSampleResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarAnimalMilkingSampleType'
+  icarAnimalMilkingSampleType:
+    type: object
+    properties:
+      bottleIdentifierType:
+        type: string
+        description: The type of bottle identifiertype according to ICAR_BottleIdentifierCode
+        enum:
+          - BRC
+          - RFD
+      rackNumber:
+        type: string
+        description: Number of the sample rack
+      bottlePosition:
+        type: string
+        description: Position of the bottle in the sample rack
+      bottleIdentifier:
+        type: string
+        description: Bottle identifier read from barcode or RFID
+      validSampleFillingIndicator:
+        type: string
+        description: Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list
+        enum:
+          - 0
+          - 1
+          - 2
+        
+  icarTeatPositionsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarTeatPositionsResponseDataSources'
+  icarTeatPositionsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarTeatPositionsResponseDataSource'
+  icarTeatPositionsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarTeatPositionsTypes'
+  icarTeatPositionsTypes:
+    type: array
+    items: 
+      $ref: '#/definitions/icarTeatPositionsType'
+  icarTeatPositionsType:
+    type: object
+    properties:
+      icarQuarterId:
+        $ref: '#/definitions/icarQuarterId'
+      icarTeatPositions:  
+        $ref: '#/definitions/icarTeatPositions'
+  icarTeatPositions:
+    type: object
+    properties:
+      x-position:
+        type: integer
+      y-position:
+        type: integer
+      z-position:
+        type: integer
+  
+  # -------------------
+  # Identification Tags 
+  # -------------------
+  icarIdentificationTagsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarIdentificationTagsResponseDataSources'
+  icarIdentificationTagsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarIdentificationTagsResponseDataSource'
+  icarIdentificationTagsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarIdentificationTagsType'
+  icarIdentificationTagsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarIdentificationTagType'
+  icarIdentificationTagType:
+    type: object
+    properties: 
+      id: 
+        type: string
+        description: Contains the unique id of the tag
+      animal:
+        $ref: '#/definitions/animalIdentifier'
+      statusCode:
+        $ref: '#/definitions/icarIdentificationTagStatusCode'
+      statusMessage:
+        type: string
+    required:
+      - id
+  icarIdentificationTagStatusCode:
+    type: string
+    enum:
+      - Normal
+      - Incompatible
+      - Illegal
+      - Faulty
+      - OutdatedData
+      - LowBattery
+      - Unattached
+      - NotOnAnimal
+      - BadPosition
+      - WrongSide
+      - Other
+
+  # --------------------------------
+  # Dairy Grazing Summaries
+  # --------------------------------
+  icarDairyGrazingSummariesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarDairyGrazingSummariesResponseDataSources'
+  icarDairyGrazingSummariesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarDairyGrazingSummariesResponseDataSource'
+  icarDairyGrazingSummariesResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarDairyGrazingSummariesType' 
+  icarDairyGrazingSummariesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarDairyGrazingSummaryType'
+  icarDairyGrazingSummaryType:
+    type: object
+    description: Contains the dairy grazing information for a period.
+    properties:
+      tankId:
+        type: string
+        description: Tank identifier.
+      equipment:
+        type: object
+        description: Information about the equipment that supplied the data.
+        properties:
+          approvalNumber:
+            type: string
+            description: Approval number of the equipment. This number will be supplied by Duurzame Zuivelketen (DZK).
+          purchaseDate:
+            type: string
+            format: date-time
+            description: Purchase date of the equipment.
+        required:
+          - approvalNumber
+          - purchaseDate
+      period:
+        type: object
+        description: The period for which this reports contains the data. 
+        properties:
+          start:
+            type: string
+            description: The start time of the day. Time element should be set to 00:00:00.
+            format: date-time
+          end:
+            type: string
+            description: The end time of the day. Time element should be set to 23:59:59.
+            format: date-time
+          name:
+            type: string
+            description: The friendly name of the period.
+        required:
+          - start
+          - end
+      animalsTotal:
+        type: integer
+        format: int32
+        description: Total number of dairy cows on the farm.
+      animalsQualify:
+        type: integer
+        format: int32
+        description: Total number of dairy cows that qualify for grazing.
+      animalsGrazed:
+        type: object
+        description: Percentage of dairy cows that qualify for grazing and that have had a grazing time of at least 60 minutes.
+        properties:
+          value:
+            type: number
+            format: double
+            minimum: 0
+            maximum: 1
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum: 
+              - P1
+        required:
+          - value
+          - unitCode
+      grazingDay:
+        type: boolean
+        description: Indicates if this period satisfies the grazing day conditions.
+      grazingTime:
+        type: object
+        description: Farm grazing time for that date in full minutes.
+        properties:
+          value:
+            type: integer
+            format: int32
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - MIN
+        required:
+          - value
+          - unitCode
+      grazingStdev:
+        type: number
+        format: double
+        description: Standard deviation of the individual grazing times of all dairy cows that qualify for grazing. Should be rounded to two digits. 
+      grazingTimeTotal:
+        type: object
+        description: Cumulated farm grazing time for that location-id after the reported date for that year.
+        properties:
+          value:
+            type: integer
+            format: int32
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - MIN
+        required:
+          - value
+          - unitCode
+      grazingDaysTotal:
+        type: object
+        description: Cumulated grazing days for that location-id after the reported date for that year.
+        properties:
+          value:
+            type: integer
+            format: int32
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum: 
+              - DAY
+        required:
+          - value
+          - unitCode
+    required:
+      - equipment
+      - period
+      - animalsTotal
+      - animalsQualify
+      - animalsGrazed
+      - grazingDay
+      - grazingTime
+      - grazingStdev
+      - grazingTimeTotal
+      - grazingDaysTotal
+
+  # -------------------
+  # Feed intakes
+  # -------------------
+  icarFeedIntakesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarFeedIntakesResponseDataSources'
+  icarFeedIntakesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarFeedIntakesResponseDataSource'
+  icarFeedIntakesResponseDataSource:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/icarFeedIntakesType'
+  icarFeedIntakesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarFeedIntakeType'
+  icarFeedIntakeType:
+    type: object
+    description: Gives information about an animal's visit to a feeding station.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      period:
+        $ref: '#/definitions/icarPeriodType'
+      entitlement:
+        type: object
+        description: The amount the animal was entitled to.
+        properties:
+          value:
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+              - GRM
+        required:
+          - value
+          - unitCode
+      consumption:
+        type: object
+        description: The amount the animal consumed during this visit.
+        properties:
+          value:
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+              - GRM
+        required:
+          - value
+          - unitCode
+    required:
+      - identifier
+      - period
+
+  # -------------------
+  # Gestations
+  # -------------------
+  icarGestationsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarGestationsResponseDataSources'
+  icarGestationsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarGestationsResponseDataSource'
+  icarGestationsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarGestationsType'
+  icarGestationsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarGestationType'
+  icarGestationType:
+    type: object
+    description: Gives information about a gestation of a dam.
+    properties:
+      dam:
+        $ref: '#/definitions/animalIdentifier'
+      sire:
+        $ref: '#/definitions/animalIdentifier'
+      expectedCalvingDate:
+        type: string
+        description: Date of expected calving.
+        format: date-time
+      sexedSemenCode:
+        $ref: '#/definitions/icarSexedSemenCode'
+      impregnationCode:
+        $ref: '#/definitions/icarImpregnationCode'
+  icarImpregnationCode:
+    type: string
+    description: |
+      Defines the type of the last impregnation event; can be -I- for insemination, -N- for natural service, -R- for running with the bull or -M- for implantation. 
+    enum:
+      - I
+      - N
+      - R
+      - M
+
+  # -------------------
+  # Health reports
+  # -------------------
+  icarHealthReportsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarHealthReportsResponseDataSources'
+  icarHealthReportsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarHealthReportsResponseDataSource'
+  icarHealthReportsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarHealthReportsType'
+  icarHealthReportsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarHealthReportType'
+  icarHealthReportType:
+    type: object
+    description: Gives health information.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      timestamp:
+        type: string
+        format: date-time
+        description: The timestamp of the measurement.
+      vendorSpecific:
+        $ref: '#/definitions/icarHealthReportVendorSpecific'
+    required:
+      - timestamp
+  icarHealthReportVendorSpecific:
+    type: object
+    description: 'Contains vendor specific fields. Only one vendor element can be present.'
+    properties:
+      scrSenseTime:
+        $ref: '#/definitions/icarHealthReportScrSenseTime'
+      nedapBI:
+        $ref: '#/definitions/icarHealthReportNedapBusinessInsight'
+  icarHealthReportScrSenseTime:
+    type: object
+    description: 'Specific fields for SCR SenseTime'
+    properties:
+      dailyRumination:
+        type: integer
+        format: int32
+      healthIndex:
+        type: number
+        format: double
+        description: 'One digit after decimal point'
+      healthIndexThreshold:
+        type: integer
+        format: int32
+        description: 'For report coloring'
+  icarHealthReportNedapBusinessInsight:
+    type: object
+    description: 'Specific fields for Nedap Business Insight. TO BE IMPLEMENTED'
+
+  # -------------------
+  # Heat activity
+  # -------------------
+  icarHeatActivitiesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarHeatActivitiesResponseDataSources'
+  icarHeatActivitiesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarHeatActivitiesResponseDataSource'
+  icarHeatActivitiesResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarHeatActivitiesType'
+  icarHeatActivitiesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarHeatActivityType'
+  icarHeatActivityType:
+    type: object
+    description: Gives information about an in-heat activity of a dam.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      timestamp:
+        type: string
+        format: date-time
+        description: The timestamp of the measurement.
+      vendorSpecific:
+        $ref: '#/definitions/icarHeatActivityVendorSpecific'
+    required:
+      - identifier
+  icarHeatActivityVendorSpecific:
+    type: object
+    description: 'Contains vendor specific fields. Only one vendor element can be present.'
+    properties:
+      scrSenseTime:
+        $ref: '#/definitions/icarHeatActivityScrSenseTime'
+  icarHeatActivityScrSenseTime:
+    type: object
+    description: 'Contains SenseTime specific fields. Only one element can be present per item.'
+    properties: 
+      heatBehavior:
+        description: The behavior of the cow as it relates to it being in heat.
+        type: number
+        format: double
+      dailyRumination:
+        description: The number of minutes a cow ruminates during the day (24-hour period)
+        type: number
+        format: double
+      dailyEating:
+        description: The number of minutes a cow eats during the day (24 hour period)
+        type: number
+        format: double
+      activityTrend:
+        description: The trend of the cow’s activity. This is usually higher when the cow is approaching the time it is in heat.
+        type: number
+        format: double   
+
+  # -------------------
+  # Heat reports
+  # -------------------
+  icarHeatReportsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarHeatReportsResponseDataSources'
+  icarHeatReportsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarHeatReportsResponseDataSource'
+  icarHeatReportsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarHeatReportsType'
+  icarHeatReportsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarHeatReportType'
+  icarHeatReportType:
+    type: object
+    description: Gives information about an in-heat detection of a dam.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      timestamp:
+        type: string
+        format: date-time
+        description: The timestamp of the measurement.
+      method:
+        $ref: '#/definitions/icarHeatDetectionMethodCode'
+      vendorSpecific:
+        $ref: '#/definitions/icarHeatReportVendorSpecific'
+    required:
+      - timestamp
+  icarHeatDetectionMethodCode:
+    type: string
+    description: |
+      Defines the type of the heat detection method; can be -C- for chemical, -V- for visual, -P- for podometer or -O- for other. 
+    enum:
+      - C
+      - V
+      - P
+      - O
+  icarHeatReportVendorSpecific:
+    type: object
+    description: 'Contains vendor specific fields. Only one vendor element can be present.'
+    properties:
+      scrSenseTime:
+        $ref: '#/definitions/icarHeatReportScrSenseTime'
+      nedapBI:
+        $ref: '#/definitions/icarHeatReportNedapBusinessInsight'
+  icarHeatReportScrSenseTime:
+    type: object
+    description: 'Specific fields for SCR SenseTime'
+    properties:
+      breedingWindow: 
+        type: integer
+        format: int32
+      heatIndex: 
+        type: integer
+        format: int32
+  icarHeatReportNedapBusinessInsight:
+    type: object
+    description: 'Specific fields for Nedap Business Insight. TO BE IMPLEMENTED'
+
+  # -------------------
+  # Inseminations
+  # -------------------
+  icarInseminationsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarInseminationsResponseDataSources'
+  icarInseminationsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarInseminationsResponseDataSource'
+  icarInseminationsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarInseminationsType'
+  icarInseminationsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarInseminationType'
+  icarInseminationType:
+    type: object
+    description: Gives information about an insemination of a dam.
+    properties:
+      dam:
+        $ref: '#/definitions/animalIdentifier'
+      date:
+        $ref: '#/definitions/icarDateType'
+      sire:
+        $ref: '#/definitions/animalIdentifier'
+      chargeNumber:
+        $ref: "#/definitions/icarChargeNumber"
+      forFlushing:
+        $ref: "#/definitions/icarForFlushing"
+      technician:
+        $ref: "#/definitions/icarTechnician"
+      semenOfOwnStock:
+        $ref: "#/definitions/icarSemenOfOwnStock"
+      sexedSemenType:
+        $ref: "#/definitions/icarSexedSemenCode"
+      sharedSemenUsed:
+        $ref: "#/definitions/icarSharedSemenUsed"
+  icarChargeNumber:
+    type: string
+    description: The number of the batch of the production of the semen.
+  icarForFlushing:
+    type: boolean
+    default: false
+    description: Indication whether the cow was inseminated for flushing.
+  icarTechnician:
+    type: string
+    description: The identification of the person that performed the insemination. In case the farmer has performed the insemination a zero is applied. The possible id's are not provided in this documentation.  
+  icarSemenOfOwnStock:
+    description: Indication whether the semen used came out of the stock from the farmer, or from the technician.
+    type: boolean
+    default: true
+  icarSharedSemenUsed:
+    description: Indication whether semen from 2 bulls was used for this insemination.
+    type: boolean
+    default: false
+
+  # -------------------
+  # Milk Deliveries
+  # -------------------
+  icarMilkDeliveriesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkDeliveriesResponseDataSources'
+  icarMilkDeliveriesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarMilkDeliveriesResponseDataSource'
+  icarMilkDeliveriesResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarMilkDeliveriesType'
+  icarMilkDeliveriesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarMilkDeliveryType'
+  icarMilkDeliveryType:
+    type: object
+    description: Gives information about a milk delivery of a farmer to a dairy company.
+    properties:
+      dairyIdentifier:
+        $ref: '#/definitions/companyIdentifier'
+      productionUnit:
+        description: '204611'
+        type: integer
+        format: int32 
+      supplierNumber:
+        description: '202510'
+        type: integer
+        format: int32 
+      reckoningYear:
+        description: '204272'
+        type: integer
+        format: int32 
+      codeFatProteinCalculated:
+        description: '204398'
+        type: integer
+        format: int32 
+      period:
+        type: object
+        description: The period of reckoning the delivery belongs to. 
+        properties:
+          start:
+            type: string
+            description: The start time of the day. Time element should be set to 00:00:00.
+            format: date-time
+          end:
+            type: string
+            description: The end time of the day. Time element should be set to 23:59:59.
+            format: date-time
+          name:
+            type: string
+            description: The friendly name of the period.
+        required:
+          - start
+          - end
+      timestampDelivery:
+        type: string
+        format: date-time
+        description: The timestamp of the milk delivery. 201731 & 204271
+      milkDelivered:
+        type: object
+        description: 200503 & 203575
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - LTR
+              - KGM
+        required:
+          - value
+          - unitCode
+      fat:
+        type: object
+        description: 200505 & 204625
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+              - GL #gram per litre
+        required:
+          - value
+          - unitCode
+      protein:
+        type: object
+        description: 200506 & 204626
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+              - GL #gram per litre
+        required:
+          - value
+          - unitCode
+      lactose:
+        type: object
+        description: '200507'
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+        required:
+          - value
+          - unitCode
+      urea:
+        type: object
+        description: '204261'
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+        required:
+          - value
+          - unitCode
+      temperature:
+        type: object
+        description: '200509'
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - CEL #degree Celsius.
+        required:
+          - value
+          - unitCode
+      bacteriaInhibitingSubstance:
+        type: object
+        properties:
+          kind:
+            type: string
+            description: '202614'
+          testResult:
+            type: string
+            description: '202668'
+          reductionMilkQuantity:
+            type: object
+            description: '203446'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - LTR
+                  - KGM
+            required:
+              - value
+              - unitCode
+          reductionMilkAmount:
+            type: object
+            description: '204381'
+            properties:
+              value: 
+                type: number
+                format: double
+              valutaCode:
+                type: string
+                description: ISO 4217
+                enum:
+                  - EUR
+            required:
+              - value
+              - valutaCode
+
+  # -------------------
+  # Milk Delivery Test Results
+  # -------------------
+  icarMilkDeliveryQualityReportsResultsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkDeliveryQualityReportsResponseDataSources'
+  icarMilkDeliveryQualityReportsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarMilkDeliveryQualityReportsResponseDataSource'
+  icarMilkDeliveryQualityReportsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarMilkDeliveryQualityReportsType'
+  icarMilkDeliveryQualityReportsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarMilkDeliveryQualityReportType'
+  icarMilkDeliveryQualityReportType:
+    type: object
+    description: Gives information about test results (qualitity reports) of a milk delivery of a farmer to a dairy company.
+    properties:
+      test:
+        type: object
+        properties:
+          type:
+            type: string
+            enum:
+              - fat
+              - protein
+              - lactose
+              - bacteriaInhibitingSubstance
+              - todo1
+              - todo2
+          identification:
+            description: '200460'
+            type: integer
+            format: int32
+          description:
+            description: '204529'
+            type: string
+      result:
+        type: object
+        description: '200462'
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+              - GL #gram per litre
+        required:
+          - value
+          - unitCode
+      gradation:
+        description: '204397'
+        type: integer
+        format: int32 
+      score:
+        description: '200463'
+        type: integer
+        format: int32
+
+  # -------------------
+  # Milk intakes
+  # -------------------
+  icarMilkIntakesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkIntakesResponseDataSources'
+  icarMilkIntakesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarMilkIntakesResponseDataSource'
+  icarMilkIntakesResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarMilkIntakesType'
+  icarMilkIntakesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarMilkIntakeType'
+  icarMilkIntakeType:
+    type: object
+    description: Gives information about an animal's visit to a milk station.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      period:
+        $ref: '#/definitions/icarPeriodType'
+      entitlement:
+        type: object
+        description: The amount the animal was entitled to.
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - LTR
+              - MLT
+        required:
+          - value
+          - unitCode
+      consumption:
+        type: object
+        description: The amount the animal consumed during this visit.
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - LTR
+              - MLT
+        required:
+          - value
+          - unitCode
+      additives:
+        type: array
+        items:
+          $ref: '#/definitions/icarMilkIntakeAdditive'
+    required:
+      - identifier
+      - period
+  icarMilkIntakeAdditive:
+    type: object
+    properties:
+      bin: 
+        description: The bin the additive was sourced from. 
+        type: integer
+        format: int32
+      type:
+        description: The type of additive provided.
+        type: string
+        enum:
+          - Unknown
+          - Electrolyte
+          #- IronSupplement
+          #- Antibiotic
+      quantity:
+        type: object
+        description: The provided quantity of the additive in milliliters.
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - LTR
+              - MLT
+        required:
+          - value
+          - unitCode
+    required:
+      - bin
+      - type
+
+  # -------------------
+  # Milk Invoices
+  # -------------------
+  icarMilkInvoicesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkInvoicesResponseDataSources'
+  icarMilkInvoicesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarMilkInvoicesResponseDataSource'
+  icarMilkInvoicesResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarMilkInvoicesType'
+  icarMilkInvoicesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarMilkInvoiceType'
+  icarMilkInvoiceType:
+    type: object
+    description: Gives information about received milk invoices of a farmer to a dairy company.
+    properties:
+      invoiceDate:
+        $ref: '#/definitions/icarDateType'
+      invoiceNumber:
+        description: '201136'
+        type: string
+      payee:
+        type: object
+        properties:
+          name: 
+            description: '700129'
+            type: string
+          street:
+            description: '700766'
+            type: string
+          number:
+            description: '700767'
+            type: string
+          city:
+            description: '700768'
+            type: string
+          zipcode:
+            description: '204587'
+            type: string
+          country:
+            description: '700770'
+            type: string
+      milkDelivered:
+        type: object
+        properties:
+          quantity:
+            type: object
+            description: '200468 & 204629'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - LTR
+                  - KGM
+            required:
+              - value
+              - unitCode
+          fat:
+            type: object
+            description: 204555 & 204627
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+                  - GL #gram per litre
+            required:
+              - value
+              - unitCode
+          protein:
+            type: object
+            description: 204556 & 204628
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+                  - GL #gram per litre
+            required:
+              - value
+              - unitCode
+          lactose:
+            type: object
+            description: '204558'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+            required:
+              - value
+              - unitCode
+          urea:
+            type: object
+            description: '204604'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+            required:
+              - value
+              - unitCode      
+          ureaCumulative:
+            type: object
+            description: '204605'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+            required:
+              - value
+              - unitCode            
+          score:
+            description: '200480'
+            type: integer
+            format: int32 
+      dairyAverage:
+        type: object
+        properties:
+          fat:
+            type: object
+            description: '200481'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+                  - GL #gram per litre
+            required:
+              - value
+              - unitCode
+          protein:
+            type: object
+            description: '200482'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+                  - GL #gram per litre
+            required:
+              - value
+              - unitCode
+          lactose:
+            type: object
+            description: '201046'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+            required:
+              - value
+              - unitCode
+          urea:
+            type: object
+            description: '204606'
+            properties:
+              value: 
+                type: number
+                format: double
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum:
+                  - VP #A measure of concentration, typically expressed as the percentage volume of a solute in a solution.
+            required:
+              - value
+              - unitCode 
+          milkPrice:
+            type: object
+            description: '204382'
+            properties:
+              value: 
+                type: number
+                format: double
+              valutaCode:
+                type: string
+                description: ISO 4217
+                enum:
+                  - EUR
+            required:
+              - value
+              - valutaCode
+      financial:
+        type: object
+        properties:
+          net: 
+            description: '204382'
+            type: number
+            format: double
+          vat: 
+            description: '204386'
+            type: number
+            format: double
+          gross: 
+            description: '204384'
+            type: number
+            format: double
+          valutaCode:
+            description: ISO 4217 / 402617
+            type: string
+            enum:
+              - EUR
+        required:
+          - net
+          - vat
+          - gross
+          - valutaCode
+  
+  # -------------------
+  # Milk Invoice Items
+  # -------------------
+  icarMilkInvoiceItemsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarMilkInvoiceItemsResponseDataSources'
+  icarMilkInvoiceItemsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarMilkInvoiceItemsResponseDataSource'
+  icarMilkInvoiceItemsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarMilkInvoiceItemsType'
+  icarMilkInvoiceItemsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarMilkInvoiceItemType'
+  icarMilkInvoiceItemType:
+    type: object
+    description: Gives information about the items of a received milk invoice of a farmer to a dairy company.
+    properties:
+      indexNumberInvoice: 
+        description: '204640'
+        type: integer
+        format: int32 
+      indexNumberItemCodeDairy: 
+        description: '204528'
+        type: integer
+        format: int32 
+      accountNumber: 
+        description: '201088'
+        type: string
+      period:
+        $ref: '#/definitions/icarPeriodType'
+      description: 
+        description: '204520'
+        type: string
+      quantity:
+        type: object
+        description: '202435'
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - LTR
+              - KGM
+              - H87 #Piece: a unit of count defining the number of pieces (piece: a single item, article or exemplar).
+        required:
+          - value
+          - unitCode
+      item:
+        type: object
+        properties:
+          itemCodeDairy: 
+            description: '204521'
+            type: integer
+            format: int32 
+          vatPercentage:
+            description: '204557'
+            type: object
+            properties:
+              value:
+                type: number
+                format: double
+                minimum: 0
+                maximum: 1
+              unitCode:
+                type: string
+                description: UN/CEFACT Common Code for Units of Measurement.
+                enum: 
+                  - P1
+            required:
+              - value
+              - unitCode
+      financial:
+        type: object
+        properties:
+          unitPrice: 
+            description: '204387'
+            type: number
+            format: double
+          discountPer100litres:
+            description: '204630'
+            type: number
+            format: double
+          net: 
+            description: '204389'
+            type: number
+            format: double
+          vat: 
+            description: '204386'
+            type: number
+            format: double
+          gross: 
+            description: '204384'
+            type: number
+            format: double
+          runningTotal:
+            description: '204391'
+            type: number
+            format: double
+          valutaCode:
+            description: '402617 | ISO 4217'
+            type: string
+            enum:
+              - EUR
+        required:
+          - unitPrice
+          - net
+          - vat
+          - gross
+          - valutaCode
+
+  # -------------------
+  # PregnancyChecks
+  # -------------------
+  icarPregnancyCheckResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarPregnancyChecksResponseDataSources'
+  icarPregnancyChecksResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarPregnancyChecksResponseDataSource'
+  icarPregnancyChecksResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarPregnancyChecksType'
+  icarPregnancyChecksType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarPregnancyCheckType'
+  icarPregnancyCheckType:
+    type: object
+    description: Gives information about a pregnancy check event.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      date:
+        type: string
+        description: The date on which the pregnancy check has occured.
+        format: date
+      result:
+        $ref: '#/definitions/icarPregnancyCheckCodeType'
+      method:
+        $ref: '#/definitions/icarPregnancyCheckMethodCode'
+    required:
+      - date
+      - result
+  icarPregnancyCheckCodeType:
+    type: string
+    description: Defines the result of a pregnancy check event; can be -U- for unknown, -E- for empty or -P- for pregnant.
+    enum:
+      - U
+      - E
+      - P
+  icarPregnancyCheckMethodCode: 
+    type: string
+    description: Defines the pregnancy check method; can be -E- for echography, -P- for palpation, -M- for milk analysis or O for Other.
+    enum:
+      - E
+      - P
+      - M
+      - O
+      
+  # -------------------
+  # health activity
+  # -------------------
+  icarHealthActivitiesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarHealthActivitiesResponseDataSources'
+  icarHealthActivitiesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarHealthActivitiesResponseDataSource'
+  icarHealthActivitiesResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarHealthActivitiesType'
+  icarHealthActivitiesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarHealthActivityType'
+  icarHealthActivityType:
+    type: object
+    description: Gives information about health activity of cows on a location.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      timestamp:
+        type: string
+        format: date-time
+        description: The timestamp of the measurement.
+      vendorSpecific:
+        $ref: '#/definitions/icarHealthActivityVendorSpecific'
+    required:
+      - identifier
+  icarHealthActivityVendorSpecific:
+    type: object
+    description: 'Contains vendor specific fields. Only one vendor element can be present.'
+    properties:
+      scrSenseTime:
+        $ref: '#/definitions/icarHealthActivityScrSenseTime'
+  icarHealthActivityScrSenseTime:
+    type: object
+    description: 'Contains SenseTime specific fields. Only one element can be present per item.'
+    properties: 
+      dailyRumination:
+        description: The number of minutes a cow ruminates during the day (24-hour period)
+        type: number
+        format: double
+      dailyEating:  
+        description: The number of minutes a cow eats during the day (24 hour period)
+        type: number
+        format: double
+      hourlyRumination:
+        description: The number of minutes a cow ruminates during an hour.
+        type: number
+        format: double
+      hourlyEating:
+        description: The number of minutes a cow eats an hour.
+        type: number
+        format: double
+      activityTrend:
+        description: The trend of the cow’s activity. Cows when they are not well are less active.
+        type: number
+        format: double
+
+  # -------------------
+  # Slaughters
+  # -------------------
+  icarSlaughtersResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarSlaughtersResponseDataSources'
+  icarSlaughtersResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarSlaughtersResponseDataSource'
+  icarSlaughtersResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarSlaughtersType'
+  icarSlaughtersType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarSlaughterType'
+  icarSlaughterType:
+    type: object
+    description: Gives information about an animal's slaughter.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      slaughterHouseIdentifier:
+        $ref: '#/definitions/companyIdentifier'
+      slaughterHouseBranche:
+        type: string
+        description: 'Branche number of the slaughterhouse'
+      earTagNumber: 
+        type: string
+        description: The ear tag number
+      birth:
+        $ref: '#/definitions/icarDateType'
+      dateTimeSlaughter:
+        $ref: '#/definitions/icarDateType'
+      dateTimeInspection:
+        $ref: '#/definitions/icarDateType'
+      weightSlaughtered:
+        type: object
+        properties:
+          value: 
+            type: number
+            format: double
+            multipleOf: 0.1
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+        required:
+          - value
+          - unitCode
+      weightRejected:
+        type: object
+        properties:
+          value: 
+            type: number
+            format: double
+            multipleOf: 0.1
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+        required:
+          - value
+          - unitCode
+      weightCorrection:
+        type: object
+        properties:
+          value: 
+            type: number
+            format: double
+            multipleOf: 0.1
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+        required:
+          - value
+          - unitCode
+      weightHookLeft:
+        type: object
+        properties:
+          value: 
+            type: number
+            format: double
+            multipleOf: 0.1
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+        required:
+          - value
+          - unitCode
+      weightHookRight:
+        type: object
+        properties:
+          value: 
+            type: number
+            format: double
+            multipleOf: 0.1
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - KGM
+        required:
+          - value
+          - unitCode
+      animalClassification:
+        type: string
+        enum:
+          - A0
+          - B0
+          - B1
+          - C0
+          - D0
+          - D1
+          - D2
+          - D3
+          - D4
+          - E0
+          - E1
+          - E2
+          - Z0
+      gender:
+        $ref: '#/definitions/icarGenderCodeType'
+      classifier:
+        type: string
+      fatCover:
+        type: string
+        enum:
+          - "1"
+          - "2"
+          - "3"
+          - "4"
+          - "5"
+      fatCoverSubdivision:
+        type: string
+        enum:
+          - "+"
+          - "o"
+          - "-"
+      conformation:
+        type: string
+        enum:
+          - S
+          - E
+          - U
+          - R
+          - O
+          - P
+      conformationSubdivision:
+        type: string
+        enum:
+          - "+"
+          - "o"
+          - "-"
+      colorScore:
+        type: string
+        enum:
+          - "1"
+          - "2"
+          - "3"
+          - "4"
+          - "5"
+          - "6"
+          - "7"
+          - "8"
+          - "9"
+          - "10"
+          - "11"
+          - "12"
+          - "13"
+          - "14"
+          - "15"
+      hairColorCode:
+        type: object
+        properties:
+          countryCode:
+            type: string
+            enum: 
+              - "NL"
+              - "BE"
+          hairColor:
+            type: string
+            enum:
+              - "AR"
+              - "AZ"
+              - "BB"
+              - "BR"
+              - "BZ"
+              - "DK"
+              - "EB"
+              - "EG"
+              - "ER"
+              - "EW"
+              - "EZ"
+              - "MR"
+              - "MZ"
+              - "OV"
+              - "RB"
+              - "RW"
+              - "VB"
+              - "ZB"
+              - "ZW"
+      farmRegistrations:
+        type: array
+        items:
+          type: string
+          enum:
+            - "VUIL"
+            - "TRAAG"
+            - "MAGER"
+            - "KREUPEL"
+            - "ONTSTEKING"
+            - "KNIE(L)"
+      kdsRegistrations:
+        type: array
+        items:
+          type: string
+          enum:
+            - "NIEREN"
+            - "PAT_KNIE"
+            - "PAT_STOMPBIL"
+            - "PAT_FLANKEN"
+            - "FEC_LONGEN"
+            - "FEC_HART"
+      veterinaryPracticeNumber:
+        type: string
+    required:
+      - identifier
+      - slaughterHouseIdentifier
+      - earTagNumber
+      - birth
+      - dateTimeSlaughter
+      - dateTimeInspection
+      - weightSlaughtered
+      - weightRejected
+      - gender
+      - fatCover
+      - fatCoverSubdivision
+      - conformation
+      - conformationSubdivision
+      - hairColorCode
+
+  # -------------------
+  # Water intakes
+  # -------------------
+  icarWaterIntakesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarWaterIntakesResponseDataSources'
+  icarWaterIntakesResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarWaterIntakesResponseDataSource'
+  icarWaterIntakesResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarWaterIntakesType'
+  icarWaterIntakesType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarWaterIntakeType'
+  icarWaterIntakeType:
+    type: object
+    description: Gives information about an animal's visit to a water station.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      period:
+        $ref: '#/definitions/icarPeriodType'
+      consumption:
+        type: object
+        description: The amount the animal consumed during this visit.
+        properties:
+          value: 
+            type: number
+            format: double
+          unitCode:
+            type: string
+            description: UN/CEFACT Common Code for Units of Measurement.
+            enum:
+              - LTR
+              - MLT
+        required:
+          - value
+          - unitCode
+    required:
+      - identifier
+      - period
+
+  # -------------------
+  # Weigths
+  # -------------------
+  icarWeightsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/icarWeightsResponseDataSources'
+  icarWeightsResponseDataSources:
+    type: object
+    allOf:
+      - $ref: '#/definitions/responseDataSource'
+      - $ref: '#/definitions/responseErrors'
+      - $ref: '#/definitions/icarWeightsResponseDataSource'
+  icarWeightsResponseDataSource:
+    type: object
+    properties: 
+      data:
+        $ref: '#/definitions/icarWeightsType'
+  icarWeightsType:
+    type: array
+    items: 
+      $ref: '#/definitions/icarWeightType'
+  icarWeightType:
+    type: object
+    description: Gives information about a weight event.
+    properties:
+      identifier:
+        $ref: '#/definitions/animalIdentifier'
+      timestamp:
+        type: string
+        format: date-time
+        description: The timestamp of the measurement.
+      value:
+        type: number
+        format: double
+        description: The value of the measurement.
+      unitCode:
+        type: string
+        description: The type of unit of measure.
+      unitDescription:
+        type: string
+        description: Description of type of unit of measure.
+
+  # -----------------
+  # Biodiversity report 
+  # -----------------
+  
+  icarBiodiversityReportsResponse:
+    $ref: '#/definitions/icarBiodiversityReports'
+      
+  icarBiodiversityReports:
+    type: object
+    properties: 
+      company:
+        $ref: '#/definitions/companyIdentifier'
+      ftn:
+        type: string
+        description: A factory tank number (factory number + company number at factory)
+      area:  
+        type: string
+        description: A meaningful identification code of the animal, not necessary unique within the location
+      collectives: 
+        type: array
+        items: 
+          $ref: '#/definitions/icarBiodiversityCollective'
+        
+  icarBiodiversityCollective:
+    type: object
+    properties:
+      id: 
+        type: string
+        description: collective number, according to SCAN coding
+      name:
+        type: string
+        description: name of the collective
+      anlbMember:
+        type: boolean
+        description: Indicates if the company is an ANLB member (in original proposal
+      reports:
+        type: array
+        items:
+          $ref: '#/definitions/icarBiodiversityReport'
+
+  icarBiodiversityReport:
+    type: object
+    properties:
+      packetCode: 
+        type: integer
+        description: unique code for the bio diversity packet; ANLb number or BenN number
+      label:
+        type: string
+        description: Verschillende TBO, eigen beheer
+      size:
+        type: string
+      value: 
+        type: number
+        format: double
+        description: Ingetekende oppervlakte/ hoeveelheid van het betreffende Z-pakket
+      unitCode:
+        type: string
+        description: UN/CEFACT Common Code for Units of Measurement.
+        enum:
+          - H18 
+          - MTK
+          - C62
+      contractStartDate:
+        type: string
+        format: date
+      contractEndDate:  
+        type: string
+        format: date
+      lastInspectionDate:
+        type: string
+        format: date
+      inspectionResult:
+        type: string
+        enum:
+          - 1
+          - 2
+          - 3
+
+  # ---------
+  # Addresses 
+  # ---------
+  
+  uncefactAddressesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/uncefactAddress'
+    
+  # -------------------------------------      
+  # uncefact compatible / UBL 2.1 address
+  # -------------------------------------
+  uncefactAddress:
+    type: object
+    properties: 
+      id:
+        type: string
+        description: An identifier for this address within an agreed scheme of address identifiers.
+      addressTypeCode:
+        $ref: '#/definitions/uncefactAddressTypeCode'
+      addressFormatCode:
+        $ref: '#/definitions/uncefactAddressFormatCode'
+      postbox:
+        type: string
+        description: A post office box number registered for postal delivery by a postal service provider.
+      floor:
+        type: string
+        description: An identifiable floor of a building.
+      room: 
+        type: string
+        description: An identifiable room, suite, or apartment of a building.
+      streetName:
+        type: string
+        description: The name of the street, road, avenue, way, etc. to which the number of the building is attached.
+      additionalStreetName:
+        type: string
+        description: An additional street name used to further clarify the address.
+      blockName:
+        type: string
+        description: The name of the block (an area surrounded by streets and usually containing several buildings) in which this address is located.
+      buildingName:
+        type: string
+        description: The name of a building.
+      buildingNumber:
+        type: string
+        description: The number of a building within the street.
+      inhouseMail:
+        type: string
+        description: The specific identifable location within a building where mail is delivered.
+      department:
+        type: string
+        description: The department of the addressee.
+      markAttention:
+        type: string
+        description: The name, expressed as text, of a person or department in an organization to whose attention incoming mail is directed; corresponds to the printed forms `for the attention of`, `FAO`, and `ATTN:`.
+      markCare:
+        type: string
+        description: The name, expressed as text, of a person or organization at this address into whose care incoming mail is entrusted; corresponds to the printed forms `care of` and `c/o`.
+      plotIdentification:
+        type: string
+        description: An identifier (e.g., a parcel number) for the piece of land associated with this address.
+      citySubdivisionName:
+        type: string
+        description: The name of the subdivision of a city, town, or village in which this address is located, such as the name of its district or borough.
+      cityName:
+        type: string
+        description: The name of a city, town, or village.
+      postalZone:
+        type: string
+        description: The postal identifier for this address according to the relevant national postal service, such as a ZIP code or Post Code.
+      countrySubentity:
+        type: string
+        description: The political or administrative division of a country in which this address is located, such as the name of its county, province, or state, expressed as text.
+      countrySubentityCode:
+        type: string
+        description: The political or administrative division of a country in which this address is located, such as a county, province, or state, expressed as a code (typically nationally agreed).
+      region:
+        type: string
+        description: The recognized geographic or economic region or group of countries in which this address is located.
+      district:
+        type: string
+        description: The district or geographical division of a country or region in which this address is located.
+      timezoneOffset:
+        type: string
+        description: The time zone in which this address is located (as an offset from Universal Coordinated Time (UTC)) at the time of exchange.
+      addressLine:
+        type: array
+        description: An unstructured address line.
+        items: 
+          type: string
+      country:
+        type: string
+        description: The country in which this address is situated.
+      locationCoordinate:
+        type: string
+        description: The geographical coordinates of this address.
+
+  uncefactAddressTypeCode:
+    type: integer
+    description: |
+      A mutually agreed code signifying the type of this address.
+      * `1` - Postal address. The address is representing a postal address.
+      * `2` - Fiscal address. Identification of an address as required by fiscal administrations.
+      * `3` - Physical address. The address represents an actual physical location.
+    enum:
+      - 1
+      - 2 
+      - 3
+
+  uncefactAddressFormatCode:
+    type: integer
+    description: |
+      A mutually agreed code signifying the format of this address.
+      * `1` - Street name followed by number. Address street name followed by address number.
+      * `2` - Number, road type, road name in this sequence. House number followed bytype of road and name of the road.
+      * `3` - Road type, road name, number in this sequence. Type of the road followed by name of the road and the house number.
+      * `4` - Post office box. Post office box.
+      * `5` - Unstructured address. Unstructured address, comprising an unspecified mix of components.
+      * `6` - Street name followed by number, building, suite. Identifies the address component as street name followed by number, building, and suite in this sequence.
+      * `7` - Rural route number. Identifies the address component as the rural route number.
+      * `8` - Post office drawer number. Identifies the address component as the post office drawer.
+      * `9` - Building name followed by suite. Identifies the address component as building followed by suite.
+    enum:
+      - 1
+      - 2 
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+
+
+###############################################
+# Paths                                       #
+###############################################
+paths:
+  /locations/{location-scheme}/{location-id}/herd-list:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the animals on a location.
+      description: |
+        _Based upon ICAR ADE GetHerdListRequest._
+        # Purpose
+        Returns the herd list for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the animal identifiers for the location.
+          schema:
+            $ref: '#/definitions/icarHerdListResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/herd-list-core-data-set:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the core details of the animals on a location.
+      description: |
+        _Based upon ICAR ADE GetHerdListRequest._
+        # Purpose
+        Returns a herd list for a location containing core animal data.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the animal core data set for the location.
+          schema:
+            $ref: '#/definitions/icarHerdListCoreDataSetResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/dairy-grazing-summaries:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the dairy grazing summary data
+      description: |
+        # Purpose
+        Returns a summary with information about the grazing pattern of the animals on the given location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTimeRequired'
+        - $ref: '#/parameters/queryEndDateTimeRequired'
+        - $ref: '#/parameters/queryModifiedSince'
+      responses:
+        200:
+          description: Successful. The response contains the dairy grazing summary data for the location.
+          schema:
+            $ref: '#/definitions/icarDairyGrazingSummariesResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/feed-intakes:
+      get:
+        tags:
+          - ICAR inspired
+        summary: Get feed intakes of the animals on the location specified.
+        description: |
+          # Purpose
+          Returns feed intakes of the animals on the location specified.
+        parameters:
+          - $ref: '#/parameters/pathLocationScheme'
+          - $ref: '#/parameters/pathLocationId'
+          - $ref: '#/parameters/queryStartDateTime'
+          - $ref: '#/parameters/queryEndDateTime'
+        responses:
+          200:
+            description: Successful. The response contains the intake data for the location.
+            schema:
+              $ref: '#/definitions/icarFeedIntakesResponse'
+          default:
+            $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/gestations:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get gestation information for all in-herd animals on a location.
+      description: |
+        # Purpose
+        Returns a list with current gestation information for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+      responses:
+        200:
+          description: Successful. The response contains the gestation data for the location.
+          schema:
+            $ref: '#/definitions/icarGestationsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/health-activities:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get health activity information for animals on a location.
+      description: |
+        # Purpose
+        Returns a list with health activity information for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTimeRequired'
+        - $ref: '#/parameters/queryEndDateTimeRequired'
+        - $ref: '#/parameters/queryAnimalScheme'
+        - $ref: '#/parameters/queryAnimalId'
+      responses:
+        200:
+          description: Successful. The response contains the health activity data for the location.
+          schema:
+            $ref: '#/definitions/icarHealthActivitiesResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/health-reports:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get health information for a location.
+      description: |
+        # Purpose
+        Returns a list with current health information for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+      responses:
+        200:
+          description: Successful. The response contains the health data for the location.
+          schema:
+            $ref: '#/definitions/icarHealthReportsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/heat-activities:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get in-heat activity information for female animals on a location.
+      description: |
+        # Purpose
+        Returns a list with in-heat activity information for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTimeRequired'
+        - $ref: '#/parameters/queryEndDateTimeRequired'
+        - $ref: '#/parameters/queryAnimalScheme'
+        - $ref: '#/parameters/queryAnimalId'
+      responses:
+        200:
+          description: Successful. The response contains the in-heat activity data for the location.
+          schema:
+            $ref: '#/definitions/icarHeatActivitiesResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/heat-reports:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get in-heat information for a location.
+      description: |
+        # Purpose
+        Returns a list with current in-heat information for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+      responses:
+        200:
+          description: Successful. The response contains the in-heat data for the location.
+          schema:
+            $ref: '#/definitions/icarHeatReportsResponse'
+        default:
+          $ref: '#/responses/error'
+
+  /locations/{location-scheme}/{location-id}/herd-list-movements:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the animal movements on a location.
+      description: |
+        _Based upon ICAR ADE GetHerdListRequest._
+        # Purpose
+        Returns the animal movements for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the animal movement data for the location.
+          schema:
+            $ref: '#/definitions/icarHerdListMovementsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/animal-registrations:
+    post:
+      tags:
+        - ICAR inspired
+      summary: Pushes a singular animal (governmental) registration
+      description: |
+        # Purpose
+        Provides data from a singular animal registration
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - name: icarAnimalRegistration
+          in: body
+          description: The animal you want to register
+          required: true
+          schema:
+            $ref: '#/definitions/icarAnimalRegistrationBody'
+      responses:
+        201:
+          description: Successful. The response contains the milking results for the given location 
+          schema:
+            $ref: '#/definitions/icarAnimalRegistrationResponse'
+        default:
+          $ref: '#/responses/error'
+
+
+  /locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/teat-positions:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the teat positions for a specific milking visit
+      description: |
+        # Purpose
+        Provides teat positions from a singular visit of an animal to a milking parlour
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/pathIcarMilkingVisitId'
+      responses:
+        201:
+          description: Successful. The response contains the milking results for the given location 
+          schema:
+            $ref: '#/definitions/icarTeatPositionsResponse'
+        default:
+          $ref: '#/responses/error'
+          
+  /locations/{location-scheme}/{location-id}/identification-tags:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the identification tags on a location.
+      description: |
+        # Purpose
+        Returns the identification tags for a location. Examples are Nedap, SCR and Gallagher identification tags (EIDs) for animals.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+      responses:
+        200:
+          description: Successful. The response contains the current identification tags available on the location.
+          schema:
+            $ref: '#/definitions/icarIdentificationTagsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/inseminations:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the executed insemantions on a location.
+      description: |
+        # Purpose
+        Returns the inseminations for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryModifiedSince'
+      responses:
+        200:
+          description: Successful. The response contains the insemination data for the location.
+          schema:
+            $ref: '#/definitions/icarInseminationsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/milk-deliveries:
+    get:
+      tags:
+        - Local/other standard
+      summary: Get milk deliveries of the location specified.
+      description: |
+        # Purpose
+        Returns milk deliveries of the location specified.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the milk delivery data for the location.
+          schema:
+            $ref: '#/definitions/icarMilkDeliveriesResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/milk-deliveries/{milk-delivery-id}/quality-reports:
+    get:
+      tags:
+        - Local/other standard
+      summary: Get the test results for a specific milk delivery of the location specified.
+      description: todo  
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/pathMilkDeliveryId'
+      responses:
+        200:
+          description: Successful. The response contains the quality reports of the milk delivery data for the location.
+          schema:
+            $ref: '#/definitions/icarMilkDeliveryQualityReportsResultsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/milk-intakes:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get milk intakes of the animals on the location specified.
+      description: |
+        # Purpose
+        Returns milk intakes of the animals on the location specified.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the intake data for the location.
+          schema:
+            $ref: '#/definitions/icarMilkIntakesResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/milk-invoices:
+    get:
+      tags:
+        - Local/other standard
+      summary: Get milk delivery invoices of the location specified.
+      description: |
+        # Purpose
+        Returns the invoices received for the milk delivered of the location specified.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the invoices received for the deliverd milk for the location.
+          schema:
+            $ref: '#/definitions/icarMilkInvoicesResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/milk-invoices/{milk-invoice-id}/items:
+    get:
+      tags:
+        - Local/other standard
+      summary: Get the items of the milk delivery invoices of the location specified.
+      description: |
+        # Purpose
+        Returns the items of the invoices received for the milk delivered of the location specified.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/pathMilkInvoiceId'
+      responses:
+        200:
+          description: Successful. The response contains the items of the invoices received for the deliverd milk for the location.
+          schema:
+            $ref: '#/definitions/icarMilkInvoiceItemsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/slaughters:
+    get:
+      tags:
+        - Local/other standard
+      summary: Get the slaughterhouse events for all animals being slaughtered.
+      description: |
+        # Purpose
+        Returns a list animals being slaughtered with their details for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the slaughter events data for the location.
+          schema:
+            $ref: '#/definitions/icarSlaughtersResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/pregnancy-checks:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get the pregnancy checks events for all in-herd animals on a location.
+      description: | 
+        _Subject to change_
+        # Purpose
+        Returns a list with pregnancy-checks events information for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+      responses:
+        200:
+          description: Successful. The response contains the pregnancy check events data for the location.
+          schema:
+            $ref: '#/definitions/icarPregnancyCheckResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/water-intakes:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get water intakes of the animals on the location specified.
+      description: |
+        # Purpose
+        Returns water intakes of the animals on the location specified.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the intake data for the location.
+          schema:
+            $ref: '#/definitions/icarWaterIntakesResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/weights:
+    get:
+      tags:
+        - ICAR inspired
+      summary: Get information about the weight of an animal
+      description: |
+        _Subject to change_
+        # Purpose
+        Returns a list of weight measurement events for a location.
+      parameters:
+        - $ref: '#/parameters/pathLocationScheme'
+        - $ref: '#/parameters/pathLocationId'
+        - $ref: '#/parameters/queryStartDateTime'
+        - $ref: '#/parameters/queryEndDateTime'
+      responses:
+        200:
+          description: Successful. The response contains the weight data for the animals on the location.
+          schema:
+            $ref: '#/definitions/icarWeightsResponse'
+        default:
+          $ref: '#/responses/error'
+  /locations/{location-scheme}/{location-id}/biodiversity-reports:
+      get:
+        tags:
+          - Local/other standard
+        summary: Get the bio-diversity reports for the location in the given period.
+        description: |
+          # Purpose
+          Get the bio-diversity reports for the location in the given period.
+        parameters:
+          - $ref: '#/parameters/pathLocationScheme'
+          - $ref: '#/parameters/pathLocationId'
+          - $ref: '#/parameters/queryStartDateTime'
+          - $ref: '#/parameters/queryEndDateTime'
+        responses:
+          200:
+            description: Successful. The response contains a list of all generated biodiversity reports for the location.
+            schema:
+              $ref: '#/definitions/icarBiodiversityReportsResponse'
+          default:
+            $ref: '#/responses/error'
+
+  /locations/{location-scheme}/{location-id}/addresses:
+      get:
+        tags:
+          - Local/other standard
+        summary: Gets the currently known addresses for this company
+        description: |
+          # Purpose
+          Gets the known addresses for this company
+        parameters:
+          - $ref: '#/parameters/pathLocationScheme'
+          - $ref: '#/parameters/pathLocationId'
+        responses:
+          200:
+            description: Successful. The response contains a list of all generated biodiversity reports for the location.
+            schema:
+              $ref: '#/definitions/uncefactAddressesResponse'
+          default:
+            $ref: '#/responses/error'
