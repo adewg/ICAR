@@ -7,7 +7,7 @@
         "type": "object",
         "properties": {
           "registrationType": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarRegistrationType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarRegistrationCode.json"
           },
           "registrationDate": {
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
@@ -16,10 +16,10 @@
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "specie": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSpecieCodeType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSpecieCode.json"
           },
           "gender": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGenderCodeType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGenderCode.json"
           },
           "birth": {
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
