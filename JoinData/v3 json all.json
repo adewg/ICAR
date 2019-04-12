@@ -7,8 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://integration.join-data.net/api/broker/icar-ade/v1"
-      "url": "https://production.join-data.net/api/broker/icar-ade/v1"
+      "url": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/"
     }
   ],
   "security": [
@@ -19,11 +18,6 @@
     },
     {
       "jdAuthorizationCode": [
-        "fullaccess"
-      ]
-    },
-    {
-      "jdImplicit": [
         "fullaccess"
       ]
     }
@@ -1198,7 +1192,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/icarAnimalRegistrationBody"
+                "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalRegistrationBodyType.json"
               }
             }
           },
@@ -2329,39 +2323,15 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarPregnancyChecksType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarPregnancyChecksType.json"
           }
         }
-      },
-      "icarPregnancyCheckType": {
-        "required": [
-          "date",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "identifier": {
-            "$ref": "#/components/schemas/animalIdentifier"
-          },
-          "date": {
-            "type": "string",
-            "description": "The date on which the pregnancy check has occurred.",
-            "format": "date"
-          },
-          "result": {
-            "$ref": "#/components/schemas/icarPregnancyCheckCodeType"
-          },
-          "method": {
-            "$ref": "#/components/schemas/icarPregnancyCheckMethodCode"
-          }
-        },
-        "description": "Gives information about a pregnancy check event."
       },
       "icarHeatReportsResponseDataSource": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarHeatReportsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatReportsType.json"
           }
         }
       },
@@ -2378,7 +2348,6 @@
           }
         ]
       },
-
       "icarHerdListMovementsResponse": {
         "type": "array",
         "items": {
@@ -2443,7 +2412,7 @@
         "type": "object",
         "properties": {
           "departureDate": {
-            "$ref": "#/components/schemas/icarDateType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           }
         },
         "description": "not completely implemented yet!"
@@ -2451,7 +2420,7 @@
       "uncefactAddressesResponse": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/uncefactAddress"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddress.json"
         }
       },
       "icarAnimalRegistration": {
@@ -2468,34 +2437,34 @@
             "format": "uuid"
           },
           "registrationType": {
-            "$ref": "#/components/schemas/registrationType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/registrationType.json"
           },
           "registrationDate": {
-            "$ref": "#/components/schemas/icarDateType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           },
           "identifier": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "specie": {
-            "$ref": "#/components/schemas/icarSpecieCodeType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSpecieCodeType.json"
           },
           "gender": {
-            "$ref": "#/components/schemas/icarGenderCodeType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGenderCodeType.json"
           },
           "birth": {
-            "$ref": "#/components/schemas/icarDateType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           },
           "breed": {
-            "$ref": "#/components/schemas/icarCodeType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCodeType.json"
           },
           "sire": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "recipientDam": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "geneticDam": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "number": {
             "type": "string",
@@ -2514,7 +2483,7 @@
             "description": "The official name of the animal"
           },
           "productionPurpose": {
-            "$ref": "#/components/schemas/icarProductionPurpose"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarProductionPurpose.json"
           }
         }
       },
@@ -2525,7 +2494,7 @@
         "type": "object",
         "properties": {
           "arrivalDate": {
-            "$ref": "#/components/schemas/icarDateType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           }
         },
         "description": "not completely implemented yet!"
@@ -2841,10 +2810,10 @@
             "description": "Contains the unique id of the tag"
           },
           "animal": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "statusCode": {
-            "$ref": "#/components/schemas/icarIdentificationTagStatusCode"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarIdentificationTagStatusCode.json"
           },
           "statusMessage": {
             "type": "string"
@@ -2855,7 +2824,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarMilkDeliveriesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveriesType.json"
           }
         }
       },
@@ -2876,7 +2845,7 @@
           "collectives": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/icarBiodiversityCollective"
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityCollective.json"
             }
           }
         }
@@ -2930,7 +2899,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarWaterIntakesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWaterIntakesType.json"
           }
         }
       },
@@ -2989,31 +2958,31 @@
         "type": "object",
         "properties": {
           "dam": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "date": {
-            "$ref": "#/components/schemas/icarDateType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           },
           "sire": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "chargeNumber": {
-            "$ref": "#/components/schemas/icarChargeNumber"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarChargeNumber.json"
           },
           "forFlushing": {
-            "$ref": "#/components/schemas/icarForFlushing"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarForFlushing.json"
           },
           "technician": {
-            "$ref": "#/components/schemas/icarTechnician"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTechnician.json"
           },
           "semenOfOwnStock": {
-            "$ref": "#/components/schemas/icarSemenOfOwnStock"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSemenOfOwnStock.json"
           },
           "sexedSemenType": {
-            "$ref": "#/components/schemas/icarSexedSemenCode"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSexedSemenCode.json"
           },
           "sharedSemenUsed": {
-            "$ref": "#/components/schemas/icarSharedSemenUsed"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSharedSemenUsed.json"
           }
         },
         "description": "Gives information about an insemination of a dam."
@@ -3060,9 +3029,6 @@
           }
         ]
       },
-      
-      
-      
       "icarHerdListCoreDataSetResponse": {
         "type": "array",
         "items": {
@@ -3074,9 +3040,6 @@
         "description": "Indication whether the cow was inseminated for flushing.",
         "default": false
       },
-      
-      
-      
       "icarMilkDeliveriesResponse": {
         "type": "array",
         "items": {
@@ -3125,8 +3088,14 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarMilkCharacteristicsTypes"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkCharacteristicsTypes.json"
           }
+        }
+      },
+      "icarHealthReportsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarHealthReportsResponseDataSources"
         }
       },
       "icarHealthReportsResponseDataSources": {
@@ -3142,12 +3111,11 @@
           }
         ]
       },
-      
       "icarDairyGrazingSummariesResponseDataSource": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarDairyGrazingSummariesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDairyGrazingSummariesType.json"
           }
         }
       },
@@ -3155,7 +3123,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarFeedIntakesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarFeedIntakesType.json"
           }
         }
       },
@@ -3163,25 +3131,9 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarGestationsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGestationsType.json"
           }
         }
-      },
-  
-      "uncefactAddressFormatCode": {
-        "type": "integer",
-        "description": "A mutually agreed code signifying the format of this address.\n* `1` - Street name followed by number. Address street name followed by address number.\n* `2` - Number, road type, road name in this sequence. House number followed bytype of road and name of the road.\n* `3` - Road type, road name, number in this sequence. Type of the road followed by name of the road and the house number.\n* `4` - Post office box. Post office box.\n* `5` - Unstructured address. Unstructured address, comprising an unspecified mix of components.\n* `6` - Street name followed by number, building, suite. Identifies the address component as street name followed by number, building, and suite in this sequence.\n* `7` - Rural route number. Identifies the address component as the rural route number.\n* `8` - Post office drawer number. Identifies the address component as the post office drawer.\n* `9` - Building name followed by suite. Identifies the address component as building followed by suite.\n",
-        "enum": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9
-        ]
       },
       "icarHealthActivitiesResponseDataSources": {
         "allOf": [
@@ -3276,12 +3228,11 @@
         },
         "description": "Specific fields for SCR SenseTime"
       },
- 
       "icarHerdListMovementsResponseDataSource": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarHerdListMovementsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListMovementsType.json"
           }
         }
       },
@@ -3302,7 +3253,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarSlaughtersType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSlaughtersType.json"
           }
         }
       },
@@ -3315,14 +3266,12 @@
           3
         ]
       },
-
       "icarAnimalMilkingSampleResponse": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/icarAnimalMilkingSampleResponseDataSources"
         }
       },
-
       "icarMilkDeliveryQualityReportsResponseDataSources": {
         "allOf": [
           {
@@ -3372,11 +3321,10 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarHealthActivitiesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthActivitiesType.json"
           }
         }
       },
-
       "icarTeatPositionsResponseDataSources": {
         "allOf": [
           {
@@ -3394,7 +3342,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarMilkIntakesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakesType.json"
           }
         }
       },
@@ -3415,7 +3363,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarHeatActivitiesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatActivitiesType.json"
           }
         }
       },
@@ -3436,19 +3384,16 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarQuarterMilkingsTypes"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingsTypes.json"
           }
         }
       },
-
-      
       "icarHealthActivitiesResponse": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/icarHealthActivitiesResponseDataSources"
         }
       },
-      
       "icarHerdListResponse": {
         "type": "array",
         "items": {
@@ -3515,7 +3460,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarTeatPositionsTypes"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionsTypes.json"
           }
         }
       },
@@ -3529,22 +3474,6 @@
         "type": "string",
         "description": "A string which (in combination with a scheme) uniquely identifies an animal."
       },
-      "animalIdentifier": {
-        "required": [
-          "id",
-          "scheme"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/animalId"
-          },
-          "scheme": {
-            "$ref": "#/components/schemas/animalIdScheme"
-          }
-        },
-        "description": "Identifies an animal"
-      },
       "icarBiodiversityReportsResponse": {
         "$ref": "#/components/schemas/icarBiodiversityReports"
       },
@@ -3552,7 +3481,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarHerdListAnimalsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListAnimalsType.json"
           }
         }
       },
@@ -3560,7 +3489,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarMilkingVisitType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkingVisitType.json"
           }
         }
       },
@@ -3568,7 +3497,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarIdentificationTagsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarIdentificationTagsType.json"
           }
         }
       },
@@ -3633,16 +3562,15 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarMilkInvoicesType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoicesType.json"
           }
         }
       },
-
       "icarInseminationsResponseDataSource": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarInseminationsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarInseminationsType.json"
           }
         }
       },
@@ -3692,7 +3620,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarHerdListCoreDataSetsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListCoreDataSetsType.json"
           }
         }
       },
@@ -3722,10 +3650,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "#/components/schemas/companyId"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyId.json"
           },
           "scheme": {
-            "$ref": "#/components/schemas/companyIdScheme"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyIdScheme.json"
           }
         },
         "description": "Identifies a company"
@@ -3744,10 +3672,10 @@
             "description": "An identifier for this address within an agreed scheme of address identifiers."
           },
           "addressTypeCode": {
-            "$ref": "#/components/schemas/uncefactAddressTypeCode"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressTypeCode.json"
           },
           "addressFormatCode": {
-            "$ref": "#/components/schemas/uncefactAddressFormatCode"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressFormatCode.json"
           },
           "postbox": {
             "type": "string",
@@ -3900,7 +3828,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarWeightsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWeightsType.json"
           }
         }
       },
@@ -3908,7 +3836,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarMilkDeliveryQualityReportsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveryQualityReportsType.json"
           }
         }
       },
@@ -3925,7 +3853,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarHealthReportsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthReportsType.json"
           }
         }
       },
@@ -3939,7 +3867,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarMilkInvoiceItemsType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoiceItemsType.json"
           }
         }
       },
@@ -3947,7 +3875,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarAnimalMilkingSampleType"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalMilkingSampleType.json"
           }
         }
       },
@@ -3962,8 +3890,8 @@
         "items": {
           "$ref": "#/components/schemas/icarDairyGrazingSummariesResponseDataSources"
         }
-      },
-
+      }
+    },
     "responses": {
       "error": {
         "description": "An error has occurred while handling the request. Check the content of the message for the error details.",

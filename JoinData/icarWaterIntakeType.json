@@ -6,7 +6,7 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "animalIdentifier.json"
+            "$ref": "icarAnimalIdentifierType.json"
           },
           "period": {
             "$ref": "icarPeriodType.json"

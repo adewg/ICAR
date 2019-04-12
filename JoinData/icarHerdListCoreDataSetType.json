@@ -5,7 +5,7 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "animalIdentifier.json"
+            "$ref": "icarAnimalIdentifierType.json"
           },
           "specie": {
             "$ref": "icarSpecieCode.json"
@@ -20,13 +20,13 @@
             "$ref": "icarCodeType.json"
           },
           "sire": {
-            "$ref": "animalIdentifier.json"
+            "$ref": "icarAnimalIdentifierType.json"
           },
           "recipientDam": {
-            "$ref": "animalIdentifier.json"
+            "$ref": "icarAnimalIdentifierType.json"
           },
           "geneticDam": {
-            "$ref": "animalIdentifier.json"
+            "$ref": "icarAnimalIdentifierType.json"
           },
           "number": {
             "type": "string",
