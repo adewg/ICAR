@@ -2398,15 +2398,6 @@
           }
         ]
       },
-      "icarDepartureCoreDataSetType": {
-        "type": "object",
-        "properties": {
-          "departureDate": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
-          }
-        },
-        "description": "not completely implemented yet!"
-      },
       "uncefactAddressesResponse": {
         "type": "array",
         "items": {
@@ -2476,18 +2467,6 @@
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarProductionPurpose.json"
           }
         }
-      },
-      "icarArrivalCoreDataSetType": {
-        "required": [
-          "arrivalDate"
-        ],
-        "type": "object",
-        "properties": {
-          "arrivalDate": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
-          }
-        },
-        "description": "not completely implemented yet!"
       },
       "icarMilkIntakesResponseDataSources": {
         "allOf": [
@@ -3550,6 +3529,18 @@
         "items": {
           "$ref": "#/components/schemas/icarHeatReportsResponseDataSources"
         }
+      },
+      "icarHealthReportVendorSpecific": {
+        "type": "object",
+        "properties": {
+          "scrSenseTime": {
+            "$ref": "#/components/schemas/icarHealthReportScrSenseTime"
+          },
+          "nedapBI": {
+            "$ref": "#/components/schemas/icarHealthReportNedapBusinessInsight"
+          }
+        },
+        "description": "Contains vendor specific fields. Only one vendor element can be present."
       },
       "companyIdentifier": {
         "required": [

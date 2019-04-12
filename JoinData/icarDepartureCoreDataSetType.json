@@ -1,0 +1,9 @@
+{
+        "type": "object",
+        "properties": {
+          "departureDate": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
+          }
+        },
+        "description": "not completely implemented yet!"
+}

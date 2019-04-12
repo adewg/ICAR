@@ -1,11 +1,6 @@
 {
-        "type": "object",
-        "properties": {
-          "icarQuarterId": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterIdCode.json"
-          },
-          "icarTeatPositions": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionsCoordType.json"
-          }
+        "type": "array",
+        "items": {
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionType.json"
         }
 }
