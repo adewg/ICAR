@@ -1,6 +1,6 @@
-      "icarGestationsType": {
+{
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarGestationType"
+          "$ref": "icarGestationType.json"
         }
-      },
+      }

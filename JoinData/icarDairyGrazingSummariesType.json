@@ -1,6 +1,6 @@
-"icarDairyGrazingSummariesType": {
+{
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarDairyGrazingSummaryType"
+          "$ref": "icarDairyGrazingSummaryType.json"
         }
-      }
+}

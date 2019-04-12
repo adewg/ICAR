@@ -1,4 +1,4 @@
-      "icarBiodiversityCollectiveType": {
+{
         "type": "object",
         "properties": {
           "id": {
@@ -16,8 +16,8 @@
           "reports": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/icarBiodiversityReport"
+              "$ref": "icarBiodiversityReportType"
             }
           }
         }
-      },
+      }

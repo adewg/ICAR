@@ -1,4 +1,4 @@
-      "icarFeedIntakeType": {
+{
         "required": [
           "identifier",
           "period"
@@ -6,10 +6,10 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "period": {
-            "$ref": "#/components/schemas/icarPeriodType"
+            "$ref": "icarPeriodType.json"
           },
           "entitlement": {
             "required": [

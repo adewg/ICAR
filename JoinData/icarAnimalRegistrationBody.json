@@ -1,4 +1,4 @@
-      "icarAnimalRegistrationBody": {
+{
         "required": [
           "identifier",
           "registrationDate",
@@ -7,34 +7,34 @@
         "type": "object",
         "properties": {
           "registrationType": {
-            "$ref": "#/components/schemas/registrationType"
+            "$ref": "registrationType.json"
           },
           "registrationDate": {
-            "$ref": "#/components/schemas/icarDateType"
+            "$ref": "icarDateType.json"
           },
           "identifier": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "specie": {
-            "$ref": "#/components/schemas/icarSpecieCodeType"
+            "$ref": "icarSpecieCodeType.json"
           },
           "gender": {
-            "$ref": "#/components/schemas/icarGenderCodeType"
+            "$ref": "icarGenderCodeType.json"
           },
           "birth": {
-            "$ref": "#/components/schemas/icarDateType"
+            "$ref": "icarDateType.json"
           },
           "breed": {
-            "$ref": "#/components/schemas/icarCodeType"
+            "$ref": "icarCodeType.json"
           },
           "sire": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "recipientDam": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "geneticDam": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "number": {
             "type": "string",
@@ -53,7 +53,7 @@
             "description": "The official name of the animal"
           },
           "productionPurpose": {
-            "$ref": "#/components/schemas/icarProductionPurpose"
+            "$ref": "icarProductionPurpose.json"
           }
         }
-      },
+      }

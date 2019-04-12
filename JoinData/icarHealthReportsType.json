@@ -1,6 +1,6 @@
-      "icarHealthReportsType": {
+{
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarHealthReportType"
+          "$ref": "icarHealthReportType.json"
         }
-      },
+      }

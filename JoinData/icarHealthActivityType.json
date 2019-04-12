@@ -1,11 +1,11 @@
-"icarHealthActivityType": {
+{
         "required": [
           "identifier"
         ],
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "timestamp": {
             "type": "string",
@@ -13,8 +13,8 @@
             "format": "date-time"
           },
           "vendorSpecific": {
-            "$ref": "#/components/schemas/icarHealthActivityVendorSpecific"
+            "$ref": "icarHealthActivityVendorSpecific.json"
           }
         },
         "description": "Gives information about health activity of cows on a location."
-      },
+      }

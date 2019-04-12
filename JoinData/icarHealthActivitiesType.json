@@ -1,6 +1,6 @@
-"icarHealthActivitiesType": {
+{
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarHealthActivityType"
+          "$ref": "icarHealthActivityType.json"
         }
-      },
+      }

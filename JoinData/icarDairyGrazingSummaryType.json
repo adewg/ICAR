@@ -1,4 +1,4 @@
-     "icarDairyGrazingSummaryType": {
+{
         "required": [
           "animalsGrazed",
           "animalsQualify",
@@ -167,4 +167,4 @@
           }
         },
         "description": "Contains the dairy grazing information for a period."
-      },
+      }

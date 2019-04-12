@@ -1,4 +1,4 @@
-"icarBiodiversityReportType": {
+{
         "type": "object",
         "properties": {
           "packetCode": {
@@ -47,4 +47,4 @@
             ]
           }
         }
-      },
+}

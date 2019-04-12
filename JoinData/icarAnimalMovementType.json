@@ -1,14 +1,14 @@
-      "icarAnimalMovementType": {
+{
         "required": [
           "arrival"
         ],
         "type": "object",
         "properties": {
           "arrival": {
-            "$ref": "#/components/schemas/icarArrivalCoreDataSetType"
+            "$ref": "icarArrivalCoreDataSetType.json"
           },
           "departure": {
-            "$ref": "#/components/schemas/icarDepartureCoreDataSetType"
+            "$ref": "icarDepartureCoreDataSetType.json"
           }
         }
-      },
+      }

@@ -1,4 +1,4 @@
-      "companyIdType": {
+{
         "type": "string",
         "description": "A string which (in combination with a scheme) uniquely identifies a company."
-      },
+}

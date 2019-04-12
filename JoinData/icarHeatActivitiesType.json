@@ -1,7 +1,7 @@
-    "icarHeatActivitiesType": {
+{
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarHeatActivityType"
+          "$ref": "icarHeatActivityType.json"
         }
-      },
+      }
   

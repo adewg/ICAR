@@ -1,6 +1,6 @@
-      "icarAnimalMovementsSet": {
+{
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarAnimalMovementType"
+          "$ref": "icarAnimalMovementType.json"
         }
-      },
+}

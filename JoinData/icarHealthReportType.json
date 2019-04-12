@@ -1,11 +1,11 @@
-      "icarHealthReportType": {
+{
         "required": [
           "timestamp"
         ],
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "timestamp": {
             "type": "string",
@@ -13,8 +13,8 @@
             "format": "date-time"
           },
           "vendorSpecific": {
-            "$ref": "#/components/schemas/icarHealthReportVendorSpecific"
+            "$ref": "icarHealthReportVendorSpecific.json"
           }
         },
         "description": "Gives health information."
-      },
+      }

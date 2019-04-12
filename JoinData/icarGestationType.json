@@ -1,11 +1,11 @@
-      "icarGestationType": {
+{
         "type": "object",
         "properties": {
           "dam": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "sire": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "animalIdentifier.json"
           },
           "expectedCalvingDate": {
             "type": "string",
@@ -13,11 +13,11 @@
             "format": "date-time"
           },
           "sexedSemenCode": {
-            "$ref": "#/components/schemas/icarSexedSemenCode"
+            "$ref": "icarSexedSemenCode.json"
           },
           "impregnationCode": {
-            "$ref": "#/components/schemas/icarImpregnationCode"
+            "$ref": "icarImpregnationCode.json"
           }
         },
         "description": "Gives information about a gestation of a dam."
-      },
+      }
