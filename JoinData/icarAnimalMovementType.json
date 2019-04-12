@@ -1,14 +1,14 @@
 {
-        "required": [
-          "arrival"
-        ],
-        "type": "object",
-        "properties": {
-          "arrival": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarArrivalCoreDataSetType.json"
-          },
-          "departure": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDepartureCoreDataSetType.json"
-          }
-        }
-      }
+	"required": [
+		"arrival"
+	],
+	"type": "object",
+	"properties": {
+		"arrival": {
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarArrivalCoreDataSetType.json"
+		},
+		"departure": {
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDepartureCoreDataSetType.json"
+		}
+	}
+}

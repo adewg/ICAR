@@ -3551,18 +3551,6 @@
           "$ref": "#/components/schemas/icarHeatReportsResponseDataSources"
         }
       },
-      "icarHealthReportVendorSpecific": {
-        "type": "object",
-        "properties": {
-          "scrSenseTime": {
-            "$ref": "#/components/schemas/icarHealthReportScrSenseTime"
-          },
-          "nedapBI": {
-            "$ref": "#/components/schemas/icarHealthReportNedapBusinessInsight"
-          }
-        },
-        "description": "Contains vendor specific fields. Only one vendor element can be present."
-      },
       "companyIdentifier": {
         "required": [
           "id",
