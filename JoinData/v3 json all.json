@@ -7,6 +7,7 @@
   },
   "servers": [
     {
+      "url": "https://integration.join-data.net/api/broker/icar-ade/v1"
       "url": "https://production.join-data.net/api/broker/icar-ade/v1"
     }
   ],
@@ -93,7 +94,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/icarMilkingVisitsResponse"
+                  "$ref": "icarMilkingVisitsResponse.json"
                 }
               }
             }
@@ -4111,7 +4112,7 @@
           "clientCredentials": {
             "tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
             "scopes": {
-              "fullaccess": "Full access to all resources"
+              "fullaccess": "Full access to all resources when mandate is available"
             }
           }
         }
@@ -4124,19 +4125,7 @@
             "authorizationUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth",
             "tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
             "scopes": {
-              "fullaccess": "Full access to all resources"
-            }
-          }
-        }
-      },
-      "jdImplicit": {
-        "type": "oauth2",
-        "description": "Secure access using implicit grant",
-        "flows": {
-          "implicit": {
-            "authorizationUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth",
-            "scopes": {
-              "fullaccess": "Full access to all resources"
+              "fullaccess": "Full access to all resources when mandate is available"
             }
           }
         }
