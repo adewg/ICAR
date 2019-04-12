@@ -1,0 +1,16 @@
+{
+	"type": "string",
+	"enum": [
+		"Normal",
+		"Incompatible",
+		"Illegal",
+		"Faulty",
+		"OutdatedData",
+		"LowBattery",
+		"Unattached",
+		"NotOnAnimal",
+		"BadPosition",
+		"WrongSide",
+		"Other"
+	]
+}

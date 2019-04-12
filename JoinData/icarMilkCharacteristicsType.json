@@ -1,0 +1,31 @@
+      "icarMilkCharacteristicsType": {
+        "type": "object",
+        "properties": {
+          "characteristicsCode": {
+            "type": "string",
+            "description": "ICAR Milk Characteristics Code",
+            "enum": [
+              "SCC",
+              "FAT",
+              "PROTEIN",
+              "LAC",
+              "UREA",
+              "BLOOD",
+              "ACETONE",
+              "BHB",
+              "LDH",
+              "PRO",
+              "AVGCOND",
+              "MAXCOND",
+              "AVGFLWR",
+              "MAXFLWR",
+              "WEIGHT"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "description": "Numeric value determined by measuring an object",
+            "format": "decimal"
+          }
+        }
+      },

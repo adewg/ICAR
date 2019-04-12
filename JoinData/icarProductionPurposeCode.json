@@ -1,0 +1,8 @@
+{
+        "type": "string",
+        "description": "Not an ICAR approval ready currently. Allowed values are -D- for Dairy and -B- for Beef.",
+        "enum": [
+          "D",
+          "B"
+        ]
+}

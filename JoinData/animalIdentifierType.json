@@ -1,0 +1,16 @@
+{
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "animalIdType.json"
+          },
+          "scheme": {
+            "$ref": "animalIdSchemeCode.json"
+          }
+        },
+        "description": "Identifies an animal"
+}

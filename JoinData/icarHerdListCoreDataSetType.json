@@ -1,0 +1,51 @@
+{
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "animalIdentifier.json"
+          },
+          "specie": {
+            "$ref": "icarSpecieCode.json"
+          },
+          "gender": {
+            "$ref": "icarGenderCode.json"
+          },
+          "birth": {
+            "$ref": "icarDateType.json"
+          },
+          "breed": {
+            "$ref": "icarCodeType.json"
+          },
+          "sire": {
+            "$ref": "animalIdentifier.json"
+          },
+          "recipientDam": {
+            "$ref": "animalIdentifier.json"
+          },
+          "geneticDam": {
+            "$ref": "animalIdentifier.json"
+          },
+          "number": {
+            "type": "string",
+            "description": "A meaningful identification code of the animal, not necessary unique within the location"
+          },
+          "earTagNumber": {
+            "type": "string",
+            "description": "The ear tag number"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the animal"
+          },
+          "officialName": {
+            "type": "string",
+            "description": "The official name of the animal"
+          },
+          "productionPurpose": {
+            "$ref": "icarProductionPurposeCode.json"
+          }
+        }
+      }

@@ -1,0 +1,20 @@
+{
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "animalIdentifier.json"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The timestamp of the measurement.",
+            "format": "date-time"
+          },
+          "vendorSpecific": {
+            "$ref": "icarHeatActivityVendorSpecific.json"
+          }
+        },
+        "description": "Gives information about an in-heat activity of a dam."
+      }

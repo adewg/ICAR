@@ -1,0 +1,18 @@
+{
+	"type": "object",
+	"properties": {
+		"value": {
+			"type": "number",
+			"format": "double"
+		},
+		"unitCode": {
+			"type": "string",
+			"description": "UN/CEFACT Common Code for Units of Measurement.",
+			"enum": [
+				"SEC",
+				"MIN"
+			]
+		}
+	},
+	"description": "The length in time of the milking for this quarter"
+}

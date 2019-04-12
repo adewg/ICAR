@@ -1,0 +1,23 @@
+{
+        "type": "object",
+        "properties": {
+          "dam": {
+            "$ref": "animalIdentifier.json"
+          },
+          "sire": {
+            "$ref": "animalIdentifier.json"
+          },
+          "expectedCalvingDate": {
+            "type": "string",
+            "description": "Date of expected calving.",
+            "format": "date-time"
+          },
+          "sexedSemenCode": {
+            "$ref": "icarSexedSemenCode.json"
+          },
+          "impregnationCode": {
+            "$ref": "icarImpregnationCode.json"
+          }
+        },
+        "description": "Gives information about a gestation of a dam."
+      }

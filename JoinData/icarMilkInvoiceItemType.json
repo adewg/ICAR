@@ -1,0 +1,132 @@
+{
+        "type": "object",
+        "properties": {
+          "indexNumberInvoice": {
+            "type": "integer",
+            "description": "204640",
+            "format": "int32"
+          },
+          "indexNumberItemCodeDairy": {
+            "type": "integer",
+            "description": "204528",
+            "format": "int32"
+          },
+          "accountNumber": {
+            "type": "string",
+            "description": "201088"
+          },
+          "period": {
+            "$ref": "icarPeriodType.json"
+          },
+          "description": {
+            "type": "string",
+            "description": "204520"
+          },
+          "quantity": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "LTR",
+                  "KGM",
+                  "H87"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "202435"
+          },
+          "item": {
+            "type": "object",
+            "properties": {
+              "vatPercentage": {
+                "required": [
+                  "unitCode",
+                  "value"
+                ],
+                "type": "object",
+                "properties": {
+                  "unitCode": {
+                    "type": "string",
+                    "description": "UN/CEFACT Common Code for Units of Measurement.",
+                    "enum": [
+                      "P1"
+                    ]
+                  },
+                  "value": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "description": "204557"
+              },
+              "itemCodeDairy": {
+                "type": "integer",
+                "description": "204521",
+                "format": "int32"
+              }
+            }
+          },
+          "financial": {
+            "required": [
+              "gross",
+              "net",
+              "unitPrice",
+              "valutaCode",
+              "vat"
+            ],
+            "type": "object",
+            "properties": {
+              "unitPrice": {
+                "type": "number",
+                "description": "204387",
+                "format": "double"
+              },
+              "discountPer100litres": {
+                "type": "number",
+                "description": "204630",
+                "format": "double"
+              },
+              "runningTotal": {
+                "type": "number",
+                "description": "204391",
+                "format": "double"
+              },
+              "gross": {
+                "type": "number",
+                "description": "204384",
+                "format": "double"
+              },
+              "valutaCode": {
+                "type": "string",
+                "description": "402617 | ISO 4217",
+                "enum": [
+                  "EUR"
+                ]
+              },
+              "vat": {
+                "type": "number",
+                "description": "204386",
+                "format": "double"
+              },
+              "net": {
+                "type": "number",
+                "description": "204389",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "description": "Gives information about the items of a received milk invoice of a farmer to a dairy company."
+      }

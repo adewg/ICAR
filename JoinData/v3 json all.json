@@ -1,0 +1,4135 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "JoinData Message definitions",
+    "description": "The specification describes the JoinData Datahub Broker API. \n",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://integration.join-data.net/api/broker/icar-ade/v1"
+      "url": "https://production.join-data.net/api/broker/icar-ade/v1"
+    }
+  ],
+  "security": [
+    {
+      "jdClient": [
+        "fullaccess"
+      ]
+    },
+    {
+      "jdAuthorizationCode": [
+        "fullaccess"
+      ]
+    },
+    {
+      "jdImplicit": [
+        "fullaccess"
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "ICAR inspired",
+      "description": "Messages which do not exist in current ICAR-ADE standard, but which follow the same principles\n"
+    },
+    {
+      "name": "Local/other standard",
+      "description": "Messages which are (soon) available through JoinData, but without any affiliation to ICAR\n"
+    }
+  ],
+  "paths": {
+    "/locations/{location-scheme}/{location-id}/milking-visits": {
+      "get": {
+        "tags": [
+          "ICAR approval ready"
+        ],
+        "summary": "Get the data for milking visits",
+        "description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "icarMilkingVisitsResponse.json"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/characteristics": {
+      "get": {
+        "tags": [
+          "ICAR approval ready"
+        ],
+        "summary": "Get the quarter milking data for a specific milking visit",
+        "description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "milking-visit-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkCharacteristicsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/quarter-milkings": {
+      "get": {
+        "tags": [
+          "ICAR approval ready"
+        ],
+        "summary": "Get the quarter milking data for a specific milking visit",
+        "description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "milking-visit-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarQuarterMilkingsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/animal-milking-sample": {
+      "get": {
+        "tags": [
+          "ICAR approval ready"
+        ],
+        "summary": "Get the quarter milking data for a specific milking visit",
+        "description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "milking-visit-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalMilkingSampleResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/herd-list": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the animals on a location.",
+        "description": "_Based upon ICAR ADE GetHerdListRequest._\n# Purpose\nReturns the herd list for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the animal identifiers for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHerdListResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/herd-list-core-data-set": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the core details of the animals on a location.",
+        "description": "_Based upon ICAR ADE GetHerdListRequest._\n# Purpose\nReturns a herd list for a location containing core animal data.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the animal core data set for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHerdListCoreDataSetResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/dairy-grazing-summaries": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the dairy grazing summary data",
+        "description": "# Purpose\nReturns a summary with information about the grazing pattern of the animals on the given location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "modified-since",
+            "in": "query",
+            "description": "The date-time of insertion or last update of the event.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the dairy grazing summary data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarDairyGrazingSummariesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-intakes": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get feed intakes of the animals on the location specified.",
+        "description": "# Purpose\nReturns feed intakes of the animals on the location specified.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the intake data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedIntakesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/gestations": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get gestation information for all in-herd animals on a location.",
+        "description": "# Purpose\nReturns a list with current gestation information for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the gestation data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGestationsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/health-activities": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get health activity information for animals on a location.",
+        "description": "# Purpose\nReturns a list with health activity information for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "animal-scheme",
+            "in": "query",
+            "description": "The scheme id for the animal identifier. Should be used together with animal-id.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "animal-id",
+            "in": "query",
+            "description": "The unique identifier for the animal. Should be used together with animal-scheme.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the health activity data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHealthActivitiesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/health-reports": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get health information for a location.",
+        "description": "# Purpose\nReturns a list with current health information for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the health data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHealthReportsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/heat-activities": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get in-heat activity information for female animals on a location.",
+        "description": "# Purpose\nReturns a list with in-heat activity information for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "animal-scheme",
+            "in": "query",
+            "description": "The scheme id for the animal identifier. Should be used together with animal-id.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "animal-id",
+            "in": "query",
+            "description": "The unique identifier for the animal. Should be used together with animal-scheme.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the in-heat activity data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHeatActivitiesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/heat-reports": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get in-heat information for a location.",
+        "description": "# Purpose\nReturns a list with current in-heat information for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the in-heat data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHeatReportsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/herd-list-movements": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the animal movements on a location.",
+        "description": "_Based upon ICAR ADE GetHerdListRequest._\n# Purpose\nReturns the animal movements for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the animal movement data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHerdListMovementsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/animal-registrations": {
+      "post": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Pushes a singular animal (governmental) registration",
+        "description": "# Purpose\nProvides data from a singular animal registration\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The animal you want to register",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarAnimalRegistrationBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalRegistrationResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/teat-positions": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the teat positions for a specific milking visit",
+        "description": "# Purpose\nProvides teat positions from a singular visit of an animal to a milking parlour\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "milking-visit-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTeatPositionsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/identification-tags": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the identification tags on a location.",
+        "description": "# Purpose\nReturns the identification tags for a location. Examples are Nedap, SCR and Gallagher identification tags (EIDs) for animals.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the current identification tags available on the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarIdentificationTagsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/inseminations": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the executed insemantions on a location.",
+        "description": "# Purpose\nReturns the inseminations for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "modified-since",
+            "in": "query",
+            "description": "The date-time of insertion or last update of the event.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the insemination data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarInseminationsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milk-deliveries": {
+      "get": {
+        "tags": [
+          "Local/other standard"
+        ],
+        "summary": "Get milk deliveries of the location specified.",
+        "description": "# Purpose\nReturns milk deliveries of the location specified.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the milk delivery data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkDeliveriesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milk-deliveries/{milk-delivery-id}/quality-reports": {
+      "get": {
+        "tags": [
+          "Local/other standard"
+        ],
+        "summary": "Get the test results for a specific milk delivery of the location specified.",
+        "description": "todo",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "milk-delivery-id",
+            "in": "path",
+            "description": "The unique identifier for a milk delivery for a specific location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the quality reports of the milk delivery data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkDeliveryQualityReportsResultsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milk-intakes": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get milk intakes of the animals on the location specified.",
+        "description": "# Purpose\nReturns milk intakes of the animals on the location specified.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the intake data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkIntakesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milk-invoices": {
+      "get": {
+        "tags": [
+          "Local/other standard"
+        ],
+        "summary": "Get milk delivery invoices of the location specified.",
+        "description": "# Purpose\nReturns the invoices received for the milk delivered of the location specified.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the invoices received for the deliverd milk for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkInvoicesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milk-invoices/{milk-invoice-id}/items": {
+      "get": {
+        "tags": [
+          "Local/other standard"
+        ],
+        "summary": "Get the items of the milk delivery invoices of the location specified.",
+        "description": "# Purpose\nReturns the items of the invoices received for the milk delivered of the location specified.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "milk-invoice-id",
+            "in": "path",
+            "description": "The unique identifier for a milk invoice for a specific location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the items of the invoices received for the deliverd milk for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkInvoiceItemsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/slaughters": {
+      "get": {
+        "tags": [
+          "Local/other standard"
+        ],
+        "summary": "Get the slaughterhouse events for all animals being slaughtered.",
+        "description": "# Purpose\nReturns a list animals being slaughtered with their details for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the slaughter events data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarSlaughtersResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get the pregnancy checks events for all in-herd animals on a location.",
+        "description": "_Subject to change_\n# Purpose\nReturns a list with pregnancy-checks events information for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the pregnancy check events data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarPregnancyCheckResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/water-intakes": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get water intakes of the animals on the location specified.",
+        "description": "# Purpose\nReturns water intakes of the animals on the location specified.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the intake data for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarWaterIntakesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/weights": {
+      "get": {
+        "tags": [
+          "ICAR inspired"
+        ],
+        "summary": "Get information about the weight of an animal",
+        "description": "_Subject to change_\n# Purpose\nReturns a list of weight measurement events for a location.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the weight data for the animals on the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarWeightsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/biodiversity-reports": {
+      "get": {
+        "tags": [
+          "Local/other standard"
+        ],
+        "summary": "Get the bio-diversity reports for the location in the given period.",
+        "description": "# Purpose\nGet the bio-diversity reports for the location in the given period.\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a list of all generated biodiversity reports for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarBiodiversityReportsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/addresses": {
+      "get": {
+        "tags": [
+          "Local/other standard"
+        ],
+        "summary": "Gets the currently known addresses for this company",
+        "description": "# Purpose\nGets the known addresses for this company\n",
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-v1",
+                "be-v1"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a list of all generated biodiversity reports for the location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/uncefactAddressesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "icarGestationsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarGestationsResponseDataSource"
+          }
+        ]
+      },
+      "icarSlaughtersResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarSlaughtersResponseDataSources"
+        }
+      },
+      "icarPregnancyChecksResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarPregnancyChecksType"
+          }
+        }
+      },
+      "icarPregnancyCheckType": {
+        "required": [
+          "date",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "date": {
+            "type": "string",
+            "description": "The date on which the pregnancy check has occurred.",
+            "format": "date"
+          },
+          "result": {
+            "$ref": "#/components/schemas/icarPregnancyCheckCodeType"
+          },
+          "method": {
+            "$ref": "#/components/schemas/icarPregnancyCheckMethodCode"
+          }
+        },
+        "description": "Gives information about a pregnancy check event."
+      },
+      "icarHeatReportsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarHeatReportsType"
+          }
+        }
+      },
+      "icarQuarterMilkingsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarQuarterMilkingsResponseDataSource"
+          }
+        ]
+      },
+
+      "icarHerdListMovementsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarHerdListMovementsResponseDataSources"
+        }
+      },
+      "icarAnimalMilkingSampleResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarAnimalMilkingSampleResponseDataSource"
+          }
+        ]
+      },
+      "icarSemenOfOwnStock": {
+        "type": "boolean",
+        "description": "Indication whether the semen used came out of the stock from the farmer, or from the technician.",
+        "default": true
+      },
+      "icarMilkInvoiceItemsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkInvoiceItemsResponseDataSource"
+          }
+        ]
+      },
+      "icarMilkDeliveriesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkDeliveriesResponseDataSource"
+          }
+        ]
+      },
+      "icarSexedSemenCode": {
+        "type": "string",
+        "description": "A list of codes representing the sexed semen type; can be -Y- for sexing semen Male or Female, -N- for no sexing semen, -F- for sexing semen Female or -M- for sexing semen Male.\n",
+        "enum": [
+          "Y",
+          "F",
+          "M",
+          "N"
+        ]
+      },
+      "icarDepartureCoreDataSetType": {
+        "type": "object",
+        "properties": {
+          "departureDate": {
+            "$ref": "#/components/schemas/icarDateType"
+          }
+        },
+        "description": "not completely implemented yet!"
+      },
+      "uncefactAddressesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/uncefactAddress"
+        }
+      },
+      "icarAnimalRegistration": {
+        "required": [
+          "identifier",
+          "registrationDate",
+          "registrationType"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for the posted message",
+            "format": "uuid"
+          },
+          "registrationType": {
+            "$ref": "#/components/schemas/registrationType"
+          },
+          "registrationDate": {
+            "$ref": "#/components/schemas/icarDateType"
+          },
+          "identifier": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "specie": {
+            "$ref": "#/components/schemas/icarSpecieCodeType"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/icarGenderCodeType"
+          },
+          "birth": {
+            "$ref": "#/components/schemas/icarDateType"
+          },
+          "breed": {
+            "$ref": "#/components/schemas/icarCodeType"
+          },
+          "sire": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "recipientDam": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "geneticDam": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "number": {
+            "type": "string",
+            "description": "A meaningful identification code of the animal, not necessary unique within the location"
+          },
+          "earTagNumber": {
+            "type": "string",
+            "description": "The ear tag number"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the animal"
+          },
+          "officialName": {
+            "type": "string",
+            "description": "The official name of the animal"
+          },
+          "productionPurpose": {
+            "$ref": "#/components/schemas/icarProductionPurpose"
+          }
+        }
+      },
+      "icarArrivalCoreDataSetType": {
+        "required": [
+          "arrivalDate"
+        ],
+        "type": "object",
+        "properties": {
+          "arrivalDate": {
+            "$ref": "#/components/schemas/icarDateType"
+          }
+        },
+        "description": "not completely implemented yet!"
+      },
+      "icarMilkIntakesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkIntakesResponseDataSource"
+          }
+        ]
+      },
+      "icarMilkIntakeAdditive": {
+        "required": [
+          "bin",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "bin": {
+            "type": "integer",
+            "description": "The bin the additive was sourced from.",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of additive provided.",
+            "enum": [
+              "Unknown",
+              "Electrolyte"
+            ]
+          },
+          "quantity": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "LTR",
+                  "MLT"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "The provided quantity of the additive in milliliters."
+          }
+        }
+      },
+      "icarMilkDeliveryType": {
+        "type": "object",
+        "properties": {
+          "dairyIdentifier": {
+            "$ref": "#/components/schemas/companyIdentifier"
+          },
+          "productionUnit": {
+            "type": "integer",
+            "description": "204611",
+            "format": "int32"
+          },
+          "supplierNumber": {
+            "type": "integer",
+            "description": "202510",
+            "format": "int32"
+          },
+          "reckoningYear": {
+            "type": "integer",
+            "description": "204272",
+            "format": "int32"
+          },
+          "codeFatProteinCalculated": {
+            "type": "integer",
+            "description": "204398",
+            "format": "int32"
+          },
+          "period": {
+            "required": [
+              "end",
+              "start"
+            ],
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "description": "The start time of the day. Time element should be set to 00:00:00.",
+                "format": "date-time"
+              },
+              "name": {
+                "type": "string",
+                "description": "The friendly name of the period."
+              },
+              "end": {
+                "type": "string",
+                "description": "The end time of the day. Time element should be set to 23:59:59.",
+                "format": "date-time"
+              }
+            },
+            "description": "The period of reckoning the delivery belongs to."
+          },
+          "timestampDelivery": {
+            "type": "string",
+            "description": "The timestamp of the milk delivery. 201731 & 204271",
+            "format": "date-time"
+          },
+          "milkDelivered": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "LTR",
+                  "KGM"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "200503 & 203575"
+          },
+          "fat": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "VP",
+                  "GL"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "200505 & 204625"
+          },
+          "protein": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "VP",
+                  "GL"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "200506 & 204626"
+          },
+          "lactose": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "VP"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "200507"
+          },
+          "urea": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "VP"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "204261"
+          },
+          "temperature": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "CEL"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "200509"
+          },
+          "bacteriaInhibitingSubstance": {
+            "type": "object",
+            "properties": {
+              "reductionMilkAmount": {
+                "required": [
+                  "value",
+                  "valutaCode"
+                ],
+                "type": "object",
+                "properties": {
+                  "valutaCode": {
+                    "type": "string",
+                    "description": "ISO 4217",
+                    "enum": [
+                      "EUR"
+                    ]
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "description": "204381"
+              },
+              "kind": {
+                "type": "string",
+                "description": "202614"
+              },
+              "testResult": {
+                "type": "string",
+                "description": "202668"
+              },
+              "reductionMilkQuantity": {
+                "required": [
+                  "unitCode",
+                  "value"
+                ],
+                "type": "object",
+                "properties": {
+                  "unitCode": {
+                    "type": "string",
+                    "description": "UN/CEFACT Common Code for Units of Measurement.",
+                    "enum": [
+                      "LTR",
+                      "KGM"
+                    ]
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "description": "203446"
+              }
+            }
+          }
+        },
+        "description": "Gives information about a milk delivery of a farmer to a dairy company."
+      },
+      "icarIdentificationTagType": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Contains the unique id of the tag"
+          },
+          "animal": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/icarIdentificationTagStatusCode"
+          },
+          "statusMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "icarMilkDeliveriesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarMilkDeliveriesType"
+          }
+        }
+      },
+      "icarBiodiversityReports": {
+        "type": "object",
+        "properties": {
+          "company": {
+            "$ref": "#/components/schemas/companyIdentifier"
+          },
+          "ftn": {
+            "type": "string",
+            "description": "A factory tank number (factory number + company number at factory)"
+          },
+          "area": {
+            "type": "string",
+            "description": "A meaningful identification code of the animal, not necessary unique within the location"
+          },
+          "collectives": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarBiodiversityCollective"
+            }
+          }
+        }
+      },
+      "icarSpecieCodeType": {
+        "type": "string",
+        "description": "Based upon Icar sc:SpecieCodeType. Allowed values are -BUF- for Buffalo, -OVI- for Ovine, -BOV- for Bovine and -GOT- for Goat.",
+        "enum": [
+          "BUF",
+          "OVI",
+          "BOV",
+          "GOT"
+        ]
+      },
+      "icarTeatPositionsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarTeatPositionsResponseDataSources"
+        }
+      },
+      "icarHeatReportVendorSpecific": {
+        "type": "object",
+        "properties": {
+          "scrSenseTime": {
+            "$ref": "#/components/schemas/icarHeatReportScrSenseTime"
+          },
+          "nedapBI": {
+            "$ref": "#/components/schemas/icarHeatReportNedapBusinessInsight"
+          }
+        },
+        "description": "Contains vendor specific fields. Only one vendor element can be present."
+      },
+      "icarHerdListCoreDataSetResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSource"
+          }
+        ]
+      },
+      "icarHeatReportNedapBusinessInsight": {
+        "type": "object",
+        "description": "Specific fields for Nedap Business Insight. TO BE IMPLEMENTED"
+      },
+      "icarWaterIntakesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarWaterIntakesType"
+          }
+        }
+      },
+      "icarDairyGrazingSummariesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarDairyGrazingSummariesResponseDataSource"
+          }
+        ]
+      },
+      "responseDataSource": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/dataSource"
+          }
+        }
+      },
+      "registrationType": {
+        "type": "string",
+        "description": "Type of registration",
+        "enum": [
+          "Birth",
+          "Death",
+          "Arrival",
+          "Departure"
+        ]
+      },
+      "quarterMilkingWeight": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "unitCode": {
+            "type": "string",
+            "description": "UN/CEFACT Common Code for Units of Measurement.",
+            "enum": [
+              "KGM"
+            ]
+          }
+        },
+        "description": "The weight of the milk milked of this quarter"
+      },
+      "icarInseminationType": {
+        "type": "object",
+        "properties": {
+          "dam": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "date": {
+            "$ref": "#/components/schemas/icarDateType"
+          },
+          "sire": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "chargeNumber": {
+            "$ref": "#/components/schemas/icarChargeNumber"
+          },
+          "forFlushing": {
+            "$ref": "#/components/schemas/icarForFlushing"
+          },
+          "technician": {
+            "$ref": "#/components/schemas/icarTechnician"
+          },
+          "semenOfOwnStock": {
+            "$ref": "#/components/schemas/icarSemenOfOwnStock"
+          },
+          "sexedSemenType": {
+            "$ref": "#/components/schemas/icarSexedSemenCode"
+          },
+          "sharedSemenUsed": {
+            "$ref": "#/components/schemas/icarSharedSemenUsed"
+          }
+        },
+        "description": "Gives information about an insemination of a dam."
+      },
+      "icarImpregnationCode": {
+        "type": "string",
+        "description": "Defines the type of the last impregnation event; can be -I- for insemination, -N- for natural service, -R- for running with the bull or -M- for implantation. \n",
+        "enum": [
+          "I",
+          "N",
+          "R",
+          "M"
+        ]
+      },
+      "icarHeatReportsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarHeatReportsResponseDataSource"
+          }
+        ]
+      },
+      "icarMilkDeliveryQualityReportsResultsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkDeliveryQualityReportsResponseDataSources"
+        }
+      },
+      "icarIdentificationTagsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarIdentificationTagsResponseDataSource"
+          }
+        ]
+      },
+      
+      
+      
+      "icarHerdListCoreDataSetResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSources"
+        }
+      },
+      "icarForFlushing": {
+        "type": "boolean",
+        "description": "Indication whether the cow was inseminated for flushing.",
+        "default": false
+      },
+      
+      
+      
+      "icarMilkDeliveriesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkDeliveriesResponseDataSources"
+        }
+      },
+      "icarInseminationsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarInseminationsResponseDataSources"
+        }
+      },
+      "icarHeatActivitiesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarHeatActivitiesResponseDataSources"
+        }
+      },
+      "icarHerdListResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarHerdListResponseDataSource"
+          }
+        ]
+      },
+      "icarInseminationsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarInseminationsResponseDataSource"
+          }
+        ]
+      },
+      "icarMilkCharacteristicsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarMilkCharacteristicsTypes"
+          }
+        }
+      },
+      "icarHealthReportsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarHealthReportsResponseDataSource"
+          }
+        ]
+      },
+      
+      "icarDairyGrazingSummariesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarDairyGrazingSummariesType"
+          }
+        }
+      },
+      "icarFeedIntakesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarFeedIntakesType"
+          }
+        }
+      },
+      "icarGestationsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarGestationsType"
+          }
+        }
+      },
+  
+      "uncefactAddressFormatCode": {
+        "type": "integer",
+        "description": "A mutually agreed code signifying the format of this address.\n* `1` - Street name followed by number. Address street name followed by address number.\n* `2` - Number, road type, road name in this sequence. House number followed bytype of road and name of the road.\n* `3` - Road type, road name, number in this sequence. Type of the road followed by name of the road and the house number.\n* `4` - Post office box. Post office box.\n* `5` - Unstructured address. Unstructured address, comprising an unspecified mix of components.\n* `6` - Street name followed by number, building, suite. Identifies the address component as street name followed by number, building, and suite in this sequence.\n* `7` - Rural route number. Identifies the address component as the rural route number.\n* `8` - Post office drawer number. Identifies the address component as the post office drawer.\n* `9` - Building name followed by suite. Identifies the address component as building followed by suite.\n",
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "icarHealthActivitiesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarHealthActivitiesResponseDataSource"
+          }
+        ]
+      },
+      "icarHealthActivityScrSenseTime": {
+        "type": "object",
+        "properties": {
+          "dailyRumination": {
+            "type": "number",
+            "description": "The number of minutes a cow ruminates during the day (24-hour period)",
+            "format": "double"
+          },
+          "dailyEating": {
+            "type": "number",
+            "description": "The number of minutes a cow eats during the day (24 hour period)",
+            "format": "double"
+          },
+          "hourlyRumination": {
+            "type": "number",
+            "description": "The number of minutes a cow ruminates during an hour.",
+            "format": "double"
+          },
+          "hourlyEating": {
+            "type": "number",
+            "description": "The number of minutes a cow eats an hour.",
+            "format": "double"
+          },
+          "activityTrend": {
+            "type": "number",
+            "description": "The trend of the cow’s activity. Cows when they are not well are less active.",
+            "format": "double"
+          }
+        },
+        "description": "Contains SenseTime specific fields. Only one element can be present per item."
+      },
+      "icarHealthActivityVendorSpecific": {
+        "type": "object",
+        "properties": {
+          "scrSenseTime": {
+            "$ref": "#/components/schemas/icarHealthActivityScrSenseTime"
+          }
+        },
+        "description": "Contains vendor specific fields. Only one vendor element can be present."
+      },
+      "icarHealthReportNedapBusinessInsight": {
+        "type": "object",
+        "description": "Specific fields for Nedap Business Insight. TO BE IMPLEMENTED"
+      },
+      "icarWeightsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarWeightsResponseDataSources"
+        }
+      },
+      "icarChargeNumber": {
+        "type": "string",
+        "description": "The number of the batch of the production of the semen."
+      },
+      "icarFeedIntakesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarFeedIntakesResponseDataSources"
+        }
+      },
+      "icarHealthReportScrSenseTime": {
+        "type": "object",
+        "properties": {
+          "dailyRumination": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "healthIndex": {
+            "type": "number",
+            "description": "One digit after decimal point",
+            "format": "double"
+          },
+          "healthIndexThreshold": {
+            "type": "integer",
+            "description": "For report coloring",
+            "format": "int32"
+          }
+        },
+        "description": "Specific fields for SCR SenseTime"
+      },
+ 
+      "icarHerdListMovementsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarHerdListMovementsType"
+          }
+        }
+      },
+      "icarPregnancyChecksResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarPregnancyChecksResponseDataSource"
+          }
+        ]
+      },
+      "icarSlaughtersResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarSlaughtersType"
+          }
+        }
+      },
+      "uncefactAddressTypeCode": {
+        "type": "integer",
+        "description": "A mutually agreed code signifying the type of this address.\n* `1` - Postal address. The address is representing a postal address.\n* `2` - Fiscal address. Identification of an address as required by fiscal administrations.\n* `3` - Physical address. The address represents an actual physical location.\n",
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+
+      "icarAnimalMilkingSampleResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarAnimalMilkingSampleResponseDataSources"
+        }
+      },
+
+      "icarMilkDeliveryQualityReportsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkDeliveryQualityReportsResponseDataSource"
+          }
+        ]
+      },
+      "icarHerdListMovementsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarHerdListMovementsResponseDataSource"
+          }
+        ]
+      },
+      "icarPregnancyCheckResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarPregnancyChecksResponseDataSources"
+        }
+      },
+      "icarMilkingVisitsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkingVisitsResponseDataSource"
+          }
+        ]
+      },
+      "icarHealthActivitiesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarHealthActivitiesType"
+          }
+        }
+      },
+
+      "icarTeatPositionsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarTeatPositionsResponseDataSource"
+          }
+        ]
+      },
+      "icarMilkIntakesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarMilkIntakesType"
+          }
+        }
+      },
+      "icarSlaughtersResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarSlaughtersResponseDataSource"
+          }
+        ]
+      },
+      "icarHeatActivitiesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarHeatActivitiesType"
+          }
+        }
+      },
+      "icarMilkInvoicesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkInvoicesResponseDataSource"
+          }
+        ]
+      },
+      "icarQuarterMilkingsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarQuarterMilkingsTypes"
+          }
+        }
+      },
+
+      
+      "icarHealthActivitiesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarHealthActivitiesResponseDataSources"
+        }
+      },
+      
+      "icarHerdListResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarHerdListResponseDataSources"
+        }
+      },
+      "icarIdentificationTagsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarIdentificationTagsResponseDataSources"
+        }
+      },
+      "icarMilkInvoiceItemsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkInvoiceItemsResponseDataSources"
+        }
+      },
+      "icarWaterIntakesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarWaterIntakesResponseDataSource"
+          }
+        ]
+      },
+      "icarAnimalRegistrationResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarAnimalRegistration"
+          }
+        }
+      },
+      "companyId": {
+        "type": "string",
+        "description": "A string which (in combination with a scheme) uniquely identifies a company."
+      },
+      "icarMilkingVisitsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkingVisitsResponseDataSources"
+        }
+      },
+      "icarMilkCharacteristicsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkCharacteristicsResponseDataSource"
+          }
+        ]
+      },
+      "icarTeatPositionsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarTeatPositionsTypes"
+          }
+        }
+      },
+      "icarMilkCharacteristicsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkCharacteristicsResponseDataSources"
+        }
+      },
+      "animalId": {
+        "type": "string",
+        "description": "A string which (in combination with a scheme) uniquely identifies an animal."
+      },
+      "animalIdentifier": {
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/animalId"
+          },
+          "scheme": {
+            "$ref": "#/components/schemas/animalIdScheme"
+          }
+        },
+        "description": "Identifies an animal"
+      },
+      "icarBiodiversityReportsResponse": {
+        "$ref": "#/components/schemas/icarBiodiversityReports"
+      },
+      "icarHerdListResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarHerdListAnimalsType"
+          }
+        }
+      },
+      "icarMilkingVisitsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarMilkingVisitType"
+          }
+        }
+      },
+      "icarIdentificationTagsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarIdentificationTagsType"
+          }
+        }
+      },
+      "dataSource": {
+        "type": "string",
+        "description": "Source where data is retrieved from. Details can be retrieved from the source register."
+      },
+      "companyIdScheme": {
+        "type": "string",
+        "description": "Identifies the used scheme for a company identification string.",
+        "enum": [
+          "nl-v1",
+          "be-v1"
+        ]
+      },
+      "icarHeatActivityScrSenseTime": {
+        "type": "object",
+        "properties": {
+          "heatBehavior": {
+            "type": "number",
+            "description": "The behavior of the cow as it relates to it being in heat.",
+            "format": "double"
+          },
+          "dailyRumination": {
+            "type": "number",
+            "description": "The number of minutes a cow ruminates during the day (24-hour period)",
+            "format": "double"
+          },
+          "dailyEating": {
+            "type": "number",
+            "description": "The number of minutes a cow eats during the day (24 hour period)",
+            "format": "double"
+          },
+          "activityTrend": {
+            "type": "number",
+            "description": "The trend of the cow’s activity. This is usually higher when the cow is approaching the time it is in heat.",
+            "format": "double"
+          }
+        },
+        "description": "Contains SenseTime specific fields. Only one element can be present per item."
+      },
+      "icarWeightsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarWeightsResponseDataSource"
+          }
+        ]
+      },
+      "icarGestationsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarGestationsResponseDataSources"
+        }
+      },
+      "icarMilkInvoicesResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarMilkInvoicesType"
+          }
+        }
+      },
+
+      "icarInseminationsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarInseminationsType"
+          }
+        }
+      },
+      "responseErrors": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for this particular occurrence of the problem"
+          },
+          "status": {
+            "type": "integer",
+            "description": "The HTTP status code applicable to this problem, expressed as a string value",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "description": "An application-specific error code, expressed as a string value."
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
+          },
+          "meta": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        "description": "A human-readable error message describing what went wrong."
+      },
+      "icarHerdListCoreDataSetResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarHerdListCoreDataSetsType"
+          }
+        }
+      },
+      "icarHeatReportsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarHeatReportsResponseDataSources"
+        }
+      },
+      "icarHealthReportVendorSpecific": {
+        "type": "object",
+        "properties": {
+          "scrSenseTime": {
+            "$ref": "#/components/schemas/icarHealthReportScrSenseTime"
+          },
+          "nedapBI": {
+            "$ref": "#/components/schemas/icarHealthReportNedapBusinessInsight"
+          }
+        },
+        "description": "Contains vendor specific fields. Only one vendor element can be present."
+      },
+      "companyIdentifier": {
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/companyId"
+          },
+          "scheme": {
+            "$ref": "#/components/schemas/companyIdScheme"
+          }
+        },
+        "description": "Identifies a company"
+      },
+      "icarWaterIntakesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarWaterIntakesResponseDataSources"
+        }
+      },
+      "uncefactAddress": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "An identifier for this address within an agreed scheme of address identifiers."
+          },
+          "addressTypeCode": {
+            "$ref": "#/components/schemas/uncefactAddressTypeCode"
+          },
+          "addressFormatCode": {
+            "$ref": "#/components/schemas/uncefactAddressFormatCode"
+          },
+          "postbox": {
+            "type": "string",
+            "description": "A post office box number registered for postal delivery by a postal service provider."
+          },
+          "floor": {
+            "type": "string",
+            "description": "An identifiable floor of a building."
+          },
+          "room": {
+            "type": "string",
+            "description": "An identifiable room, suite, or apartment of a building."
+          },
+          "streetName": {
+            "type": "string",
+            "description": "The name of the street, road, avenue, way, etc. to which the number of the building is attached."
+          },
+          "additionalStreetName": {
+            "type": "string",
+            "description": "An additional street name used to further clarify the address."
+          },
+          "blockName": {
+            "type": "string",
+            "description": "The name of the block (an area surrounded by streets and usually containing several buildings) in which this address is located."
+          },
+          "buildingName": {
+            "type": "string",
+            "description": "The name of a building."
+          },
+          "buildingNumber": {
+            "type": "string",
+            "description": "The number of a building within the street."
+          },
+          "inhouseMail": {
+            "type": "string",
+            "description": "The specific identifable location within a building where mail is delivered."
+          },
+          "department": {
+            "type": "string",
+            "description": "The department of the addressee."
+          },
+          "markAttention": {
+            "type": "string",
+            "description": "The name, expressed as text, of a person or department in an organization to whose attention incoming mail is directed; corresponds to the printed forms `for the attention of`, `FAO`, and `ATTN:`."
+          },
+          "markCare": {
+            "type": "string",
+            "description": "The name, expressed as text, of a person or organization at this address into whose care incoming mail is entrusted; corresponds to the printed forms `care of` and `c/o`."
+          },
+          "plotIdentification": {
+            "type": "string",
+            "description": "An identifier (e.g., a parcel number) for the piece of land associated with this address."
+          },
+          "citySubdivisionName": {
+            "type": "string",
+            "description": "The name of the subdivision of a city, town, or village in which this address is located, such as the name of its district or borough."
+          },
+          "cityName": {
+            "type": "string",
+            "description": "The name of a city, town, or village."
+          },
+          "postalZone": {
+            "type": "string",
+            "description": "The postal identifier for this address according to the relevant national postal service, such as a ZIP code or Post Code."
+          },
+          "countrySubentity": {
+            "type": "string",
+            "description": "The political or administrative division of a country in which this address is located, such as the name of its county, province, or state, expressed as text."
+          },
+          "countrySubentityCode": {
+            "type": "string",
+            "description": "The political or administrative division of a country in which this address is located, such as a county, province, or state, expressed as a code (typically nationally agreed)."
+          },
+          "region": {
+            "type": "string",
+            "description": "The recognized geographic or economic region or group of countries in which this address is located."
+          },
+          "district": {
+            "type": "string",
+            "description": "The district or geographical division of a country or region in which this address is located."
+          },
+          "timezoneOffset": {
+            "type": "string",
+            "description": "The time zone in which this address is located (as an offset from Universal Coordinated Time (UTC)) at the time of exchange."
+          },
+          "addressLine": {
+            "type": "array",
+            "description": "An unstructured address line.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "country": {
+            "type": "string",
+            "description": "The country in which this address is situated."
+          },
+          "locationCoordinate": {
+            "type": "string",
+            "description": "The geographical coordinates of this address."
+          }
+        }
+      },
+      "icarMilkInvoicesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkInvoicesResponseDataSources"
+        }
+      },
+      "icarHeatReportScrSenseTime": {
+        "type": "object",
+        "properties": {
+          "breedingWindow": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "heatIndex": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": "Specific fields for SCR SenseTime"
+      },
+      "icarHeatActivitiesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarHeatActivitiesResponseDataSource"
+          }
+        ]
+      },
+      "icarFeedIntakesResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarFeedIntakesResponseDataSource"
+          }
+        ]
+      },
+      "icarWeightsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarWeightsType"
+          }
+        }
+      },
+      "icarMilkDeliveryQualityReportsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarMilkDeliveryQualityReportsType"
+          }
+        }
+      },
+      "icarHeatActivityVendorSpecific": {
+        "type": "object",
+        "properties": {
+          "scrSenseTime": {
+            "$ref": "#/components/schemas/icarHeatActivityScrSenseTime"
+          }
+        },
+        "description": "Contains vendor specific fields. Only one vendor element can be present."
+      },
+      "icarHealthReportsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarHealthReportsType"
+          }
+        }
+      },
+      "icarQuarterMilkingsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarQuarterMilkingsResponseDataSources"
+        }
+      },
+      "icarMilkInvoiceItemsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarMilkInvoiceItemsType"
+          }
+        }
+      },
+      "icarAnimalMilkingSampleResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/icarAnimalMilkingSampleType"
+          }
+        }
+      },
+      "icarMilkIntakesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkIntakesResponseDataSources"
+        }
+      },
+      "icarDairyGrazingSummariesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarDairyGrazingSummariesResponseDataSources"
+        }
+      },
+
+    "responses": {
+      "error": {
+        "description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              },
+              "description": "A default response containing only a list of errors"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "queryEndDateTime": {
+        "name": "end-date-time",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "pathIcarMilkingVisitId": {
+        "name": "milking-visit-id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "pathLocationScheme": {
+        "name": "location-scheme",
+        "in": "path",
+        "description": "The scheme id for the location identifier.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "nl-v1",
+            "be-v1"
+          ]
+        }
+      },
+      "queryEndDateTimeRequired": {
+        "name": "end-date-time",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "queryModifiedSince": {
+        "name": "modified-since",
+        "in": "query",
+        "description": "The date-time of insertion or last update of the event.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "pathLocationId": {
+        "name": "location-id",
+        "in": "path",
+        "description": "The unique identifier for the location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "pathMilkDeliveryId": {
+        "name": "milk-delivery-id",
+        "in": "path",
+        "description": "The unique identifier for a milk delivery for a specific location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "queryAnimalScheme": {
+        "name": "animal-scheme",
+        "in": "query",
+        "description": "The scheme id for the animal identifier. Should be used together with animal-id.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "nl-v1",
+            "be-v1"
+          ]
+        }
+      },
+      "queryStartDateTimeRequired": {
+        "name": "start-date-time",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "pathMilkInvoiceId": {
+        "name": "milk-invoice-id",
+        "in": "path",
+        "description": "The unique identifier for a milk invoice for a specific location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "queryAnimalId": {
+        "name": "animal-id",
+        "in": "query",
+        "description": "The unique identifier for the animal. Should be used together with animal-scheme.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "queryStartDateTime": {
+        "name": "start-date-time",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "securitySchemes": {
+      "jdClient": {
+        "type": "oauth2",
+        "description": "Secure access using client credentials grant",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
+            "scopes": {
+              "fullaccess": "Full access to all resources when mandate is available"
+            }
+          }
+        }
+      },
+      "jdAuthorizationCode": {
+        "type": "oauth2",
+        "description": "Secure access using authorization grant flow",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth",
+            "tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
+            "scopes": {
+              "fullaccess": "Full access to all resources when mandate is available"
+            }
+          }
+        }
+      }
+    }
+  }
+}

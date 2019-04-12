@@ -1,0 +1,15 @@
+{
+        "required": [
+          "end",
+          "start"
+        ],
+        "type": "object",
+        "properties": {
+          "start": {
+            "$ref": "icarDateTimeType.json"
+          },
+          "end": {
+            "$ref": "icarDateTimeType.json"
+          }
+        }
+}

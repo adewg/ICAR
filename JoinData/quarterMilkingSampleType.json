@@ -1,0 +1,8 @@
+{
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string"
+          }
+        }
+}

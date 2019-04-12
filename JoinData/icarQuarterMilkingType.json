@@ -1,0 +1,23 @@
+{
+	"type": "object",
+	"properties": {
+		"icarQuarterId": {
+			"$ref": "icarQuarterCode.json"
+		},
+		"quarterMilkingDuration": {
+			"$ref": "quarterMilkingDuration.json"
+		},
+		"quarterMilkingWeight": {
+			"$ref": "quarterMilkingWeight.json"
+		},
+		"icarQuarterCharacteristics": {
+			"type": "array",
+			"items": {
+				"$ref": "icarMilkCharacteristicsType.json"
+			}
+		},
+		"quarterMilkingSample": {
+			"$ref": "quarterMilkingSample.json"
+		}
+	}
+}

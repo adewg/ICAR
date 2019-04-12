@@ -1,0 +1,14 @@
+{
+        "required": [
+          "arrival"
+        ],
+        "type": "object",
+        "properties": {
+          "arrival": {
+            "$ref": "icarArrivalCoreDataSetType.json"
+          },
+          "departure": {
+            "$ref": "icarDepartureCoreDataSetType.json"
+          }
+        }
+      }
