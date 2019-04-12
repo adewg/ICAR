@@ -2850,16 +2850,6 @@
           }
         }
       },
-      "icarSpecieCodeType": {
-        "type": "string",
-        "description": "Based upon Icar sc:SpecieCodeType. Allowed values are -BUF- for Buffalo, -OVI- for Ovine, -BOV- for Bovine and -GOT- for Goat.",
-        "enum": [
-          "BUF",
-          "OVI",
-          "BOV",
-          "GOT"
-        ]
-      },
       "icarTeatPositionsResponse": {
         "type": "array",
         "items": {
