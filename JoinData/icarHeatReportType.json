@@ -1,0 +1,23 @@
+{
+        "required": [
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "animalIdentifier.json"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The timestamp of the measurement.",
+            "format": "date-time"
+          },
+          "method": {
+            "$ref": "icarHeatDetectionMethodCode.json"
+          },
+          "vendorSpecific": {
+            "$ref": "icarHeatReportVendorSpecific.json"
+          }
+        },
+        "description": "Gives information about an in-heat detection of a dam."
+      }

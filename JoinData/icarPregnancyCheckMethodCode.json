@@ -1,0 +1,10 @@
+{
+        "type": "string",
+        "description": "Defines the pregnancy check method; can be -E- for echography, -P- for palpation, -M- for milk analysis or O for Other.",
+        "enum": [
+          "E",
+          "P",
+          "M",
+          "O"
+        ]
+}

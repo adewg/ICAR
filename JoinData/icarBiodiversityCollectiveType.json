@@ -1,0 +1,23 @@
+      "icarBiodiversityCollectiveType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "collective number, according to SCAN coding"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the collective"
+          },
+          "anlbMember": {
+            "type": "boolean",
+            "description": "Indicates if the company is an ANLB member (in original proposal"
+          },
+          "reports": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarBiodiversityReport"
+            }
+          }
+        }
+      },

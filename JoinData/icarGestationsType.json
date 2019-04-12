@@ -1,0 +1,6 @@
+      "icarGestationsType": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarGestationType"
+        }
+      },

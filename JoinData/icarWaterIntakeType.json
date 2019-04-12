@@ -1,0 +1,38 @@
+{
+        "required": [
+          "identifier",
+          "period"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "animalIdentifier.json"
+          },
+          "period": {
+            "$ref": "icarPeriodType.json"
+          },
+          "consumption": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "LTR",
+                  "MLT"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "The amount the animal consumed during this visit."
+          }
+        },
+        "description": "Gives information about an animal's visit to a water station."
+      }

@@ -1,0 +1,8 @@
+{
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "animalIdentifier.json"
+          }
+        }
+      }

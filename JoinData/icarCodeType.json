@@ -1,0 +1,12 @@
+      "icarCodeType": {
+        "type": "string",
+        "description": "A character string (letters, figures, or symbols) that for brevity and/or languange independence may be used to represent or replace a definitive value or text of an attribute together with relevant supplementary information.\n"
+      },
+      "animalIdScheme": {
+        "type": "string",
+        "description": "Identifies the used scheme for an animal identification string. nl-v1 life numbers are formatted as NL 123456789. See https://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen for more information.",
+        "enum": [
+          "nl-v1",
+          "be-v1"
+        ]
+      },

@@ -1,0 +1,23 @@
+      "icarGestationType": {
+        "type": "object",
+        "properties": {
+          "dam": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "sire": {
+            "$ref": "#/components/schemas/animalIdentifier"
+          },
+          "expectedCalvingDate": {
+            "type": "string",
+            "description": "Date of expected calving.",
+            "format": "date-time"
+          },
+          "sexedSemenCode": {
+            "$ref": "#/components/schemas/icarSexedSemenCode"
+          },
+          "impregnationCode": {
+            "$ref": "#/components/schemas/icarImpregnationCode"
+          }
+        },
+        "description": "Gives information about a gestation of a dam."
+      },

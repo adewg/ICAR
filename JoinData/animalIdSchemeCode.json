@@ -1,0 +1,6 @@
+{
+        "type": "string",
+        "enum": [
+          "nl-v1"
+        ]
+}

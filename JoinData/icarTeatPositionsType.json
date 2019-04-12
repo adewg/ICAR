@@ -1,0 +1,11 @@
+{
+        "type": "object",
+        "properties": {
+          "icarQuarterId": {
+            "$ref": "icarQuarterIdCode.json"
+          },
+          "icarTeatPositions": {
+            "$ref": "icarTeatPositionsCoordType.json"
+          }
+        }
+}
