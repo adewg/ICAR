@@ -2,7 +2,7 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "icarAnimalIdentifierType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           }
         }
       }
