@@ -1,6 +1,6 @@
 {
 	"type": "array",
 	"items": {
-		"$ref": "icarQuarterMilkingType.json"
+		"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingType.json"
 	}
 }

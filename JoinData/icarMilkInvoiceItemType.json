@@ -16,7 +16,7 @@
             "description": "201088"
           },
           "period": {
-            "$ref": "icarPeriodType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarPeriodType.json"
           },
           "description": {
             "type": "string",

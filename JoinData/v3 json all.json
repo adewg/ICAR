@@ -2954,49 +2954,7 @@
         },
         "description": "The weight of the milk milked of this quarter"
       },
-      "icarInseminationType": {
-        "type": "object",
-        "properties": {
-          "dam": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
-          },
-          "date": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
-          },
-          "sire": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
-          },
-          "chargeNumber": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarChargeNumber.json"
-          },
-          "forFlushing": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarForFlushing.json"
-          },
-          "technician": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTechnician.json"
-          },
-          "semenOfOwnStock": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSemenOfOwnStock.json"
-          },
-          "sexedSemenType": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSexedSemenCode.json"
-          },
-          "sharedSemenUsed": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSharedSemenUsed.json"
-          }
-        },
-        "description": "Gives information about an insemination of a dam."
-      },
-      "icarImpregnationCode": {
-        "type": "string",
-        "description": "Defines the type of the last impregnation event; can be -I- for insemination, -N- for natural service, -R- for running with the bull or -M- for implantation. \n",
-        "enum": [
-          "I",
-          "N",
-          "R",
-          "M"
-        ]
-      },
+      
       "icarHeatReportsResponseDataSources": {
         "allOf": [
           {
@@ -3034,11 +2992,6 @@
         "items": {
           "$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSources"
         }
-      },
-      "icarForFlushing": {
-        "type": "boolean",
-        "description": "Indication whether the cow was inseminated for flushing.",
-        "default": false
       },
       "icarMilkDeliveriesResponse": {
         "type": "array",
@@ -3197,10 +3150,6 @@
         "items": {
           "$ref": "#/components/schemas/icarWeightsResponseDataSources"
         }
-      },
-      "icarChargeNumber": {
-        "type": "string",
-        "description": "The number of the batch of the production of the semen."
       },
       "icarFeedIntakesResponse": {
         "type": "array",

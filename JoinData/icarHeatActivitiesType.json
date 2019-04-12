@@ -1,7 +1,7 @@
 {
         "type": "array",
         "items": {
-          "$ref": "icarHeatActivityType.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatActivityType.json"
         }
       }
   

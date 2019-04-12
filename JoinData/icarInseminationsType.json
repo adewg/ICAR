@@ -1,6 +1,6 @@
 {
         "type": "array",
         "items": {
-          "$ref": "icarInseminationType.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarInseminationType.json"
         }
       }

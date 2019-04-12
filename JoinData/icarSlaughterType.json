@@ -18,10 +18,10 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "icarAnimalIdentifierType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "slaughterHouseIdentifier": {
-            "$ref": "companyIdentifier.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyIdentifier.json"
           },
           "slaughterHouseBranche": {
             "type": "string",
@@ -32,13 +32,13 @@
             "description": "The ear tag number"
           },
           "birth": {
-            "$ref": "icarDateType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           },
           "dateTimeSlaughter": {
-            "$ref": "icarDateType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           },
           "dateTimeInspection": {
-            "$ref": "icarDateType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           },
           "weightSlaughtered": {
             "required": [
@@ -164,7 +164,7 @@
             ]
           },
           "gender": {
-            "$ref": "icarGenderCode.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGenderCode.json"
           },
           "classifier": {
             "type": "string"

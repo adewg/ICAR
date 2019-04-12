@@ -1,6 +1,6 @@
 {
         "type": "array",
         "items": {
-          "$ref": "icarFeedIntakeType.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarFeedIntakeType.json"
         }
       }

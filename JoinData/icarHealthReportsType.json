@@ -1,6 +1,6 @@
 {
         "type": "array",
         "items": {
-          "$ref": "icarHealthReportType.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthReportType.json"
         }
       }

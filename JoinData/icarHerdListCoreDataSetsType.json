@@ -1,6 +1,6 @@
 {
         "type": "array",
         "items": {
-          "$ref": "icarHerdListCoreDataSetType.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListCoreDataSetType.json"
         }
       }

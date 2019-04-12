@@ -5,7 +5,7 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "icarAnimalIdentifierType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "timestamp": {
             "type": "string",
@@ -13,7 +13,7 @@
             "format": "date-time"
           },
           "vendorSpecific": {
-            "$ref": "icarHealthActivityVendorSpecific.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthActivityVendorSpecific.json"
           }
         },
         "description": "Gives information about health activity of cows on a location."

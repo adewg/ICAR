@@ -1,6 +1,6 @@
 {
         "type": "array",
         "items": {
-          "$ref": "icarAnimalMovementType.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalMovementType.json"
         }
       }

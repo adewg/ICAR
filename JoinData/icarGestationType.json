@@ -2,10 +2,10 @@
         "type": "object",
         "properties": {
           "dam": {
-            "$ref": "icarAnimalIdentifierType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "sire": {
-            "$ref": "icarAnimalIdentifierType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "expectedCalvingDate": {
             "type": "string",
@@ -13,10 +13,10 @@
             "format": "date-time"
           },
           "sexedSemenCode": {
-            "$ref": "icarSexedSemenCode.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSexedSemenCode.json"
           },
           "impregnationCode": {
-            "$ref": "icarImpregnationCode.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarImpregnationCode.json"
           }
         },
         "description": "Gives information about a gestation of a dam."

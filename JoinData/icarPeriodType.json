@@ -6,10 +6,10 @@
         "type": "object",
         "properties": {
           "start": {
-            "$ref": "icarDateTimeType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateTimeType.json"
           },
           "end": {
-            "$ref": "icarDateTimeType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateTimeType.json"
           }
         }
 }

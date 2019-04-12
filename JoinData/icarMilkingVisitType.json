@@ -11,10 +11,10 @@
             "description": "A unique identifier for this location for the milking visit message"
           },
           "animal": {
-            "$ref": "icarAnimalIdentifierType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "milkingStartingDateTime": {
-            "$ref": "icarDateTimeType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateTimeType.json"
           },
           "milkingDuration": {
             "type": "object",

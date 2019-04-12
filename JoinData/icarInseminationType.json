@@ -1,0 +1,33 @@
+{
+        "type": "object",
+        "properties": {
+          "dam": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
+          },
+          "date": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
+          },
+          "sire": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
+          },
+          "chargeNumber": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarChargeNumber.json"
+          },
+          "forFlushing": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarForFlushing.json"
+          },
+          "technician": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTechnician.json"
+          },
+          "semenOfOwnStock": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSemenOfOwnStock.json"
+          },
+          "sexedSemenType": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSexedSemenCode.json"
+          },
+          "sharedSemenUsed": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSharedSemenUsed.json"
+          }
+        },
+        "description": "Gives information about an insemination of a dam."
+}

@@ -6,10 +6,10 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "icarAnimalIdentifierType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
           },
           "period": {
-            "$ref": "icarPeriodType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarPeriodType.json"
           },
           "entitlement": {
             "required": [
@@ -58,7 +58,7 @@
           "additives": {
             "type": "array",
             "items": {
-              "$ref": "icarMilkIntakeAdditive.json"
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakeAdditive.json"
             }
           }
         },

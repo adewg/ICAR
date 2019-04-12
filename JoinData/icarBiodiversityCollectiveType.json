@@ -16,7 +16,7 @@
           "reports": {
             "type": "array",
             "items": {
-              "$ref": "icarBiodiversityReportType"
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityReportType"
             }
           }
         }

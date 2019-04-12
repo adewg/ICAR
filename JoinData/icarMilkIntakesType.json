@@ -1,7 +1,7 @@
 {
         "type": "array",
         "items": {
-          "$ref": "icarMilkIntakeType.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakeType.json"
         }
       }
  

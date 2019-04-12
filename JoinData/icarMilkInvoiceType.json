@@ -2,7 +2,7 @@
         "type": "object",
         "properties": {
           "invoiceDate": {
-            "$ref": "icarDateType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
           },
           "invoiceNumber": {
             "type": "string",
