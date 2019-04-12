@@ -3112,15 +3112,7 @@
         },
         "description": "Contains SenseTime specific fields. Only one element can be present per item."
       },
-      "icarHealthActivityVendorSpecific": {
-        "type": "object",
-        "properties": {
-          "scrSenseTime": {
-            "$ref": "#/components/schemas/icarHealthActivityScrSenseTime"
-          }
-        },
-        "description": "Contains vendor specific fields. Only one vendor element can be present."
-      },
+      
       "icarHealthReportNedapBusinessInsight": {
         "type": "object",
         "description": "Specific fields for Nedap Business Insight. TO BE IMPLEMENTED"
