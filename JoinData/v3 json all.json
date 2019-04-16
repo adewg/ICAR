@@ -3246,6 +3246,17 @@
 			},
 			"description": "A human-readable error message describing what went wrong."
 		},
+		"responseDataSource": {
+			"required": [
+				"id"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"$ref": "#/components/schemas/dataSource"
+				}
+			}
+		}
 	},
 	"responses": {
 		"error": {
