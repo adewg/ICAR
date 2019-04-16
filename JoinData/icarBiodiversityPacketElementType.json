@@ -1,20 +1,23 @@
 {
         "type": "object",
         "properties": {
-          "packetCode": {
-            "type": "integer",
-            "description": "unique code for the bio diversity packet; ANLb number or BenN number"
-          },
-          "label": {
+          "elementId": {
             "type": "string",
-            "description": "Verschillende TBO, eigen beheer"
+            "description": "identifier of the element of this report. Per element unieke code. Kan dus niet onder verschillende pakketten en/of collectieven herhaald voorkomen."
+          },
+          "ownerlabel": {
+            "type": "array",
+            "description": "Verschillende TBO, eigen beheer",
+            "items": {
+              "type": "integer"
+            }
           },
           "size": {
             "type": "string"
           },
           "value": {
             "type": "number",
-            "description": "Ingetekende oppervlakte/ hoeveelheid van het betreffende Z-pakket",
+            "description": "Ingetekende oppervlakte/ hoeveelheid van het betreffende BBM",
             "format": "double"
           },
           "unitCode": {
@@ -22,7 +25,6 @@
             "description": "UN/CEFACT Common Code for Units of Measurement.",
             "enum": [
               "H18",
-              "MTK",
               "C62"
             ]
           },
@@ -43,8 +45,9 @@
             "enum": [
               "1",
               "2",
-              "3"
+              "3",
+              "4"
             ]
           }
         }
-}
+      }

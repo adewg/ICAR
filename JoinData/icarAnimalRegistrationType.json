@@ -12,7 +12,7 @@
             "format": "uuid"
           },
           "registrationType": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/registrationType.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarRegistrationCode.json"
           },
           "registrationDate": {
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
