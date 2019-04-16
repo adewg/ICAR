@@ -1,4 +1,4 @@
-      "icarMilkCharacteristicsType": {
+{
         "type": "object",
         "properties": {
           "characteristicsCode": {
@@ -28,4 +28,4 @@
             "format": "decimal"
           }
         }
-      },
+}

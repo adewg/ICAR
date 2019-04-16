@@ -2320,7 +2320,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalRegistrationType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalRegistrationResource.json"
 				}
 			}
 		},
@@ -2347,7 +2347,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoicesType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoicesResource.json"
 				}
 			}
 		},
@@ -2374,7 +2374,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkingVisitType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkingVisitResource.json"
 				}
 			}
 		},
@@ -2401,7 +2401,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListAnimalsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListAnimalsResource.json"
 				}
 			}
 		},
@@ -2428,7 +2428,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarFeedIntakesType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarFeedIntakesResource.json"
 				}
 			}
 		},
@@ -2455,7 +2455,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatActivitiesType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatActivitiesResource.json"
 				}
 			}
 		},
@@ -2518,7 +2518,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWeightsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWeightsResource.json"
 				}
 			}
 		},
@@ -2545,7 +2545,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarInseminationsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarInseminationsResource.json"
 				}
 			}
 		},
@@ -2572,7 +2572,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarIdentificationTagsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarIdentificationTagsResource.json"
 				}
 			}
 		},
@@ -2599,7 +2599,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveryQualityReportsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveryQualityReportsResource.json"
 				}
 			}
 		},
@@ -2626,7 +2626,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthReportsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthReportsResource.json"
 				}
 			}
 		},
@@ -2689,7 +2689,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWaterIntakesType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWaterIntakesResource.json"
 				}
 			}
 		},
@@ -2735,7 +2735,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListCoreDataSetsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListCoreDataSetsResource.json"
 				}
 			}
 		},
@@ -2762,7 +2762,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionsResource.json"
 				}
 			}
 		},
@@ -2786,7 +2786,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityReportsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityReportsResource.json"
 				}
 			}
 		},
@@ -2813,7 +2813,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakesType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakesResource.json"
 				}
 			}
 		},
@@ -2840,7 +2840,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveriesType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveriesResource.json"
 				}
 			}
 		},
@@ -2867,7 +2867,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoiceItemsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoiceItemsResource.json"
 				}
 			}
 		},
@@ -2894,7 +2894,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalMilkingSampleType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalMilkingSampleResource.json"
 				}
 			}
 		},
@@ -2921,7 +2921,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListMovementsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListMovementsResource.json"
 				}
 			}
 		},
@@ -2948,7 +2948,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingsResource.json"
 				}
 			}
 		},
@@ -2975,7 +2975,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatReportsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatReportsResource.json"
 				}
 			}
 		},
@@ -3032,7 +3032,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarPregnancyChecksType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarPregnancyChecksResource.json"
 				}
 			}
 		},
@@ -3059,7 +3059,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGestationsType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGestationsResource.json"
 				}
 			}
 		},
@@ -3086,7 +3086,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressResource.json"
 				}
 			}
 		},
@@ -3171,7 +3171,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthActivitiesType.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthActivitiesResource.json"
 				}
 			}
 		},
@@ -3198,7 +3198,7 @@
 			"type": "object",
 			"properties": {
 				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkCharacteristicsTypes.json"
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkCharacteristicsResource.json"
 				}
 			}
 		},
@@ -3246,17 +3246,6 @@
 			},
 			"description": "A human-readable error message describing what went wrong."
 		},
-		"responseDataSource": {
-			"required": [
-				"id"
-			],
-			"type": "object",
-			"properties": {
-				"id": {
-					"$ref": "#/components/schemas/dataSource"
-				}
-			}
-		}
 	},
 	"responses": {
 		"error": {
