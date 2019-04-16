@@ -6,7 +6,7 @@
             "description": "An identifier for this address within an agreed scheme of address identifiers."
           },
           "addressTypeCode": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressTypeCode.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressCode.json"
           },
           "addressFormatCode": {
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressFormatCode.json"
