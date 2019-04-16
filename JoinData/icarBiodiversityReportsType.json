@@ -8,14 +8,14 @@
             "type": "array",
             "description": "if this company is known by the data source with other identifiers, they can be listed here. E.g., there may be KVK's or UBN's known.",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifier.json"
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
             }
           },
           "targetIdentifiers": {
             "type": "array",
             "description": "if this company is known by the data target with other identifiers, they can be listed here. E.g., there may be FTN's known.",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifier.json"
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
             }
           },
           "year": {
