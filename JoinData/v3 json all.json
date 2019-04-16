@@ -2396,7 +2396,7 @@
       "uncefactAddressesResponse": {
         "type": "array",
         "items": {
-          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddress.json"
+          "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressType.json"
         }
       },
       "icarMilkIntakesResponseDataSources": {
