@@ -2715,6 +2715,12 @@
 		"icarDairyGrazingSummariesResponseDataSource": {
 			"type": "array",
 			"items": {
+				"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDairyGrazingSummariesResource.json"
+			}
+		},
+		"icarHerdListCoreDataSetResponse": {
+			"type": "array",
+			"items": {
 				"$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSources"
 			}
 		},
@@ -3213,6 +3219,10 @@
 				}
 			}
 		},
+	      "dataSource": {
+	        "type": "string",
+	        "description": "Source where data is retrieved from. Details can be retrieved from the source register."
+	      },
 		"error": {
 			"type": "object",
 			"properties": {
