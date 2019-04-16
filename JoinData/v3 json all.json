@@ -2303,1137 +2303,1136 @@
 			"icarAnimalRegistrationResponse": {
 				"$ref": "#/components/schemas/icarAnimalRegistrationResponseDataSources"
 			},
-		"icarAnimalRegistrationResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarAnimalRegistrationResponseDataSource"
-				}
-			]
-		},
-		"icarAnimalRegistrationResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalRegistrationResource.json"
-				}
-			}
-		},
-		"icarMilkInvoicesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarMilkInvoicesResponseDataSources"
-			}
-		},
-		"icarMilkInvoicesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarMilkInvoicesResponseDataSource"
-				}
-			]
-		},
-		"icarMilkInvoicesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoicesResource.json"
-				}
-			}
-		},
-		"icarMilkingVisitsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarMilkingVisitsResponseDataSources"
-			}
-		},
-		"icarMilkingVisitsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarMilkingVisitsResponseDataSource"
-				}
-			]
-		},
-		"icarMilkingVisitsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkingVisitResource.json"
-				}
-			}
-		},
-		"icarHerdListResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarHerdListResponseDataSources"
-			}
-		},
-		"icarHerdListResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarHerdListResponseDataSource"
-				}
-			]
-		},
-		"icarHerdListResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListAnimalsResource.json"
-				}
-			}
-		},
-		"icarFeedIntakesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarFeedIntakesResponseDataSources"
-			}
-		},
-		"icarFeedIntakesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarFeedIntakesResponseDataSource"
-				}
-			]
-		},
-		"icarFeedIntakesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarFeedIntakesResource.json"
-				}
-			}
-		},
-		"icarHeatActivitiesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarHeatActivitiesResponseDataSources"
-			}
-		},
-		"icarHeatActivitiesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarHeatActivitiesResponseDataSource"
-				}
-			]
-		},
-		"icarHeatActivitiesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatActivitiesResource.json"
-				}
-			}
-		},
-		"icarHeatActivityScrSenseTime": {
-			"type": "object",
-			"properties": {
-				"heatBehavior": {
-					"type": "number",
-					"description": "The behavior of the cow as it relates to it being in heat.",
-					"format": "double"
-				},
-				"dailyRumination": {
-					"type": "number",
-					"description": "The number of minutes a cow ruminates during the day (24-hour period)",
-					"format": "double"
-				},
-				"dailyEating": {
-					"type": "number",
-					"description": "The number of minutes a cow eats during the day (24 hour period)",
-					"format": "double"
-				},
-				"activityTrend": {
-					"type": "number",
-					"description": "The trend of the cow’s activity. This is usually higher when the cow is approaching the time it is in heat.",
-					"format": "double"
-				}
-			},
-			"description": "Contains SenseTime specific fields. Only one element can be present per item."
-		},
-		"icarHeatActivityVendorSpecific": {
-			"type": "object",
-			"properties": {
-				"scrSenseTime": {
-					"$ref": "#/components/schemas/icarHeatActivityScrSenseTime"
-				}
-			},
-			"description": "Contains vendor specific fields. Only one vendor element can be present."
-		},
-		
-		"icarWeightsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarWeightsResponseDataSources"
-			}
-		},
-		"icarWeightsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarWeightsResponseDataSource"
-				}
-			]
-		},
-		"icarWeightsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWeightsResource.json"
-				}
-			}
-		},
-		"icarInseminationsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarInseminationsResponseDataSources"
-			}
-		},
-		"icarInseminationsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarInseminationsResponseDataSource"
-				}
-			]
-		},
-		"icarInseminationsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarInseminationsResource.json"
-				}
-			}
-		},
-		"icarIdentificationTagsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarIdentificationTagsResponseDataSources"
-			}
-		},
-		"icarIdentificationTagsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarIdentificationTagsResponseDataSource"
-				}
-			]
-		},
-		"icarIdentificationTagsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarIdentificationTagsResource.json"
-				}
-			}
-		},
-		"icarMilkDeliveryQualityReportsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarMilkDeliveryQualityReportsResponseDataSources"
-			}
-		},
-		"icarMilkDeliveryQualityReportsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarMilkDeliveryQualityReportsResponseDataSource"
-				}
-			]
-		},
-		"icarMilkDeliveryQualityReportsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveryQualityReportsResource.json"
-				}
-			}
-		},
-		"icarHealthReportsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarHealthReportsResponseDataSources"
-			}
-		},
-		"icarHealthReportsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarHealthReportsResponseDataSource"
-				}
-			]
-		},
-		"icarHealthReportsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthReportsResource.json"
-				}
-			}
-		},
-		"icarHealthReportVendorSpecific": {
-			"type": "object",
-			"properties": {
-				"scrSenseTime": {
-					"$ref": "#/components/schemas/icarHealthReportScrSenseTime"
-				},
-				"nedapBI": {
-					"$ref": "#/components/schemas/icarHealthReportNedapBusinessInsight"
-				}
-			},
-			"description": "Contains vendor specific fields. Only one vendor element can be present."
-		},
-		"icarHealthReportNedapBusinessInsight": {
-			"type": "object",
-			"description": "Specific fields for Nedap Business Insight. TO BE IMPLEMENTED"
-		},
-		"icarHealthReportScrSenseTime": {
-			"type": "object",
-			"properties": {
-				"dailyRumination": {
-					"type": "integer",
-					"format": "int32"
-				},
-				"healthIndex": {
-					"type": "number",
-					"description": "One digit after decimal point",
-					"format": "double"
-				},
-				"healthIndexThreshold": {
-					"type": "integer",
-					"description": "For report coloring",
-					"format": "int32"
-				}
-			},
-			"description": "Specific fields for SCR SenseTime"
-		},
-		"icarWaterIntakesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarWaterIntakesResponseDataSources"
-			}
-		},
-		"icarWaterIntakesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarWaterIntakesResponseDataSource"
-				}
-			]
-		},
-		"icarWaterIntakesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWaterIntakesResource.json"
-				}
-			}
-		},
-		"icarDairyGrazingSummariesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarDairyGrazingSummariesResponseDataSources"
-			}
-		},
-		"icarDairyGrazingSummariesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarDairyGrazingSummariesResponseDataSource"
-				}
-			]
-		},
-		"icarDairyGrazingSummariesResponseDataSource": {
-			"type": "array",
-			"items": {
-				"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDairyGrazingSummariesResource.json"
-			}
-		},
-		"icarHerdListCoreDataSetResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSources"
-			}
-		},
-		"icarHerdListCoreDataSetResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSource"
-				}
-			]
-		},
-		"icarHerdListCoreDataSetResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListCoreDataSetsResource.json"
-				}
-			}
-		},
-		"icarTeatPositionsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarTeatPositionsResponseDataSources"
-			}
-		},
-		"icarTeatPositionsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarTeatPositionsResponseDataSource"
-				}
-			]
-		},
-		"icarTeatPositionsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionsResource.json"
-				}
-			}
-		},
-		"icarBiodiversityReportsResponse": {
-			"$ref": "#/components/schemas/icarBiodiversityReportsResponseDataSources"
-		},
-		"icarBiodiversityReportsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarBiodiversityReportsResponseDataSource"
-				}
-			]
-		},
-		"icarBiodiversityReportsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityReportsResource.json"
-				}
-			}
-		},
-		"icarMilkIntakesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarMilkIntakesResponseDataSources"
-			}
-		},
-		"icarMilkIntakesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarMilkIntakesResponseDataSource"
-				}
-			]
-		},
-		"icarMilkIntakesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakesResource.json"
-				}
-			}
-		},
-		"icarMilkDeliveriesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarMilkDeliveriesResponseDataSources"
-			}
-		},
-		"icarMilkDeliveriesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarMilkDeliveriesResponseDataSource"
-				}
-			]
-		},
-		"icarMilkDeliveriesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveriesResource.json"
-				}
-			}
-		},
-		"icarMilkInvoiceItemsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarMilkInvoiceItemsResponseDataSources"
-			}
-		},
-		"icarMilkInvoiceItemsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarMilkInvoiceItemsResponseDataSource"
-				}
-			]
-		},
-		"icarMilkInvoiceItemsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoiceItemsResource.json"
-				}
-			}
-		},
-		"icarAnimalMilkingSampleResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarAnimalMilkingSampleResponseDataSources"
-			}
-		},
-		"icarAnimalMilkingSampleResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarAnimalMilkingSampleResponseDataSource"
-				}
-			]
-		},
-		"icarAnimalMilkingSampleResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalMilkingSampleResource.json"
-				}
-			}
-		},
-		"icarHerdListMovementsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarHerdListMovementsResponseDataSources"
-			}
-		},
-		"icarHerdListMovementsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarHerdListMovementsResponseDataSource"
-				}
-			]
-		},
-		"icarHerdListMovementsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListMovementsResource.json"
-				}
-			}
-		},
-		"icarQuarterMilkingsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarQuarterMilkingsResponseDataSources"
-			}
-		},
-		"icarQuarterMilkingsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarQuarterMilkingsResponseDataSource"
-				}
-			]
-		},
-		"icarQuarterMilkingsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingsResource.json"
-				}
-			}
-		},
-		"icarHeatReportsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarHeatReportsResponseDataSources"
-			}
-		},
-		"icarHeatReportsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarHeatReportsResponseDataSource"
-				}
-			]
-		},
-		"icarHeatReportsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatReportsResource.json"
-				}
-			}
-		},
-		"icarHeatReportVendorSpecific": {
-			"type": "object",
-			"properties": {
-				"scrSenseTime": {
-					"$ref": "#/components/schemas/icarHeatReportScrSenseTime"
-				},
-				"nedapBI": {
-					"$ref": "#/components/schemas/icarHeatReportNedapBusinessInsight"
-				}
-			},
-			"description": "Contains vendor specific fields. Only one vendor element can be present."
-		},
-		"icarHeatReportScrSenseTime": {
-			"type": "object",
-			"properties": {
-				"breedingWindow": {
-					"type": "integer",
-					"format": "int32"
-				},
-				"heatIndex": {
-					"type": "integer",
-					"format": "int32"
-				}
-			},
-			"description": "Specific fields for SCR SenseTime"
-		},
-		"icarHeatReportNedapBusinessInsight": {
-			"type": "object",
-			"description": "Specific fields for Nedap Business Insight. TO BE IMPLEMENTED"
-		},
-		"icarPregnancyCheckResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarPregnancyChecksResponseDataSources"
-			}
-		},
-		"icarPregnancyChecksResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarPregnancyChecksResponseDataSource"
-				}
-			]
-		},
-		"icarPregnancyChecksResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarPregnancyChecksResource.json"
-				}
-			}
-		},
-		"icarGestationsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarGestationsResponseDataSources"
-			}
-		},
-		"icarGestationsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarGestationsResponseDataSource"
-				}
-			]
-		},
-		"icarGestationsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGestationsResource.json"
-				}
-			}
-		},
-		"uncefactAddressesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/uncefactAddressesResponseDataSources"
-			}
-		},
-		"uncefactAddressesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/uncefactAddressesResponseDataSource"
-				}
-			]
-		},
-		"uncefactAddressesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressResource.json"
-				}
-			}
-		},
-		"icarSlaughtersResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarSlaughtersResponseDataSources"
-			}
-		},
-		"icarSlaughtersResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarSlaughtersResponseDataSource"
-				}
-			]
-		},
-		"icarSlaughtersResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSlaughtersResource.json"
-				}
-			}
-		},
-		"icarHealthActivitiesResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarHealthActivitiesResponseDataSources"
-			}
-		},
-		"icarHealthActivitiesResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarHealthActivitiesResponseDataSource"
-				}
-			]
-		},
-		"icarHealthActivityScrSenseTime": {
-			"type": "object",
-			"properties": {
-				"dailyRumination": {
-					"type": "number",
-					"description": "The number of minutes a cow ruminates during the day (24-hour period)",
-					"format": "double"
-				},
-				"dailyEating": {
-					"type": "number",
-					"description": "The number of minutes a cow eats during the day (24 hour period)",
-					"format": "double"
-				},
-				"hourlyRumination": {
-					"type": "number",
-					"description": "The number of minutes a cow ruminates during an hour.",
-					"format": "double"
-				},
-				"hourlyEating": {
-					"type": "number",
-					"description": "The number of minutes a cow eats an hour.",
-					"format": "double"
-				},
-				"activityTrend": {
-					"type": "number",
-					"description": "The trend of the cow’s activity. Cows when they are not well are less active.",
-					"format": "double"
-				}
-			},
-			"description": "Contains SenseTime specific fields. Only one element can be present per item."
-		},
-		"icarHealthActivitiesResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthActivitiesResource.json"
-				}
-			}
-		},
-		"icarMilkCharacteristicsResponse": {
-			"type": "array",
-			"items": {
-				"$ref": "#/components/schemas/icarMilkCharacteristicsResponseDataSources"
-			}
-		},
-		"icarMilkCharacteristicsResponseDataSources": {
-			"allOf": [
-				{
-					"$ref": "#/components/schemas/responseDataSource"
-				},
-				{
-					"$ref": "#/components/schemas/responseErrors"
-				},
-				{
-					"$ref": "#/components/schemas/icarMilkCharacteristicsResponseDataSource"
-				}
-			]
-		},
-		"icarMilkCharacteristicsResponseDataSource": {
-			"type": "object",
-			"properties": {
-				"data": {
-					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkCharacteristicsResource.json"
-				}
-			}
-		},
-		"responseErrors": {
-			"type": "object",
-			"properties": {
-				"errors": {
-					"type": "array",
-					"items": {
-						"$ref": "#/components/schemas/error"
+			"icarAnimalRegistrationResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarAnimalRegistrationResponseDataSource"
 					}
-				}
-			}
-		},
-	      "dataSource": {
-	        "type": "string",
-	        "description": "Source where data is retrieved from. Details can be retrieved from the source register."
-	      },
-		"error": {
-			"type": "object",
-			"properties": {
-				"id": {
-					"type": "string",
-					"description": "A unique identifier for this particular occurrence of the problem"
-				},
-				"status": {
-					"type": "integer",
-					"description": "The HTTP status code applicable to this problem, expressed as a string value",
-					"format": "int32"
-				},
-				"code": {
-					"type": "string",
-					"description": "An application-specific error code, expressed as a string value."
-				},
-				"title": {
-					"type": "string",
-					"description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
-				},
-				"detail": {
-					"type": "string",
-					"description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
-				},
-				"meta": {
-					"type": "object",
-					"properties": {
-						
+				]
+			},
+			"icarAnimalRegistrationResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalRegistrationResource.json"
 					}
 				}
 			},
-			"description": "A human-readable error message describing what went wrong."
-		},
-		"responseDataSource": {
-			"required": [
-				"id"
-			],
-			"type": "object",
-			"properties": {
-				"id": {
-					"$ref": "#/components/schemas/dataSource"
+			"icarMilkInvoicesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarMilkInvoicesResponseDataSources"
 				}
-			}
-		}
-	},
-	"responses": {
-		"error": {
-			"description": "An error has occurred while handling the request. Check the content of the message for the error details.",
-			"content": {
-				"application/json": {
-					"schema": {
+			},
+			"icarMilkInvoicesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarMilkInvoicesResponseDataSource"
+					}
+				]
+			},
+			"icarMilkInvoicesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoicesResource.json"
+					}
+				}
+			},
+			"icarMilkingVisitsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarMilkingVisitsResponseDataSources"
+				}
+			},
+			"icarMilkingVisitsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarMilkingVisitsResponseDataSource"
+					}
+				]
+			},
+			"icarMilkingVisitsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkingVisitResource.json"
+					}
+				}
+			},
+			"icarHerdListResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarHerdListResponseDataSources"
+				}
+			},
+			"icarHerdListResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarHerdListResponseDataSource"
+					}
+				]
+			},
+			"icarHerdListResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListAnimalsResource.json"
+					}
+				}
+			},
+			"icarFeedIntakesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarFeedIntakesResponseDataSources"
+				}
+			},
+			"icarFeedIntakesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarFeedIntakesResponseDataSource"
+					}
+				]
+			},
+			"icarFeedIntakesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarFeedIntakesResource.json"
+					}
+				}
+			},
+			"icarHeatActivitiesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarHeatActivitiesResponseDataSources"
+				}
+			},
+			"icarHeatActivitiesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarHeatActivitiesResponseDataSource"
+					}
+				]
+			},
+			"icarHeatActivitiesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatActivitiesResource.json"
+					}
+				}
+			},
+			"icarHeatActivityScrSenseTime": {
+				"type": "object",
+				"properties": {
+					"heatBehavior": {
+						"type": "number",
+						"description": "The behavior of the cow as it relates to it being in heat.",
+						"format": "double"
+					},
+					"dailyRumination": {
+						"type": "number",
+						"description": "The number of minutes a cow ruminates during the day (24-hour period)",
+						"format": "double"
+					},
+					"dailyEating": {
+						"type": "number",
+						"description": "The number of minutes a cow eats during the day (24 hour period)",
+						"format": "double"
+					},
+					"activityTrend": {
+						"type": "number",
+						"description": "The trend of the cow’s activity. This is usually higher when the cow is approaching the time it is in heat.",
+						"format": "double"
+					}
+				},
+				"description": "Contains SenseTime specific fields. Only one element can be present per item."
+			},
+			"icarHeatActivityVendorSpecific": {
+				"type": "object",
+				"properties": {
+					"scrSenseTime": {
+						"$ref": "#/components/schemas/icarHeatActivityScrSenseTime"
+					}
+				},
+				"description": "Contains vendor specific fields. Only one vendor element can be present."
+			},
+			"icarWeightsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarWeightsResponseDataSources"
+				}
+			},
+			"icarWeightsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarWeightsResponseDataSource"
+					}
+				]
+			},
+			"icarWeightsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWeightsResource.json"
+					}
+				}
+			},
+			"icarInseminationsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarInseminationsResponseDataSources"
+				}
+			},
+			"icarInseminationsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarInseminationsResponseDataSource"
+					}
+				]
+			},
+			"icarInseminationsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarInseminationsResource.json"
+					}
+				}
+			},
+			"icarIdentificationTagsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarIdentificationTagsResponseDataSources"
+				}
+			},
+			"icarIdentificationTagsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarIdentificationTagsResponseDataSource"
+					}
+				]
+			},
+			"icarIdentificationTagsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarIdentificationTagsResource.json"
+					}
+				}
+			},
+			"icarMilkDeliveryQualityReportsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarMilkDeliveryQualityReportsResponseDataSources"
+				}
+			},
+			"icarMilkDeliveryQualityReportsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarMilkDeliveryQualityReportsResponseDataSource"
+					}
+				]
+			},
+			"icarMilkDeliveryQualityReportsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveryQualityReportsResource.json"
+					}
+				}
+			},
+			"icarHealthReportsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarHealthReportsResponseDataSources"
+				}
+			},
+			"icarHealthReportsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarHealthReportsResponseDataSource"
+					}
+				]
+			},
+			"icarHealthReportsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthReportsResource.json"
+					}
+				}
+			},
+			"icarHealthReportVendorSpecific": {
+				"type": "object",
+				"properties": {
+					"scrSenseTime": {
+						"$ref": "#/components/schemas/icarHealthReportScrSenseTime"
+					},
+					"nedapBI": {
+						"$ref": "#/components/schemas/icarHealthReportNedapBusinessInsight"
+					}
+				},
+				"description": "Contains vendor specific fields. Only one vendor element can be present."
+			},
+			"icarHealthReportNedapBusinessInsight": {
+				"type": "object",
+				"description": "Specific fields for Nedap Business Insight. TO BE IMPLEMENTED"
+			},
+			"icarHealthReportScrSenseTime": {
+				"type": "object",
+				"properties": {
+					"dailyRumination": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"healthIndex": {
+						"type": "number",
+						"description": "One digit after decimal point",
+						"format": "double"
+					},
+					"healthIndexThreshold": {
+						"type": "integer",
+						"description": "For report coloring",
+						"format": "int32"
+					}
+				},
+				"description": "Specific fields for SCR SenseTime"
+			},
+			"icarWaterIntakesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarWaterIntakesResponseDataSources"
+				}
+			},
+			"icarWaterIntakesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarWaterIntakesResponseDataSource"
+					}
+				]
+			},
+			"icarWaterIntakesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarWaterIntakesResource.json"
+					}
+				}
+			},
+			"icarDairyGrazingSummariesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarDairyGrazingSummariesResponseDataSources"
+				}
+			},
+			"icarDairyGrazingSummariesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarDairyGrazingSummariesResponseDataSource"
+					}
+				]
+			},
+			"icarDairyGrazingSummariesResponseDataSource": {
+				"type": "array",
+				"items": {
+					"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDairyGrazingSummariesResource.json"
+				}
+			},
+			"icarHerdListCoreDataSetResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSources"
+				}
+			},
+			"icarHerdListCoreDataSetResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarHerdListCoreDataSetResponseDataSource"
+					}
+				]
+			},
+			"icarHerdListCoreDataSetResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListCoreDataSetsResource.json"
+					}
+				}
+			},
+			"icarTeatPositionsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarTeatPositionsResponseDataSources"
+				}
+			},
+			"icarTeatPositionsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarTeatPositionsResponseDataSource"
+					}
+				]
+			},
+			"icarTeatPositionsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionsResource.json"
+					}
+				}
+			},
+			"icarBiodiversityReportsResponse": {
+				"$ref": "#/components/schemas/icarBiodiversityReportsResponseDataSources"
+			},
+			"icarBiodiversityReportsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarBiodiversityReportsResponseDataSource"
+					}
+				]
+			},
+			"icarBiodiversityReportsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityReportsResource.json"
+					}
+				}
+			},
+			"icarMilkIntakesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarMilkIntakesResponseDataSources"
+				}
+			},
+			"icarMilkIntakesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarMilkIntakesResponseDataSource"
+					}
+				]
+			},
+			"icarMilkIntakesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakesResource.json"
+					}
+				}
+			},
+			"icarMilkDeliveriesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarMilkDeliveriesResponseDataSources"
+				}
+			},
+			"icarMilkDeliveriesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarMilkDeliveriesResponseDataSource"
+					}
+				]
+			},
+			"icarMilkDeliveriesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkDeliveriesResource.json"
+					}
+				}
+			},
+			"icarMilkInvoiceItemsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarMilkInvoiceItemsResponseDataSources"
+				}
+			},
+			"icarMilkInvoiceItemsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarMilkInvoiceItemsResponseDataSource"
+					}
+				]
+			},
+			"icarMilkInvoiceItemsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkInvoiceItemsResource.json"
+					}
+				}
+			},
+			"icarAnimalMilkingSampleResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarAnimalMilkingSampleResponseDataSources"
+				}
+			},
+			"icarAnimalMilkingSampleResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarAnimalMilkingSampleResponseDataSource"
+					}
+				]
+			},
+			"icarAnimalMilkingSampleResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalMilkingSampleResource.json"
+					}
+				}
+			},
+			"icarHerdListMovementsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarHerdListMovementsResponseDataSources"
+				}
+			},
+			"icarHerdListMovementsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarHerdListMovementsResponseDataSource"
+					}
+				]
+			},
+			"icarHerdListMovementsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHerdListMovementsResource.json"
+					}
+				}
+			},
+			"icarQuarterMilkingsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarQuarterMilkingsResponseDataSources"
+				}
+			},
+			"icarQuarterMilkingsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarQuarterMilkingsResponseDataSource"
+					}
+				]
+			},
+			"icarQuarterMilkingsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingsResource.json"
+					}
+				}
+			},
+			"icarHeatReportsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarHeatReportsResponseDataSources"
+				}
+			},
+			"icarHeatReportsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarHeatReportsResponseDataSource"
+					}
+				]
+			},
+			"icarHeatReportsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatReportsResource.json"
+					}
+				}
+			},
+			"icarHeatReportVendorSpecific": {
+				"type": "object",
+				"properties": {
+					"scrSenseTime": {
+						"$ref": "#/components/schemas/icarHeatReportScrSenseTime"
+					},
+					"nedapBI": {
+						"$ref": "#/components/schemas/icarHeatReportNedapBusinessInsight"
+					}
+				},
+				"description": "Contains vendor specific fields. Only one vendor element can be present."
+			},
+			"icarHeatReportScrSenseTime": {
+				"type": "object",
+				"properties": {
+					"breedingWindow": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"heatIndex": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"description": "Specific fields for SCR SenseTime"
+			},
+			"icarHeatReportNedapBusinessInsight": {
+				"type": "object",
+				"description": "Specific fields for Nedap Business Insight. TO BE IMPLEMENTED"
+			},
+			"icarPregnancyCheckResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarPregnancyChecksResponseDataSources"
+				}
+			},
+			"icarPregnancyChecksResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarPregnancyChecksResponseDataSource"
+					}
+				]
+			},
+			"icarPregnancyChecksResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarPregnancyChecksResource.json"
+					}
+				}
+			},
+			"icarGestationsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarGestationsResponseDataSources"
+				}
+			},
+			"icarGestationsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarGestationsResponseDataSource"
+					}
+				]
+			},
+			"icarGestationsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGestationsResource.json"
+					}
+				}
+			},
+			"uncefactAddressesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/uncefactAddressesResponseDataSources"
+				}
+			},
+			"uncefactAddressesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/uncefactAddressesResponseDataSource"
+					}
+				]
+			},
+			"uncefactAddressesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressResource.json"
+					}
+				}
+			},
+			"icarSlaughtersResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarSlaughtersResponseDataSources"
+				}
+			},
+			"icarSlaughtersResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarSlaughtersResponseDataSource"
+					}
+				]
+			},
+			"icarSlaughtersResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSlaughtersResource.json"
+					}
+				}
+			},
+			"icarHealthActivitiesResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarHealthActivitiesResponseDataSources"
+				}
+			},
+			"icarHealthActivitiesResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarHealthActivitiesResponseDataSource"
+					}
+				]
+			},
+			"icarHealthActivityScrSenseTime": {
+				"type": "object",
+				"properties": {
+					"dailyRumination": {
+						"type": "number",
+						"description": "The number of minutes a cow ruminates during the day (24-hour period)",
+						"format": "double"
+					},
+					"dailyEating": {
+						"type": "number",
+						"description": "The number of minutes a cow eats during the day (24 hour period)",
+						"format": "double"
+					},
+					"hourlyRumination": {
+						"type": "number",
+						"description": "The number of minutes a cow ruminates during an hour.",
+						"format": "double"
+					},
+					"hourlyEating": {
+						"type": "number",
+						"description": "The number of minutes a cow eats an hour.",
+						"format": "double"
+					},
+					"activityTrend": {
+						"type": "number",
+						"description": "The trend of the cow’s activity. Cows when they are not well are less active.",
+						"format": "double"
+					}
+				},
+				"description": "Contains SenseTime specific fields. Only one element can be present per item."
+			},
+			"icarHealthActivitiesResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthActivitiesResource.json"
+					}
+				}
+			},
+			"icarMilkCharacteristicsResponse": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/icarMilkCharacteristicsResponseDataSources"
+				}
+			},
+			"icarMilkCharacteristicsResponseDataSources": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/responseDataSource"
+					},
+					{
+						"$ref": "#/components/schemas/responseErrors"
+					},
+					{
+						"$ref": "#/components/schemas/icarMilkCharacteristicsResponseDataSource"
+					}
+				]
+			},
+			"icarMilkCharacteristicsResponseDataSource": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkCharacteristicsResource.json"
+					}
+				}
+			},
+			"responseErrors": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/error"
+						}
+					}
+				}
+			},
+			"dataSource": {
+				"type": "string",
+				"description": "Source where data is retrieved from. Details can be retrieved from the source register."
+			},
+			"error": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "A unique identifier for this particular occurrence of the problem"
+					},
+					"status": {
+						"type": "integer",
+						"description": "The HTTP status code applicable to this problem, expressed as a string value",
+						"format": "int32"
+					},
+					"code": {
+						"type": "string",
+						"description": "An application-specific error code, expressed as a string value."
+					},
+					"title": {
+						"type": "string",
+						"description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
+					},
+					"detail": {
+						"type": "string",
+						"description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
+					},
+					"meta": {
 						"type": "object",
 						"properties": {
-							"errors": {
-								"type": "array",
-								"items": {
-									"$ref": "#/components/schemas/error"
+							
+						}
+					}
+				},
+				"description": "A human-readable error message describing what went wrong."
+			},
+			"responseDataSource": {
+				"required": [
+					"id"
+				],
+				"type": "object",
+				"properties": {
+					"id": {
+						"$ref": "#/components/schemas/dataSource"
+					}
+				}
+			}
+		},
+		"responses": {
+			"error": {
+				"description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+				"content": {
+					"application/json": {
+						"schema": {
+							"type": "object",
+							"properties": {
+								"errors": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/error"
+									}
 								}
-							}
-						},
-						"description": "A default response containing only a list of errors"
-					}
-				}
-			}
-		}
-	},
-	"parameters": {
-		"queryEndDateTime": {
-			"name": "end-date-time",
-			"in": "query",
-			"description": "The end of the date-time range for the data to get in the request.",
-			"schema": {
-				"type": "string",
-				"format": "date-time"
-			}
-		},
-		"pathIcarMilkingVisitId": {
-			"name": "milking-visit-id",
-			"in": "path",
-			"required": true,
-			"schema": {
-				"type": "string"
-			}
-		},
-		"pathLocationScheme": {
-			"name": "location-scheme",
-			"in": "path",
-			"description": "The scheme id for the location identifier.",
-			"required": true,
-			"schema": {
-				"type": "string",
-				"enum": [
-					"nl-v1",
-					"be-v1"
-				]
-			}
-		},
-		"queryEndDateTimeRequired": {
-			"name": "end-date-time",
-			"in": "query",
-			"description": "The end of the date-time range for the data to get in the request.",
-			"required": true,
-			"schema": {
-				"type": "string",
-				"format": "date-time"
-			}
-		},
-		"queryModifiedSince": {
-			"name": "modified-since",
-			"in": "query",
-			"description": "The date-time of insertion or last update of the event.",
-			"schema": {
-				"type": "string",
-				"format": "date-time"
-			}
-		},
-		"pathLocationId": {
-			"name": "location-id",
-			"in": "path",
-			"description": "The unique identifier for the location.",
-			"required": true,
-			"schema": {
-				"type": "string"
-			}
-		},
-		"pathMilkDeliveryId": {
-			"name": "milk-delivery-id",
-			"in": "path",
-			"description": "The unique identifier for a milk delivery for a specific location.",
-			"required": true,
-			"schema": {
-				"type": "string"
-			}
-		},
-		"queryAnimalScheme": {
-			"name": "animal-scheme",
-			"in": "query",
-			"description": "The scheme id for the animal identifier. Should be used together with animal-id.",
-			"required": true,
-			"schema": {
-				"type": "string",
-				"enum": [
-					"nl-v1",
-					"be-v1"
-				]
-			}
-		},
-		"queryStartDateTimeRequired": {
-			"name": "start-date-time",
-			"in": "query",
-			"description": "The start of the date-time range for the data to get in the request.",
-			"required": true,
-			"schema": {
-				"type": "string",
-				"format": "date-time"
-			}
-		},
-		"pathMilkInvoiceId": {
-			"name": "milk-invoice-id",
-			"in": "path",
-			"description": "The unique identifier for a milk invoice for a specific location.",
-			"required": true,
-			"schema": {
-				"type": "string"
-			}
-		},
-		"queryAnimalId": {
-			"name": "animal-id",
-			"in": "query",
-			"description": "The unique identifier for the animal. Should be used together with animal-scheme.",
-			"required": true,
-			"schema": {
-				"type": "string"
-			}
-		},
-		"queryStartDateTime": {
-			"name": "start-date-time",
-			"in": "query",
-			"description": "The start of the date-time range for the data to get in the request.",
-			"schema": {
-				"type": "string",
-				"format": "date-time"
-			}
-		}
-	},
-	"securitySchemes": {
-		"jdClient": {
-			"type": "oauth2",
-			"description": "Secure access using client credentials grant",
-			"flows": {
-				"clientCredentials": {
-					"tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
-					"scopes": {
-						"fullaccess": "Full access to all resources when mandate is available"
+							},
+							"description": "A default response containing only a list of errors"
+						}
 					}
 				}
 			}
 		},
-		"jdAuthorizationCode": {
-			"type": "oauth2",
-			"description": "Secure access using authorization grant flow",
-			"flows": {
-				"authorizationCode": {
-					"authorizationUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth",
-					"tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
-					"scopes": {
-						"fullaccess": "Full access to all resources when mandate is available"
+		"parameters": {
+			"queryEndDateTime": {
+				"name": "end-date-time",
+				"in": "query",
+				"description": "The end of the date-time range for the data to get in the request.",
+				"schema": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"pathIcarMilkingVisitId": {
+				"name": "milking-visit-id",
+				"in": "path",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"pathLocationScheme": {
+				"name": "location-scheme",
+				"in": "path",
+				"description": "The scheme id for the location identifier.",
+				"required": true,
+				"schema": {
+					"type": "string",
+					"enum": [
+						"nl-v1",
+						"be-v1"
+					]
+				}
+			},
+			"queryEndDateTimeRequired": {
+				"name": "end-date-time",
+				"in": "query",
+				"description": "The end of the date-time range for the data to get in the request.",
+				"required": true,
+				"schema": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"queryModifiedSince": {
+				"name": "modified-since",
+				"in": "query",
+				"description": "The date-time of insertion or last update of the event.",
+				"schema": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"pathLocationId": {
+				"name": "location-id",
+				"in": "path",
+				"description": "The unique identifier for the location.",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"pathMilkDeliveryId": {
+				"name": "milk-delivery-id",
+				"in": "path",
+				"description": "The unique identifier for a milk delivery for a specific location.",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"queryAnimalScheme": {
+				"name": "animal-scheme",
+				"in": "query",
+				"description": "The scheme id for the animal identifier. Should be used together with animal-id.",
+				"required": true,
+				"schema": {
+					"type": "string",
+					"enum": [
+						"nl-v1",
+						"be-v1"
+					]
+				}
+			},
+			"queryStartDateTimeRequired": {
+				"name": "start-date-time",
+				"in": "query",
+				"description": "The start of the date-time range for the data to get in the request.",
+				"required": true,
+				"schema": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"pathMilkInvoiceId": {
+				"name": "milk-invoice-id",
+				"in": "path",
+				"description": "The unique identifier for a milk invoice for a specific location.",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"queryAnimalId": {
+				"name": "animal-id",
+				"in": "query",
+				"description": "The unique identifier for the animal. Should be used together with animal-scheme.",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"queryStartDateTime": {
+				"name": "start-date-time",
+				"in": "query",
+				"description": "The start of the date-time range for the data to get in the request.",
+				"schema": {
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"securitySchemes": {
+			"jdClient": {
+				"type": "oauth2",
+				"description": "Secure access using client credentials grant",
+				"flows": {
+					"clientCredentials": {
+						"tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
+						"scopes": {
+							"fullaccess": "Full access to all resources when mandate is available"
+						}
+					}
+				}
+			},
+			"jdAuthorizationCode": {
+				"type": "oauth2",
+				"description": "Secure access using authorization grant flow",
+				"flows": {
+					"authorizationCode": {
+						"authorizationUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth",
+						"tokenUrl": "https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token",
+						"scopes": {
+							"fullaccess": "Full access to all resources when mandate is available"
+						}
 					}
 				}
 			}
 		}
 	}
-}
 }
