@@ -24,22 +24,26 @@
 	],
 	"tags": [
 		{
-			"name": "ICAR inspired",
-			"description": "Messages which do not exist in current ICAR-ADE standard, but which follow the same principles\n"
+			"name": "New in JD",
+			"description": "Messages which do not exist in current ICAR-ADE draft but should be added\n"
 		},
 		{
-			"name": "Local/other standard",
-			"description": "Messages which are (soon) available through JoinData, but without any affiliation to ICAR\n"
-		}
+			"name": "Existing in Draft",
+			"description": "Messages which already defined in the ICAR-ADE draft and should be merged\n"
+		},
+		{
+			"name": "New in Draft",
+			"description": "Messages already defined in the ICAR-ADE draft and new for JoinData\n"
+		}		
 	],
 	"paths": {
 		"/locations/{location-scheme}/{location-id}/milking-visits": {
 			"get": {
 				"tags": [
-					"ICAR approval ready"
+					"Existing in Draft"
 				],
-				"summary": "Get the data for milking visits",
-				"description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
+				"summary": "Get the data for milking visits. \nCompare to /herds/animal-events/MilkingEvents.",
+				"description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n",
 				"parameters": [
 					{
 						"name": "location-scheme",
@@ -118,10 +122,10 @@
 		"/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/characteristics": {
 			"get": {
 				"tags": [
-					"ICAR approval ready"
+					"Existing in Draft"
 				],
-				"summary": "Get the quarter milking data for a specific milking visit",
-				"description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour\n",
+				"summary": "Get the quarter milking data for a specific milking visit.\nCompare to /herds/animal-events/MilkingEvents.",
+				"description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour.\n",
 				"parameters": [
 					{
 						"name": "location-scheme",
@@ -190,10 +194,10 @@
 		"/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/quarter-milkings": {
 			"get": {
 				"tags": [
-					"ICAR approval ready"
+					"Existing in Draft"
 				],
-				"summary": "Get the quarter milking data for a specific milking visit",
-				"description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour\n",
+				"summary": "Get the quarter milking data for a specific milking visit.\nCompare to /herds/animal-events/MilkingEvents.",
+				"description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour.\n",
 				"parameters": [
 					{
 						"name": "location-scheme",
@@ -262,10 +266,10 @@
 		"/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/animal-milking-sample": {
 			"get": {
 				"tags": [
-					"ICAR approval ready"
+					"Existing in Draft"
 				],
-				"summary": "Get the quarter milking data for a specific milking visit",
-				"description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour\n",
+				"summary": "Get the quarter milking data for a specific milking visit.\nCompare to /herds/animal-events/MilkingEvents",
+				"description": "# Purpose\nProvides quarter milking data from a singular visit of an animal to a milking parlour.\n",
 				"parameters": [
 					{
 						"name": "location-scheme",
@@ -334,9 +338,9 @@
 		"/locations/{location-scheme}/{location-id}/herd-list": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"Existing in Draft"
 				],
-				"summary": "Get the animals on a location.",
+				"summary": "Get the animals on a location.\nCompare to /herds/animals",
 				"description": "_Based upon ICAR ADE GetHerdListRequest._\n# Purpose\nReturns the herd list for a location.\n",
 				"parameters": [
 					{
@@ -416,10 +420,10 @@
 		"/locations/{location-scheme}/{location-id}/herd-list-core-data-set": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"Existing in Draft"
 				],
-				"summary": "Get the core details of the animals on a location.",
-				"description": "_Based upon ICAR ADE GetHerdListRequest._\n# Purpose\nReturns a herd list for a location containing core animal data.\n",
+				"summary": "Get the core details of the animals on a location.\n Compare to /herds/animals and /herds/animal.",
+				"description": "_Based upon ICAR ADE GetHerdListRequest._\n# Purpose\nReturns a herd list for a location containing core animal data.\n'",
 				"parameters": [
 					{
 						"name": "location-scheme",
@@ -498,7 +502,7 @@
 		"/locations/{location-scheme}/{location-id}/dairy-grazing-summaries": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get the dairy grazing summary data",
 				"description": "# Purpose\nReturns a summary with information about the grazing pattern of the animals on the given location.\n",
@@ -591,7 +595,7 @@
 		"/locations/{location-scheme}/{location-id}/feed-intakes": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get feed intakes of the animals on the location specified.",
 				"description": "# Purpose\nReturns feed intakes of the animals on the location specified.\n",
@@ -673,7 +677,7 @@
 		"/locations/{location-scheme}/{location-id}/gestations": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get gestation information for all in-herd animals on a location.",
 				"description": "# Purpose\nReturns a list with current gestation information for a location.\n",
@@ -737,7 +741,7 @@
 		"/locations/{location-scheme}/{location-id}/health-activities": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get health activity information for animals on a location.",
 				"description": "# Purpose\nReturns a list with health activity information for a location.\n",
@@ -843,7 +847,7 @@
 		"/locations/{location-scheme}/{location-id}/health-reports": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get health information for a location.",
 				"description": "# Purpose\nReturns a list with current health information for a location.\n",
@@ -907,7 +911,7 @@
 		"/locations/{location-scheme}/{location-id}/heat-activities": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get in-heat activity information for female animals on a location.",
 				"description": "# Purpose\nReturns a list with in-heat activity information for a location.\n",
@@ -1013,9 +1017,9 @@
 		"/locations/{location-scheme}/{location-id}/heat-reports": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"Existing in Draft"
 				],
-				"summary": "Get in-heat information for a location.",
+				"summary": "Get in-heat information for a location.\nCompare to /herds/animal-events/HeatEvents",
 				"description": "# Purpose\nReturns a list with current in-heat information for a location.\n",
 				"parameters": [
 					{
@@ -1077,9 +1081,9 @@
 		"/locations/{location-scheme}/{location-id}/herd-list-movements": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"Existing in Draft"
 				],
-				"summary": "Get the animal movements on a location.",
+				"summary": "Get the animal movements on a location.\nCompare to /herds/animal-events/ArrivalEvents and /herds/animal-events/DepatureEvents",
 				"description": "_Based upon ICAR ADE GetHerdListRequest._\n# Purpose\nReturns the animal movements for a location.\n",
 				"parameters": [
 					{
@@ -1159,10 +1163,10 @@
 		"/locations/{location-scheme}/{location-id}/animal-registrations": {
 			"post": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Pushes a singular animal (governmental) registration",
-				"description": "# Purpose\nProvides data from a singular animal registration\n",
+				"description": "# Purpose\nProvides data from a singular animal registration\nSpecific for a country (NL).",
 				"parameters": [
 					{
 						"name": "location-scheme",
@@ -1234,7 +1238,7 @@
 		"/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/teat-positions": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get the teat positions for a specific milking visit",
 				"description": "# Purpose\nProvides teat positions from a singular visit of an animal to a milking parlour\n",
@@ -1306,7 +1310,7 @@
 		"/locations/{location-scheme}/{location-id}/identification-tags": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get the identification tags on a location.",
 				"description": "# Purpose\nReturns the identification tags for a location. Examples are Nedap, SCR and Gallagher identification tags (EIDs) for animals.\n",
@@ -1370,10 +1374,10 @@
 		"/locations/{location-scheme}/{location-id}/inseminations": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"Existing in Draft"
 				],
 				"summary": "Get the executed insemantions on a location.",
-				"description": "# Purpose\nReturns the inseminations for a location.\n",
+				"description": "# Purpose\nReturns the inseminations for a location.\n Compare to /herds/animal-events/InseminationEvents.\n",
 				"parameters": [
 					{
 						"name": "location-scheme",
@@ -1452,7 +1456,7 @@
 		"/locations/{location-scheme}/{location-id}/milk-deliveries": {
 			"get": {
 				"tags": [
-					"Local/other standard"
+					"New in JD"
 				],
 				"summary": "Get milk deliveries of the location specified.",
 				"description": "# Purpose\nReturns milk deliveries of the location specified.\n",
@@ -1534,7 +1538,7 @@
 		"/locations/{location-scheme}/{location-id}/milk-deliveries/{milk-delivery-id}/quality-reports": {
 			"get": {
 				"tags": [
-					"Local/other standard"
+					"New in JD"
 				],
 				"summary": "Get the test results for a specific milk delivery of the location specified.",
 				"description": "todo",
@@ -1607,7 +1611,7 @@
 		"/locations/{location-scheme}/{location-id}/milk-intakes": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get milk intakes of the animals on the location specified.",
 				"description": "# Purpose\nReturns milk intakes of the animals on the location specified.\n",
@@ -1689,7 +1693,7 @@
 		"/locations/{location-scheme}/{location-id}/milk-invoices": {
 			"get": {
 				"tags": [
-					"Local/other standard"
+					"New in JD"
 				],
 				"summary": "Get milk delivery invoices of the location specified.",
 				"description": "# Purpose\nReturns the invoices received for the milk delivered of the location specified.\n",
@@ -1771,7 +1775,7 @@
 		"/locations/{location-scheme}/{location-id}/milk-invoices/{milk-invoice-id}/items": {
 			"get": {
 				"tags": [
-					"Local/other standard"
+					"New in JD"
 				],
 				"summary": "Get the items of the milk delivery invoices of the location specified.",
 				"description": "# Purpose\nReturns the items of the invoices received for the milk delivered of the location specified.\n",
@@ -1844,7 +1848,7 @@
 		"/locations/{location-scheme}/{location-id}/slaughters": {
 			"get": {
 				"tags": [
-					"Local/other standard"
+					"New in JD"
 				],
 				"summary": "Get the slaughterhouse events for all animals being slaughtered.",
 				"description": "# Purpose\nReturns a list animals being slaughtered with their details for a location.\n",
@@ -1923,12 +1927,143 @@
 				}
 			}
 		},
+
+		"/locations/{location-scheme}/{location-id}/parturitions": {
+			"get": {
+				"tags": [
+					"New in Draft"
+				],
+				"summary": "Get the parturition events for all in-herd animals on a location.\n Compare to /herds/animal-events/ParturitionCheckEvents.\n",
+				"description": "_Subject to change_\n# Purpose\nReturns a list with pregnancy-checks events information for a location.\n",
+				"parameters": [
+					{
+						"name": "location-scheme",
+						"in": "path",
+						"description": "The scheme id for the location identifier.",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"nl-v1",
+								"be-v1"
+							]
+						}
+					},
+					{
+						"name": "location-id",
+						"in": "path",
+						"description": "The unique identifier for the location.",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful. The response contains the pregnancy check events data for the location.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/DataLinker/ICARAnimalEventParturition.json"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"errors": {
+											"type": "array",
+											"items": {
+												"$ref": "#/components/schemas/error"
+											}
+										}
+									},
+									"description": "A default response containing only a list of errors"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+
+		"/locations/{location-scheme}/{location-id}/offsprings": {
+			"get": {
+				"tags": [
+					"New in Draft"
+				],
+				"summary": "Get the offspring events for all in-herd animals on a location.\n Compare to /herds/animal-events/OffspringEvents.\n",
+				"description": "_Subject to change_\n# Purpose\nReturns a list with offspring events information for a location.\n",
+				"parameters": [
+					{
+						"name": "location-scheme",
+						"in": "path",
+						"description": "The scheme id for the location identifier.",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"nl-v1",
+								"be-v1"
+							]
+						}
+					},
+					{
+						"name": "location-id",
+						"in": "path",
+						"description": "The unique identifier for the location.",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful. The response contains the pregnancy check events data for the location.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/DataLinker/ICARAnimalParturitionOffspring.json"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "An error has occurred while handling the request. Check the content of the message for the error details.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"errors": {
+											"type": "array",
+											"items": {
+												"$ref": "#/components/schemas/error"
+											}
+										}
+									},
+									"description": "A default response containing only a list of errors"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+
 		"/locations/{location-scheme}/{location-id}/pregnancy-checks": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"Existing in Draft"
 				],
-				"summary": "Get the pregnancy checks events for all in-herd animals on a location.",
+				"summary": "Get the pregnancy checks events for all in-herd animals on a location.\n Compare to /herds/animal-events/PregnancyCheckEvents.\n",
 				"description": "_Subject to change_\n# Purpose\nReturns a list with pregnancy-checks events information for a location.\n",
 				"parameters": [
 					{
@@ -1990,7 +2125,7 @@
 		"/locations/{location-scheme}/{location-id}/water-intakes": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get water intakes of the animals on the location specified.",
 				"description": "# Purpose\nReturns water intakes of the animals on the location specified.\n",
@@ -2072,7 +2207,7 @@
 		"/locations/{location-scheme}/{location-id}/weights": {
 			"get": {
 				"tags": [
-					"ICAR inspired"
+					"New in JD"
 				],
 				"summary": "Get information about the weight of an animal",
 				"description": "_Subject to change_\n# Purpose\nReturns a list of weight measurement events for a location.\n",
@@ -2154,7 +2289,7 @@
 		"/locations/{location-scheme}/{location-id}/biodiversity-reports": {
 			"get": {
 				"tags": [
-					"Local/other standard"
+					"New in JD"
 				],
 				"summary": "Get the bio-diversity reports for the location in the given period.",
 				"description": "# Purpose\nGet the bio-diversity reports for the location in the given period.\n",
@@ -2236,7 +2371,7 @@
 		"/locations/{location-scheme}/{location-id}/addresses": {
 			"get": {
 				"tags": [
-					"Local/other standard"
+					"New in JD"
 				],
 				"summary": "Gets the currently known addresses for this company",
 				"description": "# Purpose\nGets the known addresses for this company\n",
