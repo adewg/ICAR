@@ -6,8 +6,13 @@
         ],
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for the posted message",
+            "format": "uuid"
+          },
           "registrationType": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarRegistrationCode.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/registrationType.json"
           },
           "registrationDate": {
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
@@ -56,4 +61,4 @@
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarProductionPurposeCode.json"
           }
         }
-      }
+}

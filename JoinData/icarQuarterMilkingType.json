@@ -5,10 +5,10 @@
 			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterCode.json"
 		},
 		"quarterMilkingDuration": {
-			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/quarterMilkingDuration.json"
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingDurationType.json"
 		},
 		"quarterMilkingWeight": {
-			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/quarterMilkingWeight.json"
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingWeightType.json"
 		},
 		"icarQuarterCharacteristics": {
 			"type": "array",
@@ -17,7 +17,7 @@
 			}
 		},
 		"quarterMilkingSample": {
-			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingSample.json"
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingSampleType.json"
 		}
 	}
 }

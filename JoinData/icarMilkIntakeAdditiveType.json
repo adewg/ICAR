@@ -1,0 +1,44 @@
+{
+        "required": [
+          "bin",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "bin": {
+            "type": "integer",
+            "description": "The bin the additive was sourced from.",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of additive provided.",
+            "enum": [
+              "Unknown",
+              "Electrolyte"
+            ]
+          },
+          "quantity": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "LTR",
+                  "MLT"
+                ]
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "The provided quantity of the additive in milliliters."
+          }
+        }
+      }

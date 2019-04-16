@@ -2,7 +2,7 @@
         "type": "object",
         "properties": {
           "icarQuarterId": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterIdCode.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterCode.json"
           },
           "icarTeatPositions": {
             "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarTeatPositionsCoordType.json"

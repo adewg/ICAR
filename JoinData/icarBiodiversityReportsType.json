@@ -1,0 +1,22 @@
+{
+        "type": "object",
+        "properties": {
+          "company": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
+          },
+          "ftn": {
+            "type": "string",
+            "description": "A factory tank number (factory number + company number at factory)"
+          },
+          "area": {
+            "type": "string",
+            "description": "A meaningful identification code of the animal, not necessary unique within the location"
+          },
+          "collectives": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityCollectiveType.json"
+            }
+          }
+        }
+}

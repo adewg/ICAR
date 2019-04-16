@@ -88,7 +88,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "icarMilkingVisitsResponse.json"
+                  "$ref": "#/components/schemas/icarMilkingVisitsResponse"
                 }
               }
             }
@@ -1204,7 +1204,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/icarAnimalRegistrationResponse"
+                  "$ref": "#/components/schemas/icarAnimalRegistrationResponseDataSource"
                 }
               }
             }
@@ -2367,11 +2367,6 @@
           }
         ]
       },
-      "icarSemenOfOwnStock": {
-        "type": "boolean",
-        "description": "Indication whether the semen used came out of the stock from the farmer, or from the technician.",
-        "default": true
-      },
       "icarMilkInvoiceItemsResponseDataSources": {
         "allOf": [
           {
@@ -2404,70 +2399,6 @@
           "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddress.json"
         }
       },
-      "icarAnimalRegistration": {
-        "required": [
-          "identifier",
-          "registrationDate",
-          "registrationType"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A unique identifier for the posted message",
-            "format": "uuid"
-          },
-          "registrationType": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/registrationType.json"
-          },
-          "registrationDate": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
-          },
-          "identifier": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
-          },
-          "specie": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarSpecieCodeType.json"
-          },
-          "gender": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGenderCodeType.json"
-          },
-          "birth": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
-          },
-          "breed": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCodeType.json"
-          },
-          "sire": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
-          },
-          "recipientDam": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
-          },
-          "geneticDam": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
-          },
-          "number": {
-            "type": "string",
-            "description": "A meaningful identification code of the animal, not necessary unique within the location"
-          },
-          "earTagNumber": {
-            "type": "string",
-            "description": "The ear tag number"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the animal"
-          },
-          "officialName": {
-            "type": "string",
-            "description": "The official name of the animal"
-          },
-          "productionPurpose": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarProductionPurpose.json"
-          }
-        }
-      },
       "icarMilkIntakesResponseDataSources": {
         "allOf": [
           {
@@ -2481,293 +2412,6 @@
           }
         ]
       },
-      "icarMilkIntakeAdditive": {
-        "required": [
-          "bin",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "bin": {
-            "type": "integer",
-            "description": "The bin the additive was sourced from.",
-            "format": "int32"
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of additive provided.",
-            "enum": [
-              "Unknown",
-              "Electrolyte"
-            ]
-          },
-          "quantity": {
-            "required": [
-              "unitCode",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "unitCode": {
-                "type": "string",
-                "description": "UN/CEFACT Common Code for Units of Measurement.",
-                "enum": [
-                  "LTR",
-                  "MLT"
-                ]
-              },
-              "value": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "description": "The provided quantity of the additive in milliliters."
-          }
-        }
-      },
-      "icarMilkDeliveryType": {
-        "type": "object",
-        "properties": {
-          "dairyIdentifier": {
-            "$ref": "#/components/schemas/companyIdentifier"
-          },
-          "productionUnit": {
-            "type": "integer",
-            "description": "204611",
-            "format": "int32"
-          },
-          "supplierNumber": {
-            "type": "integer",
-            "description": "202510",
-            "format": "int32"
-          },
-          "reckoningYear": {
-            "type": "integer",
-            "description": "204272",
-            "format": "int32"
-          },
-          "codeFatProteinCalculated": {
-            "type": "integer",
-            "description": "204398",
-            "format": "int32"
-          },
-          "period": {
-            "required": [
-              "end",
-              "start"
-            ],
-            "type": "object",
-            "properties": {
-              "start": {
-                "type": "string",
-                "description": "The start time of the day. Time element should be set to 00:00:00.",
-                "format": "date-time"
-              },
-              "name": {
-                "type": "string",
-                "description": "The friendly name of the period."
-              },
-              "end": {
-                "type": "string",
-                "description": "The end time of the day. Time element should be set to 23:59:59.",
-                "format": "date-time"
-              }
-            },
-            "description": "The period of reckoning the delivery belongs to."
-          },
-          "timestampDelivery": {
-            "type": "string",
-            "description": "The timestamp of the milk delivery. 201731 & 204271",
-            "format": "date-time"
-          },
-          "milkDelivered": {
-            "required": [
-              "unitCode",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "unitCode": {
-                "type": "string",
-                "description": "UN/CEFACT Common Code for Units of Measurement.",
-                "enum": [
-                  "LTR",
-                  "KGM"
-                ]
-              },
-              "value": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "description": "200503 & 203575"
-          },
-          "fat": {
-            "required": [
-              "unitCode",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "unitCode": {
-                "type": "string",
-                "description": "UN/CEFACT Common Code for Units of Measurement.",
-                "enum": [
-                  "VP",
-                  "GL"
-                ]
-              },
-              "value": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "description": "200505 & 204625"
-          },
-          "protein": {
-            "required": [
-              "unitCode",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "unitCode": {
-                "type": "string",
-                "description": "UN/CEFACT Common Code for Units of Measurement.",
-                "enum": [
-                  "VP",
-                  "GL"
-                ]
-              },
-              "value": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "description": "200506 & 204626"
-          },
-          "lactose": {
-            "required": [
-              "unitCode",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "unitCode": {
-                "type": "string",
-                "description": "UN/CEFACT Common Code for Units of Measurement.",
-                "enum": [
-                  "VP"
-                ]
-              },
-              "value": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "description": "200507"
-          },
-          "urea": {
-            "required": [
-              "unitCode",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "unitCode": {
-                "type": "string",
-                "description": "UN/CEFACT Common Code for Units of Measurement.",
-                "enum": [
-                  "VP"
-                ]
-              },
-              "value": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "description": "204261"
-          },
-          "temperature": {
-            "required": [
-              "unitCode",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "unitCode": {
-                "type": "string",
-                "description": "UN/CEFACT Common Code for Units of Measurement.",
-                "enum": [
-                  "CEL"
-                ]
-              },
-              "value": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "description": "200509"
-          },
-          "bacteriaInhibitingSubstance": {
-            "type": "object",
-            "properties": {
-              "reductionMilkAmount": {
-                "required": [
-                  "value",
-                  "valutaCode"
-                ],
-                "type": "object",
-                "properties": {
-                  "valutaCode": {
-                    "type": "string",
-                    "description": "ISO 4217",
-                    "enum": [
-                      "EUR"
-                    ]
-                  },
-                  "value": {
-                    "type": "number",
-                    "format": "double"
-                  }
-                },
-                "description": "204381"
-              },
-              "kind": {
-                "type": "string",
-                "description": "202614"
-              },
-              "testResult": {
-                "type": "string",
-                "description": "202668"
-              },
-              "reductionMilkQuantity": {
-                "required": [
-                  "unitCode",
-                  "value"
-                ],
-                "type": "object",
-                "properties": {
-                  "unitCode": {
-                    "type": "string",
-                    "description": "UN/CEFACT Common Code for Units of Measurement.",
-                    "enum": [
-                      "LTR",
-                      "KGM"
-                    ]
-                  },
-                  "value": {
-                    "type": "number",
-                    "format": "double"
-                  }
-                },
-                "description": "203446"
-              }
-            }
-          }
-        },
-        "description": "Gives information about a milk delivery of a farmer to a dairy company."
-      },
       "icarMilkDeliveriesResponseDataSource": {
         "type": "object",
         "properties": {
@@ -2776,25 +2420,24 @@
           }
         }
       },
-      "icarBiodiversityReports": {
+      "icarBiodiversityReportsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseDataSource"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarBiodiversityReportsResponseDataSource"
+          }
+        ]
+      },
+      "icarBiodiversityReportsResponseDataSource": {
         "type": "object",
         "properties": {
-          "company": {
-            "$ref": "#/components/schemas/companyIdentifier"
-          },
-          "ftn": {
-            "type": "string",
-            "description": "A factory tank number (factory number + company number at factory)"
-          },
-          "area": {
-            "type": "string",
-            "description": "A meaningful identification code of the animal, not necessary unique within the location"
-          },
-          "collectives": {
-            "type": "array",
-            "items": {
-              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityCollective.json"
-            }
+          "data": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityReportsType.json"
           }
         }
       },
@@ -3253,7 +2896,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingsTypes.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingsType.json"
           }
         }
       },
@@ -3294,11 +2937,11 @@
           }
         ]
       },
-      "icarAnimalRegistrationResponse": {
+      "icarAnimalRegistrationResponseDataSource": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/icarAnimalRegistration"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalRegistrationType.json"
           }
         }
       },
@@ -3344,7 +2987,7 @@
         "description": "A string which (in combination with a scheme) uniquely identifies an animal."
       },
       "icarBiodiversityReportsResponse": {
-        "$ref": "#/components/schemas/icarBiodiversityReports"
+        "$ref": "#/components/schemas/icarBiodiversityReportsResponseDataSources"
       },
       "icarHerdListResponseDataSource": {
         "type": "object",
@@ -3511,143 +3154,13 @@
         },
         "description": "Contains vendor specific fields. Only one vendor element can be present."
       },
-      "companyIdentifier": {
-        "required": [
-          "id",
-          "scheme"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyId.json"
-          },
-          "scheme": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyIdScheme.json"
-          }
-        },
-        "description": "Identifies a company"
-      },
       "icarWaterIntakesResponse": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/icarWaterIntakesResponseDataSources"
         }
       },
-      "uncefactAddress": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "An identifier for this address within an agreed scheme of address identifiers."
-          },
-          "addressTypeCode": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressTypeCode.json"
-          },
-          "addressFormatCode": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/uncefactAddressFormatCode.json"
-          },
-          "postbox": {
-            "type": "string",
-            "description": "A post office box number registered for postal delivery by a postal service provider."
-          },
-          "floor": {
-            "type": "string",
-            "description": "An identifiable floor of a building."
-          },
-          "room": {
-            "type": "string",
-            "description": "An identifiable room, suite, or apartment of a building."
-          },
-          "streetName": {
-            "type": "string",
-            "description": "The name of the street, road, avenue, way, etc. to which the number of the building is attached."
-          },
-          "additionalStreetName": {
-            "type": "string",
-            "description": "An additional street name used to further clarify the address."
-          },
-          "blockName": {
-            "type": "string",
-            "description": "The name of the block (an area surrounded by streets and usually containing several buildings) in which this address is located."
-          },
-          "buildingName": {
-            "type": "string",
-            "description": "The name of a building."
-          },
-          "buildingNumber": {
-            "type": "string",
-            "description": "The number of a building within the street."
-          },
-          "inhouseMail": {
-            "type": "string",
-            "description": "The specific identifable location within a building where mail is delivered."
-          },
-          "department": {
-            "type": "string",
-            "description": "The department of the addressee."
-          },
-          "markAttention": {
-            "type": "string",
-            "description": "The name, expressed as text, of a person or department in an organization to whose attention incoming mail is directed; corresponds to the printed forms `for the attention of`, `FAO`, and `ATTN:`."
-          },
-          "markCare": {
-            "type": "string",
-            "description": "The name, expressed as text, of a person or organization at this address into whose care incoming mail is entrusted; corresponds to the printed forms `care of` and `c/o`."
-          },
-          "plotIdentification": {
-            "type": "string",
-            "description": "An identifier (e.g., a parcel number) for the piece of land associated with this address."
-          },
-          "citySubdivisionName": {
-            "type": "string",
-            "description": "The name of the subdivision of a city, town, or village in which this address is located, such as the name of its district or borough."
-          },
-          "cityName": {
-            "type": "string",
-            "description": "The name of a city, town, or village."
-          },
-          "postalZone": {
-            "type": "string",
-            "description": "The postal identifier for this address according to the relevant national postal service, such as a ZIP code or Post Code."
-          },
-          "countrySubentity": {
-            "type": "string",
-            "description": "The political or administrative division of a country in which this address is located, such as the name of its county, province, or state, expressed as text."
-          },
-          "countrySubentityCode": {
-            "type": "string",
-            "description": "The political or administrative division of a country in which this address is located, such as a county, province, or state, expressed as a code (typically nationally agreed)."
-          },
-          "region": {
-            "type": "string",
-            "description": "The recognized geographic or economic region or group of countries in which this address is located."
-          },
-          "district": {
-            "type": "string",
-            "description": "The district or geographical division of a country or region in which this address is located."
-          },
-          "timezoneOffset": {
-            "type": "string",
-            "description": "The time zone in which this address is located (as an offset from Universal Coordinated Time (UTC)) at the time of exchange."
-          },
-          "addressLine": {
-            "type": "array",
-            "description": "An unstructured address line.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "country": {
-            "type": "string",
-            "description": "The country in which this address is situated."
-          },
-          "locationCoordinate": {
-            "type": "string",
-            "description": "The geographical coordinates of this address."
-          }
-        }
-      },
-      "icarMilkInvoicesResponse": {
+     "icarMilkInvoicesResponse": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/icarMilkInvoicesResponseDataSources"

@@ -58,7 +58,7 @@
           "additives": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakeAdditive.json"
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakeAdditiveType.json"
             }
           }
         },

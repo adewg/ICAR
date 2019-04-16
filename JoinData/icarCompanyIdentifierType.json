@@ -1,0 +1,16 @@
+      "companyIdentifier": {
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyId.json"
+          },
+          "scheme": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyIdScheme.json"
+          }
+        },
+        "description": "Identifies a company"
+      },
