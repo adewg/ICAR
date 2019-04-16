@@ -2,7 +2,7 @@
         "type": "object",
         "properties": {
           "company": {
-            "$ref": https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifier.json"
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
           },
           "sourceIdentifiers": {
             "type": "array",
