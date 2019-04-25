@@ -1,0 +1,27 @@
+{
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "collective number, according to SCAN coding"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the collective"
+          },
+          "otherProperties": {
+            "type": "array",
+            "description": "e.g. if the farmer is member of ANLb (anlb:true)",
+            "items": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "packets": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityPacketType.json"
+            }
+          }
+        }
+      }

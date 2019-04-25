@@ -1,0 +1,299 @@
+{
+        "required": [
+          "birth",
+          "conformation",
+          "conformationSubdivision",
+          "dateTimeInspection",
+          "dateTimeSlaughter",
+          "earTagNumber",
+          "fatCover",
+          "fatCoverSubdivision",
+          "gender",
+          "hairColorCode",
+          "identifier",
+          "slaughterHouseIdentifier",
+          "weightRejected",
+          "weightSlaughtered"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
+          },
+          "slaughterHouseIdentifier": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/companyIdentifier.json"
+          },
+          "slaughterHouseBranche": {
+            "type": "string",
+            "description": "Branche number of the slaughterhouse"
+          },
+          "earTagNumber": {
+            "type": "string",
+            "description": "The ear tag number"
+          },
+          "birth": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
+          },
+          "dateTimeSlaughter": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
+          },
+          "dateTimeInspection": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateType.json"
+          },
+          "weightSlaughtered": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "KGM"
+                ]
+              },
+              "value": {
+                "multipleOf": 0.1,
+                "type": "number",
+                "format": "double"
+              }
+            }
+          },
+          "weightRejected": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "KGM"
+                ]
+              },
+              "value": {
+                "multipleOf": 0.1,
+                "type": "number",
+                "format": "double"
+              }
+            }
+          },
+          "weightCorrection": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "KGM"
+                ]
+              },
+              "value": {
+                "multipleOf": 0.1,
+                "type": "number",
+                "format": "double"
+              }
+            }
+          },
+          "weightHookLeft": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "KGM"
+                ]
+              },
+              "value": {
+                "multipleOf": 0.1,
+                "type": "number",
+                "format": "double"
+              }
+            }
+          },
+          "weightHookRight": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "KGM"
+                ]
+              },
+              "value": {
+                "multipleOf": 0.1,
+                "type": "number",
+                "format": "double"
+              }
+            }
+          },
+          "animalClassification": {
+            "type": "string",
+            "enum": [
+              "A0",
+              "B0",
+              "B1",
+              "C0",
+              "D0",
+              "D1",
+              "D2",
+              "D3",
+              "D4",
+              "E0",
+              "E1",
+              "E2",
+              "Z0"
+            ]
+          },
+          "gender": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarGenderCode.json"
+          },
+          "classifier": {
+            "type": "string"
+          },
+          "fatCover": {
+            "type": "string",
+            "enum": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ]
+          },
+          "fatCoverSubdivision": {
+            "type": "string",
+            "enum": [
+              "+",
+              "o",
+              "-"
+            ]
+          },
+          "conformation": {
+            "type": "string",
+            "enum": [
+              "S",
+              "E",
+              "U",
+              "R",
+              "O",
+              "P"
+            ]
+          },
+          "conformationSubdivision": {
+            "type": "string",
+            "enum": [
+              "+",
+              "o",
+              "-"
+            ]
+          },
+          "colorScore": {
+            "type": "string",
+            "enum": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          },
+          "hairColorCode": {
+            "type": "object",
+            "properties": {
+              "countryCode": {
+                "type": "string",
+                "enum": [
+                  "NL",
+                  "BE"
+                ]
+              },
+              "hairColor": {
+                "type": "string",
+                "enum": [
+                  "AR",
+                  "AZ",
+                  "BB",
+                  "BR",
+                  "BZ",
+                  "DK",
+                  "EB",
+                  "EG",
+                  "ER",
+                  "EW",
+                  "EZ",
+                  "MR",
+                  "MZ",
+                  "OV",
+                  "RB",
+                  "RW",
+                  "VB",
+                  "ZB",
+                  "ZW"
+                ]
+              }
+            }
+          },
+          "farmRegistrations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "VUIL",
+                "TRAAG",
+                "MAGER",
+                "KREUPEL",
+                "ONTSTEKING",
+                "KNIE(L)"
+              ]
+            }
+          },
+          "kdsRegistrations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "NIEREN",
+                "PAT_KNIE",
+                "PAT_STOMPBIL",
+                "PAT_FLANKEN",
+                "FEC_LONGEN",
+                "FEC_HART"
+              ]
+            }
+          },
+          "veterinaryPracticeNumber": {
+            "type": "string"
+          }
+        },
+        "description": "Gives information about an animal's slaughter."
+      }
+    }

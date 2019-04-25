@@ -1,0 +1,23 @@
+{
+        "type": "object",
+        "properties": {
+          "packetCode": {
+            "type": "integer",
+            "description": "unique code for the bio diversity packet; Afgesproken unieke BBM code voor betreffende pakket uit de BBM coderingslijst."
+          },
+          "otherProperties": {
+            "type": "array",
+            "description": "e.g. if the packet is member of ANLb (anlb:true)",
+            "items": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityPacketElementType.json"
+            }
+          }
+        }
+}

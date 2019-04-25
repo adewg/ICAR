@@ -1,0 +1,23 @@
+{
+	"type": "object",
+	"properties": {
+		"icarQuarterId": {
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterCode.json"
+		},
+		"quarterMilkingDuration": {
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingDurationType.json"
+		},
+		"quarterMilkingWeight": {
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingWeightType.json"
+		},
+		"icarQuarterCharacteristics": {
+			"type": "array",
+			"items": {
+				"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkCharacteristicsType.json"
+			}
+		},
+		"quarterMilkingSample": {
+			"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarQuarterMilkingSampleType.json"
+		}
+	}
+}

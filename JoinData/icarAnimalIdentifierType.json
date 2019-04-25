@@ -1,0 +1,16 @@
+{
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdType.json"
+          },
+          "scheme": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdSchemeCode.json"
+          }
+        },
+        "description": "Identifies an animal"
+}

@@ -1,0 +1,10 @@
+{
+        "type": "string",
+        "description": "Defines the type of the last impregnation event; can be -I- for insemination, -N- for natural service, -R- for running with the bull or -M- for implantation. \n",
+        "enum": [
+          "I",
+          "N",
+          "R",
+          "M"
+        ]
+}

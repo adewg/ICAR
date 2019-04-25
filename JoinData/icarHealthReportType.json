@@ -1,0 +1,20 @@
+{
+        "required": [
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The timestamp of the measurement.",
+            "format": "date-time"
+          },
+          "vendorSpecific": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHealthReportVendorSpecific.json"
+          }
+        },
+        "description": "Gives health information."
+      }

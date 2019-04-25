@@ -1,0 +1,5 @@
+{
+        "type": "boolean",
+        "description": "Indication whether the semen used came out of the stock from the farmer, or from the technician.",
+        "default": true
+      }
