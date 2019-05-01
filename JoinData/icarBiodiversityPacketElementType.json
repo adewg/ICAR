@@ -12,9 +12,6 @@
               "type": "integer"
             }
           },
-          "size": {
-            "type": "string"
-          },
           "value": {
             "type": "number",
             "description": "Ingetekende oppervlakte/ hoeveelheid van het betreffende BBM",

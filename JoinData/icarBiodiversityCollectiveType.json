@@ -11,7 +11,7 @@
           },
           "otherProperties": {
             "type": "array",
-            "description": "e.g. if the farmer is member of ANLb (anlb:true)",
+            "description": "regional properties on collective level (not used yet)",
             "items": {
               "type": "object",
               "properties": {}
