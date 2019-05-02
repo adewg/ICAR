@@ -9,9 +9,12 @@
             "type": "array",
             "description": "Verschillende TBO, eigen beheer.\n* `1` - TBO\n* `2` - Overheid\n* `3` - Bedrijfsleven (of stichting)\n* `4` - Melkveehouder",
             "items": {
-              "type": "string",
+              "type": "integer",
               "enum": [
-		"1","2","3","4"
+		        1,
+		        2,
+		        3,
+		        4
               ]
             }
           },

@@ -20,7 +20,7 @@
           },
           "year": {
             "type": "number",
-            "description": "Het “Beheerjaar” waarover dit bericht gaat.",
+            "description": "Het 'Beheerjaar' waarover dit bericht gaat.",
             "format": "integer"
           },
           "area": {
