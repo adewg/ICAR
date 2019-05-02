@@ -2926,7 +2926,7 @@
 				"type": "object",
 				"properties": {
 					"data": {
-						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityReportsResource.json"
+						"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarMilkIntakesResource.json"
 					}
 				}
 			},
