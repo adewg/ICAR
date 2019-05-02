@@ -7,9 +7,12 @@
           },
           "ownerlabel": {
             "type": "array",
-            "description": "Verschillende TBO, eigen beheer",
+            "description": "Verschillende TBO, eigen beheer.\n* `1` - TBO\n* `2` - Overheid\n* `3` - Bedrijfsleven (of stichting)\n* `4` - Melkveehouder",
             "items": {
-              "type": "integer"
+              "type": "string",
+              "enum": [
+		"1","2","3","4"
+              ]
             }
           },
           "value": {
