@@ -34,12 +34,6 @@
 			"enum": [
 				"H18"
 			]
-		},
-		"collectives": {
-			"type": "array",
-			"items": {
-				"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityCollectiveType.json"
-			}
 		}
 	}
 }
