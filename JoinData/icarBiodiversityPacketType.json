@@ -9,10 +9,7 @@
 			"type": "array",
 			"description": "e.g. if the packet is member of ANLb (anlb:true)",
 			"items": {
-				"type": "object",
-				"properties": {
-					
-				}
+				"type": "object"
 			}
 		},
 		"elements": {

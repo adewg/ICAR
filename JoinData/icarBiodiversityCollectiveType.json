@@ -13,10 +13,7 @@
 			"type": "array",
 			"description": "regional properties on collective level (not used yet)",
 			"items": {
-				"type": "object",
-				"properties": {
-					
-				}
+				"type": "object"
 			}
 		},
 		"packets": {
