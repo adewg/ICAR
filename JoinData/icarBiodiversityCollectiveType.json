@@ -15,12 +15,6 @@
 			"items": {
 				"type": "object"
 			}
-		},
-		"packets": {
-			"type": "array",
-			"items": {
-				"$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityPacketType.json"
-			}
 		}
 	}
 }
