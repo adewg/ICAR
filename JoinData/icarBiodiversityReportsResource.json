@@ -1,45 +1,45 @@
 {
-        "type": "object",
-        "properties": {
-          "company": {
-            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
-          },
-          "sourceIdentifiers": {
-            "type": "array",
-            "description": "if this company is known by the data source with other identifiers, they can be listed here. E.g., there may be KVK's or UBN's known.",
-            "items": {
-              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
-            }
-          },
-          "targetIdentifiers": {
-            "type": "array",
-            "description": "if this company is known by the data target with other identifiers, they can be listed here. E.g., there may be FTN's known.",
-            "items": {
-              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
-            }
-          },
-          "year": {
-            "type": "number",
-            "description": "Het “Beheerjaar” waarover dit bericht gaat.",
-            "format": "integer"
-          },
-          "area": {
-            "type": "number",
-            "description": "Bedrijfsoppervlakte RVO mijn percelen (via en van Scan-ICT). Alleen beschikbaar op niveau van KvK BN, dus niet op FTN niveau.",
-            "format": "double"
-          },
-          "unitCode": {
-            "type": "string",
-            "description": "UN/CEFACT Common Code for Units of Measurement.",
-            "enum": [
-              "H18"
-            ]
-          },
-          "collectives": {
-            "type": "array",
-            "items": {
-              "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityCollectiveType.json"
-            }
-          }
-        }
-      }
+ "type": "object",
+ "properties": {
+  "company": {
+   "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
+  },
+  "sourceIdentifiers": {
+   "type": "array",
+   "description": "if this company is known by the data source with other identifiers, they can be listed here. E.g., there may be KVK's or UBN's known.",
+   "items": {
+    "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
+   }
+  },
+  "targetIdentifiers": {
+   "type": "array",
+   "description": "if this company is known by the data target with other identifiers, they can be listed here. E.g., there may be FTN's known.",
+   "items": {
+    "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarCompanyIdentifierType.json"
+   }
+  },
+  "year": {
+   "type": "number",
+   "description": "Het 'Beheerjaar' waarover dit bericht gaat.",
+   "format": "integer"
+  },
+  "area": {
+   "type": "number",
+   "description": "Bedrijfsoppervlakte RVO mijn percelen (via en van Scan-ICT). Alleen beschikbaar op niveau van KvK BN, dus niet op FTN niveau.",
+   "format": "double"
+  },
+  "unitCode": {
+   "type": "string",
+   "description": "UN/CEFACT Common Code for Units of Measurement.",
+   "enum": [
+    "H18"
+   ]
+  },
+  "collectives": {
+   "type": "array",
+   "items": {
+    "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarBiodiversityCollectiveType.json"
+   }
+  }
+ }
+}

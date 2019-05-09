@@ -1,53 +1,56 @@
 {
-        "type": "object",
-        "properties": {
-          "elementId": {
-            "type": "string",
-            "description": "identifier of the element of this report. Per element unieke code. Kan dus niet onder verschillende pakketten en/of collectieven herhaald voorkomen."
-          },
-          "ownerlabel": {
-            "type": "array",
-            "description": "Verschillende TBO, eigen beheer",
-            "items": {
-              "type": "integer"
-            }
-          },
-          "size": {
-            "type": "string"
-          },
-          "value": {
-            "type": "number",
-            "description": "Ingetekende oppervlakte/ hoeveelheid van het betreffende BBM",
-            "format": "double"
-          },
-          "unitCode": {
-            "type": "string",
-            "description": "UN/CEFACT Common Code for Units of Measurement.",
-            "enum": [
-              "H18",
-              "C62"
-            ]
-          },
-          "contractStartDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "contractEndDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "lastInspectionDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "inspectionResult": {
-            "type": "string",
-            "enum": [
-              "1",
-              "2",
-              "3",
-              "4"
-            ]
-          }
-        }
-      }
+ "type": "object",
+ "properties": {
+  "elementId": {
+   "type": "string",
+   "description": "identifier of the element of this report. Per element unieke code. Kan dus niet onder verschillende pakketten en/of collectieven herhaald voorkomen."
+  },
+  "ownerlabel": {
+   "type": "array",
+   "description": "Verschillende TBO, eigen beheer.\n* `1` - TBO\n* `2` - Overheid\n* `3` - Bedrijfsleven (of stichting)\n* `4` - Melkveehouder",
+   "items": {
+    "type": "integer",
+    "enum": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  },
+  "value": {
+   "type": "number",
+   "description": "Ingetekende oppervlakte/ hoeveelheid van het betreffende BBM",
+   "format": "double"
+  },
+  "unitCode": {
+   "type": "string",
+   "description": "UN/CEFACT Common Code for Units of Measurement.",
+   "enum": [
+    "H18",
+    "C62"
+   ]
+  },
+  "contractStartDate": {
+   "type": "string",
+   "format": "date"
+  },
+  "contractEndDate": {
+   "type": "string",
+   "format": "date"
+  },
+  "lastInspectionDate": {
+   "type": "string",
+   "format": "date"
+  },
+  "inspectionResult": {
+   "type": "string",
+   "enum": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ]
+  }
+ }
+}
