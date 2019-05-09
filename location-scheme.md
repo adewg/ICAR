@@ -53,4 +53,5 @@ These schemes point to a legal entity. One that can be authenticated and is auth
 | id  | name  | example| region & issuing party  | 
 |---|---|---|---|
 | nl-kvk | Chamber of commerce number (Kamer van Koophandel nummer) |64039641 | Used in the Netherlands. Issued by the 'Kamer van Koophandel', can be checked at e.g. [OpenKVK](www.openkvk.nl) |
+| be0onn | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) |
 
