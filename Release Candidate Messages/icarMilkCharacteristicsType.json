@@ -1,0 +1,4 @@
+{
+        "type": "string",
+        "description": "ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT. E.g. SCC:123"
+      }
