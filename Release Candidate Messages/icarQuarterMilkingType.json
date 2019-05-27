@@ -1,0 +1,19 @@
+{
+        "type": "object",
+        "properties": {
+          "icarQuarterId": {
+            "$ref": "#/components/schemas/icarQuarterId"
+          },
+          "quarterMilkingDuration": {
+            "$ref": "#/components/schemas/quarterMilkingDuration"
+          },
+          "quarterMilkingWeight": {
+            "$ref": "#/components/schemas/quarterMilkingWeight"
+          },
+          "icarQuarterCharacteristics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarMilkCharacteristicsType"
+            }
+          }
+ }
