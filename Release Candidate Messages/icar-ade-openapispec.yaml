@@ -73,150 +73,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/error'
                 description: A default response containing only a list of errors
-  '/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/characteristics':
-    get:
-      tags:
-        - ICAR approval ready
-      summary: Get the quarter milking data for a specific milking visit
-      description: |
-        # Purpose
-        Provides quarter milking data from a singular visit of an animal to a milking parlour
-      parameters:
-        - name: location-scheme
-          in: path
-          description: The scheme id for the location identifier.
-          required: true
-          schema:
-            type: string
-            enum:
-              - nl-v1
-              - be-v1
-        - name: location-id
-          in: path
-          description: The unique identifier for the location.
-          required: true
-          schema:
-            type: string
-        - name: milking-visit-id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '201':
-          description: Successful. The response contains the milking results for the given location
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/icarMilkCharacteristicsResponse'
-        default:
-          description: An error has occured while handling the request. Check the content of the message for the error details.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  errors:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/error'
-                description: A default response containing only a list of errors
-  '/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/quarter-milkings':
-    get:
-      tags:
-        - ICAR approval ready
-      summary: Get the quarter milking data for a specific milking visit
-      description: |
-        # Purpose
-        Provides quarter milking data from a singular visit of an animal to a milking parlour
-      parameters:
-        - name: location-scheme
-          in: path
-          description: The scheme id for the location identifier.
-          required: true
-          schema:
-            type: string
-            enum:
-              - nl-v1
-              - be-v1
-        - name: location-id
-          in: path
-          description: The unique identifier for the location.
-          required: true
-          schema:
-            type: string
-        - name: milking-visit-id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '201':
-          description: Successful. The response contains the milking results for the given location
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/icarQuarterMilkingsResponse'
-        default:
-          description: An error has occured while handling the request. Check the content of the message for the error details.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  errors:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/error'
-                description: A default response containing only a list of errors
-  '/locations/{location-scheme}/{location-id}/milking-visits/{milking-visit-id}/animal-milking-sample':
-    get:
-      tags:
-        - ICAR approval ready
-      summary: Get the quarter milking data for a specific milking visit
-      description: |
-        # Purpose
-        Provides quarter milking data from a singular visit of an animal to a milking parlour
-      parameters:
-        - name: location-scheme
-          in: path
-          description: The scheme id for the location identifier.
-          required: true
-          schema:
-            type: string
-            enum:
-              - nl-v1
-              - be-v1
-        - name: location-id
-          in: path
-          description: The unique identifier for the location.
-          required: true
-          schema:
-            type: string
-        - name: milking-visit-id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '201':
-          description: Successful. The response contains the milking results for the given location
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/icarAnimalMilkingSampleResponse'
-        default:
-          description: An error has occured while handling the request. Check the content of the message for the error details.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  errors:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/error'
-                description: A default response containing only a list of errors
+
 components:
   schemas:
     icarQuarterMilkingType:
@@ -234,29 +91,6 @@ components:
             $ref: '#/components/schemas/icarMilkCharacteristicsType'
         quarterMilkingSample:
           $ref: '#/components/schemas/quarterMilkingSample'
-    icarPeriodType:
-      required:
-        - end
-        - start
-      type: object
-      properties:
-        start:
-          $ref: '#/components/schemas/icarDateTimeType'
-        end:
-          $ref: '#/components/schemas/icarDateTimeType'
-    icarAnimalMilkingSampleResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarAnimalMilkingSampleResponseDataSources'
-    icarQuarterMilkingsTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarQuarterMilkingType'
-    icarQuarterMilkingsResponseDataSources:
-      allOf:
-        - $ref: '#/components/schemas/responseDataSource'
-        - $ref: '#/components/schemas/responseErrors'
-        - $ref: '#/components/schemas/icarQuarterMilkingsResponseDataSource'
     responseErrors:
       type: object
       properties:
@@ -264,10 +98,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/error'
-    icarCodeType:
-      type: string
-      description: |
-        A character string (letters, figures, or symbols) that for brevity and/or languange independence may be used to represent or replace a definitive value or text of an attribute together with relevant supplementary information.
+    responseMetaData:
+      type: object
+      properties:
+        metaData:
+          $ref: '#/components/schemas/metaData'
     error:
       type: object
       properties:
@@ -297,56 +132,15 @@ components:
       enum:
         - nl-v1
         - be-v1
-    icarMilkCharacteristicsTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarMilkCharacteristicsType'
-    icarTeatPositionsType:
-      type: object
-      properties:
-        icarQuarterId:
-          $ref: '#/components/schemas/icarQuarterId'
-        icarTeatPositions:
-          $ref: '#/components/schemas/icarTeatPositions'
     icarMilkingVisitsResponseDataSources:
       allOf:
-        - $ref: '#/components/schemas/responseDataSource'
+        - $ref: '#/components/schemas/responseMetaData'
         - $ref: '#/components/schemas/responseErrors'
         - $ref: '#/components/schemas/icarMilkingVisitsResponseDataSource'
-    icarAnimalMilkingSampleResponseDataSources:
-      allOf:
-        - $ref: '#/components/schemas/responseDataSource'
-        - $ref: '#/components/schemas/responseErrors'
-        - $ref: '#/components/schemas/icarAnimalMilkingSampleResponseDataSource'
-    companyIdentifier:
-      required:
-        - id
-        - scheme
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/companyId'
-        scheme:
-          $ref: '#/components/schemas/companyIdScheme'
-      description: Identifies a company
     icarDateTimeType:
       type: string
       description: 'udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.'
       format: datetime
-    icarSexedSemenCode:
-      type: string
-      description: |
-        A list of codes representing the sexed semen type; can be -Y- for sexing semen Male or Female, -N- for no sexing semen, -F- for sexing semen Female or -M- for sexing semen Male.
-      enum:
-        - 'Y'
-        - F
-        - M
-        - 'N'
-    icarTeatPositionsResponseDataSources:
-      allOf:
-        - $ref: '#/components/schemas/responseDataSource'
-        - $ref: '#/components/schemas/responseErrors'
-        - $ref: '#/components/schemas/icarTeatPositionsResponseDataSource'
     icarAnimalMilkingSampleType:
       type: object
       properties:
@@ -375,31 +169,34 @@ components:
     quarterMilkingSample:
       type: object
       properties:
-        sample:
+        bottleIdentifierType:
           type: string
-    icarQuarterMilkingsResponseDataSource:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/icarQuarterMilkingsTypes'
-    icarTeatPositionsTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarTeatPositionsType'
-    icarDateType:
-      type: string
-      description: 'udt:DateType | A day of the month or year as specified by a number.'
-      format: date
-    icarMilkCharacteristicsResponseDataSource:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/icarMilkCharacteristicsTypes'
+          description: The type of bottle identifiertype according to ICAR_BottleIdentifierCode
+          enum:
+            - BRC
+            - RFD
+        rackNumber:
+          type: string
+          description: Number of the sample rack
+        bottlePosition:
+          type: string
+          description: Position of the bottle in the sample rack
+        bottleIdentifier:
+          type: string
+          description: Bottle identifier read from barcode or RFID
+        validSampleFillingIndicator:
+          type: string
+          description: Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list
+          enum:
+            - '0'
+            - '1'
+            - '2'
     icarMilkingVisitType:
       required:
+        - id
         - animal
         - milkingStartingDateTime
-        - milkingSuccess
+        - milkingMilkWeight
       type: object
       properties:
         id:
@@ -458,6 +255,12 @@ components:
           description: The amount of milk milked
         milkingSuccess:
           type: boolean
+        milkingExceptionCode:
+          type: string
+          description: The exception code indicating why the milking was unsuccessfull
+          enum:
+            - Example1
+            - Example2
         milkingParlourUnit:
           type: string
           description: The milking parlour unit where the milking took place.
@@ -470,6 +273,19 @@ components:
         measureDeviceId:
           type: string
           description: The ID of the device where the measurement of the milking took place
+        quarterMilkings:
+          type: array
+          items:
+            $ref: "#/components/schemas/icarQuarterMilkingType"
+        animalMilkingSample:
+          type: array
+          items:
+            $ref: "#/components/schemas/icarAnimalMilkingSampleType"
+        icarMilkCharacteristicsTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/icarMilkCharacteristicsType'
+        
     icarQuarterId:
       type: string
       enum:
@@ -477,76 +293,38 @@ components:
         - RF
         - LB
         - RB
-    icarTeatPositionsResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarTeatPositionsResponseDataSources'
-    icarTeatPositions:
-      type: object
-      properties:
-        x-position:
-          type: integer
-        y-position:
-          type: integer
-        z-position:
-          type: integer
     animalId:
       type: string
       description: A string which (in combination with a scheme) uniquely identifies an animal.
-    responseDataSource:
+    metaData:
       required:
-        - id
+        - source
       type: object
       properties:
-        id:
+        source:
           $ref: '#/components/schemas/dataSource'
-    icarMilkCharacteristicsType:
-      type: object
-      properties:
-        characteristicsCode:
-          type: string
-          description: ICAR Milk Characteristics Code
-          enum:
-            - SCC
-            - FAT
-            - PROTEIN
-            - LAC
-            - UREA
-            - BLOOD
-            - ACETONE
-            - BHB
-            - LDH
-            - PRO
-            - AVGCOND
-            - MAXCOND
-            - AVGFLWR
-            - MAXFLWR
-            - WEIGHT
-        value:
-          type: number
-          description: Numeric value determined by measuring an object
-          format: decimal
-    companyId:
+        modified:
+          $ref: '#/components/schemas/icarDateTimeType'
+        created:
+          $ref: '#/components/schemas/icarDateTimeType'
+        creator:
+          $ref: '#/components/schemas/creator'
+        validFrom:
+          $ref: '#/components/schemas/icarDateTimeType'
+        validTo:
+          $ref: '#/components/schemas/icarDateTimeType'
+
+    creator:
       type: string
-      description: A string which (in combination with a scheme) uniquely identifies a company.
+      description: Person or organisation who created the object
+    
+    icarMilkCharacteristicsType:
+      type: string
+      description: ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT. E.g. SCC:123
     icarMilkingVisitsResponse:
       type: array
       items:
         $ref: '#/components/schemas/icarMilkingVisitsResponseDataSources'
-    icarMilkCharacteristicsResponseDataSources:
-      allOf:
-        - $ref: '#/components/schemas/responseDataSource'
-        - $ref: '#/components/schemas/responseErrors'
-        - $ref: '#/components/schemas/icarMilkCharacteristicsResponseDataSource'
-    icarTeatPositionsResponseDataSource:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/icarTeatPositionsTypes'
-    icarMilkCharacteristicsResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarMilkCharacteristicsResponseDataSources'
     animalIdentifier:
       required:
         - id
@@ -558,13 +336,16 @@ components:
         scheme:
           $ref: '#/components/schemas/animalIdScheme'
       description: Identifies an animal
-    icarQuarterMilkingsResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarQuarterMilkingsResponseDataSources'
     quarterMilkingWeight:
       type: object
       properties:
+        icarQuarterId:
+          type: string
+          enum:
+            - LF
+            - RF
+            - LB
+            - RB
         value:
           type: number
           format: double
@@ -579,12 +360,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/icarMilkingVisitType'
-    icarAnimalMilkingSampleResponseDataSource:
-      type: object
-      properties:
-        data:
-#          $ref: '#/components/schemas/icarAnimalMilkingSampleType'
-          $ref: 'https://raw.githubusercontent.com/alamers/ICAR/convert-to-v3/Release%20Candidate%20Messages/JoinDataMilkSample.json'
     quarterMilkingDuration:
       type: object
       properties:
@@ -601,12 +376,6 @@ components:
     dataSource:
       type: string
       description: Source where data is retrieved from. Details can be retrieved from the source register.
-    companyIdScheme:
-      type: string
-      description: Identifies the used scheme for a company identification string.
-      enum:
-        - nl-v1
-        - be-v1
   responses:
     error:
       description: An error has occured while handling the request. Check the content of the message for the error details.
