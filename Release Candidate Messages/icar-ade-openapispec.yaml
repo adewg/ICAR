@@ -191,100 +191,6 @@ components:
             - '0'
             - '1'
             - '2'
-    icarMilkingVisitType:
-      required:
-        - id
-        - animal
-        - milkingStartingDateTime
-        - milkingMilkWeight
-      type: object
-      properties:
-        id:
-          type: string
-          description: A unique identifier for this location for the milking visit message
-        animal:
-          $ref: '#/components/schemas/animalIdentifier'
-        milkingStartingDateTime:
-          $ref: '#/components/schemas/icarDateTimeType'
-        milkingDuration:
-          type: object
-          properties:
-            unitCode:
-              type: string
-              description: UN/CEFACT Common Code for Units of Measurement.
-              enum:
-                - SEC
-                - MIN
-            value:
-              type: number
-              format: double
-          description: The length in time of the milking
-        milkingVisitDuration:
-          type: object
-          properties:
-            unitCode:
-              type: string
-              description: UN/CEFACT Common Code for Units of Measurement.
-              enum:
-                - SEC
-                - MIN
-            value:
-              type: number
-              format: double
-          description: The length in time of the milking visit
-        milkingType:
-          type: string
-          description: The type of milking (manual or automated)
-          enum:
-            - Manual
-            - Automated
-        milkingMilkWeight:
-          required:
-            - unitCode
-            - value
-          type: object
-          properties:
-            unitCode:
-              type: string
-              description: UN/CEFACT Common Code for Units of Measurement.
-              enum:
-                - KGM
-            value:
-              type: number
-              format: double
-          description: The amount of milk milked
-        milkingSuccess:
-          type: boolean
-        milkingExceptionCode:
-          type: string
-          description: The exception code indicating why the milking was unsuccessfull
-          enum:
-            - Example1
-            - Example2
-        milkingParlourUnit:
-          type: string
-          description: The milking parlour unit where the milking took place.
-        milkingBoxNumber:
-          type: string
-          description: The milking box number where the milking took place.
-        milkingDeviceId:
-          type: string
-          description: The ID of the device where the milking took place
-        measureDeviceId:
-          type: string
-          description: The ID of the device where the measurement of the milking took place
-        quarterMilkings:
-          type: array
-          items:
-            $ref: "#/components/schemas/icarQuarterMilkingType"
-        animalMilkingSample:
-          type: array
-          items:
-            $ref: "#/components/schemas/icarAnimalMilkingSampleType"
-        icarMilkCharacteristicsTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/icarMilkCharacteristicsType'
         
     icarQuarterId:
       type: string
@@ -359,7 +265,7 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/icarMilkingVisitType'
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingVisitResource.json'
     quarterMilkingDuration:
       type: object
       properties:
