@@ -76,21 +76,6 @@ paths:
 
 components:
   schemas:
-    icarQuarterMilkingType:
-      type: object
-      properties:
-        icarQuarterId:
-          $ref: '#/components/schemas/icarQuarterId'
-        quarterMilkingDuration:
-          $ref: '#/components/schemas/quarterMilkingDuration'
-        quarterMilkingWeight:
-          $ref: '#/components/schemas/quarterMilkingWeight'
-        icarQuarterCharacteristics:
-          type: array
-          items:
-            $ref: '#/components/schemas/icarMilkCharacteristicsType'
-        quarterMilkingSample:
-          $ref: '#/components/schemas/quarterMilkingSample'
     responseErrors:
       type: object
       properties:
@@ -126,82 +111,6 @@ components:
           type: object
           properties: {}
       description: A human-readable error message describing what went wrong.
-    animalIdScheme:
-      type: string
-      description: 'Identifies the used scheme for an animal identification string. nl-v1 life numbers are formatted as NL 123456789. See https://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen for more information.'
-      enum:
-        - nl-v1
-        - be-v1
-    icarMilkingVisitsResponseDataSources:
-      allOf:
-        - $ref: '#/components/schemas/responseMetaData'
-        - $ref: '#/components/schemas/responseErrors'
-        - $ref: '#/components/schemas/icarMilkingVisitsResponseDataSource'
-    icarDateTimeType:
-      type: string
-      description: 'udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.'
-      format: datetime
-    icarAnimalMilkingSampleType:
-      type: object
-      properties:
-        bottleIdentifierType:
-          type: string
-          description: The type of bottle identifiertype according to ICAR_BottleIdentifierCode
-          enum:
-            - BRC
-            - RFD
-        rackNumber:
-          type: string
-          description: Number of the sample rack
-        bottlePosition:
-          type: string
-          description: Position of the bottle in the sample rack
-        bottleIdentifier:
-          type: string
-          description: Bottle identifier read from barcode or RFID
-        validSampleFillingIndicator:
-          type: string
-          description: Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list
-          enum:
-            - '0'
-            - '1'
-            - '2'
-    quarterMilkingSample:
-      type: object
-      properties:
-        bottleIdentifierType:
-          type: string
-          description: The type of bottle identifiertype according to ICAR_BottleIdentifierCode
-          enum:
-            - BRC
-            - RFD
-        rackNumber:
-          type: string
-          description: Number of the sample rack
-        bottlePosition:
-          type: string
-          description: Position of the bottle in the sample rack
-        bottleIdentifier:
-          type: string
-          description: Bottle identifier read from barcode or RFID
-        validSampleFillingIndicator:
-          type: string
-          description: Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list
-          enum:
-            - '0'
-            - '1'
-            - '2'
-        
-    icarQuarterId:
-      type: string
-      enum:
-        - LF
-        - RF
-        - LB
-        - RB
-    animalId:
-      type: string
-      description: A string which (in combination with a scheme) uniquely identifies an animal.
     metaData:
       required:
         - source
@@ -219,18 +128,46 @@ components:
           $ref: '#/components/schemas/icarDateTimeType'
         validTo:
           $ref: '#/components/schemas/icarDateTimeType'
+   animalIdScheme:
+      type: string
+      description: 'Identifies the used scheme for an animal identification string. nl-v1 life numbers are formatted as NL 123456789. See https://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen for more information.'
+      enum:
+        - nl-v1
+        - be-v1
+    icarMilkingVisitsResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/icarMilkingVisitsResponseDataSources'
+    icarMilkingVisitsResponseDataSources:
+      allOf:
+        - $ref: '#/components/schemas/responseMetaData'
+        - $ref: '#/components/schemas/responseErrors'
+        - $ref: '#/components/schemas/icarMilkingVisitsResponseDataSource'
+    icarMilkingVisitsResponseDataSource:
+      type: object
+      properties:
+        data:
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingVisitResource.json'
+
+    icarDateTimeType:
+      type: string
+      description: 'udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.'
+      format: datetime
+    icarQuarterId:
+      type: string
+      enum:
+        - LF
+        - RF
+        - LB
+        - RB
+    animalId:
+      type: string
+      description: A string which (in combination with a scheme) uniquely identifies an animal.
 
     creator:
       type: string
       description: Person or organisation who created the object
     
-    icarMilkCharacteristicsType:
-      type: string
-      description: ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT. E.g. SCC:123
-    icarMilkingVisitsResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/icarMilkingVisitsResponseDataSources'
     animalIdentifier:
       required:
         - id
@@ -261,11 +198,6 @@ components:
           enum:
             - KGM
       description: The weight of the milk milked of this quarter
-    icarMilkingVisitsResponseDataSource:
-      type: object
-      properties:
-        data:
-          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingVisitResource.json'
     quarterMilkingDuration:
       type: object
       properties:
