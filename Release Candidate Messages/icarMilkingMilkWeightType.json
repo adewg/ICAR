@@ -16,4 +16,6 @@
                 "type": "number",
                 "format": "double"
               }
+            },
+            "description": "The amount of milk milked"
  }
