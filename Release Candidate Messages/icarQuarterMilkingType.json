@@ -13,7 +13,7 @@
           "icarQuarterCharacteristics": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/icarMilkCharacteristicsType"
+              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkCharacteristicsType"
             }
           }
  }
