@@ -98,6 +98,7 @@ paths:
           schema:
             type: string
         - name: milking-visit-id
+          description: A unique identifier for this location for the milking visit message
           in: path
           required: true
           schema:
@@ -147,6 +148,7 @@ paths:
             type: string
         - name: milking-visit-id
           in: path
+          description: A unique identifier for this location for the milking visit message
           required: true
           schema:
             type: string
@@ -195,6 +197,7 @@ paths:
             type: string
         - name: milking-visit-id
           in: path
+          description: A unique identifier for this location for the milking visit message
           required: true
           schema:
             type: string
@@ -629,6 +632,7 @@ components:
         format: date-time
     pathIcarMilkingVisitId:
       name: milking-visit-id
+      description: A unique identifier for this location for the milking visit message
       in: path
       required: true
       schema:
