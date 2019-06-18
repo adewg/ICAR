@@ -112,19 +112,19 @@
           "quarterMilkings": {
             "type": "array",
             "items": {
-              "$ref": "icarQuarterMilkingType"
+              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarQuarterMilkingType"
             }
           },
           "animalMilkingSample": {
             "type": "array",
             "items": {
-              "$ref": "icarAnimalMilkingSampleType"
+              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarAnimalMilkingSampleType"
             }
           },
           "icarMilkCharacteristicsTypes": {
             "type": "array",
             "items": {
-              "$ref": "icarMilkCharacteristicsType"
+              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkCharacteristicsType"
             }
           }
         }
