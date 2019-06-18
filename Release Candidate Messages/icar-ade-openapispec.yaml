@@ -583,8 +583,7 @@ components:
       type: object
       properties:
         data:
-#          $ref: '#/components/schemas/icarAnimalMilkingSampleType'
-          $ref: 'https://raw.githubusercontent.com/alamers/ICAR/convert-to-v3/Release%20Candidate%20Messages/JoinDataMilkSample.json'
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/JoinDataMilkSample.json'
     quarterMilkingDuration:
       type: object
       properties:
