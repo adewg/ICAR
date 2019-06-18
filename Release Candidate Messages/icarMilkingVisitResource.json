@@ -12,7 +12,7 @@
             "description": "A unique identifier for this location for the milking visit message"
           },
           "animal": {
-            "$ref": "#/components/schemas/animalIdentifier"
+            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/animalIdentifier"
           },
           "milkingStartingDateTime": {
             "$ref": "#/components/schemas/icarDateTimeType"
