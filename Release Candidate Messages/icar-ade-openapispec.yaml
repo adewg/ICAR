@@ -6,8 +6,6 @@ info:
   version: '1.0'
 servers:
   - url: /
-security:
-
 tags:
   - name: ICAR approval ready
     description: |
@@ -86,12 +84,14 @@ components:
     error:
       type: object
       properties:
+        data:
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleErrorResource.json'
     metaData:
       required:
         - source
       type: object
       properties:
+        data:
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMetaDataResource.json'
     icarMilkingVisitsResponse:
       type: array
@@ -108,35 +108,3 @@ components:
         data:
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingVisitResource.json'
 
-parameters:
-    queryEndDateTime:
-      name: end-date-time
-      in: query
-      description: The end of the date-time range for the data to get in the request.
-      schema:
-        type: string
-        format: date-time
-    pathLocationScheme:
-      name: location-scheme
-      in: path
-      description: The scheme id for the location identifier.
-      required: true
-      schema:
-        type: string
-        enum:
-          - nl-v1
-          - be-v1
-    pathLocationId:
-      name: location-id
-      in: path
-      description: The unique identifier for the location.
-      required: true
-      schema:
-        type: string
-    queryStartDateTime:
-      name: start-date-time
-      in: query
-      description: The start of the date-time range for the data to get in the request.
-      schema:
-        type: string
-        format: date-time
