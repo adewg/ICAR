@@ -1,0 +1,10 @@
+{
+        "type": "string",
+        "description": "Defines the type of the heat detection method; can be -C- for chemical, -V- for visual, -P- for podometer or -O- for other. \n",
+        "enum": [
+          "C",
+          "V",
+          "P",
+          "O"
+        ]
+      }

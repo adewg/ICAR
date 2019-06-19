@@ -1,0 +1,15 @@
+{
+        "required": [
+          "end",
+          "start"
+        ],
+        "type": "object",
+        "properties": {
+          "start": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateTimeType.json"
+          },
+          "end": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarDateTimeType.json"
+          }
+        }
+}

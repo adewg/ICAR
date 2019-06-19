@@ -1,0 +1,15 @@
+{
+        "type": "integer",
+        "description": "A mutually agreed code signifying the format of this address.\n* `1` - Street name followed by number. Address street name followed by address number.\n* `2` - Number, road type, road name in this sequence. House number followed bytype of road and name of the road.\n* `3` - Road type, road name, number in this sequence. Type of the road followed by name of the road and the house number.\n* `4` - Post office box. Post office box.\n* `5` - Unstructured address. Unstructured address, comprising an unspecified mix of components.\n* `6` - Street name followed by number, building, suite. Identifies the address component as street name followed by number, building, and suite in this sequence.\n* `7` - Rural route number. Identifies the address component as the rural route number.\n* `8` - Post office drawer number. Identifies the address component as the post office drawer.\n* `9` - Building name followed by suite. Identifies the address component as building followed by suite.\n",
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }

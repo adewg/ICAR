@@ -1,0 +1,15 @@
+{
+        "type": "object",
+        "properties": {
+          "x-position": {
+            "type": "integer"
+          },
+          "y-position": {
+            "type": "integer"
+          },
+          "z-position": {
+            "type": "integer"
+          }
+        }
+}
+  

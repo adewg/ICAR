@@ -1,0 +1,32 @@
+{
+        "type": "object",
+        "properties": {
+          "icarQuarterId": {
+            "type": "string",
+            "description": "the unique id of the quarter milking",
+            "enum": [
+              "LF",
+              "RF",
+              "LB",
+              "RB" ]
+          },
+          "quarterMilkingDuration": {
+            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkDurationType.json"
+          },
+          "quarterMilkingWeight": {
+            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingMilkWeightType.json"
+          },
+          "icarQuarterMilkingSample": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarQuarterMilkingSampleType.json"
+            }
+          },
+          "icarQuarterCharacteristics": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkCharacteristicsType.json"
+            }
+          }
+ }
+}

@@ -1,0 +1,23 @@
+{
+        "required": [
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The timestamp of the measurement.",
+            "format": "date-time"
+          },
+          "method": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatDetectionMethodCode.json"
+          },
+          "vendorSpecific": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarHeatReportVendorSpecific.json"
+          }
+        },
+        "description": "Gives information about an in-heat detection of a dam."
+      }

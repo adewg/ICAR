@@ -1,0 +1,170 @@
+{
+        "required": [
+          "animalsGrazed",
+          "animalsQualify",
+          "animalsTotal",
+          "equipment",
+          "grazingDay",
+          "grazingDaysTotal",
+          "grazingStdev",
+          "grazingTime",
+          "grazingTimeTotal",
+          "period"
+        ],
+        "type": "object",
+        "properties": {
+          "tankId": {
+            "type": "string",
+            "description": "Tank identifier."
+          },
+          "equipment": {
+            "required": [
+              "approvalNumber",
+              "purchaseDate"
+            ],
+            "type": "object",
+            "properties": {
+              "purchaseDate": {
+                "type": "string",
+                "description": "Purchase date of the equipment.",
+                "format": "date-time"
+              },
+              "approvalNumber": {
+                "type": "string",
+                "description": "Approval number of the equipment. This number will be supplied by Duurzame Zuivelketen (DZK)."
+              }
+            },
+            "description": "Information about the equipment that supplied the data."
+          },
+          "period": {
+            "required": [
+              "end",
+              "start"
+            ],
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "description": "The start time of the day. Time element should be set to 00:00:00.",
+                "format": "date-time"
+              },
+              "name": {
+                "type": "string",
+                "description": "The friendly name of the period."
+              },
+              "end": {
+                "type": "string",
+                "description": "The end time of the day. Time element should be set to 23:59:59.",
+                "format": "date-time"
+              }
+            },
+            "description": "The period for which this reports contains the data."
+          },
+          "animalsTotal": {
+            "type": "integer",
+            "description": "Total number of dairy cows on the farm.",
+            "format": "int32"
+          },
+          "animalsQualify": {
+            "type": "integer",
+            "description": "Total number of dairy cows that qualify for grazing.",
+            "format": "int32"
+          },
+          "animalsGrazed": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "P1"
+                ]
+              },
+              "value": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "Percentage of dairy cows that qualify for grazing and that have had a grazing time of at least 60 minutes."
+          },
+          "grazingDay": {
+            "type": "boolean",
+            "description": "Indicates if this period satisfies the grazing day conditions."
+          },
+          "grazingTime": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "MIN"
+                ]
+              },
+              "value": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "description": "Farm grazing time for that date in full minutes."
+          },
+          "grazingStdev": {
+            "type": "number",
+            "description": "Standard deviation of the individual grazing times of all dairy cows that qualify for grazing. Should be rounded to two digits.",
+            "format": "double"
+          },
+          "grazingTimeTotal": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "MIN"
+                ]
+              },
+              "value": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "description": "Cumulated farm grazing time for that location-id after the reported date for that year."
+          },
+          "grazingDaysTotal": {
+            "required": [
+              "unitCode",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "unitCode": {
+                "type": "string",
+                "description": "UN/CEFACT Common Code for Units of Measurement.",
+                "enum": [
+                  "DAY"
+                ]
+              },
+              "value": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "description": "Cumulated grazing days for that location-id after the reported date for that year."
+          }
+        },
+        "description": "Contains the dairy grazing information for a period."
+      }

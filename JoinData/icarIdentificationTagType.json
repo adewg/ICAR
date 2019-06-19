@@ -1,0 +1,21 @@
+{
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Contains the unique id of the tag"
+          },
+          "animal": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarAnimalIdentifierType.json"
+          },
+          "statusCode": {
+            "$ref": "https://raw.githubusercontent.com/alamers/ICAR/master/JoinData/icarIdentificationTagStatusCode.json"
+          },
+          "statusMessage": {
+            "type": "string"
+          }
+        }
+      }
