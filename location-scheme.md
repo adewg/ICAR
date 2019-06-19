@@ -26,32 +26,32 @@ We prefer that schemes are human readable even when URL-encoded. This means we p
 ## Farms / locations
 
 | id  | name  | example| region & issuing party  | RegEx |
-|---|---|---|---|
-| eu-farm-id  | farm id  |  276031231231234 | EU wide scheme with a country prefix, combining multiple national schemes |
-| de-farm-id  | farm id  | 96123456.001.001  |  Farm ID as issued by VIT. The first section correlates 1:1 with a eu-farm-id while the latter two sections specify the location in more detail. |
-| nl-ubn  | uniek bedrijfsnummer  |   | Used in the Netherlands, used by the government (see [Uniek Bedrijfsnummer on wikipedia](https://nl.wikipedia.org/wiki/Uniek_Bedrijfsnummer). Note: this may be part of the eu-farm-id scheme?  |
-| be-pen  | Productie-eenheidsnummer   |   | Issued by Agentschap voor Landbouw en Visserij (ALV) |
+|---|---|---|---|---|
+| eu-farm-id  | farm id  |  276031231231234 | EU wide scheme with a country prefix, combining multiple national schemes | |
+| de-farm-id  | farm id  | 96123456.001.001  |  Farm ID as issued by VIT. The first section correlates 1:1 with a eu-farm-id while the latter two sections specify the location in more detail. | |
+| nl-ubn  | uniek bedrijfsnummer  |   | Used in the Netherlands, used by the government (see [Uniek Bedrijfsnummer on wikipedia](https://nl.wikipedia.org/wiki/Uniek_Bedrijfsnummer). Note: this may be part of the eu-farm-id scheme?  | |
+| be-pen  | Productie-eenheidsnummer   |   | Issued by Agentschap voor Landbouw en Visserij (ALV) | |
 
 ## Milk tank id's
-| id  | name  | example| region & issuing party  | RegEx |
-|---|---|---|---|
-| nl-ftn  | milk tank id (fabriekstanknummer)  |  123123456 | Dutch scheme for indicating milk tanks. Issued by dairy factories. First 3 digits indicate factory, last 6 are the tank id. |
+| id  | name  | example| region & issuing party  | RegEx | |
+|---|---|---|---|---|
+| nl-ftn  | milk tank id (fabriekstanknummer)  |  123123456 | Dutch scheme for indicating milk tanks. Issued by dairy factories. First 3 digits indicate factory, last 6 are the tank id. | |
 
 
 ## Animals
 These schemes point to a specific animal.
 
 | id  | name  | example| region & issuing party  | RegEx |
-|---|---|---|---|
-| eu-animal-id  | LOM  |  276000312312345 | EU wide scheme with a country prefix, combining multiple national schemes.  |
-| nl-v1 (rename to eu-??) | animal life number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above? [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) |
+|---|---|---|---|---|
+| eu-animal-id  | LOM  |  276000312312345 | EU wide scheme with a country prefix, combining multiple national schemes.  | |
+| nl-v1 (rename to eu-??) | animal life number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above? [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) | |
 
 ## Legal entities / companies
 
 These schemes point to a legal entity. One that can be authenticated and is authorised to make decisions on assets defined by one of the other schemes.
 
 | id  | name  | example| region & issuing party  | RegEx |
-|---|---|---|---|
-| nl-kvk | Chamber of commerce number (Kamer van Koophandel nummer) |64039641 | Used in the Netherlands. Issued by the 'Kamer van Koophandel', can be checked at e.g. [OpenKVK](www.openkvk.nl) |
-| be0onn | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) |
+|---|---|---|---|---|
+| nl-kvk | Chamber of commerce number (Kamer van Koophandel nummer) |64039641 | Used in the Netherlands. Issued by the 'Kamer van Koophandel', can be checked at e.g. [OpenKVK](www.openkvk.nl) | |
+| be0onn | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) | |
 
