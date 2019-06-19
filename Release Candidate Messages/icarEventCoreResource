@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  
+    "required": [
+      "id",
+      "animal",
+      "eventDateTime"
+    ],
+    "type": "object",
+    "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier in the system for this event."
+          },
+          "animal": {
+            "$ref": "icarAnimalIdentifierType.json",
+            "description": "Unique animal scheme and identifier combination."
+          },
+          "eventDateTime": {
+            "$ref": "icarDateTimeType.json",
+            "description": "ISO8601 date and time." 
+          },
+          "location": {
+            "$ref": "icarLocationIdentifierType.json",
+            "description": "Unique location scheme and identifier combination."
+          }
+          "meta": {
+            "$ref": "icarMetaDataResource.json",
+            "description": "Optional meta-data for the event."
+          }
+      }
+}
