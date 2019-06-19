@@ -1,14 +1,22 @@
 {
-        source:
-          $ref: '#/components/schemas/dataSource'
-        modified:
+        "source": {
+          "type": string
+          "description": "Source where data is retrieved from. Details can be retrieved from the source register"
+        },
+        "modified": {
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
-        created:
+        },
+        "created": {
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
-        creator:
-          $ref: '#/components/schemas/creator'
-        validFrom:
+        },
+        "creator": {
+          "type": string
+          "description": "Person or organisation who created the object"
+        },
+        "validFrom": {
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
-        validTo:
+        },
+        "validTo": {
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
+        }
 }
