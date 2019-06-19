@@ -1,0 +1,14 @@
+{
+        source:
+          $ref: '#/components/schemas/dataSource'
+        modified:
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
+        created:
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
+        creator:
+          $ref: '#/components/schemas/creator'
+        validFrom:
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
+        validTo:
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json'
+}
