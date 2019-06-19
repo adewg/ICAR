@@ -7,12 +7,7 @@ info:
 servers:
   - url: /
 security:
-  - jdClient:
-      - fullaccess
-  - jdAuthorizationCode:
-      - fullaccess
-  - jdImplicit:
-      - fullaccess
+
 tags:
   - name: ICAR approval ready
     description: |
@@ -91,49 +86,13 @@ components:
     error:
       type: object
       properties:
-        id:
-          type: string
-          description: A unique identifier for this particular occurrence of the problem
-        status:
-          type: integer
-          description: 'The HTTP status code applicable to this problem, expressed as a string value'
-          format: int32
-        code:
-          type: string
-          description: 'An application-specific error code, expressed as a string value.'
-        title:
-          type: string
-          description: 'A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.'
-        detail:
-          type: string
-          description: 'A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized.'
-        meta:
-          type: object
-          properties: {}
-      description: A human-readable error message describing what went wrong.
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleErrorResource.json'
     metaData:
       required:
         - source
       type: object
       properties:
-        source:
-          $ref: '#/components/schemas/dataSource'
-        modified:
-          $ref: '#/components/schemas/icarDateTimeType'
-        created:
-          $ref: '#/components/schemas/icarDateTimeType'
-        creator:
-          $ref: '#/components/schemas/creator'
-        validFrom:
-          $ref: '#/components/schemas/icarDateTimeType'
-        validTo:
-          $ref: '#/components/schemas/icarDateTimeType'
-   animalIdScheme:
-      type: string
-      description: 'Identifies the used scheme for an animal identification string. nl-v1 life numbers are formatted as NL 123456789. See https://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen for more information.'
-      enum:
-        - nl-v1
-        - be-v1
+          $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMetaDataResource.json'
     icarMilkingVisitsResponse:
       type: array
       items:
@@ -149,85 +108,7 @@ components:
         data:
           $ref: 'https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingVisitResource.json'
 
-    icarDateTimeType:
-      type: string
-      description: 'udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.'
-      format: datetime
-    icarQuarterId:
-      type: string
-      enum:
-        - LF
-        - RF
-        - LB
-        - RB
-    animalId:
-      type: string
-      description: A string which (in combination with a scheme) uniquely identifies an animal.
-
-    creator:
-      type: string
-      description: Person or organisation who created the object
-    
-    animalIdentifier:
-      required:
-        - id
-        - scheme
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/animalId'
-        scheme:
-          $ref: '#/components/schemas/animalIdScheme'
-      description: Identifies an animal
-    quarterMilkingWeight:
-      type: object
-      properties:
-        icarQuarterId:
-          type: string
-          enum:
-            - LF
-            - RF
-            - LB
-            - RB
-        value:
-          type: number
-          format: double
-        unitCode:
-          type: string
-          description: UN/CEFACT Common Code for Units of Measurement.
-          enum:
-            - KGM
-      description: The weight of the milk milked of this quarter
-    quarterMilkingDuration:
-      type: object
-      properties:
-        value:
-          type: number
-          format: double
-        unitCode:
-          type: string
-          description: UN/CEFACT Common Code for Units of Measurement.
-          enum:
-            - SEC
-            - MIN
-      description: The length in time of the milking for this quarter
-    dataSource:
-      type: string
-      description: Source where data is retrieved from. Details can be retrieved from the source register.
-  responses:
-    error:
-      description: An error has occured while handling the request. Check the content of the message for the error details.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              errors:
-                type: array
-                items:
-                  $ref: '#/components/schemas/error'
-            description: A default response containing only a list of errors
-  parameters:
+parameters:
     queryEndDateTime:
       name: end-date-time
       in: query
@@ -235,12 +116,6 @@ components:
       schema:
         type: string
         format: date-time
-    pathIcarMilkingVisitId:
-      name: milking-visit-id
-      in: path
-      required: true
-      schema:
-        type: string
     pathLocationScheme:
       name: location-scheme
       in: path
@@ -251,64 +126,10 @@ components:
         enum:
           - nl-v1
           - be-v1
-    queryEndDateTimeRequired:
-      name: end-date-time
-      in: query
-      description: The end of the date-time range for the data to get in the request.
-      required: true
-      schema:
-        type: string
-        format: date-time
-    queryModifiedSince:
-      name: modified-since
-      in: query
-      description: The date-time of insertion or last update of the event.
-      schema:
-        type: string
-        format: date-time
     pathLocationId:
       name: location-id
       in: path
       description: The unique identifier for the location.
-      required: true
-      schema:
-        type: string
-    pathMilkDeliveryId:
-      name: milk-delivery-id
-      in: path
-      description: The unique identifier for a milk delivery for a specific location.
-      required: true
-      schema:
-        type: string
-    queryAnimalScheme:
-      name: animal-scheme
-      in: query
-      description: The scheme id for the animal identifier. Should be used together with animal-id.
-      required: true
-      schema:
-        type: string
-        enum:
-          - nl-v1
-          - be-v1
-    queryStartDateTimeRequired:
-      name: start-date-time
-      in: query
-      description: The start of the date-time range for the data to get in the request.
-      required: true
-      schema:
-        type: string
-        format: date-time
-    pathMilkInvoiceId:
-      name: milk-invoice-id
-      in: path
-      description: The unique identifier for a milk invoice for a specific location.
-      required: true
-      schema:
-        type: string
-    queryAnimalId:
-      name: animal-id
-      in: query
-      description: The unique identifier for the animal. Should be used together with animal-scheme.
       required: true
       schema:
         type: string
@@ -319,29 +140,3 @@ components:
       schema:
         type: string
         format: date-time
-  securitySchemes:
-    jdClient:
-      type: oauth2
-      description: Secure access using client credentials grant
-      flows:
-        clientCredentials:
-          tokenUrl: 'https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token'
-          scopes:
-            fullaccess: Full access to all resources
-    jdAuthorizationCode:
-      type: oauth2
-      description: Secure access using authorization grant flow
-      flows:
-        authorizationCode:
-          authorizationUrl: 'https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth'
-          tokenUrl: 'https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/token'
-          scopes:
-            fullaccess: Full access to all resources
-    jdImplicit:
-      type: oauth2
-      description: Secure access using implicit grant
-      flows:
-        implicit:
-          authorizationUrl: 'https://production.join-data.net/auth/realms/datahub/protocol/openid-connect/auth'
-          scopes:
-            fullaccess: Full access to all resources
