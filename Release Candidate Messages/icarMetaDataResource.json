@@ -1,6 +1,6 @@
 {
         "source": {
-          "type": "string"
+          "type": "string",
           "description": "Source where data is retrieved from. URI that identified the source system"
         },
         "modified": {
@@ -10,7 +10,7 @@
           "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json"
         },
         "creator": {
-          "type": "string"
+          "type": "string",
           "description": "Person or organisation who created the object"
         },
         "validFrom": {
