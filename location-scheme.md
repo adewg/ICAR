@@ -33,7 +33,7 @@ We prefer that schemes are human readable even when URL-encoded. This means we p
 | be-pen  | Productie-eenheidsnummer   |   | Issued by Agentschap voor Landbouw en Visserij (ALV) | |
 
 ## Milk tank id's
-| id  | name  | example| region & issuing party  | RegEx | |
+| id  | name  | example| region & issuing party  | RegEx | 
 |---|---|---|---|---|
 | nl-ftn  | milk tank id (fabriekstanknummer)  |  123123456 | Dutch scheme for indicating milk tanks. Issued by dairy factories. First 3 digits indicate factory, last 6 are the tank id. | |
 
