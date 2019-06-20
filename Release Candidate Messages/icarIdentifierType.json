@@ -9,7 +9,7 @@
         "type": "object",
         
         "properties": {
-          "id": :
+          "id": {
             "type": "string",
             "description": "A unique identification for the resource issued under the auspices of the scheme."
           },
