@@ -1,16 +1,4 @@
 {
-        "required": [
-          "id",
-          "scheme"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarAnimalIdType.json"
-          },
-          "scheme": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarAnimalIdSchemeCode.json"
-          }
-        },
-        "description": "Identifies an animal"
+        "$ref": "icarIdentifierType.json",
+        "description": "Identifies an animal using a scheme and ID."
 }
