@@ -21,7 +21,7 @@
             "description": "ISO8601 date and time." 
           },
           "location": {
-            "$ref": "icarLocationIdentifierType.json",
+            "$ref": "icarIdentifierType.json",
             "description": "Unique location scheme and identifier combination."
           }
           "meta": {
