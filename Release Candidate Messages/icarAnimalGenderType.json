@@ -1,0 +1,14 @@
+{
+
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  
+  "type": "string",
+  "description": "Enumeration for sex of animal using species-independent English names. Includes neuter/cryptorchid variations.",
+  "enum": [
+    "Female",
+    "Female.Neuter",
+    "Male",
+    "Male.Cryptorchid",
+    "Male.Neuter"
+  ]
+}
