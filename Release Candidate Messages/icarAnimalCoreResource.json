@@ -17,8 +17,8 @@
           "alternativeIdentifiers": {
             "type": "array",
             "items": {
-              "$ref": "icarAnimalIdentifierType.json",
-            }
+              "$ref": "icarAnimalIdentifierType.json"
+            },
             "description": "Alternative identifiers for the animal."
           },
           "specie": {
@@ -56,7 +56,7 @@
           "status" : {
             "$ref": "icarAnimalStatus.json",
             "description": "On-farm status of the animal (such as alive, dead, off-farm)."
-          }
+          },
           "meta": {
             "$ref": "icarMetaDataResource.json",
             "description": "Optional meta-data for the event."
