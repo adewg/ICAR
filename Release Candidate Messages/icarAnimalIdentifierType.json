@@ -6,10 +6,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarAnimalIdType.json"
+            "$ref": "icarAnimalIdType.json"
           },
           "scheme": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarAnimalIdSchemeCode.json"
+            "$ref": "icarAnimalIdSchemeCode.json"
           }
         },
         "description": "Identifies an animal"

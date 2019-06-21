@@ -1,22 +1,27 @@
 {
+    "type": "object",
+    "properties": {
+
         "source": {
           "type": "string",
           "description": "Source where data is retrieved from. URI that identified the source system"
         },
         "modified": {
-          "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json"
+          "$ref": "icarDateTimeType.json"
         },
         "created": {
-          "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json"
+          "$ref": "icarDateTimeType.json"
         },
         "creator": {
           "type": "string",
           "description": "Person or organisation who created the object"
         },
         "validFrom": {
-          "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json"
+          "$ref": "icarDateTimeType.json"
         },
         "validTo": {
-          "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json"
+          "$ref": "icarDateTimeType.json"
         }
+    },
+    "description": "Generic meta data on this event"
 }

@@ -1,0 +1,177 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Release Candidate Messages",
+    "description": "The specifications of messages which are ready for ICAR approval and release",
+    "version": "1.0",
+    "contact" : {
+      "name": "Animal Data Exchange Working Group",
+      "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
+      "email": "icar@icar.org"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://example.com"
+    }
+  ],
+  "tags" : [
+    {
+	"name" : "release-candidate",
+	"description" : "approved by the working group, waiting for a test"
+    }
+  ],
+  "paths": {
+    "/locations/{location-scheme}/{location-id}/milking-visits": {
+      "get": {
+        "operationId" : "get-milking-visits",
+        "summary": "Get the data for milking visits",
+        "description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkingVisitsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "responseErrors": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "responseMetaData": {
+        "type": "object",
+        "properties": {
+          "metaData": {
+            "$ref": "#/components/schemas/metaData"
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "exampleErrorResource.json"
+          }
+        }
+      },
+      "metaData": {
+        "required": [
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarMetaDataResource.json"
+          }
+        }
+      },
+      "icarMilkingVisitsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkingVisitsResponseDataSources"
+        }
+      },
+      "icarMilkingVisitsResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseMetaData"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMilkingVisitsResponseDataSource"
+          }
+        ]
+      },
+      "icarMilkingVisitsResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarMilkingVisitResource.json"
+          }
+        }
+      }
+    }
+  }
+}

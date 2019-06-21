@@ -11,21 +11,21 @@
               "RB" ]
           },
           "quarterMilkingDuration": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkDurationType.json"
+            "$ref": "icarMilkDurationType.json"
           },
           "quarterMilkingWeight": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingMilkWeightType.json"
+            "$ref": "icarMilkingMilkWeightType.json"
           },
           "icarQuarterMilkingSample": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarQuarterMilkingSampleType.json"
+              "$ref": "icarQuarterMilkingSampleType.json"
             }
           },
           "icarQuarterCharacteristics": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkCharacteristicsType.json"
+              "$ref": "icarMilkCharacteristicsType.json"
             }
           }
  }

@@ -12,28 +12,28 @@
             "description": "A unique identifier for this location for the milking visit message"
           },
           "animal": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarAnimalIdentifierType.json"
+            "$ref": "icarAnimalIdentifierType.json"
           },
           "milkingStartingDateTime": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarDateTimeType.json"
+            "$ref": "icarDateTimeType.json"
           },
           "milkingDuration": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkDurationType.json"
+            "$ref": "icarMilkDurationType.json"
           },
           "milkingVisitDuration": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkDurationType.json"
+            "$ref": "icarMilkDurationType.json"
           },
           "milkingType": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingTypeCode.json"
+            "$ref": "icarMilkingTypeCode.json"
           },
           "milkingMilkWeight": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingMilkWeightType.json"
+            "$ref": "icarMilkingMilkWeightType.json"
           },
           "milkingSuccess": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingSuccessType.json"
+            "$ref": "icarMilkingSuccessType.json"
           },
           "milkingExceptionCode": {
-            "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkingExceptionCode.json"
+            "$ref": "icarMilkingExceptionCode.json"
           },
           "milkingParlourUnit": {
             "type": "string",
@@ -54,19 +54,19 @@
           "quarterMilkings": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarQuarterMilkingType.json"
+              "$ref": "icarQuarterMilkingType.json"
             }
           },
           "animalMilkingSample": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarAnimalMilkingSampleType.json"
+              "$ref": "icarAnimalMilkingSampleType.json"
             }
           },
           "icarMilkCharacteristicsTypes": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/icarMilkCharacteristicsType.json"
+              "$ref": "icarMilkCharacteristicsType.json"
             }
           }
         }
