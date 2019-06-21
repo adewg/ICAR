@@ -1,6 +1,13 @@
 # ICAR ADE JSON draft
 This repository contains the ICAR ADE work-in-progress JSON standard.
 
+This page describes the principles driving this standard. If you want to use the ICAR ADE standard in your application, there are tips and 
+tricks in the [Using the standard](https://github.com/adewg/ICAR/blob/master/Using%20the%20standard.md) file. For a quick start, open the 
+[exampleUrlScheme.yaml](https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.yaml) file in 
+your favorite OpenAPI Specification editor, or use the following URL to have a preview in the free Redoc tool: [view 
+exampleUrlScheme.yaml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.yaml)
+
+
 Approach
 ========
 
@@ -54,23 +61,9 @@ It is not always easy to determine which data belong to a message and which data
 then is if the fields b should get their own message B. The main discussion points are:
 
 * Granularity of permission: does it make sense to allow some fields a to be shared with a party and fields b not? If so, make them separate messages. 
-* Isolated usage: is there a use case where the fields b are useable by themselves without a? If so, make them separate messages. Be considerate of chattiness: too fragmented messages lead to a chatty converstation without any use.
+* Isolated usage: is there a use case where the fields b are useable by themselves without a? If so, make them separate messages. Be considerate of chattiness: too fragmented messages lead to a chatty conversation without any use.
 * Vendor support: is this a specific feature that can be supported or not by a vendor. The preference is to have availability of endpoints as an indication of availability of features. However, if this is simply a more detailed extension to a message, it may be simply modeled as some optional field(s).
 
 If in doubt, consider making it a dedicated message B first. This allows for an easier upgrade path than combining them first and then splitting them up. An application developer can always keep using the additional 
 endpoint for B and switch to the embedded fields b in the message A later. The new fields b in message A are not a problem due to the tolerant reader pattern.
 
-On using abstract base types
-============================
-
-Many events (by example) share similar fields such as an id or timestamp. From a maintenance point of view, it is convenient to extract them to a base type from which concrete events can be derived. In JSON Schema 
-however, there is no convenient support for this. The closest way of doing it is to have an embedded type. This leads to having the nesting feel a bit ackward if some of these common fields are related to others. 
-E.g., in a milking visit we would have the timestamp of the visit in the base type structure, while the duration is part of the concrete data type. As such, the working group decided to not use base types for this 
-in the technical definition; however we do specify it 'on paper' so that we keep it consistent and predictable. We anticipate that if these base types become available, we can change the maintenance of the standard 
-without impacting the message definitions themselves.
-
-We do consider the existance of meta-data as a separate type. 
-
-TODO: define the fields that should be in the base type event.
-
-TODO: define the meta-data type.

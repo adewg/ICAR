@@ -6,15 +6,9 @@ info:
   version: '1.0'
 servers:
   - url: /
-tags:
-  - name: ICAR approval ready
-    description: |
-      (almost) exact copy of existing ICAR-ADE standard message, ready for approval
 paths:
   '/locations/{location-scheme}/{location-id}/milking-visits':
     get:
-      tags:
-        - ICAR approval ready
       summary: Get the data for milking visits
       description: |
         # Purpose
@@ -27,8 +21,9 @@ paths:
           schema:
             type: string
             enum:
-              - nl-v1
-              - be-v1
+              - nl.ubn
+              - de.farmid
+              - be.pen
         - name: location-id
           in: path
           description: The unique identifier for the location.
