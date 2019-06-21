@@ -1,0 +1,17 @@
+{
+
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  
+  "type": "string",
+  "description": "Enumeration for species of animal using English names. Previous ADE definitions used a mixture of English and Genus names.",
+  "enum": [
+    "Buffalo",
+    "Cattle",
+    "Deer",
+    "Elk",
+    "Goat",
+    "Horse",
+    "Pig",
+    "Sheep"
+  ]
+}
