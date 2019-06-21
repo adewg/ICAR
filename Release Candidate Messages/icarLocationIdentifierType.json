@@ -1,0 +1,4 @@
+{
+  "$ref": "icarIdentifierType.json",
+  "description": "Location identifier based on a scheme and ID."
+}
