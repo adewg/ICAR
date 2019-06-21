@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  
+  "type": "string",
+  "description": "Defines the primary product that for which this animal is bred or kept.\\nIf animals are kept for breeding or live trade (sale), specify the end purpose of that breeding/trade.\\n\n - Meat corresponds to UNSPC 50111500 Minimally processed meat and poultry products\\n - Milk corresponds to UNSPC 50203200 Raw milk products from live animals\\n - Wool corresponds to UNSPC 11131506 Unprocessed wool",
+  "enum": [
+    "Meat",
+    "Milk",
+    "Wool"
+  ]
+}
