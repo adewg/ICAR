@@ -67,17 +67,3 @@ then is if the fields b should get their own message B. The main discussion poin
 If in doubt, consider making it a dedicated message B first. This allows for an easier upgrade path than combining them first and then splitting them up. An application developer can always keep using the additional 
 endpoint for B and switch to the embedded fields b in the message A later. The new fields b in message A are not a problem due to the tolerant reader pattern.
 
-On using abstract base types
-============================
-
-Many events (by example) share similar fields such as an id or timestamp. From a maintenance point of view, it is convenient to extract them to a base type from which concrete events can be derived. In JSON Schema 
-however, there is no convenient support for this. The closest way of doing it is to have an embedded type. This leads to having the nesting feel a bit awkward if some of these common fields are related to others. 
-E.g., in a milking visit we would have the timestamp of the visit in the base type structure, while the duration is part of the concrete data type. As such, the working group decided to not use base types for this 
-in the technical definition; however we do specify it 'on paper' so that we keep it consistent and predictable. We anticipate that if these base types become available, we can change the maintenance of the standard 
-without impacting the message definitions themselves.
-
-We do consider the existence of meta-data as a separate type. 
-
-TODO: define the fields that should be in the base type event.
-
-TODO: define the meta-data type.
