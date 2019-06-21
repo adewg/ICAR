@@ -34,11 +34,11 @@
             "description": "ISO8601 date and time." 
           },          
           "primaryBreedCode": {
-            "$ref": "icarAnimalBreed.json",
+            "$ref": "icarAnimalBreedCodeType.json",
             "description": "ICAR Breed code for the animal." 
           },
           "breedFractions": {
-            "$ref": "icarAnimalBreedFractions.json",
+            "$ref": "icarAnimalBreedFractionsType.json",
             "description": "Breed fractions for the animal." 
           },
           "name": {
@@ -54,7 +54,7 @@
             "description": "Primary production purpose for which animals are bred." 
           },
           "status" : {
-            "$ref": "icarAnimalStatus.json",
+            "$ref": "icarAnimalStatusType.json",
             "description": "On-farm status of the animal (such as alive, dead, off-farm)."
           },
           "meta": {
