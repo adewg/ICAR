@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "description": "Defines the status of the animal either absolutely and/or with reference to the location on which it is recorded\\nOff-farm signifies that the animal is no longer recorded at the location.",
+  "enum": [
+    "Alive",
+    "Dead",
+    "Off-farm",
+    "Unknown"
+  ]
+}
