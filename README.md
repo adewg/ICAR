@@ -3,9 +3,9 @@ This repository contains the ICAR ADE work-in-progress JSON standard.
 
 This page describes the principles driving this standard. If you want to use the ICAR ADE standard in your application, there are tips and 
 tricks in the [Using the standard](https://github.com/adewg/ICAR/blob/master/Using%20the%20standard.md) file. For a quick start, open the 
-[exampleUrlScheme.yaml](https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.yaml) file in 
+[exampleUrlScheme.yaml](https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.json) file in 
 your favorite OpenAPI Specification editor, or use the following URL to have a preview in the free Redoc tool: [view 
-exampleUrlScheme.yaml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.yaml)
+exampleUrlScheme.yaml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.json)
 
 
 Approach

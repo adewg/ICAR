@@ -6,10 +6,10 @@ The ADE standard is meant to be an open standard. As such, you are free to start
 The standard currently focuses on JSON messages defined in JSON Schema. These messages can be transported via REST or via any other channel. We are also working on a recommended URL scheme if you want to use REST. For now, you can find an example URL scheme to help you navigate and decide how to use the standard. This scheme is defined in the OpenAPI Specification v3. 
 
 ## Getting Started
-Most developers should be familiar with REST and JSON files. To simply view the standard, you can open the [exampleUrlScheme.yaml](https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.yaml) file in your favorite OpenAPI Specification editor.  
+Most developers should be familiar with REST and JSON files. To simply view the standard, you can open the [exampleUrlScheme.yaml](https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.json) file in your favorite OpenAPI Specification editor.  
 
 Or, for convenience, use the following URL to have a preview in the free Redoc tool: 
-[view exampleUrlScheme.yaml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.yaml)
+[view exampleUrlScheme.json](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.json)
 
 ## Customizing the Standard
 The standard aims to cover most cases in a generic way. However, there will always be regional differences or vendor specific fields that may be required to be part of a message. You are free to simply add more fields to your messages than described in the standard. When doing so, please take note of the following recommendations:
