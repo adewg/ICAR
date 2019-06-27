@@ -29,11 +29,9 @@
         "milkingMilkWeight": {
           "$ref": "icarMilkingMilkWeightType.json"
         },
-        "milkingSuccess": {
-          "$ref": "icarMilkingSuccessType.json"
-        },
-        "milkingExceptionCode": {
-          "$ref": "icarMilkingExceptionCode.json"
+        "milkingComplete": {
+          "type": "boolean",
+          "description": "indication whether this milking was completed normally"
         },
         "milkingParlourUnit": {
           "type": "string",
