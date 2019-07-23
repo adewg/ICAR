@@ -55,6 +55,13 @@
             "$ref": "icarAnimalStatusType.json",
             "description": "On-farm status of the animal (such as alive, dead, off-farm)."
           },
+          "parentage": {
+            "type": "array",
+            "items": {
+                "$ref":"icarParentageType.json",
+                "description": "Array of parents."
+            }            
+          },    
           "meta": {
             "$ref": "icarMetaDataResource.json",
             "description": "Optional meta-data for the event."
