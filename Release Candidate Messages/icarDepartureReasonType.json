@@ -1,0 +1,18 @@
+{ 
+    "type": "string",
+    "description": "Enumeration for departure reason. Not specified in previous ADE data dictionary.",
+    "enum": [
+      "Internal Transfer",
+      "Export",
+      "Stud Service",
+      "Stud Service Return",
+      "Slaughter",
+      "Agistment",
+      "Agistment Return",
+      "Show",
+      "Show Return",
+      "Sale",
+      "Sale Return",
+      "Other"
+    ]
+  }
