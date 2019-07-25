@@ -1,0 +1,40 @@
+{       
+    "required": [
+      "id",
+      "animal",
+      "eventDateTime"
+    ],
+          
+    "type": "object",
+          
+    "allOf": [
+      {
+        "$ref": "icarEventCoreResource.json"
+      },
+      {
+        "properties": {
+          "deathReason": {
+            "$ref": "icarDeathReasonType.json",
+            "description": "Coded reasons for death including disease, parturition complications, consumption by humans or animals."
+          },
+          "explanation": {
+            "type": "string",
+            "description": "Free text explanation of the reason for death."
+          },
+          "disposalMethod": {
+            "$ref": "icarDeathDisposalMethodType.json",
+            "description": "Coded disposal methods including approved service, consumption by humans or animals, etc."
+          },
+          "disposalOperator": {
+            "type": "string",
+            "description": "Disposal operator official name (should really be schema.org/organization)."
+          },
+          "disposalReference": {
+            "type": "string",
+            "description": "Reference (receipt, docket, or ID) for disposal."
+          }
+        }
+      }
+    ]
+  }
+  

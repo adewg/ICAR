@@ -3,7 +3,7 @@
       "id",
       "animal",
       "eventDateTime",
-      "destinationLocation"
+      "location"
     ],
           
     "type": "object",
@@ -14,11 +14,11 @@
       },
       {
         "properties": {
-          "departureReason": {
-            "$ref": "icarDepartureReasonType.json"
+          "registrationReason": {
+            "$ref": "icarRegistrationReasonType.json"
           },
-          "consignment": {
-              "$ref": "icarConsignmentType.json"
+          "animalDetail": {
+            "$ref": "icarAnimalCoreResource.json"
           }
         }
       }
