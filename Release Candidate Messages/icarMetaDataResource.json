@@ -23,5 +23,6 @@
           "$ref": "icarDateTimeType.json"
         }
     },
-    "description": "Generic meta data on this event"
+    "description": "Generic meta data on this event",
+    "required": ["source", "modified"]
 }
