@@ -1,18 +1,22 @@
 { 
     "type": "string",
-    "description": "Enumeration for departure reason. Not specified in previous ADE data dictionary.",
+    "description": "Enumeration for departure cause. Not specified in previous ADE data dictionary.",
     "enum": [
-      "Internal Transfer",
-      "Export",
-      "Stud Service",
-      "Stud Service Return",
+      "Age",
+      "Superfluous",
       "Slaughter",
-      "Agistment",
-      "Agistment Return",
-      "Show",
-      "Show Return",
       "Sale",
-      "Sale Return",
+      "Newborn",
+      "Leg or Claw",
+      "Nutrition",
+      "Parturition",
+      "Mastitis",
+      "Fertility",
+      "Health",
+      "Production",
+      "Milking Ability",
+      "Bad Type",
+      "Behaviour",
       "Other"
     ]
   }
