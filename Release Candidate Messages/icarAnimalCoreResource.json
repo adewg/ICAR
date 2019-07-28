@@ -39,6 +39,10 @@
             "$ref": "icarBreedFractionsType.json",
             "description": "Breed fractions for the animal." 
           },
+          "coatColor": {
+            "type": "string",
+            "description": "Colour of the animal's coat, using the conventions for that breed." 
+          },          
           "name": {
             "type": "string",
             "description": "Name given by the farmer for this animal." 
