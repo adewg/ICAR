@@ -8,7 +8,7 @@
     "properties": {
           "id": {
             "type": "string",
-            "description": "Unique identifier in the system for this event."
+            "description": "Unique identifier in the source system for this event."
           },
           "animal": {
             "$ref": "icarAnimalIdentifierType.json",
@@ -16,7 +16,7 @@
           },
           "eventDateTime": {
             "$ref": "icarDateTimeType.json",
-            "description": "ISO8601 date and time." 
+            "description": "ISO8601 date and time. MUST contain time zone. UTC recommended." 
           },
           "location": {
             "$ref": "icarLocationIdentifierType.json",

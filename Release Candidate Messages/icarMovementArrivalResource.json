@@ -1,0 +1,30 @@
+{       
+    "required": [
+      "id",
+      "animal",
+      "eventDateTime",
+      "originLocation"
+    ],
+          
+    "type": "object",
+          
+    "allOf": [
+      {
+        "$ref": "icarEventCoreResource.json"
+      },
+      {
+        "properties": {
+          "arrivalReason": {
+            "$ref": "icarArrivalReasonType.json"
+          },
+          "animalDetail": {
+            "$ref": "icarAnimalCoreResource.json"
+          },
+          "consignment": {
+              "$ref": "icarConsignmentType.json"
+          }
+        }
+      }
+    ]
+  }
+  
