@@ -1,0 +1,22 @@
+{ 
+    "type": "string",
+    "description": "Enumeration for departure cause. Not specified in previous ADE data dictionary.",
+    "enum": [
+      "Age",
+      "Superfluous",
+      "Slaughter",
+      "Sale",
+      "Newborn",
+      "Leg or Claw",
+      "Nutrition",
+      "Parturition",
+      "Mastitis",
+      "Fertility",
+      "Health",
+      "Production",
+      "Milking Ability",
+      "Bad Type",
+      "Behaviour",
+      "Other"
+    ]
+  }

@@ -1,0 +1,56 @@
+{
+    "description": "Consignment information for a movement (arrival, departure). Localised extensions allowed.",
+    "type": "object",
+    "properties": {
+          "id": {
+            "$ref": "icarIdentitiferType.json",
+            "description": "Official identifier for the movement."
+          },
+          "originLocation": {
+            "$ref": "icarLocationIdentifierType.json"
+          },
+          "originAddress": {
+              "type": "string",
+              "description": "Origin address - should actually be a $ref to schema.org/organization."
+          },
+          "destinationLocation": {
+            "$ref": "icarLocationIdentifierType.json"
+          }, 
+          "destinationAddress": {
+              "type": "string",
+              "description": "Destination address - should actually be a $ref to schema.org/organization."
+          },
+          "loadingDateTime": {
+            "$ref": "icarDateTimeType.json",
+            "description": "Date and time animals were loaded for transport, including time zone (UTC preferred)."
+          },
+          "unloadingDateTime": {
+            "$ref": "icarDateTimeType.json",
+            "description": "Date and time animals were unloaded after transport, including time zone (UTC preferred)." 
+          },
+          "expectedDuration": {
+            "type": "number",
+            "description": "Expected duration of transportation in hours." 
+          },          
+          "transportOperator": {
+            "type": "string",
+            "description": "Transport operator official name (should really be schema.org/organization)."
+          },
+          "vehicle": {
+            "type": "string",
+            "description": "Identification of the vehicle (for example, licence plate)."
+          },
+          "transportReference": {
+            "type": "string",
+            "description": "Shipping or transporter reference."
+          },
+          "isolationFacilityUsed": {
+            "type": "boolean",
+            "description": "True if an isolation facility was used for the movement." 
+          },           
+          "farmAssuranceReference": {
+            "#ref": "icarIdentifierType.json",
+            "description": "Identification reference of a farm assurance operation."
+          }
+      }
+}

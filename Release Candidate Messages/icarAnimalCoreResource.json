@@ -39,6 +39,10 @@
             "$ref": "icarBreedFractionsType.json",
             "description": "Breed fractions for the animal." 
           },
+          "coatColor": {
+            "type": "string",
+            "description": "Colour of the animal's coat, using the conventions for that breed." 
+          },          
           "name": {
             "type": "string",
             "description": "Name given by the farmer for this animal." 
@@ -55,6 +59,13 @@
             "$ref": "icarAnimalStatusType.json",
             "description": "On-farm status of the animal (such as alive, dead, off-farm)."
           },
+          "parentage": {
+            "type": "array",
+            "items": {
+                "$ref":"icarParentageType.json",
+                "description": "Array of parents."
+            }            
+          },    
           "meta": {
             "$ref": "icarMetaDataResource.json",
             "description": "Optional meta-data for the event."
