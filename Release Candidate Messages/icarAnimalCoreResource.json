@@ -32,7 +32,7 @@
             "description": "ISO8601 date and time." 
           },          
           "primaryBreed": {
-            "$ref": "icarAnimalBreedIdentifierType.json",
+            "$ref": "icarBreedIdentifierType.json",
             "description": "ICAR Breed code for the animal." 
           },
           "breedFractions": {
