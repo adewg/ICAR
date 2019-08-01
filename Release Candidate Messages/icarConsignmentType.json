@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
           "id": {
-            "$ref": "icarIdentitiferType.json",
+            "$ref": "icarIdentitifierType.json",
             "description": "Official identifier for the movement."
           },
           "originLocation": {
