@@ -141,7 +141,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/icarMovementBirthResponse"
+                  "$ref": "#/components/schemas/icarMovementBirthRegistrationResponse"
                 }
               }
             }
@@ -573,13 +573,13 @@
           }
         }
       },
-      "icarMovementBirthResponse": {
+      "icarMovementBirthRegistrationResponse": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarMovementBirthResponseDataSources"
+          "$ref": "#/components/schemas/icarMovementBirthRegistrationResponseDataSources"
         }
       },
-      "icarMovementBirthResponseDataSources": {
+      "icarMovementBirthRegistrationResponseDataSources": {
         "allOf": [
           {
             "$ref": "#/components/schemas/responseMetaData"
@@ -588,15 +588,15 @@
             "$ref": "#/components/schemas/responseErrors"
           },
           {
-            "$ref": "#/components/schemas/icarMovementBirthResponseDataSource"
+            "$ref": "#/components/schemas/icarMovementBirthRegistrationResponseDataSource"
           }
         ]
       },
-      "icarMovementBirthResponseDataSource": {
+      "icarMovementBirthRegistrationResponseDataSource": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "icarMovementBirthResource.json"
+            "$ref": "icarMovementBirthRegistrationResource.json"
           }
         }
       },
