@@ -133,6 +133,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
           }
         ],
         "responses": {
@@ -196,6 +214,24 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         ],
@@ -261,6 +297,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
           }
         ],
         "responses": {
@@ -324,6 +378,24 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         ],
