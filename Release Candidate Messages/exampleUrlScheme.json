@@ -103,8 +103,400 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/births": {
+      "get": {
+        "operationId" : "get-births",
+        "summary": "Get the births for a certain loactions",
+        "description": "# Purpose\nProvides the born animals on a location\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the births for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementBirthRegistrationResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/deaths": {
+      "get": {
+        "operationId" : "get-deaths",
+        "summary": "Get the deaths for a certain loactions",
+        "description": "# Purpose\nProvides the died animals on a location\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the died animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementDeathResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/arrivals": {
+      "get": {
+        "operationId" : "get-arrivals",
+        "summary": "Get the arrivals for a certain loactions",
+        "description": "# Purpose\nProvides the arrived animals on a location\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the arrived animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementArrivalResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/departures": {
+      "get": {
+        "operationId" : "get-departures",
+        "summary": "Get the departures for a certain loactions",
+        "description": "# Purpose\nProvides the departed animals from a location\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementDepartureResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    }, 
+    "/locations/{location-scheme}/{location-id}/animals": {
+      "get": {
+        "operationId" : "get-animals",
+        "summary": "Get the animals for a certain location",
+        "description": "# Purpose\nProvides the animals on a location\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalCoreResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
     }
-  },
+  },	  
   "components": {
     "schemas": {
       "responseErrors": {
@@ -169,6 +561,141 @@
         "properties": {
           "data": {
             "$ref": "icarMilkingVisitResource.json"
+          }
+        }
+      },
+      "icarMovementArrivalResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementArrivalResponseDataSources"
+        }
+      },
+      "icarMovementArrivalResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseMetaData"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMovementArrivalResponseDataSource"
+          }
+        ]
+      },
+      "icarMovementArrivalResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarMovementArrivalResource.json"
+          }
+        }
+      },
+      "icarMovementDepartureResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementDepartureResponseDataSources"
+        }
+      },
+      "icarMovementDepartureResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseMetaData"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMovementDepartureResponseDataSource"
+          }
+        ]
+      },
+      "icarMovementDepartureResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarMovementDepartureResource.json"
+          }
+        }
+      },
+      "icarAnimalCoreResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarAnimalCoreResponseDataSources"
+        }
+      },
+      "icarAnimalCoreResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseMetaData"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarAnimalCoreResponseDataSource"
+          }
+        ]
+      },
+      "icarAnimalCoreResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarAnimalCoreResource.json"
+          }
+        }
+      },
+      "icarMovementBirthRegistrationResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementBirthRegistrationResponseDataSources"
+        }
+      },
+      "icarMovementBirthRegistrationResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseMetaData"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMovementBirthRegistrationResponseDataSource"
+          }
+        ]
+      },
+      "icarMovementBirthRegistrationResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarMovementBirthRegistrationResource.json"
+          }
+        }
+      },
+      "icarMovementDeathResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementDeathResponseDataSources"
+        }
+      },
+      "icarMovementDeathResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseMetaData"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarMovementDeathResponseDataSource"
+          }
+        ]
+      },
+      "icarMovementDeathResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarMovementDeathResource.json"
           }
         }
       }
