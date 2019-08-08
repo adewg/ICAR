@@ -107,7 +107,7 @@
     "/locations/{location-scheme}/{location-id}/births": {
       "get": {
         "operationId" : "get-births",
-        "summary": "Get the births for a certain loactions",
+        "summary": "Get the births for a certain location",
         "description": "# Purpose\nProvides the born animals on a location\n",
         "tags": [ "release-candidate"],
         "parameters": [
@@ -189,7 +189,7 @@
     "/locations/{location-scheme}/{location-id}/deaths": {
       "get": {
         "operationId" : "get-deaths",
-        "summary": "Get the deaths for a certain loactions",
+        "summary": "Get the deaths for a certain location",
         "description": "# Purpose\nProvides the died animals on a location\n",
         "tags": [ "release-candidate"],
         "parameters": [
@@ -271,7 +271,7 @@
     "/locations/{location-scheme}/{location-id}/arrivals": {
       "get": {
         "operationId" : "get-arrivals",
-        "summary": "Get the arrivals for a certain loactions",
+        "summary": "Get the arrivals for a certain location",
         "description": "# Purpose\nProvides the arrived animals on a location\n",
         "tags": [ "release-candidate"],
         "parameters": [
@@ -353,7 +353,7 @@
     "/locations/{location-scheme}/{location-id}/departures": {
       "get": {
         "operationId" : "get-departures",
-        "summary": "Get the departures for a certain loactions",
+        "summary": "Get the departures for a certain location",
         "description": "# Purpose\nProvides the departed animals from a location\n",
         "tags": [ "release-candidate"],
         "parameters": [
