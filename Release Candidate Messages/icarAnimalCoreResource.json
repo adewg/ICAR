@@ -42,7 +42,11 @@
           "coatColor": {
             "type": "string",
             "description": "Colour of the animal's coat, using the conventions for that breed." 
-          },          
+          },
+          "managementTag": {
+            "type": "string",
+            "description": "The identifier used by the farmer in day to day operations."
+          },
           "name": {
             "type": "string",
             "description": "Name given by the farmer for this animal." 
