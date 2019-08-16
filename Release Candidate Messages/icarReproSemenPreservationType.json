@@ -1,0 +1,8 @@
+{
+    "type": "string",
+    "description": "Method of semen preservation (liquid usually with extender, frozen)",
+    "enum": [
+      "Liquid",
+      "Frozen"
+    ]
+}
