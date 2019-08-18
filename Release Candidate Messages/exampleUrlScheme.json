@@ -495,6 +495,70 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/Pregnancy-Diagnosis": {
+      "get": {
+        "operationId" : "get-pregnancy-diagnosis",
+        "summary": "Get the pregnancy diagnosis for a certain location",
+        "description": "# Purpose\nProvides the pregnancy diagnosis on a location\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the abortions for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarReproPregnancyDiagnosisEventResource"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },	  
   "components": {
@@ -697,6 +761,14 @@
           "data": {
             "$ref": "icarMovementDeathResource.json"
           }
+        }
+      }
+    },
+    "icarReproPregnancyDiagnosisEventResource": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "icarReproPregnancyDiadnosisEventResource.json"
         }
       }
     }
