@@ -529,11 +529,75 @@
         ],
         "responses": {
           "201": {
-            "description": "Successful. The response contains the abortions for the given location",
+            "description": "Successful. The response contains the pregnancy diagnosis for the given location",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/icarReproPregnancyDiagnosisEventResource"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/Insemination": {
+      "get": {
+        "operationId" : "get-Insemination",
+        "summary": "Get the inseminations for a certain location",
+        "description": "# Purpose\nProvides the Inseminations on a location\n",
+        "tags": [ "release-candidate"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the inseminations for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarReproInseminationEventResource"
                 }
               }
             }
@@ -768,7 +832,15 @@
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "icarReproPregnancyDiadnosisEventResource.json"
+          "$ref": "icarReproPregnancyDiagnosisEventResource.json"
+        }
+      }
+    },
+    "icarReproInseminationEventResource": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "icarReproInseminationEventResource.json"
         }
       }
     }
