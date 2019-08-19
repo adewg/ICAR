@@ -1,5 +1,5 @@
 {       
-    "required": [
+    "required": [ 
       "id",
       "animal",
       "eventDateTime"

@@ -23,7 +23,7 @@
 
         "sireIdentifiers": {
             "type": "array",
-            "items": { 
+            "items": {  
               "$ref": "icarAnimalIdentifierType.json"
             },
             "description": "One or more unique scheme/identifier combinations for the sire."

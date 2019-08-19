@@ -1,5 +1,5 @@
 {
-    "type": "string",
+    "type": "string", 
     "description": "The result of pregnancy diagnosis (empty/pregnant).",
     "enum": [
       "Empty",

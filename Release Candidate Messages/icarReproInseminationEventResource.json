@@ -1,5 +1,5 @@
 {       
-    "type": "object",
+    "type": "object", 
 
     "description": "Event for recording natural or artificial insemination, including embryo transfer.",
 

@@ -1,7 +1,7 @@
 {       
-    "type": "object",
+    "type": "object", 
 
-    "description": "Pregnancy diagnosis or check event.",
+    "description": "Pregnancy diagnosis or check event.", 
 
     "required": [
         "id",
