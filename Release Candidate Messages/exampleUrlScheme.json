@@ -17,8 +17,12 @@
   ],
   "tags" : [
     {
-	"name" : "release-candidate",
-	"description" : "approved by the working group, waiting for a test"
+	    "name" : "release-candidate",
+	    "description" : "approved by the working group, waiting for a test"
+    },
+    {
+      "name": "additions",
+      "description": "new endpoints not yet approved"
     }
   ],
   "paths": {
@@ -495,6 +499,262 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/Pregnancy-Diagnosis": {
+      "get": {
+        "operationId" : "get-pregnancy-diagnosis",
+        "summary": "Get the pregnancy diagnosis for a certain location",
+        "description": "# Purpose\nProvides the pregnancy diagnosis on a location\n",
+        "tags": [ "addition"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the pregnancy diagnosis for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarReproPregnancyDiagnosisEventResource"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/Insemination": {
+      "get": {
+        "operationId" : "get-Insemination",
+        "summary": "Get the inseminations for a certain location",
+        "description": "# Purpose\nProvides the Inseminations on a location\n",
+        "tags": [ "addition"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the inseminations for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarReproInseminationEventResource"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/Drying-Off": {
+      "get": {
+        "operationId" : "get-Drying-Off",
+        "summary": "Get the drying off for a certain location",
+        "description": "# Purpose\nProvides the drying off on a location\n",
+        "tags": [ "addition"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the drying off for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkingDryOffEventResource"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/Abortion-Events": {
+      "get": {
+        "operationId" : "get-Abortion-Events",
+        "summary": "Get the abortion events for a certain location",
+        "description": "# Purpose\nProvides the abortion events on a location\n",
+        "tags": [ "addition"],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful. The response contains the abortion events for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarReproAbortionEventResource"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },	  
   "components": {
@@ -697,6 +957,38 @@
           "data": {
             "$ref": "icarMovementDeathResource.json"
           }
+        }
+      }
+    },
+    "icarReproPregnancyDiagnosisEventResource": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "icarReproPregnancyDiagnosisEventResource.json"
+        }
+      }
+    },
+    "icarReproInseminationEventResource": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "icarReproInseminationEventResource.json"
+        }
+      }
+    },
+    "icarMilkingDryOffEventResource": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "icarMilkingDryOffEventResource.json"
+        }
+      }
+    },
+    "icarReproAbortionEventResource": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "icarReproAbortionEventResource.json"
         }
       }
     }
