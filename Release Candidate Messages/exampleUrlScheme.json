@@ -775,9 +775,75 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/Parturition-Events": {
+    "get": {
+      "operationId": "get-Parturition-Events",
+      "summary": "Get the Parturition events for a certain location",
+      "description": "# Purpose\nProvides the Parturition events on a location\n",
+      "tags": [
+        "addition"
+      ],
+      "parameters": [
+        {
+          "name": "location-scheme",
+          "in": "path",
+          "description": "The scheme id for the location identifier.",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "nl.ubn",
+              "de.farmid",
+              "be.pen"
+            ]
+          }
+        },
+        {
+          "name": "location-id",
+          "in": "path",
+          "description": "The unique identifier for the location.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Successful. The response contains the Parturition events for the given location",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarReproParturitionResponse"
+              }
+            }
+          }
+        },
+        "default": {
+          "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/error"
+                    }
+                  }
+                },
+                "description": "A default response containing only a list of errors"
+              }
+            }
+          }
+        }
+      }
     }
-  },
-  "components": {
+  }
+},
+"components": {
     "schemas": {
       "responseErrors": {
         "type": "object",
@@ -1084,6 +1150,33 @@
         "properties": {
           "data": {
             "$ref": "icarReproAbortionEventResource.json"
+          }
+        }
+      },
+      "icarReproParturitionResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarReproParturitionResponseDataSources"
+        }
+      },
+      "icarReproParturitionResponseDataSources": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/responseMetaData"
+          },
+          {
+            "$ref": "#/components/schemas/responseErrors"
+          },
+          {
+            "$ref": "#/components/schemas/icarReproParturitionResponseDataSource"
+          }
+        ]
+      },
+      "icarReproParturitionResponseDataSource": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "icarReproParturitionEventResource.json"
           }
         }
       }
