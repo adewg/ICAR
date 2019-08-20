@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "description": "Describes a semen straw",
+
+    "properties": {
+
+        "id": {
+            "$ref": "icarIdentifierType.json",
+            "description": "Official identifier for the straw (if any)."
+        },
+        "batch": {
+          "type": "string",
+          "description": "Identification of the batch of semen."
+        },
+        "collectionCentre": {
+          "type": "string",
+          "description": "Identifies the collection centre."
+        },
+        "dateCollected": {
+          "description": "Records the date of collection.",
+          "$ref": "icarDateTimeType.json"
+        },
+
+        "sireIdentifiers": {
+            "type": "array",
+            "items": {  
+              "$ref": "icarAnimalIdentifierType.json"
+            },
+            "description": "One or more unique scheme/identifier combinations for the sire."
+        },
+        "sireOfficialName": {
+            "type": "string",
+            "description": "Official herdbook name of the sire." 
+        },
+        "sireURI": {
+            "type": "string",
+            "description": "URI to an AnimalCoreResource for the sire." 
+        },
+
+        "preservationType": {
+            "$ref": "icarReproSemenPreservationType.json",
+            "description": "The method of preservation of the semen (liquid, frozen)."
+        },
+
+        "isSexedSemen": {
+          "type": "boolean",
+          "description": "True if this is sexed semen."
+        },
+        "sexedGender": {
+          "$ref": "icarGenderType.json",
+          "description": "Specify Male or Female for sexed semen only."          
+        },
+        "sexedPercentage": {
+          "type": "number",
+          "format": "integer",
+          "description": "Percentage of sperm that are expected to be of the chosen sex (e.g. 75, 90, 95)."
+        },
+
+        "meta": {
+            "$ref": "icarMetaDataResource.json",
+            "description": "Optional meta-data for the straw itself (if used separately from an event)."
+          }
+        }
+}

@@ -1,0 +1,60 @@
+{       
+    "type": "object", 
+
+    "description": "Event for recording natural or artificial insemination, including embryo transfer.",
+
+    "required": [
+        "id",
+        "animal",
+        "eventDateTime",
+        "inseminationType"
+      ],
+          
+    "allOf": [
+      {
+        "$ref": "icarEventCoreResource.json"
+      },
+      {
+        "properties": {
+            "inseminationType": {
+                "$ref": "icarReproInseminationType.json"
+            },
+
+            "sireIdentifiers": {
+                "type": "array",
+                "items": { 
+                    "$ref": "icarAnimalIdentifierType.json"
+                },
+                "description": "Unique scheme/identifier combinations for the sire, including official ID and Herdbook."
+            },
+            "sireOfficialName": {
+                "type": "string",
+                "description": "Official herdbook name of the sire." 
+            },
+            "sireURI": {
+                "type": "string",
+                "description": "URI to an AnimalCoreResource for the sire." 
+            },
+
+            "straw": {
+                "$ref": "icarReproSemenStrawResource.json",
+                "description": "Details of the straw, which may also include sire details."
+            },
+            "semenFromFarmStocks": {
+                "type": "boolean",
+                "description": "True if the semen is from the farmer's own stocks (false if supplied by technician)."
+            },
+            "farmContainer": {
+                "type": "string",
+                "description": "Number or ID of the container from which the dose was taken."
+            },
+
+            "embryo": {
+                "$ref": "icarReproEmbryoResource.json", 
+                "description": "Details of the embryo."
+            }
+        }
+      }
+    ]
+  }
+  
