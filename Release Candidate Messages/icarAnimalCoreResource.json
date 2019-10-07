@@ -36,11 +36,8 @@
             "description": "ICAR Breed code for the animal." 
           },
           "breedFractions": {
-            "type": "array",
-            "items": {
-                "$ref": "icarBreedFractionsType.json",
-                "description": "Breed fractions for the animal." 
-            }
+             "$ref": "icarBreedFractionsType.json",
+             "description": "Breed fractions for the animal." 
           },
           "coatColor": {
             "type": "string",
