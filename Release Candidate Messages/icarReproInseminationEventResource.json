@@ -19,7 +19,6 @@
             "inseminationType": {
                 "$ref": "icarReproInseminationType.json"
             },
-
             "sireIdentifiers": {
                 "type": "array",
                 "items": { 
@@ -35,7 +34,6 @@
                 "type": "string",
                 "description": "URI to an AnimalCoreResource for the sire." 
             },
-
             "straw": {
                 "$ref": "icarReproInseminationType.json",
                 "description": "Details of the straw, which may also include sire details."
@@ -48,7 +46,6 @@
                 "type": "string",
                 "description": "Number or ID of the container from which the dose was taken."
             },
-
             "embryo": {
                 "$ref": "icarReproEmbryoResource.json", 
                 "description": "Details of the embryo."
