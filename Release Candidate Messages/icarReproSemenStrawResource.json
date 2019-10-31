@@ -18,6 +18,18 @@
         "dateCollected": {
           "description": "Records the date of collection.",
           "$ref": "icarDateTimeType.json"
+        },
+        "sireOfficialName": {
+            "type": "string",
+            "description": "Official herdbook name of the sire." 
+        },
+        "sireURI": {
+            "type": "string",
+            "description": "URI to an AnimalCoreResource for the sire." 
+        },
+        "preservationType": {
+            "$ref": "icarReproSemenPreservationType.json",
+            "description": "The method of preservation of the semen (liquid, frozen)."
         }
     }
 }
