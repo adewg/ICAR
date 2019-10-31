@@ -37,6 +37,19 @@
         "preservationType": {
             "$ref": "icarReproSemenPreservationType.json",
             "description": "The method of preservation of the semen (liquid, frozen)."
+        },
+        "isSexedSemen": {
+          "type": "boolean",
+          "description": "True if this is sexed semen."
+        },
+        "sexedGender": {
+          "$ref": "icarGenderType.json",
+          "description": "Specify Male or Female for sexed semen only."          
+        },
+        "sexedPercentage": {
+          "type": "number",
+          "format": "integer",
+          "description": "Percentage of semen that are expected to be of the chosen sex (e.g. 75, 90, 95)."
         }
     }
 }
