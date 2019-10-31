@@ -37,7 +37,7 @@
             },
 
             "straw": {
-                "$ref": "icarReproSemenStrawResource.json",
+                "$ref": "icarReproInseminationType.json",
                 "description": "Details of the straw, which may also include sire details."
             },
             "semenFromFarmStocks": {
@@ -50,7 +50,7 @@
             },
 
             "embryo": {
-                "$ref": "icarReproEmbryoResource.json", 
+                "$ref": "icarReproInseminationType.json", 
                 "description": "Details of the embryo."
             }
         }
