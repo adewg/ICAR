@@ -6,6 +6,18 @@
         "id": {
             "$ref": "icarIdentifierType.json",
             "description": "Official identifier for the straw (if any)."
+        },
+        "batch": {
+          "type": "string",
+          "description": "Identification of the batch of semen."
+        },
+        "collectionCentre": {
+          "type": "string",
+          "description": "Identifies the collection centre."
+        },
+        "dateCollected": {
+          "description": "Records the date of collection.",
+          "$ref": "icarDateTimeType.json"
         }
-      }
+    }
 }
