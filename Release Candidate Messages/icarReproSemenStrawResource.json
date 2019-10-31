@@ -41,10 +41,6 @@
         "isSexedSemen": {
           "type": "boolean",
           "description": "True if this is sexed semen."
-        },
-        "sexedGender": {
-          "$ref": "icarGenderType.json",
-          "description": "Specify Male or Female for sexed semen only."          
         }
     }
 }
