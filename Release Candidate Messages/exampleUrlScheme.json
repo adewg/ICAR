@@ -1095,7 +1095,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "icarReproPregnancyDiagnosisEventResource.json"
+            "$ref": "icarReproInseminationEventResource.json"
           }
         }
       },
