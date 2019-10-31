@@ -3,7 +3,6 @@
     "description": "Describes a semen straw",
 
     "properties": {
-
         "id": {
             "$ref": "icarIdentifierType.json",
             "description": "Official identifier for the straw (if any)."
@@ -20,7 +19,6 @@
           "description": "Records the date of collection.",
           "$ref": "icarDateTimeType.json"
         },
-
         "sireIdentifiers": {
             "type": "array",
             "items": {  
@@ -36,12 +34,10 @@
             "type": "string",
             "description": "URI to an AnimalCoreResource for the sire." 
         },
-
         "preservationType": {
             "$ref": "icarReproSemenPreservationType.json",
             "description": "The method of preservation of the semen (liquid, frozen)."
         },
-
         "isSexedSemen": {
           "type": "boolean",
           "description": "True if this is sexed semen."
@@ -55,10 +51,9 @@
           "format": "integer",
           "description": "Percentage of sperm that are expected to be of the chosen sex (e.g. 75, 90, 95)."
         },
-
         "meta": {
             "$ref": "icarMetaDataResource.json",
             "description": "Optional meta-data for the straw itself (if used separately from an event)."
           }
-        }
+      }
 }
