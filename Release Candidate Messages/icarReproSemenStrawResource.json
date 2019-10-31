@@ -19,6 +19,13 @@
           "description": "Records the date of collection.",
           "$ref": "icarDateTimeType.json"
         },
+        "sireIdentifiers": {
+            "type": "array",
+            "items": {  
+              "$ref": "icarAnimalIdentifierType.json"
+            },
+            "description": "One or more unique scheme/identifier combinations for the sire."
+        },
         "sireOfficialName": {
             "type": "string",
             "description": "Official herdbook name of the sire." 
