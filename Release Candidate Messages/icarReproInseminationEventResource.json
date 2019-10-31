@@ -47,7 +47,7 @@
                 "description": "Number or ID of the container from which the dose was taken."
             },
             "embryo": {
-                "$ref": "icarReproInseminationType.json", 
+                "$ref": "icarReproEmbryoResource.json", 
                 "description": "Details of the embryo."
             }
         }
