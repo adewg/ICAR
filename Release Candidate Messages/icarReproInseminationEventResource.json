@@ -35,7 +35,7 @@
                 "description": "URI to an AnimalCoreResource for the sire." 
             },
             "straw": {
-                "$ref": "icarReproInseminationType.json",
+                "$ref": "icarReproSemenStrawResource.json",
                 "description": "Details of the straw, which may also include sire details."
             },
             "semenFromFarmStocks": {
