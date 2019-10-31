@@ -50,7 +50,7 @@
             },
 
             "embryo": {
-                "$ref": "icarReproInseminationType.json", 
+                "$ref": "icarReproEmbryoResource.json", 
                 "description": "Details of the embryo."
             }
         }
