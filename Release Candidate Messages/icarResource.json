@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "description": "Base class for a resource. All independent resources should use AllOf to incorporate this class.",
+
+    "properties": {
+        "@id": {
+            "$ref": "string",
+            "description": "Uniform resource idendentifier (URI) of the resource."
+        },
+        "meta": {
+            "$ref": "icarMetaDataResource.json",
+            "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
+          }
+
+    }
+}

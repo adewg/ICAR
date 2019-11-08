@@ -7,7 +7,12 @@
     
     "type": "object",
     
-    "properties": {
+    "allOf": [
+      {
+        "$ref": "icarResource.json"
+      },
+      {
+        "properties": {
           "identifier": {
             "$ref": "icarAnimalIdentifierType.json",
             "description": "Unique animal scheme and identifier combination."
@@ -69,10 +74,8 @@
                 "$ref":"icarParentageType.json",
                 "description": "Array of parents."
             }            
-          },    
-          "meta": {
-            "$ref": "icarMetaDataResource.json",
-            "description": "Optional meta-data for the event."
           }
+        }
       }
+    ]
 }
