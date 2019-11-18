@@ -894,7 +894,7 @@
       "icarMilkingVisitsResponse": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/icarMilkingVisitsResponseDataSources"
+          "$ref": "#/components/schemas/icarMilkingVisitResource.json"
         }
       },
       "icarMilkingVisitsResponseDataSources": {
