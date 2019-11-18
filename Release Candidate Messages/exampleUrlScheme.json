@@ -24,6 +24,10 @@
       "name": "release-candidate-reproduction",
       "description": "Reproduction messages approved by the working group, waiting for a test"
     },
+    {
+      "name": "release-candidate-milk",
+      "description": "Milk messages approved by the working group, waiting for a test"
+    },
    {
       "name": "additions",
       "description": "new endpoints not yet approved"
@@ -36,7 +40,7 @@
         "summary": "Get the data for milking visits",
         "description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
         "tags": [
-          "release-candidate-registration"
+          "release-candidate-milk"
         ],
         "parameters": [
           {
@@ -720,7 +724,7 @@
         "summary": "Get the abortion events for a certain location",
         "description": "# Purpose\nProvides the abortion events on a location\n",
         "tags": [
-          "addition"
+          "release-candidate-reproduction"
         ],
         "parameters": [
           {
@@ -903,9 +907,7 @@
       "icarMilkingVisitsResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarMilkingVisitResource.json"
-          }
         }
       },
       "icarMovementArrivalResponse": {
@@ -924,9 +926,7 @@
       "icarMovementArrivalResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarMovementArrivalResource.json"
-          }
         }
       },
       "icarMovementDepartureResponse": {
@@ -945,9 +945,7 @@
       "icarMovementDepartureResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarMovementDepartureResource.json"
-          }
         }
       },
       "icarAnimalCoreResponse": {
@@ -966,9 +964,7 @@
       "icarAnimalCoreResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarAnimalCoreResource.json"
-          }
         }
       },
       "icarMovementBirthRegistrationResponse": {
@@ -987,9 +983,7 @@
       "icarMovementBirthRegistrationResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarMovementBirthRegistrationResource.json"
-          }
         }
       },
       "icarMovementDeathResponse": {
@@ -1008,9 +1002,7 @@
       "icarMovementDeathResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarMovementDeathResource.json"
-          }
         }
       },
       "icarReproPregnancyDiagnosisResponse": {
@@ -1029,9 +1021,7 @@
       "icarReproPregnancyDiagnosisResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarReproPregnancyDiagnosisEventResource.json"
-          }
         }
       },
       "icarReproInseminationResponse": {
@@ -1050,9 +1040,7 @@
       "icarReproInseminationResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarReproInseminationEventResource.json"
-          }
         }
       },
       "icarMilkingDryOffResponse": {
@@ -1071,9 +1059,7 @@
       "icarMilkingDryOffResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarMilkingDryOffEventResource.json"
-          }
         }
       },
       "icarReproAbortionResponse": {
@@ -1092,9 +1078,7 @@
       "icarReproAbortionResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarReproAbortionEventResource.json"
-          }
         }
       },
       "icarReproParturitionResponse": {
@@ -1113,9 +1097,7 @@
       "icarReproParturitionResponseDataSource": {
         "type": "object",
         "properties": {
-          "data": {
             "$ref": "icarReproParturitionEventResource.json"
-          }
         }
       }
     }
