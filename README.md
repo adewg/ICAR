@@ -1,5 +1,5 @@
 # ICAR ADE JSON draft
-This repository contains the ICAR ADE work-in-progress JSON standard.
+The Release Candidate Messages repository contains the ICAR ADE work-in-progress JSON standard. Be aware that the Datalinker and the JoinData repositories are only there for inspiration purposes!
 
 This page describes the principles driving this standard. If you want to use the ICAR ADE standard in your application, there are tips and 
 tricks in the [Using the standard](https://github.com/adewg/ICAR/blob/master/Using%20the%20standard.md) file. For a quick start, open the 
