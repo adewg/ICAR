@@ -17,10 +17,14 @@
   ],
   "tags": [
     {
-      "name": "release-candidate",
-      "description": "approved by the working group, waiting for a test"
+      "name": "release-candidate-registration",
+      "description": "Registration messages approved by the working group, waiting for a test"
     },
     {
+      "name": "release-candidate-reproduction",
+      "description": "Reproduction messages approved by the working group, waiting for a test"
+    },
+   {
       "name": "additions",
       "description": "new endpoints not yet approved"
     }
@@ -32,7 +36,7 @@
         "summary": "Get the data for milking visits",
         "description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
         "tags": [
-          "release-candidate"
+          "release-candidate-registration"
         ],
         "parameters": [
           {
@@ -116,7 +120,7 @@
         "summary": "Get the births for a certain location",
         "description": "# Purpose\nProvides the born animals on a location\n",
         "tags": [
-          "release-candidate"
+          "release-candidate-registration"
         ],
         "parameters": [
           {
@@ -200,7 +204,7 @@
         "summary": "Get the deaths for a certain location",
         "description": "# Purpose\nProvides the died animals on a location\n",
         "tags": [
-          "release-candidate"
+          "release-candidate-registration"
         ],
         "parameters": [
           {
@@ -284,7 +288,7 @@
         "summary": "Get the arrivals for a certain location",
         "description": "# Purpose\nProvides the arrived animals on a location\n",
         "tags": [
-          "release-candidate"
+          "release-candidate-registration"
         ],
         "parameters": [
           {
@@ -368,7 +372,7 @@
         "summary": "Get the departures for a certain location",
         "description": "# Purpose\nProvides the departed animals from a location\n",
         "tags": [
-          "release-candidate"
+          "release-candidate-registration"
         ],
         "parameters": [
           {
@@ -452,7 +456,7 @@
         "summary": "Get the animals for a certain location",
         "description": "# Purpose\nProvides the animals on a location\n",
         "tags": [
-          "release-candidate"
+          "release-candidate-registration"
         ],
         "parameters": [
           {
@@ -518,7 +522,7 @@
         "summary": "Get the pregnancy diagnosis for a certain location",
         "description": "# Purpose\nProvides the pregnancy diagnosis on a location\n",
         "tags": [
-          "addition"
+          "release-candidate-reproduction"
         ],
         "parameters": [
           {
@@ -578,13 +582,13 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Insemination": {
+    "/locations/{location-scheme}/{location-id}/Inseminations": {
       "get": {
-        "operationId": "get-Insemination",
+        "operationId": "get-Inseminations",
         "summary": "Get the inseminations for a certain location",
         "description": "# Purpose\nProvides the Inseminations on a location\n",
         "tags": [
-          "addition"
+          "release-candidate-reproduction"
         ],
         "parameters": [
           {
@@ -644,13 +648,13 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Drying-Off": {
+    "/locations/{location-scheme}/{location-id}/Drying-Offs": {
       "get": {
-        "operationId": "get-Drying-Off",
+        "operationId": "get-Drying-Offs",
         "summary": "Get the drying off for a certain location",
         "description": "# Purpose\nProvides the drying off on a location\n",
         "tags": [
-          "addition"
+          "release-candidate-reproduction"
         ],
         "parameters": [
           {
@@ -710,9 +714,9 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Abortion-Events": {
+    "/locations/{location-scheme}/{location-id}/Abortions": {
       "get": {
-        "operationId": "get-Abortion-Events",
+        "operationId": "get-Abortions",
         "summary": "Get the abortion events for a certain location",
         "description": "# Purpose\nProvides the abortion events on a location\n",
         "tags": [
@@ -776,13 +780,13 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Parturition-Events": {
+    "/locations/{location-scheme}/{location-id}/Parturitions": {
     "get": {
-      "operationId": "get-Parturition-Events",
+      "operationId": "get-Parturitions",
       "summary": "Get the Parturition events for a certain location",
       "description": "# Purpose\nProvides the Parturition events on a location\n",
       "tags": [
-        "addition"
+        "release-candidate-reproduction"
       ],
       "parameters": [
         {
@@ -892,12 +896,6 @@
       "icarMilkingVisitsResponseDataSources": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
-          {
             "$ref": "#/components/schemas/icarMilkingVisitsResponseDataSource"
           }
         ]
@@ -918,12 +916,6 @@
       },
       "icarMovementArrivalResponseDataSources": {
         "allOf": [
-          {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
           {
             "$ref": "#/components/schemas/icarMovementArrivalResponseDataSource"
           }
@@ -946,12 +938,6 @@
       "icarMovementDepartureResponseDataSources": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
-          {
             "$ref": "#/components/schemas/icarMovementDepartureResponseDataSource"
           }
         ]
@@ -972,12 +958,6 @@
       },
       "icarAnimalCoreResponseDataSources": {
         "allOf": [
-          {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
           {
             "$ref": "#/components/schemas/icarAnimalCoreResponseDataSource"
           }
@@ -1000,12 +980,6 @@
       "icarMovementBirthRegistrationResponseDataSources": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
-          {
             "$ref": "#/components/schemas/icarMovementBirthRegistrationResponseDataSource"
           }
         ]
@@ -1026,12 +1000,6 @@
       },
       "icarMovementDeathResponseDataSources": {
         "allOf": [
-          {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
           {
             "$ref": "#/components/schemas/icarMovementDeathResponseDataSource"
           }
@@ -1054,12 +1022,6 @@
       "icarReproPregnancyDiagnosisResponseDataSources": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
-          {
             "$ref": "#/components/schemas/icarReproPregnancyDiagnosisResponseDataSource"
           }
         ]
@@ -1080,12 +1042,6 @@
       },
       "icarReproInseminationResponseDataSources": {
         "allOf": [
-          {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
           {
             "$ref": "#/components/schemas/icarReproInseminationResponseDataSource"
           }
@@ -1108,12 +1064,6 @@
       "icarMilkingDryOffResponseDataSources": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
-          {
             "$ref": "#/components/schemas/icarMilkingDryOffResponseDataSource"
           }
         ]
@@ -1135,12 +1085,6 @@
       "icarReproAbortionResponseDataSources": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
-          {
             "$ref": "#/components/schemas/icarReproAbortionResponseDataSource"
           }
         ]
@@ -1161,12 +1105,6 @@
       },
       "icarReproParturitionResponseDataSources": {
         "allOf": [
-          {
-            "$ref": "#/components/schemas/responseMetaData"
-          },
-          {
-            "$ref": "#/components/schemas/responseErrors"
-          },
           {
             "$ref": "#/components/schemas/icarReproParturitionResponseDataSource"
           }
