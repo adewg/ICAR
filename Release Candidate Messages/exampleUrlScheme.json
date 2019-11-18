@@ -90,8 +90,11 @@
             "description": "Successful. The response contains the milking results for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarMilkingVisitsResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarMilkingVisitResource.json"
+                  }
                 }
               }
             }
@@ -174,8 +177,11 @@
             "description": "Successful. The response contains the births for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarMovementBirthRegistrationResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarMovementBirthRegistrationResource.json"
+                  }
                 }
               }
             }
@@ -258,8 +264,11 @@
             "description": "Successful. The response contains the died animals for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarMovementDeathResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarMovementDeathResource.json"
+                  }
                 }
               }
             }
@@ -342,8 +351,11 @@
             "description": "Successful. The response contains the arrived animals for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarMovementArrivalResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarMovementArrivalResource.json"
+                  }
                 }
               }
             }
@@ -426,8 +438,11 @@
             "description": "Successful. The response contains the milking results for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarMovementDepartureResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarMovementDepartureResource.json"
+                  }
                 }
               }
             }
@@ -492,8 +507,11 @@
             "description": "Successful. The response contains the animals for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarAnimalCoreResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarAnimalCoreResource.json"
+                  }
                 }
               }
             }
@@ -558,8 +576,11 @@
             "description": "Successful. The response contains the pregnancy diagnosis for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarReproPregnancyDiagnosisResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproPregnancyDiagnosisEventResource.json"
+                  }
                 }
               }
             }
@@ -624,8 +645,11 @@
             "description": "Successful. The response contains the inseminations for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarReproInseminationResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproInseminationEventResource.json"
+                  }
                 }
               }
             }
@@ -690,8 +714,11 @@
             "description": "Successful. The response contains the drying off for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarMilkingDryOffResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarMilkingDryOffEventResource.json"
+                  }
                 }
               }
             }
@@ -756,8 +783,11 @@
             "description": "Successful. The response contains the abortion events for the given location",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarReproAbortionResponse"
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproAbortionEventResource.json"
+                  }
                 }
               }
             }
@@ -822,9 +852,12 @@
           "description": "Successful. The response contains the Parturition events for the given location",
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/icarReproParturitionResponse"
-              }
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproParturitionEventResource.json"
+                  }
+                }
             }
           }
         },
