@@ -5,19 +5,12 @@
     "properties": {
         "@id": {
             "type": "string",
-            "description": "Uniform resource idendentifier (URI) of the resource."
+            "description": "Uniform resource identifier (URI) of the resource (rel=self)."
         },
         "meta": {
             "$ref": "icarMetaDataResource.json",
             "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
           }
 
-    },
-    "links": [
-      {
-          "rel": "self",
-          "href": "{@id}",
-          "templateRequired": ["@id"]
-      }
-    ]
+    }
 }
