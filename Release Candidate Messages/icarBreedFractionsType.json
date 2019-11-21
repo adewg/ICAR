@@ -13,13 +13,16 @@
     "fractions": {
       "type": "array",
       "items": {
-        "breed": {       
-          "$ref": "icarBreedIdentifierType.json"
-        },
-        "fraction": {
-          "type": "number",
-          "format": "double",
-          "description": "The proportion of the denominator that this breed comprises."
+        "type": "object",
+        "properties": {
+            "breed": {       
+              "$ref": "icarBreedIdentifierType.json"
+            },
+            "fraction": {
+              "type": "number",
+              "format": "double",
+              "description": "The proportion of the denominator that this breed comprises."
+            }
         }
       }
     }
