@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "description": "Base class for a collection of items such as animals, devices, or events. Use allOf to add an items array of the right type.",
+
+    "allOf": [
+      {
+        "$ref": "icarResource.json"
+      },
+      {
+        "properties": {
+          "view": {
+            "type": "object",
+            "description": "Information about the current view or page of the collection",
+            "properties": {
+                "totalItems": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Provides the number of items in the collection, if known."
+                },
+                "totalPages": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Provides the number of pages in the collection, if known."
+                },
+                "pageSize": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "If non-zero, specifies the default number of items returned per page."
+                },
+                "currentPage": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Optionally identifies the current page for display purposes, if returned."
+                },
+                "first": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to the first page of the collection."
+                },
+                "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to the next page of the collection, if any."
+                },
+                "prev": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to the previous page of the collection, if any."
+                },
+                "last": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to the last page of the collection, if any."
+                }
+            }
+          }
+        },
+        "links": [
+            {  "rel": "first", "href": "{firsturi}", "templateRequired": ["firsturi"], "templatePointers": {"firsturi": "/view/first" }},
+            {  "rel": "next", "href": "{nexturi}", "templateRequired": ["nexturi"], "templatePointers": {"nexturi": "/view/next" }},
+            {  "rel": "prev", "href": "{prevuri}", "templateRequired": ["prevuri"], "templatePointers": {"prevuri": "/view/prev" }},
+            {  "rel": "last", "href": "{lasturi}", "templateRequired": ["lasturi"], "templatePointers": {"lasturi": "/view/last" }}
+        ]    
+      }
+    ] 
+}

@@ -14,7 +14,7 @@
       "type": "array",
       "items": {
         "breed": {       
-          "$ref": "icarBreedIdentifierType.json"
+          "$ref": "icarIdentifierType.json"
         },
         "fraction": {
           "type": "number",
