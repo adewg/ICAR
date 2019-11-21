@@ -17,20 +17,20 @@
   ],
   "tags": [
     {
+      "name": "additions",
+      "description": "new endpoints not yet approved"
+    },
+    {
+      "name": "release-candidate-milk",
+      "description": "Milk messages approved by the working group, waiting for a test"
+    },
+    {
       "name": "release-candidate-registration",
       "description": "Registration messages approved by the working group, waiting for a test"
     },
     {
       "name": "release-candidate-reproduction",
       "description": "Reproduction messages approved by the working group, waiting for a test"
-    },
-    {
-      "name": "release-candidate-milk",
-      "description": "Milk messages approved by the working group, waiting for a test"
-    },
-   {
-      "name": "additions",
-      "description": "new endpoints not yet approved"
     }
   ],
   "paths": {
