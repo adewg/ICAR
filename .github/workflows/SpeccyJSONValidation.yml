@@ -1,0 +1,14 @@
+name: Speccy JSON Validation CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: validate JSON URL scheme
+      run: |
+        docker run wework/speccy lint https://raw.githubusercontent.com/cookea/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.json
