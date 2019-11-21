@@ -49,7 +49,7 @@
             "description": "True if an isolation facility was used for the movement." 
           },           
           "farmAssuranceReference": {
-            "#ref": "icarIdentifierType.json",
+            "$ref": "icarIdentifierType.json",
             "description": "Identification reference of a farm assurance operation."
           }
       }
