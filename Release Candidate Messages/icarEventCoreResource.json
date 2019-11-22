@@ -4,8 +4,15 @@
       "animal",
       "eventDateTime"
     ],
+
     "type": "object",
-    "properties": {
+
+    "allOf": [
+      {
+        "$ref": "icarResource.json"
+      },
+      {
+        "properties": {
           "id": {
             "type": "string",
             "description": "Unique identifier in the source system for this event."
@@ -21,10 +28,8 @@
           "location": {
             "$ref": "icarLocationIdentifierType.json",
             "description": "Unique location scheme and identifier combination."
-          },
-          "meta": {
-            "$ref": "icarMetaDataResource.json",
-            "description": "Optional meta-data for the event."
           }
+        }
       }
+    ]
 }
