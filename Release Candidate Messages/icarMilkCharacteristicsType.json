@@ -2,8 +2,8 @@
         "type": "string",
         "description": "ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT. E.g. SCC:123
         The following units have to be applied:\n\n
-        |SCC\t 	        |Somatic cell count\t	                                |x1000 cells/ml\t	|NCL\n
-        |FAT\t	        |Fat\t	                                                |%\t	        |VP\n
+        |SCC 	        |Somatic cell count	                                |x1000 cells/ml	|NCL\n
+        |FAT	        |Fat	                                                |%	        |VP\n
         |PROTEIN	|Protein	                                        |%	        |VP\n
         |LAC	        |Lactose	                                        |%	        |VP\n
         |UREA   	|Urea	                                                |mg/l	        |M1\n
