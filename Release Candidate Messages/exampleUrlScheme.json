@@ -34,6 +34,125 @@
     }
   ],
   "paths": {
+    "/locations/{location-scheme}/{location-id}/milking-visits-extended": {
+      "get": {
+        "operationId": "get-milking-visits-extended",
+        "summary": "Get the extended data for milking visits",
+        "description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
+        "tags": [
+          "release-candidate-milk"
+        ],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarMilkingVisitExtendedResource.json"
+                  }
+                },
+               "examples": {
+                "response": {
+                  "value": {
+                    "id": "706250",
+                    "animal": {
+                      "id": "NL 877034232",
+                      "scheme": "nl-v1"
+                    },
+                    "milkingStartingDateTime": "2019-11-01T23:58:31",
+                    "milkingVisitDuration": {
+                      "value": 349.0,
+                      "unitCode": "SEC"
+                    },
+                    "milkingDuration": {
+                      "value": "210",
+                      "unitCode": "SEC"
+                    },
+                    "milkingType": "Automated",
+                    "milkingMilkWeight": {
+                      "value": 3.5,
+                      "unitCode": "KGM"
+                    },
+                    "milkingComplete": true,
+                    "milkingParlourUnit": "101",
+                    "milkingBoxNumber": 0,
+                    "milkingDeviceId": "101",
+                    "measureDeviceId": "101",
+                    "eventOffset": "2019-11-01T23:58:31",
+                    "eventDeviceId": "101"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
         "operationId": "get-milking-visits",
