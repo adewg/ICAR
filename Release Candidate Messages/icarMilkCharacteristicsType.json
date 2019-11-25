@@ -1,21 +1,21 @@
 {
         "type": "string",
         "description": "ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT. E.g. SCC:123
-        The following units have to be applied:
-        |SCC 	        |Somatic cell count	                                |x1000 cells/ml	|NCL
-        |FAT	        |Fat	                                                |%	        |VP
-        |PROTEIN	|Protein	                                        |%	        |VP
-        |LAC	        |Lactose	                                        |%	        |VP
-        |UREA   	|Urea	                                                |mg/l	        |M1
-        |BLOOD	        |Blood	                                                |true/false	|A99
-        |ACETONE	|Acetone	                                        |mmol/l	        |M33
-        |BHB	        |Beta hydroxybutyrate	                                |mmol/l	        |M33
-        |LDH	        |Lactate dehydrogenase	                                |IU/l	        |
-        |PRO	        |Progesteron	                                        |mmol/l	        |M33
-        |AVGCOND	|Average conductivity value of the milk at 25 ° C	|mS/cm	        |H61
-        |MAXCOND	|Maximum conductivity value of the milk at 25 ° C	|mS/cm	        |H61
-        |AVGFLWR	|Average flow rate	                                |Kg/min	        |F31
-        |MAXFLWR	|Max flow rate	                                        |Kg/min	        |F31
-        |WEIGHT	        |Weight of animal	                                |Kg	        |KGM
+        The following units have to be applied:\n\n
+        |SCC 	        |Somatic cell count	                                |x1000 cells/ml	|NCL\n\n
+        |FAT	        |Fat	                                                |%	        |VP\n\n
+        |PROTEIN	|Protein	                                        |%	        |VP\n\n
+        |LAC	        |Lactose	                                        |%	        |VP\n\n
+        |UREA   	|Urea	                                                |mg/l	        |M1\n\n
+        |BLOOD	        |Blood	                                                |true/false	|A99\n\n
+        |ACETONE	|Acetone	                                        |mmol/l	        |M33\n\n
+        |BHB	        |Beta hydroxybutyrate	                                |mmol/l	        |M33\n\n
+        |LDH	        |Lactate dehydrogenase	                                |IU/l	        |\n\n
+        |PRO	        |Progesteron	                                        |mmol/l	        |M33\n\n
+        |AVGCOND	|Average conductivity value of the milk at 25 ° C	|mS/cm	        |H61\n\n
+        |MAXCOND	|Maximum conductivity value of the milk at 25 ° C	|mS/cm	        |H61\n\n
+        |AVGFLWR	|Average flow rate	                                |Kg/min	        |F31\n\n
+        |MAXFLWR	|Max flow rate	                                        |Kg/min	        |F31\n\n
+        |WEIGHT	        |Weight of animal	                                |Kg	        |KGM\n\n
         |PAG	        |Pregnancy associated glycoprotein	                |mmol/l	        |M33"
       }
