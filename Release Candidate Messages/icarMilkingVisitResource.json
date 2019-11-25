@@ -49,22 +49,10 @@
           "type": "string",
           "description": "The ID of the device where the measurement of the milking took place"
         },
-        "quarterMilkings": {
-          "type": "array",
-          "items": {
-            "$ref": "icarQuarterMilkingType.json"
-          }
-        },
         "animalMilkingSample": {
           "type": "array",
           "items": {
             "$ref": "icarAnimalMilkingSampleType.json"
-          }
-        },
-        "icarMilkCharacteristicsTypes": {
-          "type": "array",
-          "items": {
-            "$ref": "icarMilkCharacteristicsType.json"
           }
         }
       }
