@@ -2,8 +2,7 @@
   "required": [
     "id",
     "animal",
-    "milkingStartingDateTime",
-    "milkingMilkWeight"
+    "EventDateTime"
   ],
         
   "type": "object",
@@ -14,9 +13,6 @@
     },
     {
       "properties": {
-        "SamplingDateTime": {
-          "$ref": "icarDateTimeType.json"
-        },
         "MilkWeight24Hours": {
           "$ref": "icarMilkingMilkWeightType.json"
         },
