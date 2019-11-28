@@ -1,0 +1,35 @@
+{       
+  "required": [
+    "id",
+    "animal",
+    "milkingStartingDateTime",
+    "milkingMilkWeight"
+  ],
+        
+  "type": "object",
+        
+  "allOf": [
+    {
+      "$ref": "icarEventCoreResource.json"
+    },
+    {
+      "properties": {
+        "SamplingDateTime": {
+          "$ref": "icarDateTimeType.json"
+        },
+        "MilkWeight24Hours": {
+          "$ref": "icarMilkingMilkWeightType.json"
+        },
+        "TestDayCode": {
+          "$ref": "icarTestDayCodeType.json"
+        },
+        "icarMilkCharacteristicsTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "icarMilkCharacteristicsType.json"
+          }
+        }
+      }
+    }
+  ]
+}
