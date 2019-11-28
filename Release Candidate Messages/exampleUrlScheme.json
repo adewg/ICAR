@@ -38,7 +38,7 @@
       "get": {
         "operationId": "get-milking-visits",
         "summary": "Get the data for milking visits",
-        "description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
+        "description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n This comprises all posible data. Anybody can choose to define API's that returns less information in the response.\n",
         "tags": [
           "release-candidate-milk"
         ],
