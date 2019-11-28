@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
     - name: validate JSON URL scheme
       run: |
-        docker run wework/speccy lint -v -j https://raw.githubusercontent.com/${{github.repository}}/master/Release%20Candidate%20Messages/exampleUrlScheme.json
+        docker run wework/speccy lint -v -j https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/Release%20Candidate%20Messages/exampleUrlScheme.json
 
