@@ -38,7 +38,7 @@
       "get": {
         "operationId": "get-milking-visits",
         "summary": "Get the data for milking visits",
-        "description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n This comprises all posible data. Anybody can choose to define API's that returns less information in the response.\n",
+        "description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n \nThis comprises all posible data. Anybody can choose to define API's that return less information in the response.\n",
         "tags": [
           "release-candidate-milk"
         ],
@@ -206,7 +206,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful. The response contains the milking results for the given location",
+            "description": "Successful. The response contains the test day results for the given location",
             "content": {
               "application/json": {
                "schema": {
@@ -223,27 +223,24 @@
                       "id": "NL 877034232",
                       "scheme": "nl-v1"
                     },
-                    "milkingStartingDateTime": "2019-11-01T23:58:31",
-                    "milkingVisitDuration": {
-                      "value": 349.0,
-                      "unitCode": "SEC"
-                    },
-                    "milkingDuration": {
-                      "value": "210",
-                      "unitCode": "SEC"
-                    },
-                    "milkingType": "Automated",
-                    "milkingMilkWeight": {
-                      "value": 3.5,
+                    "EventDateTime": "2019-11-01T23:58:31",
+                    "milkWeight24Hours": {
+                      "value": "21.7",
                       "unitCode": "KGM"
                     },
-                    "milkingComplete": true,
-                    "milkingParlourUnit": "101",
-                    "milkingBoxNumber": 0,
-                    "milkingDeviceId": "101",
-                    "measureDeviceId": "101",
-                    "eventOffset": "2019-11-01T23:58:31",
-                    "eventDeviceId": "101"
+                    "testDayCode": "0",
+                    "icarMilkCharacteristics": [
+                      {
+                        "characteristic": "FAT",
+                        "value": "3.74",
+                        "unit": "VP"
+                      },
+                      {
+                        "characteristic": "PROTEIN",
+                        "value": "3.54",
+                        "unit": "VP"
+                      }
+                      ]
                     }
                   }
                 }
