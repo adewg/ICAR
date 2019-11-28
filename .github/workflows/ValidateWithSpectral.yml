@@ -1,0 +1,13 @@
+name: Spectral JSON Validation CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: validate JSON URL scheme
+      run: |
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/Release%20Candidate%20Messages/exampleUrlScheme.json -v
