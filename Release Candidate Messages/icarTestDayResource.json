@@ -16,9 +16,6 @@
         "MilkWeight24Hours": {
           "$ref": "icarMilkingMilkWeightType.json"
         },
-        "TestDayCode": {
-          "$ref": "icarTestDayCodeType.json"
-        },
         "icarMilkCharacteristics": {
           "type": "array",
           "items": {
