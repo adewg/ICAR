@@ -124,7 +124,34 @@
                     "milkingDeviceId": "101",
                     "measureDeviceId": "101",
                     "eventOffset": "2019-11-01T23:58:31",
-                    "eventDeviceId": "101"
+                    "eventDeviceId": "101",
+                    "quarterMilkings": [ {
+                        "icarQuarterId": "LF",
+                        "milkingDuration": {
+                          "value": "210",
+                          "unitCode": "SEC"
+                        },
+                        "milkingMilkWeight": {
+                          "value": 3.5,
+                         "unitCode": "KGM"
+                        }
+                      } ],
+                    "animalMilkingSample": [ {
+                      "bottleIdentifierType": "BRC",
+                      "rackNumber": "3",
+                      "bottlePosition": "7"
+                    } ],                                          
+                    "icarMilkCharacteristics": [ {
+                        "characteristic": "FAT",
+                        "value": "3.74",
+                        "unit": "VP",
+                        "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
+                      },
+                      {
+                        "characteristic": "PROTEIN",
+                        "value": "3.54",
+                        "unit": "VP"
+                      } ]
                     }
                   }
                 }
@@ -233,7 +260,8 @@
                       {
                         "characteristic": "FAT",
                         "value": "3.74",
-                        "unit": "VP"
+                        "unit": "VP",
+                        "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
                       },
                       {
                         "characteristic": "PROTEIN",
