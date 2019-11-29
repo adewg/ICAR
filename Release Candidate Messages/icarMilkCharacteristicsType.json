@@ -3,10 +3,8 @@
     "characteristic",
     "value"     
   ],
-  
   "type": "object",
-  
-  "properties": {
+    "properties": {
     "characteristic": {
       "type": "string",
       "description": "ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT.
@@ -41,3 +39,4 @@
       "description": "a more readable device class ID that contains manufacturer, device, hardware and software versions in a way that is similar to the USB specification. This will need more investigation."
     }
   }
+}
