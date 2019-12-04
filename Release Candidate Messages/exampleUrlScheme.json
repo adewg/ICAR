@@ -38,7 +38,7 @@
       "get": {
         "operationId": "get-milking-visits",
         "summary": "Get the data for milking visits",
-        "description": "# Purpose\nProvides data from visits of animals to a milking parlour\n",
+        "description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n \nThis comprises all posible data. Anybody can choose to define API's that return less information in the response.\n",
         "tags": [
           "release-candidate-milk"
         ],
@@ -124,7 +124,151 @@
                     "milkingDeviceId": "101",
                     "measureDeviceId": "101",
                     "eventOffset": "2019-11-01T23:58:31",
-                    "eventDeviceId": "101"
+                    "eventDeviceId": "101",
+                    "quarterMilkings": [ {
+                        "icarQuarterId": "LF",
+                        "milkingDuration": {
+                          "value": "210",
+                          "unitCode": "SEC"
+                        },
+                        "milkingMilkWeight": {
+                          "value": 3.5,
+                         "unitCode": "KGM"
+                        }
+                      } ],
+                    "animalMilkingSample": [ {
+                      "bottleIdentifierType": "BRC",
+                      "rackNumber": "3",
+                      "bottlePosition": "7"
+                    } ],                                          
+                    "icarMilkCharacteristics": [ {
+                        "characteristic": "FAT",
+                        "value": "3.74",
+                        "unit": "VP",
+                        "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
+                      },
+                      {
+                        "characteristic": "PROTEIN",
+                        "value": "3.54",
+                        "unit": "VP"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/test-day-results": {
+      "get": {
+        "operationId": "get-test-day-results",
+        "summary": "Get the data for test days",
+        "description": "# Purpose\nProvides data from the test day for animals on a farm\n",
+        "tags": [
+          "release-candidate-milk"
+        ],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start-date-time",
+            "in": "query",
+            "description": "The start of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end-date-time",
+            "in": "query",
+            "description": "The end of the date-time range for the data to get in the request.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the test day results for the given location",
+            "content": {
+              "application/json": {
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarTestDayResource.json"
+                  }
+                },
+               "examples": {
+                "response": {
+                  "value": {
+                    "id": "706250",
+                    "animal": {
+                      "id": "NL 877034232",
+                      "scheme": "nl-v1"
+                    },
+                    "EventDateTime": "2019-11-01T23:58:31",
+                    "milkWeight24Hours": {
+                      "value": "21.7",
+                      "unitCode": "KGM"
+                    },
+                    "testDayCode": "0",
+                    "icarMilkCharacteristics": [
+                      {
+                        "characteristic": "FAT",
+                        "value": "3.74",
+                        "unit": "VP",
+                        "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
+                      },
+                      {
+                        "characteristic": "PROTEIN",
+                        "value": "3.54",
+                        "unit": "VP"
+                      }
+                      ]
                     }
                   }
                 }
