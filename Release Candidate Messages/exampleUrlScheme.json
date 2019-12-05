@@ -1131,6 +1131,7 @@
     "schemas": {
       "error": {
         "type": "object",
+        "description": "Error information",
         "properties": {
           "data": {
             "description": "Error information",
