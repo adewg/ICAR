@@ -1130,10 +1130,10 @@
 "components": {
     "schemas": {
       "error": {
-        "description": "Error information",
         "type": "object",
         "properties": {
           "data": {
+            "description": "Error information",
             "$ref": "exampleErrorResource.json"
           }
         }
