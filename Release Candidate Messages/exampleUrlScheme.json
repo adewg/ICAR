@@ -1130,7 +1130,7 @@
 "components": {
     "schemas": {
       "error": {
-        "description": "Error information"
+        "description": "Error information",
         "type": "object",
         "properties": {
           "data": {
