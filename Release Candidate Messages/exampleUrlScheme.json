@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "http://example.com"
+      "url": "https://icar-ade.standard.com"
     }
   ],
   "tags": [
@@ -1130,6 +1130,7 @@
 "components": {
     "schemas": {
       "error": {
+        "description": "Error information"
         "type": "object",
         "properties": {
           "data": {
