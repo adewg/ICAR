@@ -43,8 +43,8 @@ These schemes point to a specific animal.
 
 | id  | name  | example| region & issuing party  | RegEx |
 |---|---|---|---|---|
-| eu-animal-id  | LOM  |  276000312312345 | EU wide scheme with a country prefix, combining multiple national schemes.  | |
-| nl-v1 (rename to eu-??) | animal life number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above? [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) | |
+| eu-animal-id  | LOM  |  276000312312345 | EU wide scheme with a country prefix, combining multiple national schemes. Is used by transponders. First 3 positions is country code , e.g. 276=DE, is numeric, 15 digits. | |
+| nl-v1 (rename to eu-??) | animal life number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above?  [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) | |
 
 ## Legal entities / companies
 
@@ -53,5 +53,5 @@ These schemes point to a legal entity. One that can be authenticated and is auth
 | id  | name  | example| region & issuing party  | RegEx |
 |---|---|---|---|---|
 | nl-kvk | Chamber of commerce number (Kamer van Koophandel nummer) |64039641 | Used in the Netherlands. Issued by the 'Kamer van Koophandel', can be checked at e.g. [OpenKVK](www.openkvk.nl) | |
-| be0onn | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) | |
+| be-onn | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) | |
 

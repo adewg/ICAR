@@ -1,4 +1,26 @@
 {
-        "type": "string",
-        "description": "ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT. E.g. SCC:123"
-      }
+  "description": "Characteristics of the milk produced.",
+  "required": [
+    "characteristic",
+    "value"     
+  ],
+  "type": "object",
+    "properties": {
+    "characteristic": {
+      "type": "string",
+      "description": "ICAR Milk Characteristics Codes and values - we have at this moment SCC, FAT, PROTEIN, LAC, UREA, BLOOD, ACETONE, BHB, LDH, PRO, AVGCOND, MAXCOND, AVGFLWR,  MAXFLWR, WEIGHT.\nThe following units have to be applied:\n\n|SCC|Somatic cell count|x1000 cells/ml|NCL\n|FAT|Fat|%|VP\n|PROTEIN|Protein|%|VP\n|LAC|Lactose|%|VP\n|UREA|Urea|mg/l|M1\n|BLOOD|Blood|true/false|A99\n|ACETONE|Acetone|mmol/l|M33\n|BHB|Beta hydroxybutyrate|mmol/l|M33\n|LDH|Lactate dehydrogenase|IU/l|\n|PRO|Progesteron|mmol/l|M33\n|AVGCOND|Average conductivity value of the milk at 25 ° C|mS/cm|H61\n|MAXCOND|Maximum conductivity value of the milk at 25 ° C|mS/cm|H61\n|AVGFLWR|Average flow rate|Kg/min|F31\n|MAXFLWR|Max flow rate|Kg/min|F31\n|WEIGHT|Weight of animal|Kg|KGM\n|PAG|Pregnancy associated glycoprotein|mmol/l|M33"
+    },
+    "value": {
+      "type": "string",
+      "description": "the value of the characteristic measured"
+    },
+    "unit": {
+      "type": "string",
+      "description": "the defaults are described above, only use this field when differed from the default. Use UN/CEFACT codes."
+    },
+    "icarMeasuringDevice": {
+      "type": "string",
+      "description": "a more readable device class ID that contains manufacturer, device, hardware and software versions in a way that is similar to the USB specification. This will need more investigation."
+    }
+  }
+}
