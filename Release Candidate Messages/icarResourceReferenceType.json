@@ -2,8 +2,6 @@
     "type": "object",
     "description": "Defines a reference to another resource.",
 
-    "required": [ "@id", "@type"],
-
     "properties": {
         "@context": {
             "type": "string",
