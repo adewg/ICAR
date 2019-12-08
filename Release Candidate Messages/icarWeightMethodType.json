@@ -1,0 +1,13 @@
+{
+    "type": "string",
+    "description": "Method by which the weight is observed.\r\n Includes loadcell (loadbars), girth (tape), assessed (visually), walk-over weighing, \r\nprediction, imaging (camera/IR), group average (pen weigh).",
+    "enum": [
+      "Loadcell",
+      "Girth",
+      "Assessed",
+      "WalkOver",
+      "Predicted",
+      "Imaged",
+      "GroupAverage"
+    ]
+}
