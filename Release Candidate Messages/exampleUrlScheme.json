@@ -93,7 +93,7 @@
                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMilkingVisitResource.json"
+                    "$ref": "icarMilkingVisitEventResource.json"
                   }
                 },
                "examples": {
@@ -356,7 +356,7 @@
                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementBirthRegistrationResource.json"
+                    "$ref": "icarMovementBirthEventResource.json"
                   }
                 }
               }
@@ -443,7 +443,7 @@
                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementDeathResource.json"
+                    "$ref": "icarMovementDeathEventResource.json"
                   }
                 }
               }
@@ -530,7 +530,7 @@
                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementArrivalResource.json"
+                    "$ref": "icarMovementArrivalEventResource.json"
                   }
                 },
                "examples": {
@@ -684,7 +684,7 @@
                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementDepartureResource.json"
+                    "$ref": "icarMovementDepartureEventResource.json"
                   }
                 }
               }
@@ -1134,7 +1134,6 @@
         "description": "Error information",
         "properties": {
           "data": {
-            "description": "Error information",
             "$ref": "exampleErrorResource.json"
           }
         }
