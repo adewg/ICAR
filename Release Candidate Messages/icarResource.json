@@ -8,7 +8,7 @@
             "description": "Uniform resource identifier (URI) of the resource (rel=self)."
         },
         "meta": {
-            "$ref": "icarMetaDataResource.json",
+            "$ref": "icarMetaDataType.json",
             "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
           }
 
