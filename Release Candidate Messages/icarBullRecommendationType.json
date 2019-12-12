@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "description": "Gives one possible bull recommended to use on an animal.",
+    "description": "Gives one possible sire recommended to use on an animal.",
 
         "properties": {
             "recommendationType": {
@@ -34,10 +34,10 @@
               "format": "integer",
               "description": "The parity of the cow for which the recommendation is valid."
             },
-            "bullRank": {
+            "sireRank": {
               "type": "number",
               "format": "integer",
-              "description": "The rank of the bull in the recommendation, 1 = first choice, 2 = second, ...."
+              "description": "The rank of the sire in the recommendation, 1 = first choice, 2 = second, ...."
             }
         }      
 }
