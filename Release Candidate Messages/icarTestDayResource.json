@@ -19,7 +19,7 @@
         "TestDayCode": {
           "$ref": "icarTestDayCodeType.json"
         },
-        "icarMilkCharacteristics": {
+        "milkCharacteristics": {
           "type": "array",
           "items": {
             "$ref": "icarMilkCharacteristicsType.json"
