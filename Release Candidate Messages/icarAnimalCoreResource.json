@@ -6,6 +6,8 @@
     ],
     
     "type": "object",
+
+    "description": "Core schema for representing animal", 
     
     "allOf": [
       {

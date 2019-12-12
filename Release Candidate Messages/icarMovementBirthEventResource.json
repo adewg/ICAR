@@ -5,6 +5,8 @@
       "eventDateTime",
       "location"
     ],
+
+    "description": "Event for recording animal birth", 
           
     "type": "object",
           
