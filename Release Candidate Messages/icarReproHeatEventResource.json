@@ -1,0 +1,61 @@
+{
+	"type": "object",
+
+	"description": "Event for recording heats.",
+
+	"required": [
+		"id",
+		"animal",
+		"eventDateTime"
+	],
+
+	"allOf": [{
+			"$ref": "icarEventCoreResource.json"
+		},
+		{
+			"properties": {
+				"HeatDetectionMethod": {
+					"$ref": "icarReproHeatDetectionMethodType.json"
+				},
+				"Certainty": {
+					"$ref": "icarReproHeatCertaintyType.json"
+				},
+				"expirationDateTime": {
+					"$ref": "icarDateTimeType.json",
+					"description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
+				},
+				"visualDetection": {
+					"heatSign": {
+						"$ref": "icarReproHeatSignType.json"
+					},
+					"heatIntensity": {
+						"$ref": "icarReproHeatIntensityType.json"
+					},
+					"HeatReportScrSenseTime": {
+						"breedingWindow": {
+							"type": "number",
+							"format": "integer",
+							"description": "Number of hours to AI."
+						},
+						"heatIndex": {
+							"type": "number",
+							"format": "integer",
+							"description": "Gives an indication of the certainty of the heat indication."
+						}
+					},
+					"HeatReportNedapCowControl": {
+						"expirationDateTime": {
+							"$ref": "icarDateTimeType.json",
+							"description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
+						},
+						"heatChance": {
+							"type": "number",
+							"format": "integer",
+							"description": "Gives an indication of the certainty of the heat indication."
+						}
+					}
+				}
+			}
+		}
+	]
+}
