@@ -15,10 +15,10 @@
       },
       {
         "properties": {
-          "bullRecommendations": {
+          "sireRecommendations": {
             "type": "array",
             "items": {
-              "$ref": "icarBullRecommendationType.json"
+              "$ref": "icarSireRecommendationType.json"
             }
           }
         }
