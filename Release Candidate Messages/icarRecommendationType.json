@@ -1,10 +1,10 @@
 { 
     "type": "string",
-    "description": "the type of recommendation (BullRecommended, RecommendationImpossible, BeefBull, NoBreedingBull",
+    "description": "the type of recommendation (SireRecommended, RecommendationImpossible, BeefSire, NoBreedingSire",
     "enum": [
-      "BullRecommended",
+      "SireRecommended",
       "RecommendationImpossible",
-      "BeefBull",
-      "NoBreedingBull"
+      "BeefSire",
+      "NoBreedingSire"
     ]
 }
