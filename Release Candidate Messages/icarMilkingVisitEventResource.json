@@ -61,7 +61,7 @@
             "$ref": "icarAnimalMilkingSampleType.json"
           }
         },
-        "icarMilkCharacteristics": {
+        "milkCharacteristics": {
           "type": "array",
           "items": {
             "$ref": "icarMilkCharacteristicsType.json"
