@@ -850,6 +850,75 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/heats": {
+      "get": {
+        "operationId": "get-Heats",
+        "summary": "Get the heats for a certain location",
+        "description": "# Purpose\nProvides the Heats on a location\n",
+        "tags": [
+          "release-candidate-reproduction"
+        ],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the heats for the given location",
+            "content": {
+              "application/json": {
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproHeatEventResource.json"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/inseminations": {
       "get": {
         "operationId": "get-Inseminations",
