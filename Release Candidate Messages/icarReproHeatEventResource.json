@@ -33,10 +33,10 @@
 							"items": {
 								"$ref": "icarReproHeatSignType.json",
 								"description": "Array of heat signs."
-							},
-							"heatIntensity": {
-								"$ref": "icarReproHeatIntensityType.json"
 							}
+						},
+						"heatIntensity": {
+							"$ref": "icarReproHeatIntensityType.json"
 						}
 					}
 				},
