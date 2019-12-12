@@ -39,5 +39,5 @@
               "format": "integer",
               "description": "The rank of the bull in the recommendation, 1 = first choice, 2 = second, ...."
             }
-            
+        }      
 }
