@@ -781,11 +781,11 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Pregnancy-Diagnosis": {
+    "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
-        "operationId": "get-pregnancy-diagnosis",
-        "summary": "Get the pregnancy diagnosis for a certain location",
-        "description": "# Purpose\nProvides the pregnancy diagnosis on a location\n",
+        "operationId": "get-pregnancy-checks",
+        "summary": "Get the pregnancy checks for a certain location",
+        "description": "# Purpose\nProvides the pregnancy checks on a location\n",
         "tags": [
           "release-candidate-reproduction"
         ],
@@ -822,7 +822,7 @@
                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproPregnancyDiagnosisEventResource.json"
+                    "$ref": "icarReproPregnancyCheckEventResource.json"
                   }
                 }
               }
@@ -850,7 +850,76 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Inseminations": {
+    "/locations/{location-scheme}/{location-id}/heats": {
+      "get": {
+        "operationId": "get-Heats",
+        "summary": "Get the heats for a certain location",
+        "description": "# Purpose\nProvides the Heats on a location\n",
+        "tags": [
+          "release-candidate-reproduction"
+        ],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the heats for the given location",
+            "content": {
+              "application/json": {
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproHeatEventResource.json"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/error"
+                      }
+                    }
+                  },
+                  "description": "A default response containing only a list of errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/inseminations": {
       "get": {
         "operationId": "get-Inseminations",
         "summary": "Get the inseminations for a certain location",
@@ -919,7 +988,7 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Drying-Offs": {
+    "/locations/{location-scheme}/{location-id}/drying-offs": {
       "get": {
         "operationId": "get-Drying-Offs",
         "summary": "Get the drying off for a certain location",
@@ -988,7 +1057,7 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Abortions": {
+    "/locations/{location-scheme}/{location-id}/abortions": {
       "get": {
         "operationId": "get-Abortions",
         "summary": "Get the abortion events for a certain location",
@@ -1057,7 +1126,7 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/Parturitions": {
+    "/locations/{location-scheme}/{location-id}/parturitions": {
     "get": {
       "operationId": "get-Parturitions",
       "summary": "Get the Parturition events for a certain location",
@@ -1119,11 +1188,80 @@
                   }
                 },
                 "description": "A default response containing only a list of errors"
+                }
               }
             }
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/mating-recommendations": {
+    "get": {
+      "operationId": "get-mating-recommendations",
+      "summary": "Get the mating recommendations for a certain location",
+      "description": "# Purpose\nProvides the mating recommendations on a location\n",
+      "tags": [
+        "release-candidate-reproduction"
+      ],
+      "parameters": [
+        {
+          "name": "location-scheme",
+          "in": "path",
+          "description": "The scheme id for the location identifier.",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "nl.ubn",
+              "de.farmid",
+              "be.pen"
+            ]
+          }
+        },
+        {
+          "name": "location-id",
+          "in": "path",
+          "description": "The unique identifier for the location.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful. The response contains the mating recommendations for the given location",
+          "content": {
+            "application/json": {
+               "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproMatingRecommendationResource.json"
+                  }
+                }
+            }
+          }
+        },
+        "default": {
+          "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/error"
+                    }
+                  }
+                },
+                "description": "A default response containing only a list of errors"
+              }
+            }
+          }
+        }
+      } 
     }
   }
 },
