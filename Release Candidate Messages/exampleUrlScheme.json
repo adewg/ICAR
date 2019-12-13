@@ -285,11 +285,12 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/pregnancy-diagnosis": {
+
+    "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
-        "operationId": "get-pregnancy-diagnosis",
-        "summary": "Get the pregnancy diagnosis for a certain location",
-        "description": "# Purpose\nProvides the pregnancy diagnosis on a location\n",
+        "operationId": "get-pregnancy-checks",
+        "summary": "Get the pregnancy checks for a certain location",
+        "description": "# Purpose\nProvides the pregnancy checks on a location\n",
         "tags": [
           "release-candidate-reproduction"
         ],
@@ -307,7 +308,41 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/pregnancy-diagnosis"
+                    "$ref": "#/components/schemas/pregnancy-check"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/heats": {
+      "get": {
+        "operationId": "get-Heats",
+        "summary": "Get the heats for a certain location",
+        "description": "# Purpose\nProvides the Heats on a location\n",
+        "tags": [
+          "release-candidate-reproduction"
+        ],
+        "parameters": [
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the heats for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproHeatEventResource.json"
                   }
                 }
               }
@@ -441,9 +476,63 @@
             "content": {
               "application/json": {
                 "schema": {
+                  ">>>>>>>" "pr/1",
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/parturition"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/mating-recommendations": {
+      "get": {
+        "operationId": "get-mating-recommendations",
+        "summary": "Get the mating recommendations for a certain location",
+        "description": "# Purpose\nProvides the mating recommendations on a location\n",
+        "tags": [
+          "release-candidate-reproduction"
+        ],
+        "parameters": [
+          {
+            "name": "location-scheme",
+            "in": "path",
+            "description": "The scheme id for the location identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl.ubn",
+                "de.farmid",
+                "be.pen"
+              ]
+            }
+          },
+          {
+            "name": "location-id",
+            "in": "path",
+            "description": "The unique identifier for the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the mating recommendations for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "icarReproMatingRecommendationResource.json"
                   }
                 }
               }
@@ -488,8 +577,8 @@
       "animal": {
         "$ref": "icarAnimalCoreResource.json"
       },
-      "pregnancy-diagnosis": {
-        "$ref": "icarReproPregnancyDiagnosisEventResource.json"
+      "pregnancy-checks": {
+        "$ref": "icarReproPregnancyCheckEventResource.json"
       },
       "insemination": {
         "$ref": "icarReproInseminationType.json"

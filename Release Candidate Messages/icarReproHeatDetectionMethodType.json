@@ -1,0 +1,10 @@
+{ 
+    "type": "string",
+    "description": "The method of detecting the heat of an animal",
+    "enum": [
+      "Chemical",
+      "Visual",
+      "Pedometer",
+      "Other"
+    ]
+}

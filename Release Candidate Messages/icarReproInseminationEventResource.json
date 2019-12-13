@@ -38,6 +38,10 @@
                 "$ref": "icarReproSemenStrawResource.json",
                 "description": "Details of the straw, which may also include sire details."
             },
+            "eventEndDateTime": {
+              "$ref": "icarDateTimeType.json",
+              "description": "To be used in case of running with a bull to end the period. ISO8601 date and time. MUST contain time zone. UTC recommended." 
+            },
             "semenFromFarmStocks": {
                 "type": "boolean",
                 "description": "True if the semen is from the farmer's own stocks (false if supplied by technician)."

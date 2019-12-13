@@ -18,7 +18,7 @@
       "type": "string",
       "description": "the defaults are described above, only use this field when differed from the default. Use UN/CEFACT codes."
     },
-    "icarMeasuringDevice": {
+    "measuringDevice": {
       "type": "string",
       "description": "a more readable device class ID that contains manufacturer, device, hardware and software versions in a way that is similar to the USB specification. This will need more investigation."
     }
