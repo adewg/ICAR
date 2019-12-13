@@ -60,7 +60,7 @@
                   }
                 },
                 "examples": {
-                  "objectExample": {
+                  "base": {
                     "$ref": "#/components/examples/milking-visit"
                   }
                 }
@@ -99,7 +99,7 @@
                   }
                 },
                 "examples": {
-                  "objectExample": {
+                  "base": {
                     "$ref": "#/components/examples/test-day-result"
                   }
                 }
@@ -206,7 +206,7 @@
                   }
                 },
                 "examples": {
-                  "objectExample": {
+                  "base": {
                     "$ref": "#/components/examples/arrival"
                   }
                 }
@@ -342,7 +342,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproHeatEventResource.json"
+                    "$ref": "#/components/schemas/heat"
                   }
                 }
               }
@@ -476,7 +476,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  ">>>>>>>" "pr/1",
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/parturition"
@@ -500,29 +499,10 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
@@ -532,7 +512,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproMatingRecommendationResource.json"
+                    "$ref": "#/components/schemas/mating-recommendation"
                   }
                 }
               }
@@ -559,6 +539,9 @@
       "milking-visit": {
         "$ref": "icarMilkingVisitEventResource.json"
       },
+      "mating-recommendation": {
+        "$ref": "icarReproMatingRecommendationResource.json"
+      },
       "test-day-result": {
         "$ref": "icarTestDayResource.json"
       },
@@ -577,11 +560,14 @@
       "animal": {
         "$ref": "icarAnimalCoreResource.json"
       },
-      "pregnancy-checks": {
+      "pregnancy-check": {
         "$ref": "icarReproPregnancyCheckEventResource.json"
       },
+      "heat": {
+        "$ref": "icarReproHeatEventResource.json"
+      },
       "insemination": {
-        "$ref": "icarReproInseminationType.json"
+        "$ref": "icarReproInseminationEventResource.json"
       },
       "drying-off": {
         "$ref": "icarMilkingDryOffEventResource.json"
