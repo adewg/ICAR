@@ -5,6 +5,8 @@
       "eventDateTime",
       "destinationLocation"
     ],
+
+    "description": "Event for recording animal departure", 
           
     "type": "object",
           

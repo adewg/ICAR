@@ -1,12 +1,14 @@
-{       
+{
   "required": [
     "id",
     "animal",
     "EventDateTime"
   ],
-        
+
+  "description": "Event for representing test day result",
+
   "type": "object",
-        
+
   "allOf": [
     {
       "$ref": "icarEventCoreResource.json"

@@ -38,144 +38,37 @@
       "get": {
         "operationId": "get-milking-visits",
         "summary": "Get the data for milking visits",
-        "description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n \nThis comprises all posible data. Anybody can choose to define API's that return less information in the response.\n",
+        "description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n \nThis comprises all possible data. Anybody can choose to define API's that return less information in the response.\n",
         "tags": [
           "release-candidate-milk"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "start-date-time",
-            "in": "query",
-            "description": "The start of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "end-date-time",
-            "in": "query",
-            "description": "The end of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the milking results for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMilkingVisitEventResource.json"
+                    "$ref": "#/components/schemas/milking-visit"
                   }
                 },
-               "examples": {
-                "response": {
-                  "value": {
-                    "id": "706250",
-                    "animal": {
-                      "id": "NL 877034232",
-                      "scheme": "nl-v1"
-                    },
-                    "milkingStartingDateTime": "2019-11-01T23:58:31",
-                    "milkingVisitDuration": {
-                      "value": 349.0,
-                      "unitCode": "SEC"
-                    },
-                    "milkingDuration": {
-                      "value": "210",
-                      "unitCode": "SEC"
-                    },
-                    "milkingType": "Automated",
-                    "milkingMilkWeight": {
-                      "value": 3.5,
-                      "unitCode": "KGM"
-                    },
-                    "milkingComplete": true,
-                    "milkingParlourUnit": "101",
-                    "milkingBoxNumber": 0,
-                    "milkingDeviceId": "101",
-                    "measureDeviceId": "101",
-                    "eventOffset": "2019-11-01T23:58:31",
-                    "eventDeviceId": "101",
-                    "quarterMilkings": [ {
-                        "icarQuarterId": "LF",
-                        "milkingDuration": {
-                          "value": "210",
-                          "unitCode": "SEC"
-                        },
-                        "milkingMilkWeight": {
-                          "value": 3.5,
-                         "unitCode": "KGM"
-                        }
-                      } ],
-                    "animalMilkingSample": [ {
-                      "bottleIdentifierType": "BRC",
-                      "rackNumber": "3",
-                      "bottlePosition": "7"
-                    } ],                                          
-                    "icarMilkCharacteristics": [ {
-                        "characteristic": "FAT",
-                        "value": "3.74",
-                        "unit": "VP",
-                        "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
-                      },
-                      {
-                        "characteristic": "PROTEIN",
-                        "value": "3.54",
-                        "unit": "VP"
-                      } ]
-                    }
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/milking-visit"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -183,116 +76,38 @@
     "/locations/{location-scheme}/{location-id}/test-day-results": {
       "get": {
         "operationId": "get-test-day-results",
-        "summary": "Get the data for test days",
+        "summary": "Get the data for test day results",
         "description": "# Purpose\nProvides data from the test day for animals on a farm\n",
         "tags": [
           "release-candidate-milk"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "start-date-time",
-            "in": "query",
-            "description": "The start of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "end-date-time",
-            "in": "query",
-            "description": "The end of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the test day results for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarTestDayResource.json"
+                    "$ref": "#/components/schemas/test-day-result"
                   }
                 },
-               "examples": {
-                "response": {
-                  "value": {
-                    "id": "706250",
-                    "animal": {
-                      "id": "NL 877034232",
-                      "scheme": "nl-v1"
-                    },
-                    "EventDateTime": "2019-11-01T23:58:31",
-                    "milkWeight24Hours": {
-                      "value": "21.7",
-                      "unitCode": "KGM"
-                    },
-                    "testDayCode": "0",
-                    "icarMilkCharacteristics": [
-                      {
-                        "characteristic": "FAT",
-                        "value": "3.74",
-                        "unit": "VP",
-                        "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
-                      },
-                      {
-                        "characteristic": "PROTEIN",
-                        "value": "3.54",
-                        "unit": "VP"
-                      }
-                      ]
-                    }
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/test-day-result"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -306,80 +121,27 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "start-date-time",
-            "in": "query",
-            "description": "The start of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "end-date-time",
-            "in": "query",
-            "description": "The end of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the births for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementBirthEventResource.json"
+                    "$ref": "#/components/schemas/birth"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -393,80 +155,27 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "start-date-time",
-            "in": "query",
-            "description": "The start of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "end-date-time",
-            "in": "query",
-            "description": "The end of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the died animals for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementDeathEventResource.json"
+                    "$ref": "#/components/schemas/death"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -480,147 +189,32 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "start-date-time",
-            "in": "query",
-            "description": "The start of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "end-date-time",
-            "in": "query",
-            "description": "The end of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the arrived animals for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementArrivalEventResource.json"
+                    "$ref": "#/components/schemas/arrival"
                   }
                 },
-               "examples": {
-                "response": {
-                  "value": {
-                    "id": "ac9bdd26-0e20-44e7-b311-7d3d988f9717",
-                    "animal": {
-                      "id": "NL 919713288",
-                      "scheme": "nl.ubn"
-                    },
-                    "eventDateTime": "2016-01-06",
-                    "location": {
-                      "id": "231817",
-                      "scheme": "nl.ubn"
-                    },
-                    "animalDetail": {
-                    "alternativeIdentifiers": [],
-                    "species": "Cattle",
-                    "gender": "Female",
-                    "birthDate": "2013-11-06",
-                    "breedFractions": {
-                      "denominator": "8",
-                      "fractions": [
-                        {
-                          "breed": {
-                            "id": "HF",
-                            "scheme": "icar.org"
-                          },
-                          "fraction": "8"
-                        }
-                      ]
-                    },
-                    "coatColor": "RB",
-                    "managementTag": "88",
-                    "name": "NELLY 258",
-                    "productionPurpose": "Milk",
-                    "status": "Alive",
-                    "parentage": [
-                      {
-                        "parentOf": {
-                           "id": "NL 919713288",
-                           "scheme": "nl.ubn"
-                        },
-                        "gender": "Female",
-                        "relation": "Genetic",
-                        "identifier": {
-                           "id": "NL 765410142",
-                           "scheme": "nl.ubn"
-                         },
-                         "officialName": "NELLY 211"
-                       },
-                       {
-                         "parentOf": {
-                            "id": "NL 919713288",
-                            "scheme": "nl.ubn"
-                         },
-                         "gender": "Male",
-                         "relation": "Genetic",
-                         "identifier": {
-                            "id": "NL 399745212",
-                            "scheme": "nl.ubn"
-                         },
-                         "officialName": "TOPSPEED KODAK"
-                       }
-                      ]
-                      }
-                    }
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/arrival"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -634,80 +228,27 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "start-date-time",
-            "in": "query",
-            "description": "The start of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "end-date-time",
-            "in": "query",
-            "description": "The end of the date-time range for the data to get in the request.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the milking results for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMovementDepartureEventResource.json"
+                    "$ref": "#/components/schemas/departure"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -721,66 +262,30 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the animals for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarAnimalCoreResource.json"
+                    "$ref": "#/components/schemas/animal"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
     },
+
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
@@ -790,62 +295,27 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the pregnancy diagnosis for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproPregnancyCheckEventResource.json"
+                    "$ref": "#/components/schemas/pregnancy-check"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -859,413 +329,203 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the heats for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproHeatEventResource.json"
+                    "$ref": "#/components/schemas/heat"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
     },
     "/locations/{location-scheme}/{location-id}/inseminations": {
       "get": {
-        "operationId": "get-Inseminations",
+        "operationId": "get-inseminations",
         "summary": "Get the inseminations for a certain location",
         "description": "# Purpose\nProvides the Inseminations on a location\n",
         "tags": [
           "release-candidate-reproduction"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the inseminations for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproInseminationEventResource.json"
+                    "$ref": "#/components/schemas/insemination"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
     },
     "/locations/{location-scheme}/{location-id}/drying-offs": {
       "get": {
-        "operationId": "get-Drying-Offs",
+        "operationId": "get-drying-offs",
         "summary": "Get the drying off for a certain location",
         "description": "# Purpose\nProvides the drying off on a location\n",
         "tags": [
           "release-candidate-reproduction"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the drying off for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarMilkingDryOffEventResource.json"
+                    "$ref": "#/components/schemas/drying-off"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
     },
     "/locations/{location-scheme}/{location-id}/abortions": {
       "get": {
-        "operationId": "get-Abortions",
+        "operationId": "get-abortions",
         "summary": "Get the abortion events for a certain location",
         "description": "# Purpose\nProvides the abortion events on a location\n",
         "tags": [
           "release-candidate-reproduction"
         ],
         "parameters": [
-          {
-            "name": "location-scheme",
-            "in": "path",
-            "description": "The scheme id for the location identifier.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "nl.ubn",
-                "de.farmid",
-                "be.pen"
-              ]
-            }
-          },
-          {
-            "name": "location-id",
-            "in": "path",
-            "description": "The unique identifier for the location.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the abortion events for the given location",
             "content": {
               "application/json": {
-               "schema": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproAbortionEventResource.json"
+                    "$ref": "#/components/schemas/abortion"
                   }
                 }
               }
             }
           },
           "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/error"
-                      }
-                    }
-                  },
-                  "description": "A default response containing only a list of errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
     },
     "/locations/{location-scheme}/{location-id}/parturitions": {
-    "get": {
-      "operationId": "get-Parturitions",
-      "summary": "Get the Parturition events for a certain location",
-      "description": "# Purpose\nProvides the Parturition events on a location\n",
-      "tags": [
-        "release-candidate-reproduction"
-      ],
-      "parameters": [
-        {
-          "name": "location-scheme",
-          "in": "path",
-          "description": "The scheme id for the location identifier.",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "enum": [
-              "nl.ubn",
-              "de.farmid",
-              "be.pen"
-            ]
-          }
-        },
-        {
-          "name": "location-id",
-          "in": "path",
-          "description": "The unique identifier for the location.",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Successful. The response contains the Parturition events for the given location",
-          "content": {
-            "application/json": {
-               "schema": {
+      "get": {
+        "operationId": "get-parturitions",
+        "summary": "Get the parturition events for a certain location",
+        "description": "# Purpose\nProvides the Parturition events on a location\n",
+        "tags": [
+          "release-candidate-reproduction"
+        ],
+        "parameters": [
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the Parturition events for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproParturitionEventResource.json"
+                    "$ref": "#/components/schemas/parturition"
                   }
-                }
-            }
-          }
-        },
-        "default": {
-          "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "errors": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/error"
-                    }
-                  }
-                },
-                "description": "A default response containing only a list of errors"
                 }
               }
             }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
           }
         }
       }
     },
     "/locations/{location-scheme}/{location-id}/mating-recommendations": {
-    "get": {
-      "operationId": "get-mating-recommendations",
-      "summary": "Get the mating recommendations for a certain location",
-      "description": "# Purpose\nProvides the mating recommendations on a location\n",
-      "tags": [
-        "release-candidate-reproduction"
-      ],
-      "parameters": [
-        {
-          "name": "location-scheme",
-          "in": "path",
-          "description": "The scheme id for the location identifier.",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "enum": [
-              "nl.ubn",
-              "de.farmid",
-              "be.pen"
-            ]
-          }
-        },
-        {
-          "name": "location-id",
-          "in": "path",
-          "description": "The unique identifier for the location.",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Successful. The response contains the mating recommendations for the given location",
-          "content": {
-            "application/json": {
-               "schema": {
+      "get": {
+        "operationId": "get-mating-recommendations",
+        "summary": "Get the mating recommendations for a certain location",
+        "description": "# Purpose\nProvides the mating recommendations on a location\n",
+        "tags": [
+          "release-candidate-reproduction"
+        ],
+        "parameters": [
+          { "$ref": "#/components/parameters/location-scheme" },
+          { "$ref": "#/components/parameters/location-id" },
+          { "$ref": "#/components/parameters/start-date-time" },
+          { "$ref": "#/components/parameters/end-date-time" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the mating recommendations for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "icarReproMatingRecommendationResource.json"
+                    "$ref": "#/components/schemas/mating-recommendation"
                   }
                 }
-            }
-          }
-        },
-        "default": {
-          "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "errors": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/error"
-                    }
-                  }
-                },
-                "description": "A default response containing only a list of errors"
               }
             }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
           }
         }
-      } 
+      }
     }
-  }
-},
-"components": {
+  },
+  "components": {
     "schemas": {
       "error": {
         "type": "object",
@@ -1275,6 +535,276 @@
             "$ref": "exampleErrorResource.json"
           }
         }
+      },
+      "milking-visit": {
+        "$ref": "icarMilkingVisitEventResource.json"
+      },
+      "mating-recommendation": {
+        "$ref": "icarReproMatingRecommendationResource.json"
+      },
+      "test-day-result": {
+        "$ref": "icarTestDayResource.json"
+      },
+      "birth": {
+        "$ref": "icarMovementBirthEventResource.json"
+      },
+      "death": {
+        "$ref": "icarMovementDeathEventResource.json"
+      },
+      "arrival": {
+        "$ref": "icarMovementArrivalEventResource.json"
+      },
+      "departure": {
+        "$ref": "icarMovementDepartureEventResource.json"
+      },
+      "animal": {
+        "$ref": "icarAnimalCoreResource.json"
+      },
+      "pregnancy-check": {
+        "$ref": "icarReproPregnancyCheckEventResource.json"
+      },
+      "heat": {
+        "$ref": "icarReproHeatEventResource.json"
+      },
+      "insemination": {
+        "$ref": "icarReproInseminationEventResource.json"
+      },
+      "drying-off": {
+        "$ref": "icarMilkingDryOffEventResource.json"
+      },
+      "abortion": {
+        "$ref": "icarReproAbortionEventResource.json"
+      },
+      "parturition": {
+        "$ref": "icarReproParturitionEventResource.json"
+      }
+    },
+    "parameters": {
+      "location-scheme": {
+        "name": "location-scheme",
+        "in": "path",
+        "description": "The scheme id for the location identifier.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "nl.ubn",
+            "de.farmid",
+            "be.pen"
+          ]
+        }
+      },
+      "location-id": {
+        "name": "location-id",
+        "in": "path",
+        "description": "The unique identifier for the location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "start-date-time": {
+        "name": "start-date-time",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "end-date-time": {
+        "name": "end-date-time",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "responses": {
+      "default": {
+        "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              },
+              "description": "A default response containing only a list of errors"
+            }
+          }
+        }
+      }
+    },
+    "examples": {
+      "arrival": {
+        "value": [
+          {
+            "id": "ac9bdd26-0e20-44e7-b311-7d3d988f9717",
+            "animal": {
+              "id": "NL 919713288",
+              "scheme": "nl.ubn"
+            },
+            "eventDateTime": "2016-01-06",
+            "location": {
+              "id": "231817",
+              "scheme": "nl.ubn"
+            },
+            "animalDetail": {
+              "alternativeIdentifiers": [],
+              "species": "Cattle",
+              "gender": "Female",
+              "birthDate": "2013-11-06",
+              "breedFractions": {
+                "denominator": "8",
+                "fractions": [
+                  {
+                    "breed": {
+                      "id": "HF",
+                      "scheme": "icar.org"
+                    },
+                    "fraction": "8"
+                  }
+                ]
+              },
+              "coatColor": "RB",
+              "managementTag": "88",
+              "name": "NELLY 258",
+              "productionPurpose": "Milk",
+              "status": "Alive",
+              "parentage": [
+                {
+                  "parentOf": {
+                    "id": "NL 919713288",
+                    "scheme": "nl.ubn"
+                  },
+                  "gender": "Female",
+                  "relation": "Genetic",
+                  "identifier": {
+                    "id": "NL 765410142",
+                    "scheme": "nl.ubn"
+                  },
+                  "officialName": "NELLY 211"
+                },
+                {
+                  "parentOf": {
+                    "id": "NL 919713288",
+                    "scheme": "nl.ubn"
+                  },
+                  "gender": "Male",
+                  "relation": "Genetic",
+                  "identifier": {
+                    "id": "NL 399745212",
+                    "scheme": "nl.ubn"
+                  },
+                  "officialName": "TOPSPEED KODAK"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "milking-visit": {
+        "value": [
+          {
+            "id": "706250",
+            "animal": {
+              "id": "NL 877034232",
+              "scheme": "nl-v1"
+            },
+            "milkingStartingDateTime": "2019-11-01T23:58:31",
+            "milkingVisitDuration": {
+              "value": 349.0,
+              "unitCode": "SEC"
+            },
+            "milkingDuration": {
+              "value": "210",
+              "unitCode": "SEC"
+            },
+            "milkingType": "Automated",
+            "milkingMilkWeight": {
+              "value": 3.5,
+              "unitCode": "KGM"
+            },
+            "milkingComplete": true,
+            "milkingParlourUnit": "101",
+            "milkingBoxNumber": 0,
+            "milkingDeviceId": "101",
+            "measureDeviceId": "101",
+            "eventOffset": "2019-11-01T23:58:31",
+            "eventDeviceId": "101",
+            "quarterMilkings": [
+              {
+                "icarQuarterId": "LF",
+                "milkingDuration": {
+                  "value": "210",
+                  "unitCode": "SEC"
+                },
+                "milkingMilkWeight": {
+                  "value": 3.5,
+                  "unitCode": "KGM"
+                }
+              }
+            ],
+            "animalMilkingSample": [
+              {
+                "bottleIdentifierType": "BRC",
+                "rackNumber": "3",
+                "bottlePosition": "7"
+              }
+            ],
+            "icarMilkCharacteristics": [
+              {
+                "characteristic": "FAT",
+                "value": "3.74",
+                "unit": "VP",
+                "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
+              },
+              {
+                "characteristic": "PROTEIN",
+                "value": "3.54",
+                "unit": "VP"
+              }
+            ]
+          }
+        ]
+      },
+      "test-day-result": {
+        "value": [
+          {
+            "id": "706250",
+            "animal": {
+              "id": "NL 877034232",
+              "scheme": "nl-v1"
+            },
+            "EventDateTime": "2019-11-01T23:58:31",
+            "milkWeight24Hours": {
+              "value": "21.7",
+              "unitCode": "KGM"
+            },
+            "testDayCode": "0",
+            "icarMilkCharacteristics": [
+              {
+                "characteristic": "FAT",
+                "value": "3.74",
+                "unit": "VP",
+                "icarMeasuringDevice": "to_be_defined_by_ICAR-sensor_group"
+              },
+              {
+                "characteristic": "PROTEIN",
+                "value": "3.54",
+                "unit": "VP"
+              }
+            ]
+          }
+        ]
       }
     }
   }
