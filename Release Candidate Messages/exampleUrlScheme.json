@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "https://icar-ade.standard.com"
+      "url": "https://raw.githubusercontent.com/ahokkonen/ICAR/master/Release%20Candidate%20Messages"
     }
   ],
   "tags": [
@@ -814,7 +814,7 @@
       "dryOffFinland": {
         "value": {
           "summary": "Dry off event examples from finnish milk recording organization",
-          "externalValue": "examples/exampleDryOffEvent_Finland.json"
+          "externalValue": "/Examples/exampleDryOffEvent_Finland.json"
         }
       } 
     }
