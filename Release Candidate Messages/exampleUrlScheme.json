@@ -412,6 +412,11 @@
                   "items": {
                     "$ref": "#/components/schemas/drying-off"
                   }
+                },
+                "examples": {
+                  "finland": {
+                    "$ref": "#/components/examples/dryOffFinland"
+                  }
                 }
               }
             }
@@ -805,7 +810,13 @@
             ]
           }
         ]
-      }
+      },
+      "dryOffFinland": {
+        "value": {
+          "summary": "Dry off event examples from finnish milk recording organization",
+          "externalValue": "examples/exampleDryOffEvent_Finland.json"
+        }
+      } 
     }
   }
 }
