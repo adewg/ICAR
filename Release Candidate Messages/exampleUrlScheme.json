@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "https://raw.githubusercontent.com/ahokkonen/ICAR/master/Release%20Candidate%20Messages"
+      "url": "https://icar-ade.standard.com"
     }
   ],
   "tags": [
@@ -43,10 +43,18 @@
           "release-candidate-milk"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -82,10 +90,18 @@
           "release-candidate-milk"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -121,10 +137,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -155,10 +179,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -189,10 +221,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -228,10 +268,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -262,8 +310,12 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
         ],
         "responses": {
           "200": {
@@ -285,7 +337,6 @@
         }
       }
     },
-
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
@@ -295,10 +346,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -329,10 +388,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -363,10 +430,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -397,10 +472,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -415,7 +498,10 @@
                 },
                 "examples": {
                   "finland": {
-                    "$ref": "#/components/examples/dryOffFinland"
+                    "$ref": "#/components/examples/drying-off-finland"
+                  },
+                  "sweden": {
+                    "$ref": "#/components/examples/drying-off-sweden"
                   }
                 }
               }
@@ -436,10 +522,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -470,10 +564,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -504,10 +606,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -811,12 +921,94 @@
           }
         ]
       },
-      "dryOffFinland": {
-        "value": {
-          "summary": "Dry off event examples from finnish milk recording organization",
-          "externalValue": "/Examples/exampleDryOffEvent_Finland.json"
-        }
-      } 
+      "drying-off-finland": {
+        "value": [
+          {
+            "id": "4bd700b2-4f8b-4ab8-8cbf-7bb62d4e2bc3",
+            "animal": {
+              "id": "FI000010065148-2",
+              "scheme": "fi.animal-id"
+            },
+            "eventDateTime": "2000-03-19T00:00:00",
+            "location": {
+              "id": "990000001",
+              "scheme": "fi.herd-id"
+            },
+            "meta": {
+              "source": "fi.mro",
+              "creator": "v990000001",
+              "modified": "2020-01-29T08:49:06.0421042+00:00",
+              "created": null,
+              "validFrom": null,
+              "validTo": null
+            }
+          },
+          {
+            "id": "85ec425d-f079-437e-801b-88756c912102",
+            "animal": {
+              "id": "FI000010065150-1",
+              "scheme": "fi.animal-id"
+            },
+            "eventDateTime": "2000-04-03T00:00:00",
+            "location": {
+              "id": "990000001",
+              "scheme": "fi.herd-id"
+            },
+            "meta": {
+              "source": "fi.mro",
+              "creator": "v990000001",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": null,
+              "validFrom": null,
+              "validTo": null
+            }
+          }
+        ]
+      },
+      "drying-off-sweden": {
+        "value": [
+          {
+            "id": "1",
+            "animal": {
+              "id": "SE-801-2137-4",
+              "scheme": "se.animal-id"
+            },
+            "eventDateTime": "2000-03-19T00:00:00",
+            "location": {
+              "id": "801",
+              "scheme": "se.herd-id"
+            },
+            "meta": {
+              "source": "vxa.mro",
+              "creator": "bza632",
+              "modified": "2020-01-29T08:49:06.0421042+00:00",
+              "created": null,
+              "validFrom": null,
+              "validTo": null
+            }
+          },
+          {
+            "id": "2",
+            "animal": {
+              "id": "SE-801-4259-5",
+              "scheme": "se.animal-id"
+            },
+            "eventDateTime": "2000-04-03T00:00:00",
+            "location": {
+              "id": "801",
+              "scheme": "se.herd-id"
+            },
+            "meta": {
+              "source": "vxa.mro",
+              "creator": "bza632",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": null,
+              "validFrom": null,
+              "validTo": null
+            }
+          }
+        ]
+      }
     }
   }
 }
