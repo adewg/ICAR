@@ -458,6 +458,11 @@
                   "items": {
                     "$ref": "#/components/schemas/insemination"
                   }
+                },
+                "examples": {
+                  "finland": {
+                    "$ref": "#/components/examples/insemination-finland"
+                  }
                 }
               }
             }
@@ -925,6 +930,12 @@
             ]
           }
         ]
+      },
+      "insemination-finland": {
+        "value": {
+          "summary": "Example of insemination event messages from finnish milk recording organization",
+          "externalValue": "./examples/exampleInseminationEventResources_Finland.json"
+        }
       },
       "pregnancy-check-finland": {
         "value": {
