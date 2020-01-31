@@ -927,16 +927,22 @@
         ]
       },
       "pregnancy-check-finland": {
-        "summary": "Example of pregnancy check event messages from finnish milk recording organization",
-        "externalValue": "./examples/examplePregnancyCheckEventResources_Finland.json"
+        "value": {
+          "summary": "Example of pregnancy check event messages from finnish milk recording organization",
+          "externalValue": "./examples/examplePregnancyCheckEventResources_Finland.json"
+        }
       },
       "drying-off-finland": {
-        "summary": "Example of drying off event messages from finnish milk recording organization",
-        "externalValue": "./examples/exampleDryOffEventResources_Finland.json"
+        "value": {
+          "summary": "Example of drying off event messages from finnish milk recording organization",
+          "externalValue": "./examples/exampleDryOffEventResources_Finland.json"
+        }
       },
       "drying-off-sweden": {
-        "summary": "Example of drying off event messages from swedish milk recording organization",
-        "externalValue": "./examples/exampleDryOffEventResources_Sweden.json"
+        "value": {
+          "summary": "Example of drying off event messages from swedish milk recording organization",
+          "externalValue": "./examples/exampleDryOffEventResources_Sweden.json"
+        }
       }
     }
   }
