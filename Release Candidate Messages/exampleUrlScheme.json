@@ -369,6 +369,11 @@
                   "items": {
                     "$ref": "#/components/schemas/pregnancy-check"
                   }
+                },
+                "examples": {
+                  "finland": {
+                    "$ref": "#/components/examples/pregnancy-check-finland"
+                  }
                 }
               }
             }
@@ -921,93 +926,17 @@
           }
         ]
       },
+      "pregnancy-check-finland": {
+        "summary": "Example of pregnancy check event messages from finnish milk recording organization",
+        "externalValue": "./examples/examplePregnancyCheckEventResources_Finland.json"
+      },
       "drying-off-finland": {
-        "value": [
-          {
-            "id": "4bd700b2-4f8b-4ab8-8cbf-7bb62d4e2bc3",
-            "animal": {
-              "id": "FI000010065148-2",
-              "scheme": "fi.animal-id"
-            },
-            "eventDateTime": "2000-03-19T00:00:00",
-            "location": {
-              "id": "990000001",
-              "scheme": "fi.herd-id"
-            },
-            "meta": {
-              "source": "fi.mro",
-              "creator": "v990000001",
-              "modified": "2020-01-29T08:49:06.0421042+00:00",
-              "created": null,
-              "validFrom": null,
-              "validTo": null
-            }
-          },
-          {
-            "id": "85ec425d-f079-437e-801b-88756c912102",
-            "animal": {
-              "id": "FI000010065150-1",
-              "scheme": "fi.animal-id"
-            },
-            "eventDateTime": "2000-04-03T00:00:00",
-            "location": {
-              "id": "990000001",
-              "scheme": "fi.herd-id"
-            },
-            "meta": {
-              "source": "fi.mro",
-              "creator": "v990000001",
-              "modified": "2020-01-29T08:49:06.1314223+00:00",
-              "created": null,
-              "validFrom": null,
-              "validTo": null
-            }
-          }
-        ]
+        "summary": "Example of drying off event messages from finnish milk recording organization",
+        "externalValue": "./examples/exampleDryOffEventResources_Finland.json"
       },
       "drying-off-sweden": {
-        "value": [
-          {
-            "id": "1",
-            "animal": {
-              "id": "SE-801-2137-4",
-              "scheme": "se.animal-id"
-            },
-            "eventDateTime": "2000-03-19T00:00:00",
-            "location": {
-              "id": "801",
-              "scheme": "se.herd-id"
-            },
-            "meta": {
-              "source": "vxa.mro",
-              "creator": "bza632",
-              "modified": "2020-01-29T08:49:06.0421042+00:00",
-              "created": null,
-              "validFrom": null,
-              "validTo": null
-            }
-          },
-          {
-            "id": "2",
-            "animal": {
-              "id": "SE-801-4259-5",
-              "scheme": "se.animal-id"
-            },
-            "eventDateTime": "2000-04-03T00:00:00",
-            "location": {
-              "id": "801",
-              "scheme": "se.herd-id"
-            },
-            "meta": {
-              "source": "vxa.mro",
-              "creator": "bza632",
-              "modified": "2020-01-29T08:49:06.1314223+00:00",
-              "created": null,
-              "validFrom": null,
-              "validTo": null
-            }
-          }
-        ]
+        "summary": "Example of drying off event messages from swedish milk recording organization",
+        "externalValue": "./examples/exampleDryOffEventResources_Sweden.json"
       }
     }
   }
