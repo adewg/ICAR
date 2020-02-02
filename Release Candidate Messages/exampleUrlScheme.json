@@ -43,10 +43,18 @@
           "release-candidate-milk"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -82,10 +90,18 @@
           "release-candidate-milk"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -121,10 +137,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -155,10 +179,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -189,10 +221,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -228,10 +268,18 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -262,8 +310,12 @@
           "release-candidate-registration"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
         ],
         "responses": {
           "200": {
@@ -285,7 +337,6 @@
         }
       }
     },
-
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
@@ -295,10 +346,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -309,6 +368,11 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/pregnancy-check"
+                  }
+                },
+                "examples": {
+                  "finland": {
+                    "$ref": "#/components/examples/pregnancy-check-finland"
                   }
                 }
               }
@@ -329,10 +393,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -363,10 +435,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -377,6 +457,11 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/insemination"
+                  }
+                },
+                "examples": {
+                  "finland": {
+                    "$ref": "#/components/examples/insemination-finland"
                   }
                 }
               }
@@ -397,10 +482,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -411,6 +504,14 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/drying-off"
+                  }
+                },
+                "examples": {
+                  "finland": {
+                    "$ref": "#/components/examples/drying-off-finland"
+                  },
+                  "sweden": {
+                    "$ref": "#/components/examples/drying-off-sweden"
                   }
                 }
               }
@@ -431,10 +532,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -465,10 +574,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -499,10 +616,18 @@
           "release-candidate-reproduction"
         ],
         "parameters": [
-          { "$ref": "#/components/parameters/location-scheme" },
-          { "$ref": "#/components/parameters/location-id" },
-          { "$ref": "#/components/parameters/start-date-time" },
-          { "$ref": "#/components/parameters/end-date-time" }
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
         ],
         "responses": {
           "200": {
@@ -805,6 +930,30 @@
             ]
           }
         ]
+      },
+      "insemination-finland": {
+        "value": {
+          "summary": "Example of insemination event messages from finnish milk recording organization",
+          "externalValue": "./examples/exampleInseminationEventResources_Finland.json"
+        }
+      },
+      "pregnancy-check-finland": {
+        "value": {
+          "summary": "Example of pregnancy check event messages from finnish milk recording organization",
+          "externalValue": "./examples/examplePregnancyCheckEventResources_Finland.json"
+        }
+      },
+      "drying-off-finland": {
+        "value": {
+          "summary": "Example of drying off event messages from finnish milk recording organization",
+          "externalValue": "./examples/exampleDryOffEventResources_Finland.json"
+        }
+      },
+      "drying-off-sweden": {
+        "value": {
+          "summary": "Example of drying off event messages from swedish milk recording organization",
+          "externalValue": "./examples/exampleDryOffEventResources_Sweden.json"
+        }
       }
     }
   }
