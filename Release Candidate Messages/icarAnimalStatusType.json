@@ -4,7 +4,7 @@
   "enum": [
     "Alive",
     "Dead",
-    "Off-farm",
+    "OffFarm",
     "Unknown"
   ]
 }
