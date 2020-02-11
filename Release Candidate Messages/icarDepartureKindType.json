@@ -2,18 +2,18 @@
     "type": "string",
     "description": "Enumeration for the kind of departure. Type of destination or transfer.",
     "enum": [
-      "Internal Transfer",
+      "InternalTransfer",
       "Export",
       "Slaughter",
       "Newborn",
-      "Stud Service",
-      "Stud Service Return",
+      "StudService",
+      "StudServiceReturn",
       "Agistment",
-      "Agistment Return",
+      "AgistmentReturn",
       "Show",
-      "Show Return",
+      "ShowReturn",
       "Sale",
-      "Sale Return",
+      "SaleReturn",
       "Other"
     ]
   }

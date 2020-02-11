@@ -4,6 +4,8 @@
       "animal",
       "eventDateTime"
     ],
+
+    "description": "Event for recording animal death", 
           
     "type": "object",
           

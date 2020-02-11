@@ -1,20 +1,20 @@
 {
-        "required": [
-          "id",
-          "scheme"
-        ],
-        
-        "type": "object",
-        
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A unique identification for the resource issued under the auspices of the scheme."
-          },
-          "scheme": {
-            "type": "string",
-            "description": "The identifier (in reverse domain format) of an official scheme that manages unique identifiers."
-          }
+      "type": "object",
+      "description": "Identifies a resource.",
+
+      "required": [
+        "id",
+        "scheme"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "A unique identification for the resource issued under the auspices of the scheme."
         },
-        "description": "Identifies a resource."
+        "scheme": {
+          "type": "string",
+          "description": "The identifier (in reverse domain format) of an official scheme that manages unique identifiers."
+        }
+      }
 }

@@ -5,7 +5,9 @@
       "eventDateTime",
       "originLocation"
     ],
-          
+    
+    "description": "Event for recording animal arrival", 
+
     "type": "object",
           
     "allOf": [

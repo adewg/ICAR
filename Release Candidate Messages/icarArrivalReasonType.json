@@ -1,19 +1,19 @@
-{ 
-    "type": "string",
-    "description": "Enumeration for arrival reason. Not specified in previous ADE data dictionary.",
-    "enum": [
-      "Purchase",
-      "Internal Transfer",
-      "Imported",
-      "Stud Service",
-      "Stud Service Return",
-      "Slaughter",
-      "Agistment",
-      "Agistment Return",
-      "Show",
-      "Show Return",
-      "Sale",
-      "Sale Return",
-      "Other"
-    ]
-  }
+{
+  "type": "string",
+  "description": "Enumeration for arrival reason. Not specified in previous ADE data dictionary.",
+  "enum": [
+    "Purchase",
+    "InternalTransfer",
+    "Imported",
+    "StudService",
+    "StudServiceReturn",
+    "Slaughter",
+    "Agistment",
+    "AgistmentReturn",
+    "Show",
+    "ShowReturn",
+    "Sale",
+    "SaleReturn",
+    "Other"
+  ]
+}

@@ -1,12 +1,14 @@
-{       
+{
   "required": [
     "id",
     "animal",
     "EventDateTime"
   ],
-        
+
+  "description": "Event for representing test day result",
+
   "type": "object",
-        
+
   "allOf": [
     {
       "$ref": "icarEventCoreResource.json"
@@ -19,7 +21,7 @@
         "TestDayCode": {
           "$ref": "icarTestDayCodeType.json"
         },
-        "icarMilkCharacteristics": {
+        "milkCharacteristics": {
           "type": "array",
           "items": {
             "$ref": "icarMilkCharacteristicsType.json"

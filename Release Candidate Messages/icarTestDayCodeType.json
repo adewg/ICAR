@@ -3,7 +3,7 @@
   "description": "The test day code, indicating a status of the cow on the test day.",
   "enum": [
     "Dry",
-    "Sampling impossible",
+    "SamplingImpossible",
     "Sick"
   ]
 }
