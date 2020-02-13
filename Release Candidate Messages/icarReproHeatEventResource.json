@@ -70,7 +70,11 @@
 							"description": "Gives an indication of the certainty of the heat indication."
 						}
 					}
-				}
+				},
+   		                "device": {
+              			   "$ref": "icarDeviceReferenceType.json",
+              			   "description": "Optional information about the device used for the measurement."
+           			}
 			}
 		}
 	]
