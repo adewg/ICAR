@@ -1,0 +1,59 @@
+{
+	"type": "object",
+
+	"description": "Describes the devices on a certain location.",
+
+	"required": [
+		"id"
+	],
+
+	"properties": {
+				"id": {
+          "type": "string",
+          "description": "Unique identifier on location level in the source system for this device."
+				},
+        "serial": {
+          "type": "string",
+          "description": "Optionally, the serial number of the device."
+        },
+				"name": {
+          "type": "string",
+          "description": "Name given to the device by the farmer."
+				},
+				"description": {
+          "type": "string",
+          "description": "Description of the device by the farmer."
+				},
+        "location": {
+          "$ref": "icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+				"softwareVersion": {
+          "type": "string",
+          "description": "Version of the software installed on the device."
+				},
+				"hardwareVersion": {
+          "type": "string",
+          "description": "Version of the hardware installed in the device."
+				},
+				"isActive": {
+          "type": "boolean",
+          "description": "Indicates whether the device is active at this moment."
+				},
+				"supportedMessages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+                "messages": {       
+                  "$ref": "icarMessagesType.json"
+                }
+            }
+          }
+				},
+        "Manufacturer": {
+           "$ref": "icarDeviceManufacturerType.json",
+           "description": "The device data as defined by the manufacturer." 
+        }
+ 	}
+}
