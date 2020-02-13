@@ -31,6 +31,10 @@
     {
       "name": "release-candidate-reproduction",
       "description": "Reproduction messages approved by the working group, waiting for a test"
+    },
+    {
+      "name": "release-candidate-other",
+      "description": "Other messages approved by the working group, waiting for a test"
     }
   ],
   "paths": {
@@ -607,7 +611,91 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/mating-recommendations": {
+    "/locations/{location-scheme}/{location-id}/weights": {
+      "get": {
+        "operationId": "get-weights",
+        "summary": "Get the weight data of animals",
+        "description": "# Purpose\nProvides weight data from animals on a farm.",
+        "tags": [
+          "release-candidate-other"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the weight results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/weight"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/devices": {
+      "get": {
+        "operationId": "get-devices",
+        "summary": "Get the device data for a location",
+        "description": "# Purpose\nProvides device data for devices present on a farm.",
+        "tags": [
+          "release-candidate-other"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the device data for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/device"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+   "/locations/{location-scheme}/{location-id}/mating-recommendations": {
       "get": {
         "operationId": "get-mating-recommendations",
         "summary": "Get the mating recommendations for a certain location",
@@ -702,6 +790,12 @@
       },
       "parturition": {
         "$ref": "icarReproParturitionEventResource.json"
+      },
+      "weight": {
+        "$ref": "icarWeightEventResource.json"
+      },
+      "device": {
+        "$ref": "icarDeviceResource.json"
       }
     },
     "parameters": {
