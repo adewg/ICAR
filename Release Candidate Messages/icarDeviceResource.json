@@ -46,13 +46,13 @@
             "type": "object",
             "properties": {
                 "messages": {       
-                  "$ref": "icarMassagesType.json"
+                  "$ref": "icarMessagesType.json"
                 }
             }
           }
 				},
         "Manufacturer": {
-           "$ref": "icarManufacturerType.json",
+           "$ref": "icarDeviceManufacturerType.json",
            "description": "The device data as defined by the manufacturer." 
         }
  	}
