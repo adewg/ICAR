@@ -1,0 +1,23 @@
+{
+    
+    "type": "object",
+
+    "allOf": [
+      {
+        "$ref": "icarResourceReferenceType.json"
+      },
+      {
+        "properties": {
+            "model": {
+                "type": "string",
+                "description": "ICAR registered device model, which represents manufacturer, model, hardware and software versions."
+            },
+            "serial": {
+                "type": "string",
+                "description": "Optionally, the serial number of the device."
+            }
+        }
+      }  
+    ]
+
+}

@@ -2,13 +2,8 @@
     "type": "object",
     "description": "Base class for a collection of items such as animals, devices, or events. Use allOf to add an items array of the right type.",
 
-    "allOf": [
-      {
-        "$ref": "icarResource.json"
-      },
-      {
-        "properties": {
-          "view": {
+    "properties": {
+        "view": {
             "type": "object",
             "description": "Information about the current view or page of the collection",
             "properties": {
@@ -53,14 +48,15 @@
                     "description": "Link to the last page of the collection, if any."
                 }
             }
-          }
-        },
-        "links": [
-            {  "rel": "first", "href": "{firsturi}", "templateRequired": ["firsturi"], "templatePointers": {"firsturi": "/view/first" }},
-            {  "rel": "next", "href": "{nexturi}", "templateRequired": ["nexturi"], "templatePointers": {"nexturi": "/view/next" }},
-            {  "rel": "prev", "href": "{prevuri}", "templateRequired": ["prevuri"], "templatePointers": {"prevuri": "/view/prev" }},
-            {  "rel": "last", "href": "{lasturi}", "templateRequired": ["lasturi"], "templatePointers": {"lasturi": "/view/last" }}
-        ]    
-      }
-    ] 
+        }
+    },
+        
+    "links": [
+        {  "rel": "first", "href": "{firsturi}", "templateRequired": ["firsturi"], "templatePointers": {"firsturi": "/view/first" }},
+        {  "rel": "next", "href": "{nexturi}", "templateRequired": ["nexturi"], "templatePointers": {"nexturi": "/view/next" }},
+        {  "rel": "prev", "href": "{prevuri}", "templateRequired": ["prevuri"], "templatePointers": {"prevuri": "/view/prev" }},
+        {  "rel": "last", "href": "{lasturi}", "templateRequired": ["lasturi"], "templatePointers": {"lasturi": "/view/last" }}
+    ]    
+    
+    
 }

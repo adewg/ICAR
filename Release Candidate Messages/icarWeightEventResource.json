@@ -1,0 +1,47 @@
+{       
+    "required": [ 
+      "id",
+      "animal",
+      "eventDateTime"
+    ],
+          
+    "description": "The Weight event records a live weight observation of an animal.",
+
+    "type": "object",
+          
+    "allOf": [
+      {
+        "$ref": "icarEventCoreResource.json"
+      },
+      {
+        "properties": {
+            "weight": {
+                "type": "number",
+                "minimum": 0,
+                "description": "The weight observation, in the units specified (usually kilograms)."
+            }, 
+            "units": {
+                "$ref": "uncefactMassUnits.json",
+                "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
+            },
+            "method": {
+                "$ref": "icarWeightMethodType.json",
+                "description": "The method of observation. Loadcell is the default if not specified."
+            },
+            "resolution": {
+                "type": "number",
+                "description": "The smallest measurement difference that can be discriminated given the current device settings. Specified in Units, for instance 0.5 (kilograms)."
+            },
+            "device": {
+                "$ref": "icarDeviceReferenceType.json",
+                "description": "Optional information about the device used for the measurement."
+            }, 
+            "traitLabel": {
+                "$ref": "icarIdentifierType.json",
+                "description": "Identifies the intended formal trait using scheme and ID. For instance: nz.sheep.traits, LW8"
+            }
+        }
+      }
+    ]
+  }
+  
