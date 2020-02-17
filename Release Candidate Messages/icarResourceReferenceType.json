@@ -17,12 +17,5 @@
             "description": "Specifies whether this is a single resource Link or a Collection.",
             "enum": ["Link"]
           }
-    },
-    "links": [
-      {
-          "rel": "related",
-          "href": "{@id}",
-          "templateRequired": ["@id"]
-      }
-    ]
+    }
 }
