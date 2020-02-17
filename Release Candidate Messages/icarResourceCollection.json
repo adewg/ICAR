@@ -30,33 +30,25 @@
                 "first": {
                     "type": "string",
                     "format": "uri",
-                    "description": "Link to the first page of the collection."
+                    "description": "Link to the first page of the collection. Link relation: first."
                 },
                 "next": {
                     "type": "string",
                     "format": "uri",
-                    "description": "Link to the next page of the collection, if any."
+                    "description": "Link to the next page of the collection, if any. Link relation: next."
                 },
                 "prev": {
                     "type": "string",
                     "format": "uri",
-                    "description": "Link to the previous page of the collection, if any."
+                    "description": "Link to the previous page of the collection, if any. Link relation: prev."
                 },
                 "last": {
                     "type": "string",
                     "format": "uri",
-                    "description": "Link to the last page of the collection, if any."
+                    "description": "Link to the last page of the collection, if any. Link relation: last."
                 }
             }
         }
-    },
-        
-    "links": [
-        {  "rel": "first", "href": "{firsturi}", "templateRequired": ["firsturi"], "templatePointers": {"firsturi": "/view/first" }},
-        {  "rel": "next", "href": "{nexturi}", "templateRequired": ["nexturi"], "templatePointers": {"nexturi": "/view/next" }},
-        {  "rel": "prev", "href": "{prevuri}", "templateRequired": ["prevuri"], "templatePointers": {"prevuri": "/view/prev" }},
-        {  "rel": "last", "href": "{lasturi}", "templateRequired": ["lasturi"], "templatePointers": {"lasturi": "/view/last" }}
-    ]    
-    
+    }    
     
 }
