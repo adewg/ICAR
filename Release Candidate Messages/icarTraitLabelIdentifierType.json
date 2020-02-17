@@ -1,0 +1,4 @@
+{
+    "$ref": "icarIdentifierType.json",
+    "description": "Trait identifier based on a scheme and ID."
+  }
