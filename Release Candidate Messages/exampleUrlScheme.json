@@ -25,16 +25,16 @@
       "description": "Milk messages approved by the working group, waiting for a test"
     },
     {
+      "name": "release-candidate-other",
+      "description": "Other messages approved by the working group, waiting for a test"
+    },
+    {
       "name": "release-candidate-registration",
       "description": "Registration messages approved by the working group, waiting for a test"
     },
     {
       "name": "release-candidate-reproduction",
       "description": "Reproduction messages approved by the working group, waiting for a test"
-    },
-    {
-      "name": "release-candidate-other",
-      "description": "Other messages approved by the working group, waiting for a test"
     }
   ],
   "paths": {
