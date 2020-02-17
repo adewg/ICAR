@@ -18,9 +18,9 @@
         },
 				"name": {
           "type": "string",
-          "desc": "Name given to the device by the farmer."
+          "description": "Name given to the device by the farmer."
 				},
-				"description": {
+				"descr": {
           "type": "string",
           "description": "Description of the device by the farmer."
 				},
