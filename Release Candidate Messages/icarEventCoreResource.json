@@ -39,7 +39,7 @@
           },
           "contemporaryGroup": {
             "type": "string",
-            "description": "For manually recorded events, record any contemporary group code that would affect statistical anlaysis."
+            "description": "For manually recorded events, record any contemporary group code that would affect statistical analysis."
           }
         }
       }
