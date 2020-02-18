@@ -31,6 +31,7 @@ We prefer that schemes are human readable even when URL-encoded. This means we p
 | de-farm-id  | farm id  | 96123456.001.001  |  Farm ID as issued by VIT. The first section correlates 1:1 with a eu-farm-id while the latter two sections specify the location in more detail. | |
 | nl-ubn  | uniek bedrijfsnummer  |   | Used in the Netherlands, used by the government (see [Uniek Bedrijfsnummer on wikipedia](https://nl.wikipedia.org/wiki/Uniek_Bedrijfsnummer). Note: this may be part of the eu-farm-id scheme?  | |
 | be-pen  | Productie-eenheidsnummer   |   | Issued by Agentschap voor Landbouw en Visserij (ALV) | |
+| au.gov.ag.pic | PIC | NA477352 | Australian farm property identifier code. Issued by each State's department of agriculture. |
 
 ## Milk tank id's
 | id  | name  | example| region & issuing party  | RegEx | 
