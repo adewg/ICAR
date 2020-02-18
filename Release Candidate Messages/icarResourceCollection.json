@@ -1,5 +1,6 @@
 {
     "type": "object",
+    
     "description": "Base class for a collection of items such as animals, devices, or events. Use allOf to add an items array of the right type.",
 
     "properties": {

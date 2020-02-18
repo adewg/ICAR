@@ -1,42 +1,50 @@
-[
-    {
-        "id": "1",
-        "animal": {
-            "id": "SE-801-2137-4",
-            "scheme": "se.animal-id"
-        },
-        "eventDateTime": "2020-03-19T00:00:00",
-        "location": {
-            "id": "801",
-            "scheme": "se.herd-id"
-        },
-        "meta": {
-            "source": "vxa.mro",
-            "creator": "bza632",
-            "modified": "2020-01-29T08:49:06.0421042+00:00",
-            "created": "2020-01-19T10:20:00.0421042+00:00",
-            "validFrom": null,
-            "validTo": null
-        }
+{
+    "view": {
+        "totalItems": 2,
+        "totalPages": 1,
+        "pageSize": 10,
+        "currentPage": 1
     },
-    {
-        "id": "2",
-        "animal": {
-            "id": "SE-801-4259-5",
-            "scheme": "se.animal-id"
+    "member": [
+        {
+            "id": "1",
+            "animal": {
+                "id": "SE-801-2137-4",
+                "scheme": "se.animal-id"
+            },
+            "eventDateTime": "2020-03-19T00:00:00",
+            "location": {
+                "id": "801",
+                "scheme": "se.herd-id"
+            },
+            "meta": {
+                "source": "vxa.mro",
+                "creator": "bza632",
+                "modified": "2020-01-29T08:49:06.0421042+00:00",
+                "created": "2020-01-19T10:20:00.0421042+00:00",
+                "validFrom": null,
+                "validTo": null
+            }
         },
-        "eventDateTime": "2020-01-03T00:00:00",
-        "location": {
-            "id": "801",
-            "scheme": "se.herd-id"
-        },
-        "meta": {
-            "source": "vxa.mro",
-            "creator": "bza632",
-            "modified": "2020-01-18T08:49:06.1314223+00:00",
-            "created": "2020-01-03T10:29:00.0421042+00:00",
-            "validFrom": null,
-            "validTo": null
+        {
+            "id": "2",
+            "animal": {
+                "id": "SE-801-4259-5",
+                "scheme": "se.animal-id"
+            },
+            "eventDateTime": "2020-01-03T00:00:00",
+            "location": {
+                "id": "801",
+                "scheme": "se.herd-id"
+            },
+            "meta": {
+                "source": "vxa.mro",
+                "creator": "bza632",
+                "modified": "2020-01-18T08:49:06.1314223+00:00",
+                "created": "2020-01-03T10:29:00.0421042+00:00",
+                "validFrom": null,
+                "validTo": null
+            }
         }
-    }
-]
+    ]
+}

@@ -10,13 +10,10 @@
       "email": "icar@icar.org"
     }
   },
-  "servers": [
-    {
-      "url": "https://icar-ade.standard.com"
-    }
-  ],
-  "tags": [
-    {
+  "servers": [{
+    "url": "https://icar-ade.standard.com"
+  }],
+  "tags": [{
       "name": "additions",
       "description": "new endpoints not yet approved"
     },
@@ -46,8 +43,7 @@
         "tags": [
           "release-candidate-milk"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -93,8 +89,7 @@
         "tags": [
           "release-candidate-milk"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -140,8 +135,7 @@
         "tags": [
           "release-candidate-registration"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -182,8 +176,7 @@
         "tags": [
           "release-candidate-registration"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -224,8 +217,7 @@
         "tags": [
           "release-candidate-registration"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -271,8 +263,7 @@
         "tags": [
           "release-candidate-registration"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -313,8 +304,7 @@
         "tags": [
           "release-candidate-registration"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -349,8 +339,7 @@
         "tags": [
           "release-candidate-reproduction"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -396,8 +385,7 @@
         "tags": [
           "release-candidate-reproduction"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -438,8 +426,7 @@
         "tags": [
           "release-candidate-reproduction"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -485,8 +472,7 @@
         "tags": [
           "release-candidate-reproduction"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -535,8 +521,7 @@
         "tags": [
           "release-candidate-reproduction"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -577,8 +562,7 @@
         "tags": [
           "release-candidate-reproduction"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -619,8 +603,7 @@
         "tags": [
           "release-candidate-other"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -661,8 +644,7 @@
         "tags": [
           "release-candidate-other"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -695,7 +677,7 @@
         }
       }
     },
-   "/locations/{location-scheme}/{location-id}/mating-recommendations": {
+    "/locations/{location-scheme}/{location-id}/mating-recommendations": {
       "get": {
         "operationId": "get-mating-recommendations",
         "summary": "Get the mating recommendations for a certain location",
@@ -703,8 +685,7 @@
         "tags": [
           "release-candidate-reproduction"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
           },
           {
@@ -750,52 +731,52 @@
         }
       },
       "milking-visit": {
-        "$ref": "icarMilkingVisitEventResource.json"
+        "$ref": "icarMilkingVisitEventCollection.json"
       },
       "mating-recommendation": {
-        "$ref": "icarReproMatingRecommendationResource.json"
+        "$ref": "icarReproMatingRecommendationCollection.json"
       },
       "test-day-result": {
-        "$ref": "icarTestDayResource.json"
+        "$ref": "icarTestDayResultEventCollection.json"
       },
       "birth": {
-        "$ref": "icarMovementBirthEventResource.json"
+        "$ref": "icarMovementBirthEventCollection.json"
       },
       "death": {
-        "$ref": "icarMovementDeathEventResource.json"
+        "$ref": "icarMovementDeathEventCollection.json"
       },
       "arrival": {
-        "$ref": "icarMovementArrivalEventResource.json"
+        "$ref": "icarMovementArrivalEventCollection.json"
       },
       "departure": {
-        "$ref": "icarMovementDepartureEventResource.json"
+        "$ref": "icarMovementDepartureEventCollection.json"
       },
       "animal": {
-        "$ref": "icarAnimalCoreResource.json"
+        "$ref": "icarAnimalCoreCollection.json"
       },
       "pregnancy-check": {
-        "$ref": "icarReproPregnancyCheckEventResource.json"
+        "$ref": "icarReproPregnancyCheckEventCollection.json"
       },
       "heat": {
-        "$ref": "icarReproHeatEventResource.json"
+        "$ref": "icarReproHeatEventCollection.json"
       },
       "insemination": {
-        "$ref": "icarReproInseminationEventResource.json"
+        "$ref": "icarReproInseminationEventCollection.json"
       },
       "drying-off": {
-        "$ref": "icarMilkingDryOffEventResource.json"
+        "$ref": "icarMilkingDryOffEventCollection.json"
       },
       "abortion": {
-        "$ref": "icarReproAbortionEventResource.json"
+        "$ref": "icarReproAbortionEventCollection.json"
       },
       "parturition": {
-        "$ref": "icarReproParturitionEventResource.json"
+        "$ref": "icarReproParturitionEventCollection.json"
       },
       "weight": {
-        "$ref": "icarWeightEventResource.json"
+        "$ref": "icarWeightEventCollection.json"
       },
       "device": {
-        "$ref": "icarDeviceResource.json"
+        "$ref": "icarDeviceCollection.json"
       }
     },
     "parameters": {
@@ -864,8 +845,14 @@
     },
     "examples": {
       "arrival": {
-        "value": [
-          {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
             "id": "ac9bdd26-0e20-44e7-b311-7d3d988f9717",
             "animal": {
               "id": "NL 919713288",
@@ -883,23 +870,20 @@
               "birthDate": "2013-11-06",
               "breedFractions": {
                 "denominator": "8",
-                "fractions": [
-                  {
-                    "breed": {
-                      "id": "HF",
-                      "scheme": "icar.org"
-                    },
-                    "fraction": "8"
-                  }
-                ]
+                "fractions": [{
+                  "breed": {
+                    "id": "HF",
+                    "scheme": "icar.org"
+                  },
+                  "fraction": "8"
+                }]
               },
               "coatColor": "RB",
               "managementTag": "88",
               "name": "NELLY 258",
               "productionPurpose": "Milk",
               "status": "Alive",
-              "parentage": [
-                {
+              "parentage": [{
                   "parentOf": {
                     "id": "NL 919713288",
                     "scheme": "nl.ubn"
@@ -927,12 +911,18 @@
                 }
               ]
             }
-          }
-        ]
+          }]
+        }
       },
       "milking-visit": {
-        "value": [
-          {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
             "id": "706250",
             "animal": {
               "id": "NL 877034232",
@@ -959,28 +949,23 @@
             "measureDeviceId": "101",
             "eventOffset": "2019-11-01T23:58:31",
             "eventDeviceId": "101",
-            "quarterMilkings": [
-              {
-                "icarQuarterId": "LF",
-                "milkingDuration": {
-                  "value": "210",
-                  "unitCode": "SEC"
-                },
-                "milkingMilkWeight": {
-                  "value": 3.5,
-                  "unitCode": "KGM"
-                }
+            "quarterMilkings": [{
+              "icarQuarterId": "LF",
+              "milkingDuration": {
+                "value": "210",
+                "unitCode": "SEC"
+              },
+              "milkingMilkWeight": {
+                "value": 3.5,
+                "unitCode": "KGM"
               }
-            ],
-            "animalMilkingSample": [
-              {
-                "bottleIdentifierType": "BRC",
-                "rackNumber": "3",
-                "bottlePosition": "7"
-              }
-            ],
-            "icarMilkCharacteristics": [
-              {
+            }],
+            "animalMilkingSample": [{
+              "bottleIdentifierType": "BRC",
+              "rackNumber": "3",
+              "bottlePosition": "7"
+            }],
+            "icarMilkCharacteristics": [{
                 "characteristic": "FAT",
                 "value": "3.74",
                 "unit": "VP",
@@ -992,12 +977,18 @@
                 "unit": "VP"
               }
             ]
-          }
-        ]
+          }]
+        }
       },
       "test-day-result": {
-        "value": [
-          {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
             "id": "706250",
             "animal": {
               "id": "NL 877034232",
@@ -1009,8 +1000,7 @@
               "unitCode": "KGM"
             },
             "testDayCode": "0",
-            "icarMilkCharacteristics": [
-              {
+            "icarMilkCharacteristics": [{
                 "characteristic": "FAT",
                 "value": "3.74",
                 "unit": "VP",
@@ -1022,31 +1012,31 @@
                 "unit": "VP"
               }
             ]
-          }
-        ]
+          }]
+        }
       },
       "insemination-finland": {
         "value": {
           "summary": "Example of insemination event messages from finnish milk recording organization",
-          "externalValue": "./examples/exampleInseminationEventResources_Finland.json"
+          "externalValue": "examples/exampleInseminationEventResources_Finland.json"
         }
       },
       "pregnancy-check-finland": {
         "value": {
           "summary": "Example of pregnancy check event messages from finnish milk recording organization",
-          "externalValue": "./examples/examplePregnancyCheckEventResources_Finland.json"
+          "externalValue": "examples/examplePregnancyCheckEventResources_Finland.json"
         }
       },
       "drying-off-finland": {
         "value": {
           "summary": "Example of drying off event messages from finnish milk recording organization",
-          "externalValue": "./examples/exampleDryOffEventResources_Finland.json"
+          "externalValue": "examples/exampleDryOffEventResources_Finland.json"
         }
       },
       "drying-off-sweden": {
         "value": {
           "summary": "Example of drying off event messages from swedish milk recording organization",
-          "externalValue": "./examples/exampleDryOffEventResources_Sweden.json"
+          "externalValue": "examples/exampleDryOffEventResources_Sweden.json"
         }
       }
     }
