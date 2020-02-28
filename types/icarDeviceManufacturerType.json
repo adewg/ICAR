@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "description": "Describes the devices on a certain location.",
+    "required": [
+        "id"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Unique id of the manufacturer. Domain name/url --> lely.com, …"
+        },
+        "deviceType": {
+            "type": "string",
+            "description": "A device type registered within the database proposed by the Sensor Working Group. This could be a UUID but we prefer a meaningful string."
+        },
+        "deviceName": {
+            "type": "string",
+            "description": "Name given to the device by the manufacturer."
+        },
+        "deviceDescription": {
+            "type": "string",
+            "description": "Description of the device by the manufacturer."
+        },
+        "deviceConfiguration": {
+            "type": "string",
+            "description": "Configuration of the device."
+        }
+    }
+}

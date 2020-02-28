@@ -1,0 +1,26 @@
+{
+  "description": "Mating recommendation for an animal",
+
+  "type": "object",
+
+  "required": [
+    "id",
+    "animal",
+    "eventDateTime"
+  ],
+
+  "allOf": [{
+      "$ref": "icarEventCoreResource.json"
+    },
+    {
+      "properties": {
+        "sireRecommendations": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarSireRecommendationType.json"
+          }
+        }
+      }
+    }
+  ]
+}

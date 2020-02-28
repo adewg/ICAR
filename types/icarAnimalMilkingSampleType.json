@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "bottleIdentifierType": {
+      "type": "string",
+      "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode",
+      "enum": [
+        "BRC",
+        "RFD"
+      ]
+    },
+    "rackNumber": {
+      "type": "string",
+      "description": "Number of the sample rack"
+    },
+    "bottlePosition": {
+      "type": "string",
+      "description": "Position of the bottle in the sample rack"
+    },
+    "bottleIdentifier": {
+      "type": "string",
+      "description": "Bottle identifier read from barcode or RFID"
+    },
+    "validSampleFillingIndicator": {
+      "type": "string",
+      "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list",
+      "enum": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "description": "The operator that took the sample"
+    }
+  }
+}

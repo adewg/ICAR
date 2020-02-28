@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "description": "Defines a reference to another resource.",
+
+    "properties": {
+        "@context": {
+            "type": "string",
+            "description": "Tells us the type of the referenced resource object (eg. icarAnimalCore)."
+        },
+        "@id": {
+            "type": "string",
+            "format": "uri",
+            "description": "Uniform resource idendentifier (URI) of the referenced resource."
+        },
+        "@type": {
+            "type": "string",
+            "description": "Specifies whether this is a single resource Link or a Collection.",
+            "enum": ["Link"]
+        }
+    }
+}
