@@ -731,7 +731,7 @@
         "description": "Error information",
         "properties": {
           "data": {
-            "$ref": "exampleErrorResource.json"
+            "$ref": "../resources/exampleErrorResource.json"
           }
         }
       },
