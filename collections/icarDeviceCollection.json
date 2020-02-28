@@ -1,6 +1,7 @@
 {
+    "description": "Represents a collection of devices. Based on icarResourceCollection to provide paging etc.",
+
     "type": "object",
-    "description": "Represents a collection of animal weight events. Based on icarResourceCollection to provide paging etc.",
 
     "allOf": [{
             "$ref": "icarResourceCollection.json"
@@ -10,7 +11,7 @@
                 "member": {
                     "type": "array",
                     "items": {
-                        "$ref": "icarWeightEventResource.json"
+                        "$ref": "../resources/icarDeviceResource.json"
                     },
                     "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case weight events."
                 }

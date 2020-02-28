@@ -725,52 +725,52 @@
         "$ref": "../resources/exampleErrorResource.json"
       },
       "milking-visit": {
-        "$ref": "../resources/icarMilkingVisitEventCollection.json"
+        "$ref": "../collections/icarMilkingVisitEventCollection.json"
       },
       "mating-recommendation": {
-        "$ref": "../resources/icarReproMatingRecommendationCollection.json"
+        "$ref": "../collections/icarReproMatingRecommendationCollection.json"
       },
       "test-day-result": {
-        "$ref": "../resources/icarTestDayResultEventCollection.json"
+        "$ref": "../collections/icarTestDayResultEventCollection.json"
       },
       "birth": {
-        "$ref": "../resources/icarMovementBirthEventCollection.json"
+        "$ref": "../collections/icarMovementBirthEventCollection.json"
       },
       "death": {
-        "$ref": "../resources/icarMovementDeathEventCollection.json"
+        "$ref": "../collections/icarMovementDeathEventCollection.json"
       },
       "arrival": {
-        "$ref": "../resources/icarMovementArrivalEventCollection.json"
+        "$ref": "../collections/icarMovementArrivalEventCollection.json"
       },
       "departure": {
-        "$ref": "../resources/icarMovementDepartureEventCollection.json"
+        "$ref": "../collections/icarMovementDepartureEventCollection.json"
       },
       "animal": {
-        "$ref": "../resources/icarAnimalCoreCollection.json"
+        "$ref": "../collections/icarAnimalCoreCollection.json"
       },
       "pregnancy-check": {
-        "$ref": "../resources/icarReproPregnancyCheckEventCollection.json"
+        "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
       "heat": {
-        "$ref": "../resources/icarReproHeatEventCollection.json"
+        "$ref": "../collections/icarReproHeatEventCollection.json"
       },
       "insemination": {
-        "$ref": "../resources/icarReproInseminationEventCollection.json"
+        "$ref": "../collections/icarReproInseminationEventCollection.json"
       },
       "drying-off": {
-        "$ref": "../resources/icarMilkingDryOffEventCollection.json"
+        "$ref": "../collections/icarMilkingDryOffEventCollection.json"
       },
       "abortion": {
-        "$ref": "../resources/icarReproAbortionEventCollection.json"
+        "$ref": "../collections/icarReproAbortionEventCollection.json"
       },
       "parturition": {
-        "$ref": "../resources/icarReproParturitionEventCollection.json"
+        "$ref": "../collections/icarReproParturitionEventCollection.json"
       },
       "weight": {
-        "$ref": "../resources/icarWeightEventCollection.json"
+        "$ref": "../collections/icarWeightEventCollection.json"
       },
       "device": {
-        "$ref": "../resources/icarDeviceCollection.json"
+        "$ref": "../collections/icarDeviceCollection.json"
       }
     },
     "parameters": {

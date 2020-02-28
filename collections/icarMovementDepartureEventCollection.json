@@ -11,7 +11,7 @@
                 "member": {
                     "type": "array",
                     "items": {
-                        "$ref": "icarMovementDepartureEventResource.json"
+                        "$ref": "../resources/icarMovementDepartureEventResource.json"
                     },
                     "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case departure events."
                 }

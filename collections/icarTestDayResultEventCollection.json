@@ -11,7 +11,7 @@
                 "member": {
                     "type": "array",
                     "items": {
-                        "$ref": "icarTestDayResultEventResource.json"
+                        "$ref": "../resources/icarTestDayResultEventResource.json"
                     },
                     "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case test day result events."
                 }
