@@ -1,1 +1,0 @@
-{"@context":{"xsd":"http://www.w3.org/2001/XMLSchema#","MilkingEvents":{"@id":"https://www.datalinker.org/context/ICARHerdEventCatalog-MilkingEvents","@type":"xsd:url"},"MovementEvents":{"@id":"https://www.datalinker.org/context/ICARHerdEventCatalog-MovementEvents","@type":"xsd:url"}}}

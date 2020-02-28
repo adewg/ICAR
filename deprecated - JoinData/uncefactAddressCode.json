@@ -1,9 +1,0 @@
-{
-        "type": "integer",
-        "description": "A mutually agreed code signifying the type of this address.\n* `1` - Postal address. The address is representing a postal address.\n* `2` - Fiscal address. Identification of an address as required by fiscal administrations.\n* `3` - Physical address. The address represents an actual physical location.\n",
-        "enum": [
-          1,
-          2,
-          3
-        ]
-}

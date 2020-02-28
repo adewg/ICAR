@@ -1,5 +1,0 @@
-{
-        "type": "string",
-        "description": "udt:DateType | A day of the month or year as specified by a number.",
-        "format": "date"
-}

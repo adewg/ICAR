@@ -1,5 +1,0 @@
-{
-        "type": "boolean",
-        "description": "Indication whether the cow was inseminated for flushing.",
-        "default": false
-      }
