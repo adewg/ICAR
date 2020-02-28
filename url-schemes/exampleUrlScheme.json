@@ -1,6 +1,5 @@
 {
   "openapi": "3.0.1",
-
   "info": {
     "title": "Release Candidate Messages",
     "description": "The specifications of messages which are ready for ICAR approval and release",
@@ -11,11 +10,9 @@
       "email": "icar@icar.org"
     }
   },
-
   "servers": [{
     "url": "https://icar-ade.standard.com"
   }],
-
   "tags": [{
       "name": "additions",
       "description": "new endpoints not yet approved"
@@ -37,7 +34,6 @@
       "description": "Reproduction messages approved by the working group, waiting for a test"
     }
   ],
-
   "paths": {
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
@@ -723,17 +719,10 @@
       }
     }
   },
-
   "components": {
     "schemas": {
       "error": {
-        "type": "object",
-        "description": "Error information",
-        "properties": {
-          "data": {
-            "$ref": "../resources/exampleErrorResource.json"
-          }
-        }
+        "$ref": "../resources/exampleErrorResource.json"
       },
       "milking-visit": {
         "$ref": "../resources/icarMilkingVisitEventCollection.json"
