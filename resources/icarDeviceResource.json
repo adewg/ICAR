@@ -46,7 +46,7 @@
         "type": "object",
         "properties": {
           "messages": {
-            "$ref": "../enums/icarMessagesType.json"
+            "$ref": "../enums/icarMessageType.json"
           }
         }
       }
