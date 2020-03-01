@@ -1,0 +1,33 @@
+{
+  "description": "Generic meta data on this event",
+
+  "type": "object",
+
+  "required": [
+    "source",
+    "modified"
+  ],
+
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Source where data is retrieved from. URI that identified the source system"
+    },
+    "modified": {
+      "$ref": "icarDateTimeType.json"
+    },
+    "created": {
+      "$ref": "icarDateTimeType.json"
+    },
+    "creator": {
+      "type": "string",
+      "description": "Person or organisation who created the object"
+    },
+    "validFrom": {
+      "$ref": "icarDateTimeType.json"
+    },
+    "validTo": {
+      "$ref": "icarDateTimeType.json"
+    }
+  }
+}

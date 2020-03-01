@@ -1,8 +1,0 @@
-{
-        "type": "string",
-        "description": "Based upon Icar gc:GenderCodeType. Allowed values are -F- for female and -M- for male.",
-        "enum": [
-          "F",
-          "M"
-        ]
-}

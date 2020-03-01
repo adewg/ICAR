@@ -1,5 +1,0 @@
-{
-        "type": "boolean",
-        "description": "Indication whether semen from 2 bulls was used for this insemination.",
-        "default": false
-}

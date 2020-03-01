@@ -1,8 +1,0 @@
-{ 
-    "type": "string",
-    "description": "Enumeration for registration reason: Born, or Registered (induct existing animal).",
-    "enum": [
-      "Born",
-      "Registered"
-    ]
-  }

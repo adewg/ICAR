@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  
+  "description": "Gives one possible sire recommended to use on an animal.",
+
+  "properties": {
+    "recommendationType": {
+      "$ref": "../enums/icarRecommendationType.json"
+    },
+    "sireIdentifiers": {
+      "type": "array",
+      "items": {
+        "$ref": "icarAnimalIdentifierType.json"
+      },
+      "description": "Unique scheme/identifier combinations for the sire, including official ID and Herdbook."
+    },
+    "sireOfficialName": {
+      "type": "string",
+      "description": "Official herdbook name of the sire."
+    },
+    "sireURI": {
+      "type": "string",
+      "description": "URI to an AnimalCoreResource for the sire."
+    },
+    "isSexedSemen": {
+      "type": "boolean",
+      "description": "True if this is sexed semen."
+    },
+    "sexedGender": {
+      "$ref": "../enums/icarAnimalGenderType.json",
+      "description": "Specify Male or Female for sexed semen only."
+    },
+    "parity": {
+      "type": "number",
+      "format": "integer",
+      "description": "The parity of the cow for which the recommendation is valid."
+    },
+    "sireRank": {
+      "type": "number",
+      "format": "integer",
+      "description": "The rank of the sire in the recommendation, 1 = first choice, 2 = second, ...."
+    }
+  }
+}

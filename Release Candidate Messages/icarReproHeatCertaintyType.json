@@ -1,8 +1,0 @@
-{ 
-    "type": "string",
-    "description": "The certainty of a specific heat",
-    "enum": [
-      "InHeat",
-      "Suspect"
-    ]
-}

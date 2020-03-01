@@ -1,0 +1,74 @@
+{
+  "description": "Event for recording milking visit",
+
+  "type": "object",
+
+  "required": [
+    "id",
+    "animal",
+    "milkingStartingDateTime",
+    "milkingMilkWeight"
+  ],
+
+  "allOf": [{
+      "$ref": "icarEventCoreResource.json"
+    },
+    {
+      "properties": {
+        "milkingStartingDateTime": {
+          "$ref": "../types/icarDateTimeType.json"
+        },
+        "milkingDuration": {
+          "$ref": "../types/icarMilkDurationType.json"
+        },
+        "milkingVisitDuration": {
+          "$ref": "../types/icarMilkDurationType.json"
+        },
+        "milkingType": {
+          "$ref": "../enums/icarMilkingTypeCode.json"
+        },
+        "milkingMilkWeight": {
+          "$ref": "../types/icarMilkingMilkWeightType.json"
+        },
+        "milkingComplete": {
+          "type": "boolean",
+          "description": "indication whether this milking was completed normally"
+        },
+        "milkingParlourUnit": {
+          "type": "string",
+          "description": "The milking parlour unit where the milking took place."
+        },
+        "milkingBoxNumber": {
+          "type": "string",
+          "description": "The milking box number where the milking took place."
+        },
+        "milkingDeviceId": {
+          "type": "string",
+          "description": "The ID of the device where the milking took place"
+        },
+        "measureDeviceId": {
+          "type": "string",
+          "description": "The ID of the device where the measurement of the milking took place"
+        },
+        "quarterMilkings": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarQuarterMilkingType.json"
+          }
+        },
+        "animalMilkingSample": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalMilkingSampleType.json"
+          }
+        },
+        "milkCharacteristics": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarMilkCharacteristicsType.json"
+          }
+        }
+      }
+    }
+  ]
+}

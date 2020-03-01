@@ -1,0 +1,32 @@
+{
+  "description": "Event for representing test day result",
+
+  "type": "object",
+
+  "required": [
+    "id",
+    "animal",
+    "EventDateTime"
+  ],
+
+  "allOf": [{
+      "$ref": "icarEventCoreResource.json"
+    },
+    {
+      "properties": {
+        "MilkWeight24Hours": {
+          "$ref": "../types/icarMilkingMilkWeightType.json"
+        },
+        "TestDayCode": {
+          "$ref": "../enums/icarTestDayCodeType.json"
+        },
+        "milkCharacteristics": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarMilkCharacteristicsType.json"
+          }
+        }
+      }
+    }
+  ]
+}

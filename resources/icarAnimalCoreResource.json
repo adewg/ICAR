@@ -1,0 +1,82 @@
+{
+  "description": "Core schema for representing animal",
+
+  "type": "object",
+
+  "required": [
+    "identifier",
+    "specie",
+    "gender"
+  ],
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "properties": {
+        "identifier": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "alternativeIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "Alternative identifiers for the animal."
+        },
+        "specie": {
+          "$ref": "../enums/icarAnimalSpecieType.json",
+          "description": "Species of the animal."
+        },
+        "gender": {
+          "$ref": "../enums/icarAnimalGenderType.json",
+          "description": "Gender of the animal."
+        },
+        "birthDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "ISO8601 date and time."
+        },
+        "primaryBreed": {
+          "$ref": "../types/icarBreedIdentifierType.json",
+          "description": "ICAR Breed code for the animal."
+        },
+        "breedFractions": {
+          "$ref": "../types/icarBreedFractionsType.json",
+          "description": "Breed fractions for the animal."
+        },
+        "coatColor": {
+          "type": "string",
+          "description": "Colour of the animal's coat, using the conventions for that breed."
+        },
+        "managementTag": {
+          "type": "string",
+          "description": "The identifier used by the farmer in day to day operations."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name given by the farmer for this animal."
+        },
+        "officialName": {
+          "type": "string",
+          "description": "Official herdbook name."
+        },
+        "productionPurpose": {
+          "$ref": "../enums/icarProductionPurposeType.json",
+          "description": "Primary production purpose for which animals are bred."
+        },
+        "status": {
+          "$ref": "../enums/icarAnimalStatusType.json",
+          "description": "On-farm status of the animal (such as alive, dead, off-farm)."
+        },
+        "parentage": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarParentageType.json",
+            "description": "Array of parents."
+          }
+        }
+      }
+    }
+  ]
+}

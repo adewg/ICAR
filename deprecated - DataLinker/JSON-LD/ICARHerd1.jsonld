@@ -1,1 +1,0 @@
-{"@context":{"xsd":"http://www.w3.org/2001/XMLSchema#","id":{"@id":"https://www.datalinker.org/context/ICARHerd-id","@type":"xsd:string"},"identifiers":{"@id":"https://www.datalinker.org/context/ICARHerd-Identifiers","@container":"@set","@type":"@id"},"animals":{"@id":"https://www.datalinker.org/context/ICARHerd-Animals","@type":"@id"}}}

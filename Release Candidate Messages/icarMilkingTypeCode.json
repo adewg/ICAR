@@ -1,8 +1,0 @@
-{
-            "type": "string",
-            "description": "The type of milking (manual or automated)",
-            "enum": [
-              "Manual",
-              "Automated"
-            ]
-}
