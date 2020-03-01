@@ -1,0 +1,64 @@
+{
+    "view": {
+        "totalItems": 1,
+        "totalPages": 1,
+        "pageSize": 10,
+        "currentPage": 1
+    },
+    "member": [
+        {
+            "id": "4bd700b2-4f8b-4ab8-8cbf-7bb62d4e2bc3",
+            "animal": {
+                "id": "FI000010773604-2",
+                "scheme": "fi.animal-id"
+            },
+            "eventDateTime": "2018-03-19T00:00:00",
+            "location": {
+                "id": "9900001",
+                "scheme": "fi.herd-id"
+            },
+            "method": "Palpation",
+            "result": "Unknown",
+            "foetalAge": null,
+            "foetusCount": null,
+            "foetusCountMale": null,
+            "foetusCountFemale": null,
+            "exceptions": null,
+            "meta": {
+                "source": "fi.mro",
+                "creator": "v9900001",
+                "modified": "2018-03-29T08:49:06.0421042+00:00",
+                "created": "2018-03-19T08:49:06.0421042+00:00",
+                "validFrom": null,
+                "validTo": null
+            }
+        },
+        {
+            "id": "85ec425d-f079-437e-801b-88756c912102",
+            "animal": {
+                "id": "FI000010065148-1",
+                "scheme": "fi.animal-id"
+            },
+            "eventDateTime": "2018-04-03T00:00:00",
+            "location": {
+                "id": "9900001",
+                "scheme": "fi.herd-id"
+            },
+            "method": "Palpation",
+            "result": "Pregnant",
+            "foetalAge": null,
+            "foetusCount": null,
+            "foetusCountMale": null,
+            "foetusCountFemale": null,
+            "exceptions": null,
+            "meta": {
+                "source": "fi.mro",
+                "creator": "v9900001",
+                "modified": "2018-04-29T08:49:06.0421042+00:00",
+                "created": "2018-04-19T08:49:06.0421042+00:00",
+                "validFrom": null,
+                "validTo": null
+            }
+        }
+    ]
+}

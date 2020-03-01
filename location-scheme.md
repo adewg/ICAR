@@ -21,6 +21,11 @@ The registry below is INFORMATIVE (other schemes can be used), but helps establi
 # Identifier Format
 We prefer that schemes are human readable even when URL-encoded. This means we prefer that schemes do not contain : or / or other special characters. We recommend the [Reverse Domain Name](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) notation used by Java and Android packages, because it will tend to naturally group schemes from the same organisation or country. For example, "org.icar.id".
 
+# Relation with other standards
+
+## Netherlands - AgroConnect
+In the Netherlands, a similar list of identifier schemes are managed by [AgroConnect](https://www.agroconnect.nl/). Codelist CL709 describes a compatible list.
+
 # Schemes
 
 ## Farms / locations
@@ -29,14 +34,19 @@ We prefer that schemes are human readable even when URL-encoded. This means we p
 |---|---|---|---|---|
 | eu-farm-id  | farm id  |  276031231231234 | EU wide scheme with a country prefix, combining multiple national schemes | |
 | de-farm-id  | farm id  | 96123456.001.001  |  Farm ID as issued by VIT. The first section correlates 1:1 with a eu-farm-id while the latter two sections specify the location in more detail. | |
-| nl-ubn  | uniek bedrijfsnummer  |   | Used in the Netherlands, used by the government (see [Uniek Bedrijfsnummer on wikipedia](https://nl.wikipedia.org/wiki/Uniek_Bedrijfsnummer). Note: this may be part of the eu-farm-id scheme?  | |
-| be-pen  | Productie-eenheidsnummer   |   | Issued by Agentschap voor Landbouw en Visserij (ALV) | |
+| nl.ubn  | uniek bedrijfsnummer  |   | Used in the Netherlands, used by the government (see [Uniek Bedrijfsnummer on wikipedia](https://nl.wikipedia.org/wiki/Uniek_Bedrijfsnummer). Note: this may be part of the eu-farm-id scheme?  | |
+| nl.brs  | bedrijfs registratienummer | | Used in the Netherlands, used by RVO (also known as "mestnummer" | |
+| be.pen  | Productie-eenheidsnummer   |   | Issued by Agentschap voor Landbouw en Visserij (ALV) | |
+| org.gs1.gln | global location number GS1 | | Global location numbers as registered by GS1 | |
+
 | au.gov.ag.pic | PIC | NA477352 | Australian farm property identifier code. Issued by each State's department of agriculture. |
 
 ## Milk tank id's
 | id  | name  | example| region & issuing party  | RegEx | 
 |---|---|---|---|---|
-| nl-ftn  | milk tank id (fabriekstanknummer)  |  123123456 | Dutch scheme for indicating milk tanks. Issued by dairy factories. First 3 digits indicate factory, last 6 are the tank id. | |
+| nl.ftn  | dairy plant id + milk tank id (fabriekstanknummer)  |  123123456 | Dutch scheme for indicating milk tanks. Issued by dairy factories. First 3 digits indicate factory, last 6 are the tank id. | |
+| nl.tnk  | milk tank id |  123456 | Dutch scheme for indicating milk tanks. Issued by dairy factories. Is the same as the FTN without the factory prefix. Use of nl.ftn is preferred since those are nationally unique. | |
+| nl.plnt  | plant id  |  123 | Dutch scheme for indicating dairy plants. Issued by AgroConnect. | |
 
 
 ## Animals
@@ -53,6 +63,24 @@ These schemes point to a legal entity. One that can be authenticated and is auth
 
 | id  | name  | example| region & issuing party  | RegEx |
 |---|---|---|---|---|
-| nl-kvk | Chamber of commerce number (Kamer van Koophandel nummer) |64039641 | Used in the Netherlands. Issued by the 'Kamer van Koophandel', can be checked at e.g. [OpenKVK](www.openkvk.nl) | |
-| be-onn | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) | |
+| nl.kvk | Chamber of commerce number (Kamer van Koophandel nummer) |64039641 | Used in the Netherlands. Issued by the 'Kamer van Koophandel', can be checked at e.g. [OpenKVK](www.openkvk.nl) | |
+| be.onn | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) | |
 
+
+## Others
+
+| id | name | description |
+|---|---|---|
+|nl.ir | identificatie & registratie rund nummer | |
+|nl.vat| btw-nummer | Value added tax ID |
+|nl.notsp | not specified |Not specified|
+|nl.fmi-id |pigproducer at organisation	| Pigproducer at organisation |
+|nl.zms-oms | administrative relation number | Administrative relation number |
+|nl.memnr | lidnummer | |
+|nl.ref | allocated by generating party | |
+|nl.skal | skal-nummer| not applicable |
+|cusnr | customer number | customer number |
+|de.vvvo | vvvo-nummer Duitsland | VVVO-number |
+|be.isb | isb-nummer België | ISB-number|
+|be.bslgnr | beslagnummer België, Sanitel)| not applicable |
+|egnr | EG-nummer | not applicable |

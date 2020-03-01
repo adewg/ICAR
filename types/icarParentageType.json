@@ -1,0 +1,34 @@
+{
+    "description": "Use this type to define a parent of an animal.",
+
+    "type": "object",
+
+    "required": [
+        "parentOf",
+        "gender",
+        "identifier"
+    ],
+
+    "properties": {
+        "parentOf": {
+            "$ref": "icarAnimalIdentifierType.json",
+            "description": "References the child of this parent (allowing you to build multi-generation pedigrees)."
+        },
+        "gender": {
+            "$ref": "../enums/icarAnimalGenderType.json",
+            "description": "Specifies Male or Female gender so you can recognise Sire or Dam."
+        },
+        "relation": {
+            "$ref": "../enums/icarAnimalRelationType.json",
+            "description": "Identifies type of parent: Genetic (default), Recipient, Adoptive (Foster/Rearing)."
+        },
+        "identifier": {
+            "$ref": "icarAnimalIdentifierType.json",
+            "description": "Unique animal scheme and identifier combination."
+        },
+        "officialName": {
+            "type": "string",
+            "description": "Official herdbook name."
+        }
+    }
+}

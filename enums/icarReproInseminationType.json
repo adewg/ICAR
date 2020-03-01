@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "description": "The method of insemination (natural service, run with bull, insemination, implantation",
+  "enum": [
+    "NaturalService",
+    "RunWithBull",
+    "Insemination",
+    "Implantation"
+  ]
+}

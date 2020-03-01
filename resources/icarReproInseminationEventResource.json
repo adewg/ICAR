@@ -1,0 +1,59 @@
+{
+  "description": "Event for recording natural or artificial insemination, including embryo transfer.",
+
+  "type": "object",
+
+  "required": [
+    "id",
+    "animal",
+    "eventDateTime",
+    "inseminationType"
+  ],
+
+  "allOf": [{
+      "$ref": "icarEventCoreResource.json"
+    },
+    {
+      "properties": {
+        "inseminationType": {
+          "$ref": "../enums/icarReproInseminationType.json"
+        },
+        "sireIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "Unique scheme/identifier combinations for the sire, including official ID and Herdbook."
+        },
+        "sireOfficialName": {
+          "type": "string",
+          "description": "Official herdbook name of the sire."
+        },
+        "sireURI": {
+          "type": "string",
+          "description": "URI to an AnimalCoreResource for the sire."
+        },
+        "straw": {
+          "$ref": "../resources/icarReproSemenStrawResource.json",
+          "description": "Details of the straw, which may also include sire details."
+        },
+        "eventEndDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "To be used in case of running with a bull to end the period. ISO8601 date and time. MUST contain time zone. UTC recommended."
+        },
+        "semenFromFarmStocks": {
+          "type": "boolean",
+          "description": "True if the semen is from the farmer's own stocks (false if supplied by technician)."
+        },
+        "farmContainer": {
+          "type": "string",
+          "description": "Number or ID of the container from which the dose was taken."
+        },
+        "embryo": {
+          "$ref": "../resources/icarReproEmbryoResource.json",
+          "description": "Details of the embryo."
+        }
+      }
+    }
+  ]
+}

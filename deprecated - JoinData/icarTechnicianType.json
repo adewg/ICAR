@@ -1,4 +1,0 @@
-{
-        "type": "string",
-        "description": "The identification of the person that performed the insemination. In case the farmer has performed the insemination a zero is applied. The possible id's are not provided in this documentation."
-}

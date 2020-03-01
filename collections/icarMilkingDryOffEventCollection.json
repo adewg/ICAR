@@ -1,0 +1,21 @@
+{
+    "description": "Represents a collection of animal drying off events. Based on icarResourceCollection to provide paging etc.",
+
+    "type": "object",
+
+    "allOf": [{
+            "$ref": "icarResourceCollection.json"
+        },
+        {
+            "properties": {
+                "member": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../resources/icarMilkingDryOffEventResource.json"
+                    },
+                    "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case weight events."
+                }
+            }
+        }
+    ]
+}

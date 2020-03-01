@@ -10,4 +10,4 @@ jobs:
     steps:
     - name: validate JSON URL scheme
       run: |
-        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/Release%20Candidate%20Messages/exampleUrlScheme.json -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/exampleUrlScheme.json -v

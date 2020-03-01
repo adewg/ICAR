@@ -1,1 +1,0 @@
-{"@context":{"xsd":"http://www.w3.org/2001/XMLSchema#","code":{"@id":"https://www.datalinker.org/context/ICARMilkCharacteristic-code","@type":"xsd:string"},"value":{"@id":"https://www.datalinker.org/context/ICARMilkCharaceteristic-value","@type":"xsd:decimal"}}}

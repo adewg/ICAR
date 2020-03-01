@@ -1,0 +1,56 @@
+{
+  "description": "Describes an implanted embryo.",
+
+  "type": "object",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "properties": {
+
+        "id": {
+          "$ref": "../types/icarIdentifierType.json",
+          "description": "Official identifier for the embryo (if any)."
+        },
+
+        "collectionCentre": {
+          "type": "string",
+          "description": "Identifies the collection centre."
+        },
+        "dateCollected": {
+          "description": "Records the date of collection.",
+          "$ref": "../types/icarDateTimeType.json"
+        },
+
+        "donorIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "One or more unique scheme/identifier combinations for the donor dam."
+        },
+        "donorURI": {
+          "type": "string",
+          "description": "URI to an AnimalCoreResource for the donor dam."
+        },
+
+        "sireIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "One or more unique scheme/identifier combinations for the sire."
+        },
+        "sireOfficialName": {
+          "type": "string",
+          "description": "Official herdbook name of the sire."
+        },
+        "sireURI": {
+          "type": "string",
+          "description": "URI to an AnimalCoreResource for the sire."
+        }
+      }
+    }
+  ]
+}
