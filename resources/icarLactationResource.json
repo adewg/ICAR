@@ -67,7 +67,7 @@
           "description": "This type of lactation based on lactation length that is delivered."
         },
         "milkRecordingMethod": {
-          "$ref": "../resources/icarMilkRecordingMethodType.json"
+          "$ref": "../types/icarMilkRecordingMethodType.json"
         }
       }
     }
