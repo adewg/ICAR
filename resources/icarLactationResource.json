@@ -63,7 +63,7 @@
           "description": "The date of the last test day in the lactation."
         },
         "lactationType": {
-          "$ref": "../types/icarLactationType.json",
+          "$ref": "../enums/icarLactationType.json",
           "description": "This type of lactation based on lactation length that is delivered."
         },
         "milkRecordingMethod": {
