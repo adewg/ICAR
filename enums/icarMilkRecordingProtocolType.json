@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "description": "Enumeration for lactation type.",
+  "enum": [
+    "A",
+    "B",
+    "C"
+  ]
+}
