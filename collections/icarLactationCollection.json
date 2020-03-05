@@ -13,7 +13,7 @@
                     "items": {
                         "$ref": "../resources/icarLactationResource.json"
                     },
-                    "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case animals."
+                    "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case lactations."
                 }
             }
         }
