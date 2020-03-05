@@ -127,6 +127,46 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/lactations: {
+      "get": {
+        "operationId": "get-lactations",
+        "summary": "Get the data for lactations",
+        "description": "# Purpose\nProvides data from lactations of animals.",
+        "tags": [
+          "release-candidate-milk"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/lactation"
+                  }
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/lactation"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/births": {
       "get": {
         "operationId": "get-births",
@@ -732,6 +772,9 @@
       },
       "test-day-result": {
         "$ref": "../collections/icarTestDayResultEventCollection.json"
+      },
+      "lactation": {
+        "$ref": "../collections/icarLactationCollection.json"
       },
       "birth": {
         "$ref": "../collections/icarMovementBirthEventCollection.json"
