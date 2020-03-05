@@ -152,11 +152,6 @@
                   "items": {
                     "$ref": "#/components/schemas/lactation"
                   }
-                },
-                "examples": {
-                  "base": {
-                    "$ref": "#/components/examples/lactation"
-                  }
                 }
               }
             }
