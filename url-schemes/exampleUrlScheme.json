@@ -127,7 +127,7 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/lactations: {
+    "/locations/{location-scheme}/{location-id}/lactations": {
       "get": {
         "operationId": "get-lactations",
         "summary": "Get the data for lactations",
