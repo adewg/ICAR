@@ -1,9 +1,9 @@
 {
   "type": "string",
-  "description": "Enumeration for lactation type.",
+  "description": "Enumeration for the milk recording protocol.",
   "enum": [
-    "A",
-    "B",
-    "C"
+    "OfficialMRORepresentative",
+    "HerdOwnerOrNominee",
+    "Both"
   ]
 }
