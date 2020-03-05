@@ -3,9 +3,9 @@
   "description": "Enumeration for lactation type.",
   "enum": [
     "Normal",
-    "100 days",
-    "200 days",
-    "305 days",
-    "365 days"
+    "100Days",
+    "200Days",
+    "305Days",
+    "365Days"
   ]
 }
