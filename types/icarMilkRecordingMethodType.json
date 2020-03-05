@@ -22,8 +22,8 @@
       "type": "number",
       "description": "A number in days of the interval between milk recordings. In case of e.g.4 weeks, use 30."
     },
-    "samplingMoment": {
-      "$ref": "../enums/icarSamplingMomentType.json",
+    "milkSamplingMoment": {
+      "$ref": "../enums/icarMilkSamplingMomentType.json",
       "description": "Composite = composite sample from morning and evening, Morning, Evening."
     },
     "icarCertified": {
