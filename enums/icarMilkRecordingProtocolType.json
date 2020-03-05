@@ -2,8 +2,8 @@
   "type": "string",
   "description": "Enumeration for the milk recording protocol.",
   "enum": [
-    "OfficialMRORepresentative",
-    "HerdOwnerOrNominee",
-    "Both"
+    "A-OfficialMRORepresentative",
+    "B-HerdOwnerOrNominee",
+    "C-Both"
   ]
 }
