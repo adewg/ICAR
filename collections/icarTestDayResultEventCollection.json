@@ -1,21 +1,21 @@
 {
-    "type": "object",
+  "type": "object",
 
-    "description": "Represents a collection of test day result events. Based on icarResourceCollection to provide paging etc.",
+  "description": "Represents a collection of test day result events. Based on icarResourceCollection to provide paging etc.",
 
-    "allOf": [{
-            "$ref": "icarResourceCollection.json"
-        },
-        {
-            "properties": {
-                "member": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "../resources/icarTestDayResultEventResource.json"
-                    },
-                    "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case test day result events."
-                }
-            }
+  "allOf": [{
+      "$ref": "icarResourceCollection.json"
+    },
+    {
+      "properties": {
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "../resources/icarTestDayResultEventResource.json"
+          },
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case test day result events."
         }
-    ]
+      }
+    }
+  ]
 }

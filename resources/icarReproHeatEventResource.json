@@ -1,81 +1,81 @@
 {
-    "description": "Event for recording heats.",
+  "description": "Event for recording heats.",
 
-    "type": "object",
+  "type": "object",
 
-    "required": [
-        "id",
-        "animal",
-        "eventDateTime"
-    ],
+  "required": [
+    "id",
+    "animal",
+    "eventDateTime"
+  ],
 
-    "allOf": [{
-            "$ref": "icarEventCoreResource.json"
+  "allOf": [{
+      "$ref": "icarEventCoreResource.json"
+    },
+    {
+      "properties": {
+        "heatDetectionMethod": {
+          "$ref": "../enums/icarReproHeatDetectionMethodType.json"
         },
-        {
-            "properties": {
-                "heatDetectionMethod": {
-                    "$ref": "../enums/icarReproHeatDetectionMethodType.json"
-                },
-                "certainty": {
-                    "$ref": "../enums/icarReproHeatCertaintyType.json"
-                },
-                "expirationDateTime": {
-                    "$ref": "../types/icarDateTimeType.json",
-                    "description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
-                },
-                "visualDetection": {
-                    "type": "object",
-                    "description": "Specific info when the heat was visually detected.",
-                    "properties": {
-                        "heatSigns": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "../enums/icarReproHeatSignType.json",
-                                "description": "Array of heat signs."
-                            }
-                        },
-                        "heatIntensity": {
-                            "$ref": "../enums/icarReproHeatIntensityType.json"
-                        }
-                    }
-                },
-                "heatReportScrSenseTime": {
-                    "type": "object",
-                    "description": "Specific info when the heat was detected by SenseTime from SCR",
-                    "properties": {
-                        "breedingWindow": {
-                            "type": "number",
-                            "format": "integer",
-                            "description": "Number of hours to AI."
-                        },
-                        "heatIndex": {
-                            "type": "number",
-                            "format": "integer",
-                            "description": "Gives an indication of the certainty of the heat indication."
-                        }
-                    }
-                },
-                "heatReportNedapCowControl": {
-                    "type": "object",
-                    "description": "Specific info when the heat was detected by CowControl from NEDAP",
-                    "properties": {
-                        "expirationDateTime": {
-                            "$ref": "../types/icarDateTimeType.json",
-                            "description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
-                        },
-                        "heatChance": {
-                            "type": "number",
-                            "format": "integer",
-                            "description": "Gives an indication of the certainty of the heat indication."
-                        }
-                    }
-                },
-                "device": {
-                    "$ref": "../types/icarDeviceReferenceType.json",
-                    "description": "Optional information about the device used for the measurement."
-                }
+        "certainty": {
+          "$ref": "../enums/icarReproHeatCertaintyType.json"
+        },
+        "expirationDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
+        },
+        "visualDetection": {
+          "type": "object",
+          "description": "Specific info when the heat was visually detected.",
+          "properties": {
+            "heatSigns": {
+              "type": "array",
+              "items": {
+                "$ref": "../enums/icarReproHeatSignType.json",
+                "description": "Array of heat signs."
+              }
+            },
+            "heatIntensity": {
+              "$ref": "../enums/icarReproHeatIntensityType.json"
             }
+          }
+        },
+        "heatReportScrSenseTime": {
+          "type": "object",
+          "description": "Specific info when the heat was detected by SenseTime from SCR",
+          "properties": {
+            "breedingWindow": {
+              "type": "number",
+              "format": "integer",
+              "description": "Number of hours to AI."
+            },
+            "heatIndex": {
+              "type": "number",
+              "format": "integer",
+              "description": "Gives an indication of the certainty of the heat indication."
+            }
+          }
+        },
+        "heatReportNedapCowControl": {
+          "type": "object",
+          "description": "Specific info when the heat was detected by CowControl from NEDAP",
+          "properties": {
+            "expirationDateTime": {
+              "$ref": "../types/icarDateTimeType.json",
+              "description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
+            },
+            "heatChance": {
+              "type": "number",
+              "format": "integer",
+              "description": "Gives an indication of the certainty of the heat indication."
+            }
+          }
+        },
+        "device": {
+          "$ref": "../types/icarDeviceReferenceType.json",
+          "description": "Optional information about the device used for the measurement."
         }
-    ]
+      }
+    }
+  ]
 }

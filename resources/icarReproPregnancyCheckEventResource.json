@@ -1,55 +1,55 @@
 {
-    "description": "Pregnancy diagnosis or check event.",
+  "description": "Pregnancy diagnosis or check event.",
 
-    "type": "object",
+  "type": "object",
 
-    "required": [
-        "id",
-        "animal",
-        "eventDateTime"
-    ],
+  "required": [
+    "id",
+    "animal",
+    "eventDateTime"
+  ],
 
-    "allOf": [{
-            "$ref": "icarEventCoreResource.json"
+  "allOf": [{
+      "$ref": "icarEventCoreResource.json"
+    },
+    {
+      "properties": {
+        "method": {
+          "$ref": "../enums/icarReproPregnancyMethodType.json",
+          "description": "Method by which diagnosis was carried out."
         },
-        {
-            "properties": {
-                "method": {
-                    "$ref": "../enums/icarReproPregnancyMethodType.json",
-                    "description": "Method by which diagnosis was carried out."
-                },
-                "result": {
-                    "$ref": "../enums/icarReproPregnancyResultType.json",
-                    "description": "Result - uknown, empty, pregnant."
-                },
-                "foetalAge": {
-                    "type": "number",
-                    "format": "integer",
-                    "description": "Assessed age of the foetus or length of the pregnancy (in days)."
-                },
-                "foetusCount": {
-                    "type": "number",
-                    "format": "integer",
-                    "description": "If specified, contains the number of foetuses observed."
-                },
-                "foetusCountMale": {
-                    "type": "number",
-                    "format": "integer",
-                    "description": "If specified, contains number of foetuses observed as male."
-                },
-                "foetusCountFemale": {
-                    "type": "number",
-                    "format": "integer",
-                    "description": "If specified, contains number of foetuses observed as female."
-                },
-                "exceptions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Additional local observations - such as ABNORMAL CALF"
-                }
-            }
+        "result": {
+          "$ref": "../enums/icarReproPregnancyResultType.json",
+          "description": "Result - uknown, empty, pregnant."
+        },
+        "foetalAge": {
+          "type": "number",
+          "format": "integer",
+          "description": "Assessed age of the foetus or length of the pregnancy (in days)."
+        },
+        "foetusCount": {
+          "type": "number",
+          "format": "integer",
+          "description": "If specified, contains the number of foetuses observed."
+        },
+        "foetusCountMale": {
+          "type": "number",
+          "format": "integer",
+          "description": "If specified, contains number of foetuses observed as male."
+        },
+        "foetusCountFemale": {
+          "type": "number",
+          "format": "integer",
+          "description": "If specified, contains number of foetuses observed as female."
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional local observations - such as ABNORMAL CALF"
         }
-    ]
+      }
+    }
+  ]
 }

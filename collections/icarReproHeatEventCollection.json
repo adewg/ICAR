@@ -1,21 +1,21 @@
 {
-    "description": "Represents a collection of animal heat events. Based on icarResourceCollection to provide paging etc.",
+  "description": "Represents a collection of animal heat events. Based on icarResourceCollection to provide paging etc.",
 
-    "type": "object",
+  "type": "object",
 
-    "allOf": [{
-            "$ref": "icarResourceCollection.json"
-        },
-        {
-            "properties": {
-                "member": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "../resources/icarReproHeatEventResource.json"
-                    },
-                    "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case heat events."
-                }
-            }
+  "allOf": [{
+      "$ref": "icarResourceCollection.json"
+    },
+    {
+      "properties": {
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "../resources/icarReproHeatEventResource.json"
+          },
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case heat events."
         }
-    ]
+      }
+    }
+  ]
 }

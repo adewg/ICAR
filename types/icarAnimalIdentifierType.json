@@ -1,4 +1,4 @@
 {
-        "$ref": "icarIdentifierType.json",
-        "description": "Identifies an animal using a scheme and ID."
+  "$ref": "icarIdentifierType.json",
+  "description": "Identifies an animal using a scheme and ID."
 }
