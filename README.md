@@ -1,11 +1,11 @@
 # ICAR ADE JSON draft
-The Release Candidate Messages repository contains the ICAR ADE work-in-progress JSON standard. Be aware that the Datalinker and the JoinData repositories are only there for inspiration purposes!
+The ICAR ADE repository contains the ICAR ADE work-in-progress JSON standard. 
 
 This page describes the principles driving this standard. If you want to use the ICAR ADE standard in your application, there are tips and 
 tricks in the [Using the standard](https://github.com/adewg/ICAR/blob/master/Using%20the%20standard.md) file. For a quick start, open the 
-[exampleUrlScheme.json](https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.json) file in 
+[exampleUrlScheme.json](https://raw.githubusercontent.com/adewg/ICAR/master/url-schemes/exampleUrlScheme.json) file in 
 your favorite OpenAPI Specification editor, or use the following URL to have a preview in the free Redoc tool: [view 
-exampleUrlScheme.json](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/Release%20Candidate%20Messages/exampleUrlScheme.json)
+exampleUrlScheme.json](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/url-schemes/exampleUrlScheme.json)
 
 
 Approach
@@ -14,12 +14,8 @@ Approach
 The approach for coming to this standard is to take input from different sources, 
 merge these into a standard and propose that to the working group.
 
-In the DataLinker directory, the work done previously by Rezare and other organisations can be 
-found. In the JoinData directory, the messages as used and/or proposed in the
-JoinData/CRV/Lely project can be found. Both are largely based on the existing 
-ICAR ADE XML standard and as such overlap largely.
+This proposal was largely based on the existing ICAR ADE XML standard and as such overlap largely.
 
-In the Release Candidate Message directory the proposed candidate messages can be found.
 
 Principles
 ==========
