@@ -45,13 +45,11 @@
           "description": "Specific info when the heat was detected by SenseTime from SCR",
           "properties": {
             "breedingWindow": {
-              "type": "number",
-              "format": "integer",
+              "type": "integer",
               "description": "Number of hours to AI."
             },
             "heatIndex": {
-              "type": "number",
-              "format": "integer",
+              "type": "integer",
               "description": "Gives an indication of the certainty of the heat indication."
             }
           }
@@ -65,8 +63,7 @@
               "description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
             },
             "heatChance": {
-              "type": "number",
-              "format": "integer",
+              "type": "integer",
               "description": "Gives an indication of the certainty of the heat indication."
             }
           }

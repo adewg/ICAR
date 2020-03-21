@@ -13,23 +13,19 @@
       "description": "Information about the current view or page of the collection",
       "properties": {
         "totalItems": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "Provides the number of items in the collection, if known."
         },
         "totalPages": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "Provides the number of pages in the collection, if known."
         },
         "pageSize": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "If non-zero, specifies the default number of items returned per page."
         },
         "currentPage": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "Optionally identifies the current page for display purposes, if returned."
         },
         "first": {

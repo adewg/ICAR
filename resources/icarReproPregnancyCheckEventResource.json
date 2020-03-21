@@ -23,23 +23,19 @@
           "description": "Result - uknown, empty, pregnant."
         },
         "foetalAge": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "Assessed age of the foetus or length of the pregnancy (in days)."
         },
         "foetusCount": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "If specified, contains the number of foetuses observed."
         },
         "foetusCountMale": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "If specified, contains number of foetuses observed as male."
         },
         "foetusCountFemale": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "If specified, contains number of foetuses observed as female."
         },
         "exceptions": {

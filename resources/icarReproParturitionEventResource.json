@@ -20,18 +20,15 @@
         },
 
         "damParity": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "The calving, litter, or other parturition number for the dam"
         },
         "liveProgeny": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "The number of live offspring from the parturition. Important if progeny are not identified."
         },
         "totalProgeny": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "The total number of offspring from the parturition, including those born dead."
         },
         "calvingEase": {

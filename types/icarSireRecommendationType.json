@@ -31,13 +31,11 @@
       "description": "Specify Male or Female for sexed semen only."
     },
     "parity": {
-      "type": "number",
-      "format": "integer",
+      "type": "integer",
       "description": "The parity of the cow for which the recommendation is valid."
     },
     "sireRank": {
-      "type": "number",
-      "format": "integer",
+      "type": "integer",
       "description": "The rank of the sire in the recommendation, 1 = first choice, 2 = second, ...."
     }
   }
