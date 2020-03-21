@@ -8,6 +8,10 @@
     "scheme"
   ],
 
+  "discriminator": {
+    "propertyName": "identifierType"
+  },
+
   "properties": {
     "id": {
       "type": "string",

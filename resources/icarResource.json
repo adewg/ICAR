@@ -3,8 +3,12 @@
 
   "type": "object",
 
+  "discriminator": {
+    "propertyName": "resourceType"
+  },
+
   "properties": {
-    "@id": {
+    "@self": {
       "type": "string",
       "description": "Uniform resource identifier (URI) of the resource (rel=self)."
     },

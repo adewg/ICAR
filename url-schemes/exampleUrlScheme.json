@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/milking-visit-collection"
+                  "$ref": "#/components/schemas/icarMilkingVisitEventCollection"
                 },
                 "examples": {
                   "base": {
@@ -105,7 +105,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/test-day-result-collection"
+                  "$ref": "#/components/schemas/icarTestDayResultEventCollection"
                 },
                 "examples": {
                   "base": {
@@ -148,7 +148,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/birth-collection"
+                  "$ref": "#/components/schemas/icarMovementBirthEventCollection"
                 }
               }
             }
@@ -186,7 +186,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/death-collection"
+                  "$ref": "#/components/schemas/icarMovementDeathEventCollection"
                 }
               }
             }
@@ -224,7 +224,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/arrival-collection"
+                  "$ref": "#/components/schemas/icarMovementArrivalEventCollection"
                 },
                 "examples": {
                   "base": {
@@ -267,7 +267,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/departure-collection"
+                  "$ref": "#/components/schemas/icarMovementDepartureEventCollection"
                 }
               }
             }
@@ -299,7 +299,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/animal-collection"
+                  "$ref": "#/components/schemas/icarAnimalCoreCollection"
                 }
               }
             }
@@ -337,7 +337,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/pregnancy-check-collection"
+                  "$ref": "#/components/schemas/icarReproPregnancyCheckEventCollection"
                 },
                 "examples": {
                   "finland": {
@@ -380,7 +380,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/heat-collection"
+                  "$ref": "#/components/schemas/icarReproHeatEventCollection"
                 }
               }
             }
@@ -418,7 +418,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/insemination-collection"
+                  "$ref": "#/components/schemas/icarReproInseminationEventCollection"
                 },
                 "examples": {
                   "finland": {
@@ -461,7 +461,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/drying-off-collection"
+                  "$ref": "#/components/schemas/icarMilkingDryOffEventCollection"
                 },
                 "examples": {
                   "finland": {
@@ -507,7 +507,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/abortion-collection"
+                  "$ref": "#/components/schemas/icarReproAbortionEventCollection"
                 }
               }
             }
@@ -545,7 +545,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/parturition-collection"
+                  "$ref": "#/components/schemas/icarReproParturitionEventCollection"
                 }
               }
             }
@@ -583,7 +583,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/weight-collection"
+                  "$ref": "#/components/schemas/icarWeightEventCollection"
                 }
               }
             }
@@ -621,7 +621,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/device-collection"
+                  "$ref": "#/components/schemas/icarDeviceCollection"
                 }
               }
             }
@@ -659,7 +659,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/mating-recommendation-collection"
+                  "$ref": "#/components/schemas/icarReproMatingRecommendationCollection"
                 }
               }
             }
@@ -676,52 +676,52 @@
       "error": {
         "$ref": "../resources/exampleErrorResource.json"
       },
-      "milking-visit-collection": {
+      "icarMilkingVisitEventCollection": {
         "$ref": "../collections/icarMilkingVisitEventCollection.json"
       },
-      "mating-recommendation-collection": {
+      "icarReproMatingRecommendationCollection": {
         "$ref": "../collections/icarReproMatingRecommendationCollection.json"
       },
-      "test-day-result-collection": {
+      "icarTestDayResultEventCollection": {
         "$ref": "../collections/icarTestDayResultEventCollection.json"
       },
-      "birth-collection": {
+      "icarMovementBirthEventCollection": {
         "$ref": "../collections/icarMovementBirthEventCollection.json"
       },
-      "death-collection": {
+      "icarMovementDeathEventCollection": {
         "$ref": "../collections/icarMovementDeathEventCollection.json"
       },
-      "arrival-collection": {
+      "icarMovementArrivalEventCollection": {
         "$ref": "../collections/icarMovementArrivalEventCollection.json"
       },
-      "departure-collection": {
+      "icarMovementDepartureEventCollection": {
         "$ref": "../collections/icarMovementDepartureEventCollection.json"
       },
-      "animal-collection": {
+      "icarAnimalCoreCollection": {
         "$ref": "../collections/icarAnimalCoreCollection.json"
       },
-      "pregnancy-check-collection": {
+      "icarReproPregnancyCheckEventCollection": {
         "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
-      "heat-collection": {
-        "$ref": "../collections/icarReproHeatEventCollection.json"
+      "icarReproHeatEventCollection": {
+        "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
-      "insemination-collection": {
+      "icarReproInseminationEventCollection": {
         "$ref": "../collections/icarReproInseminationEventCollection.json"
       },
-      "drying-off-collection": {
+      "icarMilkingDryOffEventCollection": {
         "$ref": "../collections/icarMilkingDryOffEventCollection.json"
       },
-      "abortion-collection": {
+      "icarReproAbortionEventCollection": {
         "$ref": "../collections/icarReproAbortionEventCollection.json"
       },
-      "parturition-collection": {
+      "icarReproParturitionEventCollection": {
         "$ref": "../collections/icarReproParturitionEventCollection.json"
       },
-      "weight-collection": {
+      "icarWeightEventCollection": {
         "$ref": "../collections/icarWeightEventCollection.json"
       },
-      "device-collection": {
+      "icarDeviceCollection": {
         "$ref": "../collections/icarDeviceCollection.json"
       }
     },

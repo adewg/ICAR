@@ -4,7 +4,7 @@
   "type": "object",
 
   "discriminator": {
-    "propertyName": "member"
+    "propertyName": "memberType"
   },
 
   "properties": {
