@@ -1,4 +1,9 @@
 {
   "description": "Identifies a breed using a scheme and ID. Allows country or species-specific breeds that are a superset of the ICAR list.",
-  "$ref": "../types/icarIdentifierType.json"
+
+  "type": "object",
+
+  "allOf": [{
+    "$ref": "../types/icarIdentifierType.json"
+  }]
 }
