@@ -3,6 +3,10 @@
 
   "type": "object",
 
+  "discriminator": {
+    "propertyName": "member"
+  },
+
   "properties": {
     "view": {
       "type": "object",
@@ -49,7 +53,10 @@
           "description": "Link to the last page of the collection, if any. Link relation: last."
         }
       }
+    },
+    "member": {
+      "type": "array",
+      "items": {}
     }
   }
-
 }
