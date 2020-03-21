@@ -1,6 +1,8 @@
 {
-  "type": "object",
   "description": "Defines a mass or weight measurement type that can be used in events or other resources.",
+
+  "type": "object",
+
   "properties": {
     "measurement": {
       "type": "number",

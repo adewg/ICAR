@@ -1,6 +1,7 @@
 {
-  "type": "object",
   "description": "Defines a reference to another resource.",
+
+  "type": "object",
 
   "properties": {
     "@context": {

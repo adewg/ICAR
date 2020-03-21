@@ -11,7 +11,7 @@
 
   "allOf": [
     {
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
       "properties": {

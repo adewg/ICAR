@@ -15,21 +15,21 @@
       ]
     },
     "quarterMilkingDuration": {
-      "$ref": "icarMilkDurationType.json"
+      "$ref": "../types/icarMilkDurationType.json"
     },
     "quarterMilkingWeight": {
-      "$ref": "icarMilkingMilkWeightType.json"
+      "$ref": "../types/icarMilkingMilkWeightType.json"
     },
     "icarQuarterMilkingSample": {
       "type": "array",
       "items": {
-        "$ref": "icarQuarterMilkingSampleType.json"
+        "$ref": "../types/icarQuarterMilkingSampleType.json"
       }
     },
     "icarQuarterCharacteristics": {
       "type": "array",
       "items": {
-        "$ref": "icarMilkCharacteristicsType.json"
+        "$ref": "../types/icarMilkCharacteristicsType.json"
       }
     }
   }

@@ -1,4 +1,5 @@
 {
-  "$ref": "icarIdentifierType.json",
-  "description": "Trait identifier based on a scheme and ID."
+  "description": "Trait identifier based on a scheme and ID.",
+
+  "$ref": "../types/icarIdentifierType.json"
 }

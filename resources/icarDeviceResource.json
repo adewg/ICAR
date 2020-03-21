@@ -51,7 +51,7 @@
         }
       }
     },
-    "Manufacturer": {
+    "manufacturer": {
       "$ref": "../types/icarDeviceManufacturerType.json",
       "description": "The device data as defined by the manufacturer."
     }

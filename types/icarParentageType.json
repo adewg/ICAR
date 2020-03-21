@@ -11,7 +11,7 @@
 
   "properties": {
     "parentOf": {
-      "$ref": "icarAnimalIdentifierType.json",
+      "$ref": "../types/icarAnimalIdentifierType.json",
       "description": "References the child of this parent (allowing you to build multi-generation pedigrees)."
     },
     "gender": {
@@ -23,7 +23,7 @@
       "description": "Identifies type of parent: Genetic (default), Recipient, Adoptive (Foster/Rearing)."
     },
     "identifier": {
-      "$ref": "icarAnimalIdentifierType.json",
+      "$ref": "../types/icarAnimalIdentifierType.json",
       "description": "Unique animal scheme and identifier combination."
     },
     "officialName": {

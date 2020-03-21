@@ -10,14 +10,14 @@
   ],
 
   "allOf": [{
-      "$ref": "icarEventCoreResource.json"
+      "$ref": "../resources/icarEventCoreResource.json"
     },
     {
       "properties": {
-        "MilkWeight24Hours": {
+        "milkWeight24Hours": {
           "$ref": "../types/icarMilkingMilkWeightType.json"
         },
-        "TestDayCode": {
+        "testDayCode": {
           "$ref": "../enums/icarTestDayCodeType.json"
         },
         "milkCharacteristics": {

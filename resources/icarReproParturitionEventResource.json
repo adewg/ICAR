@@ -10,7 +10,7 @@
   ],
 
   "allOf": [{
-      "$ref": "icarEventCoreResource.json"
+      "$ref": "../resources/icarEventCoreResource.json"
     },
     {
       "properties": {
@@ -42,7 +42,7 @@
         "progeny": {
           "type": "array",
           "items": {
-            "$ref": "icarAnimalCoreResource.json"
+            "$ref": "../resources/icarAnimalCoreResource.json"
           },
           "description": "List of progeny. May not be fully identified, but recommend that gender and status are supplied at least."
         }

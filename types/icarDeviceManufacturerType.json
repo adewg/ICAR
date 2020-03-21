@@ -1,9 +1,12 @@
 {
-  "type": "object",
   "description": "Describes the devices on a certain location.",
+
+  "type": "object",
+
   "required": [
     "id"
   ],
+
   "properties": {
     "id": {
       "type": "string",

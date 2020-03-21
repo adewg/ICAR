@@ -4,7 +4,7 @@
   "type": "object",
 
   "allOf": [{
-      "$ref": "icarResourceCollection.json"
+      "$ref": "../collections/icarResourceCollection.json"
     },
     {
       "properties": {

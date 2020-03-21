@@ -11,7 +11,7 @@
   ],
 
   "allOf": [{
-      "$ref": "icarEventCoreResource.json"
+      "$ref": "../resources/icarEventCoreResource.json"
     },
     {
       "properties": {
