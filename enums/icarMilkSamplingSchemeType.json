@@ -1,0 +1,12 @@
+{ 
+  "type": "string",
+  "description": "Enumeration for the different milk sampling schemes.",
+  "enum": [
+    "ProportionalSizeSamplingOfAllMilkings",
+    "ConstantSizeSamplingOfAllMilkings",
+    "AlternateSampling",
+    "CorrectedSampling",
+    "OneMilkingSampleInAMS",
+    "MulitpleMilkingSampleInAMS"
+  ]
+}

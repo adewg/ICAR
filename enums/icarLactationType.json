@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "description": "Enumeration for lactation type.",
+  "enum": [
+    "Normal",
+    "100Days",
+    "200Days",
+    "305Days",
+    "365Days"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "description": "Enumeration for the milk recording scheme",
+  "enum": [
+    "AllMilkingsAtTestday",
+    "AllMilkingsInPeriod",
+    "OneMilkingAtTestday"
+  ]
+}

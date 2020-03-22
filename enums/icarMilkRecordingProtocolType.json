@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "description": "Enumeration for the milk recording protocol.",
+  "enum": [
+    "A-OfficialMRORepresentative",
+    "B-HerdOwnerOrNominee",
+    "C-Both"
+  ]
+}
