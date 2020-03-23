@@ -8,8 +8,7 @@
     "animal"
   ],
 
-  "allOf": [
-    {
+  "allOf": [{
       "$ref": "icarResource.json"
     },
     {
@@ -27,11 +26,11 @@
           "description": "Unique location scheme and identifier combination."
         },
         "beginDate": {
-          "type": "date",
+          "$ref": "../types/icarDateTimeType.json",
           "description": "The date of the beginning of the lactation."
         },
         "endDate": {
-          "type": "date",
+          "$ref": "../types/icarDateTimeType.json",
           "description": "The end date of the the lactation. This occurs when the animal is dried off, dies or calves again."
         },
         "parity": {
@@ -59,7 +58,7 @@
           "description": "The amount of lactosis produced in this lactation."
         },
         "lastTestDay": {
-          "type": "date",
+          "$ref": "../types/icarDateTimeType.json",
           "description": "The date of the last test day in the lactation."
         },
         "lactationType": {

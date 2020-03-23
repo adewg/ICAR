@@ -127,7 +127,7 @@
         "summary": "Get the data for lactations",
         "description": "# Purpose\nProvides data from lactations of animals.",
         "tags": [
-          "release-candidate-milk"
+          "ADE-1-milk"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -142,10 +142,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/lactation"
-                  }
+                  "$ref": "#/components/schemas/icarLactationCollection"
                 }
               }
             }
@@ -720,10 +717,10 @@
       "icarTestDayResultEventCollection": {
         "$ref": "../collections/icarTestDayResultEventCollection.json"
       },
-      "lactation": {
+      "icarLactationCollection": {
         "$ref": "../collections/icarLactationCollection.json"
       },
-      "birth": {
+      "icarMovementBirthEventCollection": {
         "$ref": "../collections/icarMovementBirthEventCollection.json"
       },
       "icarMovementDeathEventCollection": {
@@ -742,7 +739,7 @@
         "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
       "icarReproHeatEventCollection": {
-        "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
+        "$ref": "../collections/icarReproHeatEventCollection.json"
       },
       "icarReproInseminationEventCollection": {
         "$ref": "../collections/icarReproInseminationEventCollection.json"
