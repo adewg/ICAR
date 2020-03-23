@@ -1,5 +1,8 @@
 {
+  "description": "",
+
   "type": "object",
+
   "properties": {
     "bottleIdentifierType": {
       "type": "string",

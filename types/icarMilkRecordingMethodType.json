@@ -1,6 +1,8 @@
 {
   "description": "milk recording method information.",
+  
   "type": "object",
+
   "properties": {
     "milkRecordingProtocol": {
       "$ref": "../enums/icarMilkRecordingProtocolType.json",

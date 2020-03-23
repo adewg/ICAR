@@ -1,19 +1,17 @@
 {
   "description": "",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime"
-  ],
+  "discriminator": {
+    "propertyName": "eventType"
+  },
 
   "allOf": [
     {
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "id": {
           "type": "string",

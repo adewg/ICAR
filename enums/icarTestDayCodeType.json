@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "The test day code, indicating a status of the cow on the test day.",
+
+  "type": "string",
+
   "enum": [
     "Dry",
     "SamplingImpossible",

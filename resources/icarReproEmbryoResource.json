@@ -1,19 +1,17 @@
 {
   "description": "Describes an implanted embryo.",
 
-  "type": "object",
-
   "allOf": [{
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
-      "properties": {
+      "type": "object",
 
+      "properties": {
         "id": {
           "$ref": "../types/icarIdentifierType.json",
           "description": "Official identifier for the embryo (if any)."
         },
-
         "collectionCentre": {
           "type": "string",
           "description": "Identifies the collection centre."
@@ -22,7 +20,6 @@
           "description": "Records the date of collection.",
           "$ref": "../types/icarDateTimeType.json"
         },
-
         "donorIdentifiers": {
           "type": "array",
           "items": {
@@ -34,7 +31,6 @@
           "type": "string",
           "description": "URI to an AnimalCoreResource for the donor dam."
         },
-
         "sireIdentifiers": {
           "type": "array",
           "items": {

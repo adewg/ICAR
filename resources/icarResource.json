@@ -1,16 +1,20 @@
 {
-    "description": "Base class for a resource, defining self-link and meta data. Resources should use AllOf to incorporate this class.",
+  "description": "Base class for a resource, defining self-link and meta data. Resources should use AllOf to incorporate this class.",
 
-    "type": "object",
+  "type": "object",
 
-    "properties": {
-        "@id": {
-            "type": "string",
-            "description": "Uniform resource identifier (URI) of the resource (rel=self)."
-        },
-        "meta": {
-            "$ref": "../types/icarMetaDataType.json",
-            "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
-        }
+  "discriminator": {
+    "propertyName": "resourceType"
+  },
+
+  "properties": {
+    "@self": {
+      "type": "string",
+      "description": "Uniform resource identifier (URI) of the resource (rel=self)."
+    },
+    "meta": {
+      "$ref": "../types/icarMetaDataType.json",
+      "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
     }
+  }
 }

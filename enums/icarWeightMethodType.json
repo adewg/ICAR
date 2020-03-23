@@ -1,14 +1,16 @@
 {
-  "type": "string",
   "description": "Method by which the weight is observed.\r\n Includes loadcell (loadbars), girth (tape), assessed (visually), walk-over weighing, \r\nprediction, imaging (camera/IR), front end weight correlated to whole body, group average (pen/sample weigh).",
+
+  "type": "string",
+
   "enum": [
-    "Loadcell",
+    "LoadCell",
     "Girth",
     "Assessed",
     "WalkOver",
     "Predicted",
     "Imaged",
-    "frontEndCorrelated",
+    "FrontEndCorrelated",
     "GroupAverage"
   ]
 }

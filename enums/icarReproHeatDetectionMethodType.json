@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "The method of detecting the heat of an animal",
+
+  "type": "string",
+
   "enum": [
     "Chemical",
     "Visual",

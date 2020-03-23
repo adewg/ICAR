@@ -1,9 +1,11 @@
 {
+  "description": "",
+
+  "type": "object",
+
   "required": [
     "denominator"
   ],
-
-  "type": "object",
 
   "properties": {
     "denominator": {

@@ -1,12 +1,12 @@
 {
   "description": "Characteristics of the milk produced.",
-  
+
+  "type": "object",
+
   "required": [
     "characteristic",
     "value"
   ],
-
-  "type": "object",
 
   "properties": {
     "characteristic": {

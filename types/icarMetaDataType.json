@@ -14,20 +14,23 @@
       "description": "Source where data is retrieved from. URI that identified the source system"
     },
     "modified": {
-      "$ref": "icarDateTimeType.json"
+      "$ref": "../types/icarDateTimeType.json"
     },
     "created": {
-      "$ref": "icarDateTimeType.json"
+      "$ref": "../types/icarDateTimeType.json",
+      "nullable": true
     },
     "creator": {
       "type": "string",
       "description": "Person or organisation who created the object"
     },
     "validFrom": {
-      "$ref": "icarDateTimeType.json"
+      "$ref": "../types/icarDateTimeType.json",
+      "nullable": true
     },
     "validTo": {
-      "$ref": "icarDateTimeType.json"
+      "$ref": "../types/icarDateTimeType.json",
+      "nullable": true
     }
   }
 }
