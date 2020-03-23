@@ -1,18 +1,12 @@
 {
   "description": "Event for representing test day result",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "EventDateTime"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "milkWeight24Hours": {
           "$ref": "../types/icarMilkingMilkWeightType.json"

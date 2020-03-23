@@ -1,17 +1,17 @@
 {
   "description": "Lactation information of an animal.",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal"
-  ],
-
   "allOf": [{
       "$ref": "icarResource.json"
     },
     {
+      "type": "object",
+
+      "required": [
+        "id",
+        "animal"
+      ],
+
       "properties": {
         "id": {
           "type": "string",

@@ -1,18 +1,12 @@
 {
   "description": "The abortion event records an observation that an abortion has taken place. There are no other parameters.",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+      
       "properties": {}
     }
   ]

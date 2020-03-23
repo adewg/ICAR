@@ -1,18 +1,12 @@
 {
   "description": "Pregnancy diagnosis or check event.",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "method": {
           "$ref": "../enums/icarReproPregnancyMethodType.json",

@@ -10,10 +10,6 @@
   ],
 
   "properties": {
-    "@context": {
-      "type": "string",
-      "description": "Tells us the type of the referenced resource object (eg. icarAnimalCoreCollection)."
-    },
     "@id": {
       "type": "string",
       "format": "uri",
@@ -23,6 +19,10 @@
       "type": "string",
       "description": "Specifies whether this is a single resource Link or a Collection.",
       "enum": ["Collection"]
+    },
+    "@context": {
+      "type": "string",
+      "description": "Tells us the type of the referenced resource object (eg. icarAnimalCoreCollection)."
     },
     "totalItems": {
       "type": "integer",

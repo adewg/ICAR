@@ -1,19 +1,16 @@
 {
   "description": "Event for recording animal departure",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime",
-    "destinationLocation"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
+      "required": [
+        "destinationLocation"
+      ],
+
       "properties": {
         "departureKind": {
           "$ref": "../enums/icarDepartureKindType.json"

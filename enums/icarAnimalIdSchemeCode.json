@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "Identifies the used scheme for an animal identification string. nl-v1 life numbers are formatted as NL 123456789. See https://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen for more information.",
+
+  "type": "string",
+
   "enum": [
     "nl.ubn",
     "be.pen",

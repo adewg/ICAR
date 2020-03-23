@@ -3,14 +3,14 @@
 
   "type": "object",
 
+  "discriminator": {
+    "propertyName": "identifierType"
+  },
+
   "required": [
     "id",
     "scheme"
   ],
-
-  "discriminator": {
-    "propertyName": "identifierType"
-  },
 
   "properties": {
     "id": {

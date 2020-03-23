@@ -1,18 +1,12 @@
 {
   "description": "Event for recording heats.",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "heatDetectionMethod": {
           "$ref": "../enums/icarReproHeatDetectionMethodType.json"

@@ -1,12 +1,12 @@
 {
   "description": "Represents a collection of animal drying off events. Based on icarResourceCollection to provide paging etc.",
 
-  "type": "object",
-
   "allOf": [{
       "$ref": "../collections/icarResourceCollection.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "member": {
           "type": "array",

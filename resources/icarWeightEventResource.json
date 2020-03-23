@@ -1,18 +1,12 @@
 {
   "description": "The Weight event records a live weight observation of an animal.",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "weight": {
           "$ref": "../types/icarMassMeasureType.json",

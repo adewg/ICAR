@@ -1,12 +1,12 @@
 {
   "description": "",
 
-  "type": "object",
-
   "allOf": [{
       "$ref": "../types/icarResourceReferenceType.json"
     },
     {
+      "type": "object",
+      
       "properties": {
         "model": {
           "type": "string",

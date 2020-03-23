@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "Enumeration for sex of animal using species-independent English names. Includes neuter/cryptorchid variations.",
+
+  "type": "string",
+
   "enum": [
     "Female",
     "FemaleNeuter",

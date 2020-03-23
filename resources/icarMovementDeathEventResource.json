@@ -1,18 +1,12 @@
 {
   "description": "Event for recording animal death",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "deathReason": {
           "$ref": "../enums/icarDeathReasonType.json",

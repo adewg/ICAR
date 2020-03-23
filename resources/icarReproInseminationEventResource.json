@@ -1,19 +1,16 @@
 {
   "description": "Event for recording natural or artificial insemination, including embryo transfer.",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime",
-    "inseminationType"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
+      "required": [
+        "inseminationType"
+      ],
+
       "properties": {
         "inseminationType": {
           "$ref": "../enums/icarReproInseminationType.json"

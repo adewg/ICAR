@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "The signs of the heat (Slime,Clear slime,Interested in other animals,Stands under,Bawling,Blood)",
+
+  "type": "string",
+
   "enum": [
     "Slime",
     "ClearSlime",

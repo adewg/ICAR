@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "Enumeration for disposal method. Not specified in previous ADE data dictionary, required by some schemes.",
+
+  "type": "string",
+
   "enum": [
     "ApprovedService",
     "Consumption",

@@ -1,12 +1,12 @@
 {
   "description": "Describes a semen straw",
 
-  "type": "object",
-
   "allOf": [{
       "$ref": "../resources/icarResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "id": {
           "$ref": "../types/icarIdentifierType.json",

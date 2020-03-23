@@ -1,18 +1,12 @@
 {
   "description": "Event for recording parturition (calving, lambing, kidding, fawning).",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime"
-  ],
-
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+      
       "properties": {
         "isEmbryoImplant": {
           "type": "boolean",

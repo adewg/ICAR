@@ -1,8 +1,6 @@
 {
   "description": "Trait identifier based on a scheme and ID.",
 
-  "type": "object",
-
   "allOf": [{
     "$ref": "../types/icarIdentifierType.json"
   }]
