@@ -1,0 +1,11 @@
+{
+  "description": "Enumeration for different possible milk sampling moments.",
+
+  "type": "string",
+
+  "enum": [
+    "Composite",
+    "Morning",
+    "Evening"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "description": "",
+
+  "type": "object",
+
+  "required": [
+    "unitCode",
+    "value"
+  ],
+
+  "properties": {
+    "unitCode": {
+      "type": "string",
+      "description": "UN/CEFACT Common Code for Units of Measurement.",
+      "enum": [
+        "KGM",
+        "LBR"
+      ]
+    },
+    "value": {
+      "type": "number",
+      "format": "double"
+    }
+  }
+}

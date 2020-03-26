@@ -1,0 +1,13 @@
+{
+  "description": "Enumeration for the milkings per day.",
+
+  "type": "string",
+
+  "enum": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "Robot"
+  ]
+}

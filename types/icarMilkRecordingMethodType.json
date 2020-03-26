@@ -1,0 +1,40 @@
+{
+  "description": "milk recording method information.",
+  
+  "type": "object",
+
+  "properties": {
+    "milkRecordingProtocol": {
+      "$ref": "../enums/icarMilkRecordingProtocolType.json",
+      "description": "Protocol A: Official MRO representative, Protocol B: Herd owner or its nominee, Protocol C: Official MRO representative or herd owner or its nominee."
+    },
+    "milkRecordingScheme": {
+      "$ref": "../enums/icarMilkRecordingSchemeType.json",
+      "description": "all milkings at testday, all milkings in period, one milking at testday."
+    },
+    "milkingsPerDay": {
+      "$ref": "../enums/icarMilkingsPerDayType.json",
+      "description": "1 per day, 2, 3, 4, Continuous Milkings (e.g. robotic milking)."
+    },
+    "milkSamplingScheme": {
+      "$ref": "../enums/icarMilkSamplingSchemeType.json",
+      "description": "proportional size sampling of all milkings, constant size sampling of all milkings, sampling of one milking at alternating moments (Alternative Sampling), sampling of one milking at the same moments (Corrected Sampling), sampling of one milking at changing moments (AMS), sampling of multiple milkings at changing moments (AMS)."
+    },
+    "recordingInterval": {
+      "type": "number",
+      "description": "A number in days of the interval between milk recordings. In case of e.g.4 weeks, use 30."
+    },
+    "milkSamplingMoment": {
+      "$ref": "../enums/icarMilkSamplingMomentType.json",
+      "description": "Composite = composite sample from morning and evening, Morning, Evening."
+    },
+    "icarCertified": {
+      "type": "boolean",
+      "description": "indicates whether this information is certified by ICAR"
+    },
+    "milkingType": {
+      "$ref": "../enums/icarMilkingType.json",
+      "description": "Official milk result supplied by milk recording organisation, Measure by ICAR approved equipment, Measure by not approved equipment"
+    }
+  }
+}

@@ -1,23 +1,25 @@
 {
-    "type": "object",
-    "description": "Defines a mass or weight measurement type that can be used in events or other resources.",
-    "properties": {
-        "measurement": {
-            "type": "number",
-            "minimum": 0,
-            "description": "The weight observation, in the units specified (usually kilograms)."
-        }, 
-        "units": {
-            "$ref": "../enums/uncefactMassUnitsType.json",
-            "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
-        },
-        "method": {
-            "$ref": "../enums/icarWeightMethodType.json",
-            "description": "The method of observation. Loadcell is the default if not specified."
-        },
-        "resolution": {
-            "type": "number",
-            "description": "The smallest measurement difference that can be discriminated given the current device settings. Specified in Units, for instance 0.5 (kilograms)."
-        }
+  "description": "Defines a mass or weight measurement type that can be used in events or other resources.",
+
+  "type": "object",
+
+  "properties": {
+    "measurement": {
+      "type": "number",
+      "minimum": 0,
+      "description": "The weight observation, in the units specified (usually kilograms)."
+    },
+    "units": {
+      "$ref": "../enums/uncefactMassUnitsType.json",
+      "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
+    },
+    "method": {
+      "$ref": "../enums/icarWeightMethodType.json",
+      "description": "The method of observation. Loadcell is the default if not specified."
+    },
+    "resolution": {
+      "type": "number",
+      "description": "The smallest measurement difference that can be discriminated given the current device settings. Specified in Units, for instance 0.5 (kilograms)."
     }
+  }
 }

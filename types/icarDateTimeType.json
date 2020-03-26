@@ -1,5 +1,7 @@
 {
-        "type": "string",
-        "description": "udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.",
-        "format": "datetime"
+  "description": "udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.",
+  
+  "type": "string",
+
+  "format": "date-time"
 }

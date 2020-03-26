@@ -1,18 +1,18 @@
 {
   "description": "Core schema for representing animal",
 
-  "type": "object",
-
-  "required": [
-    "identifier",
-    "specie",
-    "gender"
-  ],
-
   "allOf": [{
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
+      "type": "object",
+
+      "required": [
+        "identifier",
+        "specie",
+        "gender"
+      ],
+      
       "properties": {
         "identifier": {
           "$ref": "../types/icarAnimalIdentifierType.json",
