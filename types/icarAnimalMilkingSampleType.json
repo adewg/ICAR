@@ -5,12 +5,8 @@
 
   "properties": {
     "bottleIdentifierType": {
-      "type": "string",
-      "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode",
-      "enum": [
-        "BRC",
-        "RFD"
-      ]
+      "$ref": "../enums/icarBottleIdentifierType.json",
+      "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode"
     },
     "rackNumber": {
       "type": "string",
