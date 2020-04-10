@@ -8,7 +8,7 @@
       "type": "object",
 
       "required": [
-        "destinationLocation"
+        "consignment:destinationLocation"
       ],
 
       "properties": {

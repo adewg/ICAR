@@ -20,7 +20,7 @@
       "type": "string",
       "description": "Name given to the device by the farmer."
     },
-    "descr": {
+    "description": {
       "type": "string",
       "description": "Description of the device by the farmer."
     },
