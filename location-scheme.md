@@ -32,8 +32,8 @@ In the Netherlands, a similar list of identifier schemes are managed by [AgroCon
 
 | id  | name  | example| region & issuing party  | RegEx |
 |---|---|---|---|---|
-| eu-farm-id  | farm id  |  276031231231234 | EU wide scheme with a country prefix, combining multiple national schemes | |
-| de-farm-id  | farm id  | 96123456.001.001  |  Farm ID as issued by VIT. The first section correlates 1:1 with a eu-farm-id while the latter two sections specify the location in more detail. | |
+| eu.farmId  | farm id  |  276031231231234 | EU wide scheme with a country prefix, combining multiple national schemes | |
+| de.vitFarmId  | farm id  | 96123456.001.001  |  Farm ID as issued by VIT. The first section correlates 1:1 with a eu-farm-id while the latter two sections specify the location in more detail. | |
 | nl.ubn  | uniek bedrijfsnummer  |   | Used in the Netherlands, used by the government (see [Uniek Bedrijfsnummer on wikipedia](https://nl.wikipedia.org/wiki/Uniek_Bedrijfsnummer). Note: this may be part of the eu-farm-id scheme?  | |
 | nl.brs  | bedrijfs registratienummer | | Used in the Netherlands, used by RVO (also known as "mestnummer" | |
 | be.pen  | Productie-eenheidsnummer   |   | Issued by Agentschap voor Landbouw en Visserij (ALV) | |
