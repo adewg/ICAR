@@ -1,0 +1,74 @@
+{
+  "description": "Lactation information of an animal.",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id",
+        "animal"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this event."
+        },
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "location": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "beginDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The date of the beginning of the lactation."
+        },
+        "endDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The end date of the the lactation. This occurs when the animal is dried off, dies or calves again."
+        },
+        "parity": {
+          "type": "number",
+          "description": "The parity of the animal during this lactation."
+        },
+        "lactationLength": {
+          "type": "number",
+          "description": "The length of the lactation until this moment."
+        },
+        "milkAmount": {
+          "$ref": "../types/icarTraitAmountType.json",
+          "description": "The amount of milk produced in this lactation."
+        },
+        "fatAmount": {
+          "$ref": "../types/icarTraitAmountType.json",
+          "description": "The amount of fat produced in this lactation."
+        },
+        "proteinAmount": {
+          "$ref": "../types/icarTraitAmountType.json",
+          "description": "The amount of protein produced in this lactation."
+        },
+        "lactosisAmount": {
+          "$ref": "../types/icarTraitAmountType.json",
+          "description": "The amount of lactosis produced in this lactation."
+        },
+        "lastTestDay": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The date of the last test day in the lactation."
+        },
+        "lactationType": {
+          "$ref": "../enums/icarLactationType.json",
+          "description": "This type of lactation based on lactation length that is delivered."
+        },
+        "milkRecordingMethod": {
+          "$ref": "../types/icarMilkRecordingMethodType.json"
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,7 @@
 {
-        "$ref": "icarIdentifierType.json",
-        "description": "Identifies an animal using a scheme and ID."
+  "description": "Identifies an animal using a scheme and ID.",
+
+  "allOf": [{
+    "$ref": "../types/icarIdentifierType.json"
+  }]
 }

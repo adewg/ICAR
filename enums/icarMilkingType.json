@@ -1,0 +1,11 @@
+{
+  "description": "Enumeration for different possible types of milking.",
+
+  "type": "string",
+
+  "enum": [
+    "OfficialMilkResultSuppliedByMRO",
+    "MeasureByICARApprovedEquipment",
+    "MeasureByNotApprovedEquipment"
+  ]
+}

@@ -1,19 +1,16 @@
 {
   "description": "Event for recording animal arrival",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "eventDateTime",
-    "originLocation"
-  ],
-
   "allOf": [{
-      "$ref": "icarEventCoreResource.json"
+      "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
+      "required": [
+        "consignment:originLocation"
+      ],
+
       "properties": {
         "arrivalReason": {
           "$ref": "../enums/icarArrivalReasonType.json"

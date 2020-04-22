@@ -1,8 +1,10 @@
 {
-  "type": "string",
   "description": "The method of pregnancy determination.",
+
+  "type": "string",
+
   "enum": [
-    "Ecography",
+    "Echography",
     "Palpation",
     "Blood",
     "Milk",

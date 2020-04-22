@@ -1,16 +1,12 @@
 {
-  "description":"",
+  "description": "",
   
   "type": "object",
 
   "properties": {
     "bottleIdentifierType": {
-      "type": "string",
-      "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode",
-      "enum": [
-        "BRC",
-        "RFD"
-      ]
+      "$ref": "../enums/icarBottleIdentifierType.json",
+      "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode"
     },
     "rackNumber": {
       "type": "string",
@@ -25,13 +21,8 @@
       "description": "Bottle identifier read from barcode or RFID"
     },
     "validSampleFillingIndicator": {
-      "type": "string",
-      "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list",
-      "enum": [
-        "0",
-        "1",
-        "2"
-      ]
+      "$ref": "../enums/icarValidSampleFillingIndicatorType.json",
+      "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list"
     },
     "operator": {
       "type": "string",

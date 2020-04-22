@@ -1,12 +1,12 @@
 {
   "description": "Describes a semen straw",
 
-  "type": "object",
-
   "allOf": [{
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
+      "type": "object",
+
       "properties": {
         "id": {
           "$ref": "../types/icarIdentifierType.json",
@@ -52,8 +52,7 @@
           "description": "Specify Male or Female for sexed semen only."
         },
         "sexedPercentage": {
-          "type": "number",
-          "format": "integer",
+          "type": "integer",
           "description": "Percentage of semen that are expected to be of the chosen sex (e.g. 75, 90, 95)."
         }
       }

@@ -1,19 +1,17 @@
 {
   "description": "Event for recording milking visit",
 
-  "type": "object",
-
-  "required": [
-    "id",
-    "animal",
-    "milkingStartingDateTime",
-    "milkingMilkWeight"
-  ],
-
   "allOf": [{
-      "$ref": "icarEventCoreResource.json"
+      "$ref": "../resources/icarEventCoreResource.json"
     },
     {
+      "type": "object",
+
+      "required": [
+        "milkingStartingDateTime",
+        "milkingMilkWeight"
+      ],
+
       "properties": {
         "milkingStartingDateTime": {
           "$ref": "../types/icarDateTimeType.json"

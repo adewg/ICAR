@@ -1,6 +1,8 @@
-{ 
-  "type": "string",
+{
   "description": "Enumeration for parent relationships - genetic is the default, recipient and adoptive (foster) are alternatives.",
+
+  "type": "string",
+
   "enum": [
     "Genetic",
     "Recipient",

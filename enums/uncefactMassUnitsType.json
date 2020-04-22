@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "Mass units for weight from UN/CEFACT trade facilitation recommendation 20.\r\n Kilogram, Gram, Pound, Metric Tonne, Microgram, Miligram.",
+
+  "type": "string",
+
   "enum": [
     "KGM",
     "GRM",

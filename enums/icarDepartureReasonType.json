@@ -1,6 +1,8 @@
 {
-  "type": "string",
   "description": "Enumeration for departure cause. Not specified in previous ADE data dictionary.",
+
+  "type": "string",
+
   "enum": [
     "Age",
     "Superfluous",
