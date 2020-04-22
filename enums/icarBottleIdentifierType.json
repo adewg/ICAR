@@ -1,0 +1,10 @@
+{
+    "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode",
+
+    "type": "string",
+    
+    "enum": [
+        "BRC",
+        "RFD"
+    ]
+}

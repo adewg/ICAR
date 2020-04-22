@@ -1,0 +1,11 @@
+{
+    "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list",
+    
+    "type": "string",
+
+    "enum": [
+      "0",
+      "1",
+      "2"
+    ]
+  }
