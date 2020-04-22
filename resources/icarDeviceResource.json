@@ -7,9 +7,10 @@
     "id"
   ],
 
-  "allOf": [
-    {
-      "$ref": "icarResource.json"
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier on location level in the source system for this device."
     },
     "serial": {
       "type": "string",
@@ -47,10 +48,6 @@
           "messages": {
             "$ref": "../enums/icarMessageType.json"
           }
-        },
-        "Manufacturer": {
-          "$ref": "../types/icarDeviceManufacturerType.json",
-          "description": "The device data as defined by the manufacturer."
         }
       }
     },
@@ -58,5 +55,5 @@
       "$ref": "../types/icarDeviceManufacturerType.json",
       "description": "The device data as defined by the manufacturer."
     }
-  ]
+  }
 }
