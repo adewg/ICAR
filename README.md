@@ -28,5 +28,6 @@ Version 1.0 of this standard was based on previous work of:
 ## Contributing
 The Animal Data Exchange Working Group welcome contributions
 * Read and make suggestions using the [Issues List](https://github.com/adewg/ICAR/issues)
-* Propose changes by logging an issue, then creating your own fork and proposing a Pull Request that will be reviewed by the maintainers.
+* The default branch is set to **ADE-1** which is the current release. This is to make it easier for organisations to clone and use the specifications. If you expect to contribute you will need to work on the **Develop** branch instead.
+* Propose changes by logging an issue, then creating your own fork of the **Develop** branch and proposing a Pull Request that will be reviewed by the maintainers.
 
