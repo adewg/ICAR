@@ -15,7 +15,7 @@ There you will find:
 
 ## OpenAPI Quick Start
 Developers may wish to start by reading the **\url-schemes\exampleUrlScheme.json** file in their favourite OpenAPI specification editor.
-You can also [see a preview using the free Redoc tool](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json).
+You can also [see a preview using the free Redoc tool](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json). Or (by using the swagger editor :  https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json
 
 
 ## Acknowledgements
