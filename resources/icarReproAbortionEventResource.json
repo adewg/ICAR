@@ -3,11 +3,6 @@
 
   "allOf": [{
       "$ref": "../resources/icarEventCoreResource.json"
-    },
-    {
-      "type": "object",
-      
-      "properties": {}
     }
   ]
 }
