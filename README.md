@@ -29,4 +29,5 @@ Version 1.0 of this standard was based on previous work of:
 The Animal Data Exchange Working Group welcome contributions
 * Read and make suggestions using the [Issues List](https://github.com/adewg/ICAR/issues)
 * Propose changes by logging an issue, then creating your own fork and proposing a Pull Request that will be reviewed by the maintainers.
+* Ensure that your pull request references the issues that it addresses (see https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue). This is part of the review criteria for maintainers, as it makes our release change logs informative.
 
