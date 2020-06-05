@@ -1,5 +1,5 @@
 {
-    "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list",
+    "description": "Validity of sample based on milk volume: 0=success (>80% expected milk), 1=incomplete (< 20% expected milk), 2=completed (with between 20-80% expected milk).",
     
     "type": "string",
 
