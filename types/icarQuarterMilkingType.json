@@ -10,8 +10,8 @@
       "enum": [
         "LF",
         "RF",
-        "LB",
-        "RB"
+        "LR",
+        "RR"
       ]
     },
     "quarterMilkingDuration": {
