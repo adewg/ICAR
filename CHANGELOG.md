@@ -1,5 +1,32 @@
 # Changelog
 
+## [Unreleased](https://github.com/adewg/ICAR/tree/HEAD)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/1.0.2...HEAD)
+
+**Closed issues:**
+
+- Add documentation for icarValidSampleFillingIndicatorType.json [\#116](https://github.com/adewg/ICAR/issues/116)
+- Quarter Milking Type Quarter Id Enum differs from ICAR Data Dictionary [\#112](https://github.com/adewg/ICAR/issues/112)
+
+## [1.0.2](https://github.com/adewg/ICAR/tree/1.0.2) (2020-06-08)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.0.1...1.0.2)
+
+**Closed issues:**
+
+- Missing copyright holder in LICENSE [\#105](https://github.com/adewg/ICAR/issues/105)
+- Date time format for UTC [\#102](https://github.com/adewg/ICAR/issues/102)
+
+**Merged pull requests:**
+
+- Merge from Develop to create ADE-1 v 1.0.2 [\#118](https://github.com/adewg/ICAR/pull/118) ([cookeac](https://github.com/cookeac))
+- Explain icarValidSampleFillingIndicator, fix icarQuarterId [\#117](https://github.com/adewg/ICAR/pull/117) ([cookeac](https://github.com/cookeac))
+- Update readme with instruction to link PRs to issues [\#115](https://github.com/adewg/ICAR/pull/115) ([cookeac](https://github.com/cookeac))
+- Merge from Develop to correct copyright in LICENCE [\#114](https://github.com/adewg/ICAR/pull/114) ([cookeac](https://github.com/cookeac))
+- added missing copyright holder name [\#106](https://github.com/adewg/ICAR/pull/106) ([alamers](https://github.com/alamers))
+- changelog for v1.0.1 [\#104](https://github.com/adewg/ICAR/pull/104) ([alamers](https://github.com/alamers))
+
 ## [v1.0.1](https://github.com/adewg/ICAR/tree/v1.0.1) (2020-05-18)
 
 [Full Changelog](https://github.com/adewg/ICAR/compare/v1.0.0...v1.0.1)
