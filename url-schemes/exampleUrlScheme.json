@@ -800,7 +800,6 @@
       "icarBreedingValueCollection": {
         "$ref": "../collections/icarBreedingValueCollection.json"
       }
-
     },
     "parameters": {
       "location-scheme": {
