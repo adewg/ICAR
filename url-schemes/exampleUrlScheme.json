@@ -796,7 +796,11 @@
       },
       "icarDeviceCollection": {
         "$ref": "../collections/icarDeviceCollection.json"
+      },
+      "icarBreedingValueCollection": {
+        "$ref": "../collections/icarBreedingValueCollection.json"
       }
+
     },
     "parameters": {
       "location-scheme": {
