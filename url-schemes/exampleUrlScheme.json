@@ -35,6 +35,36 @@
     }
   ],
   "paths": {
+    "/locations": {
+      "get": {
+        "operationId": "get-locations",
+        "summary": "Get available schema/id combinations for locations.",
+        "description": "# Purpose\nProvide a list of available locations.\n",
+        "tags": [
+          "additions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the available locations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLocationCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/locations"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
         "operationId": "get-milking-visits",
@@ -708,6 +738,9 @@
       "error": {
         "$ref": "../resources/exampleErrorResource.json"
       },
+      "icarLocationCollection": {
+        "$ref": "../collections/icarLocationCollection.json"
+      },
       "icarMilkingVisitEventCollection": {
         "$ref": "../collections/icarMilkingVisitEventCollection.json"
       },
@@ -825,6 +858,30 @@
       }
     },
     "examples": {
+      "locations": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+            "schema": "eu.farmId",
+            "id": "276031231231234",
+            "name": "My little farm",
+            "meta": {
+              "source": "source",
+              "creator": "creator",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": "2020-01-29T08:49:06.1314223+00:00",
+              "validFrom": null,
+              "validTo": null
+            }
+          }
+         ],
+        }
+      },
       "arrival": {
         "value": {
           "view": {

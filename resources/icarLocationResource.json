@@ -1,0 +1,20 @@
+{
+  "description": "The Weight event records a live weight observation of an animal.",
+
+  "allOf": [{
+      "$ref": "../resources/icarResource.json",
+    },{
+      "$ref": "../resources/icarLocationIdentifierType.json",
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the location."
+        }
+      }
+    }
+  ]
+}
