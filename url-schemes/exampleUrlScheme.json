@@ -78,6 +78,49 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/test-days": {
+      "get": {
+        "operationId": "get-test-days",
+        "summary": "Get the test days",
+        "description": "# Purpose\nProvides data from the test days on a farm that intersects with the given start/end date if provided. Otherwise returns all available entries.",
+        "tags": [
+          "ADE-1-milk"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the test days for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTestDayCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/test-days"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/test-day-results": {
       "get": {
         "operationId": "get-test-day-results",
@@ -714,6 +757,9 @@
       "icarReproMatingRecommendationCollection": {
         "$ref": "../collections/icarReproMatingRecommendationCollection.json"
       },
+      "icarTestDayCollection": {
+        "$ref": "../collections/icarTestDayCollection.json"
+      },
       "icarTestDayResultEventCollection": {
         "$ref": "../collections/icarTestDayResultEventCollection.json"
       },
@@ -994,6 +1040,12 @@
               }
             ]
           }]
+        }
+      },
+      "test-days": {
+        "value": {
+          "summary": "Example of test day resources.",
+          "externalValue": "../examples/exampleTestDayResourceCollection.json"
         }
       },
       "insemination-finland": {
