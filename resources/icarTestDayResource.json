@@ -7,10 +7,15 @@
     {
       "type": "object",
       "required": [
+        "id",
         "beginDate",
         "endDate"
       ],
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this test day."
+        },
         "beginDate": {
           "$ref": "../types/icarDateTimeType.json",
           "description": "The datetime of the beginning of the milk sampling."
