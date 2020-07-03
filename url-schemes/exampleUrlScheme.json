@@ -342,6 +342,46 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/animalSets": {
+      "get": {
+        "operationId": "get-animal-sets",
+        "summary": "Get the animal sets for a certain location",
+        "description": "# Purpose\nProvides the animal sets on a location\n",
+        "tags": [
+          "additions"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+          }, {
+            "$ref": "#/components/parameters/location-id"
+          }, {
+            "$ref": "#/components/parameters/animal-id-scheme"
+          }, {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the animal sets for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalSetCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/animal-sets"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
@@ -735,6 +775,9 @@
       "icarAnimalCoreCollection": {
         "$ref": "../collections/icarAnimalCoreCollection.json"
       },
+      "icarAnimalSetCollection": {
+        "$ref": "../collections/icarAnimalSetCollection.json"
+      },
       "icarReproPregnancyCheckEventCollection": {
         "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
@@ -800,6 +843,24 @@
         "schema": {
           "type": "string",
           "format": "date-time"
+        }
+      },
+      "animal-id-scheme": {
+        "name": "animal-id-scheme",
+        "in": "query",
+        "description": "The scheme id for the animal identifier.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "animal-id": {
+        "name": "animal-id",
+        "in": "query",
+        "description": "The unique identifier for the animal.",
+        "required": false,
+        "schema": {
+          "type": "string"
         }
       }
     },
@@ -991,6 +1052,28 @@
                 "characteristic": "PROTEIN",
                 "value": "3.54",
                 "unit": "VP"
+              }
+            ]
+          }]
+        }
+      },
+      "animal-sets": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+            "id": "6e47cd5c-2d42-4268-a665-bd17cd5fc222",
+            "type": "BARN",
+            "member": [{
+                "scheme": "eu.animalId",
+                "id": "276000312312345"
+              }, {
+                "scheme": "eu.animalId",
+                "id": "276000312319876"
               }
             ]
           }]
