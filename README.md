@@ -9,7 +9,7 @@ You can find the documentation for this project in [the Wiki](https://github.com
 There you will find:
 * Information about [ICAR and the ADE working group](https://github.com/adewg/ICAR/wiki/About-ICAR-and-ADE)
 * The design principles considered by the ADE working group when developing the standard
-* How to understand the data model
+* How to understand the data model and what [resources we support](https://github.com/adewg/ICAR/wiki/Resource-entities)
 * Tips for [implementing a client application](https://github.com/adewg/ICAR/wiki/Implementing-a-client-application) using the standard
 * Tips for [implementing a service](https://github.com/adewg/ICAR/wiki/Implementing-a-service) using the standard
 
