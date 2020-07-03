@@ -17,6 +17,10 @@
           "type": "string",
           "description": "Unique identifier in the source system for this animal set."
         },
+        "name": {
+          "type": "string",
+          "description": "Human readable name of the set.",
+        },
         "type": {
           "type": "string",
           "description": "Type of the animal set."

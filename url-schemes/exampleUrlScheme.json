@@ -1067,6 +1067,7 @@
           },
           "member": [{
             "id": "6e47cd5c-2d42-4268-a665-bd17cd5fc222",
+            "name": "My Barn Group",
             "type": "BARN",
             "member": [{
                 "scheme": "eu.animalId",
