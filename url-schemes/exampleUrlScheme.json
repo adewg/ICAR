@@ -346,7 +346,7 @@
       "get": {
         "operationId": "get-animal-sets",
         "summary": "Get the animal sets for a certain location",
-        "description": "# Purpose\nProvides the animal sets on a location\n",
+        "description": "# Purpose\nProvides the animal sets on a location. If animal-id-scheme and animal-id are provided, the sets containing that animal are returned.\n",
         "tags": [
           "additions"
         ],
