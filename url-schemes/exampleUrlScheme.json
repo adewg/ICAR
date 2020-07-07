@@ -39,7 +39,7 @@
       "get": {
         "operationId": "get-locations",
         "summary": "Get available schema/id combinations for locations.",
-        "description": "# Purpose\nProvide a list of available locations.\n",
+        "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
         "tags": [
           "additions"
         ],
