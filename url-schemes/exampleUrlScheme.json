@@ -867,8 +867,10 @@
             "currentPage": 1
           },
           "member": [{
-            "schema": "eu.farmId",
-            "id": "276031231231234",
+            "identifier": {
+              "id": "276031231231234",
+              "schema": "eu.farmId"
+            },
             "name": "My little farm",
             "meta": {
               "source": "source",
