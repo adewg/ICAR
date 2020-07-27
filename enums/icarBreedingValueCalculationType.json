@@ -4,10 +4,10 @@
   "type": "string",
 
   "enum": [
-    "Breeding Value",
-    "Parent Average",
-    "Genomic Breeding Value",
-    "Converted Breeding Value",
+    "BreedingValue",
+    "ParentAverageBreedingValue",
+    "GenomicBreedingValue",
+    "ConvertedBreedingValue",
     "Other"
   ]
 }
