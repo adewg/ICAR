@@ -1214,7 +1214,7 @@
           "member": [{
             "id": "6e47cd5c-2d42-4268-a665-bd17cd5fc222",
             "name": "My Barn Group",
-            "type": "BARN",
+            "purpose": "Enclosure",
             "member": [{
                 "scheme": "eu.animalId",
                 "id": "276000312312345"
