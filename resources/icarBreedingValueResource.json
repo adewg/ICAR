@@ -22,7 +22,7 @@
           "description": "Unique animal scheme and identifier combination."
         },
         "base": {
-          "$ref": "../types/icarBaseIdentifierType.json",
+          "$ref": "../types/icarBVBaseIdentifierType.json",
           "description": "The scheme and the id of the base of the breeding value."
         },
         "version": {
