@@ -10,7 +10,7 @@
     },
     "calculationType": {
       "$ref": "../enums/icarBreedingValueCalculationType.json",
-      "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list"
+      "description": "Indicates the calculation method/type for the breeding value."
     },
     "value": {
       "type": "number",
