@@ -1,0 +1,38 @@
+{
+  "description": "Core schema for representing animal sets",
+
+  "allOf": [{
+      "$ref": "../resources/icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id",
+        "member"
+      ],
+      
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this animal set."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human readable name of the set.",
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the animal set."
+        },
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case animals assigned to the set."
+        }
+      }
+    }
+  ]
+}
