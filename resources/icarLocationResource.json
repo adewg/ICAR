@@ -2,8 +2,9 @@
   "description": "An  location scheme / location id combinations.",
 
   "allOf": [{
-      "$ref": "./icarResource.json",
-    }, {
+      "$ref": "./icarResource.json"
+    }, 
+    {
       "type": "object",
 
       "required": [
