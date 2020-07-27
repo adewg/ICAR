@@ -1,0 +1,41 @@
+{
+  "description": "Breeding values of an animal.",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id",
+        "animal"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this event."
+        },
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "base": {
+          "$ref": "../types/icarBVBaseIdentifierType.json",
+          "description": "The scheme and the id of the base of the breeding value."
+        },
+        "version": {
+          "type": "string",
+          "description": " string which sets the version for the breeding value estimation - this can be a date, or a version name, or something the calculation center is using to identify their seperate runs."
+        },
+        "breedingValues": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarBreedingValueType.json"
+          }
+        }
+      }
+    }
+  ]
+}

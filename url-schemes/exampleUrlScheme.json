@@ -664,6 +664,44 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/breeding-values": {
+      "get": {
+        "operationId": "get-breeding-values",
+        "summary": "Get the breeding values of the animals of a location",
+        "description": "# Purpose\nProvides breeding values of the animals present on a farm.",
+        "tags": [
+          "ADE-1-other"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the breeding values of the animals of the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarBreedingValueCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/mating-recommendations": {
       "get": {
         "operationId": "get-mating-recommendations",
@@ -758,6 +796,9 @@
       },
       "icarDeviceCollection": {
         "$ref": "../collections/icarDeviceCollection.json"
+      },
+      "icarBreedingValueCollection": {
+        "$ref": "../collections/icarBreedingValueCollection.json"
       }
     },
     "parameters": {
