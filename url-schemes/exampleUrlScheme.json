@@ -35,6 +35,36 @@
     }
   ],
   "paths": {
+    "/locations": {
+      "get": {
+        "operationId": "get-locations",
+        "summary": "Get available schema/id combinations for locations.",
+        "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
+        "tags": [
+          "additions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the available locations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLocationCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/locations"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
         "operationId": "get-milking-visits",
@@ -67,6 +97,49 @@
                 "examples": {
                   "base": {
                     "$ref": "#/components/examples/milking-visit"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/test-days": {
+      "get": {
+        "operationId": "get-test-days",
+        "summary": "Get the test days",
+        "description": "# Purpose\nProvides data from the test days on a farm that intersects with the given start/end date if provided. Otherwise returns all available entries.",
+        "tags": [
+          "ADE-1-milk"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the test days for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTestDayCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/test-days"
                   }
                 }
               }
@@ -704,6 +777,44 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/breeding-values": {
+      "get": {
+        "operationId": "get-breeding-values",
+        "summary": "Get the breeding values of the animals of a location",
+        "description": "# Purpose\nProvides breeding values of the animals present on a farm.",
+        "tags": [
+          "ADE-1-other"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the breeding values of the animals of the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarBreedingValueCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/mating-recommendations": {
       "get": {
         "operationId": "get-mating-recommendations",
@@ -748,11 +859,17 @@
       "error": {
         "$ref": "../resources/exampleErrorResource.json"
       },
+      "icarLocationCollection": {
+        "$ref": "../collections/icarLocationCollection.json"
+      },
       "icarMilkingVisitEventCollection": {
         "$ref": "../collections/icarMilkingVisitEventCollection.json"
       },
       "icarReproMatingRecommendationCollection": {
         "$ref": "../collections/icarReproMatingRecommendationCollection.json"
+      },
+      "icarTestDayCollection": {
+        "$ref": "../collections/icarTestDayCollection.json"
       },
       "icarTestDayResultEventCollection": {
         "$ref": "../collections/icarTestDayResultEventCollection.json"
@@ -801,6 +918,9 @@
       },
       "icarDeviceCollection": {
         "$ref": "../collections/icarDeviceCollection.json"
+      },
+      "icarBreedingValueCollection": {
+        "$ref": "../collections/icarBreedingValueCollection.json"
       }
     },
     "parameters": {
@@ -886,6 +1006,32 @@
       }
     },
     "examples": {
+      "locations": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+            "identifier": {
+              "id": "276031231231234",
+              "schema": "eu.farmId"
+            },
+            "name": "My little farm",
+            "meta": {
+              "source": "source",
+              "creator": "creator",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": "2020-01-29T08:49:06.1314223+00:00",
+              "validFrom": null,
+              "validTo": null
+            }
+          }
+         ],
+        }
+      },
       "arrival": {
         "value": {
           "view": {
@@ -1078,6 +1224,12 @@
               }
             ]
           }]
+        }
+      },
+      "test-days": {
+        "value": {
+          "summary": "Example of test day resources.",
+          "externalValue": "../examples/exampleTestDayResourceCollection.json"
         }
       },
       "insemination-finland": {
