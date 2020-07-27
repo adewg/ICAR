@@ -1,7 +1,8 @@
 {
   "description": "Core schema for representing animal sets (often called groups or sessions).",
 
-  "allOf": [{
+  "allOf": [
+    {
       "$ref": "../resources/icarResource.json"
     },
     {
@@ -23,7 +24,7 @@
         },
         "purpose": {
           "$ref": "../enums/icarSetPurposeType.json",
-          "description": "Type of the animal set."
+          "description": "Purpose of the animal set."
         },
         "member": {
           "type": "array",
