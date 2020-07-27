@@ -1,0 +1,32 @@
+{
+  "description": "An  location scheme / location id combinations.",
+
+  "allOf": [{
+      "$ref": "./icarResource.json",
+    }, {
+      "type": "object",
+
+      "required": [
+        "identifier"
+      ],
+
+      "properties": {
+        "identifier": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "alternativeIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarLocationIdentifierType.json"
+          },
+          "description": "Alternative identifiers for the location. Must be a 1:1 mapping, meaning that when querying resources with an alternative identifier (instead of the 'main' identifier), the response may not be different."
+        },
+        "name": {
+          "type": "string",
+          "description": "The human readable name of the location."
+        }
+      }
+    }
+  ]
+}

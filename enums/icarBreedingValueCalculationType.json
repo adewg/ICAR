@@ -1,0 +1,13 @@
+{
+  "description": "Enumeration for identifying the mathematical calculation method used to calculate breeding values.",
+
+  "type": "string",
+
+  "enum": [
+    "BreedingValue",
+    "ParentAverageBreedingValue",
+    "GenomicBreedingValue",
+    "ConvertedBreedingValue",
+    "Other"
+  ]
+}

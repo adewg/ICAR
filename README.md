@@ -9,13 +9,13 @@ You can find the documentation for this project in [the Wiki](https://github.com
 There you will find:
 * Information about [ICAR and the ADE working group](https://github.com/adewg/ICAR/wiki/About-ICAR-and-ADE)
 * The design principles considered by the ADE working group when developing the standard
-* How to understand the data model
+* How to understand the data model and what [resources we support](https://github.com/adewg/ICAR/wiki/Resource-entities)
 * Tips for [implementing a client application](https://github.com/adewg/ICAR/wiki/Implementing-a-client-application) using the standard
 * Tips for [implementing a service](https://github.com/adewg/ICAR/wiki/Implementing-a-service) using the standard
 
 ## OpenAPI Quick Start
 Developers may wish to start by reading the **\url-schemes\exampleUrlScheme.json** file in their favourite OpenAPI specification editor.
-You can also [see a preview using the free Redoc tool](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/master/url-schemes/exampleUrlScheme.json).
+You can also [view the API using the swagger editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json).
 
 
 ## Acknowledgements
@@ -28,6 +28,7 @@ Version 1.0 of this standard was based on previous work of:
 ## Contributing
 The Animal Data Exchange Working Group welcome contributions
 * Read and make suggestions using the [Issues List](https://github.com/adewg/ICAR/issues)
-* Propose changes by logging an issue, then creating your own fork and proposing a Pull Request that will be reviewed by the maintainers.
-* Ensure that your pull request references the issues that it addresses (see https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue). This is part of the review criteria for maintainers, as it makes our release change logs informative.
+* The default branch is set to **ADE-1** which is the current release. This is to make it easier for organisations to clone and use the specifications. If you expect to contribute you will need to work on the **Develop** branch instead.
+* Propose changes by logging an issue, then creating your own fork of the **Develop** branch and proposing a Pull Request that will be reviewed by the maintainers.
+
 
