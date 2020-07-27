@@ -1,0 +1,21 @@
+{
+  "view": {
+    "totalItems": 1,
+    "totalPages": 1,
+    "pageSize": 10,
+    "currentPage": 1
+  },
+  "member": [{
+    "id": "6e47cd5c-2d42-4268-a665-bd17cd5fc222",
+    "begin-date": "2020-05-23T09:00:00+00:00",
+    "end-date": "2020-05-24T09:00:00+00:00",
+    "meta": {
+      "source": "example",
+      "creator": "creator",
+      "modified": "2020-06-29T08:49:06.0421042+00:00",
+      "created": "2020-06-29T08:49:06.0421042+00:00",
+      "validFrom": null,
+      "validTo": null
+    }
+  }]
+}
