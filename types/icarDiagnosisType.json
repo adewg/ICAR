@@ -1,6 +1,7 @@
 {
-    "required": [],
+    "description": "Provides properties for a single animal health diagnosis.",
     "type": "object",
+
     "properties": {
         "id": {
             "type": "string",

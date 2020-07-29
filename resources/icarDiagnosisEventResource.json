@@ -6,7 +6,6 @@
             "$ref": "../resources/icarEventCoreResource.json"
         },
         {
-            "required": [],
             "type": "object",
 
             "properties": {

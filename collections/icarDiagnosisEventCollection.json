@@ -1,12 +1,12 @@
 {
   "description": "Represents a collection of animal health diagnosis events. Based on icarResourceCollection to provide paging etc.",
-
-  "allOf": [{
+  
+  "allOf": [
+    {
       "$ref": "icarResourceCollection.json"
     },
     {
       "type": "object",
-
       "properties": {
         "member": {
           "type": "array",
