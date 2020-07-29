@@ -6,7 +6,6 @@
         },
         {
             "type": "object",
-            "required": [],
             "properties": {
                 "medicine": {
                     "$ref": "../types/icarMedicineReferenceType.json",
