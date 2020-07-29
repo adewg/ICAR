@@ -6,6 +6,11 @@
       },
       {
         "type": "object",
+
+        "required": [
+          "score",
+          "trait"
+        ],
   
         "properties": {
           "score": {
@@ -21,8 +26,8 @@
             "description": "Method of conformation scoring"
           },
           "device": {
-            "$ref": "../resources/icarDeviceResource.json",
-            "description": "Device used for automated scoring"
+            "$ref": "../types/icarDeviceReferenceType.json",
+            "description": "Optional information about the device used for the automated scoring."
           }
         }
       }
