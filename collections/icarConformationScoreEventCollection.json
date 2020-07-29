@@ -13,7 +13,7 @@
           "items": {
             "$ref": "../resources/icarConformationScoreEventResource.json"
           },
-          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case heat events."
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case conformation score events."
         }
       }
     }
