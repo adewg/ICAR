@@ -2,7 +2,7 @@
   "description": "Represents a collection of animal health diagnosis events. Based on icarResourceCollection to provide paging etc.",
 
   "allOf": [{
-      "$ref": "../collections/icarResourceCollection.json"
+      "$ref": "icarResourceCollection.json"
     },
     {
       "type": "object",
@@ -13,7 +13,7 @@
           "items": {
             "$ref": "../resources/icarDiagnosisEventResource.json"
           },
-          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case weight events."
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case diagnosis events."
         }
       }
     }
