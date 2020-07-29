@@ -1,0 +1,32 @@
+{
+    "description": "The type of conformation trait according to ICAR guidelines",
+
+    "type": "string",
+    
+    "enum": [
+        "Stature",
+        "ChestWidth",
+        "BodyDepth",
+        "Angularity",
+        "RumpAngle",
+        "RumpWidth",
+        "RearLegsSet",
+        "RearLegsRearView",
+        "FootAngle",
+        "ForeUdderAttachment",
+        "RearUdderHeight",
+        "CentralLigament",
+        "UdderDepth",
+        "FrontTeatPlacement",
+        "TeatLength",
+        "RearTeatPlacement",
+        "Locomotion",
+        "BodyConditionScore",
+        "HockDevelopment",
+        "BoneStructure",
+        "RearUdderWidth",
+        "TeatThickness",
+        "Muscularity",
+        "TeatDirection"
+    ]
+}
