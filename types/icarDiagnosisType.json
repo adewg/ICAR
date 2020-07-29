@@ -1,0 +1,26 @@
+{
+    "required": [],
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Unique identifier for this diagnosis."
+        },
+        "name": {
+            "type": "string",
+            "description": "Name indicating the health condition diagnosed."
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the diagnosis or problem."
+        },
+        "diagnosisCode": {
+            "$ref": "../types/iscDiagnosisIdentifierType.Json",
+            "description": "Descibes the scheme (eg venom or ICAR) and the code (ID) within that scheme."
+        },
+        "site": {
+            "type": "string",
+            "description": "Site on the animal involved in the diagnosis or disease."
+        }
+    }
+}
