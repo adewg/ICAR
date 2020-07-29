@@ -859,7 +859,7 @@
         "summary": "Get the diagnoses for a certain location",
         "description": "# Purpose\nProvides the animal health diagnoses for a location\n",
         "tags": [
-          "additional"
+          "additions"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -897,7 +897,7 @@
         "summary": "Get the treatments for a certain location",
         "description": "# Purpose\nProvides the animal health treatments for a location\n",
         "tags": [
-          "additional"
+          "additions"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -935,7 +935,7 @@
         "summary": "Get the treatment programs for a certain location",
         "description": "# Purpose\nProvides the animal health treatment programs for a location\n",
         "tags": [
-          "additional"
+          "additions"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"

@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
         "productType": {
-            "$ref": "../enums/icarWithdrawlProductType.json",
+            "$ref": "../enums/icarWithdrawalProductType.json",
             "description": "Product or food item affected by this withdrawal."
         },
         "endDate": {

@@ -15,7 +15,7 @@
             "description": "Description of the diagnosis or problem."
         },
         "diagnosisCode": {
-            "$ref": "../types/iscDiagnosisIdentifierType.Json",
+            "$ref": "../types/icarDiagnosisIdentifierType.json",
             "description": "Descibes the scheme (eg venom or ICAR) and the code (ID) within that scheme."
         },
         "site": {
