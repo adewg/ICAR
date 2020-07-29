@@ -852,6 +852,44 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/conformation-scores": {
+      "get": {
+        "operationId": "get-conformation-scores",
+        "summary": "Get the conformation scores for a certain location",
+        "description": "# Purpose\nProvides the conformation scores on a location\n",
+        "tags": [
+          "ADE-1-reproduction"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the conformation scores for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarConformationScoreEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -921,6 +959,9 @@
       },
       "icarBreedingValueCollection": {
         "$ref": "../collections/icarBreedingValueCollection.json"
+      }      ,
+      "icarConformationScoreEventCollection": {
+        "$ref": "../collections/icarConformationScoreEventCollection.json"
       }
     },
     "parameters": {

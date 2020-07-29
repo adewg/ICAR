@@ -1,0 +1,30 @@
+{
+    "description": "Event for recording conformation score",
+  
+    "allOf": [{
+        "$ref": "../resources/icarEventCoreResource.json"
+      },
+      {
+        "type": "object",
+  
+        "properties": {
+          "score": {
+            "type": "number",
+            "description": "Conformation score with values of 1 to 9 numeric (in some cases double)"
+          },
+          "trait": {
+            "$ref": "../enums/icarConformationTraitType.json",
+            "description": "Conformation trait type according ICAR guidelines"
+          },
+          "method": {
+            "$ref": "../enums/icarConformationScoringMethodType.json",
+            "description": "Method of conformation scoring"
+          },
+          "device": {
+            "$ref": "../resources/icarDeviceResource.json",
+            "description": "Device used for automated scoring"
+          }
+        }
+      }
+    ]
+  }
