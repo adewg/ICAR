@@ -1,12 +1,12 @@
 {
   "description": "Represents a collection of animal health treatment events. Based on icarResourceCollection to provide paging etc.",
 
-  "allOf": [{
-      "$ref": "../collections/icarResourceCollection.json"
+  "allOf": [
+    {
+      "$ref": "icarResourceCollection.json"
     },
     {
       "type": "object",
-
       "properties": {
         "member": {
           "type": "array",
