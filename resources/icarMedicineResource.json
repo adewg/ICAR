@@ -1,0 +1,26 @@
+{
+    "description": "Defines a medicine (and eventually withdrawal and application information).",
+    
+    "allOf": [
+        {
+            "$ref": "../types/icarResource.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the medicine or remedy given for this treatment"
+                },
+                "approved": {
+                    "type": "string",
+                    "description": "An indicator whether the medicine or remedy is an approved medicine"
+                },
+                "registeredID": {
+                    "$ref": "iscMedicineRegistrationIdentifierType.json",
+                    "description": "Registered ID in the scheme and ID format."
+                }
+            }
+        }
+    ]
+}
