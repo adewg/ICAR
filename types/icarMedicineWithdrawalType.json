@@ -1,5 +1,4 @@
 {
-    "required": [],
     "type": "object",
     "properties": {
         "productType": {
