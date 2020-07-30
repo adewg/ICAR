@@ -1,11 +1,13 @@
 {
     "description": "Defines a single animal health treatment, which may be medication or procedure.",
+
     "allOf": [
         {
-            "$ref": "../resources/icarEventCoreResource.json"
+          "$ref": "../resources/icarEventCoreResource.json"
         },
         {
             "type": "object",
+
             "properties": {
                 "medicine": {
                     "$ref": "../types/icarMedicineReferenceType.json",
@@ -44,4 +46,4 @@
             }
         }
     ]
-}
+} 

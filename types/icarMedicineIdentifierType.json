@@ -4,4 +4,4 @@
     "allOf": [{
       "$ref": "icarIdentifierType.json"
     }]
-  }
+  } 
