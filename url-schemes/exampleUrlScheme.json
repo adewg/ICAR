@@ -890,7 +890,121 @@
           }
         }
       }
-    }
+    },
+    "/locations/{location-scheme}/{location-id}/diagnoses": {
+      "get": {
+        "operationId": "get-Diagnoses",
+        "summary": "Get the diagnoses for a certain location",
+        "description": "# Purpose\nProvides the animal health diagnoses for a location\n",
+        "tags": [
+          "additions"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarDiagnosisEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/treatments": {
+      "get": {
+        "operationId": "get-Treatments",
+        "summary": "Get the treatments for a certain location",
+        "description": "# Purpose\nProvides the animal health treatments for a location\n",
+        "tags": [
+          "additions"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatments for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTreatmentEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/treatment-programs": {
+      "get": {
+        "operationId": "get-Treatment-Programs",
+        "summary": "Get the treatment programs for a certain location",
+        "description": "# Purpose\nProvides the animal health treatment programs for a location\n",
+        "tags": [
+          "additions"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatment progams for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTreatmentProgramEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    }       
   },
   "components": {
     "schemas": {
@@ -962,6 +1076,15 @@
       }      ,
       "icarConformationScoreEventCollection": {
         "$ref": "../collections/icarConformationScoreEventCollection.json"
+      },
+      "icarDiagnosisEventCollection": {
+        "$ref": "../collections/icarDiagnosisEventCollection.json"
+      },
+      "icarTreatmentEventCollection": {
+        "$ref": "../collections/icarTreatmentEventCollection.json"
+      },
+      "icarTreatmentProgramEventCollection": {
+        "$ref": "../collections/icarTreatmentProgramEventCollection.json"      
       }
     },
     "parameters": {
