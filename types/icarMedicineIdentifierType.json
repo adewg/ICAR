@@ -1,0 +1,7 @@
+{
+    "description": "Identifies a medicine registraton with a national Scheme and a registered ID within that scheme.",
+  
+    "allOf": [{
+      "$ref": "icarIdentifierType.json"
+    }]
+  } 
