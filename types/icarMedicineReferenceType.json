@@ -1,0 +1,24 @@
+{
+    "description": "Provides basic details about a medicine and links to a medicine resource (if available).",
+    "allOf": [
+        {
+            "$ref": "icarResourceReferenceType.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the medicine or remedy given for this treatment"
+                },
+                "approved": {
+                    "type": "string",
+                    "description": "An indicator whether the medicine or remedy is an approved medicine"
+                },
+                "registeredIdentifier": {
+                    "$ref": "../types/icarMedicineIdentifierType.json"
+                }
+            }
+        }
+    ]
+} 

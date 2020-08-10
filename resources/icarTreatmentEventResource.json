@@ -1,0 +1,49 @@
+{
+    "description": "Defines a single animal health treatment, which may be medication or procedure.",
+
+    "allOf": [
+        {
+          "$ref": "../resources/icarEventCoreResource.json"
+        },
+        {
+            "type": "object",
+
+            "properties": {
+                "medicine": {
+                    "$ref": "../types/icarMedicineReferenceType.json",
+                    "description": "A reference to the medicine used (where applicable)."
+                },
+                "procedure": {
+                    "type": "string",
+                    "description": "Medicine application method or a non-medicine procedure."
+                },
+                "batches": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarMedicineBatchType.json"
+                    },
+                    "description": "Batches and expiry details for the medicine administered."
+                },
+                "withdrawals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarMedicineWithdrawalType.json"
+                    },
+                    "description": "Withholding details for the treatment administered."
+                },
+                "dose": {
+                    "$ref": "../types/icarMedicineDoseType.json",
+                    "description": "Details of medicine dose administered"
+                },
+                "site": {
+                    "type": "string",
+                    "description": "Body site where the treatment was administered."
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A comment recorded about the treatment or its outcome."
+                }
+            }
+        }
+    ]
+} 

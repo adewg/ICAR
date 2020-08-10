@@ -1,0 +1,9 @@
+{
+    "description": "Provides a scheme + identifier mechanism for diagnosis codes (e.g. VENOM or ICAR coding).",
+    
+    "allOf": [
+        {
+            "$ref": "icarIdentifierType.json"
+        }
+    ]
+} 

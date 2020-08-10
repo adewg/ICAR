@@ -1,0 +1,16 @@
+{
+    "description": "Defines a batch of medicine or product with an expiry date.",
+
+    "type": "object",
+
+    "properties": {
+        "identifier": {
+            "type": "string",
+            "description": "The ID, batch or lot number."
+        },
+        "expiryDate": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "The expiry date of the batch."
+        }
+    }
+} 

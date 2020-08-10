@@ -1,0 +1,10 @@
+{
+    "description": "The method of conformation scoring",
+
+    "type": "string",
+    
+    "enum": [
+        "Manual",
+        "Automated"
+    ]
+}
