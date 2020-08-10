@@ -1007,25 +1007,25 @@
     }       
   },
   "/locations/{location-scheme}/{location-id}/gestations": {
-      "get": {
-        "operationId": "get-Gestations",
-        "summary": "Get the gestations of a certain location",
-        "description": "# Purpose\nProvides the gestations for a location\n",
-        "tags": [
-          "additions"
-        ],
-        "parameters": [{
-            "$ref": "#/components/parameters/location-scheme"
-          },
-          {
-            "$ref": "#/components/parameters/location-id"
-          },
-          {
-            "$ref": "#/components/parameters/start-date-time"
-          },
-          {
-            "$ref": "#/components/parameters/end-date-time"
-          }
+    "get": {
+      "operationId": "get-Gestations",
+      "summary": "Get the gestations for a certain location",
+      "description": "# Purpose\nProvides the gestations for a location\n",
+      "tags": [
+        "additions"
+      ],
+      "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+        },
+        {
+          "$ref": "#/components/parameters/location-id"
+        },
+        {
+          "$ref": "#/components/parameters/start-date-time"
+        },
+        {
+          "$ref": "#/components/parameters/end-date-time"
+        }
         ],
         "responses": {
           "200": {
@@ -1044,7 +1044,7 @@
         }
       }
     }       
-  },
+  }
   "components": {
     "schemas": {
       "error": {
