@@ -1004,6 +1004,44 @@
           }
         }
       }
+    },      
+    "/locations/{location-scheme}/{location-id}/gestations": {
+      "get": {
+        "operationId": "get-Gestations",
+        "summary": "Get the gestations for a certain location",
+        "description": "# Purpose\nProvides the gestations for a location\n",
+        "tags": [
+          "additions"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the gestations for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGestationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
     }       
   },
   "components": {
@@ -1085,6 +1123,9 @@
       },
       "icarTreatmentProgramEventCollection": {
         "$ref": "../collections/icarTreatmentProgramEventCollection.json"      
+      },
+      "icarGestationCollection": {
+        "$ref": "../collections/icarGestationCollection.json"      
       }
     },
     "parameters": {
