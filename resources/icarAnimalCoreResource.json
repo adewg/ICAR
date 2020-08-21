@@ -69,6 +69,14 @@
           "$ref": "../enums/icarAnimalStatusType.json",
           "description": "On-farm status of the animal (such as alive, dead, off-farm)."
         },
+        "reproductionStatus": {
+          "$ref": "../enums/icarAnimalReproductionStatusType.json",
+          "description": "Reproduction status of the animal."
+        },
+        "lactationStatus": {
+          "$ref": "../enums/icarAnimalLactationStatusType.json",
+          "description": "Lactation status of the animal."
+        },
         "parentage": {
           "type": "array",
           "items": {
