@@ -1357,7 +1357,7 @@
           "member": [{
             "identifier": {
               "id": "276031231231234",
-              "schema": "eu.farmId"
+              "scheme": "eu.farmId"
             },
             "name": "My little farm",
             "meta": {
@@ -1384,7 +1384,7 @@
               "id": "NL 919713288",
               "scheme": "nl.ubn"
             },
-            "eventDateTime": "2016-01-06T14:00Z",
+            "eventDateTime": "2016-01-06T14:00:00Z",
             "location": {
               "id": "231817",
               "scheme": "nl.ubn"
@@ -1460,7 +1460,7 @@
               "unitCode": "SEC"
             },
             "milkingDuration": {
-              "value": "210",
+              "value": 210,
               "unitCode": "SEC"
             },
             "milkingType": "Automated",
@@ -1522,7 +1522,7 @@
             },
             "EventDateTime": "2019-11-01T23:58:31Z",
             "milkWeight24Hours": {
-              "value": "21.7",
+              "value": 21.7,
               "unitCode": "KGM"
             },
             "testDayCode": "0",
