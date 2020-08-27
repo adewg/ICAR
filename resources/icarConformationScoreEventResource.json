@@ -9,7 +9,7 @@
 
         "required": [
           "score",
-          "trait"
+          "traitScored"
         ],
   
         "properties": {
@@ -17,9 +17,9 @@
             "type": "number",
             "description": "Conformation score with values of 1 to 9 numeric (in some cases double)"
           },
-          "trait": {
+          "traitScored": {
             "$ref": "../enums/icarConformationTraitType.json",
-            "description": "Conformation trait type according ICAR guidelines"
+            "description": "Scored conformation trait type according ICAR guidelines"
           },
           "method": {
             "$ref": "../enums/icarConformationScoringMethodType.json",

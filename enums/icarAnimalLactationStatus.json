@@ -1,0 +1,13 @@
+{
+  "description": "Enumeration for different possible lactation status of an animal.",
+
+  "type": "string",
+
+  "enum": [
+    "Dry",
+    "Lead",
+    "Fresh",
+    "Early",
+    "Lactating"
+  ]
+}
