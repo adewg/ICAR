@@ -455,6 +455,94 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/animal-set-joins": {
+      "get": {
+        "operationId": "get-animal-set-joins",
+        "summary": "Get the animal set join events for a certain location",
+        "description": "# Purpose\nProvides the animal set join events on a location\n",
+        "tags": [
+          "additions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the join animal set events of animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalSetJoinEventCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/animal-set-joins"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/animal-set-leaves": {
+      "get": {
+        "operationId": "get-animal-set-leaves",
+        "summary": "Get the animal set leave events for a certain location",
+        "description": "# Purpose\nProvides the animal set leave events on a location\n",
+        "tags": [
+          "additions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the leave animal set events of animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalSetLeaveEventCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/animal-set-leaves"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
@@ -1085,6 +1173,12 @@
       "icarAnimalSetCollection": {
         "$ref": "../collections/icarAnimalSetCollection.json"
       },
+      "icarAnimalSetJoinEventCollection": {
+        "$ref": "../collections/icarAnimalSetJoinEventCollection.json"
+      },
+      "icarAnimalSetLeaveEventCollection": {
+        "$ref": "../collections/icarAnimalSetLeaveEventCollection.json"
+      },
       "icarReproPregnancyCheckEventCollection": {
         "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
@@ -1429,6 +1523,44 @@
               }
             ]
           }]
+        }
+      },
+      "animal-set-joins": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+              "animal": {
+                "scheme": "eu.animalId",
+                "id": "276000312312345"
+              },
+              "eventDateTime": "2019-11-01T23:58:31",
+              "animalSetId": "6e47cd5c-2d42-4268-a665-bd17cd5fc222"
+            }
+          ]
+        }
+      },
+      "animal-set-leaves": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+              "animal": {
+                "scheme": "eu.animalId",
+                "id": "276000312312345"
+              },
+              "eventDateTime": "2019-11-01T23:58:31",
+              "animalSetId": "6e47cd5c-2d42-4268-a665-bd17cd5fc222"
+            }
+          ]
         }
       },
       "test-days": {
