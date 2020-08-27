@@ -1396,7 +1396,7 @@
               },
               "specie": "Cattle",
               "gender": "Female",
-              "birthDate": "2013-11-06T00:00:00Z",
+              "birthDate": "2013-11-06T08:00:00Z", 
               "breedFractions": {
                 "denominator": "8",
                 "fractions": [{
