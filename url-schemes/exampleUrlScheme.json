@@ -1364,9 +1364,7 @@
               "source": "source",
               "creator": "creator",
               "modified": "2020-01-29T08:49:06.1314223+00:00",
-              "created": "2020-01-29T08:49:06.1314223+00:00",
-              "validFrom": null,
-              "validTo": null
+              "created": "2020-01-29T08:49:06.1314223+00:00"
             }
           }
          ]
@@ -1386,7 +1384,7 @@
               "id": "NL 919713288",
               "scheme": "nl.ubn"
             },
-            "eventDateTime": "2016-01-06",
+            "eventDateTime": "2016-01-06T14:00Z",
             "location": {
               "id": "231817",
               "scheme": "nl.ubn"
@@ -1456,7 +1454,7 @@
               "id": "NL 877034232",
               "scheme": "nl-v1"
             },
-            "milkingStartingDateTime": "2019-11-01T23:58:31",
+            "milkingStartingDateTime": "2019-11-01T23:58:31Z",
             "milkingVisitDuration": {
               "value": 349.0,
               "unitCode": "SEC"
@@ -1480,7 +1478,7 @@
             "quarterMilkings": [{
               "icarQuarterId": "LF",
               "milkingDuration": {
-                "value": "210",
+                "value": 210,
                 "unitCode": "SEC"
               },
               "milkingMilkWeight": {
@@ -1522,7 +1520,7 @@
               "id": "NL 877034232",
               "scheme": "nl-v1"
             },
-            "EventDateTime": "2019-11-01T23:58:31",
+            "EventDateTime": "2019-11-01T23:58:31Z",
             "milkWeight24Hours": {
               "value": "21.7",
               "unitCode": "KGM"
@@ -1579,7 +1577,7 @@
                 "scheme": "eu.animalId",
                 "id": "276000312312345"
               },
-              "eventDateTime": "2019-11-01T23:58:31",
+              "eventDateTime": "2019-11-01T23:58:31Z",
               "animalSetId": "6e47cd5c-2d42-4268-a665-bd17cd5fc222"
             }
           ]
@@ -1598,7 +1596,7 @@
                 "scheme": "eu.animalId",
                 "id": "276000312312345"
               },
-              "eventDateTime": "2019-11-01T23:58:31",
+              "eventDateTime": "2019-11-01T23:58:31Z",
               "animalSetId": "6e47cd5c-2d42-4268-a665-bd17cd5fc222"
             }
           ]
