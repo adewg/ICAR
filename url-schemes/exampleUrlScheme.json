@@ -1395,7 +1395,7 @@
                 "scheme": "nl.ubn"  
               },
               "alternativeIdentifiers": [],
-              "species": "Cattle",
+              "specie": "Cattle",
               "gender": "Female",
               "birthDate": "2013-11-06",
               "breedFractions": {
