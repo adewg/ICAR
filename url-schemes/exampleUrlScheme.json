@@ -1398,13 +1398,13 @@
               "gender": "Female",
               "birthDate": "2013-11-06T08:00:00Z", 
               "breedFractions": {
-                "denominator": "8",
+                "denominator": 8,
                 "fractions": [{
                   "breed": {
                     "id": "HF",
                     "scheme": "icar.org"
                   },
-                  "fraction": "8"
+                  "fraction": 8
                 }]
               },
               "coatColor": "RB",
