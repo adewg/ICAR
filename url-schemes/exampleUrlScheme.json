@@ -751,6 +751,44 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/do-not-breeds": {
+      "get": {
+        "operationId": "get-do-not-breeds",
+        "summary": "Get the animals that were assigned as do-not-breed for a certain location",
+        "description": "# Purpose\nProvides the not be bred animals on a location\n",
+        "tags": [
+          "ADE-1-reproduction"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the not to be bred animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarReproDoNotBreedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/parturitions": {
       "get": {
         "operationId": "get-parturitions",
@@ -1194,7 +1232,10 @@
       "icarReproAbortionEventCollection": {
         "$ref": "../collections/icarReproAbortionEventCollection.json"
       },
-      "icarReproParturitionEventCollection": {
+      "icarReproDoNotBreedEventCollection": {
+        "$ref": "../collections/icarReproDoNotBreedEventCollection.json"
+      },
+            "icarReproParturitionEventCollection": {
         "$ref": "../collections/icarReproParturitionEventCollection.json"
       },
       "icarWeightEventCollection": {
