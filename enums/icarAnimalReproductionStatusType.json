@@ -8,6 +8,7 @@
     "Inseminated",
     "Pregnant",
     "NotPregnant",
-    "Birthed"
+    "Birthed",
+    "DoNotBreed"
   ]
 }
