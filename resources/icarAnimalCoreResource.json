@@ -77,6 +77,10 @@
           "$ref": "../enums/icarAnimalLactationStatusType.json",
           "description": "Lactation status of the animal."
         },
+        "healthStatus": {
+          "$ref": "../enums/icarAnimalHealthStatusType.json",
+          "description": "Health status of the animal."
+        },
         "parentage": {
           "type": "array",
           "items": {
