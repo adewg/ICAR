@@ -1,0 +1,26 @@
+{
+  "description": "The animal set join event records animals joining animal set resources, i.e. additions of animals to a set.",
+
+  "allOf": [
+    {
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "animal",
+        "animalSetId",
+        "eventDateTime"
+      ],
+    
+      "properties":
+      {
+        "animalSetId": {
+          "type": "string",
+          "description": "Unique identifier in the source system for the animal set to be joined."
+        }
+      }
+    }
+  ]
+}
