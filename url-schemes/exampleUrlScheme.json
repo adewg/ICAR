@@ -234,6 +234,44 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/lactation-status-observations": {
+      "get": {
+        "operationId": "get-lactation-status-observations",
+        "summary": "Get the list of observed changes to lactation status for animals.",
+        "description": "# Purpose\nProvides a list of events arising from observed changes to lactation status.",
+        "tags": [
+          "ADE-1.1-milk"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the milking results for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLactationStatusObservedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/births": {
       "get": {
         "operationId": "get-births",
@@ -1176,6 +1214,44 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/repro-status-observations": {
+      "get": {
+        "operationId": "get-repro-status-observations",
+        "summary": "Get the list of observed changes to animal reproductive status",
+        "description": "# Purpose\nProvides a collection of events where a change to animal reproductive status has been observed.\n",
+        "tags": [
+          "ADE-1.1-reproduction"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the reproductive status change observations for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarReproStatusObservedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
     }       
   },
   "components": {
@@ -1269,6 +1345,12 @@
       },
       "icarGestationCollection": {
         "$ref": "../collections/icarGestationCollection.json"      
+      },
+      "icarLactationStatusObservedEventCollection": {
+        "$ref": "../collections/icarLactationStatusObservedEventCollection.json"
+      },
+      "icarReproStatusObservedEventCollection": {
+        "$ref": "../collections/icarReproStatusObservedEventCollection.json"
       }
     },
     "parameters": {

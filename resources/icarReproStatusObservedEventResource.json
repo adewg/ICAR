@@ -1,0 +1,17 @@
+{
+  "description": "This event records an observed reproductive status without necessarily a pregnancy check, parturition, or other event.",
+
+  "allOf": [{
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+        "type": "object",
+        "properties": {
+            "observedStatus": {
+              "$ref": "../enums/icarAnimalReproductionStatusType.json",
+              "description": "The reproductive status at the time of observation."
+            }
+        }
+    }
+  ]
+}
