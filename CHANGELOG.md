@@ -6,8 +6,29 @@
 
 **Closed issues:**
 
+- Latest OAS3 \(open API specification 3\) validation now enforced on examples [\#144](https://github.com/adewg/ICAR/issues/144)
+- For which use cases do we use AnimalEvents and for which do we just use PUT/POST/DELETE? [\#140](https://github.com/adewg/ICAR/issues/140)
+- Animal Sets \(groups\) membership change events [\#139](https://github.com/adewg/ICAR/issues/139)
+- do not breeds RESOURCE API [\#138](https://github.com/adewg/ICAR/issues/138)
+- Add list of available locations [\#125](https://github.com/adewg/ICAR/issues/125)
+- gestations API [\#121](https://github.com/adewg/ICAR/issues/121)
 - Add documentation for icarValidSampleFillingIndicatorType.json [\#116](https://github.com/adewg/ICAR/issues/116)
 - Quarter Milking Type Quarter Id Enum differs from ICAR Data Dictionary [\#112](https://github.com/adewg/ICAR/issues/112)
+- Reproduction and lactation status values [\#111](https://github.com/adewg/ICAR/issues/111)
+- Resource for listing test days [\#110](https://github.com/adewg/ICAR/issues/110)
+- Cannot find information about ICAR\_ValidSampleFillingIndicator code list [\#108](https://github.com/adewg/ICAR/issues/108)
+- Conformation Scores [\#97](https://github.com/adewg/ICAR/issues/97)
+- Animal Health Treatments [\#96](https://github.com/adewg/ICAR/issues/96)
+- breeding values of an animal API [\#89](https://github.com/adewg/ICAR/issues/89)
+- Group assignments missing \(feeding, milking, barn\) [\#88](https://github.com/adewg/ICAR/issues/88)
+- BCS \(body condition score\) API [\#83](https://github.com/adewg/ICAR/issues/83)
+- Splitting complex types, event-based types and code-based types \(enums\) into saparate sub-folders [\#66](https://github.com/adewg/ICAR/issues/66)
+- Define recommended url scheme [\#18](https://github.com/adewg/ICAR/issues/18)
+
+**Merged pull requests:**
+
+- Update changelog for 1.0.2 release [\#120](https://github.com/adewg/ICAR/pull/120) ([cookeac](https://github.com/cookeac))
+- Update changelog [\#119](https://github.com/adewg/ICAR/pull/119) ([cookeac](https://github.com/cookeac))
 
 ## [1.0.2](https://github.com/adewg/ICAR/tree/1.0.2) (2020-06-08)
 
