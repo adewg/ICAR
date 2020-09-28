@@ -1,0 +1,30 @@
+{
+  "description": "Information about test day for milk sampling.",
+  "allOf": [
+    {
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "id",
+        "beginDate",
+        "endDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this test day."
+        },
+        "beginDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The datetime of the beginning of the milk sampling."
+        },
+        "endDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The datetime of the end of the milk sampling."
+        }
+      }
+    }
+  ]
+}

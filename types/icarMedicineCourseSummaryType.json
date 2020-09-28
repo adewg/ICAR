@@ -1,0 +1,55 @@
+{
+    "description": "Describes a course of treatment with total product, start and end dates",
+
+    "type": "object",
+
+    "properties": {
+        "startDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "Start date of the treatment course"
+        },
+        "endDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "End date of the treatment course"
+        },
+        "medicine": {
+          "$ref": "../types/icarMedicineReferenceType.json",
+          "description": "Medicine details used in the course."
+        },
+        "procedure": {
+          "type": "string",
+          "description": "Medicine application method or non-medicine procedure."
+        },
+        "site": {
+          "type": "string",
+          "description": "Body site where the treatment or procedure was administered."
+        },
+        "reasonForAdministration": {
+          "type": "string",
+          "description": "This attribute can be used when medicine has been administered without a diagnosis"
+        },
+        "totalDose": {
+          "$ref": "../types/icarMedicineDoseType.json",
+          "description": "Total dose proposed or administered."
+        },
+        "batches": {
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarMedicineBatchType.json"
+            },
+            "description": "Batches and expiry details of the medicine (there may be several)."
+        },
+        "planOrActual":{
+            "type": "string",
+            "enum": ["Plan", "Actual"],
+            "description": "Indicator showing if the attributes in the course Summary are actual information for the treatments or the plan"
+        },
+        "withdrawals": {
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarMedicineWithdrawalType.json"
+            },
+            "description": "Provides withholding details for the treatment administered"
+        }
+    }
+} 

@@ -1,0 +1,21 @@
+{
+  "description": "Represents a collection of animal health treatment events. Based on icarResourceCollection to provide paging etc.",
+
+  "allOf": [
+    {
+      "$ref": "../collections/icarResourceCollection.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "../resources/icarTreatmentEventResource.json"
+          },
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case treatment events."
+        }
+      }
+    }
+  ]
+} 

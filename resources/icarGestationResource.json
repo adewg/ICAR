@@ -1,0 +1,43 @@
+{
+  "description": "Gestation information of animals on a specific location.",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id",
+        "animal",
+        "expectedCalvingDate"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this event."
+        },
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "location": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "sireIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "Unique scheme/identifier combinations for the sire, including official ID and Herdbook."
+        },
+        "expectedCalvingDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The date the calving is expected to happen."
+        }
+      }
+    }
+  ]
+}

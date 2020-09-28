@@ -1,0 +1,17 @@
+{
+    "description": "Provides details of a dose of medicine or other product.",
+
+    "type": "object",
+
+    "properties": {
+        "doseQuantity": {
+            "type": "number",
+            "format": "double",
+            "description": "Quantity of medicine or product administered."
+        },
+        "doseUnits": {
+            "$ref": "../enums/uncefactDoseUnitsType.json",
+            "description": "Units of measurement in UN/CEFACT 3-letter form"
+        }
+    }
+}  

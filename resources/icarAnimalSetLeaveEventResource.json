@@ -1,0 +1,25 @@
+{
+  "description": "The animal set leave event records animals leaving animal set resources, i.e. removals of animals from a set.",
+
+  "allOf": [
+    {
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "animalSetId",
+        "animal",
+        "eventDateTime"
+      ],
+
+      "properties": {
+        "animalSetId": {
+          "type": "string",
+          "description": "Unique identifier in the source system for the animal set to be left."
+        }
+      }
+    }
+  ]
+}

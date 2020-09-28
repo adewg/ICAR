@@ -1,0 +1,8 @@
+{
+  "description": "The do not breed event records an observation that an animal has been assigned not to be bred. There are no other parameters.",
+
+  "allOf": [{
+      "$ref": "../resources/icarEventCoreResource.json"
+    }
+  ]
+}

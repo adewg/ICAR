@@ -1,0 +1,18 @@
+{
+    "description": "This event records an observed lactation status without necessarily a parturition, drying off, or other event.",
+  
+    "allOf": [{
+        "$ref": "../resources/icarEventCoreResource.json"
+      },
+      {
+          "type": "object",
+          "properties": {
+              "observedStatus": {
+                "$ref": "../enums/icarAnimalLactationStatusType.json",
+                "description": "The lactation status at the time of observation."
+              }
+          }
+      }
+    ]
+  }
+  

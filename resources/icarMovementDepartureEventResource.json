@@ -7,10 +7,6 @@
     {
       "type": "object",
 
-      "required": [
-        "consignment:destinationLocation"
-      ],
-
       "properties": {
         "departureKind": {
           "$ref": "../enums/icarDepartureKindType.json"
