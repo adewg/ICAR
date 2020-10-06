@@ -13,36 +13,22 @@
                         "$ref": "../types/icarDiagnosisType.json"
                     },
                     "description": "Decribes the diagnosis of one or more conditions"
+                },
+                "courses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarMedicineCourseSummaryType.json"
+                    },
+                    "description": "Details the course of treatments at a summary (start and end date) level. The array allows for different medicines/procedures."
+                },
+                "treatments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../resources/icarTreatmentEventResource.json"
+                    },
+                    "description": "The list of the treatments (medicines or procedures) applied."
                 }
             }
-        },
-        {
-            "oneOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "courses": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "../types/icarMedicineCourseSummaryType.json"
-                            },
-                            "description": "Details the course of treatments at a summary (start and end date) level. The array allows for different medicines/procedures."
-                        }
-                    }
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "treatments": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "../resources/icarTreatmentEventResource.json"
-                            },
-                            "description": "The list of the treatments (medicines or procedures) applied."
-                        }
-                    }
-                }
-            ]
         }
     ]
 } 
