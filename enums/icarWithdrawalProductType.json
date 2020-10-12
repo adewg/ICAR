@@ -1,0 +1,15 @@
+{
+    "description": "Categorises the types of products to which withdrawal periods may apply. These categories are generalised from NOAH/ACVM/FDA/Codex Alimentus.",
+  
+    "type": "string",
+  
+    "enum": [
+      "Meat",
+      "Milk",
+      "Eggs",
+      "Honey",
+      "Velvet",
+      "Fibre",
+      "Other"
+    ]
+  } 

@@ -1,0 +1,28 @@
+{
+  "description": "",
+
+  "type": "object",
+
+  "properties": {
+    "traitLabel": {
+      "$ref": "../types/icarTraitLabelIdentifierType.json",
+      "description": "The scheme and id of the trait for which a breeding value is calculated"
+    },
+    "calculationType": {
+      "$ref": "../enums/icarBreedingValueCalculationType.json",
+      "description": "Indicates the calculation method/type for the breeding value."
+    },
+    "value": {
+      "type": "number",
+      "description": "The breeding value."
+    },
+    "reliability": {
+      "type": "number",
+      "description": "The reliability of the breeding value"
+    },
+    "resolution": {
+      "type": "number",
+      "description": "The smallest difference that is relevant for this breeding value (to guide display). To assist in the interpretation of floating point values."
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "productType": {
+            "$ref": "../enums/icarWithdrawalProductType.json",
+            "description": "Product or food item affected by this withdrawal."
+        },
+        "endDate": {
+            "$ref":"../types/icarDateTimeType.json",
+            "description": "End date of withdrawal calculated based on treatment date and medicine rules."
+        },
+        "market" : {
+            "type": "string",
+            "description": "The market to which the withdrawal applies, using a scheme such as au.gov.apvma.esi or au.gov.apvma.whp"
+        }
+    }
+} 

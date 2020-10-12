@@ -1,0 +1,34 @@
+{
+    "description": "An animal health event combining diagnosis and planned or actual treatment course or events.",
+    "allOf": [
+        {
+            "$ref": "../resources/icarEventCoreResource.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "diagnoses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarDiagnosisType.json"
+                    },
+                    "description": "Decribes the diagnosis of one or more conditions"
+                },
+                "courses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarMedicineCourseSummaryType.json"
+                    },
+                    "description": "Details the course of treatments at a summary (start and end date) level. The array allows for different medicines/procedures."
+                },
+                "treatments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../resources/icarTreatmentEventResource.json"
+                    },
+                    "description": "The list of the treatments (medicines or procedures) applied."
+                }
+            }
+        }
+    ]
+} 

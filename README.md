@@ -9,13 +9,13 @@ You can find the documentation for this project in [the Wiki](https://github.com
 There you will find:
 * Information about [ICAR and the ADE working group](https://github.com/adewg/ICAR/wiki/About-ICAR-and-ADE)
 * The design principles considered by the ADE working group when developing the standard
-* How to understand the data model
+* How to understand the data model and what [resources we support](https://github.com/adewg/ICAR/wiki/Resource-entities)
 * Tips for [implementing a client application](https://github.com/adewg/ICAR/wiki/Implementing-a-client-application) using the standard
 * Tips for [implementing a service](https://github.com/adewg/ICAR/wiki/Implementing-a-service) using the standard
 
 ## OpenAPI Quick Start
 Developers may wish to start by reading the **\url-schemes\exampleUrlScheme.json** file in their favourite OpenAPI specification editor.
-You can also [see a preview using the free Redoc tool](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json). Or (by using the swagger editor :  https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json
+You can also [view the API using the swagger editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json).
 
 
 ## Acknowledgements

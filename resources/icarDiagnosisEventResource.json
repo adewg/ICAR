@@ -1,0 +1,22 @@
+{
+    "description": "A standalone diagnosis of one or more animal health conditions.",
+
+    "allOf": [
+        {
+            "$ref": "../resources/icarEventCoreResource.json"
+        },
+        {
+            "type": "object",
+
+            "properties": {
+                "diagnoses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarDiagnosisType.json"
+                    },
+                    "description": "Diagnosis of the animal health condition. An array allows for several conditions to be recorded at once."
+                }
+            }
+        }
+    ]
+} 
