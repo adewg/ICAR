@@ -3,13 +3,13 @@
     
     "allOf": [
         {
-            "$ref": "../types/icarResource.json"
+            "$ref": "icarResource.json"
         },
         {
             "type": "object",
             "properties": {
                 "name": {
-                    "type": "string",
+                    "type": "string", 
                     "description": "Name of the medicine or remedy given for this treatment"
                 },
                 "approved": {
@@ -17,7 +17,7 @@
                     "description": "An indicator whether the medicine or remedy is an approved medicine"
                 },
                 "registeredID": {
-                    "$ref": "iscMedicineRegistrationIdentifierType.json",
+                    "$ref": "../types/icarMedicineIdentifierType.json",
                     "description": "Registered ID in the scheme and ID format."
                 }
             }
