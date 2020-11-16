@@ -21,7 +21,7 @@
           "description": "Unique location scheme and identifier combination."
         },
         "category": {
-          "$ref": "../types/icarFeedCategory.json",
+          "$ref": "../enums/icarFeedCategoryType.json",
           "description": "The scheme and the id of the category of the feed."
         },
         "type": {
