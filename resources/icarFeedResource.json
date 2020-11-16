@@ -34,7 +34,7 @@
         },
         "percentageDryMatter": {
           "type": "number",
-          "format": "double"
+          "format": "double",
           "description": "The percentage of dry matter of the feed."
         },
         "property": {
