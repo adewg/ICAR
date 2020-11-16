@@ -1,0 +1,9 @@
+{
+    "description": "Provides a scheme + identifier mechanism for feed properties (e.g. ICAR coding).",
+    
+    "allOf": [
+        {
+            "$ref": "icarIdentifierType.json"
+        }
+    ]
+}
