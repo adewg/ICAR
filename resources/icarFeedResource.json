@@ -21,11 +21,11 @@
           "description": "Unique location scheme and identifier combination."
         },
         "category": {
-          "$ref": "../enums/icarFeedCategoryType.json",
+          "$ref": "../types/icarLocationIdentifierType.json",
           "description": "The scheme and the id of the category of the feed."
         },
         "type": {
-          "$ref": "../types/icarFeedIdentifierType.json",
+           "$ref": "../types/icarLocationIdentifierType.json",
           "description": "The scheme and the id of the type of the feed. ICAR recommends the use of the list of the scheme org.fao"
         },
         "name": {
@@ -40,7 +40,7 @@
         "property": {
           "type": "array",
           "items": {
-            "$ref": "../types/icarFeedPropertyType.json"
+             "$ref": "../types/icarLocationIdentifierType.json",
           }
         }
       }
