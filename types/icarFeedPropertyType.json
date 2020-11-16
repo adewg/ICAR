@@ -4,8 +4,9 @@
   "type": "object",
 
   "properties": {
-    "eigenschap": {
-      "$ref": "icarPropertyIdentifierType.json"
+    "propertyIdentifier": {
+      "$ref": "icarPropertyIdentifierType.json",
+      "description": "identifies the property of the feed"
     },
     "value": {
       "type": "number",
