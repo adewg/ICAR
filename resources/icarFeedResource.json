@@ -40,7 +40,7 @@
         "property": {
           "type": "array",
           "items": {
-             "$ref": "../types/icarLocationIdentifierType.json",
+            "$ref": "../types/icarFeedPropertyType.json"
           }
         }
       }
