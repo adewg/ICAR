@@ -1,11 +1,11 @@
 {
-  "description": "property of the feed",
+  "description": "property of the feed.",
 
   "type": "object",
 
   "properties": {
-    "property": {
-            "$ref": "icarPropertyIdentifierType.json"
+    "eigenschap": {
+      "$ref": "icarPropertyIdentifierType.json"
     },
     "value": {
       "type": "number",
@@ -13,7 +13,7 @@
       "description": "the value of the property."
     },
     "unit": {
-      "type": "number",
+      "type": "string",
       "description": "The unit of the value of the property"
     },
     "name": {
