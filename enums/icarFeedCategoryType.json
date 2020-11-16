@@ -1,0 +1,12 @@
+{
+  "description": "Enumeration for feed categories. Each catergory can contain more detail in a type specifications",
+
+  "type": "string",
+
+  "enum": [
+    "Concentrate",
+    "Roughage",
+    "Additives",
+    "Other"
+  ]
+}
