@@ -5,7 +5,7 @@
 
   "properties": {
     "propertyIdentifier": {
-      "$ref": "icarPropertyIdentifierType.json",
+      "$ref": "../types/icarPropertyIdentifierType.json",
       "description": "identifies the property of the feed"
     },
     "value": {
