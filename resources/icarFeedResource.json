@@ -1,0 +1,49 @@
+{
+  "description": "Feeds available on a location.",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this resource."
+        },
+        "location": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "category": {
+          "$ref": "../types/icarFeedCategory.json",
+          "description": "The scheme and the id of the category of the feed."
+        },
+        "type": {
+          "$ref": "../types/icarFeedIdentifierType.json",
+          "description": "The scheme and the id of the category of the feed. ICAR recommends the use of the list of the scheme org.fao"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the feed as it is known on the location."
+        },
+        "percentageDryMatter": {
+          "type": "number",
+          "format": "double"
+          "description": "The percentage of dry matter of the feed."
+        },
+        "property": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarFeedPropertyType.json"
+          }
+        }
+      }
+    }
+  ]
+}
