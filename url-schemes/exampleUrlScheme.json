@@ -1219,7 +1219,7 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/gestations": {
+    "/locations/{location-scheme}/{location-id}/feeds": {
       "get": {
         "operationId": "get-feeds",
         "summary": "Get the feeds available on a certain location",
