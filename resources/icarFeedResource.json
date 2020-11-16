@@ -25,7 +25,7 @@
           "description": "The scheme and the id of the category of the feed."
         },
         "type": {
-           "$ref": "../types/icarLocationIdentifierType.json",
+          "$ref": "../types/icarFeedIdentifierType.json",
           "description": "The scheme and the id of the type of the feed. ICAR recommends the use of the list of the scheme org.fao"
         },
         "name": {
