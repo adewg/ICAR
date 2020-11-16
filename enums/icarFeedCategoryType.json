@@ -1,5 +1,5 @@
 {
-  "description": "Enumeration for feed categories. Each catergory can contain more detail in a type specifications",
+  "description": "Enumeration for feed categories. Each category can have more detail in a type specification.",
 
   "type": "string",
 
