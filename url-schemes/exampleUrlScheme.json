@@ -1223,13 +1223,7 @@
       "get": {
         "operationId": "get-feeds",
         "summary": "Get the feeds available on a certain location",
-        "description": "# Purpose\nProvides the feeds for a location\n
-        scheme fao.org for the type of feeds\n
-        | type id | description | category |
-        | ------- | ----------- | -------- |
-        | GRASSF | Any type of natural or cultivated fresh grass grazed or fed to the animals. | roughage |
-        | GRASSH | Hay (grass is cut, dried and stored) or silage (grass is cut and fermented) from any natural or cultivated grass. | roughage |
-        ",
+        "description": "# Purpose\nProvides the feeds for a location. We recommend using the fao.org scheme for the type of feeds and the icar.org scheme for the feed properties\n",
         "tags": [
           "ADE-1.2-feed"
         ],
