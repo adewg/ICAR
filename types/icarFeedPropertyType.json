@@ -18,7 +18,7 @@
       "description": "The unit of the value of the property"
     },
     "method": {
-      "$ref": "../enums/icarDeterminationType.json",
+      "$ref": "../enums/icarMethodType.json",
       "description": "The method to come to the value of the property"
     },
     "name": {
