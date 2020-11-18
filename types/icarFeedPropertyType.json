@@ -17,6 +17,10 @@
       "type": "string",
       "description": "The unit of the value of the property"
     },
+    "method": {
+      "$ref": "../enums/icarDeterminationType.json",
+      "description": "The method to come to the value of the property"
+    },
     "name": {
       "type": "string",
       "description": "name of the property (used on the location)."
