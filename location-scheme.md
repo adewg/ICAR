@@ -115,6 +115,17 @@ Category concentrate
 |---|---|---|
 | 30 | CONC | Concentrate feed from feed mills. |
 
+## Feed properties
+
+We recommend to use the icar.org scheme for identifying feed properties.
+
+As ICAR we propose the following list of possible feed properties:
+
+| Analysis  | Material | Desciption | Units |
+|---|---|---| ---|
+| DM | Dry Matter | The part of food which would remain if all its water content was removed. | % (of feed) |
+| CP | Crude protein | Crude protein is the amount of protein of animal feed | % (of DM) |
+| CF | Crude fibre | crude fibre is the insoluble residue of an acid hydrolysis followed by an alkaline one. This residue contains true cellulose and insoluble lignin.| % (of DM) |
 
 ## Others
 
