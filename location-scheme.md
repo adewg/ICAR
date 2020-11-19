@@ -68,7 +68,7 @@ These schemes point to a legal entity. One that can be authenticated and is auth
 
 ## Feed types
 
-We recommend to use the fao.org scheme for identifying feed types.
+We recommend to use the org.fao scheme for identifying feed types.
 
 FAO also has a list of "feed materials for ruminant species" (see http://www.fao.org/fileadmin/user_upload/gleam/docs/GLEAM_2.0_Model_description.pdf) table 3.2.
 There are 30 items:
@@ -117,7 +117,7 @@ Category concentrate
 
 ## Feed properties
 
-We recommend to use the icar.org scheme for identifying feed properties.
+We recommend to use the org.icar scheme for identifying feed properties.
 
 As ICAR we propose the following list of possible feed properties:
 
