@@ -1,13 +1,66 @@
 # Changelog
 
-## [Unreleased](https://github.com/adewg/ICAR/tree/HEAD)
+## [v1.1.1](https://github.com/adewg/ICAR/tree/HEAD)
 
-[Full Changelog](https://github.com/adewg/ICAR/compare/1.0.2...HEAD)
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.1.0...HEAD)
+
+**Fixed bugs:**
+
+- Error when generating code from tag v1.1.0 [\#158](https://github.com/adewg/ICAR/issues/158)
+
+**Merged pull requests:**
+
+- Hotfix: Remove oneOf: allow both courses and treatments [\#159](https://github.com/adewg/ICAR/pull/159) ([cookeac](https://github.com/cookeac))
+
+## [v1.1.0](https://github.com/adewg/ICAR/tree/v1.1.0) (2020-09-28)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/1.0.2...v1.1.0)
 
 **Closed issues:**
 
+- Latest OAS3 \(open API specification 3\) validation now enforced on examples [\#144](https://github.com/adewg/ICAR/issues/144)
+- For which use cases do we use AnimalEvents and for which do we just use PUT/POST/DELETE? [\#140](https://github.com/adewg/ICAR/issues/140)
+- Animal Sets \(groups\) membership change events [\#139](https://github.com/adewg/ICAR/issues/139)
+- do not breeds RESOURCE API [\#138](https://github.com/adewg/ICAR/issues/138)
+- Add list of available locations [\#125](https://github.com/adewg/ICAR/issues/125)
+- gestations API [\#121](https://github.com/adewg/ICAR/issues/121)
 - Add documentation for icarValidSampleFillingIndicatorType.json [\#116](https://github.com/adewg/ICAR/issues/116)
 - Quarter Milking Type Quarter Id Enum differs from ICAR Data Dictionary [\#112](https://github.com/adewg/ICAR/issues/112)
+- Reproduction and lactation status values [\#111](https://github.com/adewg/ICAR/issues/111)
+- Resource for listing test days [\#110](https://github.com/adewg/ICAR/issues/110)
+- Cannot find information about ICAR\_ValidSampleFillingIndicator code list [\#108](https://github.com/adewg/ICAR/issues/108)
+- Conformation Scores [\#97](https://github.com/adewg/ICAR/issues/97)
+- Animal Health Treatments [\#96](https://github.com/adewg/ICAR/issues/96)
+- breeding values of an animal API [\#89](https://github.com/adewg/ICAR/issues/89)
+- Group assignments missing \(feeding, milking, barn\) [\#88](https://github.com/adewg/ICAR/issues/88)
+- BCS \(body condition score\) API [\#83](https://github.com/adewg/ICAR/issues/83)
+- Splitting complex types, event-based types and code-based types \(enums\) into saparate sub-folders [\#66](https://github.com/adewg/ICAR/issues/66)
+- Define recommended url scheme [\#18](https://github.com/adewg/ICAR/issues/18)
+
+**Merged pull requests:**
+
+- Merge from Develop to ADE-1-1 [\#157](https://github.com/adewg/ICAR/pull/157) ([cookeac](https://github.com/cookeac))
+- Release 1.1 changelog [\#152](https://github.com/adewg/ICAR/pull/152) ([cookeac](https://github.com/cookeac))
+- Add observation events for animal status - lactation and reproduction status [\#151](https://github.com/adewg/ICAR/pull/151) ([cookeac](https://github.com/cookeac))
+- organised the API's in sections [\#150](https://github.com/adewg/ICAR/pull/150) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Add DoNotBreed to Repro status [\#146](https://github.com/adewg/ICAR/pull/146) ([cookeac](https://github.com/cookeac))
+- Corrected linting errors and file names [\#145](https://github.com/adewg/ICAR/pull/145) ([cookeac](https://github.com/cookeac))
+- creation of a do-not-breed event [\#143](https://github.com/adewg/ICAR/pull/143) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Added animal status [\#142](https://github.com/adewg/ICAR/pull/142) ([thomasd-gea](https://github.com/thomasd-gea))
+- Added animalSetJoin and animalSetLeave events [\#141](https://github.com/adewg/ICAR/pull/141) ([thomasd-gea](https://github.com/thomasd-gea))
+- Gestations API issue https://github.com/adewg/ICAR/issues/121 [\#137](https://github.com/adewg/ICAR/pull/137) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Additional changes for conformation score [\#136](https://github.com/adewg/ICAR/pull/136) ([ahokkonen](https://github.com/ahokkonen))
+- Add animal health diagnosis, treatment, and treatment program events [\#134](https://github.com/adewg/ICAR/pull/134) ([cookeac](https://github.com/cookeac))
+- Added resources for conformation score event \(\#97\) [\#133](https://github.com/adewg/ICAR/pull/133) ([ahokkonen](https://github.com/ahokkonen))
+- Corrected typo, added icarSetPurposeType enum. [\#132](https://github.com/adewg/ICAR/pull/132) ([cookeac](https://github.com/cookeac))
+- Fixed a typo in icarLocationResource.json [\#131](https://github.com/adewg/ICAR/pull/131) ([cookeac](https://github.com/cookeac))
+- Add animal set resource [\#127](https://github.com/adewg/ICAR/pull/127) ([MetroMarv](https://github.com/MetroMarv))
+- Add locations resource [\#126](https://github.com/adewg/ICAR/pull/126) ([MetroMarv](https://github.com/MetroMarv))
+- Add test day resource [\#124](https://github.com/adewg/ICAR/pull/124) ([MetroMarv](https://github.com/MetroMarv))
+- removed redoc since it does not work anymore with current spec [\#123](https://github.com/adewg/ICAR/pull/123) ([alamers](https://github.com/alamers))
+- Develop [\#122](https://github.com/adewg/ICAR/pull/122) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Update changelog for 1.0.2 release [\#120](https://github.com/adewg/ICAR/pull/120) ([cookeac](https://github.com/cookeac))
+- Update changelog [\#119](https://github.com/adewg/ICAR/pull/119) ([cookeac](https://github.com/cookeac))
 
 ## [1.0.2](https://github.com/adewg/ICAR/tree/1.0.2) (2020-06-08)
 
