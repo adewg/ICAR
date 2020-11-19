@@ -32,12 +32,7 @@
           "type": "string",
           "description": "Name of the feed as it is known on the location."
         },
-        "percentageDryMatter": {
-          "type": "number",
-          "format": "double",
-          "description": "The percentage of dry matter of the feed."
-        },
-        "property": {
+        "properties": {
           "type": "array",
           "items": {
             "$ref": "../types/icarFeedPropertyType.json"
