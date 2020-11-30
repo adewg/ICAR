@@ -1,0 +1,36 @@
+{
+    "description": "Event for recording a fee intake",
+  
+    "allOf": [{
+        "$ref": "../resources/icarEventCoreResource.json"
+      },
+      {
+        "type": "object",
+
+        "required": [
+          "score",
+          "traitScored"
+        ],
+  
+        "properties": {
+          "feedVisitDuration": {
+            "$ref": "../types/icarFeedDurationType.json"
+          },
+          "consumedFeed": {
+            "type": "array",
+            "items": {
+              "$ref": "../types/icarConsumedFeedType.json"
+            }
+          },
+          "ration": {
+            "$ref": "../enums/icarConsumedRationType.json",
+            "description": "Method of conformation scoring"
+          },
+          "device": {
+            "$ref": "../types/icarDeviceReferenceType.json",
+            "description": "Optional information about the device used for the automated scoring."
+          }
+        }
+      }
+    ]
+  }
