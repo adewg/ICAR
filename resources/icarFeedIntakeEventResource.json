@@ -8,8 +8,7 @@
         "type": "object",
 
         "required": [
-          "score",
-          "traitScored"
+          "feedVisitDuration",
         ],
   
         "properties": {
@@ -23,12 +22,12 @@
             }
           },
           "ration": {
-            "$ref": "../enums/icarConsumedRationType.json",
-            "description": "Method of conformation scoring"
+            "$ref": "../types/icarConsumedRationType.json",
+            "description": "The eventual ration that has been provided"
           },
           "device": {
             "$ref": "../types/icarDeviceReferenceType.json",
-            "description": "Optional information about the device used for the automated scoring."
+            "description": "Optional information about the device used for the feeding."
           }
         }
       }
