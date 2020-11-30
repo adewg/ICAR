@@ -1,0 +1,36 @@
+{
+  "description": "Rations defined on a location.",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this resource."
+        },
+        "location": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the feed as it is known on the location."
+        },
+        "feeds": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarFeedsInRationType.json"
+          }
+        }
+      }
+    }
+  ]
+}
