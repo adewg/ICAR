@@ -1,5 +1,5 @@
 {
-    "description": "Event for recording a fee intake",
+    "description": "Event for recording a feed intake",
   
     "allOf": [{
         "$ref": "../resources/icarEventCoreResource.json"
