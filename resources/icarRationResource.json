@@ -13,7 +13,7 @@
 
       "properties": {
         "id": {
-          "type": "string",
+          "$ref": "../types/icarRationIdType.json",
           "description": "Unique identifier in the source system for this resource."
         },
         "location": {
