@@ -1,0 +1,33 @@
+{
+    "description": "Event for recording a feed intake",
+  
+    "allOf": [{
+        "$ref": "../resources/icarResource.json"
+      },
+      {
+        "type": "object",
+
+        "properties": {
+          "eventDate": {
+            "$ref": "../types/icarDateType.json",
+            "description": "date of the feeding"
+          },
+          "feedVisitDuration": {
+            "$ref": "../types/icarFeedDurationType.json"
+          },
+          "consumedFeed": {
+            "type": "array",
+            "items": {
+              "$ref": "../types/icarConsumedFeedType.json"
+            }
+          },
+          "consumedRation": {
+            "type": "array",
+            "items": {
+              "$ref": "../types/icarConsumedRationType.json"
+            }
+          }
+        }
+      }
+    ]
+  }
