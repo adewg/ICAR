@@ -36,6 +36,18 @@
         "endDateTime": {
           "$ref": "../types/icarDateTimeType.json",
           "description": "The end date of the recommendation."
+        },
+        "recommendedFeed": {
+          "type": "array",
+            "items": {
+              "$ref": "../types/icarRecommendedFeedType.json"
+            }
+        },
+        "recommendedRation": {
+          "type": "array",
+            "items": {
+              "$ref": "../types/icarRecommendedRationType.json"
+          }
         }
       }
     }
