@@ -18,7 +18,7 @@
           "consumedFeed": {
             "type": "array",
             "items": {
-              "$ref": "../types/icarConsumedFeedType.json"
+              "$ref": "../types/icarAnimalIdType.json"
             }
           },
           "ration": {
