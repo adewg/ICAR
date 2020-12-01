@@ -5,7 +5,7 @@
 
   "properties": {
     "rationId": {
-      "$ref": "../types/icarRationIdentifierType.json",
+      "$ref": "../types/icarRationIdType.json",
       "description": "The identifier for the ration consumed"
     },
     "entitlement": {
