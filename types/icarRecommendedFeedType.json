@@ -1,0 +1,15 @@
+{
+  "description": "",
+  "type": "object",
+
+  "properties": {
+    "feedId": {
+      "$ref": "../types/icarFeedIdentifierType.json",
+      "description": "The identifier for the feed recommended"
+    },
+    "entitlement": {
+      "$ref": "../types/icarFeedQuantityType.json",
+      "description": "The amount of feed the animal is recommended to reveive"
+    }
+  }
+}
