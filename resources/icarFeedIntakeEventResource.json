@@ -22,7 +22,7 @@
             }
           },
           "ration": {
-            "$ref": "../types/icarConsumedRationType.json",
+            "$ref": "../types/icarAnimalIdType.json",
             "description": "The eventual ration that has been provided"
           },
           "device": {
