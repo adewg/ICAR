@@ -18,12 +18,12 @@
           "consumedFeed": {
             "type": "array",
             "items": {
-              "$ref": "../types/icarAnimalIdType.json"
+              "$ref": "../types/icarConsumedFeedType.json"
             }
           },
-          "ration": {
-            "$ref": "../types/icarAnimalIdType.json",
-            "description": "The eventual ration that has been provided"
+          "consumedRation": {
+            "$ref": "../types/icarConsumedRationType.json",
+            "description": "The eventual ration that has been consumed"
           },
           "device": {
             "$ref": "../types/icarDeviceReferenceType.json",
