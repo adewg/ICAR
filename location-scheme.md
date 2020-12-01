@@ -55,7 +55,9 @@ These schemes point to a specific animal.
 | id  | name  | example| region & issuing party  | RegEx |
 |---|---|---|---|---|
 | eu.animalId  | LOM  |  276000312312345 | EU wide scheme with a country prefix, combining multiple national schemes. Is used by transponders. First 3 positions is country code , e.g. 276=DE, is numeric, 15 digits. | |
-| nl-v1 (rename to eu-??) | animal life number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above?  [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) | |
+| eu.bovine | European animal life time number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above?  [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) | |
+| us.bovine | US animal life time number |US 123456789 | US herdbook number | |
+
 
 ## Legal entities / companies
 
