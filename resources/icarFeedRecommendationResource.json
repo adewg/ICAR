@@ -1,0 +1,43 @@
+{
+  "description": "Lactation information of an animal.",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id",
+        "animal"
+      ],
+
+      "properties": {
+        "id": {
+          "$ref": "../types/icarFeedRecommendationIdType.json",
+          "description": "Unique identifier in the source system for this recommendation."
+        },
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "location": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "recommendationDateTime ": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The timestamp of the recommendation."
+        },
+        "startDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The date of the beginning of the recommendation."
+        },
+        "endDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The end date of the recommendation."
+        }
+      }
+    }
+  ]
+}
