@@ -27,6 +27,10 @@
         "name": {
           "type": "string",
           "description": "The human readable name of the location."
+        },
+        "timeZoneId": {
+          "type": "string",
+          "description": "The time zone ID of the location according to the IANA time zone database (https://www.iana.org/time-zones), e.g. Europe/Paris. Can be used to convert UTC times in events, resources etc. back to the locations time zone while also taking daylight saving times into account."
         }
       }
     }
