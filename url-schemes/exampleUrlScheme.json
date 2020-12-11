@@ -1371,11 +1371,11 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/daily-feed-reports": {
+    "/locations/{location-scheme}/{location-id}/feed-reports": {
       "get": {
-        "operationId": "get-Daily-Feed-Report",
-        "summary": "Get the daily feed reports for animals on a certain location",
-        "description": "# Purpose\nProvides the daily feed reports for animal on a location\n",
+        "operationId": "get-Feed-Report",
+        "summary": "Get the feed reports for animals on a certain location for a certain period",
+        "description": "# Purpose\nProvides the feed reports for animal on a location\n",
         "tags": [
           "ADE-1.2-feed"
         ],
@@ -1394,11 +1394,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful. The response contains the daily feed reports for animals on the given location.",
+            "description": "Successful. The response contains the feed reports for animals on the given location.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/icarDailyFeedReportCollection"
+                  "$ref": "#/components/schemas/icarFeedReportCollection"
                 }
               }
             }
@@ -1549,8 +1549,8 @@
       "icarFeedIntakeEventCollection": {
         "$ref": "../collections/icarFeedIntakeEventCollection.json"      
       },
-      "icarDailyFeedReportCollection": {
-        "$ref": "../collections/icarDailyFeedReportCollection.json"      
+      "icarFeedReportCollection": {
+        "$ref": "../collections/icarFeedReportCollection.json"      
       },
       "icarFeedRecommendationCollection": {
         "$ref": "../collections/icarFeedRecommendationCollection.json"      
