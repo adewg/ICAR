@@ -2,7 +2,7 @@
   "description": "Represents a collection of feed intakes. Based on icarResourceCollection to provide paging etc.",
 
   "allOf": [{
-      "$ref": "icarResourceCollection.json"
+      "$ref": "../collections/icarResourceCollection.json"
     },
     {
       "type": "object",
