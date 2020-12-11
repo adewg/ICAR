@@ -2,7 +2,7 @@
   "description": "Rations defined on a location.",
 
   "allOf": [{
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
       "type": "object",
@@ -15,10 +15,6 @@
         "id": {
           "$ref": "../types/icarRationIdType.json",
           "description": "Unique identifier in the source system for this resource."
-        },
-        "location": {
-          "$ref": "../types/icarLocationIdentifierType.json",
-          "description": "Unique location scheme and identifier combination."
         },
         "name": {
           "type": "string",
