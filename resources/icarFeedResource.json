@@ -2,7 +2,7 @@
   "description": "Feeds available on a location.",
 
   "allOf": [{
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
       "type": "object",
@@ -15,10 +15,6 @@
         "id": {
           "type": "string",
           "description": "Unique identifier in the source system for this resource."
-        },
-        "location": {
-          "$ref": "../types/icarLocationIdentifierType.json",
-          "description": "Unique location scheme and identifier combination."
         },
         "category": {
           "$ref": "../enums/icarFeedCategoryType.json",
