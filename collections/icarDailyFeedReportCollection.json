@@ -2,7 +2,7 @@
   "description": "Represents a collection of daily feed reports. Based on icarResourceCollection to provide paging etc.",
 
   "allOf": [{
-      "$ref": "icarResourceCollection.json"
+      "$ref": "../icarResourceCollection.json"
     },
     {
       "type": "object",
