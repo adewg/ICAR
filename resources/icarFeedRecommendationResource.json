@@ -1,8 +1,8 @@
 {
-  "description": "Lactation information of an animal.",
+  "description": "An overview of the recommended feeding of animals",
 
   "allOf": [{
-      "$ref": "icarResource.json"
+      "$ref": "../resources/icarResource.json"
     },
     {
       "type": "object",
