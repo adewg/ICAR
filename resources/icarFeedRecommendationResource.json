@@ -21,10 +21,6 @@
           "$ref": "../types/icarAnimalIdentifierType.json",
           "description": "Unique animal scheme and identifier combination."
         },
-        "location": {
-          "$ref": "../types/icarLocationIdentifierType.json",
-          "description": "Unique location scheme and identifier combination."
-        },
         "recommendationDateTime ": {
           "$ref": "../types/icarDateTimeType.json",
           "description": "The timestamp of the recommendation."
