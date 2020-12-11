@@ -8,10 +8,15 @@
         "type": "object",
 
         "required": [
+          "feedingStartingDateTime",
           "feedVisitDuration"
         ],
   
         "properties": {
+          "feedingStartingDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "The moment the feeding started"
+          },
           "feedVisitDuration": {
             "$ref": "../types/icarFeedDurationType.json"
           },
