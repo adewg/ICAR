@@ -3,7 +3,7 @@
     
     "allOf": [
         {
-            "$ref": "icarIdentifierType.json"
+            "$ref": "../types/icarIdentifierType.json"
         }
     ]
 }
