@@ -1,6 +1,9 @@
 {
-  "description": "",
+  "description": "gives the consumed feed and the amount the animal was entitled to. Amounts are real weights",
   "type": "object",
+  "required": [
+    "feedId"
+  ],
 
   "properties": {
     "feedId": {
