@@ -12,6 +12,21 @@
             "$ref": "../types/icarDateType.json",
             "description": "date of the feeding"
           },
+          "animals": {
+            "type": "array",
+            "items": {
+             "$ref": "../types/icarAnimalIdentifierType.json"
+            },
+            "description": "As per JSON-LD Hydra syntax, animals provides the array of animals part of the feeding report. This could also be a report for one animal."
+          },
+          "reportStartDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "The moment the period of the reporting started"
+          },
+          "reportEndDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "The moment the period of the reporting ended"
+          },
           "feedVisitDuration": {
             "$ref": "../types/icarFeedDurationType.json"
           },
