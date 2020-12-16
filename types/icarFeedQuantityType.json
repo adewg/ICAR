@@ -13,7 +13,10 @@
       "type": "string",
       "description": "UN/CEFACT Common Code for Units of Measurement.",
       "enum": [
-        "KGM"
+        "KGM",
+        "GRM",
+        "PN",
+        "ONZ"
       ]
     },
     "value": {
