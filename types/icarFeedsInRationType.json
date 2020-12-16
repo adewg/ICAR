@@ -1,0 +1,17 @@
+{
+  "description": "Feeds that are added to a specific ration.",
+
+  "type": "object",
+
+  "properties": {
+    "feedId": {
+      "$ref": "../types/icarFeedIdentifierType.json",
+      "description": "identifies the feed"
+    },
+    "percentage": {
+      "type": "number",
+      "format": "double",
+      "description": "the percentage of the feed in the ration."
+    }
+  }
+}

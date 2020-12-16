@@ -1,0 +1,10 @@
+{
+  "description": "Enumeration for the method with which a value was determined.",
+
+  "type": "string",
+
+  "enum": [
+    "Analyzed",
+    "Derived"
+  ]
+}

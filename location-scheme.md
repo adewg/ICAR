@@ -55,7 +55,9 @@ These schemes point to a specific animal.
 | id  | name  | example| region & issuing party  | RegEx |
 |---|---|---|---|---|
 | eu.animalId  | LOM  |  276000312312345 | EU wide scheme with a country prefix, combining multiple national schemes. Is used by transponders. First 3 positions is country code , e.g. 276=DE, is numeric, 15 digits. | |
-| nl-v1 (rename to eu-??) | animal life number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above?  [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) | |
+| eu.bovine | European animal life time number |NL 6802 *5082* 9 | EU wide scheme with a countryprefix, but different than the one above?  [RVO on levensnummers](http://www.rvo.nl/onderwerpen/agrarisch-ondernemen/dieren/dieren-registreren/runderen/oormerken-voor-runderen) | |
+| us.bovine | US animal life time number |US 123456789 | US herdbook number | |
+
 
 ## Legal entities / companies
 
@@ -66,6 +68,66 @@ These schemes point to a legal entity. One that can be authenticated and is auth
 | nl.kvk | Chamber of commerce number (Kamer van Koophandel nummer) |64039641 | Used in the Netherlands. Issued by the 'Kamer van Koophandel', can be checked at e.g. [OpenKVK](www.openkvk.nl) | |
 | be.kbo | Chamber of commerce number (Ondernemersnummer) | | Used in Belgium. Issued by the 'Kruispuntbank voor Ondernemingen', can be checked at e.g. [fgov](https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=nl) | |
 
+## Feed types
+
+We recommend to use the org.fao scheme for identifying feed types.
+
+FAO also has a list of "feed materials for ruminant species" (see http://www.fao.org/fileadmin/user_upload/gleam/docs/GLEAM_2.0_Model_description.pdf) table 3.2.
+There are 30 items:
+
+Category roughages (and cereals)
+| Number  | Material | Desciption |
+|---|---|---|
+| 1 | GRASSF | Any type of natural or cultivated fresh grass grazed or fed to the animals. |
+| 2 | GRASSH | Hay (grass is cut, dried and stored) or silage (grass is cut and fermented) from any natural or cultivated grass. |
+| 3 | GRASSH2 | Hay from adjacent areas. |
+| 4 | GRASSLEGF | Fresh mixture of any type of grass and leguminous plants that is fed to the animals. |
+| 5 | GRASSLEGH | Hay or silage produced from a mixture of any type of grass and leguminous plants. |
+| 6 | ALFALFAH | Hay or silage from alfalfa (Medicago sativa). |
+| 7 | GRAINSIL | Silage from whole barley (Hordeum vulgare), oat (Avena sativa), buckwheat (Fagopyrum esculentum) and fonio (Digitaria spp.) plants. |
+| 8 | MAIZESIL | Silage from whole maize (Zea mays) plants. |
+| 9 | RSTRAW | Fibrous residual plant material such as straw, brans, leaves, etc. from rice (Oryza spp.) cultivation. |
+| 10 | WSTRAW | Fibrous residual plant material such as straw, brans, leaves, etc. from wheat (Triticum spp.) cultivation. |
+| 11 | BSTRAW | Fibrous residual plant material such as straw, brans, leaves, etc. from barley (Hordeum vulgare), rye (Secale cereale) or oat (Avena sativa) cultivation. |
+| 12 | ZSTOVER | Fibrous residual plant material such as straw, brans, leaves, etc. from maize (Zea mays) cultivation. |
+| 13 | MSTOVER | Fibrous residual plant material such as straw, brans, leaves, etc. from millet (Pennisetum glaucum, Eleusine coracana, Panicum miliaceum, etc) cultivation. |
+| 14 | SSTOVER | Fibrous residual plant material such as straw, brans, leaves, etc. from sorghum (Sorghum spp.) cultivation. |
+| 15 | TOPS | Top portion of sugarcane (Saccharum spp.) plants, consisting of green leaves, bundle sheath and variable proportions of immature cane. |
+| 16 | LEAVES | Leaves from natural, uncultivated vegetation found in trees, forest, lanes etc. |
+| 17 | FDDRBEET | Fodder beet (Beta vulgaris), also known as mangel beet or field beet, used as animal feed. |
+| 18 | GRAINS | Grains from barley (Hordeum vulgare), oat (Avena sativa), buckwheat (Fagopyrum esculentum) and fonio (Digitaria spp.). |
+| 19 | CORN | Grains from maize (Zea mays) plant. |
+
+Category others (by-products)
+| Number  | Material | Desciption |
+|---|---|---|
+| 20 | MLSOY | By-product from soy (Glycine max) oil production, commonly referred to as ‘soy cakes’ or ‘soybean meal’. |
+| 21 | MLRAPE | By-product from rape (Brassica napus) oil production, commonly referred to as ‘rape cakes’ or ‘rapeseed meal’. |
+| 22 | MLCTTN | By-product from cottonseed (Gossypium spp.) oil production, commonly referred to as ‘cottonseed meal’. |
+| 23 | PKEXP | By-products from the production of kernel palm oil (Elaeis guineensis), commonly referred to as 'kernel cake'. |
+| 24 | MZGLTM | By-product from maize processing. It is a protein-rich feed, with about 65% crude protein content. |
+| 25 | MZGLTF | By-product from maize processing. Unlike the gluten meal, its protein content is lower, of about 25% crude protein content. |
+| 26 | BPULP | Also known as ‘beet pulp’, is the remaining material after the juice extraction for sugar production from the sugar beet (Beta vulgaris). |
+| 27 | MOLASSES | By-product from the sugarcane sugar extraction. |
+| 28 | GRNBYDRY | ‘Dry’ by-products of grain industries such as brans, middlings, etc. |
+| 29 | GRNBYWET | ‘Wet’ by-products of grain industries such as biofuels, distilleries, breweries, etc. |
+
+Category concentrate
+| Number  | Material | Desciption |
+|---|---|---|
+| 30 | CONC | Concentrate feed from feed mills. |
+
+## Feed properties
+
+We recommend to use the org.icar scheme for identifying feed properties.
+
+As ICAR we propose the following list of possible feed properties:
+
+| Analysis  | Material | Desciption | Units |
+|---|---|---| ---|
+| DM | Dry Matter | The part of food which would remain if all its water content was removed. | % (of feed) |
+| CP | Crude protein | Crude protein is the amount of protein of animal feed | % (of DM) |
+| CF | Crude fibre | crude fibre is the insoluble residue of an acid hydrolysis followed by an alkaline one. This residue contains true cellulose and insoluble lignin.| % (of DM) |
 
 ## Others
 

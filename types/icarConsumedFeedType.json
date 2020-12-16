@@ -1,0 +1,22 @@
+{
+  "description": "gives the consumed feed and the amount the animal was entitled to. Amounts are real weights",
+  "type": "object",
+  "required": [
+    "feedId"
+  ],
+
+  "properties": {
+    "feedId": {
+      "$ref": "../types/icarFeedIdentifierType.json",
+      "description": "The identifier for the feed consumed"
+    },
+    "entitlement": {
+      "$ref": "../types/icarFeedQuantityType.json",
+      "description": "The amount of feed the animal was entitled to reveive"
+    },
+    "feedConsumption": {
+      "$ref": "../types/icarFeedQuantityType.json",
+      "description": "The amount of feed the animal has consumed"
+    }
+  }
+}

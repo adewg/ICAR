@@ -1,0 +1,51 @@
+{
+  "description": "An overview of the recommended feeding of animals",
+
+  "allOf": [{
+      "$ref": "../resources/icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id",
+        "animal"
+      ],
+
+      "properties": {
+        "id": {
+          "$ref": "../types/icarFeedRecommendationIdType.json",
+          "description": "Unique identifier in the source system for this recommendation."
+        },
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "recommendationDateTime ": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The timestamp of the recommendation."
+        },
+        "startDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The date of the beginning of the recommendation."
+        },
+        "endDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The end date of the recommendation."
+        },
+        "recommendedFeed": {
+          "type": "array",
+            "items": {
+              "$ref": "../types/icarRecommendedFeedType.json"
+            }
+        },
+        "recommendedRation": {
+          "type": "array",
+            "items": {
+              "$ref": "../types/icarRecommendedRationType.json"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Gives the recommendation to be fed to an animal or group of animals of a certain feed.",
+  "type": "object",
+
+  "properties": {
+    "feedId": {
+      "$ref": "../types/icarFeedIdentifierType.json",
+      "description": "The identifier for the feed recommended"
+    },
+    "entitlement": {
+      "$ref": "../types/icarFeedQuantityType.json",
+      "description": "The amount of feed the animal is recommended to reveive"
+    }
+  }
+}
