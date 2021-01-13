@@ -25,6 +25,10 @@
           "items": {
             "$ref": "../types/icarFeedsInRationType.json"
           }
+        },
+        "active": {
+          "type": "boolean",
+          "description": "indicates whether the ration is or was available on the location."
         }
       }
     }
