@@ -18,6 +18,10 @@
       "description": "new endpoints not yet approved"
     },
     {
+      "name": "ADE-1.2-feed",
+      "description": "Feed messages approved by the working group"
+    },
+    {
       "name": "ADE-1.1-health",
       "description": "Health messages approved by the working group"
     },
@@ -1215,6 +1219,196 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/feeds": {
+      "get": {
+        "operationId": "get-feeds",
+        "summary": "Get the feeds available on a certain location",
+        "description": "# Purpose\nProvides the feeds for a location. We recommend using the fao.org scheme for the type of feeds and the icar.org scheme for the feed properties\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feeds for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/rations": {
+      "get": {
+        "operationId": "get-Rations",
+        "summary": "Get the rations for a certain location",
+        "description": "# Purpose\nProvides the rations for a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the rations for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarRationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-intakes": {
+      "get": {
+        "operationId": "get-Feed-Intakes",
+        "summary": "Get the feed intakes for a certain location",
+        "description": "# Purpose\nProvides the feed intakes for a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed intakes for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedIntakeEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-recommendations": {
+      "get": {
+        "operationId": "get-Feed-Recommendations",
+        "summary": "Get the feed recommendations for a certain location",
+        "description": "# Purpose\nProvides the feed recommendations for a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the rations for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedRecommendationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-reports": {
+      "get": {
+        "operationId": "get-Feed-Report",
+        "summary": "Get the feed reports for animals on a certain location for a certain period",
+        "description": "# Purpose\nProvides the feed reports for animal on a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed reports for animals on the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedReportCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/repro-status-observations": {
       "get": {
         "operationId": "get-repro-status-observations",
@@ -1346,6 +1540,21 @@
       "icarGestationCollection": {
         "$ref": "../collections/icarGestationCollection.json"      
       },
+      "icarFeedCollection": {
+        "$ref": "../collections/icarFeedCollection.json"      
+      },
+      "icarRationCollection": {
+        "$ref": "../collections/icarRationCollection.json"      
+      },
+      "icarFeedIntakeEventCollection": {
+        "$ref": "../collections/icarFeedIntakeEventCollection.json"      
+      },
+      "icarFeedReportCollection": {
+        "$ref": "../collections/icarFeedReportCollection.json"      
+      },
+      "icarFeedRecommendationCollection": {
+        "$ref": "../collections/icarFeedRecommendationCollection.json"      
+      },
       "icarLactationStatusObservedEventCollection": {
         "$ref": "../collections/icarLactationStatusObservedEventCollection.json"
       },
@@ -1450,6 +1659,7 @@
               "scheme": "eu.farmId"
             },
             "name": "My little farm",
+            "timeZoneId": "Europe/Paris",
             "meta": {
               "source": "source",
               "creator": "creator",
