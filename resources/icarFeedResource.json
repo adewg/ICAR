@@ -33,6 +33,10 @@
           "items": {
             "$ref": "../types/icarFeedPropertyType.json"
           }
+        },
+        "active": {
+          "type": "boolean",
+          "description": "indicates whether the feed is or was available on the location."
         }
       }
     }
