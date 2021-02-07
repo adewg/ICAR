@@ -465,7 +465,7 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/animalSets": {
+    "/locations/{location-scheme}/{location-id}/animal-sets": {
       "get": {
         "operationId": "get-animal-sets",
         "summary": "Get the animal sets for a certain location",
