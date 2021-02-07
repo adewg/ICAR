@@ -12,6 +12,10 @@
       ],
 
       "properties": {
+        "rank": {
+          "type": "integer",
+          "description": "The rank of intervention of each AI carried out within the same reproductive cycle."
+        },
         "inseminationType": {
           "$ref": "../enums/icarReproInseminationType.json"
         },
