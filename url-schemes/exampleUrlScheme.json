@@ -92,10 +92,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -135,10 +135,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -178,10 +178,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -253,10 +253,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -291,10 +291,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -329,10 +329,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -367,10 +367,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -410,10 +410,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -469,7 +469,7 @@
       "get": {
         "operationId": "get-animal-sets",
         "summary": "Get the animal sets for a certain location",
-        "description": "# Purpose\nProvides the animal sets on a location. If animal-id-scheme and animal-id are provided, the sets containing that animal are returned.\n",
+        "description": "# Purpose\nProvides the animal sets on a location. If animal-scheme and animal-id are provided, the sets containing that animal are returned.\n",
         "tags": [
           "ADE-1.1-management"
         ],
@@ -478,7 +478,7 @@
           }, {
             "$ref": "#/components/parameters/location-id"
           }, {
-            "$ref": "#/components/parameters/animal-id-scheme"
+            "$ref": "#/components/parameters/animal-scheme"
           }, {
             "$ref": "#/components/parameters/animal-id"
           }
@@ -521,10 +521,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -565,10 +565,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -608,10 +608,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -651,10 +651,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -689,10 +689,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -732,10 +732,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -778,10 +778,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -816,10 +816,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -854,10 +854,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -892,10 +892,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -930,10 +930,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -968,10 +968,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1006,10 +1006,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1044,10 +1044,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1082,10 +1082,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1120,10 +1120,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1158,10 +1158,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1196,10 +1196,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1234,10 +1234,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1272,10 +1272,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1310,10 +1310,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1348,10 +1348,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1386,10 +1386,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1424,10 +1424,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1586,8 +1586,8 @@
           "type": "string"
         }
       },
-      "start-date-time": {
-        "name": "start-date-time",
+      "meta-modified-from": {
+        "name": "meta-modified-from",
         "in": "query",
         "description": "The start of the date-time range for the data to get in the request.",
         "schema": {
@@ -1595,8 +1595,8 @@
           "format": "date-time"
         }
       },
-      "end-date-time": {
-        "name": "end-date-time",
+      "meta-modified-to": {
+        "name": "meta-modified-to",
         "in": "query",
         "description": "The end of the date-time range for the data to get in the request.",
         "schema": {
@@ -1604,8 +1604,8 @@
           "format": "date-time"
         }
       },
-      "animal-id-scheme": {
-        "name": "animal-id-scheme",
+      "animal-scheme": {
+        "name": "animal-scheme",
         "in": "query",
         "description": "The scheme id for the animal identifier.",
         "required": false,
