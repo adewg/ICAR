@@ -2079,364 +2079,372 @@
         }
       },
       "schemata": {
-        "view": {
-          "totalItems": 3,
-          "totalPages": 1,
-          "pageSize": 10,
-          "currentPage": 1
-        },
-        "member": [
-          {
-            "name": "locations"
+        "value": {
+          "view": {
+            "totalItems": 3,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
           },
-          {
-            "name": "animals"
-          },
-          {
-            "name": "breeds"
-          }
-        ]
+          "member": [
+            {
+              "name": "locations"
+            },
+            {
+              "name": "animals"
+            },
+            {
+              "name": "breeds"
+            }
+          ]
+        }
       },
       "schemata-locations": {
-        "view": {
-          "totalItems": 2,
-          "totalPages": 1,
-          "pageSize": 10,
-          "currentPage": 1
-        },
-        "member": [
-          {
-            "name": "nl.ubn"
+        "value": {
+          "view": {
+            "totalItems": 2,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
           },
-          {
-            "name": "nl.brs"
-          },
-          {
-            "name": "dk.herdnumber"
-          }
-        ]
+          "member": [
+            {
+              "name": "nl.ubn"
+            },
+            {
+              "name": "nl.brs"
+            },
+            {
+              "name": "dk.herdnumber"
+            }
+          ]
+        }
       },
       "schemata-breeds": {
-        "view": {
-          "totalItems": 2,
-          "totalPages": 1,
-          "pageSize": 10,
-          "currentPage": 1
-        },
-        "member": [
-          {
-            "name": "icar.breed.interbull"
+        "value": {
+          "view": {
+            "totalItems": 2,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
           },
-          {
-            "name": "finland.breed"
-          }
-        ]
+          "member": [
+            {
+              "name": "icar.breed.interbull"
+            },
+            {
+              "name": "finland.breed"
+            }
+          ]
+        }
       },
       "schemata-breeds-interbull": {
-        "view": {
-          "totalItems": 50,
-          "totalPages": 1,
-          "pageSize": 50,
-          "currentPage": 1
-        },
-        "member": [
-          {
-            "id": "ABO",
-            "name": "Abondance"
-          },
-          {
-            "id": "AAN",
-            "name": "Angus"
-          },
-          {
-            "id": "AUB",
-            "name": "Aubrac"
-          },
-          {
-            "id": "RDC",
-            "name": "Ayrshire"
-          },
-          {
-            "id": "BZD",
-            "name": "Bazadais"
-          },
-          {
-            "id": "BBL",
-            "name": "Belgian Blue"
-          },
-          {
-            "id": "BAQ",
-            "name": "Blonde d'Aquitaine"
-          },
-          {
-            "id": "BSH",
-            "name": "Beef Shorthorn"
-          },
-          {
-            "id": "BMA",
-            "name": "Beefmaster"
-          },
-          {
-            "id": "BER",
-            "name": "Belgium Red & White"
-          },
-          {
-            "id": "BFD",
-            "name": "Braford"
-          },
-          {
-            "id": "BRM",
-            "name": "Brahman"
-          },
-          {
-            "id": "BRG",
-            "name": "Brangus"
-          },
-          {
-            "id": "BRR",
-            "name": "Brand Rood"
-          },
-          {
-            "id": "BRF",
-            "name": "British Frisian"
-          },
-          {
-            "id": "BSW",
-            "name": "Brown Swiss"
-          },
-          {
-            "id": "CIA",
-            "name": "Chianina"
-          },
-          {
-            "id": "CHA",
-            "name": "Charolais"
-          },
-          {
-            "id": "MSH",
-            "name": "Dairy Shorthorn"
-          },
-          {
-            "id": "DFR",
-            "name": "Dutch Frisian"
-          },
-          {
-            "id": "ERI",
-            "name": "Eringer"
-          },
-          {
-            "id": "MRY",
-            "name": "Meuse Rhine Yssel"
-          },
-          {
-            "id": "DXT",
-            "name": "Dexter"
-          },
-          {
-            "id": "DEV",
-            "name": "Devon"
-          },
-          {
-            "id": "DIK",
-            "name": "Dikbil"
-          },
-          {
-            "id": "BWR",
-            "name": "Eastern Flanders White Red"
-          },
-          {
-            "id": "RDC",
-            "name": "European Red Dairy Breed"
-          },
-          {
-            "id": "GAS",
-            "name": "Gascon"
-          },
-          {
-            "id": "GDB",
-            "name": "Glan Donnersberg"
-          },
-          {
-            "id": "GLW",
-            "name": "Galloway"
-          },
-          {
-            "id": "GUE",
-            "name": "Guernsey"
-          },
-          {
-            "id": "GVH",
-            "name": "Gelbvieh"
-          },
-          {
-            "id": "GRO",
-            "name": "Groninger"
-          },
-          {
-            "id": "HER",
-            "name": "Hereford"
-          },
-          {
-            "id": "HLA",
-            "name": "Highland Cattle"
-          },
-          {
-            "id": "HWD",
-            "name": "Hinterwälder"
-          },
-          {
-            "id": "HOL",
-            "name": "Holstein"
-          },
-          {
-            "id": "RED",
-            "name": "Holstein, Red and White"
-          },
-          {
-            "id": "JER",
-            "name": "Jersey"
-          },
-          {
-            "id": "KER",
-            "name": "Kerry"
-          },
-          {
-            "id": "DBE",
-            "name": "Dutch Belted- Lakenvelder"
-          },
-          {
-            "id": "LIM",
-            "name": "Limousin"
-          },
-          {
-            "id": "LON",
-            "name": "Longhorn"
-          },
-          {
-            "id": "LUI",
-            "name": "Luing"
-          },
-          {
-            "id": "RDP",
-            "name": "Rouge des Pres"
-          },
-          {
-            "id": "MGR",
-            "name": "Murray-Grey"
-          },
-          {
-            "id": "MON",
-            "name": "Montbéliard"
-          },
-          {
-            "id": "MAR",
-            "name": "Marchigiana"
-          },
-          {
-            "id": "MAE",
-            "name": "Maremmana"
-          },
-          {
-            "id": "NEL",
-            "name": "Nellore"
-          },
-          {
-            "id": "NMD",
-            "name": "Normandy"
-          },
-          {
-            "id": "RDC",
-            "name": "Norwegian Red"
-          },
-          {
-            "id": "PAR",
-            "name": "Parthenaise"
-          },
-          {
-            "id": "PIE",
-            "name": "Piedmont"
-          },
-          {
-            "id": "PIN",
-            "name": "Pinzgau"
-          },
-          {
-            "id": "RAN",
-            "name": "Red Angus"
-          },
-          {
-            "id": "ROM",
-            "name": "Romagnola"
-          },
-          {
-            "id": "SAL",
-            "name": "Salers"
-          },
-          {
-            "id": "SGE",
-            "name": "Santa Gertrudis"
-          },
-          {
-            "id": "SDE",
-            "name": "South Devon"
-          },
-          {
-            "id": "SUS",
-            "name": "Sussex"
-          },
-          {
-            "id": "SIM",
-            "name": "Simmental/Fleckvieh"
-          },
-          {
-            "id": "RDC",
-            "name": "Swedish Red"
-          },
-          {
-            "id": "SAH",
-            "name": "Sahiwal"
-          },
-          {
-            "id": "TAR",
-            "name": "Tarentaise"
-          },
-          {
-            "id": "TUX",
-            "name": "Tux"
-          },
-          {
-            "id": "TGR",
-            "name": "Tyrol Grey"
-          },
-          {
-            "id": "VRB",
-            "name": "Verbeter Roodbont"
-          },
-          {
-            "id": "WAG",
-            "name": "Wagyu"
-          },
-          {
-            "id": "WBM",
-            "name": "Belgium Blue Mixte"
-          },
-          {
-            "id": "WBL",
-            "name": "Welsh Black"
-          },
-          {
-            "id": "BRV",
-            "name": "Western Flanders Meat"
-          },
-          {
-            "id": "BRD",
-            "name": "West-Vlaams Rood"
-          },
-          {
-            "id": "WRI",
-            "name": "Witrik"
-          }
-        ]
+        "value": {
+          "view": {
+            "totalItems": 50,
+            "totalPages": 1,
+            "pageSize": 50,
+            "currentPage": 1
+          },
+          "member": [
+            {
+              "id": "ABO",
+              "name": "Abondance"
+            },
+            {
+              "id": "AAN",
+              "name": "Angus"
+            },
+            {
+              "id": "AUB",
+              "name": "Aubrac"
+            },
+            {
+              "id": "RDC",
+              "name": "Ayrshire"
+            },
+            {
+              "id": "BZD",
+              "name": "Bazadais"
+            },
+            {
+              "id": "BBL",
+              "name": "Belgian Blue"
+            },
+            {
+              "id": "BAQ",
+              "name": "Blonde d'Aquitaine"
+            },
+            {
+              "id": "BSH",
+              "name": "Beef Shorthorn"
+            },
+            {
+              "id": "BMA",
+              "name": "Beefmaster"
+            },
+            {
+              "id": "BER",
+              "name": "Belgium Red & White"
+            },
+            {
+              "id": "BFD",
+              "name": "Braford"
+            },
+            {
+              "id": "BRM",
+              "name": "Brahman"
+            },
+            {
+              "id": "BRG",
+              "name": "Brangus"
+            },
+            {
+              "id": "BRR",
+              "name": "Brand Rood"
+            },
+            {
+              "id": "BRF",
+              "name": "British Frisian"
+            },
+            {
+              "id": "BSW",
+              "name": "Brown Swiss"
+            },
+            {
+              "id": "CIA",
+              "name": "Chianina"
+            },
+            {
+              "id": "CHA",
+              "name": "Charolais"
+            },
+            {
+              "id": "MSH",
+              "name": "Dairy Shorthorn"
+            },
+            {
+              "id": "DFR",
+              "name": "Dutch Frisian"
+            },
+            {
+              "id": "ERI",
+              "name": "Eringer"
+            },
+            {
+              "id": "MRY",
+              "name": "Meuse Rhine Yssel"
+            },
+            {
+              "id": "DXT",
+              "name": "Dexter"
+            },
+            {
+              "id": "DEV",
+              "name": "Devon"
+            },
+            {
+              "id": "DIK",
+              "name": "Dikbil"
+            },
+            {
+              "id": "BWR",
+              "name": "Eastern Flanders White Red"
+            },
+            {
+              "id": "RDC",
+              "name": "European Red Dairy Breed"
+            },
+            {
+              "id": "GAS",
+              "name": "Gascon"
+            },
+            {
+              "id": "GDB",
+              "name": "Glan Donnersberg"
+            },
+            {
+              "id": "GLW",
+              "name": "Galloway"
+            },
+            {
+              "id": "GUE",
+              "name": "Guernsey"
+            },
+            {
+              "id": "GVH",
+              "name": "Gelbvieh"
+            },
+            {
+              "id": "GRO",
+              "name": "Groninger"
+            },
+            {
+              "id": "HER",
+              "name": "Hereford"
+            },
+            {
+              "id": "HLA",
+              "name": "Highland Cattle"
+            },
+            {
+              "id": "HWD",
+              "name": "Hinterwälder"
+            },
+            {
+              "id": "HOL",
+              "name": "Holstein"
+            },
+            {
+              "id": "RED",
+              "name": "Holstein, Red and White"
+            },
+            {
+              "id": "JER",
+              "name": "Jersey"
+            },
+            {
+              "id": "KER",
+              "name": "Kerry"
+            },
+            {
+              "id": "DBE",
+              "name": "Dutch Belted- Lakenvelder"
+            },
+            {
+              "id": "LIM",
+              "name": "Limousin"
+            },
+            {
+              "id": "LON",
+              "name": "Longhorn"
+            },
+            {
+              "id": "LUI",
+              "name": "Luing"
+            },
+            {
+              "id": "RDP",
+              "name": "Rouge des Pres"
+            },
+            {
+              "id": "MGR",
+              "name": "Murray-Grey"
+            },
+            {
+              "id": "MON",
+              "name": "Montbéliard"
+            },
+            {
+              "id": "MAR",
+              "name": "Marchigiana"
+            },
+            {
+              "id": "MAE",
+              "name": "Maremmana"
+            },
+            {
+              "id": "NEL",
+              "name": "Nellore"
+            },
+            {
+              "id": "NMD",
+              "name": "Normandy"
+            },
+            {
+              "id": "RDC",
+              "name": "Norwegian Red"
+            },
+            {
+              "id": "PAR",
+              "name": "Parthenaise"
+            },
+            {
+              "id": "PIE",
+              "name": "Piedmont"
+            },
+            {
+              "id": "PIN",
+              "name": "Pinzgau"
+            },
+            {
+              "id": "RAN",
+              "name": "Red Angus"
+            },
+            {
+              "id": "ROM",
+              "name": "Romagnola"
+            },
+            {
+              "id": "SAL",
+              "name": "Salers"
+            },
+            {
+              "id": "SGE",
+              "name": "Santa Gertrudis"
+            },
+            {
+              "id": "SDE",
+              "name": "South Devon"
+            },
+            {
+              "id": "SUS",
+              "name": "Sussex"
+            },
+            {
+              "id": "SIM",
+              "name": "Simmental/Fleckvieh"
+            },
+            {
+              "id": "RDC",
+              "name": "Swedish Red"
+            },
+            {
+              "id": "SAH",
+              "name": "Sahiwal"
+            },
+            {
+              "id": "TAR",
+              "name": "Tarentaise"
+            },
+            {
+              "id": "TUX",
+              "name": "Tux"
+            },
+            {
+              "id": "TGR",
+              "name": "Tyrol Grey"
+            },
+            {
+              "id": "VRB",
+              "name": "Verbeter Roodbont"
+            },
+            {
+              "id": "WAG",
+              "name": "Wagyu"
+            },
+            {
+              "id": "WBM",
+              "name": "Belgium Blue Mixte"
+            },
+            {
+              "id": "WBL",
+              "name": "Welsh Black"
+            },
+            {
+              "id": "BRV",
+              "name": "Western Flanders Meat"
+            },
+            {
+              "id": "BRD",
+              "name": "West-Vlaams Rood"
+            },
+            {
+              "id": "WRI",
+              "name": "Witrik"
+            }
+          ]
+        }
       }
     }
   }
