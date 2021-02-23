@@ -1,0 +1,12 @@
+{
+  "description": "Schema type/scheme name types supported schemata under location",
+
+  "type": "object",
+
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Schema type/scheme name."
+    }
+  }
+}

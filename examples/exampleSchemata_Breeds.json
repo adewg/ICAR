@@ -1,0 +1,16 @@
+{
+  "view": {
+    "totalItems": 2,
+    "totalPages": 1,
+    "pageSize": 10,
+    "currentPage": 1
+  },
+  "member": [
+    {
+      "name": "breeds.interbull"
+    },
+    {
+      "name": "breeds.finland"
+    }
+  ]
+}

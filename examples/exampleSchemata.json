@@ -1,0 +1,19 @@
+{
+  "view": {
+    "totalItems": 3,
+    "totalPages": 1,
+    "pageSize": 10,
+    "currentPage": 1
+  },
+  "member": [
+    {
+      "name": "locations"
+    },
+    {
+      "name": "animals"
+    },
+    {
+      "name": "breeds"
+    }
+  ]
+}
