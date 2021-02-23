@@ -1475,7 +1475,7 @@
                   "$ref": "#/components/schemas/icarSchemeTypeCollection"
                 },
                 "examples": {
-                  "finland": {
+                  "schemata": {
                     "$ref": "#/components/examples/schemata"
                   }
                 }
@@ -1513,6 +1513,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                },
+                "examples": {
+                  "breeds": {
+                    "$ref": "#/components/examples/schemata-breeds"
+                  },
+                  "locations": {
+                    "$ref": "#/components/examples/schemata-locations"
+                  }
                 }
               }
             }
@@ -1551,6 +1559,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/icarSchemeValueCollection"
+                },
+                "examples": {
+                  "breeds-interbull": {
+                    "$ref": "#/components/examples/schemata-breeds-interbull"
+                  }
                 }
               }
             }
