@@ -1,0 +1,27 @@
+{
+  "description": "The amount of feed",
+
+  "type": "object",
+
+  "required": [
+    "unitCode",
+    "value"
+  ],
+
+  "properties": {
+    "unitCode": {
+      "type": "string",
+      "description": "UN/CEFACT Common Code for Units of Measurement.",
+      "enum": [
+        "KGM",
+        "GRM",
+        "PN",
+        "ONZ"
+      ]
+    },
+    "value": {
+      "type": "number",
+      "format": "double"
+    }
+  }
+}

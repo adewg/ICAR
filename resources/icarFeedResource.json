@@ -1,0 +1,44 @@
+{
+  "description": "Feeds available on a location.",
+
+  "allOf": [{
+      "$ref": "../resources/icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "id"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this resource."
+        },
+        "category": {
+          "$ref": "../enums/icarFeedCategoryType.json",
+          "description": "The scheme and the id of the category of the feed."
+        },
+        "type": {
+          "$ref": "../types/icarFeedIdentifierType.json",
+          "description": "The scheme and the id of the type of the feed. ICAR recommends the use of the list of the scheme org.fao"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the feed as it is known on the location."
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarFeedPropertyType.json"
+          }
+        },
+        "active": {
+          "type": "boolean",
+          "description": "indicates whether the feed is or was available on the location."
+        }
+      }
+    }
+  ]
+}
