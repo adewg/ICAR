@@ -51,7 +51,7 @@
         },
         "managementTag": {
           "type": "string",
-          "description": "The identifier used by the farmer in day to day operations. In many cases this could the animal number."
+          "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
         },
         "name": {
           "type": "string",
