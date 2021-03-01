@@ -23,7 +23,7 @@
           "items": {
             "$ref": "../types/icarAnimalIdentifierType.json"
           },
-          "description": "Alternative identifiers for the animal."
+          "description": "Alternative identifiers for the animal. Here, also temporary identifiers, e.g. transponders or animal numbers, can be listed."
         },
         "specie": {
           "$ref": "../enums/icarAnimalSpecieType.json",
@@ -51,7 +51,7 @@
         },
         "managementTag": {
           "type": "string",
-          "description": "The identifier used by the farmer in day to day operations."
+          "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
         },
         "name": {
           "type": "string",
