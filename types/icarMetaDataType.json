@@ -11,7 +11,11 @@
   "properties": {
     "source": {
       "type": "string",
-      "description": "Source where data is retrieved from. URI that identified the source system"
+      "description": "Source where data is retrieved from. URI  or reverse DNS that identifies the source system."
+    },
+    "sourceId": {
+      "type": "string",
+      "description": "Unique Id (ideally UUID) for the resource in the original source system. Treat source and sourceId as an icarIdentifierType."
     },
     "modified": {
       "$ref": "../types/icarDateTimeType.json"
