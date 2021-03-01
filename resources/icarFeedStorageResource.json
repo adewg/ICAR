@@ -1,0 +1,32 @@
+{
+  "description": "Describes the feed storage device on a certain location.",
+
+  "type": "object",
+
+  "required": [
+    "id"
+  ],
+
+  "allOf": [{
+    "$ref": "icarDeviceResource.json"
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "feedId": {
+          "type": "string",
+          "description": "Unique identifier of the feed that is stored in this device."
+        },
+        "capacity": {
+          "$ref": "../types/icarFeedQuantityType.json",
+          "description": "The amount of feed that can be stored in this device."
+        },
+        "quantityAvailable": {
+          "$ref": "../types/icarFeedQuantityType.json",
+          "description": "The amount of feed that is currently stored in this device and is available for feeding."
+        }
+      }
+    }
+  ]
+}

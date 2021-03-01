@@ -953,6 +953,49 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/feed-storages": {
+      "get": {
+        "operationId": "get-feed-storages",
+        "summary": "Get the feed storage device data for a location",
+        "description": "# Purpose\nProvides feed storage device data for storages present on a farm.",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+        },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed storage device data for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedStorageCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/feed-storages"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/breeding-values": {
       "get": {
         "operationId": "get-breeding-values",
@@ -1522,6 +1565,9 @@
       "icarDeviceCollection": {
         "$ref": "../collections/icarDeviceCollection.json"
       },
+      "icarDeviceCollection": {
+        "$ref": "../collections/icarFeedStorageCollection.json"
+      },
       "icarBreedingValueCollection": {
         "$ref": "../collections/icarBreedingValueCollection.json"
       }      ,
@@ -1668,6 +1714,36 @@
             }
           }
          ]
+        }
+      },
+      "feed-storages": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+            "id": "276031231231234",
+            "name": "My first silo",
+            "feedId": "a8f5944e-de92-4768-a1ff-392e15a2195e",
+            "capacity": {
+              "value": 50000,
+              "unitCode": "KGM"
+            },
+            "quantityAvailable": {
+              "value": 28765,
+              "unitCode": "KGM"
+            },
+            "meta": {
+              "source": "source",
+              "creator": "creator",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": "2020-01-29T08:49:06.1314223+00:00"
+            }
+          }
+          ]
         }
       },
       "arrival": {
