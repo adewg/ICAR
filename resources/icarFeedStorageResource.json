@@ -22,9 +22,9 @@
           "$ref": "../types/icarFeedQuantityType.json",
           "description": "The amount of feed that can be stored in this device."
         },
-        "availableFeed": {
+        "quantityAvailable": {
           "$ref": "../types/icarFeedQuantityType.json",
-          "description": "The amount of feed that is currently stored in this device."
+          "description": "The amount of feed that is currently stored in this device and is available for feeding."
         }
       }
     }
