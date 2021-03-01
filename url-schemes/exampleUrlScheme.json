@@ -1732,7 +1732,7 @@
               "value": 50000,
               "unitCode": "KGM"
             },
-            "availableFeed": {
+            "quantityAvailable": {
               "value": 28765,
               "unitCode": "KGM"
             },
