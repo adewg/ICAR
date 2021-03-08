@@ -1565,7 +1565,7 @@
       "icarDeviceCollection": {
         "$ref": "../collections/icarDeviceCollection.json"
       },
-      "icarDeviceCollection": {
+      "icarFeedStorageCollection": {
         "$ref": "../collections/icarFeedStorageCollection.json"
       },
       "icarBreedingValueCollection": {
