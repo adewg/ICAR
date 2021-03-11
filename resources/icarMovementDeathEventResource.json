@@ -27,7 +27,14 @@
         "disposalReference": {
           "type": "string",
           "description": "Reference (receipt, docket, or ID) for disposal."
-        }
+        },
+        "consignment": {
+          "$ref": "../types/icarConsignmentType.json"
+        },        
+        "deathMethod": {
+          "$ref": "../enums/icarDeathMethodType.json",
+          "description": "Defines the method of death, including an accident, natural causes, or euthanised."
+        }        
       }
     }
   ]
