@@ -1,0 +1,12 @@
+{ 
+    "description": "Enumeration for method of death (whether the animal died from an accident, natural causes, or was euthanised).",
+    
+    "type": "string",
+  
+    "enum": [
+      "Accident",
+      "Euthanised",
+      "Natural",
+      "Unknown"
+    ]
+  }
