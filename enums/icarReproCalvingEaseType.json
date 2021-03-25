@@ -1,0 +1,13 @@
+{
+    "description": "Enumeration for calving ease. In the order they are listed, these correspond to INTERBEEF codes 1 to 5",
+  
+    "type": "string",
+  
+    "enum": [
+      "EasyUnassisted",
+      "EasyAssisted",
+      "DifficultExtraAssistance",
+      "DifficultVeterinaryCare",
+      "CaesareanOrSurgery"
+    ]
+  }
