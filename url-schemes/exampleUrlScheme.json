@@ -1789,24 +1789,6 @@
           "format": "date-time"
         }
       },
-      "meta-modified-from": {
-        "name": "meta-modified-from",
-        "in": "query",
-        "description": "The start of the date-time range for the data to get in the request.",
-        "schema": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "meta-modified-to": {
-        "name": "meta-modified-to",
-        "in": "query",
-        "description": "The end of the date-time range for the data to get in the request.",
-        "schema": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
       "report-start-date-time": {
         "name": "report-start-date-time",
         "in": "query",
@@ -1825,7 +1807,7 @@
           "format": "date-time"
         }
       },
-    "animal-scheme": {
+      "animal-scheme": {
         "name": "animal-scheme",
         "in": "query",
         "description": "The scheme id for the animal identifier.",
