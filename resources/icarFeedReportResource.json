@@ -8,10 +8,6 @@
         "type": "object",
 
         "properties": {
-          "eventDate": {
-            "$ref": "../types/icarDateType.json",
-            "description": "date of the feeding"
-          },
           "animals": {
             "type": "array",
             "items": {
