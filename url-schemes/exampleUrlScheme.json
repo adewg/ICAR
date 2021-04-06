@@ -1443,6 +1443,7 @@
           },
           {
             "$ref": "#/components/parameters/report-end-date-time"
+          }
          ],
         "responses": {
           "200": {
