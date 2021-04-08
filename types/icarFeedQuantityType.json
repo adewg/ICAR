@@ -10,14 +10,8 @@
 
   "properties": {
     "unitCode": {
-      "type": "string",
-      "description": "UN/CEFACT Common Code for Units of Measurement.",
-      "enum": [
-        "KGM",
-        "GRM",
-        "PN",
-        "ONZ"
-      ]
+      "$ref": "../enums/uncefactMassUnitsType.json",
+      "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
     },
     "value": {
       "type": "number",

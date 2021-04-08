@@ -1421,7 +1421,7 @@
     "/locations/{location-scheme}/{location-id}/feed-reports": {
       "get": {
         "operationId": "get-Feed-Report",
-        "summary": "Get the feed reports for animals on a certain location for a certain period",
+        "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. ",
         "description": "# Purpose\nProvides the feed reports for animal on a location\n",
         "tags": [
           "ADE-1.2-feed"
@@ -1437,8 +1437,14 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/report-start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/report-end-date-time"
           }
-        ],
+         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the feed reports for animals on the given location.",
@@ -1778,6 +1784,24 @@
         "name": "meta-modified-to",
         "in": "query",
         "description": "The end of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "report-start-date-time": {
+        "name": "report-start-date-time",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request based on the event date time.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "report-end-date-time": {
+        "name": "report-end-date-time",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request based on the event date time.",
         "schema": {
           "type": "string",
           "format": "date-time"
