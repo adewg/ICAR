@@ -1,12 +1,12 @@
 {
-  "description": "An extension to an (almost) RFC7807 compliant problem response for JSON APIs.",
+  "description": "An RFC7807 compliant problem response for JSON APIs.",
 
   "type": "object",
 
   "properties": {
-    "id": {
+    "type": {
       "type": "string",
-      "description": "Machine readable URI that uniquely defines the problem (this field should really be called 'type')."
+      "description": "Machine readable URI or code that defines the type of error or warning."
     },
     "status": {
       "type": "integer",
