@@ -65,6 +65,12 @@
           "items": {
             "$ref": "../types/icarMilkCharacteristicsType.json"
           }
+        },
+        "milkingRemarks": {
+          "type": "array",
+          "items": {
+            "$ref": "../enums/icarMilkingRemarksType.json"
+          }
         }
       }
     }
