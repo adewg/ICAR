@@ -1,0 +1,13 @@
+{
+  "description": "Enumeration for different possible milking-remarks.",
+
+  "type": "string",
+
+  "enum": [
+    "AnimalSick",
+    "MilkingIncomplete",
+    "TeatSeparated",
+    "MilkedSeparately",
+    "SamplingFailed"
+  ]
+}
