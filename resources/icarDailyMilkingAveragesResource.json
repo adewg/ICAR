@@ -1,5 +1,5 @@
 {
-  "description": "Event for recording milking visit",
+  "description": "Resource containing daily averages calculated from milking visit of a single animal",
 
   "allOf": [{
       "$ref": "icarResource.json"
