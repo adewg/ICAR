@@ -1,0 +1,11 @@
+{
+    "description": "Severity code to distinguish warnings and errors.",
+  
+    "type": "string",
+  
+    "enum": [
+      "Information",
+      "Warning",
+      "Error"
+    ]
+  }

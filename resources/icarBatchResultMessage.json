@@ -8,6 +8,10 @@
       "type": "string",
       "description": "Machine readable URI or code that defines the type of error or warning."
     },
+    "severity": {
+      "$ref": "../enums/icarBatchResultSeverityType.json",
+      "description": "Distinguish errors, warnings, and informational messages."
+    },
     "status": {
       "type": "integer",
       "description": "The HTTP status code applicable to this problem.",

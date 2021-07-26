@@ -10,20 +10,12 @@
             "$ref": "../types/icarMetaDataType.json",
             "description": "Metadata for the posted resource. Allows specification of the source, source Id to synchronise data."
         },        
-        "errors": {
+        "messages": {
             "type": "array",
             "description": "An arry of errors for this resource.",
             "nullable": true,
             "items": {
-                "$ref": "../resources/icarErrorResource.json"
-            }
-        },
-        "warnings": {
-            "type": "array",
-            "description": "An arry of warnings for this resource.",
-            "nullable": true,
-            "items": {
-                "$ref": "../resources/icarErrorResource.json"
+                "$ref": "../resources/icarBatchResultMessage.json"
             }
         }
     }
