@@ -1,18 +1,21 @@
 {
-  "description": "An extention to a RFC7807 compliant problem response for JSON APIs",
+  "description": "A human-readable error message describing what went wrong.",
 
   "type": "object",
 
   "properties": {
-    "type": {
+    "id": {
       "type": "string",
-      "format": "uri", 
-      "description": "Machine readable URI that uniquely defines the problem."
+      "description": "A unique identifier for this particular occurrence of the problem"
     },
     "status": {
       "type": "integer",
-      "description": "The HTTP status code applicable to this problem",
+      "description": "The HTTP status code applicable to this problem, expressed as a string value",
       "format": "int32"
+    },
+    "code": {
+      "type": "string",
+      "description": "An application-specific error code, expressed as a string value."
     },
     "title": {
       "type": "string",
@@ -22,25 +25,10 @@
       "type": "string",
       "description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
     },
-    "instance": {
-      "type": "string",
-      "description": "A URI reference or internal JSON document reference to the specific data resource that caused the problem."
-    },
-    "instanceIdentification": {
+    "meta": {
       "type": "object",
       "properties": {
-        "source": {
-          "type": "string",
-          "description": "Identifies the source of the resource as contained in the resource metadata."
-        },
-        "sourceId": {
-          "type": "string",
-          "description": "Identifies the resource using its source identifier as contained in the resource metadata."
-        },
-        "hostId": {
-          "type": "string",
-          "description": "If specified, identifies the resource with a unique Id (UUID) in the host system."
-        }
+
       }
     }
   }
