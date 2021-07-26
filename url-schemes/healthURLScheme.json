@@ -319,35 +319,35 @@
         ],
         "requestBody": {
           "required": true,
-          "description": "The collection of health diagnosis events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "description": "The collection of health diagnosis events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\nAlthough a collection is used, servers SHALL IGNORE any pagination-related attributes.\n",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/icarDiagnosisEventArray"
+                "$ref": "#/components/schemas/icarDiagnosisEventCollection"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "description": "Successful. The response contains a copy of the collection, as modifed by the server.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/batchResults"
+                  "$ref": "#/components/schemas/icarDiagnosisEventCollection"
                 }
               }
             }
           },
           "201": {
-            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "description": "Created. The Location header contains the URI to the collection, as modified by the server.",
             "headers": {
               "Location": {
                 "schema": {
                   "type": "string",
                   "format": "uri"
                 },
-                "description": "Contains the URI to the results."
+                "description": "Contains the URI to the new resource."
               }
             }
           },
@@ -364,14 +364,7 @@
             }
           },
           "default": {
-            "description": "The response contains a set of batch results, which may include errors and warnings.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/batchResults"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -394,35 +387,35 @@
         ],
         "requestBody": {
           "required": true,
-          "description": "The collection of health treatment events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "description": "The collection of health treatment events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\nAlthough a collection is used, servers SHALL IGNORE any pagination-related attributes.\n",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/icarTreatmentEventArray"
+                "$ref": "#/components/schemas/icarTreatmentEventCollection"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "description": "Successful. The response contains a copy of the collection, as modifed by the server.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/batchResults"
+                  "$ref": "#/components/schemas/icarDiagnosisEventCollection"
                 }
               }
             }
           },
           "201": {
-            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "description": "Created. The Location header contains the URI to the collection, as modified by the server.",
             "headers": {
               "Location": {
                 "schema": {
                   "type": "string",
                   "format": "uri"
                 },
-                "description": "Contains the URI to the results."
+                "description": "Contains the URI to a collection of new resources."
               }
             }
           },
@@ -439,14 +432,7 @@
             }
           },
           "default": {
-            "description": "The response contains a set of batch results, which may include errors and warnings.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/batchResults"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -469,35 +455,35 @@
         ],
         "requestBody": {
           "required": true,
-          "description": "The collection of health treatment program events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "description": "The collection of health treatment program events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\nAlthough a collection is used, servers SHALL IGNORE any pagination-related attributes.\n",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/icarTreatmentProgramEventArray"
+                "$ref": "#/components/schemas/icarTreatmentProgramEventCollection"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "description": "Successful. The response contains a copy of the collection, as modifed by the server.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/batchResults"
+                  "$ref": "#/components/schemas/icarTreatmentProgramEventCollection"
                 }
               }
             }
           },
           "201": {
-            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "description": "Created. The Location header contains the URI to the collection, as modified by the server.",
             "headers": {
               "Location": {
                 "schema": {
                   "type": "string",
                   "format": "uri"
                 },
-                "description": "Contains the URI to the results."
+                "description": "Contains the URI to a collection of new resources."
               }
             }
           },
@@ -514,14 +500,7 @@
             }
           },
           "default": {
-            "description": "The response contains a set of batch results, which may include errors and warnings.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/batchResults"
-                }
-              }
-            }
+            "$ref": "#/components/responses/default"
           }
         }
       }
@@ -529,14 +508,8 @@
   },
   "components": {
     "schemas": {
-      "batchResults": {
-        "type": "array",
-        "items": {
-          "$ref": "../resources/icarBatchResult.json"
-        }
-      },
       "error": {
-        "$ref": "../resources/icarErrorResource.json"
+        "$ref": "../resources/exampleErrorResource.json"
       },
       "icarDiagnosisEvent": {
         "$ref": "../resources/icarDiagnosisEventResource.json"
@@ -544,35 +517,17 @@
       "icarDiagnosisEventCollection": {
         "$ref": "../collections/icarDiagnosisEventCollection.json"
       },
-      "icarDiagnosisEventArray": {
-        "type": "array",
-        "items": {
-          "$ref": "../resources/icarDiagnosisEventResource.json"
-        }
-      },
       "icarTreatmentEvent": {
         "$ref": "../resources/icarTreatmentEventResource.json"
       },
       "icarTreatmentEventCollection": {
         "$ref": "../collections/icarTreatmentEventCollection.json"
       },
-      "icarTreatmentEventArray": {
-        "type": "array",
-        "items": {
-          "$ref": "../resources/icarTreatmentEventResource.json"
-        }
-      },
       "icarTreatmentProgramEvent": {
         "$ref": "../resources/icarTreatmentProgramEventResource.json"
       },
       "icarTreatmentProgramEventCollection": {
         "$ref": "../collections/icarTreatmentProgramEventCollection.json"
-      },
-      "icarTreatmentProgramEventArray": {
-        "type": "array",
-        "items": {
-          "$ref": "../resources/icarTreatmentProgramEventResource.json"
-        }
       }
     },
     "parameters": {

@@ -1,18 +1,18 @@
 {
-  "description": "An extension to an (almost) RFC7807 compliant problem response for JSON APIs.",
+  "description": "An extention to a RFC7807 compliant problem response for JSON APIs",
 
   "type": "object",
 
   "properties": {
-    "id": {
+    "type": {
       "type": "string",
-      "description": "Machine readable URI that uniquely defines the problem (this field should really be called 'type')."
+      "format": "uri", 
+      "description": "Machine readable URI that uniquely defines the problem."
     },
     "status": {
       "type": "integer",
-      "description": "The HTTP status code applicable to this problem.",
-      "format": "int32",
-      "nullable": true
+      "description": "The HTTP status code applicable to this problem",
+      "format": "int32"
     },
     "title": {
       "type": "string",
@@ -24,8 +24,24 @@
     },
     "instance": {
       "type": "string",
-      "description": "A URI reference or internal JSON document reference to the specific data item that caused the problem.",
-      "nullable": true
+      "description": "A URI reference or internal JSON document reference to the specific data resource that caused the problem."
+    },
+    "instanceIdentification": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Identifies the source of the resource as contained in the resource metadata."
+        },
+        "sourceId": {
+          "type": "string",
+          "description": "Identifies the resource using its source identifier as contained in the resource metadata."
+        },
+        "hostId": {
+          "type": "string",
+          "description": "If specified, identifies the resource with a unique Id (UUID) in the host system."
+        }
+      }
     }
   }
 }
