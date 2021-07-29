@@ -5,22 +5,9 @@
 
   "properties": {
     
-    "position": {
-      "type": "string",
+    "position": {      
       "description": "The position to be treated or diagnosed.",
-      "enum": [
-        "LEGS_FRONT_LEFT",
-        "LEGS_FRONT_RIGHT",
-        "LEGS_REAR_LEFT",
-        "LEGS_REAR_RIGHT",
-        "UDDER_FRONT_LEFT",
-        "UDDER_FRONT_RIGHT",
-        "UDDER_REAR_LEFT",
-        "UDDER_REAR_RIGHT",
-        "OVARIES_LEFT",
-        "OVARIES_RIGHT",
-        "OVARIES_UNKNOWN"
-      ]
+      "$ref": "../enums/icarPositionOnAnimal.json"
     }
   }
 }

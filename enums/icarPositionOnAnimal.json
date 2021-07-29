@@ -1,0 +1,23 @@
+{ 
+    "description": "Enumeration for treatment or diagnosed positions.",
+    
+    "type": "string",
+  
+    "enum": [
+       "LegsFrontLeft",
+        "LegsFrontRight",
+        "LegsRearLeft",
+        "LegsRearRight",
+        "UdderFrontLeft",
+        "UdderFrontRight",
+        "UdderRearLeft",
+        "UdderRearRight",
+        "OvariesLeft",
+        "OvariesRight",
+        "OvariesUnknown",
+        "Neck",
+        "Head",
+        "Back",
+        "Other"
+    ]
+  }
