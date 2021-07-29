@@ -32,17 +32,6 @@
           "$ref": "../types/icarMedicineDoseType.json",
           "description": "Total dose proposed or administered."
         },
-        "numberOfTreatments": {
-          "type": "number",
-          "description": "The number of treatments included in the course.",
-          "nullable": true
-        },
-        "treatmentInterval": {
-          "type": "number",
-          "format": "double",
-          "description": "The interval between treatments specified in HOURS.",
-          "nullable": true
-        },
         "batches": {
             "type": "array",
             "items": {

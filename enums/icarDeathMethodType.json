@@ -4,12 +4,9 @@
     "type": "string",
   
     "enum": [
-      "Perished",
-      "Slaughter",
-      "Culled",
-      "Theft",
-      "Lost",
       "Accident",
-      "Other"
+      "Euthanised",
+      "Natural",
+      "Unknown"
     ]
   }
