@@ -7,7 +7,7 @@
     
     "position": {      
       "description": "The position to be treated or diagnosed.",
-      "$ref": "../enums/icarPositionOnAnimal.json"
+      "$ref": "../enums/icarPositionOnAnimalType.json"
     }
   }
 }
