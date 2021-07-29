@@ -210,6 +210,44 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/daily-milking-averages": {
+      "get": {
+        "operationId": "get-daily-milking-averages",
+        "summary": "Get daily averages for milking-visits of a animals",
+        "description": "# Purpose\nProvides daily averages of the milking-visits of per animal.",
+        "tags": [
+          "ADE-1.1-milk"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+        },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the daily averages per animal for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarDailyMilkingAveragesCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/lactations": {
       "get": {
         "operationId": "get-lactations",
@@ -1643,6 +1681,9 @@
       },
       "icarTestDayResultEventCollection": {
         "$ref": "../collections/icarTestDayResultEventCollection.json"
+      },
+      "icarDailyMilkingAveragesCollection": {
+        "$ref": "../collections/icarDailyMilkingAveragesCollection.json"
       },
       "icarLactationCollection": {
         "$ref": "../collections/icarLactationCollection.json"
