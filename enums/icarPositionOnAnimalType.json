@@ -17,7 +17,9 @@
         "OvariesUnknown",
         "Neck",
         "Head",
+        "Mouth",
         "Back",
+        "Testes",
         "Other"
     ]
   }
