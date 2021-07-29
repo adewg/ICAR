@@ -38,8 +38,7 @@
           "nullable": true
         },
         "treatmentInterval": {
-          "type": "number",
-          "format": "double",
+          "type": "integer",
           "description": "The interval between treatments specified in HOURS.",
           "nullable": true
         },
