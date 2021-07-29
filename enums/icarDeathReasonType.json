@@ -11,13 +11,6 @@
     "Consumption",
     "Culled",
     "Other",
-    "Unknown",
-    "Age",
-    "Mastitis",
-    "Production",
-    "LegOrClaw",
-    "MilkingAbility",
-    "Nutrition",
-    "Fertility"
+    "Unknown"
   ]
 }

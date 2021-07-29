@@ -1,0 +1,44 @@
+{
+  "description": "Resource containing daily averages calculated from milking visit of a single animal",
+
+  "allOf": [{
+      "$ref": "icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "location",
+        "animal",
+        "averageDate"
+      ],
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this event."
+        },
+        "location": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "averageDate": {
+          "$ref": "../types/icarDateType.json",
+          "description": "The date on which the average has been calculated."
+        },
+        "milkYieldAvg24h": {
+          "$ref": "../types/icarTraitAmountType.json",
+          "description": "The average-amount of milk produced within 24h."
+        },
+        "milkYieldAvg7days": {
+          "$ref": "../types/icarTraitAmountType.json",
+          "description": "The average-amount of milk produced within 7 days."
+        }
+      }
+    }
+  ]
+}
