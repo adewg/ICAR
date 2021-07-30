@@ -15,7 +15,7 @@
             "description": "An arry of errors for this resource.",
             "nullable": true,
             "items": {
-                "$ref": "../resources/icarBatchResultMessage.json"
+                "$ref": "../resources/icarErrorWarningMessageResource.json"
             }
         }
     }

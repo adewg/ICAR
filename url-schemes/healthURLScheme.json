@@ -535,8 +535,8 @@
           "$ref": "../resources/icarBatchResult.json"
         }
       },
-      "error": {
-        "$ref": "../resources/icarErrorResource.json"
+      "error": { 
+        "$ref": "../resources/icarErrorWarningMessageResource.json"
       },
       "icarDiagnosisEvent": {
         "$ref": "../resources/icarDiagnosisEventResource.json"
