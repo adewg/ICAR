@@ -547,7 +547,7 @@
       "icarDiagnosisEventArray": {
         "type": "array",
         "items": {
-          "$ref": "../resources/icarDiagnosisEventResource.json"
+          "$ref": "../resources/icarDiagnosisEventResource.json" 
         }
       },
       "icarTreatmentEvent": {
