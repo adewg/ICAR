@@ -536,7 +536,7 @@
         }
       },
       "error": { 
-        "$ref": "../resources/icarErrorWarningMessageResource.json"
+        "$ref": "../resources/icarResponseMessageResource.json"
       },
       "icarDiagnosisEvent": {
         "$ref": "../resources/icarDiagnosisEventResource.json"
