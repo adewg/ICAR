@@ -1,0 +1,1070 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Animal Registration and Movement API Specifications",
+        "description": "Specifications for messages that support livestock movement information and registration (sometimes called I&R).",
+        "version": "1.2",
+        "contact": {
+            "name": "Animal Data Exchange Working Group",
+            "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
+            "email": "icar@icar.org"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://icar-ade.standard.com"
+        }
+    ],
+    "tags": [
+        {
+            "name": "ADE-1.2-registration",
+            "description": "Registration and movement messages approved by the working group"
+        }
+    ],
+    "paths": {
+        "/locations/{location-scheme}/{location-id}/animals": {
+            "get": {
+                "operationId": "get-animals",
+                "summary": "Get the animals for a certain location",
+                "description": "# Purpose\nProvides the animals on a location\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the animals for the given location",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarAnimalCoreCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-animal",
+                "summary": "Add a single animal resource.",
+                "description": "# Purpose  \nAllows a client to add a single animal resource. Many servers do not support adding animals, requiring a registration event instead.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The animal to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarAnimalCoreResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarAnimalCoreResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }            
+        },
+        "/locations/{location-scheme}/{location-id}/births": {
+            "get": {
+                "operationId": "get-births",
+                "summary": "Get the births for a certain location",
+                "description": "# Purpose\nProvides the animal birth records for a location\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the birth or initial registration events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementBirthEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-birth",
+                "summary": "Add a single new birth or initial registration event",
+                "description": "# Purpose  \nAllows a client to add a single animal birth or initial registration event.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The birth event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementBirthEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementBirthEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/deaths": {
+            "get": {
+                "operationId": "get-deaths",
+                "summary": "Get the deaths for a certain location",
+                "description": "# Purpose\nProvides the animal death records for a location\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the death events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementDeathEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-death",
+                "summary": "Add a single new death event",
+                "description": "# Purpose  \nAllows a client to add a single animal death event.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The death event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementDeathEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementDeathEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/arrivals": {
+            "get": {
+                "operationId": "get-arrivals",
+                "summary": "Get the arrivals for a certain location",
+                "description": "# Purpose\nProvides the animal arrival records for a location\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the arrival events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementArrivalEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-arrival",
+                "summary": "Add a single new arrival event",
+                "description": "# Purpose  \nAllows a client to add a single animal arrival event.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The arrival event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementArrivalEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementArrivalEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/departures": {
+            "get": {
+                "operationId": "get-departures",
+                "summary": "Get the departures for a certain location",
+                "description": "# Purpose\nProvides the animal departure records for a location\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the departure events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementDepartureEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-departure",
+                "summary": "Add a single new departure event",
+                "description": "# Purpose  \nAllows a client to add a single animal departure event.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The departure event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/batches/{location-scheme}/{location-id}/animals": {
+            "post": {
+                "operationId": "post-batch-animals",
+                "summary": "Add an array of animal resources",
+                "description": "# Purpose  \nAllows a client to add a collection of animal resources. Many servers do not support adding animals, requiring registration events instead.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of animal resources to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarAnimalCoreResourceArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/{location-scheme}/{location-id}/births": {
+            "post": {
+                "operationId": "post-batch-births",
+                "summary": "Add an array of birth or initial registration events",
+                "description": "# Purpose  \nAllows a client to add a collection of animal birth events.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of birth events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementBirthEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/{location-scheme}/{location-id}/deaths": {
+            "post": {
+                "operationId": "post-batch-deaths",
+                "summary": "Add an array of death events",
+                "description": "# Purpose  \nAllows a client to add a collection of animal death events.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of death events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementDeathEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/{location-scheme}/{location-id}/arrivals": {
+            "post": {
+                "operationId": "post-batch-arrivals",
+                "summary": "Add an array of arrival events",
+                "description": "# Purpose  \nAllows a client to add a collection of animal arrival events.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of arrival events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementArrivalEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/{location-scheme}/{location-id}/departures": {
+            "post": {
+                "operationId": "post-batch-departures",
+                "summary": "Add an array of departure events",
+                "description": "# Purpose  \nAllows a client to add a collection of animal departure events.\n",
+                "tags": [
+                    "ADE-1.2-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of departure events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarMovementDepartureEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "batchResults": {
+                "type": "array",
+                "items": {
+                    "$ref": "../resources/icarBatchResult.json"
+                }
+            },
+            "error": {
+                "$ref": "../resources/icarResponseMessageResource.json"
+            },
+            "icarAnimalCoreCollection": {
+                "$ref": "../collections/icarAnimalCoreCollection.json"
+            },
+            "icarMovementBirthEventCollection": {
+                "$ref": "../collections/icarMovementBirthEventCollection.json"
+            },
+            "icarMovementDeathEventCollection": {
+                "$ref": "../collections/icarMovementDeathEventCollection.json"
+            },
+            "icarMovementArrivalEventCollection": {
+                "$ref": "../collections/icarMovementArrivalEventCollection.json"
+            },
+            "icarMovementDepartureEventCollection": {
+                "$ref": "../collections/icarMovementDepartureEventCollection.json"
+            },
+            "icarAnimalCoreResource": {
+                "$ref": "../resources/icarAnimalCoreResource.json"
+            },
+            "icarMovementBirthEventResource": {
+                "$ref": "../resources/icarMovementBirthEventResource.json"
+            },
+            "icarMovementDeathEventResource": {
+                "$ref": "../resources/icarMovementDeathEventResource.json"
+            },
+            "icarMovementArrivalEventResource": {
+                "$ref": "../resources/icarMovementArrivalEventResource.json"
+            },
+            "icarMovementDepartureEventResource": {
+                "$ref": "../resources/icarMovementDepartureEventResource.json"
+            },
+            "icarAnimalCoreResourceArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarAnimalCoreResource"
+                }
+            },            
+            "icarMovementBirthEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarMovementBirthEventResource"
+                }
+            },
+            "icarMovementDeathEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarMovementDeathEventResource"
+                }
+            },
+            "icarMovementArrivalEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarMovementArrivalEventResource"
+                }
+            },
+            "icarMovementDepartureEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+                }
+            }
+        },
+        "parameters": {
+            "location-scheme": {
+                "name": "location-scheme",
+                "in": "path",
+                "description": "The scheme id for the location identifier.",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "location-id": {
+                "name": "location-id",
+                "in": "path",
+                "description": "The unique identifier for the location.",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "meta-modified-from": {
+                "name": "meta-modified-from",
+                "in": "query",
+                "description": "The start of the date-time range for the data to get in the request.",
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "meta-modified-to": {
+                "name": "meta-modified-to",
+                "in": "query",
+                "description": "The end of the date-time range for the data to get in the request.",
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "animal-scheme": {
+                "name": "animal-scheme",
+                "in": "query",
+                "description": "The scheme id for the animal identifier.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "query",
+                "description": "The unique identifier for the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "responses": {
+            "default": {
+                "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/error"
+                                    }
+                                }
+                            },
+                            "description": "A default response containing only a list of errors"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
