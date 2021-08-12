@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "Health Diagnosis and Treatment API Specifications",
-        "description": "Specifications for messages that support livestock health and disease diagnosis and treatments.",
+        "title": "Milk recording and lactation information API Specifications",
+        "description": "Specifications for messages that support dairy milking visits, lactation, and related information.",
         "version": "1.2",
         "contact": {
             "name": "Animal Data Exchange Working Group",
@@ -390,12 +390,6 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-to"
                     }
                 ],
                 "responses": {
