@@ -514,7 +514,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/milking-visits": {
+        "/batches/locations/{location-scheme}/{location-id}/milking-visits": {
             "post": {
                 "operationId": "post-batch-milking-visits",
                 "summary": "Add a single new milking-visits event",
@@ -589,7 +589,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/test-days": {
+        "/batches/locations/{location-scheme}/{location-id}/test-days": {
             "post": {
                 "operationId": "post-batch-test-days",
                 "summary": "Add batch of test-days.",
@@ -664,7 +664,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/test-day-results": {
+        "/batches/locations/{location-scheme}/{location-id}/test-day-results": {
             "post": {
                 "operationId": "post-batch-test-day-results",
                 "summary": "Add an array of test-day-results.",
@@ -739,7 +739,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/lactation-status-observations": {
+        "/batches/locations/{location-scheme}/{location-id}/lactation-status-observations": {
             "post": {
                 "operationId": "post-batch-lactation-status-observations",
                 "summary": "Add an array of lactation status observations.",
