@@ -541,7 +541,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/animals": {
+        "/batches/locations/{location-scheme}/{location-id}/animals": {
             "post": {
                 "operationId": "post-batch-animals",
                 "summary": "Add an array of animal resources",
@@ -616,7 +616,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/births": {
+        "/batches/locations/{location-scheme}/{location-id}/births": {
             "post": {
                 "operationId": "post-batch-births",
                 "summary": "Add an array of birth or initial registration events",
@@ -691,7 +691,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/deaths": {
+        "/batches/locations/{location-scheme}/{location-id}/deaths": {
             "post": {
                 "operationId": "post-batch-deaths",
                 "summary": "Add an array of death events",
@@ -766,7 +766,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/arrivals": {
+        "/batches/locations/{location-scheme}/{location-id}/arrivals": {
             "post": {
                 "operationId": "post-batch-arrivals",
                 "summary": "Add an array of arrival events",
@@ -841,7 +841,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/departures": {
+        "/batches/locations/{location-scheme}/{location-id}/departures": {
             "post": {
                 "operationId": "post-batch-departures",
                 "summary": "Add an array of departure events",
