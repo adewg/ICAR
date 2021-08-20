@@ -597,7 +597,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/feeds": {
+        "/batches/locations/{location-scheme}/{location-id}/feeds": {
             "post": {
                 "operationId": "post-batch-feeds",
                 "summary": "Add an array of feeds.",
@@ -672,7 +672,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/rations": {
+        "/batches/locations/{location-scheme}/{location-id}/rations": {
             "post": {
                 "operationId": "post-batch-rations",
                 "summary": "Add an array of rations.",
@@ -747,7 +747,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/feed-intakes": {
+        "/batches/locations/{location-scheme}/{location-id}/feed-intakes": {
             "post": {
                 "operationId": "post-batch-feed-intakes",
                 "summary": "Add an array of feed intake events.",
@@ -822,7 +822,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/feed-recommendations": {
+        "/batches/locations/{location-scheme}/{location-id}/feed-recommendations": {
             "post": {
                 "operationId": "post-batch-feed-recommendations",
                 "summary": "Add an array of feed recommendations.",
@@ -897,7 +897,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/feed-storages": {
+        "/batches/locations/{location-scheme}/{location-id}/feed-storages": {
             "post": {
                 "operationId": "post-batch-feed-storages",
                 "summary": "Add an array of feed storages.",
