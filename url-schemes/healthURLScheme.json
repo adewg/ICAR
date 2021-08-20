@@ -301,7 +301,7 @@
         }
       }
     },
-    "/batches/{location-scheme}/{location-id}/diagnoses": {
+    "/batches/locations/{location-scheme}/{location-id}/diagnoses": {
       "post": {
         "operationId": "post-batch-Diagnosis",
         "summary": "Add a single new diagnosis event",
@@ -376,7 +376,7 @@
         }
       }
     },
-    "/batches/{location-scheme}/{location-id}/treatments": {
+    "/batches/locations/{location-scheme}/{location-id}/treatments": {
       "post": {
         "operationId": "post-batch-Treatments",
         "summary": "Add a collection of health treatment events",
@@ -451,7 +451,7 @@
         }
       }
     },
-    "/batches/{location-scheme}/{location-id}/treatment-programs": {
+    "/batches/locations/{location-scheme}/{location-id}/treatment-programs": {
       "post": {
         "operationId": "post-batch-Treatment-Program",
         "summary": "Add a collection of animal health treatment program events.",
