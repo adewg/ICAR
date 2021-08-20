@@ -1072,7 +1072,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/pregnancy-checks": {
+        "/batches/locations/{location-scheme}/{location-id}/pregnancy-checks": {
             "post": {
                 "operationId": "post-batch-pregnancy-checks",
                 "summary": "Add an array of pregnancy-checks.",
@@ -1147,7 +1147,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/heats": {
+        "/batches/locations/{location-scheme}/{location-id}/heats": {
             "post": {
                 "operationId": "post-batch-heats",
                 "summary": "Add an array of heats.",
@@ -1222,7 +1222,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/inseminations": {
+        "/batches/locations/{location-scheme}/{location-id}/inseminations": {
             "post": {
                 "operationId": "post-batch-inseminations",
                 "summary": "Add an array of inseminations.",
@@ -1297,7 +1297,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/drying-offs": {
+        "/batches/locations/{location-scheme}/{location-id}/drying-offs": {
             "post": {
                 "operationId": "post-batch-drying-offs",
                 "summary": "Add an array of drying-off events.",
@@ -1372,7 +1372,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/abortions": {
+        "/batches/locations/{location-scheme}/{location-id}/abortions": {
             "post": {
                 "operationId": "post-batch-abortions",
                 "summary": "Add an array of abortions.",
@@ -1447,7 +1447,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/do-not-breeds": {
+        "/batches/locations/{location-scheme}/{location-id}/do-not-breeds": {
             "post": {
                 "operationId": "post-batch-do-not-breeds",
                 "summary": "Add an array of do-not-breed events.",
@@ -1522,7 +1522,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/parturitions": {
+        "/batches/locations/{location-scheme}/{location-id}/parturitions": {
             "post": {
                 "operationId": "post-batch-parturitions",
                 "summary": "Add an array of parturitions.",
@@ -1597,7 +1597,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/mating-recommendations": {
+        "/batches/locations/{location-scheme}/{location-id}/mating-recommendations": {
             "post": {
                 "operationId": "post-batch-mating-recommendations",
                 "summary": "Add an array of mating recommendations.",
@@ -1672,7 +1672,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/gestations": {
+        "/batches/locations/{location-scheme}/{location-id}/gestations": {
             "post": {
                 "operationId": "post-batch-gestations",
                 "summary": "Add an array of gestations.",
@@ -1747,7 +1747,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/repro-status-observations": {
+        "/batches/locations/{location-scheme}/{location-id}/repro-status-observations": {
             "post": {
                 "operationId": "post-batch-repro-status-observations",
                 "summary": "Add an array of reproductive status observations.",
