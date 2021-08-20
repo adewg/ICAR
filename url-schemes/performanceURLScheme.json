@@ -271,7 +271,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/weights": {
+        "/batches/locations/{location-scheme}/{location-id}/weights": {
             "post": {
                 "operationId": "post-batch-weights",
                 "summary": "Add an array of weights.",
@@ -346,7 +346,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/conformation-scores": {
+        "/batches/locations/{location-scheme}/{location-id}/conformation-scores": {
             "post": {
                 "operationId": "post-batch-conformation-scores",
                 "summary": "Add an array of conformation-scores.",

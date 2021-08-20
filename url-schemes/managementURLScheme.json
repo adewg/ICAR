@@ -442,7 +442,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/animal-sets": {
+        "/batches/locations/{location-scheme}/{location-id}/animal-sets": {
             "post": {
                 "operationId": "post-batch-animal-sets",
                 "summary": "Add an array of animal-sets.",
@@ -517,7 +517,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/animal-set-joins": {
+        "/batches/locations/{location-scheme}/{location-id}/animal-set-joins": {
             "post": {
                 "operationId": "post-batch-animal-set-joins",
                 "summary": "Add an array of animal-set join events.",
@@ -592,7 +592,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/animal-set-leaves": {
+        "/batches/locations/{location-scheme}/{location-id}/animal-set-leaves": {
             "post": {
                 "operationId": "post-batch-animal-set-leaves",
                 "summary": "Add an array of animal set leave events.",
@@ -667,7 +667,7 @@
                 }
             }
         },
-        "/batches/{location-scheme}/{location-id}/devices": {
+        "/batches/locations/{location-scheme}/{location-id}/devices": {
             "post": {
                 "operationId": "post-batch-devices",
                 "summary": "Add an array of devices.",
