@@ -1,0 +1,47 @@
+{
+  "description": "Schema for representing progeny details",
+
+  "allOf": [{
+      "$ref": "../resources/icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "identifier",
+        "specie",
+        "gender"
+      ],
+      
+      "properties": {
+        "identifier": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        },
+        "alternativeIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "Alternative identifiers for the animal. Here, also temporary identifiers, e.g. transponders or animal numbers, can be listed."
+        },
+        "specie": {
+          "$ref": "../enums/icarAnimalSpecieType.json",
+          "description": "Species of the animal."
+        },
+        "gender": {
+          "$ref": "../enums/icarAnimalGenderType.json",
+          "description": "Gender of the animal."
+        },
+        "status": {
+          "$ref": "../enums/icarAnimalStatusType.json",
+          "description": "On-farm status of the animal (such as alive, dead, off-farm)."
+        },
+        "birthStatus": {
+          "$ref": "../enums/icarParturitionBirthStatusType.json",
+          "description": "On-farm status of the animal (such as alive, dead, off-farm)."
+        }
+      }
+    }
+  ]
+}
