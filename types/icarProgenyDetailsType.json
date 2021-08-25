@@ -40,6 +40,13 @@
         "birthStatus": {
           "$ref": "../enums/icarParturitionBirthStatusType.json",
           "description": "On-farm status of the animal (such as alive, dead, off-farm)."
+        },
+        "birthWeight": {
+          "description": "Weight of the progeny. Nullable.",
+          "nullable": true,
+          "allOf": [
+              { "$ref": "../types/icarMassMeasureType.json" }
+          ]
         }
       }
     }
