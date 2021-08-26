@@ -445,7 +445,7 @@
         "/locations/{location-scheme}/{location-id}/feed-reports": {
             "get": {
                 "operationId": "get-Feed-Report",
-                "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. ",
+                "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. If you need feed-reports for AnimalSets please refer to the WIKI pages : https://github.com/adewg/ICAR/wiki/Feed-Reporting",
                 "description": "# Purpose\nProvides the feed reports for animal on a location\n",
                 "tags": [
                     "ADE-1.2-feed"
