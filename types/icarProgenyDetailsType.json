@@ -1,24 +1,30 @@
 {
   "description": "Schema for representing progeny details",
-
-  "allOf": [{
+  
+  "allOf": [
+    {
       "$ref": "../resources/icarResource.json"
     },
+
     {
       "type": "object",
-
       "required": [
-        "identifier",
         "specie",
         "gender"
       ],
-      
+
       "properties": {
         "identifier": {
-          "$ref": "../types/icarAnimalIdentifierType.json",
-          "description": "Unique animal scheme and identifier combination."
+          "description": "Unique animal scheme and identifier combination.",
+          "nullable": true,
+          "allOf": [
+            {
+              "$ref": "../types/icarAnimalIdentifierType.json"
+            }
+          ]
         },
         "alternativeIdentifiers": {
+          "nullable": true,
           "type": "array",
           "items": {
             "$ref": "../types/icarAnimalIdentifierType.json"
@@ -33,19 +39,31 @@
           "$ref": "../enums/icarAnimalGenderType.json",
           "description": "Gender of the animal."
         },
-        "status": {
-          "$ref": "../enums/icarAnimalStatusType.json",
-          "description": "On-farm status of the animal (such as alive, dead, off-farm)."
-        },
         "birthStatus": {
-          "$ref": "../enums/icarParturitionBirthStatusType.json",
-          "description": "On-farm status of the animal (such as alive, dead, off-farm)."
-        },
-        "birthWeight": {
-          "description": "Weight of the progeny. Nullable.",
+          "description": "Weight of the progeny.",
           "nullable": true,
           "allOf": [
-              { "$ref": "../types/icarMassMeasureType.json" }
+            {
+              "$ref": "../enums/icarParturitionBirthStatusType.json"
+            }
+          ]
+        },
+        "birthSize": {
+          "description": "Weight of the progeny.",
+          "nullable": true,
+          "allOf": [
+            {
+              "$ref": "../enums/icarParturitionBirthSizeType.json"
+            }
+          ]
+        },
+        "birthWeight": {
+          "description": "Weight of the progeny.",
+          "nullable": true,
+          "allOf": [
+            {
+              "$ref": "../types/icarMassMeasureType.json"
+            }
           ]
         }
       }
