@@ -48,7 +48,7 @@
           "description": "Name given by the farmer for this animal."
         },
         "birthStatus": {
-          "description": "Weight of the progeny.",
+          "description": "Birth status of the progeny.",
           "nullable": true,
           "allOf": [
             {
@@ -57,7 +57,7 @@
           ]
         },
         "birthSize": {
-          "description": "Weight of the progeny.",
+          "description": "Size of the progeny.",
           "nullable": true,
           "allOf": [
             {

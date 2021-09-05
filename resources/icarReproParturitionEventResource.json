@@ -32,7 +32,7 @@
           "type": "array",
           "nullable": true,
           "items": {
-            "$ref": "../types/icarProgenyDetailsType.json"
+            "$ref": "../resources/icarProgenyDetailsResource.json"
           },
           "description": "List of progeny details. May not be fully identified, but recommend that gender and status are supplied at least."
         },
