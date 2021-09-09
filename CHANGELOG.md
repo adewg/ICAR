@@ -1,8 +1,60 @@
 # Changelog
 
-## [v1.1.1](https://github.com/adewg/ICAR/tree/HEAD)
+## [v1.2.0](https://github.com/adewg/ICAR/tree/HEAD)
 
-[Full Changelog](https://github.com/adewg/ICAR/compare/v1.1.0...HEAD)
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.1.1...HEAD)
+
+**Implemented enhancements:**
+
+- Request to add "Unknown" to icarDepartureReasonType enumeration [\#206](https://github.com/adewg/ICAR/issues/206)
+
+**Closed issues:**
+
+- Extension to IcarMovementDeathEventResource [\#224](https://github.com/adewg/ICAR/issues/224)
+- Add "PregnantMultipleFoetus" in the icarAnimalReproductionStatusType [\#223](https://github.com/adewg/ICAR/issues/223)
+- Add "icarQuarterId" in the TreamentEventressources? [\#221](https://github.com/adewg/ICAR/issues/221)
+- IcarMilkingVisitEventResource, extend with exemptFromRecording [\#220](https://github.com/adewg/ICAR/issues/220)
+- TreamentProgramRessource? [\#219](https://github.com/adewg/ICAR/issues/219)
+- Milking-Statistics [\#218](https://github.com/adewg/ICAR/issues/218)
+- icarDailyFeedReportCollection refers to non-existing icarDailyFeedReportResource [\#216](https://github.com/adewg/ICAR/issues/216)
+- Remove DoNotBreed from animal [\#213](https://github.com/adewg/ICAR/issues/213)
+- icarFeedQuantityType mass unit codes [\#211](https://github.com/adewg/ICAR/issues/211)
+- Release procedure: when is a ticket mature enough [\#207](https://github.com/adewg/ICAR/issues/207)
+- Code generation from API specification. [\#205](https://github.com/adewg/ICAR/issues/205)
+- HTTPStatus-Codes in error-cases [\#203](https://github.com/adewg/ICAR/issues/203)
+- Feed and AnimalSet  [\#202](https://github.com/adewg/ICAR/issues/202)
+- "Unknown" to be added  in icarAnimalGenderType [\#199](https://github.com/adewg/ICAR/issues/199)
+- Transponders, Animal Numbers and the ManagementTag on the AnimalResource [\#195](https://github.com/adewg/ICAR/issues/195)
+- Feed Storage \(e.g. Silo\) in ICAR? [\#194](https://github.com/adewg/ICAR/issues/194)
+- Add icarDepartureReasonType on icarMovementDeathEventResource [\#193](https://github.com/adewg/ICAR/issues/193)
+- Add icarConsignmentType on MovementDeathEventResource [\#192](https://github.com/adewg/ICAR/issues/192)
+- Missing departureReasonType  [\#190](https://github.com/adewg/ICAR/issues/190)
+- Move/rename locations.md [\#188](https://github.com/adewg/ICAR/issues/188)
+- Define enumeration for icarReproParturitionEventResource - calvingEase [\#185](https://github.com/adewg/ICAR/issues/185)
+- Missing types in MovementBirthEventResource [\#183](https://github.com/adewg/ICAR/issues/183)
+- Rank field in icarReproInseminationEventResource event [\#180](https://github.com/adewg/ICAR/issues/180)
+- endpoint /animalSets uses inconsistent syntax [\#179](https://github.com/adewg/ICAR/issues/179)
+- Referencing other resources \(especially possibly deleted ones or ones in other locations\) [\#178](https://github.com/adewg/ICAR/issues/178)
+- Feed Attributes or Properties [\#173](https://github.com/adewg/ICAR/issues/173)
+- Feed Categories or Types [\#172](https://github.com/adewg/ICAR/issues/172)
+- Missing reference in icarMedicineResource -resource type [\#167](https://github.com/adewg/ICAR/issues/167)
+- Add timezone to LocationResource [\#164](https://github.com/adewg/ICAR/issues/164)
+- Versioning and branches [\#163](https://github.com/adewg/ICAR/issues/163)
+- Semantics for POST method [\#154](https://github.com/adewg/ICAR/issues/154)
+- Unique resource identifiers when sending new data to a server [\#153](https://github.com/adewg/ICAR/issues/153)
+- Define URL scheme that allows updating [\#147](https://github.com/adewg/ICAR/issues/147)
+- Listing and Filtering Resources \(specifically Animals\) [\#130](https://github.com/adewg/ICAR/issues/130)
+- What is the proposed way to retrieve available schemata or schema/id combinations for different identifiers [\#109](https://github.com/adewg/ICAR/issues/109)
+- Changes log/Release notes in ADE release versions [\#99](https://github.com/adewg/ICAR/issues/99)
+- feed intake API [\#93](https://github.com/adewg/ICAR/issues/93)
+
+**Merged pull requests:**
+
+- Correct so branches are only MAJOR versions + Develop [\#165](https://github.com/adewg/ICAR/pull/165) ([cookeac](https://github.com/cookeac))
+
+## [v1.1.1](https://github.com/adewg/ICAR/tree/v1.1.1) (2020-10-07)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.1.0...v1.1.1)
 
 **Fixed bugs:**
 
@@ -10,6 +62,7 @@
 
 **Merged pull requests:**
 
+- Update changelog [\#161](https://github.com/adewg/ICAR/pull/161) ([cookeac](https://github.com/cookeac))
 - Hotfix: Remove oneOf: allow both courses and treatments [\#159](https://github.com/adewg/ICAR/pull/159) ([cookeac](https://github.com/cookeac))
 
 ## [v1.1.0](https://github.com/adewg/ICAR/tree/v1.1.0) (2020-09-28)
@@ -158,6 +211,29 @@
 - Changes to avoid confusion [\#46](https://github.com/adewg/ICAR/pull/46) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
 - add GB/Northern Ireland schemes [\#45](https://github.com/adewg/ICAR/pull/45) ([Jongmassey](https://github.com/Jongmassey))
 - Solved some issues [\#44](https://github.com/adewg/ICAR/pull/44) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Added missing parturition resource. [\#43](https://github.com/adewg/ICAR/pull/43) ([cookeac](https://github.com/cookeac))
+- Added Insemination, Abortion, Pregnancy Diagnosis, Parturition, Drying Off. [\#42](https://github.com/adewg/ICAR/pull/42) ([cookeac](https://github.com/cookeac))
+- Revert "Adding swagger endpoints" [\#40](https://github.com/adewg/ICAR/pull/40) ([cookeac](https://github.com/cookeac))
+- Adding swagger endpoints [\#39](https://github.com/adewg/ICAR/pull/39) ([cookeac](https://github.com/cookeac))
+- Added managementTag [\#37](https://github.com/adewg/ICAR/pull/37) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- fixed typo's in name of operations [\#36](https://github.com/adewg/ICAR/pull/36) ([alamers](https://github.com/alamers))
+- extended the example urls with the registration API's \(+ some small typo's\) [\#34](https://github.com/adewg/ICAR/pull/34) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- made fields compulsory wrt synchronization discussion [\#33](https://github.com/adewg/ICAR/pull/33) ([alamers](https://github.com/alamers))
+-  Add parentage to icarAnimalCore, add Movement events. [\#32](https://github.com/adewg/ICAR/pull/32) ([cookeac](https://github.com/cookeac))
+- Milking visit changes [\#31](https://github.com/adewg/ICAR/pull/31) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- fixed broken url scheme links [\#30](https://github.com/adewg/ICAR/pull/30) ([alamers](https://github.com/alamers))
+- Added icarAnimalCoreResource and its corresponding types. [\#29](https://github.com/adewg/ICAR/pull/29) ([cookeac](https://github.com/cookeac))
+- Linting errors [\#28](https://github.com/adewg/ICAR/pull/28) ([alamers](https://github.com/alamers))
+- issue 11: have a readable version of the spec [\#25](https://github.com/adewg/ICAR/pull/25) ([alamers](https://github.com/alamers))
+- Inheritance changes - icarEventCoreResource, icarIdentifierType [\#24](https://github.com/adewg/ICAR/pull/24) ([cookeac](https://github.com/cookeac))
+- Update location-scheme.md with reverse domain recommendation. [\#22](https://github.com/adewg/ICAR/pull/22) ([cookeac](https://github.com/cookeac))
+- Issue : Create an example url scheme \#16 [\#20](https://github.com/adewg/ICAR/pull/20) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Updated the yaml to the proposed API [\#6](https://github.com/adewg/ICAR/pull/6) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Create location-scheme.md [\#5](https://github.com/adewg/ICAR/pull/5) ([henning-winkelmann](https://github.com/henning-winkelmann))
+- added some design rules as discussed in the WG [\#4](https://github.com/adewg/ICAR/pull/4) ([alamers](https://github.com/alamers))
+- Made JoinData spec comparable to the DL draft; tagged JD endpoints with new/existing compared to draft [\#3](https://github.com/adewg/ICAR/pull/3) ([alamers](https://github.com/alamers))
+- Update README.md [\#2](https://github.com/adewg/ICAR/pull/2) ([cookeac](https://github.com/cookeac))
+- Added JoinData messages and restructured the repository [\#1](https://github.com/adewg/ICAR/pull/1) ([ElmerHarms](https://github.com/ElmerHarms))
 
 
 
