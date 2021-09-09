@@ -48,6 +48,10 @@
           "type": "string",
           "description": "Name given by the farmer for this animal."
         },
+        "officialName": {
+          "type": "string",
+          "description": "Official herdbook name."
+        },
         "taggingDate": {
           "description": "Progeny tagging date.",
           "nullable": true,
