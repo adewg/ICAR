@@ -9,6 +9,7 @@
     "Pregnant",
     "NotPregnant",
     "Birthed",
-    "DoNotBreed"
+    "DoNotBreed",
+    "PregnantMultipleFoetus"
   ]
 }

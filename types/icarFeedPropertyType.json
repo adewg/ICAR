@@ -1,0 +1,29 @@
+{
+  "description": "property of the feed.",
+
+  "type": "object",
+
+  "properties": {
+    "propertyIdentifier": {
+      "$ref": "../types/icarPropertyIdentifierType.json",
+      "description": "identifies the property of the feed"
+    },
+    "value": {
+      "type": "number",
+      "format": "double",
+      "description": "the value of the property."
+    },
+    "units": {
+      "$ref": "../enums/uncefactMassUnitsType.json",
+      "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
+    },
+    "method": {
+      "$ref": "../enums/icarMethodType.json",
+      "description": "The method to come to the value of the property"
+    },
+    "name": {
+      "type": "string",
+      "description": "name of the property (used on the location)."
+    }
+  }
+}

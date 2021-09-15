@@ -8,6 +8,7 @@
     "FemaleNeuter",
     "Male",
     "MaleCryptorchid",
-    "MaleNeuter"
+    "MaleNeuter",
+    "Unknown"
   ]
 }

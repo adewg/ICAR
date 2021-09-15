@@ -14,6 +14,21 @@
         "RR"
       ]
     },
+    "xposition": { 
+      "type": "number",
+      "nullable": true,
+      "description": "Optional milking robot X position. Vendors may choose not to provide this."
+    },
+    "yposition": { 
+      "type": "number",
+      "nullable": true,
+      "description": "Optional milking robot Y position. Vendors may choose not to provide this."
+    },
+    "zposition": { 
+      "type": "number",
+      "nullable": true,
+      "description": "Optional milking robot Z position. Vendors may choose not to provide this."
+    },
     "quarterMilkingDuration": {
       "$ref": "../types/icarMilkDurationType.json"
     },

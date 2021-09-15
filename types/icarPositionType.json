@@ -1,0 +1,13 @@
+{
+  "description": "The possible positions for treatment or diagnosis",
+
+  "type": "object",
+
+  "properties": {
+    
+    "position": {      
+      "description": "The position to be treated or diagnosed.",
+      "$ref": "../enums/icarPositionOnAnimalType.json"
+    }
+  }
+}

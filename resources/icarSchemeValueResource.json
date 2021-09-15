@@ -1,0 +1,16 @@
+{
+  "description": "Schema id values for specific sheme type",
+
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Id/identifier for scheme value."
+    },
+    "name": {
+      "type": "string",
+      "description": "Friendly name for scheme value."
+    }
+  }
+}

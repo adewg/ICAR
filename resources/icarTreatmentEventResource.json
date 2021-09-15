@@ -39,6 +39,13 @@
                     "type": "string",
                     "description": "Body site where the treatment was administered."
                 },
+                "positions": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "../types/icarPositionType.json"
+                    },
+                    "description": "The positions to be treated"
+                }, 
                 "comment": {
                     "type": "string",
                     "description": "A comment recorded about the treatment or its outcome."

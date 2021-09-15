@@ -1,0 +1,21 @@
+{
+  "description": "The amount of feed",
+
+  "type": "object",
+
+  "required": [
+    "unitCode",
+    "value"
+  ],
+
+  "properties": {
+    "unitCode": {
+      "$ref": "../enums/uncefactMassUnitsType.json",
+      "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
+    },
+    "value": {
+      "type": "number",
+      "format": "double"
+    }
+  }
+}

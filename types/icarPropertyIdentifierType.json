@@ -1,0 +1,9 @@
+{
+    "description": "Provides a scheme + identifier mechanism for feed properties (see location-scheme.md for the icar list for scheme icar.org).",
+    
+    "allOf": [
+        {
+            "$ref": "../types/icarIdentifierType.json"
+        }
+    ]
+}

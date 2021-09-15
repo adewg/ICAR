@@ -1,5 +1,5 @@
 {
-  "description": "Mass units for weight from UN/CEFACT trade facilitation recommendation 20.\r\n Kilogram, Gram, Pound, Metric Tonne, Microgram, Miligram.",
+  "description": "Mass units for weight from UN/CEFACT trade facilitation recommendation 20.\r\n Kilogram, Gram, Pound, Metric Tonne, Microgram, Miligram, Ounce, Pound net.",
 
   "type": "string",
 
@@ -9,6 +9,8 @@
     "LBR",
     "TNE",
     "MC",
-    "MGM"
+    "MGM",
+    "ONZ",
+    "PN"
   ]
 }

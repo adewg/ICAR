@@ -1,0 +1,7 @@
+{
+  "description": "A particular day.",
+  
+  "type": "string",
+
+  "format": "date"
+}

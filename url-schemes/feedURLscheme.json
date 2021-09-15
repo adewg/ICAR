@@ -1,0 +1,1180 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Feed-related events and messages API Specifications",
+        "description": "Specifications for messages that support livestock feeding and feed management.",
+        "version": "1.2",
+        "contact": {
+            "name": "Animal Data Exchange Working Group",
+            "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
+            "email": "icar@icar.org"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://icar-ade.standard.com"
+        }
+    ],
+    "tags": [
+        {
+            "name": "ADE-1.2-feed",
+            "description": "Feeding messages approved by the working group"
+        }
+    ],
+    "paths": {
+        "/locations/{location-scheme}/{location-id}/feeds": {
+            "get": {
+                "operationId": "get-feeds",
+                "summary": "Get the feeds for a certain location",
+                "description": "# Purpose\nProvides the animal feeds for a location\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-feed",
+                "summary": "Add a single new feed.",
+                "description": "# Purpose\nAllows a client to add a single feed.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The feed to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/rations": {
+            "get": {
+                "operationId": "get-rations",
+                "summary": "Get the rations for a certain location",
+                "description": "# Purpose\nProvides the animal rations for a location\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarRationCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-ration",
+                "summary": "Add a single new ration.",
+                "description": "# Purpose\nAllows a client to add a single ration.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The ration to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarRationResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarRationResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/feed-intakes": {
+            "get": {
+                "operationId": "get-feed-intakes",
+                "summary": "Get the feed intake events for a certain location",
+                "description": "# Purpose\nProvides the animal feed intake events for a location\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedIntakeEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-feed-intake",
+                "summary": "Add a single new feed intake event.",
+                "description": "# Purpose\nAllows a client to add a single feed intake event.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The feed intake event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/feed-recommendations": {
+            "get": {
+                "operationId": "get-feed-recommendations",
+                "summary": "Get the feed recommendations for a certain location",
+                "description": "# Purpose\nProvides the animal feed recommendations for a location\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedRecommendationCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-feed-recommendation",
+                "summary": "Add a single new feed recommendation.",
+                "description": "# Purpose\nAllows a client to add a single feed recommendation.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The feed recommendation to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedRecommendationResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedRecommendationResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/feed-reports": {
+            "get": {
+                "operationId": "get-Feed-Report",
+                "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. If you need feed-reports for AnimalSets please refer to the WIKI pages : https://github.com/adewg/ICAR/wiki/Feed-Reporting",
+                "description": "# Purpose\nProvides the feed reports for animal on a location\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report-start-date-time"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report-end-date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the feed reports for animals on the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedReportCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/feed-storages": {
+            "get": {
+                "operationId": "get-feed-storages",
+                "summary": "Get the feed storage devices for a certain location",
+                "description": "# Purpose\nProvides the animal feed storage devices for a location\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedStorageCollection"
+                                },
+                                "examples": {
+                                    "base": {
+                                        "$ref": "#/components/examples/feed-storages"
+                                    }
+                                }        
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-feed-storage",
+                "summary": "Add a single new feed storage.",
+                "description": "# Purpose\nAllows a client to add a single feed-storage.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The feed storage to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedStorageResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedStorageResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/feeds": {
+            "post": {
+                "operationId": "post-batch-feeds",
+                "summary": "Add an array of feeds.",
+                "description": "# Purpose \nAllows a client to add a collection of feeds.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of feeds to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/rations": {
+            "post": {
+                "operationId": "post-batch-rations",
+                "summary": "Add an array of rations.",
+                "description": "# Purpose \nAllows a client to add a collection of rations.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of rations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarRationArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/feed-intakes": {
+            "post": {
+                "operationId": "post-batch-feed-intakes",
+                "summary": "Add an array of feed intake events.",
+                "description": "# Purpose \nAllows a client to add a collection of feed intake events.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of feed intake events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedIntakeEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/feed-recommendations": {
+            "post": {
+                "operationId": "post-batch-feed-recommendations",
+                "summary": "Add an array of feed recommendations.",
+                "description": "# Purpose \nAllows a client to add a collection of feed recommendations.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of feed recommendations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedRecommendationArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/feed-storages": {
+            "post": {
+                "operationId": "post-batch-feed-storages",
+                "summary": "Add an array of feed storages.",
+                "description": "# Purpose \nAllows a client to add a collection of feed storages.\n",
+                "tags": [
+                    "ADE-1.2-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of feed storages to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedStorageArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "batchResults": {
+                "type": "array",
+                "items": {
+                    "$ref": "../resources/icarBatchResult.json"
+                }
+            },
+            "error": {
+                "$ref": "../resources/icarResponseMessageResource.json"
+            },
+            "icarFeedResource": {
+                "$ref": "../resources/icarFeedResource.json"
+            },
+            "icarFeedCollection": {
+                "$ref": "../collections/icarFeedCollection.json"
+            },
+            "icarFeedArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarFeedResource"
+                }
+            },
+            "icarRationResource": {
+                "$ref": "../resources/icarRationResource.json"
+            },
+            "icarRationCollection": {
+                "$ref": "../collections/icarRationCollection.json"
+            },
+            "icarRationArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarRationResource"
+                }
+            },
+            "icarFeedIntakeEventResource": {
+                "$ref": "../resources/icarFeedIntakeEventResource.json"
+            },
+            "icarFeedIntakeEventCollection": {
+                "$ref": "../collections/icarFeedIntakeEventCollection.json"
+            },
+            "icarFeedIntakeEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+                }
+            },
+            "icarFeedRecommendationResource": {
+                "$ref": "../resources/icarFeedRecommendationResource.json"
+            },
+            "icarFeedRecommendationCollection": {
+                "$ref": "../collections/icarFeedRecommendationCollection.json"
+            },
+            "icarFeedRecommendationArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarFeedRecommendationResource"
+                }
+            },
+            "icarFeedStorageResource": {
+                "$ref": "../resources/icarFeedStorageResource.json"
+            },
+            "icarFeedStorageCollection": {
+                "$ref": "../collections/icarFeedStorageCollection.json"
+            },
+            "icarFeedStorageArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarFeedStorageResource"
+                }
+            },
+            "icarFeedReportCollection": {
+                "$ref": "../collections/icarFeedReportCollection.json"
+            }
+        },
+        "parameters": {
+            "location-scheme": {
+                "name": "location-scheme",
+                "in": "path",
+                "description": "The scheme id for the location identifier.",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "location-id": {
+                "name": "location-id",
+                "in": "path",
+                "description": "The unique identifier for the location.",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "meta-modified-from": {
+                "name": "meta-modified-from",
+                "in": "query",
+                "description": "The start of the date-time range for the data to get in the request.",
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "meta-modified-to": {
+                "name": "meta-modified-to",
+                "in": "query",
+                "description": "The end of the date-time range for the data to get in the request.",
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "report-start-date-time": {
+                "name": "report-start-date-time",
+                "in": "query",
+                "description": "The start of the date-time range for the data to get in the request based on the event date time.",
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "report-end-date-time": {
+                "name": "report-end-date-time",
+                "in": "query",
+                "description": "The end of the date-time range for the data to get in the request based on the event date time.",
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "animal-scheme": {
+                "name": "animal-scheme",
+                "in": "query",
+                "description": "The scheme id for the animal identifier.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "query",
+                "description": "The unique identifier for the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "responses": {
+            "default": {
+                "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/error"
+                                    }
+                                }
+                            },
+                            "description": "A default response containing only a list of errors"
+                        }
+                    }
+                }
+            }
+        },
+        "examples": {
+            "feed-storages": {
+                "value": {
+                    "view": {
+                        "totalItems": 1,
+                        "totalPages": 1,
+                        "pageSize": 10,
+                        "currentPage": 1
+                    },
+                    "member": [
+                        {
+                            "id": "276031231231234",
+                            "name": "My first silo",
+                            "feedId": "a8f5944e-de92-4768-a1ff-392e15a2195e",
+                            "capacity": {
+                                "value": 50000,
+                                "unitCode": "KGM"
+                            },
+                            "quantityAvailable": {
+                                "value": 28765,
+                                "unitCode": "KGM"
+                            },
+                            "meta": {
+                                "source": "source",
+                                "creator": "creator",
+                                "modified": "2020-01-29T08:49:06.1314223+00:00",
+                                "created": "2020-01-29T08:49:06.1314223+00:00"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

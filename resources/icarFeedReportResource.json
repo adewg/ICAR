@@ -1,0 +1,44 @@
+{
+    "description": "Reporting the feed consumed during a certain time period",
+  
+    "allOf": [{
+        "$ref": "../resources/icarResource.json"
+      },
+      {
+        "type": "object",
+
+        "properties": {
+          "animals": {
+            "type": "array",
+            "items": {
+             "$ref": "../types/icarAnimalIdentifierType.json"
+            },
+            "description": "As per JSON-LD Hydra syntax, animals provides the array of animals part of the feeding report. This could also be a report for one animal."
+          },
+          "reportStartDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "The moment the period of the reporting started"
+          },
+          "reportEndDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "The moment the period of the reporting ended"
+          },
+          "feedVisitDuration": {
+            "$ref": "../types/icarFeedDurationType.json"
+          },
+          "consumedFeed": {
+            "type": "array",
+            "items": {
+              "$ref": "../types/icarConsumedFeedType.json"
+            }
+          },
+          "consumedRation": {
+            "type": "array",
+            "items": {
+              "$ref": "../types/icarConsumedRationType.json"
+            }
+          }
+        }
+      }
+    ]
+  }

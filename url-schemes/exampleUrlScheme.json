@@ -18,6 +18,10 @@
       "description": "new endpoints not yet approved"
     },
     {
+      "name": "ADE-1.2-feed",
+      "description": "Feed messages approved by the working group"
+    },
+    {
       "name": "ADE-1.1-health",
       "description": "Health messages approved by the working group"
     },
@@ -40,6 +44,10 @@
     {
       "name": "ADE-1.1-reproduction",
       "description": "Reproduction messages approved by the working group"
+    },
+    {
+      "name": "ADE-1.3-scheme",
+      "description": "Scheme definitions approved by the working group"
     }
   ],
   "paths": {
@@ -88,10 +96,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -131,10 +139,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -174,10 +182,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -192,6 +200,44 @@
                   "base": {
                     "$ref": "#/components/examples/test-day-result"
                   }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/daily-milking-averages": {
+      "get": {
+        "operationId": "get-daily-milking-averages",
+        "summary": "Get daily averages for milking-visits of a animals",
+        "description": "# Purpose\nProvides daily averages of the milking-visits of per animal.",
+        "tags": [
+          "ADE-1.1-milk"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+        },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the daily averages per animal for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarDailyMilkingAveragesCollection"
                 }
               }
             }
@@ -249,10 +295,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -287,10 +333,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -325,10 +371,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -363,10 +409,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -406,10 +452,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -461,11 +507,11 @@
         }
       }
     },
-    "/locations/{location-scheme}/{location-id}/animalSets": {
+    "/locations/{location-scheme}/{location-id}/animal-sets": {
       "get": {
         "operationId": "get-animal-sets",
         "summary": "Get the animal sets for a certain location",
-        "description": "# Purpose\nProvides the animal sets on a location. If animal-id-scheme and animal-id are provided, the sets containing that animal are returned.\n",
+        "description": "# Purpose\nProvides the animal sets on a location. If animal-scheme and animal-id are provided, the sets containing that animal are returned.\n",
         "tags": [
           "ADE-1.1-management"
         ],
@@ -474,7 +520,7 @@
           }, {
             "$ref": "#/components/parameters/location-id"
           }, {
-            "$ref": "#/components/parameters/animal-id-scheme"
+            "$ref": "#/components/parameters/animal-scheme"
           }, {
             "$ref": "#/components/parameters/animal-id"
           }
@@ -517,10 +563,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -561,10 +607,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -604,10 +650,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -647,10 +693,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -685,10 +731,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -728,10 +774,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -774,10 +820,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -812,10 +858,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -850,10 +896,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -888,10 +934,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -926,10 +972,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -939,6 +985,49 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/icarDeviceCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-storages": {
+      "get": {
+        "operationId": "get-feed-storages",
+        "summary": "Get the feed storage device data for a location",
+        "description": "# Purpose\nProvides feed storage device data for storages present on a farm.",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/location-scheme"
+        },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed storage device data for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedStorageCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/feed-storages"
+                  }
                 }
               }
             }
@@ -964,10 +1053,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1002,10 +1091,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1040,10 +1129,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1078,10 +1167,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1116,10 +1205,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1154,10 +1243,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1192,10 +1281,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1205,6 +1294,202 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/icarGestationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feeds": {
+      "get": {
+        "operationId": "get-feeds",
+        "summary": "Get the feeds available on a certain location",
+        "description": "# Purpose\nProvides the feeds for a location. We recommend using the fao.org scheme for the type of feeds and the icar.org scheme for the feed properties\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feeds for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/rations": {
+      "get": {
+        "operationId": "get-Rations",
+        "summary": "Get the rations for a certain location",
+        "description": "# Purpose\nProvides the rations for a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the rations for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarRationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-intakes": {
+      "get": {
+        "operationId": "get-Feed-Intakes",
+        "summary": "Get the feed intakes for a certain location",
+        "description": "# Purpose\nProvides the feed intakes for a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed intakes for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedIntakeEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-recommendations": {
+      "get": {
+        "operationId": "get-Feed-Recommendations",
+        "summary": "Get the feed recommendations for a certain location",
+        "description": "# Purpose\nProvides the feed recommendations for a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the rations for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedRecommendationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-reports": {
+      "get": {
+        "operationId": "get-Feed-Report",
+        "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. ",
+        "description": "# Purpose\nProvides the feed reports for animal on a location\n",
+        "tags": [
+          "ADE-1.2-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/report-start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/report-end-date-time"
+          }
+         ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed reports for animals on the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedReportCollection"
                 }
               }
             }
@@ -1230,10 +1515,10 @@
             "$ref": "#/components/parameters/location-id"
           },
           {
-            "$ref": "#/components/parameters/start-date-time"
+            "$ref": "#/components/parameters/meta-modified-from"
           },
           {
-            "$ref": "#/components/parameters/end-date-time"
+            "$ref": "#/components/parameters/meta-modified-to"
           }
         ],
         "responses": {
@@ -1252,7 +1537,130 @@
           }
         }
       }
-    }       
+    },
+    "/locations/{location-scheme}/{location-id}/schemata":{
+      "get": {
+        "operationId": "get-schemata",
+        "summary": "Get the list of schemata/schema types supported",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "tags": [
+          "ADE-1.3-scheme"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the suppoted schemata for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                },
+                "examples": {
+                  "schemata": {
+                    "$ref": "#/components/examples/schemata"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}":{
+      "get": {
+        "operationId": "get-schema-types",
+        "summary": "Get the list of schema type schemes",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "tags": [
+          "ADE-1.3-scheme"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/scheme-type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the suppoted scheme for specific scheme type for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                },
+                "examples": {
+                  "breeds": {
+                    "$ref": "#/components/examples/schemata-breeds"
+                  },
+                  "locations": {
+                    "$ref": "#/components/examples/schemata-locations"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}/{scheme}":{
+      "get": {
+        "operationId": "get-scheme-values",
+        "summary": "Get the list of values for specidif sheme",
+        "description": "# Purpose\nProvides a list of scheme values for specific scheme\n",
+        "tags": [
+          "ADE-1.3-scheme"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/scheme-type"
+          },
+          {
+            "$ref": "#/components/parameters/scheme"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the suppoted scheme for specific scheme type for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarSchemeValueCollection"
+                },
+                "examples": {
+                  "breeds-interbull": {
+                    "$ref": "#/components/examples/schemata-breeds-interbull"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    }
   },
   "components": {
     "schemas": {
@@ -1273,6 +1681,9 @@
       },
       "icarTestDayResultEventCollection": {
         "$ref": "../collections/icarTestDayResultEventCollection.json"
+      },
+      "icarDailyMilkingAveragesCollection": {
+        "$ref": "../collections/icarDailyMilkingAveragesCollection.json"
       },
       "icarLactationCollection": {
         "$ref": "../collections/icarLactationCollection.json"
@@ -1319,7 +1730,7 @@
       "icarReproDoNotBreedEventCollection": {
         "$ref": "../collections/icarReproDoNotBreedEventCollection.json"
       },
-            "icarReproParturitionEventCollection": {
+      "icarReproParturitionEventCollection": {
         "$ref": "../collections/icarReproParturitionEventCollection.json"
       },
       "icarWeightEventCollection": {
@@ -1327,6 +1738,9 @@
       },
       "icarDeviceCollection": {
         "$ref": "../collections/icarDeviceCollection.json"
+      },
+      "icarFeedStorageCollection": {
+        "$ref": "../collections/icarFeedStorageCollection.json"
       },
       "icarBreedingValueCollection": {
         "$ref": "../collections/icarBreedingValueCollection.json"
@@ -1346,11 +1760,32 @@
       "icarGestationCollection": {
         "$ref": "../collections/icarGestationCollection.json"      
       },
+      "icarFeedCollection": {
+        "$ref": "../collections/icarFeedCollection.json"      
+      },
+      "icarRationCollection": {
+        "$ref": "../collections/icarRationCollection.json"      
+      },
+      "icarFeedIntakeEventCollection": {
+        "$ref": "../collections/icarFeedIntakeEventCollection.json"      
+      },
+      "icarFeedReportCollection": {
+        "$ref": "../collections/icarFeedReportCollection.json"      
+      },
+      "icarFeedRecommendationCollection": {
+        "$ref": "../collections/icarFeedRecommendationCollection.json"      
+      },
       "icarLactationStatusObservedEventCollection": {
         "$ref": "../collections/icarLactationStatusObservedEventCollection.json"
       },
       "icarReproStatusObservedEventCollection": {
         "$ref": "../collections/icarReproStatusObservedEventCollection.json"
+      },
+      "icarSchemeTypeCollection": {
+        "$ref": "../collections/icarSchemeTypeCollection.json"
+      },
+      "icarSchemeValueCollection": {
+        "$ref": "../collections/icarSchemeValueCollection.json"
       }
     },
     "parameters": {
@@ -1377,8 +1812,8 @@
           "type": "string"
         }
       },
-      "start-date-time": {
-        "name": "start-date-time",
+      "meta-modified-from": {
+        "name": "meta-modified-from",
         "in": "query",
         "description": "The start of the date-time range for the data to get in the request.",
         "schema": {
@@ -1386,8 +1821,8 @@
           "format": "date-time"
         }
       },
-      "end-date-time": {
-        "name": "end-date-time",
+      "meta-modified-to": {
+        "name": "meta-modified-to",
         "in": "query",
         "description": "The end of the date-time range for the data to get in the request.",
         "schema": {
@@ -1395,8 +1830,26 @@
           "format": "date-time"
         }
       },
-      "animal-id-scheme": {
-        "name": "animal-id-scheme",
+      "report-start-date-time": {
+        "name": "report-start-date-time",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request based on the event date time.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "report-end-date-time": {
+        "name": "report-end-date-time",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request based on the event date time.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "animal-scheme": {
+        "name": "animal-scheme",
         "in": "query",
         "description": "The scheme id for the animal identifier.",
         "required": false,
@@ -1409,6 +1862,24 @@
         "in": "query",
         "description": "The unique identifier for the animal.",
         "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "scheme-type": {
+        "name": "scheme-type",
+        "in": "path",
+        "description": "The unique identifier scheme type (location, trait, breed)",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "scheme": {
+        "name": "scheme",
+        "in": "path",
+        "description": "The unique identifier scheme",
+        "required": true,
         "schema": {
           "type": "string"
         }
@@ -1450,6 +1921,7 @@
               "scheme": "eu.farmId"
             },
             "name": "My little farm",
+            "timeZoneId": "Europe/Paris",
             "meta": {
               "source": "source",
               "creator": "creator",
@@ -1458,6 +1930,36 @@
             }
           }
          ]
+        }
+      },
+      "feed-storages": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+            "id": "276031231231234",
+            "name": "My first silo",
+            "feedId": "a8f5944e-de92-4768-a1ff-392e15a2195e",
+            "capacity": {
+              "value": 50000,
+              "unitCode": "KGM"
+            },
+            "quantityAvailable": {
+              "value": 28765,
+              "unitCode": "KGM"
+            },
+            "meta": {
+              "source": "source",
+              "creator": "creator",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": "2020-01-29T08:49:06.1314223+00:00"
+            }
+          }
+          ]
         }
       },
       "arrival": {
@@ -1728,6 +2230,374 @@
         "value": {
           "summary": "Example of drying off event messages from swedish milk recording organization",
           "externalValue": "../examples/exampleDryOffEventResources_Sweden.json"
+        }
+      },
+      "schemata": {
+        "value": {
+          "view": {
+            "totalItems": 3,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [
+            {
+              "name": "locations"
+            },
+            {
+              "name": "animals"
+            },
+            {
+              "name": "breeds"
+            }
+          ]
+        }
+      },
+      "schemata-locations": {
+        "value": {
+          "view": {
+            "totalItems": 2,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [
+            {
+              "name": "nl.ubn"
+            },
+            {
+              "name": "nl.brs"
+            },
+            {
+              "name": "dk.herdnumber"
+            }
+          ]
+        }
+      },
+      "schemata-breeds": {
+        "value": {
+          "view": {
+            "totalItems": 2,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [
+            {
+              "name": "icar.breed.interbull"
+            },
+            {
+              "name": "finland.breed"
+            }
+          ]
+        }
+      },
+      "schemata-breeds-interbull": {
+        "value": {
+          "view": {
+            "totalItems": 50,
+            "totalPages": 1,
+            "pageSize": 50,
+            "currentPage": 1
+          },
+          "member": [
+            {
+              "id": "ABO",
+              "name": "Abondance"
+            },
+            {
+              "id": "AAN",
+              "name": "Angus"
+            },
+            {
+              "id": "AUB",
+              "name": "Aubrac"
+            },
+            {
+              "id": "RDC",
+              "name": "Ayrshire"
+            },
+            {
+              "id": "BZD",
+              "name": "Bazadais"
+            },
+            {
+              "id": "BBL",
+              "name": "Belgian Blue"
+            },
+            {
+              "id": "BAQ",
+              "name": "Blonde d'Aquitaine"
+            },
+            {
+              "id": "BSH",
+              "name": "Beef Shorthorn"
+            },
+            {
+              "id": "BMA",
+              "name": "Beefmaster"
+            },
+            {
+              "id": "BER",
+              "name": "Belgium Red & White"
+            },
+            {
+              "id": "BFD",
+              "name": "Braford"
+            },
+            {
+              "id": "BRM",
+              "name": "Brahman"
+            },
+            {
+              "id": "BRG",
+              "name": "Brangus"
+            },
+            {
+              "id": "BRR",
+              "name": "Brand Rood"
+            },
+            {
+              "id": "BRF",
+              "name": "British Frisian"
+            },
+            {
+              "id": "BSW",
+              "name": "Brown Swiss"
+            },
+            {
+              "id": "CIA",
+              "name": "Chianina"
+            },
+            {
+              "id": "CHA",
+              "name": "Charolais"
+            },
+            {
+              "id": "MSH",
+              "name": "Dairy Shorthorn"
+            },
+            {
+              "id": "DFR",
+              "name": "Dutch Frisian"
+            },
+            {
+              "id": "ERI",
+              "name": "Eringer"
+            },
+            {
+              "id": "MRY",
+              "name": "Meuse Rhine Yssel"
+            },
+            {
+              "id": "DXT",
+              "name": "Dexter"
+            },
+            {
+              "id": "DEV",
+              "name": "Devon"
+            },
+            {
+              "id": "DIK",
+              "name": "Dikbil"
+            },
+            {
+              "id": "BWR",
+              "name": "Eastern Flanders White Red"
+            },
+            {
+              "id": "RDC",
+              "name": "European Red Dairy Breed"
+            },
+            {
+              "id": "GAS",
+              "name": "Gascon"
+            },
+            {
+              "id": "GDB",
+              "name": "Glan Donnersberg"
+            },
+            {
+              "id": "GLW",
+              "name": "Galloway"
+            },
+            {
+              "id": "GUE",
+              "name": "Guernsey"
+            },
+            {
+              "id": "GVH",
+              "name": "Gelbvieh"
+            },
+            {
+              "id": "GRO",
+              "name": "Groninger"
+            },
+            {
+              "id": "HER",
+              "name": "Hereford"
+            },
+            {
+              "id": "HLA",
+              "name": "Highland Cattle"
+            },
+            {
+              "id": "HWD",
+              "name": "Hinterwälder"
+            },
+            {
+              "id": "HOL",
+              "name": "Holstein"
+            },
+            {
+              "id": "RED",
+              "name": "Holstein, Red and White"
+            },
+            {
+              "id": "JER",
+              "name": "Jersey"
+            },
+            {
+              "id": "KER",
+              "name": "Kerry"
+            },
+            {
+              "id": "DBE",
+              "name": "Dutch Belted- Lakenvelder"
+            },
+            {
+              "id": "LIM",
+              "name": "Limousin"
+            },
+            {
+              "id": "LON",
+              "name": "Longhorn"
+            },
+            {
+              "id": "LUI",
+              "name": "Luing"
+            },
+            {
+              "id": "RDP",
+              "name": "Rouge des Pres"
+            },
+            {
+              "id": "MGR",
+              "name": "Murray-Grey"
+            },
+            {
+              "id": "MON",
+              "name": "Montbéliard"
+            },
+            {
+              "id": "MAR",
+              "name": "Marchigiana"
+            },
+            {
+              "id": "MAE",
+              "name": "Maremmana"
+            },
+            {
+              "id": "NEL",
+              "name": "Nellore"
+            },
+            {
+              "id": "NMD",
+              "name": "Normandy"
+            },
+            {
+              "id": "RDC",
+              "name": "Norwegian Red"
+            },
+            {
+              "id": "PAR",
+              "name": "Parthenaise"
+            },
+            {
+              "id": "PIE",
+              "name": "Piedmont"
+            },
+            {
+              "id": "PIN",
+              "name": "Pinzgau"
+            },
+            {
+              "id": "RAN",
+              "name": "Red Angus"
+            },
+            {
+              "id": "ROM",
+              "name": "Romagnola"
+            },
+            {
+              "id": "SAL",
+              "name": "Salers"
+            },
+            {
+              "id": "SGE",
+              "name": "Santa Gertrudis"
+            },
+            {
+              "id": "SDE",
+              "name": "South Devon"
+            },
+            {
+              "id": "SUS",
+              "name": "Sussex"
+            },
+            {
+              "id": "SIM",
+              "name": "Simmental/Fleckvieh"
+            },
+            {
+              "id": "RDC",
+              "name": "Swedish Red"
+            },
+            {
+              "id": "SAH",
+              "name": "Sahiwal"
+            },
+            {
+              "id": "TAR",
+              "name": "Tarentaise"
+            },
+            {
+              "id": "TUX",
+              "name": "Tux"
+            },
+            {
+              "id": "TGR",
+              "name": "Tyrol Grey"
+            },
+            {
+              "id": "VRB",
+              "name": "Verbeter Roodbont"
+            },
+            {
+              "id": "WAG",
+              "name": "Wagyu"
+            },
+            {
+              "id": "WBM",
+              "name": "Belgium Blue Mixte"
+            },
+            {
+              "id": "WBL",
+              "name": "Welsh Black"
+            },
+            {
+              "id": "BRV",
+              "name": "Western Flanders Meat"
+            },
+            {
+              "id": "BRD",
+              "name": "West-Vlaams Rood"
+            },
+            {
+              "id": "WRI",
+              "name": "Witrik"
+            }
+          ]
         }
       }
     }

@@ -26,8 +26,8 @@
           "description": "The total number of offspring from the parturition, including those born dead."
         },
         "calvingEase": {
-          "type": "string",
-          "description": "Calving ease (no consistent coding available yet)."
+          "$ref": "../enums/icarReproCalvingEaseType.json",
+          "description": "Calving ease (enum corresponds to traditional 1-5 values)."
         },
 
         "progeny": {

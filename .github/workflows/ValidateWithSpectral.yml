@@ -11,3 +11,4 @@ jobs:
     - name: validate JSON URL scheme
       run: |
         docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/exampleUrlScheme.json -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/healthURLScheme.json -v
