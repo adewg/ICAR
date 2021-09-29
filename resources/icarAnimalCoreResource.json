@@ -83,6 +83,10 @@
             "$ref": "../types/icarParentageType.json",
             "description": "Array of parents."
           }
+        },
+        "healthStatus": {
+          "$ref": "../enums/icarAnimalHealthStatusType.json",
+          "description": "Helath status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled)."
         }
       }
     }
