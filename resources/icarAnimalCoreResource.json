@@ -49,6 +49,10 @@
           "type": "string",
           "description": "Colour of the animal's coat, using the conventions for that breed."
         },
+        "coatColorDetails": {
+          "$ref": "../types/icarCoatColorType.json",
+          "description": "Colour of the animal's coat, using the conventions for that specie."
+        },
         "managementTag": {
           "type": "string",
           "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
