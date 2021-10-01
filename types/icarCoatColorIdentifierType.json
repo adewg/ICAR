@@ -1,5 +1,5 @@
 {
-  "description": "Coat color identifier based on a scheme and ID.",
+  "description": "Coat color identifier based on a scheme and Id.",
 
   "allOf": [{
     "$ref": "../types/icarIdentifierType.json"
