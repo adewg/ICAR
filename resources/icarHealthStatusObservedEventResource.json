@@ -8,7 +8,7 @@
       "type": "object",
 
       "properties": {
-        "healthStatus": {
+        "observedStatus": {
           "$ref": "../enums/icarAnimalHealthStatusType.json",
           "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled).",
           "nullable": false
