@@ -525,6 +525,81 @@
           }
         }
       }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/health-status": {
+      "post": {
+        "operationId": "post-batch-HealthStatusObserved",
+        "summary": "Add new health status observed events",
+        "description": "# Purpose  \nAllows a client to add a collection of animal health status observed events.\n",
+        "tags": [
+          "ADE-1.2-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of health status observed events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarHealthStatusObservedArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -572,6 +647,12 @@
         "type": "array",
         "items": {
           "$ref": "../resources/icarTreatmentProgramEventResource.json"
+        }
+      },
+      "icarHealthStatusObservedArray": {
+        "type": "array",
+        "items": {
+          "$ref": "../resources/icarHealthStatusObservedEventResoure.json"
         }
       }
     },
