@@ -49,8 +49,8 @@
           "type": "string",
           "description": "Colour of the animal's coat, using the conventions for that breed."
         },
-        "coatColorDetails": {
-          "$ref": "../types/icarCoatColorType.json",
+        "coatColorIdentifier": {
+          "$ref": "../types/icarCoatColorIdentifierType.json",
           "description": "Colour of the animal's coat, using the conventions for that specie."
         },
         "managementTag": {
