@@ -301,6 +301,93 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/health-status": {
+      "get": {
+        "operationId": "get-HealthStatusObserved",
+        "summary": "Get the health-status-observed of an animal for a certain location",
+        "description": "# Purpose\nProvides the animal health-status for a location\n",
+        "tags": [
+          "ADE-1.2-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatment progams for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHealthStatusObservedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-HealthStatusObserved",
+        "summary": "Add a single new health status observed.",
+        "description": "# Purpose  \nAllows a client to add a single animal health status observed.\n",
+        "tags": [
+          "ADE-1.2-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The health treatment programme resource to create. \nA client MAY fill in the *ID* field with a client-generated UUID and the server MAY use this *ID*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\nThis applies to all resource *ID* and *meta* objects in the *icarTreatmentProgramEvent*.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarHealthStatusObservedEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHealthStatusObservedEvent"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource."
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status."
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/batches/locations/{location-scheme}/{location-id}/diagnoses": {
       "post": {
         "operationId": "post-batch-Diagnosis",
@@ -525,6 +612,81 @@
           }
         }
       }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/health-status": {
+      "post": {
+        "operationId": "post-batch-HealthStatusObserved",
+        "summary": "Add new health status observed events",
+        "description": "# Purpose  \nAllows a client to add a collection of animal health status observed events.\n",
+        "tags": [
+          "ADE-1.2-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of health status observed events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarHealthStatusObservedArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -572,6 +734,15 @@
         "type": "array",
         "items": {
           "$ref": "../resources/icarTreatmentProgramEventResource.json"
+        }
+      },
+      "icarHealthStatusObservedEvent": {
+        "$ref": "../resources/icarHealthStatusObservedEventResource.json"
+      },
+      "icarHealthStatusObservedArray": {
+        "type": "array",
+        "items": {
+          "$ref": "../resources/icarHealthStatusObservedEventResource.json"
         }
       }
     },
