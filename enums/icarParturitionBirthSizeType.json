@@ -1,0 +1,13 @@
+{
+  "description": "Enumeration for the widely used progeny birth sizes.",
+
+  "type": "string",
+
+  "enum": [
+    "ExtraSmall",
+    "Small",
+    "Average",
+    "Large",
+    "ExtraLarge"
+  ]
+}

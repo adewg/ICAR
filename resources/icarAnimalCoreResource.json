@@ -49,6 +49,10 @@
           "type": "string",
           "description": "Colour of the animal's coat, using the conventions for that breed."
         },
+        "coatColorIdentifier": {
+          "$ref": "../types/icarCoatColorIdentifierType.json",
+          "description": "Colour of the animal's coat using a national or breed-defined scheme and identifier combination."
+        },
         "managementTag": {
           "type": "string",
           "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
@@ -83,6 +87,10 @@
             "$ref": "../types/icarParentageType.json",
             "description": "Array of parents."
           }
+        },
+        "healthStatus": {
+          "$ref": "../enums/icarAnimalHealthStatusType.json",
+          "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled)."
         }
       }
     }

@@ -1,0 +1,13 @@
+{
+  "description": "Defines the health-status of the animal.",
+
+  "type": "string",
+
+  "enum": [
+    "Healthy",
+    "Suspicious",
+    "Ill",
+    "InTreatment",
+    "ToBeCulled"
+  ]
+}

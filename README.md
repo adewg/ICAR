@@ -14,12 +14,14 @@ There you will find:
 * Tips for [implementing a service](https://github.com/adewg/ICAR/wiki/Implementing-a-service) using the standard
 
 ## OpenAPI Quick Start
-Developers may wish to start by reading the **\url-schemes\exampleUrlScheme.json** file in their favourite OpenAPI specification editor.
-You can also [view the API using the swagger editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json).
+Developers may wish to start by reading OpenAPI specification examples in the **\url-schemes** folder in their favourite OpenAPI specification editor.
+You can also [view the basic example Url Scheme using the swagger editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json).
 
+## Code Generation 
+Developers will likely take one or more of the **url-schemes** and generate their own code wrappers using **[openapi-generator](https://github.com/OpenAPITools/openapi-generator)** or an equivalent generation tool. Version 1.2 of this specification has been tested with OpenAPI Generator version 5.2.0 and conforms to the OpenAPI '3.0' specification as much as possible (and JSON Schema 7). There are some known issues with Nullable reference types, as documented in issue #214. In particular, .NET code generation can sometimes ignore the nullable intention, and Java code generation will generate semantically different outcomes depending on the value of the openApiNullable parameter for code generation. [See issue 214 for more details](https://github.com/adewg/ICAR/issues/214).
 
 ## Acknowledgements
-Version 1.0 of this standard was based on previous work of:
+Version 1.2 of this standard was based on previous work of:
 * The ICAR ADE working group XML standard
 * [DataLinker](https://datalinker.org)
 * [JoinData](https://www.join-data.nl/)
