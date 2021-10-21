@@ -7,7 +7,7 @@
     "source",
     "modified"
   ],
-
+  
   "properties": {
     "source": {
       "type": "string",
@@ -21,20 +21,32 @@
       "$ref": "../types/icarDateTimeType.json"
     },
     "created": {
-      "$ref": "../types/icarDateTimeType.json",
-      "nullable": true
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "../types/icarDateTimeType.json"
+        }
+      ]
     },
     "creator": {
       "type": "string",
       "description": "Person or organisation who created the object"
     },
     "validFrom": {
-      "$ref": "../types/icarDateTimeType.json",
-      "nullable": true
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "../types/icarDateTimeType.json"
+        }
+      ]
     },
     "validTo": {
-      "$ref": "../types/icarDateTimeType.json",
-      "nullable": true
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "../types/icarDateTimeType.json"
+        }
+      ]
     }
   }
 }

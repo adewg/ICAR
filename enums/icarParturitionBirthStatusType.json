@@ -1,0 +1,15 @@
+{
+    "description": "Enumeration for the widely used progeny birth statuses.",
+  
+    "type": "string",
+  
+    "enum": [
+      "Alive",
+      "Stillborn",
+      "Aborted",
+      "DiedBeforeTaggingDate",
+      "DiedAfterTaggingDate",
+      "SlaughteredAtBirth",
+      "EuthanisedAtBirth"
+    ]
+  }
