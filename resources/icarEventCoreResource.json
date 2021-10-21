@@ -40,7 +40,11 @@
         "contemporaryGroup": {
           "type": "string",
           "description": "For manually recorded events, record any contemporary group code that would affect statistical analysis."
-        }
+        },
+        "remark": {
+          "type": "string",
+          "description": "A comment or remark field for additional user-specified information about the event."
+        }        
       }
     }
   ]
