@@ -13,9 +13,13 @@
         ],
   
         "properties": {
+          "traitGroup": {
+            "$ref": "../enums/icarConformationTraitGroupType.json",
+            "description": "Defines whether the trait is a composite trait or a linear trait."
+          },
           "score": {
             "type": "number",
-            "description": "Conformation score with values of 1 to 9 numeric (in some cases double)"
+            "description": "Conformation score with values of 1 to 9 numeric in case of linear traits and for composites in some cases double"
           },
           "traitScored": {
             "$ref": "../enums/icarConformationTraitType.json",
