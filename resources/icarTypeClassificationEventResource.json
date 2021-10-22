@@ -1,5 +1,5 @@
 {
-    "description": "Event for recording conformation score",
+    "description": "Event for recording a type calssification consisting of a set of conformation scores",
   
     "allOf": [{
         "$ref": "../resources/icarEventCoreResource.json"
