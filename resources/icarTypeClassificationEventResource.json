@@ -13,10 +13,11 @@
         ],
   
         "properties": {
-        "conformationScores": {
-          "type": "array",
-          "items": {
-            "$ref": "../resources/icarConformationScoreEventResource.json"
+          "conformationScores": {
+            "type": "array",
+            "items": {
+              "$ref": "../resources/icarConformationScoreEventResource.json"
+            }
           }
         }
       }
