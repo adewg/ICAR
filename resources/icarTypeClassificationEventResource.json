@@ -16,7 +16,7 @@
           "conformationScores": {
             "type": "array",
             "items": {
-              "$ref": "../types/icarConformationScoreType.json"
+              "$ref": "../resources/icarConformationScoreEventResource.json"
             }
           }
         }
