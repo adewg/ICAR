@@ -7,14 +7,24 @@
     "propertyName": "resourceType"
   },
 
+  "required": [
+    "identifier",
+    "class"
+  ],
+
   "properties": {
-    "@self": {
-      "type": "string",
-      "description": "Uniform resource identifier (URI) of the resource (rel=self)."
-    },
     "meta": {
       "$ref": "../types/icarMetaDataType.json",
       "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
+    },
+    "class": {
+      "type": "string",
+      "description": "Class of the resource. Mandatory if you wish to support synchronisation."    
+    },
+    "identifier": {
+      "type": "string",
+      "description": "Globally unique identifier for the resource."    
     }
   }
 }
+
