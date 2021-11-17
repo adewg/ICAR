@@ -5,7 +5,16 @@
         "$ref": "../resources/icarEventCoreResource.json"
       },
       {
-        "$ref": "../types/icarConformationTypeScore.json"
+        "type": "object",
+
+        "required": [
+          "score",
+          "traitScored"
+        ],
+  
+        "properties": {
+              "$ref": "../types/icarConformationScoreType.json"
+        }
       }
     ]
   }
