@@ -13,7 +13,9 @@
         ],
   
         "properties": {
-              "$ref": "../types/icarConformationScoreType.json"
+          "conformationscore": {
+            "$ref": "../types/icarConformationScoreType.json",
+            "description": "Conformation score of an animal."
         }
       }
     ]
