@@ -1,22 +1,18 @@
 {
-    "description": "Event for recording conformation score",
-  
-    "allOf": [{
-        "$ref": "../resources/icarEventCoreResource.json"
-      },
-      {
-        "type": "object",
+	"description": "Event for recording conformation score",
 
-        "required": [
-          "score",
-          "traitScored"
-        ],
-  
-        "properties": {
-          "conformationscore": {
-            "$ref": "../types/icarConformationScoreType.json",
-            "description": "Conformation score of an animal."
-        }
-      }
-    ]
-  }
+	"allOf": [{
+			"$ref": "../resources/icarEventCoreResource.json"
+		},
+		{
+			"type": "object",
+
+			"properties": {
+				"conformationscore": {
+					"$ref": "../types/icarConformationScoreType.json",
+					"description": "Conformation score of an animal."
+				}
+			}
+		}
+	]
+}
