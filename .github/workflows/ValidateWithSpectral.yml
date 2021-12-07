@@ -2,6 +2,8 @@ name: Spectral JSON Validation CI
 
 on: [push]
 
+env:
+  REPO_BASE_PATH: https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}
 jobs:
   build:
 
@@ -10,5 +12,5 @@ jobs:
     steps:
     - name: validate JSON URL scheme
       run: |
-        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/exampleUrlScheme.json -v
-        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/healthURLScheme.json -v
+        docker run stoplight/spectral lint {{env.REPO_BASE_PATH}}/url-schemes/exampleUrlScheme.json -r=https://{{env.REPO_BASE_PATH}}/.spectral.yaml -v
+        docker run stoplight/spectral lint {{env.REPO_BASE_PATH}}/url-schemes/healthURLScheme.json -r=https://{{env.REPO_BASE_PATH}}/.spectral.yaml -v
