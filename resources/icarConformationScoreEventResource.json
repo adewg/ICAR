@@ -2,8 +2,10 @@
 	"description": "Event for recording conformation score",
 
 	"allOf": [{
-			"$ref": "../resources/icarEventCoreResource.json",
-			"$ref": "../types/icarConformationScoreType.json"
+			"$ref": "../resources/icarEventCoreResource.json"
+		},
+		{
+			"$ref": "../types/icarConformationScoreType.json",
 		}
 	]
 }
