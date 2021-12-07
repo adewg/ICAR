@@ -5,7 +5,7 @@
 			"$ref": "../resources/icarEventCoreResource.json"
 		},
 		{
-			"$ref": "../types/icarConformationScoreType.json",
+			"$ref": "../types/icarConformationScoreType.json"
 		}
 	]
 }
