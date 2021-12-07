@@ -4,6 +4,7 @@ on: [push]
 
 env:
   REPO_BASE_PATH: https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}
+  SPECTRAL_RULESET_PATH: https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml
 jobs:
   build:
 
@@ -12,5 +13,5 @@ jobs:
     steps:
     - name: validate JSON URL scheme
       run: |
-        docker run stoplight/spectral lint {{env.REPO_BASE_PATH}}/url-schemes/exampleUrlScheme.json -r={{env.REPO_BASE_PATH}}/.spectral.yaml -v
-        docker run stoplight/spectral lint {{env.REPO_BASE_PATH}}/url-schemes/healthURLScheme.json -r={{env.REPO_BASE_PATH}}/.spectral.yaml -v
+        docker run stoplight/spectral lint {{env.REPO_BASE_PATH}}/url-schemes/exampleUrlScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
+        docker run stoplight/spectral lint {{env.REPO_BASE_PATH}}/url-schemes/healthURLScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
