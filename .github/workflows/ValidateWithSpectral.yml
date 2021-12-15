@@ -2,9 +2,6 @@ name: Spectral JSON Validation CI
 
 on: [push]
 
-env:
-  URL_SCHEMES_PATH: https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes
-  SPECTRAL_RULESET_PATH: https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml
 jobs:
   build:
 
@@ -13,11 +10,11 @@ jobs:
     steps:
     - name: validate JSON URL scheme
       run: |
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/exampleUrlScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/feedURLscheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/healthURLScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/managementURLScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/milkURLScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/performanceURLScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/registrationURLScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
-        docker run stoplight/spectral lint {{env.URL_SCHEMES_PATH}}/reproductionURLScheme.json -r={{env.SPECTRAL_RULESET_PATH}} -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/exampleUrlScheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/feedURLscheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/healthURLScheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/managementURLScheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/milkURLScheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/performanceURLScheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/registrationURLScheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
+        docker run stoplight/spectral lint https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/url-schemes/reproductionURLScheme.json -r=https://raw.githubusercontent.com/${{github.repository}}/${GITHUB_REF##*/}/.spectral.yaml -v
