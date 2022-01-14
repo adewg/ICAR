@@ -8,6 +8,10 @@
   },
 
   "properties": {
+    "resourceType" : {
+      "type": "string",
+      "description": "Uniform resource identifier (URI) or shortname of the logical resourceType. The ResourceType catalog defines the set of allowed resourceTyps."
+    },
     "@self": {
       "type": "string",
       "description": "Uniform resource identifier (URI) of the resource (rel=self)."
