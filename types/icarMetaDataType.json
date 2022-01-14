@@ -6,8 +6,7 @@
   "required": [
     "source",
     "modified"
-  ],
-  
+  ],  
   "properties": {
     "source": {
       "type": "string",
@@ -16,6 +15,10 @@
     "sourceId": {
       "type": "string",
       "description": "Unique Id (ideally UUID) for the resource in the original source system. Treat source and sourceId as an icarIdentifierType."
+    },  
+    "isDeleted": {
+      "type": "boolean",
+      "description": "Boolean value indicating if this resource has been deleted in the source system."
     },
     "modified": {
       "$ref": "../types/icarDateTimeType.json"
