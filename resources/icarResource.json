@@ -15,6 +15,10 @@
     "meta": {
       "$ref": "../types/icarMetaDataType.json",
       "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
+    },
+    "location": {
+      "$ref": "../types/icarLocationIdentifierType.json",
+      "description": "Unique location scheme and identifier combination."
     }
   }
 }

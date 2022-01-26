@@ -22,10 +22,6 @@
           "$ref": "../types/icarAnimalIdentifierType.json",
           "description": "Unique animal scheme and identifier combination."
         },
-        "location": {
-          "$ref": "../types/icarLocationIdentifierType.json",
-          "description": "Unique location scheme and identifier combination."
-        },
         "sireIdentifiers": {
           "type": "array",
           "items": {
