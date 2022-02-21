@@ -24,10 +24,6 @@
       "type": "string",
       "description": "Description of the device by the farmer."
     },
-    "location": {
-      "$ref": "../types/icarLocationIdentifierType.json",
-      "description": "Unique location scheme and identifier combination."
-    },
     "softwareVersion": {
       "type": "string",
       "description": "Version of the software installed on the device."

@@ -25,10 +25,6 @@
           "$ref": "../types/icarDateTimeType.json",
           "description": "ISO8601 date and time. MUST contain time zone. UTC recommended."
         },
-        "location": {
-          "$ref": "../types/icarLocationIdentifierType.json",
-          "description": "Unique location scheme and identifier combination."
-        },
         "traitLabel": {
           "$ref": "../types/icarTraitLabelIdentifierType.json",
           "description": "If the event represents a formal trait, identifies the recording system and trait."
