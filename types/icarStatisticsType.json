@@ -1,0 +1,22 @@
+{
+  "description": "The statitics that have been calculated.",
+
+  "type": "object",
+
+  "properties": {
+    "metric": {
+      "$ref": "../enums/icarMetricType.json"
+    },
+    "unit": {
+      "$ref": "../enums/uncefactMassUnitsType.json"
+    },
+    "aggregation": {
+      "$ref": "../enums/icarAggregationType.json"
+    },
+    "value": { 
+      "type": "double",
+      "nullable": true,
+      "description": "The value of the metric."
+    }
+  }
+}

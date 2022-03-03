@@ -1,0 +1,13 @@
+{
+  "description": "The type of group for which statistics are provided (can be expanded).",
+
+  "type": "string",
+
+  "enum": [
+    "herd",
+    "lactationNumber",
+    "daysInMilk",
+    "animalSet"
+  ]
+}
+

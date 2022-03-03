@@ -1,0 +1,14 @@
+{
+  "description": "The metric for which statistics are delivered (can be expanded).",
+
+  "type": "string",
+
+  "enum": [
+    "milk",
+    "fat",
+    "protein",
+    "scc",
+    "insemination"
+  ]
+}
+

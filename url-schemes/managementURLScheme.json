@@ -442,6 +442,45 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/statistics": {
+            "get": {
+                "operationId": "get-statistics",
+                "summary": "Get the statistics for a certain location",
+                "description": "# Purpose\nProvides the statistics for a location\n",
+                "tags": [
+                    "ADE-1.2-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the statistics for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarStatisticsCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/batches/locations/{location-scheme}/{location-id}/animal-sets": {
             "post": {
                 "operationId": "post-batch-animal-sets",
@@ -795,6 +834,9 @@
             },
             "icarDeviceCollection": {
                 "$ref": "../collections/icarDeviceCollection.json"
+            },
+            "icarStatisticsCollection": {
+                "$ref": "../collections/icarStatisticsCollection.json"
             },
             "icarDeviceArray": {
                 "type": "array",

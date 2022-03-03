@@ -1,0 +1,51 @@
+{
+  "description": "Describes the statistics for a certain location.",
+
+  "type": "object",
+
+  "required": [
+    "id"
+  ],
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier on location level in the source system for this statistics."
+    },
+    "location": {
+      "$ref": "../types/icarLocationIdentifierType.json",
+      "description": "Unique location scheme and identifier combination."
+    },
+    "purpose": {
+      "$ref": "../enums/icarStatisticsPurposeType.json"
+    },
+    "startDate": {
+      "$ref": "../types/icarDateType.json"
+    },
+    "endDate": {
+      "$ref": "../types/icarDateType.json"
+    },
+    "group": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "$ref": "../types/icarGroupType.json"
+          }
+        }
+      }
+    },
+    "statistics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "$ref": "../types/icarStatisticsType.json"
+          }
+        }
+      }
+    }
+  }
+}
