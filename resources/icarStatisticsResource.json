@@ -25,26 +25,24 @@
     "endDate": {
       "$ref": "../types/icarDateType.json"
     },
+    
+        "icarGroupSpecifier": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarGroupSpecifierType.json"
+          }
+
+    
     "group": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "messages": {
-            "$ref": "../types/icarGroupType.json"
-          }
-        }
+        "$ref": "../types/icarGroupType.json"
       }
     },
     "statistics": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "messages": {
-            "$ref": "../types/icarStatisticsType.json"
-          }
-        }
+        "$ref": "../types/icarStatisticsType.json"
       }
     }
   }
