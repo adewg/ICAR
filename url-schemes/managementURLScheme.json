@@ -446,7 +446,7 @@
             "get": {
                 "operationId": "get-statistics",
                 "summary": "Get the statistics for a certain location",
-                "description": "# Purpose\nProvides the statistics for a location\n",
+                "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated. Als the purpose can be provided to limit the purpose of the statistics",
                 "tags": [
                     "ADE-1.2-management"
                 ],
@@ -458,11 +458,14 @@
                         "$ref": "#/components/parameters/location-id"
                     },
                     {
-                        "$ref": "#/components/parameters/meta-modified-from"
+                        "$ref": "#/components/parameters/date-from"
                     },
                     {
-                        "$ref": "#/components/parameters/meta-modified-to"
-                    }
+                        "$ref": "#/components/parameters/date-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/purpose"
+                    }                    
                 ],
                 "responses": {
                     "200": {
@@ -880,6 +883,33 @@
                 "schema": {
                     "type": "string",
                     "format": "date-time"
+                }
+            },
+            "date-from": {
+                "name": "date-to",
+                "in": "query",
+                "description": "The end of the date range for the period for which data is needed, the date inclusive.",
+                "schema": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "date-to": {
+                "name": "date-from",
+                "in": "query",
+                "description": "The start of the date range for the period for which data is needed, the date inclusive.",
+                "schema": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "purpose": {
+                "name": "purpose",
+                "in": "query",
+                "description": "The purpose of the statistics.",
+                "required": false,
+                "schema": {
+                  "$ref": "../enums/icarStatisticsPurposeType.json"
                 }
             },
             "animal-scheme": {

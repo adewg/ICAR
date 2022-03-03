@@ -25,14 +25,6 @@
     "endDate": {
       "$ref": "../types/icarDateType.json"
     },
-    
-        "icarGroupSpecifier": {
-          "type": "array",
-          "items": {
-            "$ref": "../types/icarGroupSpecifierType.json"
-          }
-
-    
     "group": {
       "type": "array",
       "items": {
