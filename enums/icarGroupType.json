@@ -4,10 +4,10 @@
   "type": "string",
 
   "enum": [
-    "herd",
-    "lactationNumber",
-    "daysInMilk",
-    "animalSet"
+    "Herd",
+    "LactationNumber",
+    "DaysInMilk",
+    "AnimalSet"
   ]
 }
 

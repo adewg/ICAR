@@ -4,12 +4,12 @@
   "type": "string",
 
   "enum": [
-    "testDay",
+    "TestDay",
     "feeding",
-    "reproduction",
-    "breedingValues",
-    "typeClassification",
-    "registration"
+    "Reproduction",
+    "BreedingValues",
+    "TypeClassification",
+    "Registration"
   ]
 }
 

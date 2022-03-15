@@ -7,7 +7,7 @@
     "icarGroupType": {
       "$ref": "../enums/icarGroupType.json"
     },
-    "denombinator": { 
+    "denominator": { 
       "type": "number",
       "nullable": true,
       "description": "Number of animals in the group."
