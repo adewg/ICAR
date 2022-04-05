@@ -1,12 +1,18 @@
 # Generic Data Exchange API
 
-This API specification defines a protocol for how a client can consume data from a server and update a local database or store. A compliant server exposes a number of datasets. Each dataset contains resources of one or more type. Each dataset exposes a feed of changes. Each change is represented as the latest representation of an resource that has been created, modified or deleted. Each resource has unique identity across all resources in all datasets exposed by a single server.
+This API specification defines a protocol for how a client can consume data from a server and update a local database or store; or push data to a remote endpoint and modify a collection of resources.
+
+A compliant server exposes a number of datasets. Each dataset contains resources of one or more type and exposes a feed of changes. Each change is represented as the latest representation of a resource that has been created, modified or deleted. Each resource has unique identity across all resources in all datasets exposed by a single server.
 
 ## Motivation
 
-The main motivation of this API is to enable the synchronisation of ICAR resources between compliant services in a generalised manner and without clients needing to be location. This supports use cases such as volume exchange of resources about many locations between data aggregators.
+The main motivation of this API is to enable the synchronisation of ICAR resources between compliant services in a generalised manner and without clients needing to be location aware. 
 
-As they API is generic and not bound by resource type this API also enables the addition and exchange of new ICAR resource types without need for API revision. 
+As the API is generic and not bound by resource type this API enables the addition and exchange of new ICAR resource types without need for API revision. 
+
+As the API supports both PULL and PUSH semantics it can be used in a composable way to meet many use case, e.g. from farm to aggregator (push) and between aggregators (pull).
+
+The API is designed to be super simple and bring a low bar of entry to any software to enable it to participate in a data sharing eco-system. There are just 4 endpoints defined in this API yet that is enough to enable the exchange of any form of ICAR resource.
 
 ## Concepts
 
