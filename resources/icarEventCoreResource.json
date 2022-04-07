@@ -1,10 +1,6 @@
 {
   "description": "",
 
-  "discriminator": {
-    "propertyName": "eventType"
-  },
-
   "allOf": [
     {
       "$ref": "../resources/icarResource.json"
