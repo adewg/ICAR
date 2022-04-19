@@ -2,7 +2,7 @@
   "description": "Event for recording parturition (calving, lambing, kidding, fawning).",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",

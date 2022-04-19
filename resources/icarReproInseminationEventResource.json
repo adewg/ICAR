@@ -2,7 +2,7 @@
   "description": "Event for recording natural or artificial insemination, including embryo transfer.",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",

@@ -13,10 +13,6 @@
           "type": "string",
           "description": "Unique identifier in the source system for this event."
         },
-        "animal": {
-          "$ref": "../types/icarAnimalIdentifierType.json",
-          "description": "Unique animal scheme and identifier combination."
-        },
         "eventDateTime": {
           "$ref": "../types/icarDateTimeType.json",
           "description": "ISO8601 date and time. MUST contain time zone. UTC recommended."
