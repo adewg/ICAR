@@ -2,7 +2,7 @@
   "description": "Event for recording animal health status",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",

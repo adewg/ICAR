@@ -1,11 +1,11 @@
 {
-	"description": "Event for recording conformation score",
+    "description": "Event for recording conformation score",
 
-	"allOf": [{
-			"$ref": "../resources/icarEventCoreResource.json"
-		},
-		{
-			"$ref": "../types/icarConformationScoreType.json"
-		}
-	]
+    "allOf": [{
+            "$ref": "../resources/icarAnimalEventCoreResource.json"
+        },
+        {
+           "$ref": "../types/icarConformationScoreType.json"
+        }
+    ]
 }

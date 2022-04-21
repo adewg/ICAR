@@ -2,7 +2,7 @@
   "description": "Event for representing test day result",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",
