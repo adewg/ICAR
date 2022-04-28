@@ -1,0 +1,22 @@
+{
+  "description": "definition of the groups for which statistics are provided",
+
+  "type": "object",
+
+  "properties": {
+    "icarGroupType": {
+      "$ref": "../enums/icarGroupType.json"
+    },
+    "denominator": { 
+      "type": "number",
+      "nullable": true,
+      "description": "Number of animals in the group."
+    },
+    "icarGroupSpecifier": {
+      "type": "array",
+      "items": {
+        "$ref": "../types/icarGroupSpecifierType.json"
+      }
+    }
+  }
+}
