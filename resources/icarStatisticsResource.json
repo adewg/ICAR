@@ -4,7 +4,13 @@
   "type": "object",
 
   "required": [
-    "id"
+    "id",
+    "location",
+    "purpose",
+    "startDate",
+    "endDate",
+    "group",
+    "statistics"
   ],
 
   "properties": {
