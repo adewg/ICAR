@@ -5,7 +5,7 @@
 
   "enum": [
     "TestDay",
-    "feeding",
+    "Feeding",
     "Reproduction",
     "BreedingValues",
     "TypeClassification",
