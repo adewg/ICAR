@@ -446,7 +446,7 @@
             "get": {
                 "operationId": "get-statistics",
                 "summary": "Get the statistics for a certain location",
-                "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated. Als the purpose can be provided to limit the purpose of the statistics",
+                "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated. Also the purpose can be provided to limit the purpose of the statistics",
                 "tags": [
                     "ADE-1.2-management"
                 ],
