@@ -28,7 +28,7 @@
     "group": {
       "type": "array",
       "items": {
-        "$ref": "../types/icarGroupType.json"
+        "$ref": "../types/icarStatisticsGroupType.json"
       }
     },
     "statistics": {
