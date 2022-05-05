@@ -1,5 +1,5 @@
 {
-  "description": "definition of the groups for which statistics are provided",
+  "description": "definition of the groups for which statistics are provided. None of these are mandatory and can be used when convenient.",
 
   "type": "object",
 
