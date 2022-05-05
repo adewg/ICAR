@@ -25,10 +25,10 @@
     "purpose": {
       "$ref": "../enums/icarStatisticsPurposeType.json"
     },
-    "startDate": {
+    "dateFrom": {
       "$ref": "../types/icarDateType.json"
     },
-    "endDate": {
+    "dateTo": {
       "$ref": "../types/icarDateType.json"
     },
     "group": {
