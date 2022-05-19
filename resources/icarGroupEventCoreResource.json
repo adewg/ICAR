@@ -10,7 +10,7 @@
 
       "properties": {
         "groupMethod": {
-          "$ref": "../enums/icarGroupEventMethod.json",
+          "$ref": "../enums/icarGroupEventMethodType.json",
           "description": "Indicates whether the event references an existing animal set, has an embedded animal set, or an inventory classification."
         },
         "count": {
@@ -18,7 +18,7 @@
           "description": "Summarises the number of animals observed in the event. Generally the number of animals in the group, but sometimes a sample."
         },
         "inventoryClassification": {
-          "$ref": "../types/icarInventoryClassification.json",
+          "$ref": "../types/icarInventoryClassificationType.json",
           "description": "Describe the group of animals by their characteristics rather than animal identifiers."
         },
         "embeddedAnimalSet": {
