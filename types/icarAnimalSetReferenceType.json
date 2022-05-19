@@ -1,0 +1,16 @@
+{
+    "description": "References an animal set through its unique ID in the source system, optionally also specifying its URL (@ID).",
+
+    "allOf": [
+        { "$ref": "../types/icarResourceReferenceType.json" },
+        {
+            "type": "object",
+            "properties": {
+                "animalSetId": {
+                    "type": "string",
+                    "description": "Unique identifier in the source system for this animal set."
+                }
+            }
+        }
+    ]
+}

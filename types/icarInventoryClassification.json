@@ -25,7 +25,7 @@
     },
     "birthPeriod": {
       "$ref": "../types/icarDateType.json",
-      "description": "The range of birth dates. Use YYYY (all one year), YYYYMM (one month), or two date-times separated by / to represent a range."
+      "description": "The range of birth dates. Use YYYY (all one year), YYYY-MM (one month), or two RFC3339 date-times separated by / to represent a range."
     },      
     "reproductiveStatus": {
       "$ref": "../enums/icarAnimalReproductionStatusType.json",

@@ -1,0 +1,35 @@
+{
+  "description": "Extends icarEventCoreResource to support event observations on groups of animals.",
+
+  "allOf": [
+    {
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "groupMethod": {
+          "$ref": "../enums/icarGroupEventMethod.json",
+          "description": "Indicates whether the event references an existing animal set, has an embedded animal set, or an inventory classification."
+        },
+        "count": {
+          "type": "integer",
+          "description": "Summarises the number of animals observed in the event. Generally the number of animals in the group, but sometimes a sample."
+        },
+        "inventoryClassification": {
+          "$ref": "../types/icarInventoryClassification.json",
+          "description": "Describe the group of animals by their characteristics rather than animal identifiers."
+        },
+        "embeddedAnimalSet": {
+          "$ref": "../resources/icarAnimalSetResource.json",
+          "description": "Specifies the set of animals as a list of member animal identifiers."
+        },
+        "animalSetReference": {
+          "$ref": "../types/icarAnimalSetReferenceType.json",
+          "description": "Reference an existing animal set by ID and optionally URI"
+        }
+      }
+    }
+  ]
+}
