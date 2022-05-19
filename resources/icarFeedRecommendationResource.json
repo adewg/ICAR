@@ -23,15 +23,15 @@
         },
         "recommendationDateTime ": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The timestamp of the recommendation."
+          "description": "The RFC3339 UTC timestamp of the recommendation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "startDateTime": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The date of the beginning of the recommendation."
+          "description": "The RFC3339 UTC date of the beginning of the recommendation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "endDateTime": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The end date of the recommendation."
+          "description": "The RFC3339 UTC end date of the recommendation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "recommendedFeed": {
           "type": "array",

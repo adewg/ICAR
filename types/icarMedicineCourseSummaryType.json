@@ -6,11 +6,11 @@
     "properties": {
         "startDate": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "Start date of the treatment course"
+          "description": "RFC3339 UTC start date of the treatment course (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)"
         },
         "endDate": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "End date of the treatment course"
+          "description": "RFC3339 UTC End date of the treatment course (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)"
         },
         "medicine": {
           "$ref": "../types/icarMedicineReferenceType.json",

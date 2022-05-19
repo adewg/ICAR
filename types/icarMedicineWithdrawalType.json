@@ -7,7 +7,7 @@
         },
         "endDate": {
             "$ref":"../types/icarDateTimeType.json",
-            "description": "End date of withdrawal calculated based on treatment date and medicine rules."
+            "description": "RFC3339 UTC end date of withdrawal calculated based on treatment date and medicine rules (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "market" : {
             "type": "string",

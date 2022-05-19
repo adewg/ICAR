@@ -24,11 +24,11 @@
     },
     "loadingDateTime": {
       "$ref": "../types/icarDateTimeType.json",
-      "description": "Date and time animals were loaded for transport, including time zone (UTC preferred)."
+      "description": "RFC3339 UTC date and time animals were loaded for transport (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
     },
     "unloadingDateTime": {
       "$ref": "../types/icarDateTimeType.json",
-      "description": "Date and time animals were unloaded after transport, including time zone (UTC preferred)."
+      "description": "RFC3339 UTC date and time animals were unloaded after transport (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
     },
     "expectedDuration": {
       "type": "number",

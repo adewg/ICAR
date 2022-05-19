@@ -21,9 +21,11 @@
       "description": "Boolean value indicating if this resource has been deleted in the source system."
     },
     "modified": {
-      "$ref": "../types/icarDateTimeType.json"
+      "$ref": "../types/icarDateTimeType.json",
+      "description": "RFC3339 UTC date/time of last modification (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
     },
     "created": {
+      "description": "RFC3339 UTC date/time of creation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
       "nullable": true,
       "allOf": [
         {
@@ -36,6 +38,7 @@
       "description": "Person or organisation who created the object"
     },
     "validFrom": {
+      "description": "RFC3339 UTC start of period when the resource is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
       "nullable": true,
       "allOf": [
         {
@@ -44,6 +47,7 @@
       ]
     },
     "validTo": {
+      "description": "RFC3339 UTC end of the period when the resoure is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
       "nullable": true,
       "allOf": [
         {

@@ -40,7 +40,7 @@
         },
         "eventEndDateTime": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "To be used in case of running with a bull to end the period. ISO8601 date and time. MUST contain time zone. UTC recommended."
+          "description": "To be used in case of running with a bull to end the period. RFC3339 UTC format (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "semenFromFarmStocks": {
           "type": "boolean",

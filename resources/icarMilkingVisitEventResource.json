@@ -14,7 +14,8 @@
 
       "properties": {
         "milkingStartingDateTime": {
-          "$ref": "../types/icarDateTimeType.json"
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The RFC3339 UTC date time of the start of milking (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "milkingDuration": {
           "$ref": "../types/icarMilkDurationType.json"
