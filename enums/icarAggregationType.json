@@ -1,0 +1,15 @@
+{
+  "description": "The type of aggregation.",
+
+  "type": "string",
+
+  "enum": [
+    "Average",
+    "Sum",
+    "StDev",
+    "Min",
+    "Max",
+    "Count"
+  ]
+}
+

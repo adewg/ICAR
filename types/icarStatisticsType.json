@@ -1,0 +1,23 @@
+{
+  "description": "The statitics that have been calculated.",
+
+  "type": "object",
+
+  "properties": {
+    "metric": {
+      "$ref": "../types/icarMetricType.json",
+      "description": "The metric code for a specific statitics. See https://github.com/adewg/ICAR/wiki/Schemes for more info"
+    },
+    "unit": {
+      "$ref": "../enums/uncefactMassUnitsType.json"
+    },
+    "aggregation": {
+      "$ref": "../enums/icarAggregationType.json"
+    },
+    "value": { 
+      "type": "double",
+      "nullable": true,
+      "description": "The value of the metric."
+    }
+  }
+}

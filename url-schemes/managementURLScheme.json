@@ -442,6 +442,48 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/statistics": {
+            "get": {
+                "operationId": "get-statistics",
+                "summary": "Get the statistics for a certain location",
+                "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated by specifying a date to and date from parameter. Also the purpose can be provided to limit the purpose of the statistics",
+                "tags": [
+                    "ADE-1.2-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/purpose"
+                    }                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the statistics for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarStatisticsCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/batches/locations/{location-scheme}/{location-id}/animal-sets": {
             "post": {
                 "operationId": "post-batch-animal-sets",
@@ -796,6 +838,9 @@
             "icarDeviceCollection": {
                 "$ref": "../collections/icarDeviceCollection.json"
             },
+            "icarStatisticsCollection": {
+                "$ref": "../collections/icarStatisticsCollection.json"
+            },
             "icarDeviceArray": {
                 "type": "array",
                 "items": {
@@ -838,6 +883,33 @@
                 "schema": {
                     "type": "string",
                     "format": "date-time"
+                }
+            },
+            "date-from": {
+                "name": "date-to",
+                "in": "query",
+                "description": "The end of the date range for the period for which data is needed, the date inclusive.",
+                "schema": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "date-to": {
+                "name": "date-from",
+                "in": "query",
+                "description": "The start of the date range for the period for which data is needed, the date inclusive.",
+                "schema": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "purpose": {
+                "name": "purpose",
+                "in": "query",
+                "description": "The purpose of the statistics.",
+                "required": false,
+                "schema": {
+                  "$ref": "../enums/icarStatisticsPurposeType.json"
                 }
             },
             "animal-scheme": {
