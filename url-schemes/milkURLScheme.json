@@ -55,7 +55,10 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
                 }
@@ -121,7 +124,10 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
                 }
@@ -160,7 +166,10 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
                 }
@@ -226,9 +235,13 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
+
                 }
             }
         },
@@ -265,9 +278,13 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
+
                 }
             },
             "post": {
@@ -331,9 +348,13 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
+
                 }
             }
         },
@@ -370,9 +391,13 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
+
                 }
             }
         },
@@ -403,9 +428,13 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
+
                 }
             }
         },
@@ -442,9 +471,13 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
+
                 }
             },
             "post": {
@@ -508,9 +541,13 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "$ref": "#/components/responses/default"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/default"
                     }
+
                 }
             }
         },
@@ -576,7 +613,17 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
                         "description": "The response contains a set of batch results, which may include errors and warnings.",
                         "content": {
                             "application/json": {
@@ -651,7 +698,17 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
                         "description": "The response contains a set of batch results, which may include errors and warnings.",
                         "content": {
                             "application/json": {
@@ -726,7 +783,17 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
                         "description": "The response contains a set of batch results, which may include errors and warnings.",
                         "content": {
                             "application/json": {
@@ -801,7 +868,17 @@
                             }
                         }
                     },
-                    "default": {
+                    "400": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
                         "description": "The response contains a set of batch results, which may include errors and warnings.",
                         "content": {
                             "application/json": {
