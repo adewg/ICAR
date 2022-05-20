@@ -13,7 +13,7 @@
           "$ref": "../enums/icarGroupEventMethodType.json",
           "description": "Indicates whether the event references an existing animal set, has an embedded animal set, or an inventory classification."
         },
-        "count": {
+        "countObserved": {
           "type": "integer",
           "description": "Summarises the number of animals observed in the event. Generally the number of animals in the group, but sometimes a sample."
         },

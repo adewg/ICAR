@@ -5,6 +5,7 @@
         { "$ref": "../types/icarResourceReferenceType.json" },
         {
             "type": "object",
+            "required": [ "animalSetId" ],
             "properties": {
                 "animalSetId": {
                     "type": "string",
