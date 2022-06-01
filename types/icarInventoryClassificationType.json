@@ -2,6 +2,8 @@
   "type": "object",
   "description": "This type is used to categorise animals by shared characteristics - so you can say the equivalent of 200 x 2-year-old in-calf Jersey heifers.",
 
+  "required": ["name", "species"],
+
   "properties": {
     "name": {
       "type": "string",
