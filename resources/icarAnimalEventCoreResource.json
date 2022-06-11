@@ -8,6 +8,8 @@
     {
       "type": "object",
 
+      "required": ["animal"],
+
       "properties": {
         "animal": {
           "$ref": "../types/icarAnimalIdentifierType.json",
