@@ -1,5 +1,5 @@
 {
-  "description": "udt:DateTimeType | A particular point in the progression of time together with relevant supplementary information.",
+  "description": "A particular point in the progression of time. Shall be UTC format with Z, specified in RFC3339 (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
   
   "type": "string",
 

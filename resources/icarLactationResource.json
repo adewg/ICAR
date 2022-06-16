@@ -23,11 +23,11 @@
         },
         "beginDate": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The date of the beginning of the lactation."
+          "description": "The RFC3339 UTC date of the beginning of the lactation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "endDate": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The end date of the the lactation. This occurs when the animal is dried off, dies or calves again."
+          "description": "The RFC3339 UTC end date of the the lactation. This occurs when the animal is dried off, dies or calves again."
         },
         "parity": {
           "type": "number",
@@ -55,7 +55,7 @@
         },
         "lastTestDay": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The date of the last test day in the lactation."
+          "description": "The RCF3339 UTC date of the last test day in the lactation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "lactationType": {
           "$ref": "../enums/icarLactationType.json",

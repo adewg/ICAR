@@ -10,7 +10,7 @@
         },
         "expiryDate": {
             "$ref": "../types/icarDateTimeType.json",
-            "description": "The expiry date of the batch."
+            "description": "The RFC3339 UTC expiry date of the batch (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         }
     }
 } 

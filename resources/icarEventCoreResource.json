@@ -15,7 +15,7 @@
         },
         "eventDateTime": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "ISO8601 date and time. MUST contain time zone. UTC recommended."
+          "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
         },
         "traitLabel": {
           "$ref": "../types/icarTraitLabelIdentifierType.json",

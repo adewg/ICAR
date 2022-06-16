@@ -17,11 +17,11 @@
           },
           "reportStartDateTime": {
             "$ref": "../types/icarDateTimeType.json",
-            "description": "The moment the period of the reporting started"
+            "description": "The RFC3339 UTC moment the period of the reporting started (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
           },
           "reportEndDateTime": {
             "$ref": "../types/icarDateTimeType.json",
-            "description": "The moment the period of the reporting ended"
+            "description": "The RFC3339 UTC moment the period of the reporting ended (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
           },
           "feedVisitDuration": {
             "$ref": "../types/icarFeedDurationType.json"
