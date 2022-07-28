@@ -4,20 +4,13 @@ on: [push]
 
 jobs:
   build:
-
+    name: Run Spectral
     runs-on: ubuntu-latest
-
     steps:
-    - name: validate JSON URL scheme
-      run: |
-        export URL_SCHEMES_PATH=https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF#refs/heads/}/url-schemes
-        export SPECTRAL_RULESET_PATH=https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF#refs/heads/}/.spectral.yaml
-        echo "Validating using latest stoplight/spectral using ruleset ${SPECTRAL_RULESET_PATH} on schemes in ${URL_SCHEMES_PATH}"
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/exampleUrlScheme.json -r=$SPECTRAL_RULESET_PATH --v
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/feedURLscheme.json -r=$SPECTRAL_RULESET_PATH --v
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/healthURLScheme.json -r=$SPECTRAL_RULESET_PATH --v
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/managementURLScheme.json -r=$SPECTRAL_RULESET_PATH --v
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/milkURLScheme.json -r=$SPECTRAL_RULESET_PATH --v
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/performanceURLScheme.json -r=$SPECTRAL_RULESET_PATH --v
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/registrationURLScheme.json -r=$SPECTRAL_RULESET_PATH --v
-        docker run stoplight/spectral lint $URL_SCHEMES_PATH/reproductionURLScheme.json -r=$SPECTRAL_RULESET_PATH --v
+      # Check out the repository
+      - uses: actions/checkout@v2
+
+      # Run Spectral
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'url-schemes/*.json'
