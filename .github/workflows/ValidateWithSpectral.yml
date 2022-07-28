@@ -3,8 +3,8 @@ name: Spectral JSON Validation CI
 on: [push]
 
 env:
-  URL_SCHEMES_PATH: https://raw.githubusercontent.com/${GITHUB_REF#refs/heads/}/url-schemes
-  SPECTRAL_RULESET_PATH: https://raw.githubusercontent.com/${GITHUB_REF#refs/heads/}/.spectral.yaml
+  URL_SCHEMES_PATH: https://raw.githubusercontent.com/${{GITHUB_REF#refs/heads/}}/url-schemes
+  SPECTRAL_RULESET_PATH: https://raw.githubusercontent.com/${{GITHUB_REF#refs/heads/}}/.spectral.yaml
 jobs:
   build:
 
