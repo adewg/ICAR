@@ -1,4 +1,3 @@
 extends: spectral:oas
 rules:
-  ignore-media:
-    oas3-valid-media-example: off
+  oas3-valid-media-example: off
