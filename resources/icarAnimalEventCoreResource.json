@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "Extends icarEventCoreResource to add a single individual animal identifier.",
 
   "allOf": [
     {
@@ -7,6 +7,8 @@
     },
     {
       "type": "object",
+
+      "required": ["animal"],
 
       "properties": {
         "animal": {
