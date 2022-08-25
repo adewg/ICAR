@@ -15,7 +15,7 @@
         "properties": {
           "feedingStartingDateTime": {
             "$ref": "../types/icarDateTimeType.json",
-            "description": "The moment the feeding started"
+            "description": "The RFC3339 UTC moment the feeding started (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
           },
           "feedVisitDuration": {
             "$ref": "../types/icarFeedDurationType.json"

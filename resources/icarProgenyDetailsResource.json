@@ -53,7 +53,7 @@
           "description": "Official herdbook name."
         },
         "taggingDate": {
-          "description": "Progeny tagging date.",
+          "description": "Progeny tagging date in RFC3339 UTC (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
           "nullable": true,
           "allOf": [
             {

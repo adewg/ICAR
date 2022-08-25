@@ -35,7 +35,7 @@
         },
         "birthDate": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "ISO8601 date and time."
+          "description": "RFC3339 UTC date/time of birth (see https://ijmacd.github.io/rfc3339-iso8601/ for how to use)."
         },
         "primaryBreed": {
           "$ref": "../types/icarBreedIdentifierType.json",
