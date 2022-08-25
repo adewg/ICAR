@@ -19,7 +19,7 @@
       "enum": ["Link"]
     },
     "identifier": {
-      "type": "../types/icarIdentifierType.json",
+      "$ref": "../types/icarIdentifierType.json",
       "description": "Provides the identifier of the referenced resource."
     },
     "reltype": {
