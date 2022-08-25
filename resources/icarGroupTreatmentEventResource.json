@@ -1,0 +1,56 @@
+{
+    "description": "Defines a health treatment applied to a group of animals.",
+
+    "allOf": [
+        {
+          "$ref": "../resources/icarGroupEventCoreResource.json"
+        },
+        {
+            "type": "object",
+
+            "properties": {
+                "medicine": {
+                    "$ref": "../types/icarMedicineReferenceType.json",
+                    "description": "A reference to the medicine used (where applicable)."
+                },
+                "procedure": {
+                    "type": "string",
+                    "description": "Medicine application method or a non-medicine procedure."
+                },
+                "batches": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarMedicineBatchType.json"
+                    },
+                    "description": "Batches and expiry details for the medicine administered."
+                },
+                "withdrawals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarMedicineWithdrawalType.json"
+                    },
+                    "description": "Withholding details for the treatment administered."
+                },
+                "dosePerAnimal": {
+                    "$ref": "../types/icarMedicineDoseType.json",
+                    "description": "The actual or average medicine dose administered per animal."
+                },
+                "totalMedicineUsed": {
+                    "$ref": "../types/icarMedicineDoseType.json",
+                    "description": "The total amount of medicine used."
+                },
+                "site": {
+                    "type": "string",
+                    "description": "Body site where the treatment was administered."
+                },
+                "positions": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "../types/icarPositionType.json"
+                    },
+                    "description": "The positions to be treated"
+                }
+            }
+        }
+    ]
+} 
