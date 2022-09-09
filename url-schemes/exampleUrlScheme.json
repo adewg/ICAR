@@ -1664,9 +1664,6 @@
   },
   "components": {
     "schemas": {
-      "error": {
-        "$ref": "../resources/exampleErrorResource.json"
-      },
       "icarLocationCollection": {
         "$ref": "../collections/icarLocationCollection.json"
       },
@@ -1891,16 +1888,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/error"
-                  }
-                }
-              },
-              "description": "A default response containing only a list of errors"
+              "$ref": "../collections/icarErrorCollection.json"
             }
           }
         }
