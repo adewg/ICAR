@@ -1,0 +1,37 @@
+{
+  "description": "Withdrawal resource to seperate a product.",
+  "allOf": [
+    {
+      "$ref": "../resources/icarResource.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "startDateTime",
+        "productType"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier in the source system for this event."
+        },
+        "startDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
+        },
+        "endDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
+        },
+        "productType": {
+          "$ref": "../enums/icarWithdrawalProductType.json",
+          "description": "Product or food item affected by this withdrawal."
+        },
+        "remark": {
+          "type": "string",
+          "description": "A comment or remark field for additional user-specified information about the event."
+        }
+      }
+    }
+  ]
+}
