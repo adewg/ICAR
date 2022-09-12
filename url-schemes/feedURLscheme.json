@@ -981,9 +981,6 @@
                     "$ref": "../resources/icarBatchResult.json"
                 }
             },
-            "error": {
-                "$ref": "../resources/icarResponseMessageResource.json"
-            },
             "icarFeedResource": {
                 "$ref": "../resources/icarFeedResource.json"
             },
@@ -1105,25 +1102,16 @@
             }
         },
         "responses": {
-            "default": {
-                "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/error"
-                                    }
-                                }
-                            },
-                            "description": "A default response containing only a list of errors"
-                        }
-                    }
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../collections/icarErrorCollection.json"
                 }
+              }
             }
+          }
         },
         "examples": {
             "feed-storages": {
