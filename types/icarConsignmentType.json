@@ -1,5 +1,5 @@
 {
-  "description": "Consignment information for a movement (arrival, departure). Localised extensions allowed.",
+  "description": "Consignment information for a movement (arrival, departure).",
 
   "type": "object",
 
@@ -12,15 +12,21 @@
       "$ref": "../types/icarLocationIdentifierType.json"
     },
     "originAddress": {
-      "type": "string",
-      "description": "Origin address - should actually be a $ref to schema.org/organization."
+      "description": "Origin address for movement.",
+      "anyOf": [
+          { "type": "string" },
+          { "$ref": "../types/PostalAddress.json" }
+      ]
     },
     "destinationLocation": {
       "$ref": "../types/icarLocationIdentifierType.json"
     },
     "destinationAddress": {
-      "type": "string",
-      "description": "Destination address - should actually be a $ref to schema.org/organization."
+      "description": "Destination address for movement.",
+      "anyOf": [
+          { "type": "string" },
+          { "$ref": "../types/PostalAddress.json" }
+      ]
     },
     "loadingDateTime": {
       "$ref": "../types/icarDateTimeType.json",
