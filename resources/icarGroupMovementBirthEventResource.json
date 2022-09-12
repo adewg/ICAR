@@ -6,7 +6,7 @@
         },
         {
             "type": "object",
-            "required": [ "groupMethod", "registrationReason"],
+            "required": [ "location", "groupMethod", "registrationReason"],
 
             "properties": {
                 "registrationReason": {
