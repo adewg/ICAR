@@ -1,0 +1,22 @@
+{
+    "description": "Extends icarGroupEventCoreResource to provide a group movement arrival event.",
+    "allOf": [
+        {
+            "$ref": "../resources/icarGroupEventCoreResource.json"
+        },
+        {
+            "type": "object",
+            "required": ["groupMethod", "arrivalReason"],
+
+            "properties": {
+                "arrivalReason": {
+                    "$ref": "../enums/icarArrivalReasonType.json"
+                },
+                "consignment": {
+                    "$ref": "../types/icarConsignmentType.json"
+                    
+                }
+            }
+        }
+    ]
+}

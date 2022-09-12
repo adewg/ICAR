@@ -1,0 +1,28 @@
+{
+    "description": "Extends icarGroupEventCoreResource to provide a group movement departure event.",
+
+    "allOf": [
+        {
+            "$ref": "../resources/icarGroupEventCoreResource.json"
+        },
+        {
+            "type": "object",
+            "required": ["groupMethod", "departureKind"],
+
+            "properties": {
+                "departureKind": {
+                    "$ref": "../enums/icarDepartureKindType.json",
+                    "description": "Coded description of the type of departure (e.g. sale, agistment, other)."
+                },
+                "departureReason": {
+                    "$ref": "../enums/icarDepartureReasonType.json",
+                    "description": "Coded description of the reason why the animals are departing."
+                },
+                "consignment": {
+                    "$ref": "../types/icarConsignmentType.json",
+                    "description": "Consignment information about origin, destination, and transport."
+                }
+            }
+        }
+    ]
+}
