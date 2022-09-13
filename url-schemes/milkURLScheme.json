@@ -542,7 +542,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/icarWithdrawalsEventCollection"
+                                    "$ref": "#/components/schemas/icarWithdrawalEventCollection"
                                 }
                             }
                         }
@@ -979,8 +979,8 @@
             "icarLactationStatusObservedEventCollection": {
                 "$ref": "../collections/icarLactationStatusObservedEventCollection.json"
             },
-            "icarWithdrawalsEventCollection": {
-                "$ref": "../collections/icarWithdrawalsEventCollection.json"
+            "icarWithdrawalEventCollection": {
+                "$ref": "../collections/icarWithdrawalEventCollection.json"
             },
             "icarLactationStatusObservedEventArray": {
                 "type": "array",
