@@ -11,10 +11,6 @@
         "productType"
       ],
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier in the source system for this event."
-        },
         "endDateTime": {
           "$ref": "../types/icarDateTimeType.json",
           "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
