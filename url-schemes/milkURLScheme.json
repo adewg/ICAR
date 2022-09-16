@@ -910,14 +910,14 @@
       "icarLactationStatusObservedEventCollection": {
         "$ref": "../collections/icarLactationStatusObservedEventCollection.json"
       },
-      "icarWithdrawalEventCollection": {
-        "$ref": "../collections/icarWithdrawalEventCollection.json"
-      },
       "icarLactationStatusObservedEventArray": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/icarLactationStatusObservedEventResource"
         }
+      },
+      "icarWithdrawalEventCollection": {
+        "$ref": "../collections/icarWithdrawalEventCollection.json"
       }
     },
     "parameters": {
