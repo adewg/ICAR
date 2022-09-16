@@ -697,9 +697,6 @@
           "$ref": "../resources/icarBatchResult.json"
         }
       },
-      "error": { 
-        "$ref": "../resources/icarResponseMessageResource.json"
-      },
       "icarDiagnosisEvent": {
         "$ref": "../resources/icarDiagnosisEventResource.json"
       },
@@ -793,16 +790,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/error"
-                  }
-                }
-              },
-              "description": "A default response containing only a list of errors"
+              "$ref": "../collections/icarErrorCollection.json"
             }
           }
         }
