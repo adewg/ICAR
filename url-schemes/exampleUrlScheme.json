@@ -716,7 +716,6 @@
                     }
                 }
             }
-        }
     },    
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
