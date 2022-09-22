@@ -1998,6 +1998,33 @@
           "format": "date-time"
         }
       },
+      "date-from": {
+          "name": "date-to",
+          "in": "query",
+          "description": "The end of the date range for the period for which data is needed, the date inclusive.",
+          "schema": {
+              "type": "string",
+              "format": "date"
+          }
+      },
+      "date-to": {
+          "name": "date-from",
+          "in": "query",
+          "description": "The start of the date range for the period for which data is needed, the date inclusive.",
+          "schema": {
+              "type": "string",
+              "format": "date"
+          }
+      },
+      "purpose": {
+          "name": "purpose",
+          "in": "query",
+          "description": "The purpose of the statistics.",
+          "required": false,
+          "schema": {
+            "$ref": "../enums/icarStatisticsPurposeType.json"
+          }
+      },
       "report-start-date-time": {
         "name": "report-start-date-time",
         "in": "query",
