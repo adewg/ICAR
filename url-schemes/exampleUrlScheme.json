@@ -119,7 +119,6 @@
                     }
                 }
             }
-        }
     },
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
@@ -1820,6 +1819,7 @@
           }
         }
       }
+    }  
   },
   "components": {
     "schemas": {
