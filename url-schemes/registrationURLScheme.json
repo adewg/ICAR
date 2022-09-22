@@ -955,6 +955,9 @@
                     "$ref": "../resources/icarBatchResult.json"
                 }
             },
+            "icarLocationCollection": {
+                "$ref": "../collections/icarLocationCollection.json"
+            },            
             "icarAnimalCoreCollection": {
                 "$ref": "../collections/icarAnimalCoreCollection.json"
             },
@@ -1054,6 +1057,33 @@
                 }
             }
         },
+    "examples": {
+      "locations": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+            "identifier": {
+              "id": "276031231231234",
+              "scheme": "eu.farmId"
+            },
+            "name": "My little farm",
+            "timeZoneId": "Europe/Paris",
+            "meta": {
+              "source": "source",
+              "creator": "creator",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": "2020-01-29T08:49:06.1314223+00:00"
+            }
+          }
+         ]
+        }
+      }
+    },        
         "responses": {
           "default": {
             "description": "An error has occured while handling the request. Check the content of the message for the error details.",
