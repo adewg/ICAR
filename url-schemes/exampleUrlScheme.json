@@ -1266,6 +1266,45 @@
         }
       }
     },      
+    "/locations/{location-scheme}/{location-id}/health-status": {
+      "get": {
+        "operationId": "get-HealthStatusObserved",
+        "summary": "Get the health-status-observed of an animal for a certain location",
+        "description": "# Purpose\nProvides the animal health-status for a location\n",
+        "tags": [
+          "ADE-1.2-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatment progams for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHealthStatusObservedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/gestations": {
       "get": {
         "operationId": "get-Gestations",
@@ -1753,6 +1792,9 @@
       },
       "icarTreatmentProgramEventCollection": {
         "$ref": "../collections/icarTreatmentProgramEventCollection.json"      
+      },
+      "icarHealthStatusObservedEventCollection": {
+        "$ref": "../collections/icarHealthStatusObservedEventCollection.json"
       },
       "icarGestationCollection": {
         "$ref": "../collections/icarGestationCollection.json"      
