@@ -1272,7 +1272,7 @@
         "summary": "Get the health-status-observed of an animal for a certain location",
         "description": "# Purpose\nProvides the animal health-status for a location\n",
         "tags": [
-          "ADE-1.2-health"
+          "ADE-1.3-health"
         ],
         "parameters": [
           {
