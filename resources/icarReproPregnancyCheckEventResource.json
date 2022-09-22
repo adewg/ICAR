@@ -2,7 +2,7 @@
   "description": "Pregnancy diagnosis or check event.",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",

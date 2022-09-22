@@ -1,0 +1,19 @@
+{
+  "description": "Event for recording animal health status",
+
+  "allOf": [{
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "observedStatus": {
+          "$ref": "../enums/icarAnimalHealthStatusType.json",
+          "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled).",
+          "nullable": false
+        }
+      }
+    }
+  ]
+}

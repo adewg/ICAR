@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "description": "This type is used to categorise animals by shared characteristics - so you can say the equivalent of 200 x 2-year-old in-calf Jersey heifers.",
+
+  "required": ["name", "species"],
+
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this inventory grouping."
+    },
+    "count": {
+      "type": "number",
+      "description": "The count or number of animals in this inventory classification."
+    },
+    "species": {
+      "$ref": "../enums/icarAnimalSpecieType.json",
+      "description": "The species of animals."
+    },
+    "sex": {
+      "$ref": "../enums/icarAnimalGenderType.json",
+      "description": "The sex of animals."
+    },
+    "primaryBreed": {
+      "$ref": "../types/icarBreedIdentifierType.json",
+      "description": "Primary breed defined using an identifier and scheme."
+    },
+    "birthPeriod": {
+      "$ref": "../types/icarDateType.json",
+      "description": "The range of birth dates. Use YYYY (all one year), YYYY-MM (one month), or two RFC3339 date-times separated by / to represent a range."
+    },      
+    "reproductiveStatus": {
+      "$ref": "../enums/icarAnimalReproductionStatusType.json",
+      "description": "The reproductive/pregnancy status of animals."
+    },
+    "lactationStatus": {
+      "$ref": "../enums/icarAnimalLactationStatusType.json",
+      "description": "The lactation status of animals."
+    },
+    "productionPurposes": {
+      "type": "array",
+      "description": "Array of production purposes.",
+      "items": {
+        "$ref": "../enums/icarProductionPurposeType.json"
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "description": "Event for recording heats.",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",
@@ -16,7 +16,7 @@
         },
         "expirationDateTime": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
+          "description": "RFC3339 UTC date/time when the heat will end (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "visualDetection": {
           "type": "object",
@@ -54,7 +54,7 @@
           "properties": {
             "expirationDateTime": {
               "$ref": "../types/icarDateTimeType.json",
-              "description": "Date Time when the heat will end. ISO8601 date and time. MUST contain time zone. UTC recommended."
+              "description": "RFC3339 UTC date/time when the heat will end (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
             },
             "heatChance": {
               "type": "integer",

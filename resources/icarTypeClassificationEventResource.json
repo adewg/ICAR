@@ -2,7 +2,7 @@
     "description": "Event for recording a type calssification consisting of a set of conformation scores",
   
     "allOf": [{
-        "$ref": "../resources/icarEventCoreResource.json"
+        "$ref": "../resources/icarAnimalEventCoreResource.json"
       },
       {
         "type": "object",

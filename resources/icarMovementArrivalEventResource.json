@@ -2,7 +2,7 @@
   "description": "Event for recording animal arrival",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",
