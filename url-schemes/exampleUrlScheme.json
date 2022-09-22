@@ -717,7 +717,7 @@
                 }
             }
         }
-    }    
+    },    
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
@@ -1273,7 +1273,7 @@
                     }
                 }
             }
-    }
+    },
     "/locations/{location-scheme}/{location-id}/diagnoses": {
       "get": {
         "operationId": "get-Diagnoses",
