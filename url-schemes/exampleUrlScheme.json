@@ -120,7 +120,7 @@
                 }
             }
         }
-    }
+    },
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
         "operationId": "get-milking-visits",
