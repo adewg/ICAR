@@ -22,6 +22,36 @@
         }
     ],
     "paths": {
+    "/locations": {
+      "get": {
+        "operationId": "get-locations",
+        "summary": "Get available schema/id combinations for locations.",
+        "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
+        "tags": [
+          "ADE-1.3-registration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the available locations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLocationCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/locations"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },    
         "/locations/{location-scheme}/{location-id}/animals": {
             "get": {
                 "operationId": "get-animals",
