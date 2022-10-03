@@ -15,7 +15,8 @@
       "$ref": "../enums/icarAggregationType.json"
     },
     "value": { 
-      "type": "double",
+      "type": "number",
+      "format": "double",
       "nullable": true,
       "description": "The value of the metric."
     }
