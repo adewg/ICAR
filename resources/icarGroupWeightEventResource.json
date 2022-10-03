@@ -1,0 +1,47 @@
+{
+    "description": "The Group Weight event records liveweight observations for a group of animals",
+    "allOf": [
+        {
+            "$ref": "../resources/icarGroupEventCoreResource.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "units": {
+                    "$ref": "../enums/uncefactMassUnitsType.json",
+                    "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
+                },
+                "method": {
+                    "$ref": "../enums/icarWeightMethodType.json",
+                    "description": "The method of observation. Loadcell is the default if not specified."
+                },
+                "resolution": {
+                    "type": "number",
+                    "description": "The smallest measurement difference that can be discriminated given the current device settings. Specified in Units, for instance 0.5 (kilograms)."
+                },
+                "animalWeights": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarIndividualWeightType.json"
+                    },
+                    "description": "Array of animal id and weight pairs for animals in the event."
+                },
+                "statistics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarStatisticsType.json"
+                    },
+                    "description": "Array of weight statistics, namely average, sum, min, max, count, stdev"
+                },
+                "device": {
+                    "$ref": "../types/icarDeviceReferenceType.json",
+                    "description": "Optional information about the device used for the measurement."
+                },
+                "timeOffFeed": {
+                    "type": "number",
+                    "description": "Hours of curfew or withholding feed prior to weighing to standardise gut fill."
+                }
+            }
+        }
+    ]
+}
