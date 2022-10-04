@@ -26,8 +26,10 @@
       "description": "Primary breed defined using an identifier and scheme."
     },
     "birthPeriod": {
-      "$ref": "../types/icarDateType.json",
-      "description": "The range of birth dates. Use YYYY (all one year), YYYY-MM (one month), or two RFC3339 date-times separated by / to represent a range."
+      "type": "string",
+      "pattern": "^(([0-9]{4})|([0-9]{4}-[0-9]{2})|([0-9]{4}-[0-9]{2}-[0-9]{1,2}(Z?)(\/|--)[0-9]{4}-[0-9]{2}-[0-9]{1,2}(Z?)))$",
+      "description": "The range of birth dates. Use YYYY (all one year), YYYY-MM (one month), or two RFC3339 date-times separated by / to represent a range.",
+      "nullable": true
     },      
     "reproductiveStatus": {
       "$ref": "../enums/icarAnimalReproductionStatusType.json",
