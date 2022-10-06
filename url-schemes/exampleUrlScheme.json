@@ -83,7 +83,7 @@
     },
     "/locations/{location-scheme}/{location-id}/milking-withdrawals": {
             "get": {
-                "operationId": "get existing milking-withdrawals",
+                "operationId": "get-existing-milking-withdrawals",
                 "summary": "Get the milking-withdrawals for a certain location",
                 "description": "# Purpose\nProvides the milking-withdrawals for a certain location\n",
                 "tags": [
