@@ -81,6 +81,45 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/milking-withdrawals": {
+            "get": {
+                "operationId": "get-existing-milking-withdrawals",
+                "summary": "Get the milking-withdrawals for a certain location",
+                "description": "# Purpose\nProvides the milking-withdrawals for a certain location\n",
+                "tags": [
+                    "ADE-1.3-milk"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the withdrawals for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarWithdrawalEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+    },
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
         "operationId": "get-milking-visits",
@@ -635,6 +674,48 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/statistics": {
+            "get": {
+                "operationId": "get-statistics",
+                "summary": "Get the statistics for a certain location",
+                "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated by specifying a date to and date from parameter. Also the purpose can be provided to limit the purpose of the statistics",
+                "tags": [
+                    "ADE-1.3-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/purpose"
+                    }                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the statistics for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarStatisticsCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+    },    
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
@@ -1152,6 +1233,45 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/type-classifications": {
+            "get": {
+                "operationId": "get-type-classifications",
+                "summary": "Get the type classification events for a certain location",
+                "description": "# Purpose\nProvides the animal type classification events for a location\n",
+                "tags": [
+                    "ADE-1.3-performance"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarTypeClassificationEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+    },
     "/locations/{location-scheme}/{location-id}/diagnoses": {
       "get": {
         "operationId": "get-Diagnoses",
@@ -1266,6 +1386,45 @@
         }
       }
     },      
+    "/locations/{location-scheme}/{location-id}/health-status": {
+      "get": {
+        "operationId": "get-HealthStatusObserved",
+        "summary": "Get the health-status-observed of an animal for a certain location",
+        "description": "# Purpose\nProvides the animal health-status for a location\n",
+        "tags": [
+          "ADE-1.3-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatment progams for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHealthStatusObservedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/gestations": {
       "get": {
         "operationId": "get-Gestations",
@@ -1660,7 +1819,7 @@
           }
         }
       }
-    }
+    }  
   },
   "components": {
     "schemas": {
@@ -1669,6 +1828,9 @@
       },
       "icarMilkingVisitEventCollection": {
         "$ref": "../collections/icarMilkingVisitEventCollection.json"
+      },
+      "icarWithdrawalEventCollection": {
+        "$ref": "../collections/icarWithdrawalEventCollection.json"
       },
       "icarReproMatingRecommendationCollection": {
         "$ref": "../collections/icarReproMatingRecommendationCollection.json"
@@ -1709,6 +1871,9 @@
       "icarAnimalSetLeaveEventCollection": {
         "$ref": "../collections/icarAnimalSetLeaveEventCollection.json"
       },
+      "icarStatisticsCollection": {
+        "$ref": "../collections/icarStatisticsCollection.json"
+      },
       "icarReproPregnancyCheckEventCollection": {
         "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
@@ -1745,6 +1910,9 @@
       "icarConformationScoreEventCollection": {
         "$ref": "../collections/icarConformationScoreEventCollection.json"
       },
+      "icarTypeClassificationEventCollection": {
+        "$ref": "../collections/icarTypeClassificationEventCollection.json"
+      },
       "icarDiagnosisEventCollection": {
         "$ref": "../collections/icarDiagnosisEventCollection.json"
       },
@@ -1753,6 +1921,9 @@
       },
       "icarTreatmentProgramEventCollection": {
         "$ref": "../collections/icarTreatmentProgramEventCollection.json"      
+      },
+      "icarHealthStatusObservedEventCollection": {
+        "$ref": "../collections/icarHealthStatusObservedEventCollection.json"
       },
       "icarGestationCollection": {
         "$ref": "../collections/icarGestationCollection.json"      
@@ -1826,6 +1997,33 @@
           "type": "string",
           "format": "date-time"
         }
+      },
+      "date-from": {
+          "name": "date-to",
+          "in": "query",
+          "description": "The end of the date range for the period for which data is needed, the date inclusive.",
+          "schema": {
+              "type": "string",
+              "format": "date"
+          }
+      },
+      "date-to": {
+          "name": "date-from",
+          "in": "query",
+          "description": "The start of the date range for the period for which data is needed, the date inclusive.",
+          "schema": {
+              "type": "string",
+              "format": "date"
+          }
+      },
+      "purpose": {
+          "name": "purpose",
+          "in": "query",
+          "description": "The purpose of the statistics.",
+          "required": false,
+          "schema": {
+            "$ref": "../enums/icarStatisticsPurposeType.json"
+          }
       },
       "report-start-date-time": {
         "name": "report-start-date-time",

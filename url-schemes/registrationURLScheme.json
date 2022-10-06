@@ -22,6 +22,36 @@
         }
     ],
     "paths": {
+    "/locations": {
+      "get": {
+        "operationId": "get-locations",
+        "summary": "Get available schema/id combinations for locations.",
+        "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
+        "tags": [
+          "ADE-1.3-registration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the available locations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLocationCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/locations"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },    
         "/locations/{location-scheme}/{location-id}/animals": {
             "get": {
                 "operationId": "get-animals",
@@ -925,6 +955,9 @@
                     "$ref": "../resources/icarBatchResult.json"
                 }
             },
+            "icarLocationCollection": {
+                "$ref": "../collections/icarLocationCollection.json"
+            },            
             "icarAnimalCoreCollection": {
                 "$ref": "../collections/icarAnimalCoreCollection.json"
             },
@@ -1024,6 +1057,33 @@
                 }
             }
         },
+    "examples": {
+      "locations": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [{
+            "identifier": {
+              "id": "276031231231234",
+              "scheme": "eu.farmId"
+            },
+            "name": "My little farm",
+            "timeZoneId": "Europe/Paris",
+            "meta": {
+              "source": "source",
+              "creator": "creator",
+              "modified": "2020-01-29T08:49:06.1314223+00:00",
+              "created": "2020-01-29T08:49:06.1314223+00:00"
+            }
+          }
+         ]
+        }
+      }
+    },        
         "responses": {
           "default": {
             "description": "An error has occured while handling the request. Check the content of the message for the error details.",
