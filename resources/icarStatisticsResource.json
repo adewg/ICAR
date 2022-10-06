@@ -7,8 +7,8 @@
     "id",
     "location",
     "purpose",
-    "startDate",
-    "endDate",
+    "dateFrom",
+    "dateTo",
     "group",
     "statistics"
   ],
