@@ -1819,7 +1819,241 @@
           }
         }
       }
-    }  
+    },
+    "/locations/{location-scheme}/{location-id}/group-treatments": {
+      "get": {
+        "operationId": "get-group-treatments",
+        "summary": "Get the group treatments for a certain location",
+        "description": "# Purpose\nProvides the group health treatments for a location\n",
+        "tags": [
+          "ADE-1.3-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatments for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupTreatmentEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-weights": {
+      "get": {
+          "operationId": "get-group-weights",
+          "summary": "Get the weights for a certain location",
+          "description": "# Purpose\nProvides the group weights for a location\n",
+          "tags": [
+              "ADE-1.3-performance"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the resources for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupWeightEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-arrivals": {
+      "get": {
+          "operationId": "get-group-arrivals",
+          "summary": "Get the group arrival events for a certain location",
+          "description": "# Purpose\nProvides the group arrival records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the arrival events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementArrivalEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },    
+    "/locations/{location-scheme}/{location-id}/group-births": {
+      "get": {
+          "operationId": "get-group-births",
+          "summary": "Get the group birth or registration events for a certain location",
+          "description": "# Purpose\nProvides the group birth records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the birth or initial registration events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementBirthEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-deaths": {
+      "get": {
+          "operationId": "get-group-deaths",
+          "summary": "Get the group death events for a certain location",
+          "description": "# Purpose\nProvides the group death records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the group death events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementDeathEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-departures": {
+      "get": {
+          "operationId": "get-group-departures",
+          "summary": "Get the group departure events for a certain location",
+          "description": "# Purpose\nProvides the group departure records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the group departure events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementDepartureEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    }
   },
   "components": {
     "schemas": {
@@ -1954,6 +2188,24 @@
       },
       "icarSchemeValueCollection": {
         "$ref": "../collections/icarSchemeValueCollection.json"
+      },
+      "icarGroupMovementBirthEventCollection": {
+        "$ref": "../collections/icarGroupMovementBirthEventCollection.json"
+      },
+      "icarGroupMovementDeathEventCollection": {
+        "$ref": "../collections/icarGroupMovementDeathEventCollection.json"
+      },
+      "icarGroupMovementArrivalEventCollection": {
+        "$ref": "../collections/icarGroupMovementArrivalEventCollection.json"
+      },
+      "icarGroupMovementDepartureEventCollection": {
+        "$ref": "../collections/icarGroupMovementDepartureEventCollection.json"
+      },
+      "icarGroupTreatmentEventCollection": {
+        "$ref": "../collections/icarGroupTreatmentEventCollection.json"
+      },
+      "icarGroupWeightEventCollection": {
+        "$ref": "../collections/icarGroupWeightEventCollection.json"
       }
     },
     "parameters": {
