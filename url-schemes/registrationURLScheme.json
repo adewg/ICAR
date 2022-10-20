@@ -256,6 +256,216 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/group-births": {
+            "get": {
+                "operationId": "get-group-births",
+                "summary": "Get the group birth or registration events for a certain location",
+                "description": "# Purpose\nProvides the group birth records for a location\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the birth or initial registration events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementBirthEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-group-birth",
+                "summary": "Add one group birth or registration event",
+                "description": "# Purpose  \nAllows a client to add one group birth or registration event.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementBirthEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementBirthEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/group-deaths": {
+            "get": {
+                "operationId": "get-group-deaths",
+                "summary": "Get the group death events for a certain location",
+                "description": "# Purpose\nProvides the group death records for a location\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the group death events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementDeathEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-group-death",
+                "summary": "Add one group death event",
+                "description": "# Purpose  \nAllows a client to add a group death event.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The death event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementDeathEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementDeathEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/locations/{location-scheme}/{location-id}/deaths": {
             "get": {
                 "operationId": "get-deaths",
@@ -466,6 +676,111 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/group-arrivals": {
+            "get": {
+                "operationId": "get-group-arrivals",
+                "summary": "Get the group arrival events for a certain location",
+                "description": "# Purpose\nProvides the group arrival records for a location\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the arrival events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementArrivalEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-group-arrival",
+                "summary": "Add a group arrival event",
+                "description": "# Purpose  \nAllows a client to add a group arrival event.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The arrival event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementArrivalEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementArrivalEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/locations/{location-scheme}/{location-id}/departures": {
             "get": {
                 "operationId": "get-departures",
@@ -537,6 +852,111 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/group-departures": {
+            "get": {
+                "operationId": "get-group-departures",
+                "summary": "Get the group departure events for a certain location",
+                "description": "# Purpose\nProvides the group departure records for a location\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the group departure events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementDepartureEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-group-departure",
+                "summary": "Add a group departure event",
+                "description": "# Purpose  \nAllows a client to add a group departure event.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The departure event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementDepartureEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupMovementDepartureEventResource"
                                 }
                             }
                         }
@@ -721,6 +1141,81 @@
                 }
             }
         },
+        "/batches/locations/{location-scheme}/{location-id}/group-births": {
+            "post": {
+                "operationId": "post-batch-group-births",
+                "summary": "Add an array of group birth or initial registration events",
+                "description": "# Purpose  \nAllows a client to add an array of group birth events.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The array of group birth events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementBirthEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/batches/locations/{location-scheme}/{location-id}/deaths": {
             "post": {
                 "operationId": "post-batch-deaths",
@@ -744,6 +1239,81 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/icarMovementDeathEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/group-deaths": {
+            "post": {
+                "operationId": "post-batch-group-deaths",
+                "summary": "Add an array of group death events",
+                "description": "# Purpose  \nAllows a client to add an array of group death events.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The array of group death events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementDeathEventArray"
                             }
                         }
                     }
@@ -871,6 +1441,81 @@
                 }
             }
         },
+        "/batches/locations/{location-scheme}/{location-id}/group-arrivals": {
+            "post": {
+                "operationId": "post-batch-group-arrivals",
+                "summary": "Add an array of group arrival events",
+                "description": "# Purpose  \nAllows a client to add an array of group arrival events.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The array of group arrival events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementArrivalEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/batches/locations/{location-scheme}/{location-id}/departures": {
             "post": {
                 "operationId": "post-batch-departures",
@@ -945,6 +1590,81 @@
                     }
                 }
             }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/group-departures": {
+            "post": {
+                "operationId": "post-batch-group-departures",
+                "summary": "Add an array of group departure events",
+                "description": "# Purpose  \nAllows a client to add an array of group departure events.\n",
+                "tags": [
+                    "ADE-1.3-registration"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The array of group departure events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupMovementDepartureEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -964,14 +1684,26 @@
             "icarMovementBirthEventCollection": {
                 "$ref": "../collections/icarMovementBirthEventCollection.json"
             },
+            "icarGroupMovementBirthEventCollection": {
+                "$ref": "../collections/icarGroupMovementBirthEventCollection.json"
+            },
             "icarMovementDeathEventCollection": {
                 "$ref": "../collections/icarMovementDeathEventCollection.json"
+            },
+            "icarGroupMovementDeathEventCollection": {
+                "$ref": "../collections/icarGroupMovementDeathEventCollection.json"
             },
             "icarMovementArrivalEventCollection": {
                 "$ref": "../collections/icarMovementArrivalEventCollection.json"
             },
+            "icarGroupMovementArrivalEventCollection": {
+                "$ref": "../collections/icarGroupMovementArrivalEventCollection.json"
+            },
             "icarMovementDepartureEventCollection": {
                 "$ref": "../collections/icarMovementDepartureEventCollection.json"
+            },
+            "icarGroupMovementDepartureEventCollection": {
+                "$ref": "../collections/icarGroupMovementDepartureEventCollection.json"
             },
             "icarAnimalCoreResource": {
                 "$ref": "../resources/icarAnimalCoreResource.json"
@@ -979,14 +1711,26 @@
             "icarMovementBirthEventResource": {
                 "$ref": "../resources/icarMovementBirthEventResource.json"
             },
+            "icarGroupMovementBirthEventResource": {
+                "$ref": "../resources/icarGroupMovementBirthEventResource.json"
+            },
             "icarMovementDeathEventResource": {
                 "$ref": "../resources/icarMovementDeathEventResource.json"
+            },
+            "icarGroupMovementDeathEventResource": {
+                "$ref": "../resources/icarGroupMovementDeathEventResource.json"
             },
             "icarMovementArrivalEventResource": {
                 "$ref": "../resources/icarMovementArrivalEventResource.json"
             },
+            "icarGroupMovementArrivalEventResource": {
+                "$ref": "../resources/icarGroupMovementArrivalEventResource.json"
+            },
             "icarMovementDepartureEventResource": {
                 "$ref": "../resources/icarMovementDepartureEventResource.json"
+            },
+            "icarGroupMovementDepartureEventResource": {
+                "$ref": "../resources/icarGroupMovementDepartureEventResource.json"
             },
             "icarAnimalCoreResourceArray": {
                 "type": "array",
@@ -1000,10 +1744,22 @@
                     "$ref": "#/components/schemas/icarMovementBirthEventResource"
                 }
             },
+            "icarGroupMovementBirthEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarGroupMovementBirthEventResource"
+                }
+            },
             "icarMovementDeathEventArray": {
                 "type": "array",
                 "items": {
                     "$ref": "#/components/schemas/icarMovementDeathEventResource"
+                }
+            },
+            "icarGroupMovementDeathEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarGroupMovementDeathEventResource"
                 }
             },
             "icarMovementArrivalEventArray": {
@@ -1012,10 +1768,22 @@
                     "$ref": "#/components/schemas/icarMovementArrivalEventResource"
                 }
             },
+            "icarGroupMovementArrivalEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarGroupMovementArrivalEventResource"
+                }
+            },
             "icarMovementDepartureEventArray": {
                 "type": "array",
                 "items": {
                     "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+                }
+            },
+            "icarGroupMovementDepartureEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarGroupMovementDepartureEventResource"
                 }
             }
         },
