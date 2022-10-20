@@ -1,0 +1,1 @@
+Images in this folder (PNG, JPG, SVG) are referenced in the other documentation markdown files.
