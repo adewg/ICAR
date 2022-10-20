@@ -1,1 +1,0 @@
-Create markdown files in this folder for each resource, describing how it should be used and its properties.

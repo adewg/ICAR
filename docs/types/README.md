@@ -1,1 +1,0 @@
-Create markdown files in this folder for each significant JSON schema "type" in the \types folder, providing instructions for use and a list of properties.
