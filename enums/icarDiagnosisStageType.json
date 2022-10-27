@@ -1,0 +1,15 @@
+{ 
+    "description": "Enumeration for stage of disease diagnosis.",
+    
+    "type": "string",
+  
+    "enum": [
+      "Early",
+      "Acute",
+      "SubAcute",
+      "Chronic",
+      "AcuteOnChronic",
+      "EndStage",
+      "Other"
+    ]
+  }
