@@ -1,0 +1,39 @@
+{
+  "description": "This returns a prediction of the expected milk prodution for a cow in the lactation, and eventually gives indication of when the peak production is reached.",
+
+  "allOf": [{
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "averageMilkWeight24HoursPredicted": {
+          "$ref": "../types/icarMilkingMilkWeightType.json"
+        },
+        "averageFatWeight24HoursPredicted": {
+          "$ref": "../types/icarMilkingFatWeightType.json"
+        },
+        "averageProteinWeight24HoursPredicted": {
+          "$ref": "../types/icarMilkingProteinWeightType.json"
+        },
+        "daysInMilkAtLactationPeak": {
+          "type": "integer",
+          "description": "The days in milk in a lactation when the peak production is expected to occur."
+        },
+        "lacationPeakProduction": {
+          "$ref": "../types/icarMilkingMilkWeightType.json"
+        },
+        "milkWeight24HoursPredictedNextMR": {
+          "$ref": "../types/icarMilkingMilkWeightType.json"
+        },
+        "fatWeight24HoursPredictedNextMR": {
+          "$ref": "../types/icarMilkingFatWeightType.json"
+        },
+        "proteinWeight24HoursPredictedNextMR": {
+          "$ref": "../types/icarMilkingProteinWeightType.json"
+        }
+      }
+    }
+  ]
+}
