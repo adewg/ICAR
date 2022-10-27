@@ -23,6 +23,18 @@
             "type": "string",
             "description": "Site on the animal involved in the diagnosis or disease."
         },
+        "stage": {
+            "$ref": "../enums/icarDiagnosisStageType.json",
+            "description": "Identifies the clinical stage of disease progression."
+        },
+        "severity": {
+            "$ref": "../enums/icarDiagnosisSeverityType.json",
+            "description": "Identifies the clinical severity of the problem."            
+        },
+        "severityScore": {
+            "type": "number",
+            "description": "Clinical severity expressed as a numeric score for systems that record this."
+        },
         "positions": {
           "type": "array",
              "items": {
