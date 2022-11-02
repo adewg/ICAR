@@ -1,0 +1,11 @@
+{ 
+    "description": "Enumeration for clinical severity of disease diagnosis.",
+    
+    "type": "string",
+  
+    "enum": [
+      "Light",
+      "Moderate",
+      "Severe"
+    ]
+  }

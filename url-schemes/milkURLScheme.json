@@ -3,7 +3,7 @@
     "info": {
         "title": "Milk recording and lactation information API Specifications",
         "description": "Specifications for messages that support dairy milking visits, lactation, and related information.",
-        "version": "1.2",
+        "version": "1.3",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.2-milk",
+            "name": "ADE-1.3-milk",
             "description": "Milking-related messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
                 "summary": "Get the milking-visits for a certain location",
                 "description": "# Purpose\nProvides the animal milking-visits for a location\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -65,7 +65,7 @@
                 "summary": "Add a single new milking-visits.",
                 "description": "# Purpose\nAllows a client to add a single milking-visits.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -133,7 +133,7 @@
                 "summary": "Get the test-day for a certain location",
                 "description": "# Purpose\nProvides the animal test-day for a location\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -170,7 +170,7 @@
                 "summary": "Add a single new test-day.",
                 "description": "# Purpose\nAllows a client to add a single test-day.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -238,7 +238,7 @@
                 "summary": "Get the test-day-result for a certain location",
                 "description": "# Purpose\nProvides the animal test-day-result for a location\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -275,7 +275,7 @@
                 "summary": "Add a single new test-day-result.",
                 "description": "# Purpose\nAllows a client to add a single test-day-result.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -343,7 +343,7 @@
                 "summary": "Get the daily milking averages for a certain location",
                 "description": "# Purpose\nProvides the animal daily milking averages for a location\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -382,7 +382,7 @@
                 "summary": "Get the lactations for a certain location",
                 "description": "# Purpose\nProvides the animal lactation for a location\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -415,7 +415,7 @@
                 "summary": "Get the lactation status observations for a certain location",
                 "description": "# Purpose\nProvides the animal lactation status observations for a location\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -452,7 +452,7 @@
                 "summary": "Add a single new lactation status observation event.",
                 "description": "# Purpose\nAllows a client to add a single lactation status observation event.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -514,13 +514,52 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/milking-withdrawals": {
+            "get": {
+                "operationId": "get existing milking-withdrawals",
+                "summary": "Get the milking-withdrawals for a certain location",
+                "description": "# Purpose\nProvides the milking-withdrawals for a certain location\n",
+                "tags": [
+                    "ADE-1.3-milk"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the withdrawals for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarWithdrawalEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/batches/locations/{location-scheme}/{location-id}/milking-visits": {
             "post": {
                 "operationId": "post-batch-milking-visits",
                 "summary": "Add a single new milking-visits event",
                 "description": "# Purpose \nAllows a client to add a collection of milking visits.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -595,7 +634,7 @@
                 "summary": "Add batch of test-days.",
                 "description": "# Purpose \nAllows a client to add a collection of test-days.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -670,7 +709,7 @@
                 "summary": "Add an array of test-day-results.",
                 "description": "# Purpose \nAllows a client to add a collection of test-day-result.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -745,7 +784,7 @@
                 "summary": "Add an array of lactation status observations.",
                 "description": "# Purpose \nAllows a client to add a collection of lactation status observations.\n",
                 "tags": [
-                    "ADE-1.2-milk"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
@@ -823,9 +862,6 @@
                     "$ref": "../resources/icarBatchResult.json"
                 }
             },
-            "error": {
-                "$ref": "../resources/icarResponseMessageResource.json"
-            },
             "icarMilkingVisitEventResource": {
                 "$ref": "../resources/icarMilkingVisitEventResource.json"
             },
@@ -879,6 +915,9 @@
                 "items": {
                     "$ref": "#/components/schemas/icarLactationStatusObservedEventResource"
                 }
+            },
+            "icarWithdrawalEventCollection": {
+                "$ref": "../collections/icarWithdrawalEventCollection.json"
             }
         },
         "parameters": {
@@ -917,46 +956,19 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "animal-scheme": {
-                "name": "animal-scheme",
-                "in": "query",
-                "description": "The scheme id for the animal identifier.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "animal-id": {
-                "name": "animal-id",
-                "in": "query",
-                "description": "The unique identifier for the animal.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
             }
         },
         "responses": {
-            "default": {
-                "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/error"
-                                    }
-                                }
-                            },
-                            "description": "A default response containing only a list of errors"
-                        }
-                    }
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../collections/icarErrorCollection.json"
                 }
+              }
             }
+          }
         }
     }
 }

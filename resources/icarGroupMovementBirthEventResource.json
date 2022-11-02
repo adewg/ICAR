@@ -1,0 +1,19 @@
+{
+    "description": "Extends icarGroupEventCoreResource to provide a group animal registration event (named Birth for consistency only).",
+    "allOf": [
+        {
+            "$ref": "../resources/icarGroupEventCoreResource.json"
+        },
+        {
+            "type": "object",
+            "required": [ "location", "groupMethod", "registrationReason"],
+
+            "properties": {
+                "registrationReason": {
+                    "$ref": "../enums/icarRegistrationReasonType.json"
+                }
+            }
+        }
+
+    ]
+}

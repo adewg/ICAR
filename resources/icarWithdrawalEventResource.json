@@ -1,0 +1,25 @@
+{
+  "description": "A withdrawal resource used to indicate that product should be separated (e.g. colostrum from newly lactating cows).",
+  "allOf": [
+    {
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "eventDateTime",
+        "productType"
+      ],
+      "properties": {
+        "endDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
+        },
+        "productType": {
+          "$ref": "../enums/icarWithdrawalProductType.json",
+          "description": "Product or food item affected by this withdrawal."
+        }
+      }
+    }
+  ]
+}

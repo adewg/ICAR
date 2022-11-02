@@ -1,0 +1,12 @@
+{
+  "description": "A collection of RFC7807 compliant problem responses for JSON APIs.",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "../resources/icarResponseMessageResource.json"
+      }
+    }
+  }
+}

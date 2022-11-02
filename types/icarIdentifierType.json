@@ -3,10 +3,6 @@
 
   "type": "object",
 
-  "discriminator": {
-    "propertyName": "identifierType"
-  },
-
   "required": [
     "id",
     "scheme"

@@ -1,0 +1,21 @@
+{
+    "description": "Represents a collection of group health treatment events. Based on icarResourceCollection to provide paging etc.",
+  
+    "allOf": [{
+        "$ref": "../collections/icarResourceCollection.json"
+      },
+      {
+        "type": "object",
+        
+        "properties": {
+          "member": {
+            "type": "array",
+            "items": {
+              "$ref": "../resources/icarGroupTreatmentEventResource.json"
+            },
+            "description": "Provides the array of objects, in this case weighing events."
+          }
+        }
+      }
+    ]
+  }

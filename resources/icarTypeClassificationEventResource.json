@@ -1,0 +1,25 @@
+{
+    "description": "Event for recording a type calssification consisting of a set of conformation scores",
+  
+    "allOf": [{
+        "$ref": "../resources/icarAnimalEventCoreResource.json"
+      },
+      {
+        "type": "object",
+
+        "required": [
+          "score",
+          "traitScored"
+        ],
+  
+        "properties": {
+          "conformationScores": {
+            "type": "array",
+            "items": {
+              "$ref": "../types/icarConformationScoreType.json"
+            }
+          }
+        }
+      }
+    ]
+}

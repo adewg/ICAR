@@ -1,0 +1,10 @@
+{
+  "description": "Enumeration for the type of trait.",
+
+  "type": "string",
+
+  "enum": [
+    "Composite",
+    "Linear"
+  ]
+}

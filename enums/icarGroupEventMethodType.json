@@ -1,0 +1,12 @@
+{
+  "description": "Defines how the set of animals in a group event is defined.",
+
+  "type": "string",
+
+  "enum": [
+    "ExistingAnimalSet",
+    "EmbeddedAnimalSet",
+    "InventoryClassification",
+    "EmbeddedAnimalSetAndInventoryClassification"
+  ]
+}
