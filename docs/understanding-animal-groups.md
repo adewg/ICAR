@@ -27,7 +27,7 @@ Sometimes software systems may record event observations that take place on grou
 * A sample of animals are recorded (and may indeed have individual events), but the event represents a larger group for farm management purposes.
 
 Examples of these events include:
-* Movement of groups of animals onto or off a location ([icarGroupMovementArrivalEventResource](../resources/icarGroupMovementArrivalEventResource.json), [icarGroupBirthEventResource](../resources/icarGroupMovementBirthEventResource.json), [icarGroupDeathEventResource](../resources/resources/icarGroupMovementDeathEventResource.json), [icarGroupDepartureEventResource](../resources/icarGroupMovementDepartureEventResource.json))
+* Movement of groups of animals onto or off a location ([icarGroupMovementArrivalEventResource](../resources/icarGroupMovementArrivalEventResource.json), [icarGroupMovementBirthEventResource](../resources/icarGroupMovementBirthEventResource.json), [icarGroupMovementDeathEventResource](../resources/icarGroupMovementDeathEventResource.json), [icarGroupMovementDepartureEventResource](../resources/icarGroupMovementDepartureEventResource.json))
 * Treatment of a group of animals (for instance, drenching a large number of animals with an anti-parasite remedy, [icarGroupTreatmentEventResource](../resources/icarGroupTreatmentEventResource.json))
 * Recording an average weight or weight distribution for a group ([icarGroupWeightEventResource](../resources/icarGroupWeightEventResource.json))
 
