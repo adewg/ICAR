@@ -1,5 +1,5 @@
 {
-  "description": "This returns a prediction of the expected milk prodution for a cow in the lactation, and eventually gives indication of when the peak production is reached.",
+  "description": "This returns a prediction of the expected milk, fat and protein for a cow for the remaining the lactation. Also a prediction of this production on the next testday is included and it eventually gives indication of when the peak production is reached.",
 
   "allOf": [{
       "$ref": "../resources/icarAnimalEventCoreResource.json"
@@ -8,30 +8,18 @@
       "type": "object",
 
       "properties": {
-        "averageMilkWeight24HoursPredicted": {
-          "$ref": "../types/icarMilkingMilkWeightType.json"
-        },
-        "averageFatWeight24HoursPredicted": {
-          "$ref": "../types/icarMilkingFatWeightType.json"
-        },
-        "averageProteinWeight24HoursPredicted": {
-          "$ref": "../types/icarMilkingProteinWeightType.json"
+        "averagePredictedProduction": {
+          "$ref": "../types/icarMilkingPredictionType.json"
         },
         "daysInMilkAtLactationPeak": {
           "type": "integer",
           "description": "The days in milk in a lactation when the peak production is expected to occur."
         },
-        "lacationPeakProduction": {
+        "lactationPeakProduction": {
           "$ref": "../types/icarMilkingMilkWeightType.json"
         },
-        "milkWeight24HoursPredictedNextMR": {
-          "$ref": "../types/icarMilkingMilkWeightType.json"
-        },
-        "fatWeight24HoursPredictedNextMR": {
-          "$ref": "../types/icarMilkingFatWeightType.json"
-        },
-        "proteinWeight24HoursPredictedNextMR": {
-          "$ref": "../types/icarMilkingProteinWeightType.json"
+        "PredictedProductionNextMR": {
+          "$ref": "../types/icarMilkingPredictionType.json"
         }
       }
     }

@@ -20,14 +20,8 @@
             "$ref": "../types/icarMilkCharacteristicsType.json"
           }
         },
-        "milkWeight24HoursExpected": {
-          "$ref": "../types/icarMilkingMilkWeightType.json"
-	},
-	"fatWeight24HoursExpected": {
-          "$ref": "../types/icarMilkingFatWeightType.json"
-	},
-	"proteinWeight24HoursExpected": {
-          "$ref": "../types/icarMilkingProteinWeightType.json"
+        "PredictedProductionOnTestday": {
+          "$ref": "../types/icarMilkingPredictionType.json"
 	}
       }
     }
