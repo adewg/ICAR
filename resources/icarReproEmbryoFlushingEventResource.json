@@ -11,7 +11,7 @@
       "required": ["flushingMethod"],
       "properties": {
         "flushingMethod": {
-          "$ref": "../enums/icarReproEmbryoFlushingMethod.json"
+          "$ref": "../enums/icarReproEmbryoFlushingMethodType.json"
         },        
         "embryoCount": {
           "type": "integer",
