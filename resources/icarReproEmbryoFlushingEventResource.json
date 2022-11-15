@@ -8,30 +8,11 @@
     {
       "type": "object",
 
-      "required": ["flushingType"],
+      "required": ["flushingMethod"],
       "properties": {
-        "flushingType": {
-          "$ref": "../enums/icarReproEmbryoFlushingType.json"
-        },
-        "sireIdentifiers": {
-          "type": "array",
-          "items": {
-            "$ref": "../types/icarAnimalIdentifierType.json"
-          },
-          "description": "Unique scheme/identifier combinations for the sire, including official ID and Herdbook."
-        },
-        "sireOfficialName": {
-          "type": "string",
-          "description": "Official herdbook name of the sire."
-        },
-        "sireURI": {
-          "type": "string",
-          "description": "URI to an AnimalCoreResource for the sire."
-        },
-        "straw": {
-          "$ref": "../resources/icarReproSemenStrawResource.json",
-          "description": "Details of the straw, which may also include sire details."
-        },
+        "flushingMethod": {
+          "$ref": "../enums/icarReproEmbryoFlushingMethod.json"
+        },        
         "embryoCount": {
           "type": "integer",
           "description": "The number of embryos extracted in the flushing."
@@ -39,13 +20,6 @@
         "collectionCentre": {
           "type": "string",
           "description": "The location where the embryo was flushed."
-        },
-        "potentialSires": {
-          "type": "array",
-          "description": "Details of multiple sires used to fertilize the embryo",
-          "items": {
-            "$ref": "../types/icarReproPotentialSireIdentifierType.json"
-          }
         }
       }
     }
