@@ -17,7 +17,7 @@
           "description": "Identifies the collection centre."
         },
         "dateCollected": {
-          "description": "Records the date of collection.",
+          "description": "The RFC3339 UTC date of collection (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
           "$ref": "../types/icarDateTimeType.json"
         },
         "donorIdentifiers": {

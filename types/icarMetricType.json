@@ -1,0 +1,7 @@
+{
+  "description": "Identifies a metric using a scheme and ID. Allows country or species-specific metrics that are a superset of the ICAR list.",
+
+  "allOf": [{
+    "$ref": "../types/icarIdentifierType.json"
+  }]
+}

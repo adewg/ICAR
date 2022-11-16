@@ -2,7 +2,7 @@
   "description": "Event for recording parturition (calving, lambing, kidding, fawning).",
 
   "allOf": [{
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",
@@ -12,7 +12,6 @@
           "type": "boolean",
           "description": "True if the progeny is the result of an embryo implant."
         },
-
         "damParity": {
           "type": "integer",
           "description": "The calving, litter, or other parturition number for the dam"
@@ -29,9 +28,18 @@
           "$ref": "../enums/icarReproCalvingEaseType.json",
           "description": "Calving ease (enum corresponds to traditional 1-5 values)."
         },
-
+        "progenyDetails": {
+          "type": "array",
+          "nullable": true,
+          "items": {
+            "$ref": "../resources/icarProgenyDetailsResource.json"
+          },
+          "description": "List of progeny details. May not be fully identified, but recommend that gender and status are supplied at least."
+        },
         "progeny": {
           "type": "array",
+          "nullable": true,
+          "deprecated": true,
           "items": {
             "$ref": "../resources/icarAnimalCoreResource.json"
           },

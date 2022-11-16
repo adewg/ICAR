@@ -1,0 +1,32 @@
+{
+  "description": "definition of the groups for which statistics are provided. None of these are mandatory and can be used when convenient.",
+
+  "type": "object",
+
+  "properties": {
+    "lactationNumberRangeMin": { 
+      "type": "number",
+      "nullable": true,
+      "description": "minimum number of lactations for the animals in the group."
+    },
+    "lactationNumberRangeMax": { 
+      "type": "number",
+      "nullable": true,
+      "description": "maximum number of lactations for the animals in the group."
+    },
+    "daysInMilkRangeMin": { 
+      "type": "number",
+      "nullable": true,
+      "description": "minimum number of days in milk for the animals in the group."
+    },
+    "daysInMilkRangeMax": { 
+      "type": "number",
+      "nullable": true,
+      "description": "maximum number of days in milk for the animals in the group."
+    },
+    "animalSetId": { 
+      "type": "string",
+      "description": "Unique identifier in the source system for this animal set."
+    }
+  }
+}

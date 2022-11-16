@@ -2,7 +2,7 @@
     "description": "An animal health event combining diagnosis and planned or actual treatment course or events.",
     "allOf": [
         {
-            "$ref": "../resources/icarEventCoreResource.json"
+            "$ref": "../resources/icarAnimalEventCoreResource.json"
         },
         {
             "type": "object",

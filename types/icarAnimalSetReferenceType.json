@@ -1,0 +1,7 @@
+{
+    "description": "References an animal set through its unique ID in the source system, optionally also specifying its URL (@ID).",
+
+    "required": [ "identifier" ],
+
+    "allOf": [ { "$ref": "../types/icarResourceReferenceType.json" } ]
+}

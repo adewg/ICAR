@@ -1,0 +1,15 @@
+{
+  "description": "The kind or purpose of the statistics provided (can be expanded).",
+
+  "type": "string",
+
+  "enum": [
+    "TestDay",
+    "Feeding",
+    "Reproduction",
+    "BreedingValues",
+    "TypeClassification",
+    "Registration"
+  ]
+}
+

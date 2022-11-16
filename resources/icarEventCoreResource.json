@@ -1,10 +1,6 @@
 {
   "description": "",
 
-  "discriminator": {
-    "propertyName": "eventType"
-  },
-
   "allOf": [
     {
       "$ref": "../resources/icarResource.json"
@@ -17,17 +13,9 @@
           "type": "string",
           "description": "Unique identifier in the source system for this event."
         },
-        "animal": {
-          "$ref": "../types/icarAnimalIdentifierType.json",
-          "description": "Unique animal scheme and identifier combination."
-        },
         "eventDateTime": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "ISO8601 date and time. MUST contain time zone. UTC recommended."
-        },
-        "location": {
-          "$ref": "../types/icarLocationIdentifierType.json",
-          "description": "Unique location scheme and identifier combination."
+          "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
         },
         "traitLabel": {
           "$ref": "../types/icarTraitLabelIdentifierType.json",
@@ -40,7 +28,11 @@
         "contemporaryGroup": {
           "type": "string",
           "description": "For manually recorded events, record any contemporary group code that would affect statistical analysis."
-        }
+        },
+        "remark": {
+          "type": "string",
+          "description": "A comment or remark field for additional user-specified information about the event."
+        }        
       }
     }
   ]

@@ -22,10 +22,6 @@
           "$ref": "../types/icarAnimalIdentifierType.json",
           "description": "Unique animal scheme and identifier combination."
         },
-        "location": {
-          "$ref": "../types/icarLocationIdentifierType.json",
-          "description": "Unique location scheme and identifier combination."
-        },
         "sireIdentifiers": {
           "type": "array",
           "items": {
@@ -35,7 +31,7 @@
         },
         "expectedCalvingDate": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The date the calving is expected to happen."
+          "description": "The RFC3339 UTC date the calving is expected to happen (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         }
       }
     }

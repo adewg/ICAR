@@ -3,7 +3,7 @@
   "info": {
     "title": "Release Candidate Messages",
     "description": "The specifications of messages which are ready for ICAR approval and release",
-    "version": "1.0",
+    "version": "1.3",
     "contact": {
       "name": "Animal Data Exchange Working Group",
       "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -14,35 +14,35 @@
     "url": "https://icar-ade.standard.com"
   }],
   "tags": [{
-      "name": "ADE-1.2 additions",
+      "name": "ADE-1.3 additions",
       "description": "new endpoints not yet approved"
     },
     {
-      "name": "ADE-1.2-feed",
+      "name": "ADE-1.3-feed",
       "description": "Feed messages approved by the working group"
     },
     {
-      "name": "ADE-1.1-health",
+      "name": "ADE-1.3-health",
       "description": "Health messages approved by the working group"
     },
     {
-      "name": "ADE-1.1-management",
+      "name": "ADE-1.3-management",
       "description": "Management messages approved by the working group"
     },
     {
-      "name": "ADE-1.1-milk",
+      "name": "ADE-1.3-milk",
       "description": "Milk messages approved by the working group"
     },
     {
-      "name": "ADE-1.1-performance",
+      "name": "ADE-1.3-performance",
       "description": "Performance messages approved by the working group"
     },
     {
-      "name": "ADE-1.1-registration",
+      "name": "ADE-1.3-registration",
       "description": "Registration messages approved by the working group"
     },
     {
-      "name": "ADE-1.1-reproduction",
+      "name": "ADE-1.3-reproduction",
       "description": "Reproduction messages approved by the working group"
     },
     {
@@ -57,7 +57,7 @@
         "summary": "Get available schema/id combinations for locations.",
         "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
         "tags": [
-          "ADE-1.1-registration"
+          "ADE-1.3-registration"
         ],
         "responses": {
           "200": {
@@ -81,13 +81,52 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/milking-withdrawals": {
+            "get": {
+                "operationId": "get-existing-milking-withdrawals",
+                "summary": "Get the milking-withdrawals for a certain location",
+                "description": "# Purpose\nProvides the milking-withdrawals for a certain location\n",
+                "tags": [
+                    "ADE-1.3-milk"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the withdrawals for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarWithdrawalEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+    },
     "/locations/{location-scheme}/{location-id}/milking-visits": {
       "get": {
         "operationId": "get-milking-visits",
         "summary": "Get the data for milking visits",
         "description": "# Purpose\nProvides data from visits of animals to a milking parlour.\n \nThis comprises all possible data. Anybody can choose to define API's that return less information in the response.\n",
         "tags": [
-          "ADE-1.1-milk"
+          "ADE-1.3-milk"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -130,7 +169,7 @@
         "summary": "Get the test days",
         "description": "# Purpose\nProvides data from the test days on a farm that intersects with the given start/end date if provided. Otherwise returns all available entries.",
         "tags": [
-          "ADE-1.1-milk"
+          "ADE-1.3-milk"
         ],
         "parameters": [{
           "$ref": "#/components/parameters/location-scheme"
@@ -173,7 +212,7 @@
         "summary": "Get the data for test day results",
         "description": "# Purpose\nProvides data from the test day for animals on a farm\n",
         "tags": [
-          "ADE-1.1-milk"
+          "ADE-1.3-milk"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -216,7 +255,7 @@
         "summary": "Get daily averages for milking-visits of a animals",
         "description": "# Purpose\nProvides daily averages of the milking-visits of per animal.",
         "tags": [
-          "ADE-1.1-milk"
+          "ADE-1.3-milk"
         ],
         "parameters": [{
           "$ref": "#/components/parameters/location-scheme"
@@ -254,7 +293,7 @@
         "summary": "Get the data for lactations",
         "description": "# Purpose\nProvides data from lactations of animals.",
         "tags": [
-          "ADE-1.1-milk"
+          "ADE-1.3-milk"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -286,7 +325,7 @@
         "summary": "Get the list of observed changes to lactation status for animals.",
         "description": "# Purpose\nProvides a list of events arising from observed changes to lactation status.",
         "tags": [
-          "ADE-1.1-milk"
+          "ADE-1.3-milk"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -324,7 +363,7 @@
         "summary": "Get the births for a certain location",
         "description": "# Purpose\nProvides the born animals on a location\n",
         "tags": [
-          "ADE-1.1-registration"
+          "ADE-1.3-registration"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -362,7 +401,7 @@
         "summary": "Get the deaths for a certain location",
         "description": "# Purpose\nProvides the died animals on a location\n",
         "tags": [
-          "ADE-1.1-registration"
+          "ADE-1.3-registration"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -400,7 +439,7 @@
         "summary": "Get the arrivals for a certain location",
         "description": "# Purpose\nProvides the arrived animals on a location\n",
         "tags": [
-          "ADE-1.1-registration"
+          "ADE-1.3-registration"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -443,7 +482,7 @@
         "summary": "Get the departures for a certain location",
         "description": "# Purpose\nProvides the departed animals from a location\n",
         "tags": [
-          "ADE-1.1-registration"
+          "ADE-1.3-registration"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -481,7 +520,7 @@
         "summary": "Get the animals for a certain location",
         "description": "# Purpose\nProvides the animals on a location\n",
         "tags": [
-          "ADE-1.1-registration"
+          "ADE-1.3-registration"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -513,7 +552,7 @@
         "summary": "Get the animal sets for a certain location",
         "description": "# Purpose\nProvides the animal sets on a location. If animal-scheme and animal-id are provided, the sets containing that animal are returned.\n",
         "tags": [
-          "ADE-1.1-management"
+          "ADE-1.3-management"
         ],
         "parameters": [{
           "$ref": "#/components/parameters/location-scheme"
@@ -553,7 +592,7 @@
         "summary": "Get the animal set join events for a certain location",
         "description": "# Purpose\nProvides the animal set join events on a location\n",
         "tags": [
-          "ADE-1.1-management"
+          "ADE-1.3-management"
         ],
         "parameters": [
           {
@@ -597,7 +636,7 @@
         "summary": "Get the animal set leave events for a certain location",
         "description": "# Purpose\nProvides the animal set leave events on a location\n",
         "tags": [
-          "ADE-1.1-management"
+          "ADE-1.3-management"
         ],
         "parameters": [
           {
@@ -635,13 +674,55 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/statistics": {
+            "get": {
+                "operationId": "get-statistics",
+                "summary": "Get the statistics for a certain location",
+                "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated by specifying a date to and date from parameter. Also the purpose can be provided to limit the purpose of the statistics",
+                "tags": [
+                    "ADE-1.3-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/purpose"
+                    }                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the statistics for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarStatisticsCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+    },    
     "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
       "get": {
         "operationId": "get-pregnancy-checks",
         "summary": "Get the pregnancy checks for a certain location",
         "description": "# Purpose\nProvides the pregnancy checks on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -684,7 +765,7 @@
         "summary": "Get the heats for a certain location",
         "description": "# Purpose\nProvides the Heats on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -722,7 +803,7 @@
         "summary": "Get the inseminations for a certain location",
         "description": "# Purpose\nProvides the Inseminations on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -765,7 +846,7 @@
         "summary": "Get the drying off for a certain location",
         "description": "# Purpose\nProvides the drying off on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -811,7 +892,7 @@
         "summary": "Get the abortion events for a certain location",
         "description": "# Purpose\nProvides the abortion events on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -849,7 +930,7 @@
         "summary": "Get the animals that were assigned as do-not-breed for a certain location",
         "description": "# Purpose\nProvides the not be bred animals on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -887,7 +968,7 @@
         "summary": "Get the parturition events for a certain location",
         "description": "# Purpose\nProvides the Parturition events on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -925,7 +1006,7 @@
         "summary": "Get the weight data of animals",
         "description": "# Purpose\nProvides weight data from animals on a farm.",
         "tags": [
-          "ADE-1.1-performance"
+          "ADE-1.3-performance"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -963,7 +1044,7 @@
         "summary": "Get the device data for a location",
         "description": "# Purpose\nProvides device data for devices present on a farm.",
         "tags": [
-          "ADE-1.1-management"
+          "ADE-1.3-management"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1001,7 +1082,7 @@
         "summary": "Get the feed storage device data for a location",
         "description": "# Purpose\nProvides feed storage device data for storages present on a farm.",
         "tags": [
-          "ADE-1.2-feed"
+          "ADE-1.3-feed"
         ],
         "parameters": [{
           "$ref": "#/components/parameters/location-scheme"
@@ -1044,7 +1125,7 @@
         "summary": "Get the breeding values of the animals of a location",
         "description": "# Purpose\nProvides breeding values of the animals present on a farm.",
         "tags": [
-          "ADE-1.1-performance"
+          "ADE-1.3-performance"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1082,7 +1163,7 @@
         "summary": "Get the mating recommendations for a certain location",
         "description": "# Purpose\nProvides the mating recommendations on a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1120,7 +1201,7 @@
         "summary": "Get the conformation scores for a certain location",
         "description": "# Purpose\nProvides the conformation scores on a location\n",
         "tags": [
-          "ADE-1.1-performance"
+          "ADE-1.3-performance"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1152,13 +1233,52 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/type-classifications": {
+            "get": {
+                "operationId": "get-type-classifications",
+                "summary": "Get the type classification events for a certain location",
+                "description": "# Purpose\nProvides the animal type classification events for a location\n",
+                "tags": [
+                    "ADE-1.3-performance"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarTypeClassificationEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+    },
     "/locations/{location-scheme}/{location-id}/diagnoses": {
       "get": {
         "operationId": "get-Diagnoses",
         "summary": "Get the diagnoses for a certain location",
         "description": "# Purpose\nProvides the animal health diagnoses for a location\n",
         "tags": [
-          "ADE-1.1-health"
+          "ADE-1.3-health"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1196,7 +1316,7 @@
         "summary": "Get the treatments for a certain location",
         "description": "# Purpose\nProvides the animal health treatments for a location\n",
         "tags": [
-          "ADE-1.1-health"
+          "ADE-1.3-health"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1234,7 +1354,7 @@
         "summary": "Get the treatment programs for a certain location",
         "description": "# Purpose\nProvides the animal health treatment programs for a location\n",
         "tags": [
-          "ADE-1.1-health"
+          "ADE-1.3-health"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1266,13 +1386,52 @@
         }
       }
     },      
+    "/locations/{location-scheme}/{location-id}/health-status": {
+      "get": {
+        "operationId": "get-HealthStatusObserved",
+        "summary": "Get the health-status-observed of an animal for a certain location",
+        "description": "# Purpose\nProvides the animal health-status for a location\n",
+        "tags": [
+          "ADE-1.3-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatment progams for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarHealthStatusObservedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/gestations": {
       "get": {
         "operationId": "get-Gestations",
         "summary": "Get the gestations for a certain location",
         "description": "# Purpose\nProvides the gestations for a location\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1310,7 +1469,7 @@
         "summary": "Get the feeds available on a certain location",
         "description": "# Purpose\nProvides the feeds for a location. We recommend using the fao.org scheme for the type of feeds and the icar.org scheme for the feed properties\n",
         "tags": [
-          "ADE-1.2-feed"
+          "ADE-1.3-feed"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1348,7 +1507,7 @@
         "summary": "Get the rations for a certain location",
         "description": "# Purpose\nProvides the rations for a location\n",
         "tags": [
-          "ADE-1.2-feed"
+          "ADE-1.3-feed"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1386,7 +1545,7 @@
         "summary": "Get the feed intakes for a certain location",
         "description": "# Purpose\nProvides the feed intakes for a location\n",
         "tags": [
-          "ADE-1.2-feed"
+          "ADE-1.3-feed"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1424,7 +1583,7 @@
         "summary": "Get the feed recommendations for a certain location",
         "description": "# Purpose\nProvides the feed recommendations for a location\n",
         "tags": [
-          "ADE-1.2-feed"
+          "ADE-1.3-feed"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1462,7 +1621,7 @@
         "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. ",
         "description": "# Purpose\nProvides the feed reports for animal on a location\n",
         "tags": [
-          "ADE-1.2-feed"
+          "ADE-1.3-feed"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1506,7 +1665,7 @@
         "summary": "Get the list of observed changes to animal reproductive status",
         "description": "# Purpose\nProvides a collection of events where a change to animal reproductive status has been observed.\n",
         "tags": [
-          "ADE-1.1-reproduction"
+          "ADE-1.3-reproduction"
         ],
         "parameters": [{
             "$ref": "#/components/parameters/location-scheme"
@@ -1660,18 +1819,252 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/group-treatments": {
+      "get": {
+        "operationId": "get-group-treatments",
+        "summary": "Get the group treatments for a certain location",
+        "description": "# Purpose\nProvides the group health treatments for a location\n",
+        "tags": [
+          "ADE-1.3-health"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the treatments for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupTreatmentEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-weights": {
+      "get": {
+          "operationId": "get-group-weights",
+          "summary": "Get the weights for a certain location",
+          "description": "# Purpose\nProvides the group weights for a location\n",
+          "tags": [
+              "ADE-1.3-performance"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the resources for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupWeightEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-arrivals": {
+      "get": {
+          "operationId": "get-group-arrivals",
+          "summary": "Get the group arrival events for a certain location",
+          "description": "# Purpose\nProvides the group arrival records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the arrival events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementArrivalEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },    
+    "/locations/{location-scheme}/{location-id}/group-births": {
+      "get": {
+          "operationId": "get-group-births",
+          "summary": "Get the group birth or registration events for a certain location",
+          "description": "# Purpose\nProvides the group birth records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the birth or initial registration events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementBirthEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-deaths": {
+      "get": {
+          "operationId": "get-group-deaths",
+          "summary": "Get the group death events for a certain location",
+          "description": "# Purpose\nProvides the group death records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the group death events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementDeathEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-departures": {
+      "get": {
+          "operationId": "get-group-departures",
+          "summary": "Get the group departure events for a certain location",
+          "description": "# Purpose\nProvides the group departure records for a location\n",
+          "tags": [
+              "ADE-1.3-registration"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the group departure events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupMovementDepartureEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
     }
   },
   "components": {
     "schemas": {
-      "error": {
-        "$ref": "../resources/exampleErrorResource.json"
-      },
       "icarLocationCollection": {
         "$ref": "../collections/icarLocationCollection.json"
       },
       "icarMilkingVisitEventCollection": {
         "$ref": "../collections/icarMilkingVisitEventCollection.json"
+      },
+      "icarWithdrawalEventCollection": {
+        "$ref": "../collections/icarWithdrawalEventCollection.json"
       },
       "icarReproMatingRecommendationCollection": {
         "$ref": "../collections/icarReproMatingRecommendationCollection.json"
@@ -1712,6 +2105,9 @@
       "icarAnimalSetLeaveEventCollection": {
         "$ref": "../collections/icarAnimalSetLeaveEventCollection.json"
       },
+      "icarStatisticsCollection": {
+        "$ref": "../collections/icarStatisticsCollection.json"
+      },
       "icarReproPregnancyCheckEventCollection": {
         "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
@@ -1748,6 +2144,9 @@
       "icarConformationScoreEventCollection": {
         "$ref": "../collections/icarConformationScoreEventCollection.json"
       },
+      "icarTypeClassificationEventCollection": {
+        "$ref": "../collections/icarTypeClassificationEventCollection.json"
+      },
       "icarDiagnosisEventCollection": {
         "$ref": "../collections/icarDiagnosisEventCollection.json"
       },
@@ -1756,6 +2155,9 @@
       },
       "icarTreatmentProgramEventCollection": {
         "$ref": "../collections/icarTreatmentProgramEventCollection.json"      
+      },
+      "icarHealthStatusObservedEventCollection": {
+        "$ref": "../collections/icarHealthStatusObservedEventCollection.json"
       },
       "icarGestationCollection": {
         "$ref": "../collections/icarGestationCollection.json"      
@@ -1786,6 +2188,24 @@
       },
       "icarSchemeValueCollection": {
         "$ref": "../collections/icarSchemeValueCollection.json"
+      },
+      "icarGroupMovementBirthEventCollection": {
+        "$ref": "../collections/icarGroupMovementBirthEventCollection.json"
+      },
+      "icarGroupMovementDeathEventCollection": {
+        "$ref": "../collections/icarGroupMovementDeathEventCollection.json"
+      },
+      "icarGroupMovementArrivalEventCollection": {
+        "$ref": "../collections/icarGroupMovementArrivalEventCollection.json"
+      },
+      "icarGroupMovementDepartureEventCollection": {
+        "$ref": "../collections/icarGroupMovementDepartureEventCollection.json"
+      },
+      "icarGroupTreatmentEventCollection": {
+        "$ref": "../collections/icarGroupTreatmentEventCollection.json"
+      },
+      "icarGroupWeightEventCollection": {
+        "$ref": "../collections/icarGroupWeightEventCollection.json"
       }
     },
     "parameters": {
@@ -1829,6 +2249,33 @@
           "type": "string",
           "format": "date-time"
         }
+      },
+      "date-from": {
+          "name": "date-to",
+          "in": "query",
+          "description": "The end of the date range for the period for which data is needed, the date inclusive.",
+          "schema": {
+              "type": "string",
+              "format": "date"
+          }
+      },
+      "date-to": {
+          "name": "date-from",
+          "in": "query",
+          "description": "The start of the date range for the period for which data is needed, the date inclusive.",
+          "schema": {
+              "type": "string",
+              "format": "date"
+          }
+      },
+      "purpose": {
+          "name": "purpose",
+          "in": "query",
+          "description": "The purpose of the statistics.",
+          "required": false,
+          "schema": {
+            "$ref": "../enums/icarStatisticsPurposeType.json"
+          }
       },
       "report-start-date-time": {
         "name": "report-start-date-time",
@@ -1891,16 +2338,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/error"
-                  }
-                }
-              },
-              "description": "A default response containing only a list of errors"
+              "$ref": "../collections/icarErrorCollection.json"
             }
           }
         }

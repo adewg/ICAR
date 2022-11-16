@@ -1,0 +1,21 @@
+{
+  "description": "Extends icarEventCoreResource to add a single individual animal identifier.",
+
+  "allOf": [
+    {
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": ["animal"],
+
+      "properties": {
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "Unique animal scheme and identifier combination."
+        }
+      }
+    }
+  ]
+}
