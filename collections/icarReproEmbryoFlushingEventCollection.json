@@ -1,0 +1,21 @@
+{
+    "description": "Represents a collection of animal embryo flushing events. Based on icarResourceCollection to provide paging etc.",
+  
+    "allOf": [{
+        "$ref": "../collections/icarResourceCollection.json"
+      },
+      {
+        "type": "object",
+  
+        "properties": {
+          "member": {
+            "type": "array",
+            "items": {
+              "$ref": "../resources/icarReproEmbryoFlushingEventResource.json"
+            },
+            "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case embryo flushing events."
+          }
+        }
+      }
+    ]
+  }
