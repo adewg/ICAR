@@ -1,13 +1,22 @@
 # Changelog
 
-## [v1.3.0](https://github.com/adewg/ICAR/tree/HEAD)
+## [v1.3.1](https://github.com/adewg/ICAR/tree/HEAD)
 
-[Full Changelog](https://github.com/adewg/ICAR/compare/v1.2.0...HEAD)
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.3.0...HEAD)
+
+**Closed issues:**
+
+- icarWithdrawalEventResource inherits incorrect event type [\#347](https://github.com/adewg/ICAR/issues/347)
+
+## [v1.3.0](https://github.com/adewg/ICAR/tree/v1.3.0) (2022-11-02)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.2.0...v1.3.0)
 
 **Implemented enhancements:**
 
 - Create a more formal "Specification" Markdown file for our existing resource-type and location oriented API specs [\#289](https://github.com/adewg/ICAR/issues/289)
 - Adding a reason for DoNotBreed event [\#250](https://github.com/adewg/ICAR/issues/250)
+- Changes for parturition event with new progeny details [\#243](https://github.com/adewg/ICAR/pull/243) ([ahokkonen](https://github.com/ahokkonen))
 
 **Closed issues:**
 
@@ -59,7 +68,6 @@
 - Activity and rumination data  [\#166](https://github.com/adewg/ICAR/issues/166)
 - Vendor-specific schema elements? [\#160](https://github.com/adewg/ICAR/issues/160)
 - Capabilities API [\#156](https://github.com/adewg/ICAR/issues/156)
-- Define carcase data feedback event and collection [\#155](https://github.com/adewg/ICAR/issues/155)
 - Add Animal Health Status to Animal Resource [\#148](https://github.com/adewg/ICAR/issues/148)
 - Medicine resource API [\#135](https://github.com/adewg/ICAR/issues/135)
 - Collections for aggregrating datahubs [\#129](https://github.com/adewg/ICAR/issues/129)
@@ -70,7 +78,45 @@
 
 **Merged pull requests:**
 
+- Merge Develop branch to ADE 1.3 release [\#342](https://github.com/adewg/ICAR/pull/342) ([cookeac](https://github.com/cookeac))
+- Update CHANGELOG.md [\#341](https://github.com/adewg/ICAR/pull/341) ([cookeac](https://github.com/cookeac))
+- Corrected 3 broken links. [\#340](https://github.com/adewg/ICAR/pull/340) ([cookeac](https://github.com/cookeac))
+- Documentation for group events [\#338](https://github.com/adewg/ICAR/pull/338) ([cookeac](https://github.com/cookeac))
+- Add group events to URL Schemes [\#336](https://github.com/adewg/ICAR/pull/336) ([cookeac](https://github.com/cookeac))
+- Inventory classification change - fix birthPeriod validation [\#334](https://github.com/adewg/ICAR/pull/334) ([cookeac](https://github.com/cookeac))
+- Add group weigh event [\#333](https://github.com/adewg/ICAR/pull/333) ([cookeac](https://github.com/cookeac))
+- Change icarStatistics value to number [\#331](https://github.com/adewg/ICAR/pull/331) ([cookeac](https://github.com/cookeac))
+- Erwinspeybroeck [\#330](https://github.com/adewg/ICAR/pull/330) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Update icarMessageType.json [\#329](https://github.com/adewg/ICAR/pull/329) ([cookeac](https://github.com/cookeac))
+- Develop [\#328](https://github.com/adewg/ICAR/pull/328) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Add severity and disease stage to icarDiagnosisResource [\#327](https://github.com/adewg/ICAR/pull/327) ([cookeac](https://github.com/cookeac))
+- Add Group events for livestock movements [\#324](https://github.com/adewg/ICAR/pull/324) ([cookeac](https://github.com/cookeac))
+- Add PostalAddress to consignment origin and dest [\#322](https://github.com/adewg/ICAR/pull/322) ([cookeac](https://github.com/cookeac))
+- changed the default-response to use new icarErrorCollection instead o… [\#321](https://github.com/adewg/ICAR/pull/321) ([AndreasSchultzGEA](https://github.com/AndreasSchultzGEA))
+- Add of withdrawal-resources [\#320](https://github.com/adewg/ICAR/pull/320) ([AndreasSchultzGEA](https://github.com/AndreasSchultzGEA))
+- Add Group Treatment event [\#315](https://github.com/adewg/ICAR/pull/315) ([cookeac](https://github.com/cookeac))
+- Address Speccy and Spectral linting errors and warnings [\#313](https://github.com/adewg/ICAR/pull/313) ([cookeac](https://github.com/cookeac))
+- Issue293 [\#311](https://github.com/adewg/ICAR/pull/311) ([alamers](https://github.com/alamers))
+- fixed spectral linting \(i think\) [\#309](https://github.com/adewg/ICAR/pull/309) ([alamers](https://github.com/alamers))
+- Add scheme docs and well-known schemes [\#308](https://github.com/adewg/ICAR/pull/308) ([cookeac](https://github.com/cookeac))
 - Add scheme docs and well-known schemes [\#306](https://github.com/adewg/ICAR/pull/306) ([cookeac](https://github.com/cookeac))
+- Descriptions of date/time fields to be RFC3339 UTC [\#304](https://github.com/adewg/ICAR/pull/304) ([cookeac](https://github.com/cookeac))
+- Create icarGroupEventResource to support event observations on groups [\#303](https://github.com/adewg/ICAR/pull/303) ([cookeac](https://github.com/cookeac))
+- Erwinspeybroeck \#284 [\#298](https://github.com/adewg/ICAR/pull/298) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Attempt to fix Spectral paths [\#294](https://github.com/adewg/ICAR/pull/294) ([cookeac](https://github.com/cookeac))
+- Create icarAnimalEventCoreResource [\#292](https://github.com/adewg/ICAR/pull/292) ([cookeac](https://github.com/cookeac))
+- updated readme [\#288](https://github.com/adewg/ICAR/pull/288) ([gra-moore](https://github.com/gra-moore))
+- removed discriminators [\#287](https://github.com/adewg/ICAR/pull/287) ([gra-moore](https://github.com/gra-moore))
+- updated draft [\#283](https://github.com/adewg/ICAR/pull/283) ([gra-moore](https://github.com/gra-moore))
+- added location to resource. [\#281](https://github.com/adewg/ICAR/pull/281) ([gra-moore](https://github.com/gra-moore))
+- Feature 265 - added isDeleted to meta [\#280](https://github.com/adewg/ICAR/pull/280) ([gra-moore](https://github.com/gra-moore))
+- Feature 266 add resource type [\#279](https://github.com/adewg/ICAR/pull/279) ([gra-moore](https://github.com/gra-moore))
+- Spectral linter fix [\#271](https://github.com/adewg/ICAR/pull/271) ([ahokkonen](https://github.com/ahokkonen))
+- Type classification [\#269](https://github.com/adewg/ICAR/pull/269) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Add remark field to icarEventCoreResource [\#256](https://github.com/adewg/ICAR/pull/256) ([cookeac](https://github.com/cookeac))
+- Fixed declaration for nullable reference types [\#254](https://github.com/adewg/ICAR/pull/254) ([ahokkonen](https://github.com/ahokkonen))
+- HealthStatus for IcarAnimalCoreResource [\#253](https://github.com/adewg/ICAR/pull/253) ([AndreasSchultzGEA](https://github.com/AndreasSchultzGEA))
+- CoatColorDetails in IcarAnimalCoreResource [\#252](https://github.com/adewg/ICAR/pull/252) ([AndreasSchultzGEA](https://github.com/AndreasSchultzGEA))
 - Create stale.yml [\#249](https://github.com/adewg/ICAR/pull/249) ([cookeac](https://github.com/cookeac))
 
 ## [v1.2.0](https://github.com/adewg/ICAR/tree/v1.2.0) (2021-09-15)
