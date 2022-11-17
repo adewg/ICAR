@@ -2,7 +2,7 @@
   "description": "A withdrawal resource used to indicate that product should be separated (e.g. colostrum from newly lactating cows).",
   "allOf": [
     {
-      "$ref": "../resources/icarEventCoreResource.json"
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
       "type": "object",
