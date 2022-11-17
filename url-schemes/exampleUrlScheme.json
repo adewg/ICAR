@@ -2244,6 +2244,9 @@
       },
       "icarGroupWeightEventCollection": {
         "$ref": "../collections/icarGroupWeightEventCollection.json"
+      },
+      "icarReproEmbryoFlushingEventCollection" : {
+        "$ref": "../collections/icarReproEmbryoFlushingEventCollection.json"   
       }
     },
     "parameters": {
