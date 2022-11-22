@@ -16,7 +16,7 @@
           "description": "The days in milk in a lactation when the peak production is expected to occur."
         },
         "lactationPeakProduction": {
-          "$ref": "../types/icarMilkingMilkWeightType.json"
+          "$ref": "../types/icarMassMeasureType.json"
         },
         "productionNextMilkRecording": {
           "$ref": "../types/icarMilkingPredictionType.json"
