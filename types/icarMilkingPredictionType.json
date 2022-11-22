@@ -13,7 +13,7 @@
       "$ref": "../types/icarMassMeasureType.json"
     },
     "FatWeight": {
-      "$ref": "../types/icarMilkingFatWeightType.json"
+      "$ref": "../types/icarMassMeasureType.json"
     },
     "ProteinWeight": {
       "$ref": "../types/icarMassMeasureType.json"
