@@ -20,7 +20,7 @@
             "$ref": "../types/icarMilkCharacteristicsType.json"
           }
         },
-        "PredictedProductionOnTestday": {
+        "predictedProductionOnTestday": {
           "$ref": "../types/icarMilkingPredictionType.json"
 	}
       }
