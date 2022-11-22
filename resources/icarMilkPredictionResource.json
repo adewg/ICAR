@@ -8,7 +8,7 @@
       "type": "object",
 
       "properties": {
-        "averagePredictedProduction": {
+        "averageRemainingProduction": {
           "$ref": "../types/icarMilkingPredictionType.json"
         },
         "daysInMilkAtLactationPeak": {
