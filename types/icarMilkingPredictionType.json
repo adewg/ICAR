@@ -10,7 +10,7 @@
 
   "properties": {
     "MilkWeight": {
-      "$ref": "../types/icarMilkingMilkWeightType.json"
+      "$ref": "../types/icarMassMeasureType.json"
     },
     "FatWeight": {
       "$ref": "../types/icarMilkingFatWeightType.json"
