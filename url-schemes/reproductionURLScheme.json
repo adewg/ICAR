@@ -3,7 +3,7 @@
     "info": {
         "title": "Reproduction API Specifications",
         "description": "Specifications for messages that support livestock reproduction recording.",
-        "version": "1.3",
+        "version": "1.4",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -1072,6 +1072,111 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/repro-embyro-flushings": {
+            "get": {
+                "operationId": "get-repro-embyro-flushings",
+                "summary": "Get the embryo flushings for a certain location",
+                "description": "# Purpose\nProvides the animal embryo flushings for a location\n",
+                "tags": [
+                    "ADE-1.4-reproduction"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarReproEmbryoFlushingEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-embryo-flushing",
+                "summary": "Add a single new embyro flushing.",
+                "description": "# Purpose\nAllows a client to add a single embryo flushing event.\n",
+                "tags": [
+                    "ADE-1.4-reproduction"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The embryo-flushing to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarReproEmbryoFlushingEventCollection"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarReproEmbryoFlushingEventResource.json"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/batches/locations/{location-scheme}/{location-id}/pregnancy-checks": {
             "post": {
                 "operationId": "post-batch-pregnancy-checks",
@@ -1821,6 +1926,81 @@
                     }
                 }
             }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/embryo-flushings": {
+            "post": {
+                "operationId": "post-batch-embryo-flushings",
+                "summary": "Add an array of embryo-flushings.",
+                "description": "# Purpose \nAllows a client to add a collection of embryo-flushings.\n",
+                "tags": [
+                    "ADE-1.4-reproduction"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of embryo-flushings to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarReproEmbryoFlushingEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -1949,6 +2129,18 @@
                 "type": "array",
                 "items": {
                     "$ref": "#/components/schemas/icarReproStatusObservedEventResource"
+                }
+            },
+            "icarReproEmbryoFlushingEventResource": {
+                "$ref": "../resources/icarReproEmbryoFlushingEventResource.json"
+            },
+            "icarReproEmbryoFlushingEventCollection": {
+                "$ref": "../collections/icarReproEmbryoFlushingEventCollection.json"
+            },
+            "icarReproEmbryoFlushingEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarReproEmbryoFlushingEventResource"
                 }
             }
         },
