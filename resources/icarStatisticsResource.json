@@ -34,13 +34,13 @@
     "group": {
       "type": "array",
       "items": {
-        "$ref": "../types/icarStatisticsGroupType.json"
-      }
-    },
-    "statistics": {
-      "type": "array",
-      "items": {
-        "$ref": "../types/icarStatisticsType.json"
+        "$ref": "../types/icarStatisticsGroupType.json",
+        "statistics": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarStatisticsType.json"
+           }
+        }
       }
     }
   }
