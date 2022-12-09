@@ -8,8 +8,10 @@ The content of this repository is licenced using the Apache 2.0 Licence. You are
 There are three key areas of this standard:
 
 1. The JSON Schema for Data Types: [JSON ICAR Resource Types](./resources/)
-2. The URL Schemes and Open API for location centric applications: [Application API](./url-schemes)
-3. The Generic Data API for data exchange: [Generic Data API](generic-data-api.md) 
+2. The URL Schemes and Open API for location centric applications: [Application API](./url-schemes) and [specification](./docs/location-based-api.md) for these.
+3. The Generic Data API for data exchange: [Generic Data API](./docs/generic-data-exchange-api.md) 
+
+You can also find an explanation of [how to choose between location or generic data exchange APIs](./docs/location-or-data-exchange-api.md) and [the different types of animal groups and sets](./docs/understanding-animal-groups.md) supported by the standard.
 
 ## Compliance
 
