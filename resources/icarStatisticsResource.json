@@ -13,8 +13,7 @@
         "purpose",
         "dateFrom",
         "dateTo",
-        "group",
-        "statistics"
+        "group"
       ],
 
       "properties": {
