@@ -1,5 +1,5 @@
 {
-  "description": "The statitics that have been calculated.",
+  "description": "The statistics that have been calculated.",
 
   "type": "object",
 
@@ -9,15 +9,14 @@
       "description": "The metric code for a specific statitics. See https://github.com/adewg/ICAR/wiki/Schemes for more info"
     },
     "unit": {
-      "$ref": "../enums/uncefactMassUnitsType.json"
+      "type": "string"
+      "description": "Eventually the unit of the metric."
     },
     "aggregation": {
       "$ref": "../enums/icarAggregationType.json"
     },
     "value": { 
       "type": "number",
-      "format": "double",
-      "nullable": true,
       "description": "The value of the metric."
     }
   }
