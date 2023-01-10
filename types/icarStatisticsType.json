@@ -9,8 +9,8 @@
       "description": "The metric code for a specific statitics. See https://github.com/adewg/ICAR/wiki/Schemes for more info"
     },
     "unit": {
-      "type": "string"
-      "description": "Eventually the unit of the metric."
+      "type": "string",
+      "description": "The unit of the metric. This must be appropriate to the metric and UN-CEFACT unit codes should be used where possible."
     },
     "aggregation": {
       "$ref": "../enums/icarAggregationType.json"
