@@ -13,20 +13,14 @@
     },
     "originAddress": {
       "description": "Origin address for movement.",
-      "anyOf": [
-          { "type": "string" },
-          { "$ref": "../types/PostalAddress.json" }
-      ]
+      "type": "string"
     },
     "destinationLocation": {
       "$ref": "../types/icarLocationIdentifierType.json"
     },
     "destinationAddress": {
       "description": "Destination address for movement.",
-      "anyOf": [
-          { "type": "string" },
-          { "$ref": "../types/PostalAddress.json" }
-      ]
+      "type": "string" 
     },
     "loadingDateTime": {
       "$ref": "../types/icarDateTimeType.json",
