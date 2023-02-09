@@ -3,6 +3,8 @@ The repository contains the JSON standard for Animal Data Exchange (ADE) produce
 
 The content of this repository is licenced using the Apache 2.0 Licence. You are encouraged to use it in your data exchanges and other applications, and also to contribute to the further development of the standard.
 
+If you have implemented previous versions of ADE, you should read the [release notes for the latest version](./ReleaseNotes.md).
+
 ## Normative Sections
 
 There are three key areas of this standard:
