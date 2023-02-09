@@ -13,14 +13,24 @@
     },
     "originAddress": {
       "description": "Origin address for movement.",
-      "type": "string"
+      "type": "string",
+      "deprecated": true
+    },
+    "originPostalAddress": {
+      "description": "A structured, schema.org-style address for the origin location.",
+      "$ref": "../types/PostalAddress.json"
     },
     "destinationLocation": {
       "$ref": "../types/icarLocationIdentifierType.json"
     },
     "destinationAddress": {
       "description": "Destination address for movement.",
-      "type": "string" 
+      "type": "string",
+      "deprecated": true 
+    },
+    "destinationPostalAddress": {
+      "description": "A structured, schema.org-style address for the destination location.",
+      "$ref": "../types/PostalAddress.json"
     },
     "loadingDateTime": {
       "$ref": "../types/icarDateTimeType.json",
