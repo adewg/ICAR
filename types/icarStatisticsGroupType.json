@@ -13,10 +13,18 @@
       "description": "Number of animals in the group."
     },
     "icarGroupSpecifier": {
+      "description": "A set of group specifiers that in combination define the animals in the group.",
       "type": "array",
       "items": {
         "$ref": "../types/icarGroupSpecifierType.json"
       }
+    },
+    "statistics": {
+      "description": "An array of statistics for this group.",
+      "type": "array",
+      "items": {
+        "$ref": "../types/icarStatisticsType.json"
+       }
     }
   }
 }
