@@ -1,47 +1,50 @@
 {
   "description": "Describes the statistics for a certain location.",
+  "allOf": [
+    {
+      "$ref": "../resources/icarResource.json"
+    },
+    {
+      "type": "object",
 
-  "type": "object",
+      "required": [
+        "id",
+        "location",
+        "purpose",
+        "dateFrom",
+        "dateTo",
+        "group"
+      ],
 
-  "required": [
-    "id",
-    "location",
-    "purpose",
-    "dateFrom",
-    "dateTo",
-    "group",
-    "statistics"
-  ],
-
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Unique identifier on location level in the source system for this statistics."
-    },
-    "location": {
-      "$ref": "../types/icarLocationIdentifierType.json",
-      "description": "Unique location scheme and identifier combination."
-    },
-    "purpose": {
-      "$ref": "../enums/icarStatisticsPurposeType.json"
-    },
-    "dateFrom": {
-      "$ref": "../types/icarDateType.json"
-    },
-    "dateTo": {
-      "$ref": "../types/icarDateType.json"
-    },
-    "group": {
-      "type": "array",
-      "items": {
-        "$ref": "../types/icarStatisticsGroupType.json"
-      }
-    },
-    "statistics": {
-      "type": "array",
-      "items": {
-        "$ref": "../types/icarStatisticsType.json"
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier on location level in the source system for this statistics."
+        },
+        "location": {
+          "$ref": "../types/icarLocationIdentifierType.json",
+          "description": "Unique location scheme and identifier combination."
+        },
+        "purpose": {
+          "$ref": "../enums/icarStatisticsPurposeType.json",
+          "description": "Defines the purpose for these statistics."
+        },
+        "dateFrom": {
+          "$ref": "../types/icarDateType.json",
+          "description": "The start of the period for which statistics are calculated."
+        },
+        "dateTo": {
+          "$ref": "../types/icarDateType.json",
+          "description": "The end of the period for which statistics are calculated."
+        },
+        "group": {
+          "description": "An array of groups for which statistics are calculated, each of which has statistics for that group.",
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarStatisticsGroupType.json"
+          }
+        }
       }
     }
-  }
+  ]
 }
