@@ -1,12 +1,37 @@
 # Changelog
 
-## [v1.3.1](https://github.com/adewg/ICAR/tree/HEAD)
+## [v1.3.2](https://github.com/adewg/ICAR/tree/HEAD) (2023-02-15)
 
-[Full Changelog](https://github.com/adewg/ICAR/compare/v1.3.0...HEAD)
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.3.1...HEAD)
+
+**Closed issues:**
+
+- Testing patch release 1.3.2 prior to release [\#364](https://github.com/adewg/ICAR/issues/364)
+- Release notes required to explain 1.3 changes [\#358](https://github.com/adewg/ICAR/issues/358)
+- AnyOf causes code generation problem in icarConsignmentType [\#357](https://github.com/adewg/ICAR/issues/357)
+- icarStatistics API is not ok [\#353](https://github.com/adewg/ICAR/issues/353)
+- Handle embryo/opu flush - add event for Flushing   [\#296](https://github.com/adewg/ICAR/issues/296)
+- Current icarResource Discriminator property doesnt appear valid [\#278](https://github.com/adewg/ICAR/issues/278)
+
+**Merged pull requests:**
+
+- Tested changes for ADE 1.3.2 [\#367](https://github.com/adewg/ICAR/pull/367) ([cookeac](https://github.com/cookeac))
+- Revert "Added repro flushing event with type and enums" [\#350](https://github.com/adewg/ICAR/pull/350) ([cookeac](https://github.com/cookeac))
+- Added repro flushing event with type and enums [\#337](https://github.com/adewg/ICAR/pull/337) ([cvigorsICBF](https://github.com/cvigorsICBF))
+
+## [v1.3.1](https://github.com/adewg/ICAR/tree/v1.3.1) (2022-11-17)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.3.0...v1.3.1)
 
 **Closed issues:**
 
 - icarWithdrawalEventResource inherits incorrect event type [\#347](https://github.com/adewg/ICAR/issues/347)
+
+**Merged pull requests:**
+
+- Merge from Develop branch - update to v1.3.1 [\#349](https://github.com/adewg/ICAR/pull/349) ([cookeac](https://github.com/cookeac))
+- Update ChangeLog for v1.3.1. [\#348](https://github.com/adewg/ICAR/pull/348) ([cookeac](https://github.com/cookeac))
+- WithdrawalEventResources from IcarAnimalEventCoreResource [\#345](https://github.com/adewg/ICAR/pull/345) ([AndreasSchultzGEA](https://github.com/AndreasSchultzGEA))
 
 ## [v1.3.0](https://github.com/adewg/ICAR/tree/v1.3.0) (2022-11-02)
 
