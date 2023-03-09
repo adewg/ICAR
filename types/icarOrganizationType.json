@@ -1,6 +1,5 @@
 {
     "description": "Details for an organization that support its role in livestock systems or supply chains. Conceptually extends schema.org/organization.",
-    "$id": "/types/icarOrganizationType",
     "allOf": [
         {
             "$ref": "../types/icarOrganizationIdentityType.json"

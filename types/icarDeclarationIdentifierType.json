@@ -1,0 +1,11 @@
+{
+    "description": "A scheme and ID combination that uniquely identifies a claim or declaration in an assurance programme or equivalent.",
+
+    "type": "object",
+    
+    "allOf": [
+        {
+            "$ref": "../types/icarIdentifierType.json"
+        }
+    ]
+}
