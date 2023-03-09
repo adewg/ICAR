@@ -1,0 +1,65 @@
+{
+    "description": "A Processing Lot ('lot' for short) describes a group or batch of animals from a single consignment that are processed together.",
+
+    "type": "object",
+
+    "required": [
+        "name",
+        "chain",
+        "species"
+    ],
+
+    "properties": {
+        "id": {
+            "description": "A plant internal identifier to uniquely identify the processing lot. This should be a UUID or otherwise unique.",
+            "type": "string"
+        },
+        "name": {
+            "description": "A name or visual identifier allocated by the plant to the lot.",
+            "type": "string"
+        },
+        "chain": {
+            "description": "The processing plant and chain for this lot.",
+            "$ref": "../types/icarPlantChainType.json"
+        },
+        "killDateTime": {
+            "description": "The date and time at which killing on the lot started",
+            "$ref": "../types/icarDateTimeType.json"
+        },
+        "startBodyNumber": {
+            "description": "Ordinal of the first body or carcass in lot counting across same plant, chain and kill date",
+            "type": "integer"
+        },
+        "endBodyNumber": {
+            "description": "Ordinal of the last body or carcass in lot counting across same plant, chain and kill date",
+            "type": "integer"
+        },
+        "lotCount": {
+            "description": "The number of animals (bodies for a processor) processed in this lot.",
+            "type": "integer"
+        },
+        "targetMarket": {
+            "description": "Represents the intended market for the stock.  It is defined by the processor and may be mapped to industry grids or schedules.",
+            "type": "string"
+        },
+        "killType": {
+            "description": "The processor's internal classification code",
+            "type": "string"
+        },
+        "species": {
+            "description": "The animal species being processed in the lot",
+            "$ref": "../enums/icarAnimalSpecieType.json"
+        },
+        "consignment": {
+            "description": "Details of the inbound consignment from which animals in this lot are drawn.",
+            "$ref": "../types/icarConsignmentType.json"
+        },
+        "interestedParties": {
+            "type": "array",
+            "description": "Identifies the parties and their interests in the processing lot.",
+            "items": {
+                "$ref": "../types/icarInterestedPartyType.json"
+            }
+        }
+    }
+}

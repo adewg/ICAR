@@ -1,0 +1,10 @@
+{
+    "description": "Indicates the primal being observed. Use Total if no primal cuts have been made.",
+    "type": "string",
+    "enum": [
+        "Total",
+        "Forequarter",
+        "Middle",
+        "Hindquarter"
+    ]
+}

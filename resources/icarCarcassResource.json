@@ -1,0 +1,12 @@
+{
+    "description": "A carcass (also called carcase) identifies a single animal which is processed at a plant. A carcass has identifying information and attributes describing the animal from the processor perspective.",
+
+    "allOf": [
+        {
+            "$ref": "../resources/icarResource.json"
+        },
+        {
+            "$ref": "../types/icarCarcassType.json"
+        }
+    ]
+}
