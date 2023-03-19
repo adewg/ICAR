@@ -20,7 +20,7 @@
                     }
                 },
                 "side": {
-                    "description": "The side of the carcass observed in this event ('Both` if not split).",
+                    "description": "The side of the carcass observed in this event (use Both if not split).",
                     "$ref": "../enums/icarCarcassSideType.json"
                 },
                 "primal": {
