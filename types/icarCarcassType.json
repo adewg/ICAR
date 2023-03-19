@@ -14,7 +14,7 @@
             "description": "The lot in which the carcass was processed. ",
             "$ref": "../types/icarProcessingLotType.json"
         },
-        "killDate": {
+        "killDateTime": {
             "description": "Date/time the animal was killed. Ideally this should be a precise date and time. However, older systems may only be able to supply the date.",
             "$ref": "../types/icarDateTimeType.json"
         },
