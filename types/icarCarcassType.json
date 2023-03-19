@@ -58,7 +58,7 @@
             "description": "Plant-specific destination codes that are used for company requirements and to link to boning run processing.",
             "type": "string"
         },
-        "refProcessorGrid": {
+        "processorGrid": {
             "description": "Reference to a processor-specific grid used to calculate the price paid to the producer",
             "type": "string"
         }
