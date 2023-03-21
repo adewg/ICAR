@@ -1,0 +1,7 @@
+{
+  "description": "The method of embryo flushing.",
+
+  "type": "string",
+
+  "enum": ["OPU-IVF", "Superovulation"]
+}

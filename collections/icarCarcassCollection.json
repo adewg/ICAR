@@ -1,0 +1,21 @@
+{
+    "description": "Represents a collection of carcass resources. Based on icarResourceCollection to provide paging etc.",
+  
+    "allOf": [{
+        "$ref": "../collections/icarResourceCollection.json"
+      },
+      {
+        "type": "object",
+        
+        "properties": {
+          "member": {
+            "type": "array",
+            "items": {
+              "$ref": "../resources/icarCarcassResource.json"
+            },
+            "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case carcasses."
+          }
+        }
+      }
+    ]
+  }
