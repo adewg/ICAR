@@ -20,6 +20,10 @@
       "description": "A structured, schema.org-style address for the origin location.",
       "$ref": "../types/PostalAddress.json"
     },
+    "originOrganization": {
+      "description": "The organisational details of the origin, including any necessary identifiers.",
+      "$ref": "../types/icarOrganizationType.json"
+    },
     "destinationLocation": {
       "$ref": "../types/icarLocationIdentifierType.json"
     },
@@ -31,6 +35,10 @@
     "destinationPostalAddress": {
       "description": "A structured, schema.org-style address for the destination location.",
       "$ref": "../types/PostalAddress.json"
+    },
+    "destinationOrganization": {
+      "description": "The organisational details of the destination, including any necessary identifiers.",
+      "$ref": "../types/icarOrganizationType.json"
     },
     "loadingDateTime": {
       "$ref": "../types/icarDateTimeType.json",
@@ -63,6 +71,43 @@
     "farmAssuranceReference": {
       "$ref": "../types/icarIdentifierType.json",
       "description": "Identification reference of a farm assurance operation."
+    },
+    "countConsigned": {
+      "type": "integer",
+      "description": "The number of animals despatched or consigned from the origin."
+    },
+    "countReceived": {
+      "type": "integer",
+      "description": "The number of animals received at the destination."
+    },
+    "hoursOffFeed": {
+      "type": "integer",
+      "description": "The number of hours since animals in the consignment had access to feed."
+    },
+    "hoursOffWater": {
+      "type": "integer",
+      "description": "The number of hours since animals in the consignment had access to water."
+    },
+    "references": {
+      "type": "array",
+      "description": "References associated with the consignment. These may be additional to the single transport reference (for instance, to support multi-mode transport).",
+      "items": {
+          "$ref": "../types/icarIdentifierType.json"
+      }
+    },
+    "interestedParties": {
+      "type": "array",
+      "description": "Identifies the parties and their interests in the consignment.",
+     "items": {
+          "$ref": "../types/icarInterestedPartyType.json"
+      }
+    }, 
+    "declarations": {
+      "type": "array",
+      "description": "Country, species or scheme -specific declarations for the consignment.",
+      "items": {
+          "$ref": "../types/icarConsignmentDeclarationType.json"
+      }
     }
   }
 }

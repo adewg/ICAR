@@ -1,0 +1,36 @@
+{
+    "description": "Details for an organization that support its role in livestock systems or supply chains. Conceptually extends schema.org/organization.",
+    "allOf": [
+        {
+            "$ref": "../types/icarOrganizationIdentityType.json"
+        }
+        ,
+        {
+            "type": "object",
+            "properties": {
+                "establishmentIdentifiers": {
+                    "type": "array",
+                    "description": "Scheme and identifier combinations that provide official registrations for a business or establishment",
+                    "items": {
+                        "$ref": "../types/icarOrganizationIdentifierType.json"
+                    }
+                },
+                "address": {
+                    "$ref": "../types/PostalAddress.json",
+                    "description": "Postal address or physical address in postal format, including country. Optional as this may already be specified in a consignment."
+                },
+                "parentOrganization": {
+                    "description": "The larger organization that this organization is a sub-organization of, if any.",
+                    "$ref": "../types/icarOrganizationIdentityType.json"
+                },
+                "membershipIdentifiers": {
+                    "type": "array",
+                    "description": "Scheme and identifier combinations that identity membership in programmes",
+                    "items": {
+                        "$ref": "../types/icarOrganizationIdentifierType.json"
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "description": "A Consignment Declaration provides a claim or declaration, usually by the source of animals, regarding the assurance or other status of animals in the consignment.",
+
+    "type": "object",
+
+    "properties": {
+        "declarationId": {
+            "description": "Identifies the specific declaration being made using a scheme and an id.",
+            "$ref": "../types/icarDeclarationIdentifierType.json"
+        },
+        "declaredValue": {
+            "type": "string",
+            "description": "The value of the declaration."
+        }
+    }
+}

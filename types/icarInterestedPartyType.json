@@ -1,0 +1,23 @@
+{
+    "description": "Identifies the interests an organization has in an entity, for example in a consignment or in a processingLot. Extends the organization object.",
+
+    "type": "object",
+
+    "allOf": [
+        {
+            "$ref": "../types/icarOrganizationType.json"
+        },
+        {
+            "required": ["interests"],
+            "properties": {
+                "interests": {
+                    "type": "array",
+                    "description": "Identifies the type of interest that the party has in a consignment or animal.",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    ]
+}
