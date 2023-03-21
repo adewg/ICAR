@@ -32,7 +32,7 @@
             "description": "The status of the observation.",
             "$ref": "../enums/icarObservationStatusType.json"
         },
-        "problemDetail": {
+        "remark": {
             "description": "The reason if there is an issue with the observation",
             "type": "string"
         }
