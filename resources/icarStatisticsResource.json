@@ -34,7 +34,7 @@
     "group": {
       "type": "array",
       "items": {
-        "$ref": "../types/icarStatisticsGroupType.json",
+        "$ref": "../types/icarStatisticsGroupType.json"
       }
     }
   }
