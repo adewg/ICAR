@@ -452,7 +452,7 @@
                 "summary": "Get the statistics for a certain location",
                 "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated by specifying a date to and date from parameter. Also the purpose can be provided to limit the purpose of the statistics",
                 "tags": [
-                    "ADE-1.3.2-management"
+                    "ADE-1.3-management"
                 ],
                 "parameters": [
                     {
