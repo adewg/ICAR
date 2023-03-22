@@ -15,7 +15,7 @@
     "fatWeight": {
       "$ref": "../types/icarMassMeasureType.json"
     },
-    "ProteinWeight": {
+    "proteinWeight": {
       "$ref": "../types/icarMassMeasureType.json"
     },
     "Hours": {
