@@ -24,7 +24,7 @@
             "description": "The smallest measurement difference that can be discriminated. Specified in the units, for instance 0.5 (kilograms).",
             "type": "number"
         },
-        "qualitativeGrade": {
+        "qualitativeValue": {
             "description": "The observed value of the metric if it is a grade or other string.",
             "type": "string"
         },
