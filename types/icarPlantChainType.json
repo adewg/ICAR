@@ -1,0 +1,25 @@
+{
+    "description": "Identifies a processing chain in the plant.",
+
+    "type": "object",
+
+    "required": [
+        "plant",
+        "chainId"
+    ],
+
+    "properties": {
+        "plant": {
+            "description": "Identifies the plant using an Organization object.",
+            "$ref": "../types/icarOrganizationType.json"
+        },
+        "chainId": {
+            "description": "A within-plant identifier for the processing chain. This might be a name or numeric code.",
+            "type": "string"
+        },
+        "chainProcess": {
+            "description": "Whether the part of the processing chain involved is before (Ante) or after (Post) mortem.",
+            "$ref": "../enums/icarChainProcessType.json"
+        }
+    }
+}

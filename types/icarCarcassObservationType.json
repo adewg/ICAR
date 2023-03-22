@@ -1,0 +1,40 @@
+{
+    "description": "A single observation (measurement or assessment) of a metric that is recorded for a carcase, side or primal.  The observation may have a numeric value or a qualitative grade.",
+
+    "type": "object",
+
+    "required": [
+        "metric"
+    ],
+
+    "properties": {
+        "metric": {
+            "description": "The metric observed.",
+            "$ref": "../types/icarCarcassMetricType.json"
+        },
+        "value": {
+            "description": "The observed value of the metric if it is numeric.",
+            "type": "number"
+        },
+        "units": {
+            "description": "The units in which the value is measured. UN/CEFACT units SHOULD be used for metrics where these are applicable.",
+            "type": "string"
+        },
+        "resolution": {
+            "description": "The smallest measurement difference that can be discriminated. Specified in the units, for instance 0.5 (kilograms).",
+            "type": "number"
+        },
+        "qualitativeValue": {
+            "description": "The observed value of the metric if it is a grade or other string.",
+            "type": "string"
+        },
+        "observationStatus": {
+            "description": "The status of the observation.",
+            "$ref": "../enums/icarObservationStatusType.json"
+        },
+        "remark": {
+            "description": "The reason if there is an issue with the observation",
+            "type": "string"
+        }
+    }
+}

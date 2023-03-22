@@ -1078,7 +1078,7 @@
                 "summary": "Get the embryo flushings for a certain location",
                 "description": "# Purpose\nProvides the animal embryo flushings for a location\n",
                 "tags": [
-                    "ADE-1.4-reproduction"
+                    "ADE-1.3-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1115,7 +1115,7 @@
                 "summary": "Add a single new embyro flushing.",
                 "description": "# Purpose\nAllows a client to add a single embryo flushing event.\n",
                 "tags": [
-                    "ADE-1.4-reproduction"
+                    "ADE-1.3-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1142,7 +1142,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/icarReproEmbryoFlushingEventResource.json"
+                                    "$ref": "#/components/schemas/icarReproEmbryoFlushingEventResource"
                                 }
                             }
                         }
@@ -1933,7 +1933,7 @@
                 "summary": "Add an array of embryo-flushings.",
                 "description": "# Purpose \nAllows a client to add a collection of embryo-flushings.\n",
                 "tags": [
-                    "ADE-1.4-reproduction"
+                    "ADE-1.3-reproduction"
                 ],
                 "parameters": [
                     {

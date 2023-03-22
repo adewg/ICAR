@@ -1,0 +1,7 @@
+{
+  "description": "Scheme and identifier based mechanism for identifying carcass metrics (things observed, measured, or graded about carcasses).",
+
+  "allOf": [{
+    "$ref": "../types/icarIdentifierType.json"
+  }]
+}

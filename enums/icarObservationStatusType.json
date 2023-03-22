@@ -1,0 +1,11 @@
+{
+    "description": "Observations may be measured or calculated - but the measurement or calculation may fail. This describes the outcome.",
+
+    "type": "string",
+    "enum": [
+        "Measured", 
+        "NotMeasured", 
+        "Calculated", 
+        "NotCalculated"
+    ]
+}

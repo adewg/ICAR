@@ -1,0 +1,8 @@
+{
+    "description": "Indicates whether an observation event is on the hot or cold carcass (before or after chilling).",
+    "type": "string",
+    "enum": [
+        "Hot",
+        "Cold"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "description": "Identifies whether observations are made before or after animals are killed.",
+    "type": "string",
+    "enum": [
+        "AnteMortem", 
+        "PostMortem"
+    ]
+}

@@ -1,6 +1,7 @@
 {
     "description": "The identity of an organization in livestock supply chains. Based on a minimal set of identifiers from schema.org/organization.",
     "type": "object",
+    "required": ["name"],
     "properties": {
         "name": {
             "type": "string",

@@ -1,0 +1,9 @@
+{
+    "description": "Indicates the side of the carcass. Use Both for small carcasses that are not split, or before carcasses are split.",
+    "type": "string",
+    "enum": [
+        "Left",
+        "Right",
+        "Both"
+    ]
+}
