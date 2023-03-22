@@ -18,7 +18,7 @@
     "proteinWeight": {
       "$ref": "../types/icarMassMeasureType.json"
     },
-    "Hours": {
+    "hours": {
       "type": "number",
       "description": "The number of hours in which the mentioned milk, fat and protein were produced. Most commonly used is a 24 hours production."
     }
