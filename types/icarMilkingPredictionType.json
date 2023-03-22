@@ -9,7 +9,7 @@
   ],
 
   "properties": {
-    "MilkWeight": {
+    "milkWeight": {
       "$ref": "../types/icarMassMeasureType.json"
     },
     "FatWeight": {
