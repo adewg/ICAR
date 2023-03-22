@@ -1,0 +1,7 @@
+{
+  "description": "Scheme and identifier based mechanism for identifying organisations, including registered establishments and scheme memberships.",
+
+  "allOf": [{
+    "$ref": "../types/icarIdentifierType.json"
+  }]
+}

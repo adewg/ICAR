@@ -1,0 +1,27 @@
+{
+  "description": "Event for recording embyro flushing",
+
+  "allOf": [
+    {
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": ["flushingMethod"],
+      "properties": {
+        "flushingMethod": {
+          "$ref": "../enums/icarReproEmbryoFlushingMethodType.json"
+        },        
+        "embryoCount": {
+          "type": "integer",
+          "description": "The number of embryos extracted in the flushing."
+        },
+        "collectionCentre": {
+          "type": "string",
+          "description": "The location where the embryo was flushed."
+        }
+      }
+    }
+  ]
+}

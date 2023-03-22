@@ -1,0 +1,41 @@
+{
+    "description": "An individual animal event in which a set of observations on a carcass, side or primal are recorded by an operator at a specified date-time.",
+
+    "allOf": [
+        {
+            "$ref": "../resources/icarAnimalEventCoreResource.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "carcass": {
+                    "description": "The carcass being observed.",
+                    "$ref": "../types/icarCarcassType.json"
+                },
+                "observations": {
+                    "type": "array",
+                    "description": "The array of observations performed in this event",
+                    "items": {
+                        "$ref": "../types/icarCarcassObservationType.json"
+                    }
+                },
+                "side": {
+                    "description": "The side of the carcass observed in this event (use Both if not split).",
+                    "$ref": "../enums/icarCarcassSideType.json"
+                },
+                "primal": {
+                    "description": "Identifies the primal being observed (`Total` if not split).",
+                    "$ref": "../enums/icarCarcassPrimalType.json"
+                },
+                "carcassState": {
+                    "description": "Indicates whether the observation event is on the hot or cold (chilled) carcass.",
+                    "$ref": "../enums/icarCarcassStateType.json"
+                },
+                "device": {
+                    "description": "Identifies the device used for performing the observations in this event.",
+                    "$ref": "../resources/icarDeviceResource.json"
+                }
+            }
+        }
+    ]
+}

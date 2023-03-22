@@ -1,0 +1,24 @@
+{
+    "description": "The identity of an organization in livestock supply chains. Based on a minimal set of identifiers from schema.org/organization.",
+    "type": "object",
+    "required": ["name"],
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the organisation"
+        },
+        "leiCode": {
+            "description": "An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.",
+            "type": "string"
+        },
+        "globalLocationNumber": {
+            "description": "The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.",
+            "type": "string"
+        },
+        "uri": {
+            "description": "A uniform resource identifier that is the unique reference or for this organisation, such as its web site.",
+            "type": "string",
+            "format": "uri"
+        }
+    }
+}

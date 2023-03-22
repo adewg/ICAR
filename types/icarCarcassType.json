@@ -1,0 +1,66 @@
+{
+    "description": "A carcass (also called carcase) identifies a single animal which is processed at a plant. A carcass has identifying information and attributes describing the animal from the processor perspective.",
+
+    "type": "object",
+
+    "required": [
+        "processingLot",
+        "bodyNo",
+        "identifiers"
+    ],
+
+    "properties": {
+        "processingLot": {
+            "description": "The lot in which the carcass was processed. ",
+            "$ref": "../types/icarProcessingLotType.json"
+        },
+        "killDateTime": {
+            "description": "Date/time the animal was killed. Ideally this should be a precise date and time. However, older systems may only be able to supply the date.",
+            "$ref": "../types/icarDateTimeType.json"
+        },
+        "bodyNo": {
+            "type": "integer",
+            "description": "A unique identifier on the chain and kill date  assigned to the carcass by the processor."
+        },
+        "identifiers": {
+            "type": "array",
+            "description": "Identifiers for the carcass including the animal's id",
+            "items": {
+                "$ref": "../types/icarAnimalIdentifierType.json"
+            }
+        },
+        "sex": {
+            "description": "The sex of the animal as assessed at the processing plant.",
+            "$ref": "../enums/icarAnimalGenderType.json"
+        },
+        "birthDate": {
+            "description": "Assessed date of birth of the animal represented using RFC3339 (UTC).",
+            "$ref": "../types/icarDateTimeType.json"
+        },
+        "birthDateConfidence": {
+            "description": "A 3-character string representing Year, Month, and Day (YMD). Each character can have the value A (actual), E (estimate), U (unknown). e.g. AEU.",
+            "type": "string",
+            "maxLength": 3
+        },
+        "primaryBreed": {
+            "description": "Primary breed of the animal as visually categorised by the plant, represented using ICAR breed codes.",
+            "$ref": "../types/icarBreedIdentifierType.json"
+        },
+        "plantBoningRun": {
+            "description": "Allocation of the carcass to a plant boning run (if any).",
+            "type": "integer"
+        },
+        "plantBoningRunTemplate": {
+            "description": "Where a Boning Run Template is allocated by the plant, the name or ID of the template.",
+            "type": "string"
+        },
+        "destinationCode": {
+            "description": "Plant-specific destination codes that are used for company requirements and to link to boning run processing.",
+            "type": "string"
+        },
+        "processorGrid": {
+            "description": "Reference to a processor-specific grid used to calculate the price paid to the producer",
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "description": "Identifies a metric (observation, measure, or assessment) for a carcass that has a scheme-based identifier, plus the method used and optionally a qualfier.",
+
+    "type": "object",
+
+    "properties": {
+        "id": {
+            "$ref": "../types/icarCarcassMetricIdentifierType.json"
+        },
+        "method": {
+            "description": "The standard method used to determine the value of the metric.",
+            "type": "string"
+        },
+        "qualifier": {
+            "description": "Qualifier applied to further describe the metric (if any).",
+            "type": "string"
+        }
+    }
+}

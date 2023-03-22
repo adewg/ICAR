@@ -1,0 +1,12 @@
+{
+    "description": "A processing lot describes a group or batch of animals from a single consignment that are processed together.",
+   
+    "allOf": [
+        {
+            "$ref": "../resources/icarResource.json"
+        },
+        {
+            "$ref": "../types/icarProcessingLotType.json"
+        }
+    ]
+}
