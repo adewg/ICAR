@@ -259,7 +259,7 @@
                 "summary": "Get the milk predictions for a certain location",
                 "description": "# Purpose\nProvides the milk predictions for a location\n",
                 "tags": [
-                    "ADE-1.4 additions"
+                    "ADE-1.3-milk"
                 ],
                 "parameters": [
                     {
