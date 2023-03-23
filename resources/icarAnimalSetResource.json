@@ -22,6 +22,10 @@
           "type": "string",
           "description": "Human readable name of the set."
         },
+        "reference": {
+          "type": "string",
+          "description": "This property can be used by parties for any other reference information used to synchronise systems or display to the user."
+        },
         "purpose": {
           "$ref": "../enums/icarSetPurposeType.json",
           "description": "Purpose of the animal set."
