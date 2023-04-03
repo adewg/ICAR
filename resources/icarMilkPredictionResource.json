@@ -1,5 +1,5 @@
 {
-  "description": "This returns a prediction of the expected milk, fat and protein for a cow for the remaining the lactation. Also a prediction of this production on the next testday is included and it eventually gives indication of when the peak production is reached.",
+  "description": "This returns a prediction of the expected milk, fat and protein for a cow for the remaining the lactation. A prediction of this production on the next testday is included and it also gives indication of when the peak production is reached. The eventDateTime for this event is the date of the prediction is made.",
 
   "allOf": [{
       "$ref": "../resources/icarAnimalEventCoreResource.json"

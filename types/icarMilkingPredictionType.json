@@ -13,10 +13,10 @@
       "$ref": "../types/icarMilkingMilkWeightType.json"
     },
     "fatWeight": {
-      "$ref": "../types/icarMilkingFatWeightType.json"
+      "$ref": "../types/icarMilkingMilkWeightType.json"
     },
     "proteinWeight": {
-      "$ref": "../types/icarMilkingProteinWeightType.json"
+      "$ref": "../types/icarMilkingMilkWeightType.json"
     },
     "hours": {
       "type": "number",
