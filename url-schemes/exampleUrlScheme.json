@@ -2212,6 +2212,162 @@
               }
           }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/inventory-transactions": {
+      "get": {
+          "operationId": "get-inventory-transactions",
+          "summary": "Get the inventory transactions that relate to a certain location",
+          "description": "# Purpose\nProvides the inventory transactions relating to a location\n",
+          "tags": [
+              "ADE-1.3-management"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                "$ref": "#/components/parameters/date-from"
+              },
+              {
+                  "$ref": "#/components/parameters/date-to"
+              },
+              {
+                  "$ref": "#/components/parameters/family"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-scheme"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the inventory transactions for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarInventoryTransactionCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-inventory-transactions": {
+      "get": {
+          "operationId": "get-feed-inventory-transactions",
+          "summary": "Get the feed inventory transactions that relate to a certain location",
+          "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
+          "tags": [
+              "ADE-1.3-management"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                "$ref": "#/components/parameters/date-from"
+              },
+              {
+                  "$ref": "#/components/parameters/date-to"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-scheme"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the feed inventory transactions for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarFeedTransactionCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/medicine-inventory-transactions": {
+      "get": {
+          "operationId": "get-medicine-inventory-transactions",
+          "summary": "Get the medicine inventory transactions that relate to a certain location",
+          "description": "# Purpose\nProvides the medicine inventory transactions relating to a location\n",
+          "tags": [
+              "ADE-1.3-management"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                "$ref": "#/components/parameters/date-from"
+              },
+              {
+                  "$ref": "#/components/parameters/date-to"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-scheme"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the medicine inventory transactions for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarMedicineTransactionCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
     }
   },
   "components": {
@@ -2377,6 +2533,15 @@
       },
       "icarCarcassObservationsEventCollection" : {
         "$ref": "../collections/icarCarcassObservationsEventCollection.json"
+      },
+      "icarInventoryTransactionCollection": {
+        "$ref": "../collections/icarInventoryTransactionCollection.json"
+      },
+      "icarFeedTransactionCollection": {
+        "$ref": "../collections/icarFeedTransactionCollection.json"
+      },
+      "icarMedicineTransactionCollection": {
+        "$ref": "../collections/icarMedicineTransactionCollection.json"
       }
     },
     "parameters": {
@@ -2448,7 +2613,16 @@
             "$ref": "../enums/icarStatisticsPurposeType.json"
           }
       },
-      "report-start-date-time": {
+      "family": {
+        "name": "family",
+        "in": "query",
+        "description": "The family of products.",
+        "required": false,
+        "schema": {
+          "$ref": "../enums/icarProductFamilyType.json"
+        }
+    },
+    "report-start-date-time": {
         "name": "report-start-date-time",
         "in": "query",
         "description": "The start of the date-time range for the data to get in the request based on the event date time.",
@@ -2498,6 +2672,24 @@
         "in": "path",
         "description": "The unique identifier scheme",
         "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "identifier-scheme": {
+        "name": "identifier-scheme",
+        "in": "query",
+        "description": "The scheme for an identifier.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "identifier-id": {
+        "name": "identifier-id",
+        "in": "query",
+        "description": "The unique identifier within a scheme.",
+        "required": false,
         "schema": {
           "type": "string"
         }
