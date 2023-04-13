@@ -11,7 +11,7 @@
             "required": [
                 "product"
             ],
-            
+
             "properties": {
                 "product": {
                     "$ref": "../types/icarMedicineReferenceType.json",
@@ -19,5 +19,5 @@
                 }
             }
         }
-    ],
+    ]
 }
