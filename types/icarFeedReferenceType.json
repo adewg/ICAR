@@ -1,20 +1,22 @@
 {
     "description": "Feed Reference defines a feed product.",
-    "type": "object",
-    "$id": "types/icarFeedReferenceType",
+
     "allOf": [
         {
             "$ref": "../types/icarProductReferenceType.json"
-        }
-    ],
-    "properties": {
-        "category": {
-            "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/enums/icarFeedCategoryType.json",
-            "description": "Defines the category of the feed product."
         },
-        "type": {
-            "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/types/icarFeedIdentifierType.json",
-            "description": "The scheme + id identifying the type of feed."
+        {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/enums/icarFeedCategoryType.json",
+                    "description": "Defines the category of the feed product."
+                },
+                "type": {
+                    "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/types/icarFeedIdentifierType.json",
+                    "description": "The scheme + id identifying the type of feed."
+                }
+            }
         }
-    }
+    ]
 }
