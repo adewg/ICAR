@@ -10,3 +10,4 @@
 | std.iso.11785 | | ISO 11785 compliant RFID Code Number, decimal representation with the first 3 digits containing country or manufacturer code. | 276000312312345 | https://www.iso.org/standard/25881.html |
 | usa.ain | | United States Animal Identification Number | 840003123456789 or USA0003123456789 | https://www.ecfr.gov/current/title-9/chapter-I/subchapter-C/part-86 |
 | us.bovine | | US Lifetime Herdbook number | US 123456789 | |  
+| uk.cts.eartag | | UK identification for bovine animals | UK230011200123 | https://www.gov.uk/guidance/get-new-or-replacement-official-ear-tags-for-cattle#ear-tagging-rules https://www.food.gov.uk/sites/default/files/media/document/chapter-2.5-animal-identification.pdf |
