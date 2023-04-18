@@ -24,7 +24,7 @@ Each metric has:
 | org.icar.carcass | meatColor | The colour of the eye muscle assessed on the chilled carcase; from 1 (pink) to 7 (dark maroon) | visual, imaging |  |  |
 | org.icar.carcass | fatDepth | One-dimensional measurement of subcutaneous fat over a quartered rib site. In cattle, the P8 site is used. In sheep, the GR site is typically used. | MMT | visual, directMeasure, imaging, ultrasound | P8, GR |
 | org.icar.carcass | marbling | An assessment of intramuscular fat (IMF) within the lean of the ribeye muscle, scored from 0 (lean) to 9 (high marbling) | visual, imaging, ultrasound |  |  |
-| org.icar.carcass | dentition | A measure of the eruption of permanent incisor teeth. Dentition is not a method to accurately measure chronological age, maturity, or eating quality, but may be used as a way to categorise carcasses. Assessed in even numbers (2-tooth, 4 tooth) |  | visual |  |
+| org.icar.carcass | dentition | A measure of the eruption of permanent incisor teeth. Dentition is not a method to accurately measure chronological age, maturity, or eating quality, but may be used as a way to categorise carcasses. Assessed in even numbers (2-tooth, 4-tooth) |  | visual |  |
 | org.icar.carcass | dressingPercentage | The mathematical relationship between animal liveweight immediately before slaughter (or deadweight) and the trimmed hot carcass weight, calculated as hot carcass weight, divided by liveweight, multiplied by 100. Usually expressed to 0 or 1 decimal place. | P1 | calculated |  |
 |  |  |  |  |  |  |
 
