@@ -11,3 +11,4 @@
 | usa.ain | | United States Animal Identification Number | 840003123456789 or USA0003123456789 | https://www.ecfr.gov/current/title-9/chapter-I/subchapter-C/part-86 |
 | us.bovine | | US Lifetime Herdbook number | US 123456789 | |  
 | uk.cts.eartag | | UK identification for bovine animals | UK230011200123 | https://www.gov.uk/guidance/get-new-or-replacement-official-ear-tags-for-cattle#ear-tagging-rules https://www.food.gov.uk/sites/default/files/media/document/chapter-2.5-animal-identification.pdf |
+| au.nlis | | Australian NLIS animal identification: the visual code printed on tags  | QABC1234XBC2345 | A combination of the original PIC, manufacturer code, device type, and serial number. See https://www.nlis.mla.com.au/NLISDocuments/Device%20numbers%20-%20Cattle%20(Mar%2011).pdf |
