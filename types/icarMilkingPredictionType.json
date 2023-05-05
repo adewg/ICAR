@@ -1,0 +1,25 @@
+{
+  "description": "The amount of milk, fat and protein milked in a defined period of time",
+
+  "type": "object",
+
+  "required": [
+    "milkWeight"
+  ],
+
+  "properties": {
+    "milkWeight": {
+      "$ref": "../types/icarMilkingMilkWeightType.json"
+    },
+    "fatWeight": {
+      "$ref": "../types/icarMilkingMilkWeightType.json"
+    },
+    "proteinWeight": {
+      "$ref": "../types/icarMilkingMilkWeightType.json"
+    },
+    "hours": {
+      "type": "number",
+      "description": "The number of hours in which the mentioned milk, fat and protein were produced. Most commonly used is a 24 hours production."
+    }
+  }
+}

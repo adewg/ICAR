@@ -19,7 +19,10 @@
           "items": {
             "$ref": "../types/icarMilkCharacteristicsType.json"
           }
-        }
+        },
+        "predictedProductionOnTestDay": {
+          "$ref": "../types/icarMilkingPredictionType.json"
+	}
       }
     }
   ]
