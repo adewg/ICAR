@@ -1,10 +1,9 @@
 {
     "description": "Event for recording group or mob feeding.",
     "type": "object",
-    "$id": "/livestock/feed/icarGroupFeedingResource",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/resources/icarGroupEventCoreResource.json"
+            "$ref": "../resources/icarGroupEventCoreResource.json"
         }
     ],
     "required": [
@@ -13,29 +12,29 @@
     ],
     "properties": {
         "feedingStartingDateTime": {
-            "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/types/icarDateTimeType.json",
+            "$ref": "../types/icarDateTimeType.json",
             "description": "The RFC3339 UTC moment the feeding started.  (Note that eventDateTime represents the end of feeding.)"
         },
         "feedVisitDuration": {
-            "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/types/icarFeedDurationType.json",
+            "$ref": "../types/icarFeedDurationType.json",
             "description": "The length of time of the feeding."
         },
         "feedPerAnimal": {
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/types/icarConsumedFeedType.json",
+                "$ref": "../types/icarConsumedFeedType.json",
                 "description": "Gives the feed offered to and consumed per animal."
             }
         },
         "rationPerAnimal": {
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/types/icarConsumedRationType.json",
+                "$ref": "../types/icarConsumedRationType.json",
                 "description": "Gives the ration offered to and consumed per animal."
             }
         },
         "device": {
-            "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/types/icarDeviceReferenceType.json",
+            "$ref": "../types/icarDeviceReferenceType.json",
             "description": "Optional information about a device used for the feeding, if relevant."
         }
     }
