@@ -6,9 +6,12 @@
     "enum": [
       "Enclosure",
       "Feeding",
+      "Finishing",
+      "Growing",
       "Health",
       "Lactation",
       "Movement",
+      "Rearing",
       "Reproduction",
       "Session",
       "Other"
