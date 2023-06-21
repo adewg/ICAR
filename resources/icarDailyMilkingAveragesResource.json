@@ -34,7 +34,7 @@
           "$ref": "../types/icarTraitAmountType.json",
           "description": "The average-amount of milk produced within 7 days."
         },
-        "MilkRefusals": {
+        "milkRefusals": {
           "type": "number",
           "description": "Total amount of refusals this day."
         },
