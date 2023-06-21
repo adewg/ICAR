@@ -63,6 +63,10 @@
         },
         "milkRecordingMethod": {
           "$ref": "../types/icarMilkRecordingMethodType.json"
+        },
+        "GestationDays": {
+          "type": "number",
+          "description": "Current days in gestation this day."
         }
       }
     }
