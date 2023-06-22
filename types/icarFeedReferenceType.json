@@ -9,7 +9,7 @@
             "type": "object",
             "properties": {
                 "category": {
-                    "$ref": "https://raw.githubusercontent.com/Pure-Farming/ICAR/ADE-1/enums/icarFeedCategoryType.json",
+                    "$ref": "../enums/icarFeedCategoryType.json",
                     "description": "Defines the category of the feed product."
                 },
                 "type": {
