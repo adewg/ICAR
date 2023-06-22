@@ -38,6 +38,10 @@
           "type": "number",
           "description": "Total amount of refusals this day."
         },
+        "milkingsEntitled": {
+          "type": "number",
+          "description": "The entitled amount of milkings for this day."
+        },
         "milkCharacteristics": {
           "type": "array",
           "items": {
