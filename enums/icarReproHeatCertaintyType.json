@@ -5,6 +5,7 @@
 
   "enum": [
     "InHeat",
-    "Suspect"
+    "Suspect",
+    "Potential"
   ]
 }
