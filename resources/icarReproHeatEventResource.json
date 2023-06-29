@@ -53,6 +53,7 @@
         "heatReportScrSenseTime": {
           "type": "object",
           "description": "Specific info when the heat was detected by SenseTime from SCR",
+          "deprecated": true,
           "properties": {
             "breedingWindow": {
               "type": "integer",
@@ -67,6 +68,7 @@
         "heatReportNedapCowControl": {
           "type": "object",
           "description": "Specific info when the heat was detected by CowControl from NEDAP",
+          "deprecated": true,
           "properties": {
             "expirationDateTime": {
               "$ref": "../types/icarDateTimeType.json",
