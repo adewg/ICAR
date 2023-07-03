@@ -1,0 +1,24 @@
+{
+    "description": "The optimum breeding window for an animal in heat",
+
+    "type": "object",
+
+    "required": [
+        "startDateTime"
+    ],
+
+    "properties": {
+        "startDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "RFC3339 UTC date/time when the optimum insemination window starts (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+        },
+        "endDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "RFC3339 UTC date/time when the optimum insemination window ends (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+        },
+        "windowName" : {
+            "type": "string",
+            "description": "The name of the optimum insemination breeding window."
+        }
+    }
+}
