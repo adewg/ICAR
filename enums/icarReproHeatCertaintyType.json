@@ -1,10 +1,11 @@
 {
-  "description": "The certainty of a specific heat",
+  "description": "The certainty of a specific heat. 'Potential' is very early in the heat cycle, e.g. first 2 hours, followed by 'Suspect', until the animal is most likely 'InHeat'.",
 
   "type": "string",
 
   "enum": [
     "InHeat",
-    "Suspect"
+    "Suspect",
+    "Potential"
   ]
 }
