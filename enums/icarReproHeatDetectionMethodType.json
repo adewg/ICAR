@@ -7,6 +7,9 @@
     "Chemical",
     "Visual",
     "Pedometer",
+    "Collar",
+    "EarTag",
+    "Bolus",
     "Other"
   ]
 }
