@@ -597,6 +597,123 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/feed-inventory-transactions": {
+            "get": {
+                "operationId": "get-feed-inventory-transactions",
+                "summary": "Get the feed inventory transactions that relate to a certain location",
+                "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
+                "tags": [
+                    "ADE-1.3-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                      "$ref": "#/components/parameters/date-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-to"
+                    },
+                    {
+                      "$ref": "#/components/parameters/identifier-scheme"
+                    },
+                    {
+                      "$ref": "#/components/parameters/identifier-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the feed inventory transactions for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedTransactionCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-feed-inventory-transaction",
+                "summary": "Add a single new feed inventory transaction.",
+                "description": "# Purpose\nAllows a client to add a single feed inventory transaction.\n",
+                "tags": [
+                    "ADE-1.3-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The feed inventory transaction to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedTransactionResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarFeedTransactionResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }            
+        },      
         "/batches/locations/{location-scheme}/{location-id}/feeds": {
             "post": {
                 "operationId": "post-batch-feeds",
@@ -971,6 +1088,81 @@
                     }
                 }
             }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/feed-inventory-transactions": {
+            "post": {
+                "operationId": "post-batch-feed-inventory-transactions",
+                "summary": "Add an array of feed inventory transactions.",
+                "description": "# Purpose \nAllows a client to add a collection of feed inventory transactions.\n",
+                "tags": [
+                    "ADE-1.3-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of feed inventory transactions to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarFeedTransactionArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }    
         }
     },
     "components": {
@@ -1043,7 +1235,19 @@
             },
             "icarFeedReportCollection": {
                 "$ref": "../collections/icarFeedReportCollection.json"
-            }
+            },
+            "icarFeedTransactionResource": {
+                "$ref": "../resources/icarFeedTransactionResource.json"  
+            },
+            "icarFeedTransactionCollection": {
+                "$ref": "../collections/icarFeedTransactionCollection.json"
+            },
+            "icarFeedTransactionArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarFeedTransactionResource"
+                }
+            }       
         },
         "parameters": {
             "location-scheme": {
@@ -1099,7 +1303,44 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            }
+            },
+            "date-from": {
+                "name": "date-to",
+                "in": "query",
+                "description": "The end of the date range for the period for which data is needed, the date inclusive.",
+                "schema": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "date-to": {
+                "name": "date-from",
+                "in": "query",
+                "description": "The start of the date range for the period for which data is needed, the date inclusive.",
+                "schema": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "identifier-scheme": {
+                "name": "identifier-scheme",
+                "in": "query",
+                "description": "The scheme for an identifier.",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "identifier-id": {
+                "name": "identifier-id",
+                "in": "query",
+                "description": "The unique identifier within a scheme.",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+        
         },
         "responses": {
           "default": {
