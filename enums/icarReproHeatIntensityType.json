@@ -1,5 +1,5 @@
 {
-  "description": "The method of insemination (Very weak,Weak,Normal,Strong,Very strong)",
+  "description": "The intensity of the heat (Very weak,Weak,Normal,Strong,Very strong)",
 
   "type": "string",
 
