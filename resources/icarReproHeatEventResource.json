@@ -47,7 +47,8 @@
           }
         },
         "deviceHeatProbability": {
-          "$ref": "integer",
+          "type": "number",
+          "format": "integer",
           "description": "The manufacturer specific indication for the certainty of the heat"
         },
         "heatReportScrSenseTime": {
