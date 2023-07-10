@@ -1,0 +1,9 @@
+{
+    "description": "Provides a scheme + identifier mechanism for product types.",
+    
+    "allOf": [
+        {
+            "$ref": "../types/icarIdentifierType.json"
+        }
+    ]
+}

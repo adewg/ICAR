@@ -1,0 +1,24 @@
+{
+    "description": "An inventory transaction resource for a feed product.",
+    "type": "object",
+    
+    "allOf": [
+        {
+            "$ref": "../types/icarInventoryTransactionType.json"
+        },
+        {
+            "type": "object",
+
+            "required": [
+                "product"
+            ],
+
+            "properties": {
+                "product": {
+                    "$ref": "../types/icarFeedReferenceType.json",
+                    "description": "The feed product in this transaction."
+                }
+            }
+        }
+    ]
+}
