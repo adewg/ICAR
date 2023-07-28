@@ -719,8 +719,8 @@
     },
     "/service-sires": {
       "get": {
-        "operationId": "get-service-sires",
-        "summary": "Get the service sires",
+        "operationId": "get-service-sires for a given id",
+        "summary": "Get the service sires matching your query parameters",
         "description": "# Purpose\nProvides the service sires\n",
         "tags": [
           "ADE-1.3-registration"
@@ -734,7 +734,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful. The response contains the animals for the given location",
+            "description": "Successful. The response contains the service sires matching your query parameters",
             "content": {
               "application/json": {
                 "schema": {
