@@ -729,7 +729,7 @@
             "$ref": "#/components/parameters/identifier-scheme"
           },
           {
-            "$ref": "#/components/parameters/identifier"
+            "$ref": "#/components/parameters/identifier-id"
           }
         ],
         "responses": {
@@ -2637,24 +2637,6 @@
         "name": "location-id",
         "in": "path",
         "description": "The unique identifier for the location.",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      },
-      "identifier": {
-        "name": "identifier",
-        "in": "query",
-        "description": "The identifier of an animal.",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      },
-      "identifier-scheme": {
-        "name": "identifier-scheme",
-        "in": "query",
-        "description": "The scheme id for the animal identifier..",
         "required": true,
         "schema": {
           "type": "string"
