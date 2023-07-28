@@ -717,6 +717,38 @@
         }
       }
     },
+    "/service-sires": {
+      "get": {
+        "operationId": "get-service-sires",
+        "summary": "Get the service sires",
+        "description": "# Purpose\nProvides the service sires\n",
+        "tags": [
+          "ADE-1.3-registration"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/identifier-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalCoreCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/statistics": {
             "get": {
                 "operationId": "get-statistics",
@@ -2605,6 +2637,24 @@
         "name": "location-id",
         "in": "path",
         "description": "The unique identifier for the location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "identifier": {
+        "name": "identifier",
+        "in": "query",
+        "description": "The identifier of an animal.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "identifier-scheme": {
+        "name": "identifier-scheme",
+        "in": "query",
+        "description": "The scheme id for the animal identifier..",
         "required": true,
         "schema": {
           "type": "string"
