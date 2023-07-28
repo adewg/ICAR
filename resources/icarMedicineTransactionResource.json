@@ -1,0 +1,23 @@
+{
+    "description": "An inventory transaction resource for a medicine product.",
+
+    "allOf": [
+        {
+            "$ref": "../types/icarInventoryTransactionType.json"
+        },
+        {
+            "type": "object",
+
+            "required": [
+                "product"
+            ],
+
+            "properties": {
+                "product": {
+                    "$ref": "../types/icarMedicineReferenceType.json",
+                    "description": "The medicine product in this transaction."
+                }
+            }
+        }
+    ]
+}

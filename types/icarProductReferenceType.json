@@ -1,0 +1,44 @@
+{
+    "description": "Product Reference refers to a specific product. It is based on the generalised resource reference type.",
+    "type": "object",
+
+    "allOf": [
+        {
+            "$ref": "../types/icarResourceReferenceType.json"
+        },
+        {
+            "type": "object",
+
+            "required": [
+                "identifier",
+                "family"
+            ],
+
+            "properties": {
+                "identifiers": {
+                    "type": "array",
+                    "description": "An array of product identifiers. This allows a product to have multiple identifiers for manufacturers, distributors, official registrations, etc.",
+                    "items": {
+                        "$ref": "../types/icarProductIdentifierType.json"
+                    }
+                },
+                "family": {
+                    "$ref": "../enums/icarProductFamilyType.json",
+                    "description": "The product family to which this product belongs."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the product."
+                },
+                "gtin": {
+                    "type": "string",
+                    "description": "GS1 global trade item number."
+                },
+                "unspc": {
+                    "type": "string",
+                    "description": "UN service and product code (the code, not the accompanying description)."
+                }
+            }
+        }
+    ]
+}
