@@ -719,7 +719,7 @@
     },
     "/service-sires": {
       "get": {
-        "operationId": "get-service-sires for a given id",
+        "operationId": "get-service-sires",
         "summary": "Get the service sires matching your query parameters",
         "description": "# Purpose\nProvides the service sires\n",
         "tags": [
