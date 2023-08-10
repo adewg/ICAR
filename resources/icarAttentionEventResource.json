@@ -1,5 +1,5 @@
 {
-    "description": "Extends icarEventCoreResource to add a single individual animal identifier.",
+    "description": "Defines an alert for an animal that may require attention.",
   
     "allOf": [
       {
@@ -7,6 +7,9 @@
       },
       {
         "type": "object",
+
+        "required" : ["category", "causes"],
+
         "properties": {
             "alertEndDateTime": {
                 "$ref": "../types/icarDateTimeType.json",
@@ -17,9 +20,12 @@
                 "$ref": "../enums/icarAttentionCategoryType.json",
                 "description": "A category that allows filtering of alerts by subject."                
             },
-            "cause": {
-                "$ref": "../enums/icarAttentionCauseType.json",
-                "description": "The specific cause of the alert."
+            "causes": {
+                "type": "array",
+                "items": {
+                    "$ref": "../enums/icarAttentionCauseType.json"
+                },
+                "description": "The specific causes of the alert. This is an array and at least one cause must be specified."
             },
             "priority": {
                 "$ref": "../enums/icarAttentionPriorityType.json",
