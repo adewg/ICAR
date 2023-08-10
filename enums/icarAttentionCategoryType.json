@@ -1,0 +1,12 @@
+{
+    "description": "Defines a category of device messages that may allow filtering of alerts.",
+  
+    "type": "string",
+  
+    "enum": [
+      "Behaviour",
+      "Environment",
+      "Health",
+      "Other"
+    ]
+  }

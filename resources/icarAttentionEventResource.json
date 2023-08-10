@@ -1,0 +1,36 @@
+{
+    "description": "Extends icarEventCoreResource to add a single individual animal identifier.",
+  
+    "allOf": [
+      {
+        "$ref": "../resources/icarAnimalEventCoreResource.json"
+      },
+      {
+        "type": "object",
+        "properties": {
+            "alertEndDateTime": {
+                "$ref": "../types/icarDateTimeType.json",
+                "nullable": true,
+                "description": "RFC3339 date time that represents the end time of an alert (start time is the eventDateTime) if it has ended."
+            },
+            "category": {
+                "$ref": "../enums/icarAttentionCategoryType.json",
+                "description": "A category that allows filtering of alerts by subject."                
+            },
+            "cause": {
+                "$ref": "../enums/icarAttentionCauseType.json",
+                "description": "The specific cause of the alert."
+            },
+            "priority": {
+                "$ref": "../enums/icarAttentionPriorityType.json",
+                "description": "The relative priority of the alert."
+            },
+            "device": {
+                "$ref": "../types/icarDeviceReferenceType.json",
+                "description": "Identifies the device that is raising the alert."
+            }
+        }
+      }
+    ]
+}
+  
