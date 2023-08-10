@@ -721,7 +721,7 @@
       "get": {
         "operationId": "get-service-sires",
         "summary": "Get the service sires matching your query parameters",
-        "description": "# Purpose\nProvides the service sires\n",
+        "description": "# Purpose\nProvides the service sires.\nOnly animal fields relevant to service sires will be populated (location is not expected, for example).",
         "tags": [
           "ADE-1.3-registration"
         ],
