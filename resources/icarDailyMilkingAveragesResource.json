@@ -33,6 +33,20 @@
         "milkYieldAvg7days": {
           "$ref": "../types/icarTraitAmountType.json",
           "description": "The average-amount of milk produced within 7 days."
+        },
+        "milkRefusals": {
+          "type": "number",
+          "description": "Total amount of refusals this day."
+        },
+        "milkingsEntitled": {
+          "type": "number",
+          "description": "The entitled amount of milkings for this day."
+        },
+        "milkCharacteristics": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarMilkCharacteristicsType.json"
+          }
         }
       }
     }

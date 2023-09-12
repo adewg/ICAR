@@ -17,6 +17,10 @@
     "feedConsumption": {
       "$ref": "../types/icarFeedQuantityType.json",
       "description": "The amount of feed the animal has consumed"
+    },
+    "feedResidues": {
+      "$ref": "../types/icarFeedQuantityType.json",
+      "description": "Amount of feed that is not consumed or leftover during milking."
     }
   }
 }
