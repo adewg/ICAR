@@ -10,7 +10,8 @@
 
             "properties": {
                 "registrationReason": {
-                    "$ref": "../enums/icarRegistrationReasonType.json"
+                    "$ref": "../enums/icarRegistrationReasonType.json",
+                    "description": "Identifies whether this is a birth or registration event"
                 }
             }
         }
