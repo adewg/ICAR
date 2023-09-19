@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "Device reference details.",
 
   "allOf": [{
       "$ref": "../types/icarResourceReferenceType.json"

@@ -14,7 +14,8 @@
     },
     "value": {
       "type": "number",
-      "format": "double"
+      "format": "double",
+      "description": "The duration of the feeding in the units specified."
     }
   }
 }

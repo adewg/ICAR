@@ -9,13 +9,16 @@
 
       "properties": {
         "departureKind": {
-          "$ref": "../enums/icarDepartureKindType.json"
+          "$ref": "../enums/icarDepartureKindType.json",
+          "description": "Identifies the kind of departure of the animal from the holding."
         },
         "departureReason": {
-          "$ref": "../enums/icarDepartureReasonType.json"
+          "$ref": "../enums/icarDepartureReasonType.json",
+          "description": "Identifies the reason for the departure of the animal from the holding."
         },
         "consignment": {
-          "$ref": "../types/icarConsignmentType.json"
+          "$ref": "../types/icarConsignmentType.json",
+          "description": "Identifies the consignment of the animal from the holding."
         }
       }
     }

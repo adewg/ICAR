@@ -13,7 +13,8 @@
                     "description": "An indicator whether the medicine or remedy is an approved medicine"
                 },
                 "registeredIdentifier": {
-                    "$ref": "../types/icarMedicineIdentifierType.json"
+                    "$ref": "../types/icarMedicineIdentifierType.json",
+                    "description": "The registered identifier of the medicine expressed as a scheme and id."
                 }
             }
         }

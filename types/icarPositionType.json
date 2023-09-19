@@ -6,7 +6,7 @@
   "properties": {
     
     "position": {      
-      "description": "The position to be treated or diagnosed.",
+      "description": "Position on the animal where the diagnosis or treatment occurred.",
       "$ref": "../enums/icarPositionOnAnimalType.json"
     }
   }

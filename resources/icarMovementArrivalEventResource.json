@@ -9,13 +9,16 @@
 
       "properties": {
         "arrivalReason": {
-          "$ref": "../enums/icarArrivalReasonType.json"
+          "$ref": "../enums/icarArrivalReasonType.json",
+          "description": "Reason the animal arrived on the holding."
         },
         "animalDetail": {
-          "$ref": "icarAnimalCoreResource.json"
+          "$ref": "icarAnimalCoreResource.json",
+          "description": "Core animal details. Can be used if the animal has not already been defined on the holding."
         },
         "consignment": {
-          "$ref": "../types/icarConsignmentType.json"
+          "$ref": "../types/icarConsignmentType.json",
+          "description": "Identifies the consignment of the animal to the holding."
         }
       }
     }

@@ -1,5 +1,5 @@
 { 
-    "description": "Enumeration for treatment or diagnosed positions.",
+    "description": "Enumeration for the position on the animal where the diagnosis or treatment occurred.",
     
     "type": "string",
   
