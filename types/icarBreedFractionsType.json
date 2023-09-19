@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "Defines the breeds of the animal by fraction expressed as a denominator and, for each breed, a numerator.",
 
   "type": "object",
 
@@ -14,11 +14,13 @@
     },
     "fractions": {
       "type": "array",
+      "description": "The numerators of breed fractions for each breed proportion.",
       "items": {
         "type": "object",
         "properties": {
           "breed": {
-            "$ref": "icarBreedIdentifierType.json"
+            "$ref": "icarBreedIdentifierType.json",
+            "description": "The breed for this breed fraction using a scheme and id."
           },
           "fraction": {
             "type": "number",
