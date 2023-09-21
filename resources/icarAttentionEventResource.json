@@ -31,6 +31,10 @@
                 "$ref": "../enums/icarAttentionPriorityType.json",
                 "description": "The relative priority of the alert."
             },
+            "deviceAttentionScore": {
+                "type": "number",
+                "description": "Provides a manufacturer- and device-specific score related to the alert."
+            },
             "device": {
                 "$ref": "../types/icarDeviceReferenceType.json",
                 "description": "Identifies the device that is raising the alert."
