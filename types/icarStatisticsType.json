@@ -6,14 +6,15 @@
   "properties": {
     "metric": {
       "$ref": "../types/icarMetricType.json",
-      "description": "The metric code for a specific statitics. See https://github.com/adewg/ICAR/wiki/Schemes for more info"
+      "description": "The metric code for a specific statistics. See https://github.com/adewg/ICAR/wiki/Schemes for more info"
     },
     "unit": {
       "type": "string",
       "description": "The unit of the metric. This must be appropriate to the metric and UN-CEFACT unit codes should be used where possible."
     },
     "aggregation": {
-      "$ref": "../enums/icarAggregationType.json"
+      "$ref": "../enums/icarAggregationType.json",
+      "description": "The aggregation applied to the metric."
     },
     "value": { 
       "type": "number",

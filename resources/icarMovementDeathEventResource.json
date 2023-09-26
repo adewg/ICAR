@@ -29,7 +29,8 @@
           "description": "Reference (receipt, docket, or ID) for disposal."
         },
         "consignment": {
-          "$ref": "../types/icarConsignmentType.json"
+          "$ref": "../types/icarConsignmentType.json",
+          "description": "Identifies the consignment of the animal from the holding."
         },        
         "deathMethod": {
           "$ref": "../enums/icarDeathMethodType.json",

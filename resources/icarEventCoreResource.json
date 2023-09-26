@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "Core schema for representing an event.",
 
   "allOf": [
     {
