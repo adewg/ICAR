@@ -83,7 +83,7 @@
         },
         "parentage": {
           "type": "array",
-          "description": "Parents of the animal.  The array can handle multiple generations by specifying the parent of a parent."
+          "description": "Parents of the animal.  The array can handle multiple generations by specifying the parent of a parent.",
           "items": {
             "$ref": "../types/icarParentageType.json"
           }
