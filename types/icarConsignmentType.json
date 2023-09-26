@@ -9,7 +9,8 @@
       "description": "Official identifier for the movement."
     },
     "originLocation": {
-      "$ref": "../types/icarLocationIdentifierType.json"
+      "$ref": "../types/icarLocationIdentifierType.json",
+      "description": "The location of the origin of the consignment expressed as a scheme and id."
     },
     "originAddress": {
       "description": "Origin address for movement.",
@@ -25,7 +26,8 @@
       "$ref": "../types/icarOrganizationType.json"
     },
     "destinationLocation": {
-      "$ref": "../types/icarLocationIdentifierType.json"
+      "$ref": "../types/icarLocationIdentifierType.json",
+      "description": "The location of the destination of the consignment expressed as a scheme and id."
     },
     "destinationAddress": {
       "description": "Destination address for movement.",
