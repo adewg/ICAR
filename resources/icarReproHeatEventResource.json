@@ -1,7 +1,8 @@
 {
   "description": "Event for recording heats.",
 
-  "allOf": [{
+  "allOf": [
+    {
       "$ref": "../resources/icarAnimalEventCoreResource.json"
     },
     {
@@ -13,6 +14,10 @@
         },
         "certainty": {
           "$ref": "../enums/icarReproHeatCertaintyType.json"
+        },
+        "commencementDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "RFC3339 UTC date/time when the heat will start (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
         "expirationDateTime": {
           "$ref": "../types/icarDateTimeType.json",
@@ -34,9 +39,22 @@
             }
           }
         },
+        "optimumInseminationWindow": {
+          "type": "array",
+          "description": "Details of the optimum breeding windows",
+          "items": {
+            "$ref": "../types/icarReproHeatWindowType.json"
+          }
+        },
+        "deviceHeatProbability": {
+          "type": "number",
+          "format": "integer",
+          "description": "The manufacturer specific indication for the certainty of the heat"
+        },
         "heatReportScrSenseTime": {
           "type": "object",
           "description": "Specific info when the heat was detected by SenseTime from SCR",
+          "deprecated": true,
           "properties": {
             "breedingWindow": {
               "type": "integer",
@@ -51,6 +69,7 @@
         "heatReportNedapCowControl": {
           "type": "object",
           "description": "Specific info when the heat was detected by CowControl from NEDAP",
+          "deprecated": true,
           "properties": {
             "expirationDateTime": {
               "$ref": "../types/icarDateTimeType.json",

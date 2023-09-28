@@ -1,0 +1,22 @@
+{
+    "description": "Feed Reference defines a feed product.",
+
+    "allOf": [
+        {
+            "$ref": "../types/icarProductReferenceType.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "$ref": "../enums/icarFeedCategoryType.json",
+                    "description": "Defines the category of the feed product."
+                },
+                "type": {
+                    "$ref": "../types/icarFeedIdentifierType.json",
+                    "description": "The scheme + id identifying the type of feed."
+                }
+            }
+        }
+    ]
+}

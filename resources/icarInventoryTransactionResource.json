@@ -1,0 +1,22 @@
+{
+    "description": "Generic inventory transaction resource.  Some product families have specific transaction resources (e.g. medicines, feeds).",
+    
+    "allOf": [
+        {
+            "$ref": "../types/icarInventoryTransactionType.json"
+        },
+        {
+            "type": "object",
+
+            "required": [
+                "product"
+            ],
+            "properties": {
+                "product": {
+                    "$ref": "../types/icarProductReferenceType.json",
+                    "description": "The product in this inventory transaction."
+                }
+            }
+        }
+    ]
+}

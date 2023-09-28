@@ -1,0 +1,18 @@
+{
+    "description": "Defines the families of products",
+    "type": "string",
+    "enum": [
+        "Animal Feeds", 
+        "Animal Reproductive Products",
+        "Veterinary Supplies", 
+        "Seed and Plant Material", 
+        "Fertilisers and Nutrients", 
+        "Pest Control Products", 
+        "Other Animal Products",
+        "Milking Supplies",
+        "Fencing Supplies",
+        "Water System Supplies",
+        "Fuel",
+        "Other"
+    ]
+}

@@ -5,7 +5,8 @@
 
     "properties": {
         "id": {
-            "$ref": "../types/icarCarcassMetricIdentifierType.json"
+            "$ref": "../types/icarCarcassMetricIdentifierType.json",
+            "description": "The id of the metric expressed as a scheme and id."
         },
         "method": {
             "description": "The standard method used to determine the value of the metric.",

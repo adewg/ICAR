@@ -14,7 +14,7 @@
         },
         "result": {
           "$ref": "../enums/icarReproPregnancyResultType.json",
-          "description": "Result - uknown, empty, pregnant."
+          "description": "Result - unknown, empty, pregnant."
         },
         "foetalAge": {
           "type": "integer",

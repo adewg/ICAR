@@ -1,0 +1,58 @@
+{
+    "description": "Inventory Transaction defines a transaction on a product inventory where the transaction may be a receipt, disposal, on hand, stocktake, use",
+
+    "allOf": [
+        {
+            "$ref": "../resources/icarEventCoreResource.json"
+        }
+        ,
+        {
+            "type": "object",
+
+            "required": [
+                "transactionKind",
+                "quantity",
+                "units"
+            ],
+            
+            "properties": {
+                "transactionKind": {
+                    "$ref": "../enums/icarInventoryTransactionKindType.json",
+                    "description": "Identifies the transaction kind."
+                },
+                "quantity": {
+                    "type": "number",
+                    "description": "The overall volume, weight or count of the product in the transaction in the units defined."
+                },
+                "units": {
+                    "description": "The units of the quantity specified.  Where applicable it is recommended that uncefact mass and volume units are used.",
+                    "type": "string"
+                },
+                "supplierName": {
+                    "type": "string",
+                    "description": "The supplier of the product in this transaction.  This is particularly relevant if the transaction is a receipt."
+                },
+                "expiryDate": {
+                    "$ref": "../types/icarDateTimeType.json",
+                    "description": "The expiry date of the product supplied in the transaction."
+                },
+                "totalCost": {
+                    "type": "number",
+                    "description": "Total cost applied to this transaction"
+                },
+                "currency": {
+                    "type": "string",
+                    "description": "The currency of the cost expressed using the ISO 4217 3-character code (such as AUD, GBP, USD, EUR)."
+                },
+                "packSize": {
+                    "type": "number",
+                    "description": "The volume or weight of the product in a pack in the units defined. Especially relevant for Vet Medicines."
+                },
+                "numberOfPacks": {
+                    "type": "number",
+                    "description": "The number of packs of the product in the transaction. Especially relevant for Vet Medicines. Could be a decimal number for a part-pack."
+                }
+            }
+        }
+    ]
+}

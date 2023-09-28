@@ -10,11 +10,12 @@
 
             "properties": {
                 "arrivalReason": {
-                    "$ref": "../enums/icarArrivalReasonType.json"
+                    "$ref": "../enums/icarArrivalReasonType.json",
+                    "description": "Reason the group of animals arrived on the holding."
                 },
                 "consignment": {
-                    "$ref": "../types/icarConsignmentType.json"
-                    
+                    "$ref": "../types/icarConsignmentType.json",
+                    "description": "Identifies the consignment of the group of animals to the holding."
                 }
             }
         }

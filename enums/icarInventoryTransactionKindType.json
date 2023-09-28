@@ -1,0 +1,11 @@
+{
+    "description": "Defines the kinds of inventory transaction, which can represent items received, disposed of (including sale or destruction), used, counted in a stocktake or calculated on hand.",
+    "type": "string",
+    "enum": [
+        "Receipt",
+        "Disposal",
+        "OnHand",
+        "StockTake",
+        "Use"
+    ]
+}

@@ -15,7 +15,8 @@
     },
     "value": {
       "type": "number",
-      "format": "double"
+      "format": "double",
+      "description": "The feed quantity in the units specified."
     }
   }
 }
