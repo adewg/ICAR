@@ -6,18 +6,10 @@
             "$ref": "../resources/icarGroupEventCoreResource.json"
         }
     ],
-    "required": [
-        "feedingStartingDateTime",
-        "feedVisitDuration"
-    ],
     "properties": {
-        "feedingStartingDateTime": {
+        "feedingEndingDateTime": {
             "$ref": "../types/icarDateTimeType.json",
-            "description": "The RFC3339 UTC moment the feeding started.  (Note that eventDateTime represents the end of feeding.)"
-        },
-        "feedVisitDuration": {
-            "$ref": "../types/icarFeedDurationType.json",
-            "description": "The length of time of the feeding."
+            "description": "The RFC3339 UTC moment from which animals could no longer consume the feed (eventDateTime represents the start of feed availability)."
         },
         "feedPerAnimal": {
             "type": "array",
@@ -26,12 +18,26 @@
                 "description": "Gives the feed offered to and consumed per animal (average)."
             }
         },
+        "feedTotal": {
+            "description": "Gives the feed offered to and consumed (total for all animals).",
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarConsumedFeedType.json"
+            }            
+        },
         "rationPerAnimal": {
             "type": "array",
             "items": {
                 "$ref": "../types/icarConsumedRationType.json",
                 "description": "Gives the ration offered to and consumed per animal (average)."
             }
+        },
+        "rationTotal": {
+            "description": "Gives the feed offered to and consumed (total for all animals).",
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarConsumedRationType.json"
+            }            
         },
         "device": {
             "$ref": "../types/icarDeviceReferenceType.json",
