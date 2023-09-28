@@ -17,6 +17,10 @@
     "feedConsumption": {
       "$ref": "../types/icarFeedQuantityType.json",
       "description": "The amount of feed the animal has consumed"
+    },
+    "dryMatterPercentage": {
+      "type": "number",
+      "description": "The dry matter content of the feed provided or consumed, expressed as a percentage."
     }
   }
 }
