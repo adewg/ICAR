@@ -5,6 +5,7 @@
         "Receipt",
         "Disposal",
         "OnHand",
+        "Produce",
         "StockTake",
         "Use"
     ]
