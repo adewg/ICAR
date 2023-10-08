@@ -7,7 +7,8 @@
         }
     ],
     "properties": {
-        "feedingEndingDateTime": {
+        "feedingEndDateTime": {
+
             "$ref": "../types/icarDateTimeType.json",
             "description": "The RFC3339 UTC moment from which animals could no longer consume the feed (eventDateTime represents the start of feed availability)."
         },
