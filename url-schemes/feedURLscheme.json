@@ -773,7 +773,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+                                "$ref": "#/components/schemas/icarGroupFeedingEventResource"
                             }
                         }
                     }
