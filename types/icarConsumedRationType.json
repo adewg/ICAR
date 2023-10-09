@@ -1,5 +1,5 @@
 {
-  "description": "Gives the consumed amount of feed and the amount the animal was entitled to. Amounts are real weights.",
+  "description": "Gives the consumed amount of a mixed ration, and the amount the animal was entitled to. Amounts are real weights.",
   
   "type": "object",
   "required": [
@@ -18,6 +18,10 @@
     "feedConsumption": {
       "$ref": "../types/icarFeedQuantityType.json",
       "description": "The amount of feed the animal has consumed"
+    },
+    "dryMatterPercentage": {
+      "type": "number",
+      "description": "The dry matter content of the ration provided or consumed, expressed as a percentage."
     }
   }
 }

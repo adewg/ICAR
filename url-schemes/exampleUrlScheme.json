@@ -1690,6 +1690,45 @@
         }
       }
     },
+    "/locations/{location-scheme}/{location-id}/group-feeding": {
+      "get": {
+        "operationId": "get-group-feeding",
+        "summary": "Get the group feeding events for a certain location",
+        "description": "# Purpose\nProvides the group feeding events for a location.\n",
+        "tags": [
+          "ADE-1.3-feed"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed intakes for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupFeedingEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+
     "/locations/{location-scheme}/{location-id}/feed-recommendations": {
       "get": {
         "operationId": "get-Feed-Recommendations",
@@ -2559,6 +2598,9 @@
       },
       "icarFeedIntakeEventCollection": {
         "$ref": "../collections/icarFeedIntakeEventCollection.json"      
+      },
+      "icarGroupFeedingEventCollection": {
+        "$ref": "../collections/icarGroupFeedingEventCollection.json"      
       },
       "icarFeedReportCollection": {
         "$ref": "../collections/icarFeedReportCollection.json"      

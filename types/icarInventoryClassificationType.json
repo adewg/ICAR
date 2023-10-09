@@ -45,6 +45,10 @@
       "items": {
         "$ref": "../enums/icarProductionPurposeType.json"
       }
+    },
+    "reference": {
+      "type": "string",
+      "description": "An external reference (identifier or name) to further identify the group of animals."
     }
   }
 }

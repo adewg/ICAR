@@ -1,0 +1,48 @@
+{
+    "description": "Event for recording group or mob feeding. Allowances represent averages so this cannot be used to populate individual animal events.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "../resources/icarGroupEventCoreResource.json"
+        }
+    ],
+    "properties": {
+        "feedingEndDateTime": {
+
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "The RFC3339 UTC moment from which animals could no longer consume the feed (eventDateTime represents the start of feed availability)."
+        },
+        "feedPerAnimal": {
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarConsumedFeedType.json",
+                "description": "Gives the feed offered to and consumed per animal (average)."
+            }
+        },
+        "feedTotal": {
+            "description": "Gives the feed offered to and consumed (total for all animals).",
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarConsumedFeedType.json"
+            }            
+        },
+        "rationPerAnimal": {
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarConsumedRationType.json",
+                "description": "Gives the ration offered to and consumed per animal (average)."
+            }
+        },
+        "rationTotal": {
+            "description": "Gives the feed offered to and consumed (total for all animals).",
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarConsumedRationType.json"
+            }            
+        },
+        "device": {
+            "$ref": "../types/icarDeviceReferenceType.json",
+            "description": "Optional information about a device used for the feeding, if relevant."
+        }
+    }
+}
