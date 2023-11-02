@@ -15,6 +15,14 @@
         "serial": {
           "type": "string",
           "description": "Optionally, the serial number of the device."
+        },
+        "manufacturerName": {
+          "type": "string",
+          "description": "The manufacturer of the device. This is called `manufacturerName` to distinguish it from the manufacturer-specific parameters in icarDevice."
+        },
+        "registration": {
+          "$ref": "../types/icarDeviceRegistrationIdentifierType.json",
+          "description": "A registration identifier for the device (most devices should eventually have a registration issued by `org.icar` or other entity)."
         }
       }
     }
