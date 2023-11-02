@@ -1,0 +1,35 @@
+{
+    "description": "Defines causes of alerts from devices.",
+  
+    "type": "string",
+  
+    "enum": [
+      "Activity",
+      "AnimalTemperature",
+      "BodyCondition",
+      "EatingLess",
+      "EnvironmentTemperature",
+      "Disturbance",
+      "Health",
+      "HeartRate",
+      "Inactivity",
+      "Ketosis",
+      "Lameness",
+      "Location",
+      "LowerRumination",
+      "LyingTooLong",
+      "LyingTooShort",
+      "Mastitis",
+      "MobilityScore",
+      "NoMovement",
+      "Parturition",
+      "PostParturitionRisk",
+      "ProlongedParturition",
+      "RespirationRate",
+      "Standing",
+      "StandingUp",
+      "Walking",
+      "Other",
+      "Undefined"
+    ]
+  }

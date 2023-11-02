@@ -1,0 +1,12 @@
+{
+    "description": "Defines the relative priority of alerts.",
+  
+    "type": "string",
+  
+    "enum": [
+      "Informational",
+      "Normal",
+      "Urgent",
+      "Critical"
+    ]
+  }

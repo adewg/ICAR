@@ -1,0 +1,50 @@
+{
+    "description": "Defines an alert for an animal that may require attention.",
+  
+    "allOf": [
+      {
+        "$ref": "../resources/icarAnimalEventCoreResource.json"
+      },
+      {
+        "type": "object",
+
+        "required" : ["category", "causes"],
+
+        "properties": {
+            "alertEndDateTime": {
+                "$ref": "../types/icarDateTimeType.json",
+                "nullable": true,
+                "description": "RFC3339 date time that represents the end time of an alert (start time is the eventDateTime) if it has ended."
+            },
+            "category": {
+                "$ref": "../enums/icarAttentionCategoryType.json",
+                "description": "A category that allows filtering of alerts by subject."                
+            },
+            "causes": {
+                "type": "array",
+                "items": {
+                    "$ref": "../enums/icarAttentionCauseType.json"
+                },
+                "description": "The specific causes of the alert. This is an array and at least one cause must be specified."
+            },
+            "priority": {
+                "$ref": "../enums/icarAttentionPriorityType.json",
+                "description": "The relative priority of the alert."
+            },
+            "severity": {
+                "$ref": "../enums/icarDiagnosisSeverityType.json",
+                "description": "A structured set of severity values that align with those used in disease diagnosis."
+            },
+            "deviceAttentionScore": {
+                "type": "number",
+                "description": "Provides a manufacturer- and device-specific score related to the alert."
+            },
+            "device": {
+                "$ref": "../types/icarDeviceReferenceType.json",
+                "description": "Identifies the device that is raising the alert."
+            }
+        }
+      }
+    ]
+}
+  
