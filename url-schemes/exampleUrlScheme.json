@@ -2529,6 +2529,108 @@
               }
           }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/position-observations": {
+      "get": {
+          "operationId": "get-animal-position-observations",
+          "summary": "Get position observation events for animals that relate to a given location",
+          "description": "# Purpose\nProvides the collection of position observation events for animals at the specified location.\n",
+          "tags": [
+              "ADE-1.3-management"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                "$ref": "#/components/parameters/date-from"
+              },
+              {
+                  "$ref": "#/components/parameters/date-to"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-scheme"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the animal position observation events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarPositionObservationEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-position-observations": {
+      "get": {
+          "operationId": "get-group-position-observations",
+          "summary": "Get position observation events for groups that relate to a given location",
+          "description": "# Purpose\nProvides the collection of position observation events for groups at the specified location.\n",
+          "tags": [
+              "ADE-1.3-management"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                "$ref": "#/components/parameters/date-from"
+              },
+              {
+                  "$ref": "#/components/parameters/date-to"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-scheme"
+              },
+              {
+                "$ref": "#/components/parameters/identifier-id"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the animal position observation events for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarGroupPositionObservationEventCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
     }
   },
   "components": {
@@ -2712,6 +2814,12 @@
       },
       "icarAttentionEventCollection": {
         "$ref": "../collections/icarAttentionEventCollection.json"
+      },
+      "icarPositionObservationEventCollection": {
+        "$ref": "../collections/icarPositionObservationEventCollection.json"
+      },
+      "icarGroupPositionObservationEventCollection": {
+        "$ref": "../collections/icarGroupPositionObservationEventCollection.json"
       }
     },
     "parameters": {

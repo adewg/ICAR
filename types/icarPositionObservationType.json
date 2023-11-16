@@ -1,0 +1,16 @@
+{
+  "description": "This type may be included in a position observation event to identify either a named position (such as a barn or pen) or a geographic location.",
+
+  "type": "object",
+
+  "properties": {
+    "positionName": {
+      "type": "string",
+      "description": "The name of a location, such as a barn, pen, building, or field."
+    },
+    "geometry": {
+      "$ref": "https://geojson.org/schema/Geometry.json",
+      "description": "A GeoJSON geometry (such as a latitude/longitude point) that specifies the position."
+    }
+  }
+}
