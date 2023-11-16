@@ -22,7 +22,8 @@
     },
     "meta": {
       "$ref": "../types/icarMetaDataType.json",
-      "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation."
+      "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation.\n Systems should maintain and provide meta data if at all possible.",
+      "$comment": "ICAR ADE working group intend meta to be required in the next major release of ADE."
     },
     "location": {
       "$ref": "../types/icarLocationIdentifierType.json",

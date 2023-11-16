@@ -14,7 +14,8 @@
     },
     "sourceId": {
       "type": "string",
-      "description": "Unique Id (ideally UUID) for the resource in the original source system. Treat source and sourceId as an icarIdentifierType."
+      "description": "Unique Id within Source (e.g. UUID or composite ID if needed) for the resource in the original source system. \n Systems are expected to populate, store, and return sourceId if at all possible.",
+      "$comment": "ICAR ADE working group intend to make use of metadata, source and sourceId mandatory in the next major release."
     },  
     "isDeleted": {
       "type": "boolean",
