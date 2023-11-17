@@ -29,6 +29,12 @@
         "milkingMilkWeight": {
           "$ref": "../types/icarMilkingMilkWeightType.json"
         },
+        "certifiedMilkingMilkWeight": {
+          "$ref": "../types/icarMilkingMilkWeightType.json"
+        },
+        "totalMilkingMilkWeight": {
+          "$ref": "../types/icarMilkingMilkWeightType.json"
+        },
         "milkingComplete": {
           "type": "boolean",
           "description": "indication whether this milking was completed normally"
