@@ -19,6 +19,22 @@
         "consignment": {
           "$ref": "../types/icarConsignmentType.json",
           "description": "Identifies the consignment of the animal to the holding."
+        },
+        "parity": {
+          "type": "number",
+          "description": "The parity of the animal during this lactation."
+        },
+        "lastCalvingDate": {
+          "$ref": "../types/icarDateType.json",
+          "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+        },
+        "lastInseminationDate": {
+          "$ref": "../types/icarDateType.json",
+          "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+        },
+        "lastDryingOffDate": {
+          "$ref": "../types/icarDateType.json",
+          "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
         }
       }
     }
