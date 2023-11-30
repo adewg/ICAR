@@ -16,6 +16,10 @@
           "$ref": "icarAnimalCoreResource.json",
           "description": "Core animal details. Can be used if the animal has not already been defined on the holding."
         },
+        "animalState": {
+          "$ref": "../types/icarAnimalStateType.json",
+          "description": "State information about an animal."
+        },
         "consignment": {
           "$ref": "../types/icarConsignmentType.json",
           "description": "Identifies the consignment of the animal to the holding."
