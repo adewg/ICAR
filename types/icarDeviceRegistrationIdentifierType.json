@@ -1,0 +1,11 @@
+{
+    "description": "A device registration scheme and ID that identifies a registered device. The primary scheme used should be `org.icar`.",
+
+    "type": "object",
+    
+    "allOf": [
+        {
+            "$ref": "../types/icarIdentifierType.json"
+        }
+    ]
+}
