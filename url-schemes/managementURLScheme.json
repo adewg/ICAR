@@ -1,9 +1,9 @@
 {
-    "openapi": "3.0.1",
+    "openapi": "3.1.0",
     "info": {
         "title": "Management events and messages API Specifications",
         "description": "Specifications for messages that support livestock management activities.",
-        "version": "1.3",
+        "version": "1.4",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.3-management",
+            "name": "ADE-1.4-management",
             "description": "Management messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
                 "summary": "Get the animal sets for a certain location",
                 "description": "# Purpose\nProvides the animal animal sets for a location\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -65,7 +65,7 @@
                 "summary": "Add a single new animal set.",
                 "description": "# Purpose\nAllows a client to add a single animal set.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -133,7 +133,7 @@
                 "summary": "Get the animal set joins events for a certain location",
                 "description": "# Purpose\nProvides the animal animal set join events for a location\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -170,7 +170,7 @@
                 "summary": "Add a single new animal set join event.",
                 "description": "# Purpose\nAllows a client to add a single animal-set-join.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -238,7 +238,7 @@
                 "summary": "Get the animal set leave events for a certain location",
                 "description": "# Purpose\nProvides the animal animal set leave events for a location\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -275,7 +275,7 @@
                 "summary": "Add a single new animal set leave event.",
                 "description": "# Purpose\nAllows a client to add a single animal set leave event.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -343,7 +343,7 @@
                 "summary": "Get the devices for a certain location",
                 "description": "# Purpose\nProvides the animal devices for a location\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -380,7 +380,7 @@
                 "summary": "Add a single new device.",
                 "description": "# Purpose\nAllows a client to add a single device.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -448,7 +448,7 @@
                 "summary": "Get the statistics for a certain location",
                 "description": "# Purpose\nProvides the statistics for a location\n One can specify the period for which the statistics can be calculated by specifying a date to and date from parameter. Also the purpose can be provided to limit the purpose of the statistics",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -490,7 +490,7 @@
               "summary": "Get the inventory transactions that relate to a certain location",
               "description": "# Purpose\nProvides the inventory transactions relating to a location\n",
               "tags": [
-                  "ADE-1.3-management"
+                  "ADE-1.4-management"
               ],
               "parameters": [
                   {
@@ -544,7 +544,7 @@
               "summary": "Get the feed inventory transactions that relate to a certain location",
               "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
               "tags": [
-                  "ADE-1.3-management"
+                  "ADE-1.4-management"
               ],
               "parameters": [
                   {
@@ -595,7 +595,7 @@
               "summary": "Get the medicine inventory transactions that relate to a certain location",
               "description": "# Purpose\nProvides the medicine inventory transactions relating to a location\n",
               "tags": [
-                  "ADE-1.3-management"
+                  "ADE-1.4-management"
               ],
               "parameters": [
                   {
@@ -646,7 +646,7 @@
                 "summary": "Add an array of animal-sets.",
                 "description": "# Purpose \nAllows a client to add a collection of animal-sets.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -721,7 +721,7 @@
                 "summary": "Add an array of animal-set join events.",
                 "description": "# Purpose \nAllows a client to add a collection of animal-set join events.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -796,7 +796,7 @@
                 "summary": "Add an array of animal set leave events.",
                 "description": "# Purpose \nAllows a client to add a collection of animal set leave events.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -871,7 +871,7 @@
                 "summary": "Add an array of devices.",
                 "description": "# Purpose \nAllows a client to add a collection of devices.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -946,7 +946,7 @@
                 "summary": "Add an array of inventory transactions.",
                 "description": "# Purpose \nAllows a client to add a collection of inventory transactions.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -1021,7 +1021,7 @@
                 "summary": "Add an array of feed inventory transactions.",
                 "description": "# Purpose \nAllows a client to add a collection of feed inventory transactions.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
@@ -1096,7 +1096,7 @@
                 "summary": "Add an array of medicine inventory transactions.",
                 "description": "# Purpose \nAllows a client to add a collection of medicine inventory transactions.\n",
                 "tags": [
-                    "ADE-1.3-management"
+                    "ADE-1.4-management"
                 ],
                 "parameters": [
                     {
