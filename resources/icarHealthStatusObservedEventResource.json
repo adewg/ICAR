@@ -10,8 +10,7 @@
       "properties": {
         "observedStatus": {
           "$ref": "../enums/icarAnimalHealthStatusType.json",
-          "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled).",
-          "nullable": false
+          "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled). A null value is not supported."
         }
       }
     }

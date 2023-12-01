@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.1",
+    "openapi": "3.1.0",
     "info": {
         "title": "Reproduction API Specifications",
         "description": "Specifications for messages that support livestock reproduction recording.",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.3-reproduction",
+            "name": "ADE-1.4-reproduction",
             "description": "Reproduction messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
                 "summary": "Get the pregnancy-checks for a certain location",
                 "description": "# Purpose\nProvides the animal pregnancy-checks for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -65,7 +65,7 @@
                 "summary": "Add a single new pregnancy-check.",
                 "description": "# Purpose\nAllows a client to add a single pregnancy-check.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -133,7 +133,7 @@
                 "summary": "Get the heats for a certain location",
                 "description": "# Purpose\nProvides the animal heats for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -170,7 +170,7 @@
                 "summary": "Add a single new heat.",
                 "description": "# Purpose\nAllows a client to add a single heat.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -238,7 +238,7 @@
                 "summary": "Get the inseminations for a certain location",
                 "description": "# Purpose\nProvides the animal inseminations for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -275,7 +275,7 @@
                 "summary": "Add a single new insemination.",
                 "description": "# Purpose\nAllows a client to add a single insemination.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -343,7 +343,7 @@
                 "summary": "Get the drying-off events for a certain location",
                 "description": "# Purpose\nProvides the animal drying off events for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -380,7 +380,7 @@
                 "summary": "Add a single new drying off event.",
                 "description": "# Purpose\nAllows a client to add a single drying-off.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -448,7 +448,7 @@
                 "summary": "Get the abortions for a certain location",
                 "description": "# Purpose\nProvides the animal abortions for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -485,7 +485,7 @@
                 "summary": "Add a single new abortion.",
                 "description": "# Purpose\nAllows a client to add a single abortion.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -553,7 +553,7 @@
                 "summary": "Get the do-not-breed events for a certain location",
                 "description": "# Purpose\nProvides the animal do-not-breed events for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -590,7 +590,7 @@
                 "summary": "Add a single new do-not-breed.",
                 "description": "# Purpose\nAllows a client to add a single do-not-breed.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -658,7 +658,7 @@
                 "summary": "Get the parturitions for a certain location",
                 "description": "# Purpose\nProvides the animal parturition (birth) events for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -695,7 +695,7 @@
                 "summary": "Add a single new parturition.",
                 "description": "# Purpose\nAllows a client to add a single parturition.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -763,7 +763,7 @@
                 "summary": "Get the mating recommendations for a certain location",
                 "description": "# Purpose\nProvides the animal mating recommendations for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -800,7 +800,7 @@
                 "summary": "Add a single new mating recommendation.",
                 "description": "# Purpose\nAllows a client to add a single mating recommendation.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -868,7 +868,7 @@
                 "summary": "Get the gestations for a certain location",
                 "description": "# Purpose\nProvides the animal gestations for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -905,7 +905,7 @@
                 "summary": "Add a single new gestation.",
                 "description": "# Purpose\nAllows a client to add a single gestation.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -973,7 +973,7 @@
                 "summary": "Get the reproductive status observations for a certain location",
                 "description": "# Purpose\nProvides the animal reproductive status observations for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1010,7 +1010,7 @@
                 "summary": "Add a single new repro-status-observation.",
                 "description": "# Purpose\nAllows a client to add a single reproductive status observation.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1078,7 +1078,7 @@
                 "summary": "Get the embryo flushings for a certain location",
                 "description": "# Purpose\nProvides the animal embryo flushings for a location\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1115,7 +1115,7 @@
                 "summary": "Add a single new embyro flushing.",
                 "description": "# Purpose\nAllows a client to add a single embryo flushing event.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1183,7 +1183,7 @@
                 "summary": "Add an array of pregnancy-checks.",
                 "description": "# Purpose \nAllows a client to add a collection of pregnancy-checks.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1258,7 +1258,7 @@
                 "summary": "Add an array of heats.",
                 "description": "# Purpose \nAllows a client to add a collection of heats.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1333,7 +1333,7 @@
                 "summary": "Add an array of inseminations.",
                 "description": "# Purpose \nAllows a client to add a collection of inseminations.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1408,7 +1408,7 @@
                 "summary": "Add an array of drying-off events.",
                 "description": "# Purpose \nAllows a client to add a collection of drying-off events.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1483,7 +1483,7 @@
                 "summary": "Add an array of abortions.",
                 "description": "# Purpose \nAllows a client to add a collection of abortions.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1558,7 +1558,7 @@
                 "summary": "Add an array of do-not-breed events.",
                 "description": "# Purpose \nAllows a client to add a collection of do-not-breed events.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1633,7 +1633,7 @@
                 "summary": "Add an array of parturitions.",
                 "description": "# Purpose \nAllows a client to add a collection of parturitions.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1708,7 +1708,7 @@
                 "summary": "Add an array of mating recommendations.",
                 "description": "# Purpose \nAllows a client to add a collection of mating recommendations.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1783,7 +1783,7 @@
                 "summary": "Add an array of gestations.",
                 "description": "# Purpose \nAllows a client to add a collection of gestations.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1858,7 +1858,7 @@
                 "summary": "Add an array of reproductive status observations.",
                 "description": "# Purpose \nAllows a client to add a collection of reproductive status observations.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {
@@ -1933,7 +1933,7 @@
                 "summary": "Add an array of embryo-flushings.",
                 "description": "# Purpose \nAllows a client to add a collection of embryo-flushings.\n",
                 "tags": [
-                    "ADE-1.3-reproduction"
+                    "ADE-1.4-reproduction"
                 ],
                 "parameters": [
                     {

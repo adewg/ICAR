@@ -1,9 +1,9 @@
 {
-    "openapi": "3.0.1",
+    "openapi": "3.1.0",
     "info": {
         "title": "Animal Registration and Movement API Specifications",
         "description": "Specifications for messages that support livestock movement information and registration (sometimes called I&R).",
-        "version": "1.3",
+        "version": "1.4",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.3-registration",
+            "name": "ADE-1.4-registration",
             "description": "Registration and movement messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
         "summary": "Get available schema/id combinations for locations.",
         "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
         "tags": [
-          "ADE-1.3-registration"
+          "ADE-1.4-registration"
         ],
         "responses": {
           "200": {
@@ -58,7 +58,7 @@
                 "summary": "Get the animals for a certain location",
                 "description": "# Purpose\nProvides the animals on a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -89,7 +89,7 @@
                 "summary": "Add a single animal resource.",
                 "description": "# Purpose  \nAllows a client to add a single animal resource. Many servers do not support adding animals, requiring a registration event instead.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -157,7 +157,7 @@
                 "summary": "Get the births for a certain location",
                 "description": "# Purpose\nProvides the animal birth records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -194,7 +194,7 @@
                 "summary": "Add a single new birth or initial registration event",
                 "description": "# Purpose  \nAllows a client to add a single animal birth or initial registration event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -262,7 +262,7 @@
                 "summary": "Get the group birth or registration events for a certain location",
                 "description": "# Purpose\nProvides the group birth records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -299,7 +299,7 @@
                 "summary": "Add one group birth or registration event",
                 "description": "# Purpose  \nAllows a client to add one group birth or registration event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -367,7 +367,7 @@
                 "summary": "Get the group death events for a certain location",
                 "description": "# Purpose\nProvides the group death records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -404,7 +404,7 @@
                 "summary": "Add one group death event",
                 "description": "# Purpose  \nAllows a client to add a group death event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -472,7 +472,7 @@
                 "summary": "Get the deaths for a certain location",
                 "description": "# Purpose\nProvides the animal death records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -509,7 +509,7 @@
                 "summary": "Add a single new death event",
                 "description": "# Purpose  \nAllows a client to add a single animal death event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -577,7 +577,7 @@
                 "summary": "Get the arrivals for a certain location",
                 "description": "# Purpose\nProvides the animal arrival records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -614,7 +614,7 @@
                 "summary": "Add a single new arrival event",
                 "description": "# Purpose  \nAllows a client to add a single animal arrival event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -682,7 +682,7 @@
                 "summary": "Get the group arrival events for a certain location",
                 "description": "# Purpose\nProvides the group arrival records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -719,7 +719,7 @@
                 "summary": "Add a group arrival event",
                 "description": "# Purpose  \nAllows a client to add a group arrival event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -787,7 +787,7 @@
                 "summary": "Get the departures for a certain location",
                 "description": "# Purpose\nProvides the animal departure records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -824,7 +824,7 @@
                 "summary": "Add a single new departure event",
                 "description": "# Purpose  \nAllows a client to add a single animal departure event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -892,7 +892,7 @@
                 "summary": "Get the group departure events for a certain location",
                 "description": "# Purpose\nProvides the group departure records for a location\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -929,7 +929,7 @@
                 "summary": "Add a group departure event",
                 "description": "# Purpose  \nAllows a client to add a group departure event.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -997,7 +997,7 @@
                 "summary": "Add an array of animal resources",
                 "description": "# Purpose  \nAllows a client to add a collection of animal resources. Many servers do not support adding animals, requiring registration events instead.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1072,7 +1072,7 @@
                 "summary": "Add an array of birth or initial registration events",
                 "description": "# Purpose  \nAllows a client to add a collection of animal birth events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1147,7 +1147,7 @@
                 "summary": "Add an array of group birth or initial registration events",
                 "description": "# Purpose  \nAllows a client to add an array of group birth events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1222,7 +1222,7 @@
                 "summary": "Add an array of death events",
                 "description": "# Purpose  \nAllows a client to add a collection of animal death events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1297,7 +1297,7 @@
                 "summary": "Add an array of group death events",
                 "description": "# Purpose  \nAllows a client to add an array of group death events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1372,7 +1372,7 @@
                 "summary": "Add an array of arrival events",
                 "description": "# Purpose  \nAllows a client to add a collection of animal arrival events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1447,7 +1447,7 @@
                 "summary": "Add an array of group arrival events",
                 "description": "# Purpose  \nAllows a client to add an array of group arrival events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1522,7 +1522,7 @@
                 "summary": "Add an array of departure events",
                 "description": "# Purpose  \nAllows a client to add a collection of animal departure events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {
@@ -1597,7 +1597,7 @@
                 "summary": "Add an array of group departure events",
                 "description": "# Purpose  \nAllows a client to add an array of group departure events.\n",
                 "tags": [
-                    "ADE-1.3-registration"
+                    "ADE-1.4-registration"
                 ],
                 "parameters": [
                     {

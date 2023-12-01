@@ -33,14 +33,12 @@
           "description": "Total dose proposed or administered."
         },
         "numberOfTreatments": {
-          "type": "number",
-          "description": "The number of treatments included in the course.",
-          "nullable": true
+          "type": ["number", "null"],
+          "description": "The number of treatments included in the course."
         },
         "treatmentInterval": {
-          "type": "integer",
-          "description": "The interval between treatments specified in HOURS.",
-          "nullable": true
+          "type": ["integer", "null"],
+          "description": "The interval between treatments specified in HOURS."
         },
         "batches": {
             "type": "array",

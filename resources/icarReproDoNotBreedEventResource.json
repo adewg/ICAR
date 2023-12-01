@@ -8,9 +8,8 @@
       "type": "object",
       "properties": {
         "doNotBreed": {
-          "type": "boolean",
+          "type": ["boolean", "null"],
           "description": "Set this attribute to true if the animal should not be bred, false if it may now be bred.",
-          "nullable": true,
           "default": true
         }
       }
