@@ -16,7 +16,7 @@
       "properties": {
         "identifier": {
           "description": "Unique animal scheme and identifier combination.",
-          "nullable": true,
+          "type": ["object", "null"],
           "allOf": [
             {
               "$ref": "../types/icarAnimalIdentifierType.json"
@@ -24,8 +24,7 @@
           ]
         },
         "alternativeIdentifiers": {
-          "nullable": true,
-          "type": "array",
+          "type": ["array","null"],
           "items": {
             "$ref": "../types/icarAnimalIdentifierType.json"
           },
@@ -40,8 +39,7 @@
           "description": "Gender of the animal."
         },
         "managementTag": {
-          "type": "string",
-          "nullable": true,
+          "type": ["string", "null"],
           "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
         },
         "name": {
@@ -54,7 +52,7 @@
         },
         "taggingDate": {
           "description": "Progeny tagging date in RFC3339 UTC (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
-          "nullable": true,
+          "type": ["string", "null"],
           "allOf": [
             {
               "$ref": "../types/icarDateTimeType.json"
@@ -63,7 +61,7 @@
         },
         "birthStatus": {
           "description": "Birth status of the progeny.",
-          "nullable": true,
+          "type": ["string", "null"],
           "allOf": [
             {
               "$ref": "../enums/icarParturitionBirthStatusType.json"
@@ -72,7 +70,7 @@
         },
         "birthSize": {
           "description": "Size of the progeny.",
-          "nullable": true,
+          "type": ["string", "null"],
           "allOf": [
             {
               "$ref": "../enums/icarParturitionBirthSizeType.json"
@@ -81,7 +79,7 @@
         },
         "birthWeight": {
           "description": "Weight of the progeny.",
-          "nullable": true,
+          "type": ["object", "null"],
           "allOf": [
             {
               "$ref": "../types/icarMassMeasureType.json"

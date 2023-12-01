@@ -5,23 +5,19 @@
 
   "properties": {
     "lactationNumberRangeMin": { 
-      "type": "number",
-      "nullable": true,
+      "type": ["number", "null"],
       "description": "minimum number of lactations for the animals in the group."
     },
     "lactationNumberRangeMax": { 
-      "type": "number",
-      "nullable": true,
+      "type": ["number", "null"],
       "description": "maximum number of lactations for the animals in the group."
     },
     "daysInMilkRangeMin": { 
-      "type": "number",
-      "nullable": true,
+      "type": ["number", "null"],
       "description": "minimum number of days in milk for the animals in the group."
     },
     "daysInMilkRangeMax": { 
-      "type": "number",
-      "nullable": true,
+      "type": ["number", "null"],
       "description": "maximum number of days in milk for the animals in the group."
     },
     "animalSetId": { 

@@ -13,10 +13,9 @@
       "description": "Distinguish errors, warnings, and informational messages."
     },
     "status": {
-      "type": "integer",
+      "type": ["integer", "null"],
       "description": "The HTTP status code applicable to this problem.",
-      "format": "int32",
-      "nullable": true
+      "format": "int32"
     },
     "title": {
       "type": "string",
@@ -27,9 +26,8 @@
       "description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
     },
     "instance": {
-      "type": "string",
-      "description": "A URI reference or internal JSON document reference to the specific data item that caused the problem.",
-      "nullable": true
+      "type": ["string", "null"],
+      "description": "A URI reference or internal JSON document reference to the specific data item that caused the problem."
     }
   }
 }

@@ -8,8 +8,7 @@
       "$ref": "../enums/icarGroupType.json"
     },
     "denominator": { 
-      "type": "number",
-      "nullable": true,
+      "type": ["number", "null"],
       "description": "Number of animals in the group."
     },
     "icarGroupSpecifier": {
