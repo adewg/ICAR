@@ -1,56 +1,61 @@
 {
-  "description": "Describes the devices on a certain location.",
+  "description": "This resource is used to describe an instance of a device at a location.",
 
-  "type": "object",
+  "allOf": [{
+    "$ref": "icarResource.json"
+  },
+  {
+    "type": "object",
 
-  "required": [
-    "id"
-  ],
+    "required": [
+      "id"
+    ],
 
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Unique identifier on location level in the source system for this device."
-    },
-    "serial": {
-      "type": "string",
-      "description": "Optionally, the serial number of the device."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name given to the device by the farmer."
-    },
-    "description": {
-      "type": "string",
-      "description": "Description of the device by the farmer."
-    },
-    "softwareVersion": {
-      "type": "string",
-      "description": "Version of the software installed on the device."
-    },
-    "hardwareVersion": {
-      "type": "string",
-      "description": "Version of the hardware installed in the device."
-    },
-    "isActive": {
-      "type": "boolean",
-      "description": "Indicates whether the device is active at this moment."
-    },
-    "supportedMessages": {
-      "type": "array",
-      "description": "Identifies message types supported for the device",
-      "items": {
-        "type": "object",
-        "properties": {
-          "messages": {
-            "$ref": "../enums/icarMessageType.json"
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Unique identifier on location level in the source system for this device."
+      },
+      "serial": {
+        "type": "string",
+        "description": "Optionally, the serial number of the device."
+      },
+      "name": {
+        "type": "string",
+        "description": "Name given to the device by the farmer."
+      },
+      "description": {
+        "type": "string",
+        "description": "Description of the device by the farmer."
+      },
+      "softwareVersion": {
+        "type": "string",
+        "description": "Version of the software installed on the device."
+      },
+      "hardwareVersion": {
+        "type": "string",
+        "description": "Version of the hardware installed in the device."
+      },
+      "isActive": {
+        "type": "boolean",
+        "description": "Indicates whether the device is active at this moment."
+      },
+      "supportedMessages": {
+        "type": "array",
+        "description": "Identifies message types supported for the device",
+        "items": {
+          "type": "object",
+          "properties": {
+            "messages": {
+              "$ref": "../enums/icarMessageType.json"
+            }
           }
         }
+      },
+      "manufacturer": {
+        "$ref": "../types/icarDeviceManufacturerType.json",
+        "description": "The device data as defined by the manufacturer."
       }
-    },
-    "manufacturer": {
-      "$ref": "../types/icarDeviceManufacturerType.json",
-      "description": "The device data as defined by the manufacturer."
     }
-  }
+  }]
 }
