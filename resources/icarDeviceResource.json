@@ -55,6 +55,10 @@
       "manufacturer": {
         "$ref": "../types/icarDeviceManufacturerType.json",
         "description": "The device data as defined by the manufacturer."
+      },
+      "registration": {
+        "$ref": "../types/icarDeviceRegistrationIdentifierType.json",
+        "description": "A registration identifier for the device (most devices should eventually have a registration issued by `org.icar` or other entity)."
       }
     }
   }]
