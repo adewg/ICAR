@@ -1,0 +1,24 @@
+{
+  "description": "State information about an animal",
+
+  "type": "object",
+
+  "properties": {
+    "currentLactationParity": {
+      "type": "number",
+      "description": "The current parity of the animal."
+    },
+    "lastCalvingDate": {
+      "$ref": "../types/icarDateType.json",
+      "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+    },
+    "lastInseminationDate": {
+      "$ref": "../types/icarDateType.json",
+      "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+    },
+    "lastDryingOffDate": {
+      "$ref": "../types/icarDateType.json",
+      "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+    }
+  }
+}
