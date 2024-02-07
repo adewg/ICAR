@@ -134,100 +134,100 @@ icar:Animal
 icar:hasIdentifier
   a rdf:Property ;
   rdfs:label "identifier" ;
-  rdfs:range ex:AnimalIdentifierType .
+  rdfs:range icar:AnimalIdentifierType .
 
-ex:hasAlternativeIdentifiers
+icar:hasAlternativeIdentifiers
   a rdf:Property ;
   rdfs:label "alternativeIdentifiers" ;
-  rdfs:range ex:AnimalIdentifierType .
+  rdfs:range icar:AnimalIdentifierType .
 
 # Properties
-ex:hasSpecie
+icar:hasSpecie
   a rdf:Property ;
   rdfs:label "specie" ;
-  rdfs:range ex:AnimalSpecie .
+  rdfs:range icar:AnimalSpecie .
 
-ex:hasSpecie
+icar:hasSpecie
   a rdf:Property ;
   rdfs:label "specie" ;
-  rdfs:range ex:AnimalSpecie .
+  rdfs:range icar:AnimalSpecie .
 
 # Note we remove the form Type from the class names.
-ex:hasGender
+icar:hasGender
   a rdf:Property ;
   rdfs:label "gender" ;
-  rdfs:range ex:AnimalGenderType .
+  rdfs:range icar:AnimalGenderType .
 
-ex:hasBirthDate
+icar:hasBirthDate
   a rdf:Property ;
   rdfs:label "birthDate" ;
-  rdfs:range ex:DateTime .
+  rdfs:range icar:DateTime .
 
 # This could become just a URI
-ex:hasPrimaryBreed
+icar:hasPrimaryBreed
   a rdf:Property ;
   rdfs:label "primaryBreed" ;
-  rdfs:range ex:BreedIdentifier .
+  rdfs:range icar:BreedIdentifier .
 
-ex:hasBreedFractions
+icar:hasBreedFractions
   a rdf:Property ;
   rdfs:label "breedFractions" ;
-  rdfs:range ex:BreedFractions .
+  rdfs:range icar:BreedFractions .
 
-ex:hasCoatColor
+icar:hasCoatColor
   a rdf:Property ;
   rdfs:label "coatColor" ;
   rdfs:range xsd:string .
 
-ex:hasCoatColorIdentifier
+icar:hasCoatColorIdentifier
   a rdf:Property ;
   rdfs:label "coatColorIdentifier" ;
-  rdfs:range ex:CoatColorIdentifier .
+  rdfs:range icar:CoatColorIdentifier .
 
-ex:hasManagementTag
+icar:hasManagementTag
   a rdf:Property ;
   rdfs:label "managementTag" ;
   rdfs:range xsd:string .
 
-ex:hasName
+icar:hasName
   a rdf:Property ;
   rdfs:label "name" ;
   rdfs:range xsd:string .
 
-ex:hasOfficialName
+icar:hasOfficialName
   a rdf:Property ;
   rdfs:label "officialName" ;
   rdfs:range xsd:string .
 
-ex:hasProductionPurpose
+icar:hasProductionPurpose
   a rdf:Property ;
   rdfs:label "productionPurpose" ;
-  rdfs:range ex:ProductionPurpose .
+  rdfs:range icar:ProductionPurpose .
 
-ex:hasStatus
+icar:hasStatus
   a rdf:Property ;
   rdfs:label "status" ;
-  rdfs:range ex:AnimalStatus .
+  rdfs:range icar:AnimalStatus .
 
-ex:hasReproductionStatus
+icar:hasReproductionStatus
   a rdf:Property ;
   rdfs:label "reproductionStatus" ;
-  rdfs:range ex:AnimalReproductionStatus .
+  rdfs:range icar:AnimalReproductionStatus .
 
-ex:hasLactationStatus
+icar:hasLactationStatus
   a rdf:Property ;
   rdfs:label "lactationStatus" ;
-  rdfs:range ex:AnimalLactationStatus .
+  rdfs:range icar:AnimalLactationStatus .
 
-ex:hasParentage
+icar:hasParentage
   a rdf:Property ;
   rdfs:label "parentage" ;
-  rdfs:range ex:Parentage .
+  rdfs:range icar:Parentage .
 
-ex:hasHealthStatus
+icar:hasHealthStatus
   a rdf:Property ;
   rdfs:label "healthStatus" ;
-  rdfs:range ex:AnimalHealthStatus .
+  rdfs:range icar:AnimalHealthStatus .
 
 ```
 
@@ -240,37 +240,32 @@ As well as these basic declarations we can also add constraints. It is these con
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 # Define the Animal class as a SHACL shape
-ex:AnimalShape
+icar:AnimalShape
   a sh:NodeShape ;
-  sh:targetClass ex:Animal ;
+  sh:targetClass icar:Animal ;
   sh:label "Animal Shape" ;
-  sh:description "Constraints for representing an animal." .
-
-# Define constraints for each property
-ex:hasIdentifier
-  a sh:PropertyShape ;
-  sh:path ex:hasIdentifier ;
-  sh:name "identifier" ;
-  sh:datatype xsd:anyURI ;
-  sh:minCount 1 ;
-  sh:description "Unique animal scheme and identifier combination." .
-
-ex:hasAlternativeIdentifiers
-  a sh:PropertyShape ;
-  sh:path ex:hasAlternativeIdentifiers ;
-  sh:name "alternativeIdentifiers" ;
-  sh:datatype xsd:anyURI ;
-  sh:minCount 0 ;
-  sh:description "Alternative identifiers for the animal." .
-
-
-ex:hasHealthStatus
-  a sh:PropertyShape ;
-  sh:path ex:hasHealthStatus ;
-  sh:name "healthStatus" ;
-  sh:datatype xsd:string ;
-  sh:minCount 1 ;
-  sh:description "Health status of the animal." .
+  sh:description "Constraints for representing an animal." ;
+  sh:property [
+    sh:path icar:hasIdentifier ;
+    sh:name "identifier" ;
+    sh:datatype xsd:anyURI ;
+    sh:minCount 1 ;
+    sh:description "Unique animal scheme and identifier combination." .
+  ];
+  sh:property [
+    sh:path icar:hasAlternativeIdentifiers ;
+    sh:name "alternativeIdentifiers" ;
+    sh:datatype xsd:anyURI ;
+    sh:minCount 0 ;
+    sh:description "Alternative identifiers for the animal." .
+  ];
+  sh:property [
+    sh:path icar:hasHealthStatus ;
+    sh:name "healthStatus" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:description "Health status of the animal." .
+  ] .
 
 
 ```

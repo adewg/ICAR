@@ -1,0 +1,587 @@
+@prefix icar: <http://icar.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# icar item
+icar:Resource 
+  a rdfs:Class ;
+  rdfs:label "Resource" .
+
+icar:meta 
+  a rdf:Property ;
+  rdfs:label "meta" ;
+  rdfs:range icar:Meta .
+
+icar:location
+  a rdf:Property ;
+  rdfs:label "location" ;
+  rdfs:range rdfs:Resource .
+
+icar:Meta 
+  a rdfs:Class ;
+  rdfs:label "Meta" .
+
+icar:source 
+  a rdf:Property ;
+  rdfs:label "source" ;
+  rdfs:range rdfs:Resource .
+
+icar:isDeleted 
+  a rdf:Property ;
+  rdfs:label "isDeleted" ;
+  rdfs:range xsd:boolean .
+
+icar:modified 
+  a rdf:Property ;
+  rdfs:label "modified" ;
+  rdfs:range icar:DateTime .
+
+icar:created 
+  a rdf:Property ;
+  rdfs:label "created" ;
+  rdfs:range icar:DateTime .
+
+icar:creator 
+  a rdf:Property ;
+  rdfs:label "creator" ;
+  rdfs:range xsd:string .
+
+icar:validFrom 
+  a rdf:Property ;
+  rdfs:label "validFrom" ;
+  rdfs:range icar:DateTime .
+
+icar:validTo 
+  a rdf:Property ;
+  rdfs:label "validTo" ;
+  rdfs:range icar:DateTime .
+
+icar:ResourceShape 
+  a sh:NodeShape ;
+  sh:targetClass icar:Resource ;
+  sh:label "Resource Shape" ;
+  sh:description "Constraints for representing a resource." ;
+  sh:property [
+    sh:path icar:meta ;
+    sh:name "meta" ;
+    sh:class icar:Meta ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:description "Metadata about the resource." .
+  ];
+  sh:property [
+    sh:path icar:location ;
+    sh:name "location" ;
+    sh:datatype xsd:anyURI ;
+    sh:minCount 0 ;
+    sh:description "Location of the resource." .
+  ];
+  sh:property [
+    sh:path icar:isDeleted ;
+    sh:name "isDeleted" ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:description "Indicates if the resource is deleted." .
+  ];
+  sh:property [
+    sh:path icar:modified ;
+    sh:name "modified" ;
+    sh:datatype icar:DateTime ;
+    sh:minCount 1 ;
+    sh:description "Date and time of the last modification." .
+  ];
+  sh:property [
+    sh:path icar:created ;
+    sh:name "created" ;
+    sh:datatype icar:DateTime ;
+    sh:minCount 1 ;
+    sh:description "Date and time of the creation." .
+  ];
+  sh:property [
+    sh:path icar:creator ;
+    sh:name "creator" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:description "Person or entity responsible for the creation." .
+  ];
+  sh:property [
+    sh:path icar:validFrom ;
+    sh:name "validFrom" ;
+    sh:datatype icar:DateTime ;
+    sh:minCount 0 ;
+    sh:description "Date and time from which the resource is valid." .
+  ];
+  sh:property [
+    sh:path icar:validTo ;
+    sh:name "validTo" ;
+    sh:datatype icar:DateTime ;
+    sh:minCount 0 ;
+    sh:description "Date and time until which the resource is valid." .
+  ] .
+
+
+
+# Animal Class
+icar:Animal
+  a rdfs:Class ;
+  rdfs:subClassOf icar:Resource ;
+  rdfs:label "Animal" .
+
+# Identifiers would not be done like this, but instead as URLs
+icar:hasIdentifier
+  a rdf:Property ;
+  rdfs:label "identifier" ;
+  rdfs:range icar:AnimalIdentifierType .
+
+icar:hasAlternativeIdentifier
+  a rdf:Property ;
+  rdfs:label "alternativeIdentifiers" ;
+  rdfs:range rdfs:Resource .
+
+# Properties
+icar:hasSpecie
+  a rdf:Property ;
+  rdfs:label "specie" ;
+  rdfs:range icar:AnimalSpecie .
+
+icar:hasSpecie
+  a rdf:Property ;
+  rdfs:label "specie" ;
+  rdfs:range icar:AnimalSpecie .
+
+# Note we remove the form Type from the class names.
+icar:hasGender
+  a rdf:Property ;
+  rdfs:label "gender" ;
+  rdfs:range icar:AnimalGenderType .
+
+icar:hasBirthDate
+  a rdf:Property ;
+  rdfs:label "birthDate" ;
+  rdfs:range icar:DateTime .
+
+# This could become just a URI
+icar:hasPrimaryBreed
+  a rdf:Property ;
+  rdfs:label "primaryBreed" ;
+  rdfs:range icar:BreedIdentifier .
+
+icar:hasBreedFractions
+  a rdf:Property ;
+  rdfs:label "breedFractions" ;
+  rdfs:range icar:BreedFractions .
+
+icar:hasCoatColor
+  a rdf:Property ;
+  rdfs:label "coatColor" ;
+  rdfs:range xsd:string .
+
+icar:hasCoatColorIdentifier
+  a rdf:Property ;
+  rdfs:label "coatColorIdentifier" ;
+  rdfs:range icar:CoatColorIdentifier .
+
+icar:hasManagementTag
+  a rdf:Property ;
+  rdfs:label "managementTag" ;
+  rdfs:range xsd:string .
+
+icar:hasName
+  a rdf:Property ;
+  rdfs:label "name" ;
+  rdfs:range xsd:string .
+
+icar:hasOfficialName
+  a rdf:Property ;
+  rdfs:label "officialName" ;
+  rdfs:range xsd:string .
+
+icar:hasProductionPurpose
+  a rdf:Property ;
+  rdfs:label "productionPurpose" ;
+  rdfs:range icar:ProductionPurpose .
+
+icar:hasStatus
+  a rdf:Property ;
+  rdfs:label "status" ;
+  rdfs:range icar:AnimalStatus .
+
+icar:hasReproductionStatus
+  a rdf:Property ;
+  rdfs:label "reproductionStatus" ;
+  rdfs:range icar:AnimalReproductionStatus .
+
+icar:hasLactationStatus
+  a rdf:Property ;
+  rdfs:label "lactationStatus" ;
+  rdfs:range icar:AnimalLactationStatus .
+
+icar:hasParentage
+  a rdf:Property ;
+  rdfs:label "parentage" ;
+  rdfs:range icar:Parentage .
+
+icar:memberOf 
+  a rdf:Property ;
+  rdfs:label "memberOf" ;
+  rdfs:range icar:AnimalSet .
+
+icar:hasHealthStatus
+  a rdf:Property ;
+  rdfs:label "healthStatus" ;
+  rdfs:range icar:AnimalHealthStatus .
+
+
+# Define the Animal class as a SHACL shape
+icar:AnimalShape
+  a sh:NodeShape ;
+  sh:targetClass icar:Animal ;
+  sh:label "Animal Shape" ;
+  sh:description "Constraints for representing an animal." ;
+  sh:property [
+    sh:path icar:hasIdentifier ;
+    sh:name "identifier" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:description "Identifier of the animal." .
+  ];
+  sh:property [
+    sh:path icar:hasAlternativeIdentifier ;
+    sh:name "alternativeIdentifiers" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:description "Alternative identifiers of the animal." .
+  ];
+  sh:property [
+    sh:path icar:hasSpecie ;
+    sh:name "specie" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:description "Specie of the animal." .
+  ] ;
+  sh:property [
+    sh:path icar:memberOf ; 
+    sh:class icar:AnimalSet ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:description "Animal is a member of animal set." .
+  ] .
+
+# Event
+icar:Event
+  a rdfs:Class ;
+  rdfs:subClassOf icar:Resource ;
+  rdfs:label "EventCore" .
+
+icar:eventDateTime
+  a rdf:Property ;
+  rdf:description "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)." ;
+  rdfs:label "eventDateTime" ;
+  rdfs:range icar:DateTime .
+
+icar:traitLabel
+  a rdf:Property ;
+  rdfs:description "If the event represents a formal trait, identifies the recording system and trait." ;
+  rdfs:label "traitLabel" ;
+  rdfs:range xsd:string .
+
+icar:responsible
+  a rdf:Property ;
+  rdfs:label "responsible" ;
+  rdfs:range xsd:string .
+
+icar:contemporaryGroup
+  a rdf:Property ;
+  rdfs:label "contemporaryGroup" ;
+  rdfs:range xsd:string .
+
+icar:remark
+  a rdf:Property ;
+  rdfs:label "remarks" ;
+  rdfs:range xsd:string .
+
+icar:EventShape
+  a sh:NodeShape ;
+  sh:targetClass icar:Event ;
+  sh:label "Event Shape" ;
+  sh:description "Constraints for representing an event." ;
+  sh:property [
+    sh:path icar:eventDateTime ;
+    sh:name "eventDateTime" ;
+    sh:datatype icar:DateTime ;
+    sh:minCount 1 ;
+    sh:description "Date and time of the event." .
+  ];
+  sh:property [
+    sh:path icar:traitLabel ;
+    sh:name "traitLabel" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:description "If the event represents a formal trait, identifies the recording system and trait." .
+  ];
+  sh:property [
+    sh:path icar:responsible ;
+    sh:name "responsible" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:description "Person or entity responsible for the event." .
+  ];
+  sh:property [
+    sh:path icar:contemporaryGroup ;
+    sh:name "contemporaryGroup" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:description "Group of animals that are managed together and are exposed to the same environmental conditions." .
+  ];
+  sh:property [
+    sh:path icar:remark ;
+    sh:name "remark" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:description "Additional information about the event." .
+  ] .
+
+# AnimalEvent
+icar:AnimalEvent
+  a rdfs:Class ;
+  rdfs:label "AnimalEvent" ;
+  rdfs:subClassOf icar:Event .
+
+icar:animal
+  a rdf:Property ;
+  rdfs:label "animal" ;
+  rdfs:range icar:Animal .
+
+icar:AnimalEventShape
+  a sh:NodeShape ;
+  sh:targetClass icar:AnimalEvent ;
+  sh:label "Animal Event Shape" ;
+  sh:description "Constraints for representing an animal event." ;
+  sh:property [
+    sh:path icar:eventDateTime ;
+    sh:name "eventDateTime" ;
+    sh:datatype icar:DateTime ;
+    sh:minCount 1 ;
+    sh:description "Date and time of the event." .
+  ];
+  sh:property [
+    sh:path icar:animal ;
+    sh:name "animal" ;
+    sh:datatype xsd:anyURI ;
+    sh:minCount 1 ;
+    sh:description "Animal involved in the event." .
+  ] .
+
+icar:AnimalSet
+  a rdfs:Class ;
+  rdfs:subClassOf icar:Resource ;
+  rdfs:label "AnimalSet" .
+
+icar:name 
+  a rdf:Property ;
+  rdfs:label "name" ;
+  rdfs:range xsd:string .
+
+icar:purpose
+  a rdf:Property ;
+  rdfs:label "purpose" ;
+  rdfs:range icar:AnimalSetPurpose .
+
+icar:members
+  a rdf:Property ;
+  rdfs:label "members" ;
+  rdfs:range icar:Animal ;
+  owl:inverseOf icar:partOf .
+
+icar:AnimalSetShape
+  a sh:NodeShape ;
+  sh:targetClass icar:AnimalSet ;
+  sh:label "Animal Set Shape" ;
+  sh:description "Constraints for representing an animal set." ;
+  sh:property [
+    sh:path icar:name ;
+    sh:name "name" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:description "Name of the animal set." .
+  ];
+  sh:property [
+    sh:path icar:purpose ;
+    sh:name "purpose" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:description "Purpose of the animal set." .
+  ];
+  sh:property [
+    sh:path icar:members ;
+    sh:name "members" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:description "Members of the animal set." .
+  ] .
+
+
+icar:AnimalSetJoinEvent
+  a rdfs:Class ;
+  rdfs:label "AnimalSetJoinEvent" ;
+  rdfs:subClassOf icar:AnimalEvent .
+
+icar:animalSet
+  a rdf:Property ;
+  rdfs:label "animalSet" ;
+  rdfs:range icar:AnimalSet .
+
+icar:AnimalSetJoinEventShape
+  a sh:NodeShape ;
+  rdfs:subClassOf icar:AnimalEventShape ;
+  sh:targetClass icar:Animal ;
+  sh:label "Animal Set Join Event Shape" ;
+  sh:description "Constraints for representing an animal set join event." ;
+  sh:property [
+    sh:path icar:animalSet ;
+    sh:class icar:AnimalSet ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:description "Animal set that has been joined." .
+  ] .
+  
+icar:AnimalSetLeaveEvent
+  a rdfs:Class ;
+  rdfs:label "AnimalSetLeaveEvent" ;
+  rdfs:subClassOf icar:AnimalEvent .
+
+icar:AnimalSetLeaveEventShape
+  a sh:NodeShape ;
+  rdfs:subClassOf icar:AnimalEventShape ;
+  sh:targetClass icar:Animal ;
+  sh:label "Animal Set Leave Event Shape" ;
+  sh:description "Constraints for representing an animal set leave event." ;
+  sh:property [
+    sh:path icar:animalSet ;
+    sh:class icar:AnimalSet ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:description "Animal set that has been left." .
+  ] .
+
+
+icar:BreedingValue 
+  a rdfs:Class ;
+  rdfs:label "Breeding Value" ;
+  rdfs:subClassOf icar:Resource .
+
+icar:animal
+  a rdf:Property ;
+  rdfs:label "animal" ;
+  rdfs:range icar:Animal .
+
+icar:base
+  a rdf:Property ;
+  rdfs:label "base" ;
+  rdfs:range rdfs:Resource .
+
+icar:version 
+  a rdf:Property ;
+  rdfs:label "version" ;
+  rdfs:range xsd:string .
+
+icar:breedingValues
+  a rdf:Property ;
+  rdfs:label "breedingValues" ;
+  rdfs:range icar:BreedingValueValue .
+
+icar:BreedingValueShape
+  a sh:NodeShape ;
+  sh:targetClass icar:BreedingValue ;
+  sh:label "Breeding Value Shape" ;
+  sh:description "Constraints for representing a breeding value." ;
+  sh:property [
+    sh:path icar:animal ;
+    sh:name "animal" ;
+    sh:datatype icar:Animal ;
+    sh:minCount 1 ;
+    sh:description "Animal for which the breeding value is calculated." .
+  ];
+  sh:property [
+    sh:path icar:base ;
+    sh:name "base" ;
+    sh:class rdfs:Resource ;
+    sh:minCount 1 ;
+    sh:description "Base of the breeding value." .
+  ];
+  sh:property [
+    sh:path icar:version ;
+    sh:name "version" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:description "Version of the breeding value." .
+  ];
+  # this can probably be expressed as a list
+  sh:property [
+    sh:path icar:breedingValues ;
+    sh:name "breedingValues" ;
+    sh:class icar:BreedingValueValue ;
+    sh:minCount 0 ;
+    sh:description "Breeding values." .
+  ] .
+
+icar:BreedingValueValue
+  a rdfs:Class ;
+  rdfs:label "Breeding Value Value" .
+
+icar:trait
+  a rdf:Property ;
+  rdfs:label "trait" ;
+  rdfs:range rdfs:Resource .
+
+icar:calculationType
+  a rdf:Property ;
+  rdfs:label "calculationType" ;
+  rdfs:range icar:BreedValueCalculationType .
+
+icar:breadingValue
+  a rdf:Property ;
+  rdfs:label "breadingValue" ;
+  rdfs:range xsd:float .
+
+icar:breedingValueResolution
+  a rdf:Property ;
+  rdfs:label "breedingValueResolution" ;
+  rdfs:range xsd:float .
+
+icar:BreedingValueValueShape
+  a sh:NodeShape ;
+  sh:targetClass icar:BreedingValueValue ;
+  sh:label "Breeding Value Value Shape" ;
+  sh:description "Constraints for representing a breeding value value." ;
+  sh:property [
+    sh:path icar:trait ;
+    sh:name "trait" ;
+    sh:datatype rdfs:Resource ;
+    sh:minCount 1 ;
+    sh:description "Trait for which the breeding value is calculated." .
+  ];
+  sh:property [
+    sh:path icar:calculationType ;
+    sh:name "calculationType" ;
+    sh:datatype icar:BreedValueCalculationType ;
+    sh:minCount 1 ;
+    sh:description "Calculation type of the breeding value." .
+  ];
+  sh:property [
+    sh:path icar:breadingValue ;
+    sh:name "breadingValue" ;
+    sh:datatype xsd:float ;
+    sh:minCount 1 ;
+    sh:description "Breeding value." .
+  ];
+  sh:property [
+    sh:path icar:breedingValueResolution ;
+    sh:name "breedingValueResolution" ;
+    sh:datatype xsd:float ;
+    sh:minCount 1 ;
+    sh:description "Breeding value resolution." .
+  ] .
+
+
