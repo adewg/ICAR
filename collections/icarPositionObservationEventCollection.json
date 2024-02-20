@@ -1,0 +1,21 @@
+{
+  "description": "Represents a collection of animal position observation events.",
+
+  "allOf": [{
+      "$ref": "../collections/icarResourceCollection.json"
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "../resources/icarPositionObservationEventResource.json"
+          },
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case position observation events."
+        }
+      }
+    }
+  ]
+}

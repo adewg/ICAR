@@ -1,0 +1,12 @@
+{
+    "description": "This event records that an animal was observed in a specific position or location (either a named location or a geographic coordinate).",
+
+    "allOf": [
+        {
+            "$ref": "../resources/icarAnimalEventCoreResource.json"
+        },
+        {
+            "$ref": "../types/icarPositionObservationType.json"
+        }
+    ]
+} 
