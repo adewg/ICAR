@@ -1,9 +1,9 @@
 {
-    "openapi": "3.0.1",
+    "openapi": "3.1.0",
     "info": {
         "title": "Feed-related events and messages API Specifications",
         "description": "Specifications for messages that support livestock feeding and feed management.",
-        "version": "1.3",
+        "version": "1.4",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.3-feed",
+            "name": "ADE-1.4-feed",
             "description": "Feeding messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
                 "summary": "Get the feeds for a certain location",
                 "description": "# Purpose\nProvides the animal feeds for a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -65,7 +65,7 @@
                 "summary": "Add a single new feed.",
                 "description": "# Purpose\nAllows a client to add a single feed.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -133,7 +133,7 @@
                 "summary": "Get the rations for a certain location",
                 "description": "# Purpose\nProvides the animal rations for a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -170,7 +170,7 @@
                 "summary": "Add a single new ration.",
                 "description": "# Purpose\nAllows a client to add a single ration.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -238,7 +238,7 @@
                 "summary": "Get the feed intake events for a certain location",
                 "description": "# Purpose\nProvides the animal feed intake events for a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -275,7 +275,7 @@
                 "summary": "Add a single new feed intake event.",
                 "description": "# Purpose\nAllows a client to add a single feed intake event.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -343,7 +343,7 @@
                 "summary": "Get the feed recommendations for a certain location",
                 "description": "# Purpose\nProvides the animal feed recommendations for a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -380,7 +380,7 @@
                 "summary": "Add a single new feed recommendation.",
                 "description": "# Purpose\nAllows a client to add a single feed recommendation.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -448,7 +448,7 @@
                 "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. If you need feed-reports for AnimalSets please refer to the WIKI pages : https://github.com/adewg/ICAR/wiki/Feed-Reporting",
                 "description": "# Purpose\nProvides the feed reports for animal on a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -493,7 +493,7 @@
                 "summary": "Get the feed storage devices for a certain location",
                 "description": "# Purpose\nProvides the animal feed storage devices for a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -535,7 +535,7 @@
                 "summary": "Add a single new feed storage.",
                 "description": "# Purpose\nAllows a client to add a single feed-storage.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -603,7 +603,7 @@
                 "summary": "Get the feed inventory transactions that relate to a certain location",
                 "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -652,7 +652,7 @@
                 "summary": "Add a single new feed inventory transaction.",
                 "description": "# Purpose\nAllows a client to add a single feed inventory transaction.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -720,7 +720,7 @@
                 "summary": "Get the group feeding events for a certain location",
                 "description": "# Purpose\nProvides the group feeding events for a location\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -757,7 +757,7 @@
                 "summary": "Add a single new group feeding event.",
                 "description": "# Purpose\nAllows a client to add a single group feeding event.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -825,7 +825,7 @@
                 "summary": "Add an array of feeds.",
                 "description": "# Purpose \nAllows a client to add a collection of feeds.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -900,7 +900,7 @@
                 "summary": "Add an array of rations.",
                 "description": "# Purpose \nAllows a client to add a collection of rations.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -975,7 +975,7 @@
                 "summary": "Add an array of feed intake events.",
                 "description": "# Purpose \nAllows a client to add a collection of feed intake events.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -1050,7 +1050,7 @@
                 "summary": "Add an array of feed recommendations.",
                 "description": "# Purpose \nAllows a client to add a collection of feed recommendations.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -1125,7 +1125,7 @@
                 "summary": "Add an array of feed storages.",
                 "description": "# Purpose \nAllows a client to add a collection of feed storages.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -1200,7 +1200,7 @@
                 "summary": "Add an array of feed inventory transactions.",
                 "description": "# Purpose \nAllows a client to add a collection of feed inventory transactions.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {
@@ -1275,7 +1275,7 @@
                 "summary": "Add an array of group feeding events.",
                 "description": "# Purpose \nAllows a client to add a collection of group feeding events.\n",
                 "tags": [
-                    "ADE-1.3-feed"
+                    "ADE-1.4-feed"
                 ],
                 "parameters": [
                     {

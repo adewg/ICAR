@@ -11,9 +11,8 @@
             "description": "Metadata for the posted resource. Allows specification of the source, source Id to synchronise data."
         },        
         "messages": {
-            "type": "array",
-            "description": "An arry of errors for this resource.",
-            "nullable": true,
+            "type": ["array", "null"],
+            "description": "An array of errors for this resource. The messages array may be unspecified OR null.",
             "items": {
                 "$ref": "../resources/icarResponseMessageResource.json" 
             }

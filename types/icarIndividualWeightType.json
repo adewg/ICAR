@@ -4,14 +4,13 @@
 
     "properties": {
         "animal": {
+            "type": ["object", "null"],
             "$ref": "../types/icarAnimalIdentifierType.json",
-            "description": "Unique animal scheme and identifier combination.",
-            "nullable": true
+            "description": "Unique animal scheme and identifier combination."
         },
         "weight": {
-            "type": "number",
-            "description": "The weight measurement",
-            "nullable": true
+            "type": ["number", "null"],
+            "description": "The weight measurement"
         }
     }
 }

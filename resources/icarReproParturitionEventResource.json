@@ -29,16 +29,14 @@
           "description": "Calving ease (enum corresponds to traditional 1-5 values)."
         },
         "progenyDetails": {
-          "type": "array",
-          "nullable": true,
+          "type": ["array","null"],
           "items": {
             "$ref": "../resources/icarProgenyDetailsResource.json"
           },
           "description": "List of progeny details. May not be fully identified, but recommend that gender and status are supplied at least."
         },
         "progeny": {
-          "type": "array",
-          "nullable": true,
+          "type": ["array", "null"],
           "deprecated": true,
           "items": {
             "$ref": "../resources/icarAnimalCoreResource.json"
