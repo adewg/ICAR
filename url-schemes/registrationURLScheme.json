@@ -151,45 +151,6 @@
                 }
             }            
         },
-        "/locations/{location-scheme}/{location-id}/animal-events/{animal-identifier-scheme}/{animal-identifier-id}": {
-            "get": {
-                "operationId": "get-all-events-of-animal",
-                "summary": "Get all events of a single animal",
-                "description": "# Purpose\nProvides all movement- and reproduction-events of a single animal\n",
-                "tags": [
-                    "ADE-1.3-registration"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/animal-identifier-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/animal-identifier-id"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains all movement- and reproduction-events for the given animal.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarAnimalEventCollection"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            }
-        },
         "/locations/{location-scheme}/{location-id}/births": {
             "get": {
                 "operationId": "get-births",
@@ -1720,9 +1681,6 @@
             "icarAnimalCoreCollection": {
                 "$ref": "../collections/icarAnimalCoreCollection.json"
             },
-            "icarAnimalEventCollection": {
-                "$ref": "../collections/icarAnimalEventCollection.json"
-            },
             "icarMovementBirthEventCollection": {
                 "$ref": "../collections/icarMovementBirthEventCollection.json"
             },
@@ -1843,24 +1801,6 @@
                 "name": "location-id",
                 "in": "path",
                 "description": "The unique identifier for the location.",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "animal-identifier-scheme": {
-                "name": "animal-identifier-scheme",
-                "in": "path",
-                "description": "The scheme for the animal-identifier being provided.",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "animal-identifier-id": {
-                "name": "animal-identifier-id",
-                "in": "path",
-                "description": "The unique identifier for the animal.",
                 "required": true,
                 "schema": {
                     "type": "string"
