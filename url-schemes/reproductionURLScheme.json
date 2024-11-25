@@ -22,7 +22,7 @@
         }
     ],
     "paths": {
-        "/locations/{location-scheme}/{location-id}/{animal-identifier-scheme}/{animal-id}/pregnancy-checks": {
+        "/locations/{location-scheme}/{location-id}/pregnancy-checks/{animal-identifier-scheme}/{animal-id}": {
             "get": {
                 "operationId": "get-pregnancy-checks-for-single-animal",
                 "summary": "Get the pregnancy-checks of a single animal for a certain location",
