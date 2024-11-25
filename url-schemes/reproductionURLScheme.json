@@ -22,6 +22,51 @@
         }
     ],
     "paths": {
+        "/locations/{location-scheme}/{location-id}/{animal-identifier-scheme}/{animal-id}/pregnancy-checks": {
+            "get": {
+                "operationId": "get-pregnancy-checks-for-single-animal",
+                "summary": "Get the pregnancy-checks of a single animal for a certain location",
+                "description": "# Purpose\nProvides the pregnancy-checks of a single animal for a location\n",
+                "tags": [
+                    "ADE-1.3-reproduction"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarReproPregnancyCheckEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/locations/{location-scheme}/{location-id}/pregnancy-checks": {
             "get": {
                 "operationId": "get-pregnancy-checks",
@@ -2158,6 +2203,24 @@
                 "name": "location-id",
                 "in": "path",
                 "description": "The unique identifier for the location.",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-identifier-scheme": {
+                "name": "animal-identifier-scheme",
+                "in": "path",
+                "description": "The scheme id for the animal identifier.",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "path",
+                "description": "The unique identifier for the animal.",
                 "required": true,
                 "schema": {
                     "type": "string"
