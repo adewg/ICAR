@@ -1,4 +1,5 @@
 # Predefined metrics that can be used for animal activity measurement
+These metrics are associated with the icarMetricIdentifierType scheme `org.icar.activities`.
 Add more metrics when required (check for duplicates first) and submit with a Pull Request.
 
 | Metric name | Units | Description |
