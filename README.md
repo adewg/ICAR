@@ -1,4 +1,4 @@
-# ICAR Animal Data Exchange JSON Standards V1.3
+# ICAR Animal Data Exchange JSON Standards V1.4
 The repository contains the JSON standard for Animal Data Exchange (ADE) produced by the International Committee for Animal Recording (ICAR). 
 
 The content of this repository is licenced using the Apache 2.0 Licence. You are encouraged to use it in your data exchanges and other applications, and also to contribute to the further development of the standard.
@@ -35,15 +35,15 @@ Developers may wish to start by reading OpenAPI specification examples in the **
 You can also [view the basic example Url Scheme using the swagger editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json).
 
 ## Code Generation 
-Developers will likely take one or more of the **url-schemes** and generate their own code wrappers using **[openapi-generator](https://github.com/OpenAPITools/openapi-generator)** or an equivalent generation tool. Version 1.2 of this specification has been tested with OpenAPI Generator version 5.2.0 and conforms to the OpenAPI '3.0' specification as much as possible (and JSON Schema 7). There are some known issues with Nullable reference types, as documented in issue #214. In particular, .NET code generation can sometimes ignore the nullable intention, and Java code generation will generate semantically different outcomes depending on the value of the openApiNullable parameter for code generation. [See issue 214 for more details](https://github.com/adewg/ICAR/issues/214).
+Developers will likely take one or more of the **url-schemes** and generate their own code wrappers using **[openapi-generator](https://github.com/OpenAPITools/openapi-generator)** or an equivalent generation tool. Version 1.4 of this specification has been tested with OpenAPI Generator version 7.6.0 and conforms to the OpenAPI '3.1' specification as much as possible (and JSON Schema 2020-12). We value feedback on code generation, noting that some implementers have needed to make adjustments to get Java generation to work.
 
 ## Acknowledgements
-Version 1.3 of this standard was based on previous work of:
+Input into this standard was based on previous work of:
 * The ICAR ADE working group XML standard
 * [DataLinker](https://datalinker.org)
 * [JoinData](https://www.join-data.nl/)
 * [MIMIRO Open](https://open.mimiro.io)
-* And many other contributors
+* And many other contributors, including existing APIs and technology specifications.
 
 ## Contributing
 The Animal Data Exchange Working Group welcome contributions

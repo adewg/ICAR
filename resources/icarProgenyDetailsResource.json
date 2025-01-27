@@ -16,18 +16,20 @@
       "properties": {
         "identifier": {
           "description": "Unique animal scheme and identifier combination.",
-          "type": ["object", "null"],
-          "allOf": [
-            {
-              "$ref": "../types/icarAnimalIdentifierType.json"
-            }
+          "anyOf": [
+              {"type": "null"},
+              {"$ref": "../types/icarAnimalIdentifierType.json"}
           ]
         },
         "alternativeIdentifiers": {
-          "type": ["array","null"],
-          "items": {
-            "$ref": "../types/icarAnimalIdentifierType.json"
-          },
+          "anyOf": [
+              {"type": "null"},
+              {"type": "array",
+                  "items": {
+                      "$ref": "../types/icarAnimalIdentifierType.json"
+                  }
+              }  
+          ],
           "description": "Alternative identifiers for the animal. Here, also temporary identifiers, e.g. transponders or animal numbers, can be listed."
         },
         "specie": {
@@ -39,7 +41,10 @@
           "description": "Gender of the animal."
         },
         "managementTag": {
-          "type": ["string", "null"],
+          "anyOf": [
+              {"type": "null"},
+              {"type": "string"}
+          ],
           "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
         },
         "name": {
@@ -52,38 +57,30 @@
         },
         "taggingDate": {
           "description": "Progeny tagging date in RFC3339 UTC (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
-          "type": ["string", "null"],
-          "allOf": [
-            {
-              "$ref": "../types/icarDateTimeType.json"
-            }
+          "anyOf": [
+              {"type": "null"},
+              {"$ref": "../types/icarDateTimeType.json"}
           ]
         },
         "birthStatus": {
           "description": "Birth status of the progeny.",
-          "type": ["string", "null"],
-          "allOf": [
-            {
-              "$ref": "../enums/icarParturitionBirthStatusType.json"
-            }
+          "anyOf": [
+              {"type": "null"},
+              {"$ref": "../enums/icarParturitionBirthStatusType.json"}
           ]
         },
         "birthSize": {
           "description": "Size of the progeny.",
-          "type": ["string", "null"],
-          "allOf": [
-            {
-              "$ref": "../enums/icarParturitionBirthSizeType.json"
-            }
+          "anyOf": [
+              {"type": "null"},
+              {"$ref": "../enums/icarParturitionBirthSizeType.json"}
           ]
         },
         "birthWeight": {
           "description": "Weight of the progeny.",
-          "type": ["object", "null"],
-          "allOf": [
-            {
-              "$ref": "../types/icarMassMeasureType.json"
-            }
+          "anyOf": [
+              {"type": "null"},
+              {"$ref": "../types/icarMassMeasureType.json"}
           ]
         }
       }

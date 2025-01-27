@@ -1,6 +1,6 @@
 {
   "description": "An RFC7807 compliant problem response for JSON APIs.",
-
+  
   "type": "object",
 
   "properties": {

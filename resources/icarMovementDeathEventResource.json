@@ -1,5 +1,5 @@
 {
-  "description": "Event for recording animal death",
+  "description": "Event for recording animal death on farm.",
 
   "allOf": [{
       "$ref": "../resources/icarAnimalEventCoreResource.json"
@@ -35,6 +35,13 @@
         "deathMethod": {
           "$ref": "../enums/icarDeathMethodType.json",
           "description": "Defines the method of death, including an accident, natural causes, or euthanised."
+        },
+        "extendedReasons": {
+          "description": "Extended reason codes why this animal has died.",
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarReasonIdentifierType.json"
+          }
         }        
       }
     }

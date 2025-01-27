@@ -11,6 +11,13 @@
           "type": ["boolean", "null"],
           "description": "Set this attribute to true if the animal should not be bred, false if it may now be bred.",
           "default": true
+        },
+        "extendedReasons": {
+          "description": "Extended reason codes why this animal should not be bred.",
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarReasonIdentifierType.json"
+          }
         }
       }
     }

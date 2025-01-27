@@ -1,5 +1,5 @@
 {
-  "description": "Event for recording animal departure",
+  "description": "Event for recording live animal departure.",
 
   "allOf": [{
       "$ref": "../resources/icarAnimalEventCoreResource.json"
@@ -19,6 +19,13 @@
         "consignment": {
           "$ref": "../types/icarConsignmentType.json",
           "description": "Identifies the consignment of the animal from the holding."
+        },
+        "extendedReasons": {
+          "description": "Extended reason codes why this animal has departed.",
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarReasonIdentifierType.json"
+          }
         }
       }
     }

@@ -1,0 +1,30 @@
+{
+    "description": "Aggregated statistics for a animal behaviour or similar observation over a time period.",
+  
+    "allOf": [
+        {
+            "type": "object",
+  
+            "required": ["startDateTime", "duration"],
+      
+            "properties": {
+                "startDateTime": {
+                    "$ref": "../types/icarDateTimeType.json",
+                    "description": "The start date/time of the aggregation period for this particular statistic."
+                },
+                "duration": {
+                    "$ref": "../enums/icarDurationType.json",
+                    "description": "The type of period duration (e.g. 1D, 24H, 1W). A call may return statistics with different durations."
+                },
+                "isIncomplete": {
+                    "type": "boolean",
+                    "description": "This flag is present with the value true, when there is insufficient or incomplete data in the duration." 
+                }
+            }
+    
+        },
+        {
+            "$ref": "../types/icarStatisticsType.json"
+        }
+    ]
+  }

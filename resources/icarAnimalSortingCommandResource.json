@@ -8,7 +8,7 @@
       "type": "object",
       "required": [
         "animal",
-        "site",
+        "sites",
         "validFrom"
       ],
       "properties": {
@@ -16,9 +16,12 @@
           "$ref": "../types/icarAnimalIdentifierType.json",
           "description": "Unique animal scheme and identifier combination."
         },
-        "site": {
-          "type": "string",
-          "description": "Unique identifier in the system for this site."
+        "sites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array with unique site identifiers where this animal can be sorted to."
         },
         "validFrom": {
           "$ref": "../types/icarDateTimeType.json",

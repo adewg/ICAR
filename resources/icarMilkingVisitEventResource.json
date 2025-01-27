@@ -24,14 +24,16 @@
           "$ref": "../types/icarMilkDurationType.json"
         },
         "milkingType": {
+          "description": "This code allows organisations to distinguish between manual and automated milking.",
           "$ref": "../enums/icarMilkingTypeCode.json"
         },
         "milkingMilkWeight": {
+          "description": "A certified milking weight that complies with the ICAR guidelines.",
           "$ref": "../types/icarMilkingMilkWeightType.json"
         },
         "milkingComplete": {
           "type": "boolean",
-          "description": "indication whether this milking was completed normally"
+          "description": "indication whether this milking was completed normally."
         },
         "milkingParlourUnit": {
           "type": "string",
@@ -43,25 +45,36 @@
         },
         "milkingDeviceId": {
           "type": "string",
-          "description": "The ID of the device where the milking took place"
+          "description": "The ID of the device where the milking took place."
         },
         "measureDeviceId": {
           "type": "string",
           "description": "The ID of the device where the measurement of the milking took place"
         },
+        "milkingShiftLocalStartDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The ISO8601 date in local time zone to which this milking shift belongs. A time component is not expected or required."
+        },
+        "milkingShiftNumber": {
+          "type": "integer",
+          "description": "For milkings supervised by humans, this number represents the shift within a local date in which this milking visit occurred." 
+        },
         "quarterMilkings": {
+          "description": "A set of milking results for up to four quarters in dairy cows, or two teats for sheep or goats.",
           "type": "array",
           "items": {
             "$ref": "../types/icarQuarterMilkingType.json"
           }
         },
         "animalMilkingSample": {
+          "description": "An array of zero or more sample/bottle details if the animal is milk tested at this milking.",
           "type": "array",
           "items": {
             "$ref": "../types/icarAnimalMilkingSampleType.json"
           }
         },
         "milkCharacteristics": {
+          "description": "An array of milk characteristics other than certified milk weight. See icarMilkCharacteristicsType for documentation.",
           "type": "array",
           "items": {
             "$ref": "../types/icarMilkCharacteristicsType.json"

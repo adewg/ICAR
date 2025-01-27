@@ -1,0 +1,22 @@
+{
+  "description": "The amount of costs",
+
+  "type": "object",
+
+  "required": [
+    "currency",
+    "value"
+  ],
+
+  "properties": {
+    "currency": {
+      "type": "string",
+      "description": "The currency of the cost expressed using the ISO 4217 3-character code (such as AUD, GBP, USD, EUR)."
+    },
+    "value": {
+      "type": "number",
+      "format": "double",
+      "description": "The costs in the units specified."
+    }
+  }
+}
