@@ -4,15 +4,6 @@ if (-not (Get-Command "npm" -ErrorAction SilentlyContinue)) {
     exit 1
 }
 
-# Check if OpenAPI CLI is installed; install if missing
-if (-not (Get-Command "openapi" -ErrorAction SilentlyContinue)) {
-    Write-Output "OpenAPI CLI not found. Installing..."
-    npm install -g @redocly/openapi-cli
-    Write-Output "OpenAPI CLI installed successfully."
-} else {
-    Write-Output "OpenAPI CLI is already installed."
-}
-
 # List of available schemas
 $Schemas = @("exampleUrlScheme.json", 
             "feedURLscheme.json", 
@@ -24,14 +15,26 @@ $Schemas = @("exampleUrlScheme.json",
             "reproductionURLScheme.json",
             "sortingURLScheme.json")
 
+$BundledSchemasPath = "../bundled-schemes"
+
+# Remove old bundled schemas
+if (Test-Path -Path $BundledSchemasPath) {
+    Write-Output "Cleaning up old bundled schemas in $BundledSchemasPath..."
+    Remove-Item -Path "$BundledSchemasPath\*" -Force
+    Write-Output "Old bundled schemas cleaned up."
+} else {
+    Write-Warning "$BundledSchemasPath not found. Skipping cleanup."
+}
+
+# Iterate over each schema
 foreach ($Schema in $Schemas) {
-    $InputFile = Join-Path "url-schemes" $Schema
-    $OutputFile = Join-Path "merged-schemes" $Schema
+    $InputFile = Join-Path "../url-schemes" $Schema
+    $OutputFile = Join-Path $BundledSchemasPath $Schema
 
     if (Test-Path -Path $InputFile) {
         Write-Output "Bundling $InputFile..."
         try {
-            & openapi bundle $InputFile -o $OutputFile
+            & npx --yes @redocly/cli bundle $InputFile -o $OutputFile
             Write-Output "Bundled $InputFile to $OutputFile successfully."
         } catch {
             Write-Error "Failed to bundle $InputFile. Error: $_"

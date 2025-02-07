@@ -1,0 +1,44 @@
+name: Bundle JSON Schemas
+
+on:
+  push:
+    branches:
+      - ADE-1
+
+jobs:
+  bundle-schemas:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+
+    # Install dependencies
+    - name: Install dependencies
+      run: |
+        npm install -g @redocly/cli
+
+    # Run the PowerShell or Shell script to bundle schemas
+    - name: Run schema bundling script
+      run: |
+        if [[ "$(uname)" == "Darwin" || "$(uname)" == "Linux" ]]; then
+          # Unix-like
+          ./scripts/bundle-schemas.sh
+        else
+          # Windows
+          powershell -File ./scripts/schema_bundle.ps1
+        fi
+        
+    - name: Output results
+      run: |
+        echo "Bundled schemas are saved in the './bundled-schemes' directory."
+        echo "Current contents of the 'bundled-schemes' directory:"
+        ls -lh ./bundled-schemes
