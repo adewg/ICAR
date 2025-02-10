@@ -27,7 +27,11 @@ if [ -d "$BundledSchemasPath" ]; then
     rm -rf "$BundledSchemasPath"/*
     echo "Old bundled schemas cleaned up."
 else
-    echo "Warning: $BundledSchemasPath not found. Skipping cleanup."
+    echo "$BundledSchemasPath not found. Skipping cleanup."
+
+    # Ensure the folder exists
+    mkdir -p "$BundledSchemasPath"
+    echo "$BundledSchemasPath folder created."
 fi
 
 # Iterate over each schema

@@ -20,10 +20,14 @@ $BundledSchemasPath = "../bundled-schemes"
 # Remove old bundled schemas
 if (Test-Path -Path $BundledSchemasPath) {
     Write-Output "Cleaning up old bundled schemas in $BundledSchemasPath..."
-    Remove-Item -Path "$BundledSchemasPath\*" -Force
+    Remove-Item -Path "$BundledSchemasPath\*" -Recurse -Force 
     Write-Output "Old bundled schemas cleaned up."
 } else {
-    Write-Warning "$BundledSchemasPath not found. Skipping cleanup."
+    Write-Output "$BundledSchemasPath not found. Skipping cleanup."
+
+    # Ensure the folder exists
+    New-Item -ItemType Directory -Path $BundledSchemasPath | Out-Null
+    Write-Output "$BundledSchemasPath folder created."
 }
 
 # Iterate over each schema
