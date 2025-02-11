@@ -2691,6 +2691,44 @@
               }
           }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/remarks": {
+      "get": {
+        "operationId": "get-Remarks",
+        "summary": "Get the animal remarks for a certain location",
+        "description": "# Purpose\nProvides the animal remarks or notes recorded for a location\n",
+        "tags": [
+          "ADE-1.4-management"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarRemarkEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
     }    
   },
   "components": {
@@ -2883,6 +2921,9 @@
       },
       "icarObservationSummaryCollection": {
         "$ref": "../collections/icarObservationSummaryCollection.json"
+      },
+      "icarRemarkEventCollection": {
+        "$ref": "../collections/icarRemarkEventCollection.json"
       }
     },
     "parameters": {
