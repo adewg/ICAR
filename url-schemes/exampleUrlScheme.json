@@ -2694,7 +2694,7 @@
     },
     "/locations/{location-scheme}/{location-id}/remarks": {
       "get": {
-        "operationId": "get-Remarks",
+        "operationId": "get-remark-events",
         "summary": "Get the animal remarks for a certain location",
         "description": "# Purpose\nProvides the animal remarks or notes recorded for a location\n",
         "tags": [
