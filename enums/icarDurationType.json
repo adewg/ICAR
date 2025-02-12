@@ -1,15 +1,15 @@
 {
-  "description": "ISO8601/RFC3339 durations used in various types of aggregations. D=Day, M=Month, W=Week, Y=Year, H=Hour, M=Min.",
+  "description": "ISO8601 durations used in aggregations:\n (1 day - typically from midnight, 1 hour, 24 hour period, 96 hour period, 1 week, 1 month)",
 
   "type": "string",
 
   "enum": [
-    "1D",
-    "1H",
-    "24H",
-    "96H",
-    "1W",
-    "1M"
+    "P1D",
+    "PT1H",
+    "PT24H",
+    "PT96H",
+    "P1W",
+    "P1M"
   ]
 }
 
