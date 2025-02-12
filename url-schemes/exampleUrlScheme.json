@@ -2715,7 +2715,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful. The response contains the diagnoses for the given location.",
+            "description": "Successful. The response contains the remark events for the given location.",
             "content": {
               "application/json": {
                 "schema": {
