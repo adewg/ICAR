@@ -55,6 +55,7 @@ MovementArrivalEvent | **icarMovementArrivalEventResource** | icar:MovementArriv
 MovementBirthEvent | **icarMovementBirthEventResource** | icar:MovementBirthEvent | icarMovementBirthEventResource.json
 MovementDeathEvent | **icarMovementDeathEventResource** | icar:MovementDeathEvent | icarMovementDeathEventResource.json
 MovementDepartureEvent | **icarMovementDepartureEventResource** | icar:MovementDepartureEvent | icarMovementDepartureEventResource.json
+ObservationSummary | **icarObservationSummaryResource** | icar:ObservationSummary | icarObservationSummaryResource.json
 ProcessingLot | **icarProcessingLotResource** | icar:ProcessingLot | icarProcessingLotResource.json
 ProgenyDetails | **icarProgenyDetailsResource** | icar:ProgenyDetails | icarProgenyDetailsResource.json
 Ration | **icarRationResource** | icar:Ration | icarRationResource.json
