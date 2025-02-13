@@ -874,6 +874,123 @@
                 }
             }
         },
+        "/locations/{location-scheme}/{location-id}/remarks": {
+            "get": {
+                "operationId": "get-remark-events",
+                "summary": "Get animal remark (note) events for a given location",
+                "description": "# Purpose\nProvides the collection of animal remark events at the specified location.\n",
+                "tags": [
+                    "ADE-1.4-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/identifier-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/identifier-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the remark events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarRemarkEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-remark-event",
+                "summary": "Add a single new animal remark (note) event.",
+                "description": "# Purpose\nAllows a client to add a single animal remark (note) event.\n",
+                "tags": [
+                    "ADE-1.4-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The device to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarRemarkEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarDeviceResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
         "/locations/{location-scheme}/{location-id}/observation-summary-metrics": {
             "get": {
                 "operationId": "get-animal-observation-summary-metrics",
@@ -1608,6 +1725,81 @@
                     }
                 }
             }
+        },
+        "/batches/locations/{location-scheme}/{location-id}/remarks": {
+            "post": {
+                "operationId": "post-batch-remark-events",
+                "summary": "Add an array of animal remark events.",
+                "description": "# Purpose \nAllows a client to add a collection ofanimal remark events.\n",
+                "tags": [
+                    "ADE-1.4-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The collection of animal remark events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarRemarkEventArray"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the results."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "The response contains a set of batch results, which may include errors and warnings.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/batchResults"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -1727,6 +1919,18 @@
                 "type": "array",
                 "items": {
                     "$ref": "#/components/schemas/icarPositionObservationEventResource"
+                }
+            },
+            "icarRemarkEventResource": {
+                "$ref": "../resources/icarRemarkEventResource.json"
+            },
+            "icarRemarkEventCollection": {
+                "$ref": "../collections/icarRemarkEventCollection.json"
+            },
+            "icarRemarkEventArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/icarRemarkEventResource"
                 }
             },
             "icarObservationSummaryCollection": {
