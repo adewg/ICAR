@@ -59,6 +59,7 @@ ObservationSummary | **icarObservationSummaryResource** | icar:ObservationSummar
 ProcessingLot | **icarProcessingLotResource** | icar:ProcessingLot | icarProcessingLotResource.json
 ProgenyDetails | **icarProgenyDetailsResource** | icar:ProgenyDetails | icarProgenyDetailsResource.json
 Ration | **icarRationResource** | icar:Ration | icarRationResource.json
+RemarkEvent | **icarRemarkEventResource** | icar:RemarkEvent | icarRemarkEventResource.json 
 ReproAbortionEvent | **icarReproAbortionEventResource** | icar:ReproAbortionEvent | icarReproAbortionEventResource.json
 ReproDoNotBreedEvent | **icarReproDoNotBreedEventResource** | icar:ReproDoNotBreedEvent | icarReproDoNotBreedEventResource.json
 ReproEmbryoFlushingEvent | **icarReproEmbryoFlushingEventResource** | icar:ReproEmbryoFlushingEvent | icarReproEmbryoFlushingEventResource.json
