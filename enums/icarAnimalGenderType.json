@@ -6,6 +6,7 @@
   "enum": [
     "Female",
     "FemaleNeuter",
+    "Freemartin",
     "Male",
     "MaleCryptorchid",
     "MaleNeuter",
