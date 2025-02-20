@@ -22,36 +22,36 @@
         }
     ],
     "paths": {
-    "/locations": {
-      "get": {
-        "operationId": "get-locations",
-        "summary": "Get available schema/id combinations for locations.",
-        "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
-        "tags": [
-          "ADE-1.4-registration"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful. The response contains the available locations.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/icarLocationCollection"
-                },
-                "examples": {
-                  "base": {
-                    "$ref": "#/components/examples/locations"
-                  }
+        "/locations": {
+            "get": {
+                "operationId": "get-locations",
+                "summary": "Get available schema/id combinations for locations.",
+                "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
+                "tags": [
+                    "ADE-1.4-registration"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the available locations.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarLocationCollection"
+                                },
+                                "examples": {
+                                    "base": {
+                                        "$ref": "#/components/examples/locations"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
                 }
-              }
             }
-          },
-          "default": {
-            "$ref": "#/components/responses/default"
-          }
-        }
-      }
-    },    
+        },    
         "/locations/{location-scheme}/{location-id}/animals": {
             "get": {
                 "operationId": "get-animals",
@@ -591,6 +591,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -801,6 +810,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -1823,6 +1841,35 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "animal-scheme": {
+                "name": "animal-scheme",
+                "in": "query",
+                "description": "The scheme identifying the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "query",
+                "description": "The unique identifier of the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-identifier": {
+                "name": "animal-identifier",
+                "in": "query",
+                "description": "A URN-formatted identifier for the animal (URN:icar:animal:<scheme-name>:<animal-id>)",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "pattern": "^URN:icar:animal:[^:]+:[^:]+$"
+                },
+                "example": "URN:icar:animal:eu.animalId:276000312312345"
             }
         },
     "examples": {

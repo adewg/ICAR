@@ -42,6 +42,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -147,6 +156,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -252,6 +270,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -357,6 +384,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -462,6 +498,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -567,6 +612,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -672,6 +726,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -777,6 +840,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -882,6 +954,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -987,6 +1068,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -1092,6 +1182,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -2180,6 +2279,35 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "animal-scheme": {
+                "name": "animal-scheme",
+                "in": "query",
+                "description": "The scheme identifying the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "query",
+                "description": "The unique identifier of the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-identifier": {
+                "name": "animal-identifier",
+                "in": "query",
+                "description": "A URN-formatted identifier for the animal (URN:icar:animal:<scheme-name>:<animal-id>)",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "pattern": "^URN:icar:animal:[^:]+:[^:]+$"
+                },
+                "example": "URN:icar:animal:eu.animalId:276000312312345"
             }
         },
         "responses": {
