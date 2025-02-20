@@ -1162,9 +1162,9 @@
                 }
             }
         },
-        "/locations/{location-scheme}/{location-id}/repro-embyro-flushings": {
+        "/locations/{location-scheme}/{location-id}/repro-embryo-flushings": {
             "get": {
-                "operationId": "get-repro-embyro-flushings",
+                "operationId": "get-repro-embryo-flushings",
                 "summary": "Get the embryo flushings for a certain location",
                 "description": "# Purpose\nProvides the animal embryo flushings for a location\n",
                 "tags": [
@@ -1211,7 +1211,7 @@
             },
             "post": {
                 "operationId": "post-single-embryo-flushing",
-                "summary": "Add a single new embyro flushing.",
+                "summary": "Add a single new embryo flushing.",
                 "description": "# Purpose\nAllows a client to add a single embryo flushing event.\n",
                 "tags": [
                     "ADE-1.4-reproduction"
