@@ -171,6 +171,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
@@ -486,6 +495,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-identifier"
                     }
                 ],
                 "responses": {
