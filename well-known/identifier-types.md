@@ -28,3 +28,4 @@ Here is the list of subclassed identifiers, their purpose, and the list of well-
 | [icarMedicineIdentifierType](../types/icarMedicineIdentifierType.json) | Identifier schemes for national medicine registration. | [icarMedicineIdentifierType.md](../well-known/icarMedicineIdentifierType.md) |
 | [icarPropertyIdentifierType](../types/icarPropertyIdentifierType.json) | Identification schemes for feed properties. | [icarPropertyIdentifierType.md](../well-known/icarPropertyIdentifierType.md) |
 | [icarTraitLabelIdentifierType](../types/icarTraitLabelIdentifierType.json) | National or industry trait labels. | [icarTraitLabelIdentifierType.md](../well-known/icarTraitLabelIdentifierType.md) |
+| [icarReasonIdentifierType](../types/icarReasonIdentifierType.json) | Extended reasons for deaths and departures. | [icarReasonIdentifierType.md](../well-known/icarReasonIdentifierType.md) |
