@@ -591,6 +591,123 @@
         },
         "/locations/{location-scheme}/{location-id}/position-observations": {
             "get": {
+                "operationId": "get-animal-position-observations",
+                "summary": "Get position observation events for animals that relate to a given location",
+                "description": "# Purpose\nProvides the collection of position observation events for animals at the specified location.\n",
+                "tags": [
+                    "ADE-1.4-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/identifier-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/identifier-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the animal position observation events for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarPositionObservationEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-animal-position-observation",
+                "summary": "Add a single new animal position observation event.",
+                "description": "# Purpose\nAllows a client to add a single animal position observation event.\n",
+                "tags": [
+                    "ADE-1.4-management"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The device to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarPositionObservationEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarDeviceResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },
+        "/locations/{location-scheme}/{location-id}/group-position-observations": {
+            "get": {
                 "operationId": "get-group-position-observations",
                 "summary": "Get position observation events for groups that relate to a given location",
                 "description": "# Purpose\nProvides the collection of position observation events for groups at the specified location.\n",
@@ -672,123 +789,6 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/icarDeviceResource"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Created. The Location header contains the URI to the new resource.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the new resource."
-                            }
-                        }
-                    },
-                    "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            }
-        },
-        "/locations/{location-scheme}/{location-id}/group-position-observations": {
-            "get": {
-                "operationId": "get-remark-events",
-                "summary": "Get animal remark (note) events for a given location",
-                "description": "# Purpose\nProvides the collection of animal remark events at the specified location.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-to"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-to"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains the remark events for the given location.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarRemarkEventCollection"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            },
-            "post": {
-                "operationId": "post-single-remark-event",
-                "summary": "Add a single new animal remark (note) event.",
-                "description": "# Purpose\nAllows a client to add a single animal remark (note) event.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "The device to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/icarRemarkEventResource"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarRemarkEventResource"
                                 }
                             }
                         }
