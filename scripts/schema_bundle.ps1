@@ -16,6 +16,8 @@ $Schemas = @("exampleUrlScheme.json",
             "sortingURLScheme.json")
 
 $BundledSchemasPath = "../bundled-schemes"
+$UrlSchemesPath = "../url-schemes"
+$CombineSchemeConfigPath = "../scripts/combine-schemes.json"
 
 # Remove old bundled schemas
 if (Test-Path -Path $BundledSchemasPath) {
@@ -32,7 +34,7 @@ if (Test-Path -Path $BundledSchemasPath) {
 
 # Iterate over each schema
 foreach ($Schema in $Schemas) {
-    $InputFile = Join-Path "../url-schemes" $Schema
+    $InputFile = Join-Path $UrlSchemesPath $Schema
     $OutputFile = Join-Path $BundledSchemasPath $Schema
 
     if (Test-Path -Path $InputFile) {
@@ -49,3 +51,17 @@ foreach ($Schema in $Schemas) {
 }
 
 Write-Output "Bundle completed."
+
+# Combine bundled schemes into the single file
+if (Test-Path $UrlSchemesPath -PathType Container) {    
+    if ((Get-ChildItem $UrlSchemesPath | Measure-Object).Count -gt 0) {
+		try {
+				& npx --yes openapi-merge-cli --config $CombineSchemeConfigPath			
+				Write-Output "Schemes combined successfully."
+		} catch {
+			Write-Error "Failed to combine schemes. Error: $_"
+		}
+	}
+} else {
+    Write-Output "The folder $UrlSchemesPath is empty or does not exist."
+}

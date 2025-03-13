@@ -20,6 +20,8 @@ schemas=(
 )
 
 BundledSchemasPath="../bundled-schemes"
+UrlSchemesPath = "../url-schemes"
+CombineSchemeConfigPath = "../scripts/combine-schemes.json"
 
 # Remove old bundled schemas
 if [ -d "$BundledSchemasPath" ]; then
@@ -36,7 +38,7 @@ fi
 
 # Iterate over each schema
 for schema in "${schemas[@]}"; do
-    input_file="../url-schemes/$schema"
+    input_file="$UrlSchemesPath/$schema"
     output_file="$BundledSchemasPath/$schema"
 
     # Check if the input file exists
@@ -54,3 +56,19 @@ for schema in "${schemas[@]}"; do
 done
 
 echo "Bundle completed."
+
+# Combine bundled schemes into the single file
+if [ -d "$UrlSchemesPath" ]; then
+    if [ "$(ls -A "$UrlSchemesPath")" ]; then
+        if npx --yes openapi-merge-cli --config "$CombineSchemeConfigPath"; then
+            echo "Schemes combined successfully."
+        else
+            echo "Failed to combine schemes."
+            exit 1
+        fi
+    else
+        echo "The folder '$UrlSchemesPath' exists but is empty."
+    fi
+else
+    echo "The folder '$UrlSchemesPath' does not exist."
+fi
