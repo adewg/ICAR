@@ -42,7 +42,7 @@ Prerequisites:
 * @redocly/cli package installed (automatically triggered via npx).
 Usage: 
 * Navigate to the directory containing the script
-* Run the script: ".\bundle-schemas.ps1" or "./bundle-schemas.sh"
+* Run the script: ".\schema_bundle.ps1" or "./schema_bundle.sh"
 * The script will clean up the existing files in the **bundled-schemes** folder, then bundle the schemas listed in the script and save them in the same bundled-schemes folder.
 * Once the schemes bundle operation is completed, the script will combine all bundled schemes, except for ExampleScheme, into a single file named **combinedURLScheme.json**, which will be placed in the **bundled-schemes** folder.
 Bundle JSON Schemas workflow:
