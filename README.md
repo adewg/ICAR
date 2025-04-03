@@ -44,7 +44,7 @@ Usage:
 * Navigate to the directory containing the script
 * Run the script: ".\schema_bundle.ps1" or "./schema_bundle.sh"
 * The script will clean up the existing files in the **bundled-schemes** folder, then bundle the schemas listed in the script and save them in the same bundled-schemes folder.
-* Once the schemes bundle operation is completed, the script will combine all bundled schemes, except for ExampleScheme, into a single file named **combinedURLScheme.json**, which will be placed in the **bundled-schemes** folder.
+* Once the schemes bundle operation is completed, the script will combine all bundled schemes, except for ExampleScheme, into a single file named **combinedURLScheme.json**, which will be placed in the **bundled-schemes** folder. The openapi-merge-cli tool, which is used to combine schemas, currently supports OpenAPI 3.0 but merges 3.1 schemas correctly. However, it defaults to version 3.0.3 in the final output. By manually editing the **combinedURLScheme.json** file, the OpenAPI version can be changed from 3.0.3 to 3.1.0.
 Bundle JSON Schemas workflow:
 * When changes are merged into the **ADE-1** branch, the workflow will automatically trigger and bundle the schemas into the **bundled-schemes** folder.
 
