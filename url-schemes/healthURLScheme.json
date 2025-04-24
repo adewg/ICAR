@@ -42,6 +42,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -147,6 +153,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -321,6 +333,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -408,6 +426,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -507,6 +531,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -606,6 +636,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -1364,6 +1400,24 @@
         "schema": {
           "type": "string"
         }
+      },
+      "animal-scheme": {
+          "name": "animal-scheme",
+          "in": "query",
+          "description": "The scheme identifying the animal.",
+          "required": false,
+          "schema": {
+              "type": "string"
+          }
+      },
+      "animal-id": {
+          "name": "animal-id",
+          "in": "query",
+          "description": "The unique identifier of the animal.",
+          "required": false,
+          "schema": {
+              "type": "string"
+          }
       }
     },
     "responses": {
