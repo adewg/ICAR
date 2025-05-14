@@ -42,6 +42,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -147,6 +153,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -252,6 +264,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -357,6 +375,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -462,6 +486,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -567,6 +597,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -672,6 +708,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -777,6 +819,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -882,6 +930,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -987,6 +1041,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -1072,9 +1132,9 @@
                 }
             }
         },
-        "/locations/{location-scheme}/{location-id}/repro-embyro-flushings": {
+        "/locations/{location-scheme}/{location-id}/repro-embryo-flushings": {
             "get": {
-                "operationId": "get-repro-embyro-flushings",
+                "operationId": "get-repro-embryo-flushings",
                 "summary": "Get the embryo flushings for a certain location",
                 "description": "# Purpose\nProvides the animal embryo flushings for a location\n",
                 "tags": [
@@ -1092,6 +1152,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -1112,7 +1178,7 @@
             },
             "post": {
                 "operationId": "post-single-embryo-flushing",
-                "summary": "Add a single new embyro flushing.",
+                "summary": "Add a single new embryo flushing.",
                 "description": "# Purpose\nAllows a client to add a single embryo flushing event.\n",
                 "tags": [
                     "ADE-1.4-reproduction"
@@ -2179,6 +2245,24 @@
                 "schema": {
                     "type": "string",
                     "format": "date-time"
+                }
+            },
+            "animal-scheme": {
+                "name": "animal-scheme",
+                "in": "query",
+                "description": "The scheme identifying the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "query",
+                "description": "The unique identifier of the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
                 }
             }
         },
