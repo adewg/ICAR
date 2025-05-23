@@ -538,57 +538,6 @@
                 }
             }
         },
-        "/locations/{location-scheme}/{location-id}/feed-inventory-transactions": {
-            "get": {
-                "operationId": "get-feed-inventory-transactions",
-                "summary": "Get the feed inventory transactions that relate to a certain location",
-                "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-to"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-to"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains the feed inventory transactions for the given location.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarFeedTransactionCollection"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            }
-        },
         "/locations/{location-scheme}/{location-id}/medicine-inventory-transactions": {
             "get": {
                 "operationId": "get-medicine-inventory-transactions",
