@@ -12,6 +12,6 @@
 | us.bovine | | US Lifetime Herdbook number | US 123456789 | |  
 | uk.cts.eartag | | UK identification for bovine animals | UK230011200123 | https://www.gov.uk/guidance/get-new-or-replacement-official-ear-tags-for-cattle#ear-tagging-rules https://www.food.gov.uk/sites/default/files/media/document/chapter-2.5-animal-identification.pdf |
 | au.nlis | | Australian NLIS animal identification: the visual code printed on tags  | QABC1234XBC2345 | A combination of the original PIC, manufacturer code, device type, and serial number. See https://www.nlis.mla.com.au/NLISDocuments/Device%20numbers%20-%20Cattle%20(Mar%2011).pdf |
-| dk.animalnumber | | Danish official animal lifenumber | 1234501234 |  | 
-| dk.herdbooknumber | | Danish official herdbook number for sires. | 12345 | See https://en.foedevarestyrelsen.dk/animals/animal-registration-and-traceability |  
+| dk.animalnumber | | Danish official animal lifenumber | 1234501234 | See https://en.foedevarestyrelsen.dk/animals/animal-registration-and-traceability | 
+| dk.herdbooknumber | | Danish official herdbook number for sires. | 12345 |  |  
 
