@@ -5,8 +5,8 @@ if (-not (Get-Command "npm" -ErrorAction SilentlyContinue)) {
 }
 
 # List of available schemas
-$Schemas = @("exampleUrlScheme.json", 
-            "feedURLscheme.json", 
+$Schemas = @("exampleUrlScheme.json",
+            "feedURLscheme.json",
             "healthURLScheme.json",
             "managementURLScheme.json",
             "milkURLScheme.json",
@@ -22,7 +22,7 @@ $CombineSchemeConfigPath = "../scripts/combine-schemes.json"
 # Remove old bundled schemas
 if (Test-Path -Path $BundledSchemasPath) {
     Write-Output "Cleaning up old bundled schemas in $BundledSchemasPath..."
-    Remove-Item -Path "$BundledSchemasPath\*" -Recurse -Force 
+    Remove-Item -Path "$BundledSchemasPath\*" -Recurse -Force
     Write-Output "Old bundled schemas cleaned up."
 } else {
     Write-Output "$BundledSchemasPath not found. Skipping cleanup."
@@ -53,11 +53,14 @@ foreach ($Schema in $Schemas) {
 Write-Output "Bundle completed."
 
 # Combine bundled schemes into the single file
-if (Test-Path $UrlSchemesPath -PathType Container) {    
+if (Test-Path $UrlSchemesPath -PathType Container) {
     if ((Get-ChildItem $UrlSchemesPath | Measure-Object).Count -gt 0) {
 		try {
-				& npx --yes openapi-merge-cli --config $CombineSchemeConfigPath			
+				& npx --yes openapi-merge-cli --config $CombineSchemeConfigPath
 				Write-Output "Schemes combined successfully."
+				# replace 3.0.3 with 3.1.0 in bundled-schemes/combinedURLScheme.json file
+				(Get-Content "$BundledSchemasPath/combinedURLScheme.json") -replace '"openapi": "3.0.3"', '"openapi": "3.1.0"' | Set-Content "$BundledSchemasPath/combinedURLScheme.json"
+				Write-Output "Specification patched properly to openapi 3.1.0."
 		} catch {
 			Write-Error "Failed to combine schemes. Error: $_"
 		}

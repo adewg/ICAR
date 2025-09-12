@@ -62,6 +62,9 @@ if [ -d "$UrlSchemesPath" ]; then
     if [ "$(ls -A "$UrlSchemesPath")" ]; then
         if npx --yes openapi-merge-cli --config "$CombineSchemeConfigPath"; then
             echo "Schemes combined successfully."
+            # replace 3.0.3 with 3.1.0 in bundled-schemes/combinedURLScheme.json file
+            sed -i '' 's/"openapi": "3.0.3"/"openapi": "3.1.0"/' "$BundledSchemasPath/combinedURLScheme.json"
+            echo "Specification patched properly to openapi 3.1.0."
         else
             echo "Failed to combine schemes."
             exit 1
