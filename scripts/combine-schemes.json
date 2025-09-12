@@ -1,6 +1,9 @@
 {
   "inputs": [
     {
+      "inputFile": "./combine-metadata.json"
+    },
+    {
       "inputFile": "../bundled-schemes/feedURLscheme.json"
     },
     {
