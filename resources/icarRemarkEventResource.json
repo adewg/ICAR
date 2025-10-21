@@ -1,0 +1,17 @@
+{
+  "description": "This event resource is used to record a note or remark made by a farmer or other person.",
+
+  "allOf": [{
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string",
+          "description": "Unstructured, human-readable note or remark about the animal.\nConsider using `responsible` to identify the person who recorded it."
+        }
+      }      
+    }
+  ]
+}

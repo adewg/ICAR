@@ -4,9 +4,11 @@
 
     "properties": {
         "animal": {
-            "type": ["object", "null"],
-            "$ref": "../types/icarAnimalIdentifierType.json",
-            "description": "Unique animal scheme and identifier combination."
+            "description": "Unique animal scheme and identifier combination.",
+            "anyOf": [
+                {"type": "null"},
+                {"$ref": "../types/icarAnimalIdentifierType.json"}
+            ]
         },
         "weight": {
             "type": ["number", "null"],

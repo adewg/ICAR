@@ -2631,7 +2631,105 @@
               }
           }
       }
-    }
+    },
+    "/locations/{location-scheme}/{location-id}/observation-summary-metrics": {
+      "get": {
+          "operationId": "get-animal-observation-summary-metrics",
+          "summary": "Get summary statistics for individual animal observations.",
+          "description": "# Purpose\nProvides the collection of animal observation summary statistics for animals at the specified location.\n",
+          "tags": [
+              "ADE-1.4-management"
+          ],
+          "parameters": [
+              {
+                  "$ref": "#/components/parameters/location-scheme"
+              },
+              {
+                  "$ref": "#/components/parameters/location-id"
+              },
+              {
+                "$ref": "#/components/parameters/date-from"
+              },
+              {
+                  "$ref": "#/components/parameters/date-to"
+              },
+              {
+                "$ref": "#/components/parameters/animal-scheme"
+              },
+              {
+                "$ref": "#/components/parameters/animal-id"
+              },
+              {
+                "$ref": "#/components/parameters/metric-scheme"
+              },
+              {
+                "$ref": "#/components/parameters/metric-id"
+              },
+              {
+                "$ref": "#/components/parameters/duration"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-from"
+              },
+              {
+                  "$ref": "#/components/parameters/meta-modified-to"
+              }
+          ],
+          "responses": {
+              "200": {
+                  "description": "Successful. The response contains the animal observation summary resources for the given location.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/icarObservationSummaryCollection"
+                          }
+                      }
+                  }
+              },
+              "default": {
+                  "$ref": "#/components/responses/default"
+              }
+          }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/remarks": {
+      "get": {
+        "operationId": "get-remark-events",
+        "summary": "Get the animal remarks for a certain location",
+        "description": "# Purpose\nProvides the animal remarks or notes recorded for a location\n",
+        "tags": [
+          "ADE-1.4-management"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the remark events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarRemarkEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    }    
   },
   "components": {
     "schemas": {
@@ -2820,6 +2918,12 @@
       },
       "icarGroupPositionObservationEventCollection": {
         "$ref": "../collections/icarGroupPositionObservationEventCollection.json"
+      },
+      "icarObservationSummaryCollection": {
+        "$ref": "../collections/icarObservationSummaryCollection.json"
+      },
+      "icarRemarkEventCollection": {
+        "$ref": "../collections/icarRemarkEventCollection.json"
       }
     },
     "parameters": {
@@ -2968,6 +3072,33 @@
         "in": "query",
         "description": "The unique identifier within a scheme.",
         "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "metric-scheme": {
+        "name": "metric-scheme",
+        "in": "query",
+        "description": "The scheme for a metric.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "metric-id": {
+        "name": "metric-id",
+        "in": "query",
+        "description": "The unique metric within a scheme.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "duration": {
+        "name": "duration",
+        "in": "query",
+        "description": "The duration for aggregations (e.g. 1D, 1H, 24H, 96H).",
+        "required": true,
         "schema": {
           "type": "string"
         }

@@ -12,8 +12,10 @@
 
         "properties": {
             "alertEndDateTime": {
-                "type": ["string", "null"],
-                "$ref": "../types/icarDateTimeType.json",
+                 "anyOf": [
+                     {"type": "null"},
+                     {"$ref": "../types/icarDateTimeType.json"}
+                 ],
                 "description": "RFC3339 date time that represents the end time of an alert (start time is the eventDateTime) if it has ended."
             },
             "category": {

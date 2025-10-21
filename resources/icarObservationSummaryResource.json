@@ -1,0 +1,28 @@
+{
+    "description": "This resource (not an event) is delivered on request to summarise observations for an animal over a time period.",
+  
+    "allOf": [
+      {
+        "$ref": "../resources/icarResource.json"
+      },
+      {
+        "type": "object",
+  
+        "required": ["animal"],
+  
+        "properties": {
+          "animal": {
+            "$ref": "../types/icarAnimalIdentifierType.json",
+            "description": "Unique animal scheme and identifier combination."
+          },
+          "statistics": {
+            "description": "The summary statistics for this animal. Likely to be summarised on demand based on query parameters.",
+            "type": "array",
+            "items": {
+              "$ref": "../types/icarObservationStatisticsType.json"
+            }
+          }                   
+        }
+      }
+    ]
+  }

@@ -59,7 +59,11 @@
       "registration": {
         "$ref": "../types/icarDeviceRegistrationIdentifierType.json",
         "description": "A registration identifier for the device (most devices should eventually have a registration issued by `org.icar` or other entity)."
-      }
+      },
+        "animal": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "If specified, contains the identifier of an animal that the device is currently associated with."
+        }      
     }
   }]
 }
