@@ -465,7 +465,7 @@
                     },
                     {
                         "$ref": "#/components/parameters/purpose"
-                    }
+                    }                    
                 ],
                 "responses": {
                     "200": {
@@ -485,109 +485,160 @@
             }
         },
         "/locations/{location-scheme}/{location-id}/inventory-transactions": {
-            "get": {
-                "operationId": "get-inventory-transactions",
-                "summary": "Get the inventory transactions that relate to a certain location",
-                "description": "# Purpose\nProvides the inventory transactions relating to a location\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-to"
-                    },
-                    {
-                        "$ref": "#/components/parameters/family"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-to"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains the inventory transactions for the given location.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarInventoryTransactionCollection"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            }
+          "get": {
+              "operationId": "get-inventory-transactions",
+              "summary": "Get the inventory transactions that relate to a certain location",
+              "description": "# Purpose\nProvides the inventory transactions relating to a location\n",
+              "tags": [
+                  "ADE-1.4-management"
+              ],
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/location-scheme"
+                  },
+                  {
+                      "$ref": "#/components/parameters/location-id"
+                  },
+                  {
+                    "$ref": "#/components/parameters/date-from"
+                  },
+                  {
+                      "$ref": "#/components/parameters/date-to"
+                  },
+                  {
+                      "$ref": "#/components/parameters/family"
+                  },
+                  {
+                    "$ref": "#/components/parameters/identifier-scheme"
+                  },
+                  {
+                    "$ref": "#/components/parameters/identifier-id"
+                  },
+                  {
+                      "$ref": "#/components/parameters/meta-modified-from"
+                  },
+                  {
+                      "$ref": "#/components/parameters/meta-modified-to"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Successful. The response contains the inventory transactions for the given location.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/icarInventoryTransactionCollection"
+                              }
+                          }
+                      }
+                  },
+                  "default": {
+                      "$ref": "#/components/responses/default"
+                  }
+              }
+          }
+        },
+        "/locations/{location-scheme}/{location-id}/feed-inventory-transactions": {
+          "get": {
+              "operationId": "get-feed-inventory-transactions",
+              "summary": "Get the feed inventory transactions that relate to a certain location",
+              "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
+              "tags": [
+                  "ADE-1.4-management"
+              ],
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/location-scheme"
+                  },
+                  {
+                      "$ref": "#/components/parameters/location-id"
+                  },
+                  {
+                    "$ref": "#/components/parameters/date-from"
+                  },
+                  {
+                      "$ref": "#/components/parameters/date-to"
+                  },
+                  {
+                    "$ref": "#/components/parameters/identifier-scheme"
+                  },
+                  {
+                    "$ref": "#/components/parameters/identifier-id"
+                  },
+                  {
+                      "$ref": "#/components/parameters/meta-modified-from"
+                  },
+                  {
+                      "$ref": "#/components/parameters/meta-modified-to"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Successful. The response contains the feed inventory transactions for the given location.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/icarFeedTransactionCollection"
+                              }
+                          }
+                      }
+                  },
+                  "default": {
+                      "$ref": "#/components/responses/default"
+                  }
+              }
+          }
         },
         "/locations/{location-scheme}/{location-id}/medicine-inventory-transactions": {
-            "get": {
-                "operationId": "get-medicine-inventory-transactions",
-                "summary": "Get the medicine inventory transactions that relate to a certain location",
-                "description": "# Purpose\nProvides the medicine inventory transactions relating to a location\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-to"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-to"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains the medicine inventory transactions for the given location.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarMedicineTransactionCollection"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            }
+          "get": {
+              "operationId": "get-medicine-inventory-transactions",
+              "summary": "Get the medicine inventory transactions that relate to a certain location",
+              "description": "# Purpose\nProvides the medicine inventory transactions relating to a location\n",
+              "tags": [
+                  "ADE-1.4-management"
+              ],
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/location-scheme"
+                  },
+                  {
+                      "$ref": "#/components/parameters/location-id"
+                  },
+                  {
+                    "$ref": "#/components/parameters/date-from"
+                  },
+                  {
+                      "$ref": "#/components/parameters/date-to"
+                  },
+                  {
+                    "$ref": "#/components/parameters/identifier-scheme"
+                  },
+                  {
+                    "$ref": "#/components/parameters/identifier-id"
+                  },
+                  {
+                      "$ref": "#/components/parameters/meta-modified-from"
+                  },
+                  {
+                      "$ref": "#/components/parameters/meta-modified-to"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Successful. The response contains the medicine inventory transactions for the given location.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/icarMedicineTransactionCollection"
+                              }
+                          }
+                      }
+                  },
+                  "default": {
+                      "$ref": "#/components/responses/default"
+                  }
+              }
+          }
         },
         "/locations/{location-scheme}/{location-id}/position-observations": {
             "get": {
@@ -605,16 +656,16 @@
                         "$ref": "#/components/parameters/location-id"
                     },
                     {
-                        "$ref": "#/components/parameters/date-from"
+                      "$ref": "#/components/parameters/date-from"
                     },
                     {
                         "$ref": "#/components/parameters/date-to"
                     },
                     {
-                        "$ref": "#/components/parameters/identifier-scheme"
+                      "$ref": "#/components/parameters/identifier-scheme"
                     },
                     {
-                        "$ref": "#/components/parameters/identifier-id"
+                      "$ref": "#/components/parameters/identifier-id"
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-from"
@@ -705,7 +756,7 @@
                     }
                 }
             }
-        },
+        },        
         "/locations/{location-scheme}/{location-id}/group-position-observations": {
             "get": {
                 "operationId": "get-group-position-observations",
@@ -722,16 +773,16 @@
                         "$ref": "#/components/parameters/location-id"
                     },
                     {
-                        "$ref": "#/components/parameters/date-from"
+                      "$ref": "#/components/parameters/date-from"
                     },
                     {
                         "$ref": "#/components/parameters/date-to"
                     },
                     {
-                        "$ref": "#/components/parameters/identifier-scheme"
+                      "$ref": "#/components/parameters/identifier-scheme"
                     },
                     {
-                        "$ref": "#/components/parameters/identifier-id"
+                      "$ref": "#/components/parameters/identifier-id"
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-from"
@@ -822,250 +873,8 @@
                     }
                 }
             }
-        },
-        "/locations/{location-scheme}/{location-id}/remarks": {
-            "get": {
-                "operationId": "get-remark-events",
-                "summary": "Get animal remark (note) events for a given location",
-                "description": "# Purpose\nProvides the collection of animal remark events at the specified location.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-to"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/identifier-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-to"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains the remark events for the given location.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarRemarkEventCollection"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            },
-            "post": {
-                "operationId": "post-single-remark-event",
-                "summary": "Add a single new animal remark (note) event.",
-                "description": "# Purpose\nAllows a client to add a single animal remark (note) event.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "The device to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/icarRemarkEventResource"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarRemarkEventResource"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Created. The Location header contains the URI to the new resource.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the new resource."
-                            }
-                        }
-                    },
-                    "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            }
-        },
-        "/locations/{location-scheme}/{location-id}/observation-summary-metrics": {
-            "get": {
-                "operationId": "get-animal-observation-summary-metrics",
-                "summary": "Get summary statistics for individual animal observations.",
-                "description": "# Purpose\nProvides the collection of animal observation summary statistics for animals at the specified location.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/date-to"
-                    },
-                    {
-                        "$ref": "#/components/parameters/animal-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/animal-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/metric-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/metric-id"
-                    },
-                    {
-                        "$ref": "#/components/parameters/duration"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-from"
-                    },
-                    {
-                        "$ref": "#/components/parameters/meta-modified-to"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains the animal observation summary resources for the given location.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarObservationSummaryCollection"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            },
-            "post": {
-                "operationId": "post-single-observation-summary-metrics",
-                "summary": "Add a single new observation summary resource.",
-                "description": "# Purpose\nAllows a client to add a single observation summary resource.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "The resource to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/icarObservationSummaryResource"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains a copy of the resource, as modifed by the server.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/icarObservationSummaryResource"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Created. The Location header contains the URI to the new resource.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the new resource."
-                            }
-                        }
-                    },
-                    "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/default"
-                    }
-                }
-            }
-        },
+
+        },        
         "/batches/locations/{location-scheme}/{location-id}/animal-sets": {
             "post": {
                 "operationId": "post-batch-animal-sets",
@@ -1740,156 +1549,6 @@
                     }
                 }
             }
-        },
-        "/batches/locations/{location-scheme}/{location-id}/remarks": {
-            "post": {
-                "operationId": "post-batch-remark-events",
-                "summary": "Add an array of animal remark events.",
-                "description": "# Purpose \nAllows a client to add a collection ofanimal remark events.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "The collection of animal remark events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/icarRemarkEventArray"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/batchResults"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the results."
-                            }
-                        }
-                    },
-                    "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
-                    },
-                    "default": {
-                        "description": "The response contains a set of batch results, which may include errors and warnings.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/batchResults"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/batches/locations/{location-scheme}/{location-id}/observation-summary-metrics": {
-            "post": {
-                "operationId": "post-batch-observation-summary-metrics",
-                "summary": "Add an array of observation summary resources.",
-                "description": "# Purpose \nAllows a client to add a collection of observation summary resources.\n",
-                "tags": [
-                    "ADE-1.4-management"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/location-scheme"
-                    },
-                    {
-                        "$ref": "#/components/parameters/location-id"
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "The collection of observation summary resources to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/icarObservationSummaryResourceArray"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful. The response contains a set of batch results, which may include warnings.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/batchResults"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the results."
-                            }
-                        }
-                    },
-                    "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
-                    },
-                    "default": {
-                        "description": "The response contains a set of batch results, which may include errors and warnings.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/batchResults"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     },
     "components": {
@@ -1955,7 +1614,7 @@
                 "$ref": "../resources/icarInventoryTransactionResource.json"
             },
             "icarInventoryTransactionCollection": {
-                "$ref": "../collections/icarInventoryTransactionCollection.json"
+              "$ref": "../collections/icarInventoryTransactionCollection.json"
             },
             "icarInventoryTransactionArray": {
                 "type": "array",
@@ -1967,7 +1626,7 @@
                 "$ref": "../resources/icarFeedTransactionResource.json"
             },
             "icarFeedTransactionCollection": {
-                "$ref": "../collections/icarFeedTransactionCollection.json"
+              "$ref": "../collections/icarFeedTransactionCollection.json"
             },
             "icarFeedTransactionArray": {
                 "type": "array",
@@ -1979,7 +1638,7 @@
                 "$ref": "../resources/icarMedicineTransactionResource.json"
             },
             "icarMedicineTransactionCollection": {
-                "$ref": "../collections/icarMedicineTransactionCollection.json"
+              "$ref": "../collections/icarMedicineTransactionCollection.json"
             },
             "icarMedicineTransactionArray": {
                 "type": "array",
@@ -1991,7 +1650,7 @@
                 "$ref": "../resources/icarGroupPositionObservationEventResource.json"
             },
             "icarGroupPositionObservationEventCollection": {
-                "$ref": "../collections/icarGroupPositionObservationEventCollection.json"
+              "$ref": "../collections/icarGroupPositionObservationEventCollection.json"
             },
             "icarGroupPositionObservationEventArray": {
                 "type": "array",
@@ -2003,36 +1662,12 @@
                 "$ref": "../resources/icarPositionObservationEventResource.json"
             },
             "icarPositionObservationEventCollection": {
-                "$ref": "../collections/icarPositionObservationEventCollection.json"
+              "$ref": "../collections/icarPositionObservationEventCollection.json"
             },
             "icarPositionObservationEventArray": {
                 "type": "array",
                 "items": {
                     "$ref": "#/components/schemas/icarPositionObservationEventResource"
-                }
-            },
-            "icarRemarkEventResource": {
-                "$ref": "../resources/icarRemarkEventResource.json"
-            },
-            "icarRemarkEventCollection": {
-                "$ref": "../collections/icarRemarkEventCollection.json"
-            },
-            "icarRemarkEventArray": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/components/schemas/icarRemarkEventResource"
-                }
-            },
-            "icarObservationSummaryResource": {
-                "$ref": "../resources/icarObservationSummaryResource.json"
-            },
-            "icarObservationSummaryCollection": {
-                "$ref": "../collections/icarObservationSummaryCollection.json"
-            },
-            "icarObservationSummaryResourceArray": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/components/schemas/icarObservationSummaryResource"
                 }
             }
         },
@@ -2097,93 +1732,48 @@
                 "description": "The purpose of the statistics.",
                 "required": false,
                 "schema": {
-                    "$ref": "../enums/icarStatisticsPurposeType.json"
+                  "$ref": "../enums/icarStatisticsPurposeType.json"
                 }
             },
             "family": {
-                "name": "family",
-                "in": "query",
-                "description": "The family of products.",
-                "required": false,
-                "schema": {
-                    "$ref": "../enums/icarProductFamilyType.json"
-                }
+              "name": "family",
+              "in": "query",
+              "description": "The family of products.",
+              "required": false,
+              "schema": {
+                "$ref": "../enums/icarProductFamilyType.json"
+              }
             },
             "identifier-scheme": {
-                "name": "identifier-scheme",
-                "in": "query",
-                "description": "The scheme for an identifier.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
+              "name": "identifier-scheme",
+              "in": "query",
+              "description": "The scheme for an identifier.",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
             },
             "identifier-id": {
-                "name": "identifier-id",
-                "in": "query",
-                "description": "The unique identifier within a scheme.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "animal-scheme": {
-                "name": "animal-scheme",
-                "in": "query",
-                "description": "The scheme id for the animal identifier.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "animal-id": {
-                "name": "animal-id",
-                "in": "query",
-                "description": "The unique identifier for the animal.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "metric-scheme": {
-                "name": "metric-scheme",
-                "in": "query",
-                "description": "The scheme for a metric.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "metric-id": {
-                "name": "metric-id",
-                "in": "query",
-                "description": "The unique metric within a scheme.",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "duration": {
-                "name": "duration",
-                "in": "query",
-                "description": "The duration for aggregations (e.g. 1D, 1H, 24H, 96H).",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
+              "name": "identifier-id",
+              "in": "query",
+              "description": "The unique identifier within a scheme.",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
             }
         },
         "responses": {
-            "default": {
-                "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "../collections/icarErrorCollection.json"
-                        }
-                    }
+          "default": {
+            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../collections/icarErrorCollection.json"
                 }
+              }
             }
+          }
         }
     }
 }

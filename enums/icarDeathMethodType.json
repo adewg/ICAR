@@ -1,5 +1,5 @@
 { 
-    "description": "Enumeration for method of death.\n Note: Some organisations will use Euthanized and Culled as synonyms. Culling may be euthanasia for disease control purposes.\n Culling is also used to describe live animal departures (out of this scope).",
+    "description": "Enumeration for method of death (whether the animal died from an accident, natural causes, or was euthanised).",
     
     "type": "string",
   
@@ -10,7 +10,6 @@
       "Theft",
       "Lost",
       "Accident",
-      "Euthanized",
       "Other"
     ]
   }

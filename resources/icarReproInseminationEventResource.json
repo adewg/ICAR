@@ -53,10 +53,6 @@
         "embryo": {
           "$ref": "../resources/icarReproEmbryoResource.json",
           "description": "Details of the embryo."
-        },
-        "doItYourself": {
-          "type": "boolean",
-          "description": "Only where inseminationType is `insemination`: true if farmer applied, false or not specified if by AI company."
         }
       }
     }

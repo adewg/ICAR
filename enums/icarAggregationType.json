@@ -1,5 +1,5 @@
 {
-  "description": "The type of aggregation. In addition to obvious statistical terms, Range is the difference between min and max, and index is a computed index value.",
+  "description": "The type of aggregation.",
 
   "type": "string",
 
@@ -9,9 +9,7 @@
     "StDev",
     "Min",
     "Max",
-    "Count",
-    "Range",
-    "Index"
+    "Count"
   ]
 }
 
