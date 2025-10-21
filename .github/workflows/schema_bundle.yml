@@ -24,7 +24,7 @@ jobs:
     # Run the Shell script to bundle schemas
     - name: Run schema bundling script
       run: |
-        ./scripts/schema_bundle.sh
+        bash ./scripts/schema_bundle.sh
     
     - name: Output results
       run: |
