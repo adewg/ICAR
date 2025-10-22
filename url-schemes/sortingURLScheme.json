@@ -230,13 +230,19 @@
   "components": {
     "schemas": {
       "icarAnimalSortingCommandCollection": {
-        "$ref": "../collections/icarAnimalSortingCommandCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarAnimalSortingCommandCollection.json" }
+        ]
       },
       "icarSortingSiteCollection": {
-        "$ref": "../collections/icarSortingSiteCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarSortingSiteCollection.json" }
+        ]
       },
       "icarAnimalSortingCommandResource": {
-        "$ref": "../resources/icarAnimalSortingCommandResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarAnimalSortingCommandResource.json" }
+        ]
       }
     },
     "parameters": {

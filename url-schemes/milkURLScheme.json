@@ -946,14 +946,20 @@
             "batchResults": {
                 "type": "array",
                 "items": {
-                    "$ref": "../resources/icarBatchResult.json"
+                  "allOf": [
+                    { "$ref": "../resources/icarBatchResult.json" }
+                  ]
                 }
             },
             "icarMilkingVisitEventResource": {
-                "$ref": "../resources/icarMilkingVisitEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarMilkingVisitEventResource.json" }
+                ]
             },
             "icarMilkingVisitEventCollection": {
-                "$ref": "../collections/icarMilkingVisitEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMilkingVisitEventCollection.json" }
+                ]
             },
             "icarMilkingVisitEventArray": {
                 "type": "array",
@@ -962,10 +968,14 @@
                 }
             },
             "icarTestDayResource": {
-                "$ref": "../resources/icarTestDayResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarTestDayResource.json" }
+                ]
             },
             "icarTestDayCollection": {
-                "$ref": "../collections/icarTestDayCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarTestDayCollection.json" }
+                ]
             },
             "icarTestDayArray": {
                 "type": "array",
@@ -974,10 +984,14 @@
                 }
             },
             "icarTestDayResultEventResource": {
-                "$ref": "../resources/icarTestDayResultEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarTestDayResultEventResource.json" }
+                ]
             },
             "icarTestDayResultEventCollection": {
-                "$ref": "../collections/icarTestDayResultEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarTestDayResultEventCollection.json" }
+                ]
             },
             "icarTestDayResultEventArray": {
                 "type": "array",
@@ -986,19 +1000,29 @@
                 }
             },
             "icarDailyMilkingAveragesCollection": {
-                "$ref": "../collections/icarDailyMilkingAveragesCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarDailyMilkingAveragesCollection.json" }
+                ]
             },
              "icarMilkPredictionsCollection": {
-                "$ref": "../collections/icarMilkPredictionsCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMilkPredictionsCollection.json" }
+                ]
             },
             "icarLactationCollection": {
-                "$ref": "../collections/icarLactationCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarLactationCollection.json" }
+                ]
             },
             "icarLactationStatusObservedEventResource": {
-                "$ref": "../resources/icarLactationStatusObservedEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarLactationStatusObservedEventResource.json" }
+                ]
             },
             "icarLactationStatusObservedEventCollection": {
-                "$ref": "../collections/icarLactationStatusObservedEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarLactationStatusObservedEventCollection.json" }
+                ]
             },
             "icarLactationStatusObservedEventArray": {
                 "type": "array",
@@ -1007,7 +1031,9 @@
                 }
             },
             "icarWithdrawalEventCollection": {
-                "$ref": "../collections/icarWithdrawalEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarWithdrawalEventCollection.json" }
+                ]
             }
         },
         "parameters": {

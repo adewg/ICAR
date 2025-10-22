@@ -1897,14 +1897,20 @@
             "batchResults": {
                 "type": "array",
                 "items": {
-                    "$ref": "../resources/icarBatchResult.json"
+                    "allOf": [
+                        { "$ref": "../resources/icarBatchResult.json" }
+                    ]
                 }
             },
             "icarAnimalSetResource": {
-                "$ref": "../resources/icarAnimalSetResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarAnimalSetResource.json" }
+                ]
             },
             "icarAnimalSetCollection": {
-                "$ref": "../collections/icarAnimalSetCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarAnimalSetCollection.json" }
+                ]
             },
             "icarAnimalSetArray": {
                 "type": "array",
@@ -1913,10 +1919,14 @@
                 }
             },
             "icarAnimalSetJoinEventResource": {
-                "$ref": "../resources/icarAnimalSetJoinEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarAnimalSetJoinEventResource.json" }
+                ]
             },
             "icarAnimalSetJoinEventCollection": {
-                "$ref": "../collections/icarAnimalSetJoinEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarAnimalSetJoinEventCollection.json" }
+                ]
             },
             "icarAnimalSetJoinEventArray": {
                 "type": "array",
@@ -1925,10 +1935,14 @@
                 }
             },
             "icarAnimalSetLeaveEventResource": {
-                "$ref": "../resources/icarAnimalSetLeaveEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarAnimalSetLeaveEventResource.json" }
+                ]
             },
             "icarAnimalSetLeaveEventCollection": {
-                "$ref": "../collections/icarAnimalSetLeaveEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarAnimalSetLeaveEventCollection.json" }
+                ]
             },
             "icarAnimalSetLeaveEventArray": {
                 "type": "array",
@@ -1937,13 +1951,19 @@
                 }
             },
             "icarDeviceResource": {
-                "$ref": "../resources/icarDeviceResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarDeviceResource.json" }
+                ]
             },
             "icarDeviceCollection": {
-                "$ref": "../collections/icarDeviceCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarDeviceCollection.json" }
+                ]
             },
             "icarStatisticsCollection": {
-                "$ref": "../collections/icarStatisticsCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarStatisticsCollection.json" }
+                ]
             },
             "icarDeviceArray": {
                 "type": "array",
@@ -1952,10 +1972,14 @@
                 }
             },
             "icarInventoryTransactionResource": {
-                "$ref": "../resources/icarInventoryTransactionResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarInventoryTransactionResource.json" }
+                ]
             },
             "icarInventoryTransactionCollection": {
-                "$ref": "../collections/icarInventoryTransactionCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarInventoryTransactionCollection.json" }
+                ]
             },
             "icarInventoryTransactionArray": {
                 "type": "array",
@@ -1964,10 +1988,14 @@
                 }
             },
             "icarFeedTransactionResource": {
-                "$ref": "../resources/icarFeedTransactionResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarFeedTransactionResource.json" }
+                ]
             },
             "icarFeedTransactionCollection": {
-                "$ref": "../collections/icarFeedTransactionCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarFeedTransactionCollection.json" }
+                ]
             },
             "icarFeedTransactionArray": {
                 "type": "array",
@@ -1976,10 +2004,14 @@
                 }
             },
             "icarMedicineTransactionResource": {
-                "$ref": "../resources/icarMedicineTransactionResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarMedicineTransactionResource.json" }
+                ]
             },
             "icarMedicineTransactionCollection": {
-                "$ref": "../collections/icarMedicineTransactionCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMedicineTransactionCollection.json" }
+                ]
             },
             "icarMedicineTransactionArray": {
                 "type": "array",
@@ -1988,10 +2020,14 @@
                 }
             },
             "icarGroupPositionObservationEventResource": {
-                "$ref": "../resources/icarGroupPositionObservationEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarGroupPositionObservationEventResource.json" }
+                ]
             },
             "icarGroupPositionObservationEventCollection": {
-                "$ref": "../collections/icarGroupPositionObservationEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarGroupPositionObservationEventCollection.json" }
+                ]
             },
             "icarGroupPositionObservationEventArray": {
                 "type": "array",
@@ -2000,10 +2036,14 @@
                 }
             },
             "icarPositionObservationEventResource": {
-                "$ref": "../resources/icarPositionObservationEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarPositionObservationEventResource.json" }
+                ]
             },
             "icarPositionObservationEventCollection": {
-                "$ref": "../collections/icarPositionObservationEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarPositionObservationEventCollection.json" }
+                ]
             },
             "icarPositionObservationEventArray": {
                 "type": "array",
@@ -2012,10 +2052,14 @@
                 }
             },
             "icarRemarkEventResource": {
-                "$ref": "../resources/icarRemarkEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarRemarkEventResource.json" }
+                ]
             },
             "icarRemarkEventCollection": {
-                "$ref": "../collections/icarRemarkEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarRemarkEventCollection.json" }
+                ]
             },
             "icarRemarkEventArray": {
                 "type": "array",
@@ -2024,10 +2068,14 @@
                 }
             },
             "icarObservationSummaryResource": {
-                "$ref": "../resources/icarObservationSummaryResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarObservationSummaryResource.json" }
+                ]
             },
             "icarObservationSummaryCollection": {
-                "$ref": "../collections/icarObservationSummaryCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarObservationSummaryCollection.json" }
+                ]
             },
             "icarObservationSummaryResourceArray": {
                 "type": "array",

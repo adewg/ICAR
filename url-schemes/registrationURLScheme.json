@@ -1696,65 +1696,105 @@
             "batchResults": {
                 "type": "array",
                 "items": {
-                    "$ref": "../resources/icarBatchResult.json"
+                  "allOf": [
+                    { "$ref": "../resources/icarBatchResult.json" }
+                  ]
                 }
             },
             "icarLocationCollection": {
-                "$ref": "../collections/icarLocationCollection.json"
-            },            
+                "allOf": [
+                  { "$ref": "../collections/icarLocationCollection.json" }
+                ]
+            },
             "icarAnimalCoreCollection": {
-                "$ref": "../collections/icarAnimalCoreCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarAnimalCoreCollection.json" }
+                ]
             },
             "icarMovementBirthEventCollection": {
-                "$ref": "../collections/icarMovementBirthEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMovementBirthEventCollection.json" }
+                ]
             },
             "icarGroupMovementBirthEventCollection": {
-                "$ref": "../collections/icarGroupMovementBirthEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarGroupMovementBirthEventCollection.json" }
+                ]
             },
             "icarMovementDeathEventCollection": {
-                "$ref": "../collections/icarMovementDeathEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMovementDeathEventCollection.json" }
+                ]
             },
             "icarGroupMovementDeathEventCollection": {
-                "$ref": "../collections/icarGroupMovementDeathEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarGroupMovementDeathEventCollection.json" }
+                ]
             },
             "icarMovementArrivalEventCollection": {
-                "$ref": "../collections/icarMovementArrivalEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMovementArrivalEventCollection.json" }
+                ]
             },
             "icarGroupMovementArrivalEventCollection": {
-                "$ref": "../collections/icarGroupMovementArrivalEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarGroupMovementArrivalEventCollection.json" }
+                ]
             },
             "icarMovementDepartureEventCollection": {
-                "$ref": "../collections/icarMovementDepartureEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMovementDepartureEventCollection.json" }
+                ]
             },
             "icarGroupMovementDepartureEventCollection": {
-                "$ref": "../collections/icarGroupMovementDepartureEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarGroupMovementDepartureEventCollection.json" }
+                ]
             },
             "icarAnimalCoreResource": {
-                "$ref": "../resources/icarAnimalCoreResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarAnimalCoreResource.json" }
+                ]
             },
             "icarMovementBirthEventResource": {
-                "$ref": "../resources/icarMovementBirthEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarMovementBirthEventResource.json" }
+                ]
             },
             "icarGroupMovementBirthEventResource": {
-                "$ref": "../resources/icarGroupMovementBirthEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarGroupMovementBirthEventResource.json" }
+                ]
             },
             "icarMovementDeathEventResource": {
-                "$ref": "../resources/icarMovementDeathEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarMovementDeathEventResource.json" }
+                ]
             },
             "icarGroupMovementDeathEventResource": {
-                "$ref": "../resources/icarGroupMovementDeathEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarGroupMovementDeathEventResource.json" }
+                ]
             },
             "icarMovementArrivalEventResource": {
-                "$ref": "../resources/icarMovementArrivalEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarMovementArrivalEventResource.json" }
+                ]
             },
             "icarGroupMovementArrivalEventResource": {
-                "$ref": "../resources/icarGroupMovementArrivalEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarGroupMovementArrivalEventResource.json" }
+                ]
             },
             "icarMovementDepartureEventResource": {
-                "$ref": "../resources/icarMovementDepartureEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarMovementDepartureEventResource.json" }
+                ]
             },
             "icarGroupMovementDepartureEventResource": {
-                "$ref": "../resources/icarGroupMovementDepartureEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarGroupMovementDepartureEventResource.json" }
+                ]
             },
             "icarAnimalCoreResourceArray": {
                 "type": "array",

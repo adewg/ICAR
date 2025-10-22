@@ -1240,74 +1240,110 @@
       "batchResults": {
         "type": "array",
         "items": {
-          "$ref": "../resources/icarBatchResult.json"
+          "allOf": [
+            { "$ref": "../resources/icarBatchResult.json" }
+          ]
         }
       },
       "icarDiagnosisEvent": {
-        "$ref": "../resources/icarDiagnosisEventResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarDiagnosisEventResource.json" }
+        ]
       },
       "icarDiagnosisEventCollection": {
-        "$ref": "../collections/icarDiagnosisEventCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarDiagnosisEventCollection.json" }
+        ]
       },
       "icarDiagnosisEventArray": {
         "type": "array",
         "items": {
-          "$ref": "../resources/icarDiagnosisEventResource.json" 
+          "allOf": [
+            { "$ref": "../resources/icarDiagnosisEventResource.json" }
+          ]
         }
       },
       "icarTreatmentEvent": {
-        "$ref": "../resources/icarTreatmentEventResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarTreatmentEventResource.json" }
+        ]
       },
       "icarTreatmentEventCollection": {
-        "$ref": "../collections/icarTreatmentEventCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarTreatmentEventCollection.json" }
+        ]
       },
       "icarTreatmentEventArray": {
         "type": "array",
         "items": {
-          "$ref": "../resources/icarTreatmentEventResource.json"
+          "allOf": [
+            { "$ref": "../resources/icarTreatmentEventResource.json" }
+          ]
         }
       },
       "icarGroupTreatmentEvent": {
-        "$ref": "../resources/icarGroupTreatmentEventResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarGroupTreatmentEventResource.json" }
+        ]
       },
       "icarGroupTreatmentEventCollection": {
-        "$ref": "../collections/icarGroupTreatmentEventCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarGroupTreatmentEventCollection.json" }
+        ]
       },
       "icarGroupTreatmentEventArray": {
         "type": "array",
         "items": {
-          "$ref": "../resources/icarGroupTreatmentEventResource.json"
+          "allOf": [
+            { "$ref": "../resources/icarGroupTreatmentEventResource.json" }
+          ]
         }
       },
       "icarTreatmentProgramEvent": {
-        "$ref": "../resources/icarTreatmentProgramEventResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarTreatmentProgramEventResource.json" }
+        ]
       },
       "icarTreatmentProgramEventCollection": {
-        "$ref": "../collections/icarTreatmentProgramEventCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarTreatmentProgramEventCollection.json" }
+        ]
       },
       "icarTreatmentProgramEventArray": {
         "type": "array",
         "items": {
-          "$ref": "../resources/icarTreatmentProgramEventResource.json"
+          "allOf": [
+            { "$ref": "../resources/icarTreatmentProgramEventResource.json" }
+          ]
         }
       },
       "icarHealthStatusObservedEvent": {
-        "$ref": "../resources/icarHealthStatusObservedEventResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarHealthStatusObservedEventResource.json" }
+        ]
       },
       "icarHealthStatusObservedEventCollection": {
-        "$ref": "../collections/icarHealthStatusObservedEventCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarHealthStatusObservedEventCollection.json" }
+        ]
       },
       "icarHealthStatusObservedArray": {
         "type": "array",
         "items": {
-          "$ref": "../resources/icarHealthStatusObservedEventResource.json"
+          "allOf": [
+            { "$ref": "../resources/icarHealthStatusObservedEventResource.json" }
+          ]
         }
       },
       "icarMedicineTransactionResource": {
-        "$ref": "../resources/icarMedicineTransactionResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarMedicineTransactionResource.json" }
+        ]
       },
       "icarMedicineTransactionCollection": {
-        "$ref": "../collections/icarMedicineTransactionCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarMedicineTransactionCollection.json" }
+        ]
       },
       "icarMedicineTransactionArray": {
         "type": "array",
@@ -1316,10 +1352,14 @@
         }
       },
       "icarAttentionEventResource": {
-        "$ref": "../resources/icarAttentionEventResource.json"
+        "allOf": [
+          { "$ref": "../resources/icarAttentionEventResource.json" }
+        ]
       },
       "icarAttentionEventCollection": {
-        "$ref": "../collections/icarAttentionEventCollection.json"
+        "allOf": [
+          { "$ref": "../collections/icarAttentionEventCollection.json" }
+        ]
       },
       "icarAttentionEventArray": {
         "type": "array",

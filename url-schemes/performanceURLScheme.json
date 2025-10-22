@@ -736,14 +736,20 @@
             "batchResults": {
                 "type": "array",
                 "items": {
-                    "$ref": "../resources/icarBatchResult.json"
+                  "allOf": [
+                    { "$ref": "../resources/icarBatchResult.json" }
+                  ]
                 }
             },
             "icarWeightEventResource": {
-                "$ref": "../resources/icarWeightEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarWeightEventResource.json" }
+                ]
             },
             "icarWeightEventCollection": {
-                "$ref": "../collections/icarWeightEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarWeightEventCollection.json" }
+                ]
             },
             "icarWeightEventArray": {
                 "type": "array",
@@ -752,10 +758,14 @@
                 }
             },
             "icarGroupWeightEventResource": {
-                "$ref": "../resources/icarGroupWeightEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarGroupWeightEventResource.json" }
+                ]
             },
             "icarGroupWeightEventCollection": {
-                "$ref": "../collections/icarGroupWeightEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarGroupWeightEventCollection.json" }
+                ]
             },
             "icarGroupWeightEventArray": {
                 "type": "array",
@@ -764,19 +774,29 @@
                 }
             },
             "icarBreedingValueCollection": {
-                "$ref": "../collections/icarBreedingValueCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarBreedingValueCollection.json" }
+                ]
             },
             "icarTypeClassificationEventResource": {
-                "$ref": "../resources/icarTypeClassificationEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarTypeClassificationEventResource.json" }
+                ]
             },
             "icarTypeClassificationEventCollection": {
-                "$ref": "../collections/icarTypeClassificationEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarTypeClassificationEventCollection.json" }
+                ]
             },
             "icarConformationScoreEventResource": {
-                "$ref": "../resources/icarConformationScoreEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarConformationScoreEventResource.json" }
+                ]
             },
             "icarConformationScoreEventCollection": {
-                "$ref": "../collections/icarConformationScoreEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarConformationScoreEventCollection.json" }
+                ]
             },
             "icarConformationScoreEventArray": {
                 "type": "array",

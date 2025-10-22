@@ -1711,7 +1711,7 @@
                 ],
                 "requestBody": {
                     "required": true,
-                    "description": "The collection of parturitions to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "description": "The collection of parturitions to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -1786,7 +1786,7 @@
                 ],
                 "requestBody": {
                     "required": true,
-                    "description": "The collection of mating recommendations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "description": "The collection of mating recommendations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -1861,7 +1861,7 @@
                 ],
                 "requestBody": {
                     "required": true,
-                    "description": "The collection of gestations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "description": "The collection of gestations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -2074,14 +2074,20 @@
             "batchResults": {
                 "type": "array",
                 "items": {
-                    "$ref": "../resources/icarBatchResult.json"
+                  "allOf": [
+                    { "$ref": "../resources/icarBatchResult.json" }
+                  ]
                 }
             },
             "icarReproPregnancyCheckEventResource": {
-                "$ref": "../resources/icarReproPregnancyCheckEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproPregnancyCheckEventResource.json" }
+                ]
             },
             "icarReproPregnancyCheckEventCollection": {
-                "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproPregnancyCheckEventCollection.json" }
+                ]
             },
             "icarReproPregnancyCheckEventArray": {
                 "type": "array",
@@ -2090,10 +2096,14 @@
                 }
             },
             "icarReproHeatEventResource": {
-                "$ref": "../resources/icarReproHeatEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproHeatEventResource.json" }
+                ]
             },
             "icarReproHeatEventCollection": {
-                "$ref": "../collections/icarReproHeatEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproHeatEventCollection.json" }
+                ]
             },
             "icarReproHeatEventArray": {
                 "type": "array",
@@ -2102,10 +2112,14 @@
                 }
             },
             "icarReproInseminationEventResource": {
-                "$ref": "../resources/icarReproInseminationEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproInseminationEventResource.json" }
+                ]
             },
             "icarReproInseminationEventCollection": {
-                "$ref": "../collections/icarReproInseminationEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproInseminationEventCollection.json" }
+                ]
             },
             "icarReproInseminationEventArray": {
                 "type": "array",
@@ -2114,10 +2128,14 @@
                 }
             },
             "icarMilkingDryOffEventResource": {
-                "$ref": "../resources/icarMilkingDryOffEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarMilkingDryOffEventResource.json" }
+                ]
             },
             "icarMilkingDryOffEventCollection": {
-                "$ref": "../collections/icarMilkingDryOffEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarMilkingDryOffEventCollection.json" }
+                ]
             },
             "icarMilkingDryOffEventArray": {
                 "type": "array",
@@ -2126,10 +2144,14 @@
                 }
             },
             "icarReproAbortionEventResource": {
-                "$ref": "../resources/icarReproAbortionEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproAbortionEventResource.json" }
+                ]
             },
             "icarReproAbortionEventCollection": {
-                "$ref": "../collections/icarReproAbortionEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproAbortionEventCollection.json" }
+                ]
             },
             "icarReproAbortionEventArray": {
                 "type": "array",
@@ -2138,10 +2160,14 @@
                 }
             },
             "icarReproDoNotBreedEventResource": {
-                "$ref": "../resources/icarReproDoNotBreedEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproDoNotBreedEventResource.json" }
+                ]
             },
             "icarReproDoNotBreedEventCollection": {
-                "$ref": "../collections/icarReproDoNotBreedEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproDoNotBreedEventCollection.json" }
+                ]
             },
             "icarReproDoNotBreedEventArray": {
                 "type": "array",
@@ -2150,10 +2176,14 @@
                 }
             },
             "icarReproParturitionEventResource": {
-                "$ref": "../resources/icarReproParturitionEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproParturitionEventResource.json" }
+                ]
             },
             "icarReproParturitionEventCollection": {
-                "$ref": "../collections/icarReproParturitionEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproParturitionEventCollection.json" }
+                ]
             },
             "icarReproParturitionEventArray": {
                 "type": "array",
@@ -2162,10 +2192,14 @@
                 }
             },
             "icarReproMatingRecommendationResource": {
-                "$ref": "../resources/icarReproMatingRecommendationResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproMatingRecommendationResource.json" }
+                ]
             },
             "icarReproMatingRecommendationCollection": {
-                "$ref": "../collections/icarReproMatingRecommendationCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproMatingRecommendationCollection.json" }
+                ]
             },
             "icarReproMatingRecommendationArray": {
                 "type": "array",
@@ -2174,10 +2208,14 @@
                 }
             },
             "icarGestationResource": {
-                "$ref": "../resources/icarGestationResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarGestationResource.json" }
+                ]
             },
             "icarGestationCollection": {
-                "$ref": "../collections/icarGestationCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarGestationCollection.json" }
+                ]
             },
             "icarGestationArray": {
                 "type": "array",
@@ -2186,10 +2224,14 @@
                 }
             },
             "icarReproStatusObservedEventResource": {
-                "$ref": "../resources/icarReproStatusObservedEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproStatusObservedEventResource.json" }
+                ]
             },
             "icarReproStatusObservedEventCollection": {
-                "$ref": "../collections/icarReproStatusObservedEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproStatusObservedEventCollection.json" }
+                ]
             },
             "icarReproStatusObservedEventArray": {
                 "type": "array",
@@ -2198,10 +2240,14 @@
                 }
             },
             "icarReproEmbryoFlushingEventResource": {
-                "$ref": "../resources/icarReproEmbryoFlushingEventResource.json"
+                "allOf": [
+                  { "$ref": "../resources/icarReproEmbryoFlushingEventResource.json" }
+                ]
             },
             "icarReproEmbryoFlushingEventCollection": {
-                "$ref": "../collections/icarReproEmbryoFlushingEventCollection.json"
+                "allOf": [
+                  { "$ref": "../collections/icarReproEmbryoFlushingEventCollection.json" }
+                ]
             },
             "icarReproEmbryoFlushingEventArray": {
                 "type": "array",
