@@ -1240,9 +1240,7 @@
       "batchResults": {
         "type": "array",
         "items": {
-          "allOf": [
-            { "$ref": "../resources/icarBatchResult.json" }
-          ]
+            "$ref": "../resources/icarBatchResult.json" 
         }
       },
       "icarDiagnosisEvent": {
@@ -1258,9 +1256,7 @@
       "icarDiagnosisEventArray": {
         "type": "array",
         "items": {
-          "allOf": [
-            { "$ref": "../resources/icarDiagnosisEventResource.json" }
-          ]
+             "$ref": "../resources/icarDiagnosisEventResource.json" 
         }
       },
       "icarTreatmentEvent": {
@@ -1276,9 +1272,7 @@
       "icarTreatmentEventArray": {
         "type": "array",
         "items": {
-          "allOf": [
-            { "$ref": "../resources/icarTreatmentEventResource.json" }
-          ]
+           "$ref": "../resources/icarTreatmentEventResource.json" 
         }
       },
       "icarGroupTreatmentEvent": {
@@ -1294,9 +1288,7 @@
       "icarGroupTreatmentEventArray": {
         "type": "array",
         "items": {
-          "allOf": [
-            { "$ref": "../resources/icarGroupTreatmentEventResource.json" }
-          ]
+             "$ref": "../resources/icarGroupTreatmentEventResource.json" 
         }
       },
       "icarTreatmentProgramEvent": {
@@ -1312,9 +1304,7 @@
       "icarTreatmentProgramEventArray": {
         "type": "array",
         "items": {
-          "allOf": [
-            { "$ref": "../resources/icarTreatmentProgramEventResource.json" }
-          ]
+            "$ref": "../resources/icarTreatmentProgramEventResource.json" 
         }
       },
       "icarHealthStatusObservedEvent": {
@@ -1330,9 +1320,7 @@
       "icarHealthStatusObservedArray": {
         "type": "array",
         "items": {
-          "allOf": [
-            { "$ref": "../resources/icarHealthStatusObservedEventResource.json" }
-          ]
+             "$ref": "../resources/icarHealthStatusObservedEventResource.json" 
         }
       },
       "icarMedicineTransactionResource": {

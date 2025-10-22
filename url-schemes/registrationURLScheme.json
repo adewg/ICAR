@@ -1696,9 +1696,7 @@
             "batchResults": {
                 "type": "array",
                 "items": {
-                  "allOf": [
-                    { "$ref": "../resources/icarBatchResult.json" }
-                  ]
+                    "$ref": "../resources/icarBatchResult.json"
                 }
             },
             "icarLocationCollection": {
