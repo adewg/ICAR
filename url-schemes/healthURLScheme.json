@@ -1240,7 +1240,7 @@
       "batchResults": {
         "type": "array",
         "items": {
-            "$ref": "../resources/icarBatchResult.json" 
+          "$ref": "../resources/icarBatchResult.json"
         }
       },
       "icarDiagnosisEvent": {
