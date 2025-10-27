@@ -729,6 +729,113 @@
         "/locations/{location-scheme}/{location-id}/group-feeding": {
             "get": {
                 "operationId": "get-group-feeding",
+                "deprecated": true,
+                "summary": "Get the group feeding events for a certain location. Deprecated - use /group-feedings instead.",
+                "description": "# Purpose\nProvides the group feeding events for a location\nDeprecated - use /group-feedings instead.",
+                "tags": [
+                    "ADE-1.4-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupFeedingEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-group-feeding",
+                "deprecated": true,
+                "summary": "Add a single new group feeding event. Deprecated - use /group-feedings instead.",
+                "description": "# Purpose\nAllows a client to add a single group feeding event.\nDeprecated - use /group-feedings instead.",
+                "tags": [
+                    "ADE-1.4-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The group feeding event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },        
+        "/locations/{location-scheme}/{location-id}/group-feedings": {
+            "get": {
+                "operationId": "get-group-feedings",
                 "summary": "Get the group feeding events for a certain location",
                 "description": "# Purpose\nProvides the group feeding events for a location\n",
                 "tags": [
@@ -765,7 +872,7 @@
                 }
             },
             "post": {
-                "operationId": "post-single-group-feeding",
+                "operationId": "post-single-group-feedings",
                 "summary": "Add a single new group feeding event.",
                 "description": "# Purpose\nAllows a client to add a single group feeding event.\n",
                 "tags": [
@@ -1366,10 +1473,18 @@
                 }
             },
             "icarFeedResource": {
-                "$ref": "../resources/icarFeedResource.json"
+                "allOf": [
+                    {
+                        "$ref": "../resources/icarFeedResource.json"
+                    }
+                ]
             },
             "icarFeedCollection": {
-                "$ref": "../collections/icarFeedCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarFeedCollection.json"
+                    }
+                ]
             },
             "icarFeedArray": {
                 "type": "array",
@@ -1378,10 +1493,18 @@
                 }
             },
             "icarRationResource": {
-                "$ref": "../resources/icarRationResource.json"
+                "allOf": [
+                    {
+                        "$ref": "../resources/icarRationResource.json"
+                    }
+                ]
             },
             "icarRationCollection": {
-                "$ref": "../collections/icarRationCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarRationCollection.json"
+                    }
+                ]
             },
             "icarRationArray": {
                 "type": "array",
@@ -1390,10 +1513,18 @@
                 }
             },
             "icarFeedIntakeEventResource": {
-                "$ref": "../resources/icarFeedIntakeEventResource.json"
+                "allOf": [
+                    {
+                        "$ref": "../resources/icarFeedIntakeEventResource.json"
+                    }
+                ]
             },
             "icarFeedIntakeEventCollection": {
-                "$ref": "../collections/icarFeedIntakeEventCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarFeedIntakeEventCollection.json"
+                    }
+                ]
             },
             "icarFeedIntakeEventArray": {
                 "type": "array",
@@ -1402,10 +1533,18 @@
                 }
             },
             "icarFeedRecommendationResource": {
-                "$ref": "../resources/icarFeedRecommendationResource.json"
+                "allOf": [
+                    {
+                        "$ref": "../resources/icarFeedRecommendationResource.json"
+                    }
+                ]
             },
             "icarFeedRecommendationCollection": {
-                "$ref": "../collections/icarFeedRecommendationCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarFeedRecommendationCollection.json"
+                    }
+                ]
             },
             "icarFeedRecommendationArray": {
                 "type": "array",
@@ -1414,10 +1553,18 @@
                 }
             },
             "icarFeedStorageResource": {
-                "$ref": "../resources/icarFeedStorageResource.json"
+                "allOf": [
+                    {
+                        "$ref": "../resources/icarFeedStorageResource.json"
+                    }
+                ]
             },
             "icarFeedStorageCollection": {
-                "$ref": "../collections/icarFeedStorageCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarFeedStorageCollection.json"
+                    }
+                ]
             },
             "icarFeedStorageArray": {
                 "type": "array",
@@ -1426,13 +1573,25 @@
                 }
             },
             "icarFeedReportCollection": {
-                "$ref": "../collections/icarFeedReportCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarFeedReportCollection.json"
+                    }
+                ]
             },
             "icarFeedTransactionResource": {
-                "$ref": "../resources/icarFeedTransactionResource.json"  
+                "allOf": [
+                    {
+                        "$ref": "../resources/icarFeedTransactionResource.json"  
+                    }
+                ]
             },
             "icarFeedTransactionCollection": {
-                "$ref": "../collections/icarFeedTransactionCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarFeedTransactionCollection.json"
+                    }
+                ]
             },
             "icarFeedTransactionArray": {
                 "type": "array",
@@ -1441,10 +1600,18 @@
                 }
             },
             "icarGroupFeedingEventResource": {
-                "$ref": "../resources/icarGroupFeedingEventResource.json"
+                "allOf": [
+                    {
+                        "$ref": "../resources/icarGroupFeedingEventResource.json"
+                    }
+                ]
             },
             "icarGroupFeedingEventCollection": {
-                "$ref": "../collections/icarGroupFeedingEventCollection.json"
+                "allOf": [
+                    {
+                        "$ref": "../collections/icarGroupFeedingEventCollection.json"
+                    }
+                ]
             },
             "icarGroupFeedingEventArray": {
                 "type": "array",
