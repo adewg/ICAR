@@ -2773,324 +2773,196 @@
   "components": {
     "schemas": {
       "icarLocationCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarLocationCollection.json" }
-        ]
+        "$ref": "../collections/icarLocationCollection.json"
       },
       "icarMilkingVisitEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMilkingVisitEventCollection.json" }
-        ]
+        "$ref": "../collections/icarMilkingVisitEventCollection.json"
       },
       "icarWithdrawalEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarWithdrawalEventCollection.json" }
-        ]
+        "$ref": "../collections/icarWithdrawalEventCollection.json"
       },
       "icarMilkPredictionsCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMilkPredictionsCollection.json" }
-        ]
+        "$ref": "../collections/icarMilkPredictionsCollection.json"
       },
       "icarReproMatingRecommendationCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproMatingRecommendationCollection.json" }
-        ]
+        "$ref": "../collections/icarReproMatingRecommendationCollection.json"
       },
       "icarTestDayCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarTestDayCollection.json" }
-        ]
+        "$ref": "../collections/icarTestDayCollection.json"
       },
       "icarTestDayResultEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarTestDayResultEventCollection.json" }
-        ]
+        "$ref": "../collections/icarTestDayResultEventCollection.json"
       },
       "icarDailyMilkingAveragesCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarDailyMilkingAveragesCollection.json" }
-        ]
+        "$ref": "../collections/icarDailyMilkingAveragesCollection.json"
       },
       "icarLactationCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarLactationCollection.json" }
-        ]
+        "$ref": "../collections/icarLactationCollection.json"
       },
       "icarMovementBirthEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMovementBirthEventCollection.json" }
-        ]
+        "$ref": "../collections/icarMovementBirthEventCollection.json"
       },
       "icarMovementDeathEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMovementDeathEventCollection.json" }
-        ]
+        "$ref": "../collections/icarMovementDeathEventCollection.json"
       },
       "icarMovementArrivalEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMovementArrivalEventCollection.json" }
-        ]
+        "$ref": "../collections/icarMovementArrivalEventCollection.json"
       },
       "icarMovementDepartureEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMovementDepartureEventCollection.json" }
-        ]
+        "$ref": "../collections/icarMovementDepartureEventCollection.json"
       },
       "icarAnimalCoreCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarAnimalCoreCollection.json" }
-        ]
+        "$ref": "../collections/icarAnimalCoreCollection.json"
       },
       "icarAnimalSetCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarAnimalSetCollection.json" }
-        ]
+        "$ref": "../collections/icarAnimalSetCollection.json"
       },
       "icarAnimalSetJoinEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarAnimalSetJoinEventCollection.json" }
-        ]
+        "$ref": "../collections/icarAnimalSetJoinEventCollection.json"
       },
       "icarAnimalSetLeaveEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarAnimalSetLeaveEventCollection.json" }
-        ]
+        "$ref": "../collections/icarAnimalSetLeaveEventCollection.json"
       },
       "icarStatisticsCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarStatisticsCollection.json" }
-        ]
+        "$ref": "../collections/icarStatisticsCollection.json"
       },
       "icarReproPregnancyCheckEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproPregnancyCheckEventCollection.json" }
-        ]
+        "$ref": "../collections/icarReproPregnancyCheckEventCollection.json"
       },
       "icarReproHeatEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproHeatEventCollection.json" }
-        ]
+        "$ref": "../collections/icarReproHeatEventCollection.json"
       },
       "icarReproInseminationEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproInseminationEventCollection.json" }
-        ]
+        "$ref": "../collections/icarReproInseminationEventCollection.json"
       },
       "icarMilkingDryOffEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMilkingDryOffEventCollection.json" }
-        ]
+        "$ref": "../collections/icarMilkingDryOffEventCollection.json"
       },
       "icarReproAbortionEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproAbortionEventCollection.json" }
-        ]
+        "$ref": "../collections/icarReproAbortionEventCollection.json"
       },
       "icarReproDoNotBreedEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproDoNotBreedEventCollection.json" }
-        ]
+        "$ref": "../collections/icarReproDoNotBreedEventCollection.json"
       },
       "icarReproParturitionEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproParturitionEventCollection.json" }
-        ]
+        "$ref": "../collections/icarReproParturitionEventCollection.json"
       },
       "icarWeightEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarWeightEventCollection.json" }
-        ]
+        "$ref": "../collections/icarWeightEventCollection.json"
       },
       "icarDeviceCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarDeviceCollection.json" }
-        ]
+        "$ref": "../collections/icarDeviceCollection.json"
       },
       "icarFeedStorageCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarFeedStorageCollection.json" }
-        ]
+        "$ref": "../collections/icarFeedStorageCollection.json"
       },
       "icarBreedingValueCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarBreedingValueCollection.json" }
-        ]
-      }      ,
+        "$ref": "../collections/icarBreedingValueCollection.json"
+      },
       "icarConformationScoreEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarConformationScoreEventCollection.json" }
-        ]
+        "$ref": "../collections/icarConformationScoreEventCollection.json"
       },
       "icarTypeClassificationEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarTypeClassificationEventCollection.json" }
-        ]
+        "$ref": "../collections/icarTypeClassificationEventCollection.json"
       },
       "icarDiagnosisEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarDiagnosisEventCollection.json" }
-        ]
+        "$ref": "../collections/icarDiagnosisEventCollection.json"
       },
       "icarTreatmentEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarTreatmentEventCollection.json" }
-        ]
+        "$ref": "../collections/icarTreatmentEventCollection.json"
       },
       "icarTreatmentProgramEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarTreatmentProgramEventCollection.json" }      
-        ]
+        "$ref": "../collections/icarTreatmentProgramEventCollection.json"
       },
       "icarHealthStatusObservedEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarHealthStatusObservedEventCollection.json" }
-        ]
+        "$ref": "../collections/icarHealthStatusObservedEventCollection.json"
       },
       "icarGestationCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGestationCollection.json" }      
-        ]
+        "$ref": "../collections/icarGestationCollection.json"
       },
       "icarFeedCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarFeedCollection.json" }      
-        ]
+        "$ref": "../collections/icarFeedCollection.json"
       },
       "icarRationCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarRationCollection.json" }      
-        ]
+        "$ref": "../collections/icarRationCollection.json"
       },
       "icarFeedIntakeEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarFeedIntakeEventCollection.json" }      
-        ]
+        "$ref": "../collections/icarFeedIntakeEventCollection.json"
       },
       "icarGroupFeedingEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupFeedingEventCollection.json" }      
-        ]
+        "$ref": "../collections/icarGroupFeedingEventCollection.json"
       },
       "icarFeedReportCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarFeedReportCollection.json" }      
-        ]
+        "$ref": "../collections/icarFeedReportCollection.json"
       },
       "icarFeedRecommendationCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarFeedRecommendationCollection.json" }      
-        ]
+        "$ref": "../collections/icarFeedRecommendationCollection.json"
       },
       "icarLactationStatusObservedEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarLactationStatusObservedEventCollection.json" }
-        ]
+        "$ref": "../collections/icarLactationStatusObservedEventCollection.json"
       },
       "icarReproStatusObservedEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarReproStatusObservedEventCollection.json" }
-        ]
+        "$ref": "../collections/icarReproStatusObservedEventCollection.json"
       },
       "icarSchemeTypeCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarSchemeTypeCollection.json" }
-        ]
+        "$ref": "../collections/icarSchemeTypeCollection.json"
       },
       "icarSchemeValueCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarSchemeValueCollection.json" }
-        ]
+        "$ref": "../collections/icarSchemeValueCollection.json"
       },
       "icarGroupMovementBirthEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupMovementBirthEventCollection.json" }
-        ]
+        "$ref": "../collections/icarGroupMovementBirthEventCollection.json"
       },
       "icarGroupMovementDeathEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupMovementDeathEventCollection.json" }
-        ]
+        "$ref": "../collections/icarGroupMovementDeathEventCollection.json"
       },
       "icarGroupMovementArrivalEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupMovementArrivalEventCollection.json" }
-        ]
+        "$ref": "../collections/icarGroupMovementArrivalEventCollection.json"
       },
       "icarGroupMovementDepartureEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupMovementDepartureEventCollection.json" }
-        ]
+        "$ref": "../collections/icarGroupMovementDepartureEventCollection.json"
       },
       "icarGroupTreatmentEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupTreatmentEventCollection.json" }
-        ]
+        "$ref": "../collections/icarGroupTreatmentEventCollection.json"
       },
       "icarGroupWeightEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupWeightEventCollection.json" }
-        ]
+        "$ref": "../collections/icarGroupWeightEventCollection.json"
       },
       "icarReproEmbryoFlushingEventCollection" : {
-        "allOf": [
-          { "$ref": "../collections/icarReproEmbryoFlushingEventCollection.json" }   
-        ]
+        "$ref": "../collections/icarReproEmbryoFlushingEventCollection.json"
       },
       "icarProcessingLotCollection" : {
-        "allOf": [
-          { "$ref": "../collections/icarProcessingLotCollection.json" }
-        ]
+        "$ref": "../collections/icarProcessingLotCollection.json"
       },
       "icarCarcassCollection" : {
-        "allOf": [
-          { "$ref": "../collections/icarCarcassCollection.json" }
-        ]
+        "$ref": "../collections/icarCarcassCollection.json"
       },
       "icarCarcassObservationsEventCollection" : {
-        "allOf": [
-          { "$ref": "../collections/icarCarcassObservationsEventCollection.json" }
-        ]
+        "$ref": "../collections/icarCarcassObservationsEventCollection.json"
       },
       "icarInventoryTransactionCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarInventoryTransactionCollection.json" }
-        ]
+        "$ref": "../collections/icarInventoryTransactionCollection.json"
       },
       "icarFeedTransactionCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarFeedTransactionCollection.json" }
-        ]
+        "$ref": "../collections/icarFeedTransactionCollection.json"
       },
       "icarMedicineTransactionCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarMedicineTransactionCollection.json" }
-        ]
+        "$ref": "../collections/icarMedicineTransactionCollection.json"
       },
       "icarAttentionEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarAttentionEventCollection.json" }
-        ]
+        "$ref": "../collections/icarAttentionEventCollection.json"
       },
       "icarPositionObservationEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarPositionObservationEventCollection.json" }
-        ]
+        "$ref": "../collections/icarPositionObservationEventCollection.json"
       },
       "icarGroupPositionObservationEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarGroupPositionObservationEventCollection.json" }
-        ]
+        "$ref": "../collections/icarGroupPositionObservationEventCollection.json"
       },
       "icarObservationSummaryCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarObservationSummaryCollection.json" }
-        ]
+        "$ref": "../collections/icarObservationSummaryCollection.json"
       },
       "icarRemarkEventCollection": {
-        "allOf": [
-          { "$ref": "../collections/icarRemarkEventCollection.json" }
-        ]
+        "$ref": "../collections/icarRemarkEventCollection.json"
       }
     },
     "parameters": {

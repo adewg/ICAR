@@ -1473,18 +1473,10 @@
                 }
             },
             "icarFeedResource": {
-                "allOf": [
-                    {
-                        "$ref": "../resources/icarFeedResource.json"
-                    }
-                ]
+                "$ref": "../resources/icarFeedResource.json"
             },
             "icarFeedCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarFeedCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarFeedCollection.json"
             },
             "icarFeedArray": {
                 "type": "array",
@@ -1493,18 +1485,10 @@
                 }
             },
             "icarRationResource": {
-                "allOf": [
-                    {
-                        "$ref": "../resources/icarRationResource.json"
-                    }
-                ]
+                "$ref": "../resources/icarRationResource.json"
             },
             "icarRationCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarRationCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarRationCollection.json"
             },
             "icarRationArray": {
                 "type": "array",
@@ -1513,18 +1497,10 @@
                 }
             },
             "icarFeedIntakeEventResource": {
-                "allOf": [
-                    {
-                        "$ref": "../resources/icarFeedIntakeEventResource.json"
-                    }
-                ]
+                "$ref": "../resources/icarFeedIntakeEventResource.json"
             },
             "icarFeedIntakeEventCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarFeedIntakeEventCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarFeedIntakeEventCollection.json"
             },
             "icarFeedIntakeEventArray": {
                 "type": "array",
@@ -1533,18 +1509,10 @@
                 }
             },
             "icarFeedRecommendationResource": {
-                "allOf": [
-                    {
-                        "$ref": "../resources/icarFeedRecommendationResource.json"
-                    }
-                ]
+                "$ref": "../resources/icarFeedRecommendationResource.json"
             },
             "icarFeedRecommendationCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarFeedRecommendationCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarFeedRecommendationCollection.json"
             },
             "icarFeedRecommendationArray": {
                 "type": "array",
@@ -1553,18 +1521,10 @@
                 }
             },
             "icarFeedStorageResource": {
-                "allOf": [
-                    {
-                        "$ref": "../resources/icarFeedStorageResource.json"
-                    }
-                ]
+                "$ref": "../resources/icarFeedStorageResource.json"
             },
             "icarFeedStorageCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarFeedStorageCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarFeedStorageCollection.json"
             },
             "icarFeedStorageArray": {
                 "type": "array",
@@ -1573,25 +1533,13 @@
                 }
             },
             "icarFeedReportCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarFeedReportCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarFeedReportCollection.json"
             },
             "icarFeedTransactionResource": {
-                "allOf": [
-                    {
-                        "$ref": "../resources/icarFeedTransactionResource.json"  
-                    }
-                ]
+                "$ref": "../resources/icarFeedTransactionResource.json"  
             },
             "icarFeedTransactionCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarFeedTransactionCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarFeedTransactionCollection.json"
             },
             "icarFeedTransactionArray": {
                 "type": "array",
@@ -1600,18 +1548,10 @@
                 }
             },
             "icarGroupFeedingEventResource": {
-                "allOf": [
-                    {
-                        "$ref": "../resources/icarGroupFeedingEventResource.json"
-                    }
-                ]
+                "$ref": "../resources/icarGroupFeedingEventResource.json"
             },
             "icarGroupFeedingEventCollection": {
-                "allOf": [
-                    {
-                        "$ref": "../collections/icarGroupFeedingEventCollection.json"
-                    }
-                ]
+                "$ref": "../collections/icarGroupFeedingEventCollection.json"
             },
             "icarGroupFeedingEventArray": {
                 "type": "array",
