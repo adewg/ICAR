@@ -29,3 +29,4 @@ Here is the list of subclassed identifiers, their purpose, and the list of well-
 | [icarMetricIdenfifierType](../types/icarMetricIdentifierType.json) | Identifier types for statistics and metrics. | [icarMetricIdentifierType.md](../well-known/icarMetricTypeIdentifier.md) |
 | [icarPropertyIdentifierType](../types/icarPropertyIdentifierType.json) | Identification schemes for feed properties. | [icarPropertyIdentifierType.md](../well-known/icarPropertyIdentifierType.md) |
 | [icarTraitLabelIdentifierType](../types/icarTraitLabelIdentifierType.json) | National or industry trait labels. | [icarTraitLabelIdentifierType.md](../well-known/icarTraitLabelIdentifierType.md) |
+| [icarReasonIdentifierType](../types/icarReasonIdentifierType.json) | Extended reasons for deaths and departures. | [icarReasonIdentifierType.md](../well-known/icarReasonIdentifierType.md) |
