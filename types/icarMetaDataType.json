@@ -26,11 +26,9 @@
     },
     "created": {
       "description": "RFC3339 UTC date/time of creation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
-      "type": ["string", "null"],
-      "allOf": [
-        {
-          "$ref": "../types/icarDateTimeType.json"
-        }
+      "anyOf": [
+        {"type": "null"},
+        {"$ref": "../types/icarDateTimeType.json"}
       ]
     },
     "creator": {
@@ -39,20 +37,16 @@
     },
     "validFrom": {
       "description": "RFC3339 UTC start of period when the resource is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
-      "type": ["string", "null"],
-      "allOf": [
-        {
-          "$ref": "../types/icarDateTimeType.json"
-        }
+      "anyOf": [
+        {"type": "null"},
+        {"$ref": "../types/icarDateTimeType.json"}
       ]
     },
     "validTo": {
       "description": "RFC3339 UTC end of the period when the resoure is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
-      "type": ["string", "null"],
-      "allOf": [
-        {
-          "$ref": "../types/icarDateTimeType.json"
-        }
+      "anyOf": [
+        {"type": "null"},
+        {"$ref": "../types/icarDateTimeType.json"}
       ]
     }
   }

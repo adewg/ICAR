@@ -1,4 +1,4 @@
-# ICAR Animal Data Exchange JSON Standards V1.4
+# ICAR Animal Data Exchange JSON Standards V1.5
 The repository contains the JSON standard for Animal Data Exchange (ADE) produced by the International Committee for Animal Recording (ICAR). 
 
 The content of this repository is licenced using the Apache 2.0 Licence. You are encouraged to use it in your data exchanges and other applications, and also to contribute to the further development of the standard.
@@ -35,7 +35,21 @@ Developers may wish to start by reading OpenAPI specification examples in the **
 You can also [view the basic example Url Scheme using the swagger editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/adewg/ICAR/ADE-1/url-schemes/exampleUrlScheme.json).
 
 ## Code Generation 
-Developers will likely take one or more of the **url-schemes** and generate their own code wrappers using **[openapi-generator](https://github.com/OpenAPITools/openapi-generator)** or an equivalent generation tool. Version 1.4 of this specification has been tested with OpenAPI Generator version 7.6.0 and conforms to the OpenAPI '3.1' specification as much as possible (and JSON Schema 2020-12). We value feedback on code generation, noting that some implementers have needed to make adjustments to get Java generation to work.
+Developers will likely take one or more of the **url-schemes** and generate their own code wrappers using **[openapi-generator](https://github.com/OpenAPITools/openapi-generator)** or an equivalent generation tool. Version 1.5 and later of this specification has been tested with **OpenAPI Generator version 7.9.0** or above and conform to the OpenAPI '3.1' specification as much as possible (and JSON Schema 2020-12). We value feedback on code generation, noting that some implementers have needed to make adjustments to get Java generation to work. Many implementers may find the bundled URL scheme a useful starting point for code generation.
+
+## Schema Bundling
+This script automates the process of combining individual model files into one schema, making it easier to manage and use in code generation tasks. It ensures all necessary model files are included and prepares the schema for use with tools like Redocly CLI.
+The script takes a list of JSON schema files located in the url-schemes directory and bundle them into corresponding files in the bundled-schemes directory.
+Prerequisites:
+* Node.js and npm installed.
+* @redocly/cli package installed (automatically triggered via npx).
+Usage: 
+* Navigate to the directory containing the script
+* Run the script: ".\schema_bundle.ps1" or "./schema_bundle.sh"
+* The script will clean up the existing files in the **bundled-schemes** folder, then bundle the schemas listed in the script and save them in the same bundled-schemes folder.
+* Once the schemes bundle operation is completed, the script will combine all bundled schemes, except for ExampleScheme, into a single file named **combinedURLScheme.json**, which will be placed in the **bundled-schemes** folder.
+Bundle JSON Schemas workflow:
+* When changes are merged into the **ADE-1** branch, the workflow will automatically trigger and bundle the schemas into the **bundled-schemes** folder.
 
 ## Acknowledgements
 Input into this standard was based on previous work of:

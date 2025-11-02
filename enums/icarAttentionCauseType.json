@@ -6,6 +6,8 @@
     "enum": [
       "Activity",
       "AnimalTemperature",
+      "AnimalTemperatureDecrease",
+      "AnimalTemperatureIncrease",
       "BodyCondition",
       "EatingLess",
       "EnvironmentTemperature",

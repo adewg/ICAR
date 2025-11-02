@@ -3,7 +3,7 @@
   "info": {
     "title": "Sorting-related messages API Specifications",
     "description": "Specifications for messages that support livestock sorting management.",
-    "version": "1.4",
+    "version": "1.5",
     "contact": {
       "name": "Animal Data Exchange Working Group",
       "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
   ],
   "tags": [
     {
-      "name": "ADE-1.4-sorting",
+      "name": "ADE-1.5-sorting",
       "description": "Sorting messages approved by the working group"
     }
   ],
@@ -28,7 +28,7 @@
         "summary": "Get the sorting-sites for a certain location",
         "description": "# Purpose\nProvides the sorting-sites for a location\n",
         "tags": [
-          "ADE-1.4-sorting"
+          "ADE-1.5-sorting"
         ],
         "parameters": [
           {
@@ -61,7 +61,7 @@
         "summary": "Get the sorting of a certain animal for a certain site",
         "description": "# Purpose\nProvides the sorting of a certain animal\n",
         "tags": [
-          "ADE-1.4-sorting"
+          "ADE-1.5-sorting"
         ],
         "parameters": [
           {
@@ -98,7 +98,7 @@
         "summary": "Delete sorting for a certain animal of a location",
         "description": "# Purpose\nProvides the deletion of sorting for a location\n",
         "tags": [
-          "ADE-1.4-sorting"
+          "ADE-1.5-sorting"
         ],
         "parameters": [
           {
@@ -130,7 +130,7 @@
         "summary": "Get the known sorting-commands for all animals of a certain location",
         "description": "# Purpose\nProvides the known sorting-commands for all animals of a location\n",
         "tags": [
-          "ADE-1.4-sorting"
+          "ADE-1.5-sorting"
         ],
         "parameters": [
           {
@@ -161,7 +161,7 @@
         "summary": "Add an animal into a sorting-site.",
         "description": "# Purpose\nAllows a client to add an animal to a sorting-site",
         "tags": [
-          "ADE-1.4-sorting"
+          "ADE-1.5-sorting"
         ],
         "parameters": [
           {

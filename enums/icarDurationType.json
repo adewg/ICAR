@@ -1,0 +1,15 @@
+{
+  "description": "ISO8601 durations used in aggregations:\n (1 day - typically from midnight, 1 hour, 24 hour period, 96 hour period, 1 week, 1 month)",
+
+  "type": "string",
+
+  "enum": [
+    "P1D",
+    "PT1H",
+    "PT24H",
+    "PT96H",
+    "P1W",
+    "P1M"
+  ]
+}
+

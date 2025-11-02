@@ -3,7 +3,7 @@
   "info": {
     "title": "Health Diagnosis and Treatment API Specifications",
     "description": "Specifications for messages that support livestock health and disease diagnosis and treatments.",
-    "version": "1.4",
+    "version": "1.5",
     "contact": {
       "name": "Animal Data Exchange Working Group",
       "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
   ],
   "tags": [
     {
-      "name": "ADE-1.4-health",
+      "name": "ADE-1.5-health",
       "description": "Health messages approved by the working group"
     }
   ],
@@ -28,7 +28,7 @@
         "summary": "Get the diagnoses for a certain location",
         "description": "# Purpose\nProvides the animal health diagnoses for a location\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -42,6 +42,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -65,7 +71,7 @@
         "summary": "Add a single new diagnosis event",
         "description": "# Purpose  \nAllows a client to add a single animal health diagnosis event.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -133,7 +139,7 @@
         "summary": "Get the treatments for a certain location",
         "description": "# Purpose\nProvides the animal health treatments for a location\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -147,6 +153,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -170,7 +182,7 @@
         "summary": "Add a single new health treatment event",
         "description": "# Purpose  \nAllows a client to add a single animal health treatment event.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -220,7 +232,7 @@
         "summary": "Get the group treatments for a certain location",
         "description": "# Purpose\nProvides the group health treatments for a location\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -257,7 +269,7 @@
         "summary": "Add one group health treatment event",
         "description": "# Purpose  \nAllows a client to add one group health treatment event.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -307,7 +319,7 @@
         "summary": "Get the treatment programs for a certain location",
         "description": "# Purpose\nProvides the animal health treatment programs for a location\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -321,6 +333,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -344,7 +362,7 @@
         "summary": "Add a single new health treatment programme.",
         "description": "# Purpose  \nAllows a client to add a single animal health treatment programme.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -394,7 +412,7 @@
         "summary": "Get the health-status-observed of an animal for a certain location",
         "description": "# Purpose\nProvides the animal health-status for a location\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -408,6 +426,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -431,7 +455,7 @@
         "summary": "Add a single new health status observed.",
         "description": "# Purpose  \nAllows a client to add a single animal health status observed.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -481,7 +505,7 @@
         "summary": "Get medicine inventory transactions.",
         "description": "# Purpose\nProvides the medicine inventory transactions for a location\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -507,6 +531,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -530,7 +560,7 @@
         "summary": "Add a single new medicine inventory transaction.",
         "description": "# Purpose  \nAllows a client to add a single medicine inventory transaction.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -580,7 +610,7 @@
         "summary": "Get attention events.",
         "description": "# Purpose\nProvides the attention events for a location. These are individual animal events, typically generated by devices such as wearables and sensors.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -606,6 +636,12 @@
           },
           {
             "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
           }
         ],
         "responses": {
@@ -629,7 +665,7 @@
         "summary": "Add a single new attention event.",
         "description": "# Purpose  \nAllows a client to add a single attention event (typically generated by a device, wearable, or sensor).\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -679,7 +715,7 @@
         "summary": "Add a single new diagnosis event",
         "description": "# Purpose  \nAllows a client to add a collection of animal health diagnosis events.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -754,7 +790,7 @@
         "summary": "Add a collection of health treatment events",
         "description": "# Purpose  \nAllows a client to add a collection of animal health treatment events.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -829,7 +865,7 @@
         "summary": "Add a collection of group health treatment events",
         "description": "# Purpose  \nAllows a client to add a collection of group health treatment events.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -904,7 +940,7 @@
         "summary": "Add a collection of animal health treatment program events.",
         "description": "# Purpose  \nAllows a client to add a collection of animal health treatment program events.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -979,7 +1015,7 @@
         "summary": "Add new health status observed events",
         "description": "# Purpose  \nAllows a client to add a collection of animal health status observed events.\n",
         "tags": [
-          "ADE-1.4-health"
+          "ADE-1.5-health"
         ],
         "parameters": [
           {
@@ -1054,7 +1090,7 @@
           "summary": "Add an array of medicine inventory transactions.",
           "description": "# Purpose \nAllows a client to add a collection of medicine inventory transactions.\n",
           "tags": [
-              "ADE-1.4-health"
+              "ADE-1.5-health"
           ],
           "parameters": [
               {
@@ -1129,7 +1165,7 @@
           "summary": "Add an array of attention events.",
           "description": "# Purpose \nAllows a client to add a collection of attention events for animals. These are typically generated by devices such as wearables and sensors.\n",
           "tags": [
-              "ADE-1.4-health"
+              "ADE-1.5-health"
           ],
           "parameters": [
               {
@@ -1364,6 +1400,24 @@
         "schema": {
           "type": "string"
         }
+      },
+      "animal-scheme": {
+          "name": "animal-scheme",
+          "in": "query",
+          "description": "The scheme identifying the animal.",
+          "required": false,
+          "schema": {
+              "type": "string"
+          }
+      },
+      "animal-id": {
+          "name": "animal-id",
+          "in": "query",
+          "description": "The unique identifier of the animal.",
+          "required": false,
+          "schema": {
+              "type": "string"
+          }
       }
     },
     "responses": {

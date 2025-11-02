@@ -1,0 +1,32 @@
+{
+  "inputs": [
+    {
+      "inputFile": "./combine-metadata.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/feedURLscheme.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/healthURLScheme.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/managementURLScheme.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/milkURLScheme.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/performanceURLScheme.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/registrationURLScheme.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/reproductionURLScheme.json"
+    },
+    {
+      "inputFile": "../bundled-schemes/sortingURLScheme.json"
+    }
+  ],
+  "output": "../bundled-schemes/combinedURLScheme.json"
+}

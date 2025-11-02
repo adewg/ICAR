@@ -1,0 +1,44 @@
+name: Bundle JSON Schemas
+
+on:
+  push:
+    branches:
+      - ADE-1
+
+jobs:
+  bundle-schemas:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+
+    # Run the Shell script to bundle schemas
+    - name: Run schema bundling script
+      run: |
+        ./scripts/schema_bundle.sh
+    
+    - name: Output results
+      run: |
+        echo "Bundled schemas are saved in the './bundled-schemes' directory."
+        echo "Current contents of the 'bundled-schemes' directory:"
+        ls -lh ./bundled-schemes
+
+    # Commit the schemas to the bundled-schemes in the current branch
+    - name: Commit bundled schemas
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git add -f ./bundled-schemes # Force is needed because the folder is ignored in .gitignore file
+        git commit -m "Update bundled schemas [skip ci]" || echo "No changes to commit"
+        git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:${{ github.ref }}

@@ -3,7 +3,7 @@
     "info": {
         "title": "Performance observation events and messages API Specifications",
         "description": "Specifications for messages that support livestock performance assessment other than milk production.",
-        "version": "1.4",
+        "version": "1.5",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.4-performance",
+            "name": "ADE-1.5-performance",
             "description": "Performance messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
                 "summary": "Get the weights for a certain location",
                 "description": "# Purpose\nProvides the animal weights for a location\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -42,6 +42,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -65,7 +71,7 @@
                 "summary": "Add a single new weight.",
                 "description": "# Purpose\nAllows a client to add a single weight.\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -133,7 +139,7 @@
                 "summary": "Get the weights for a certain location",
                 "description": "# Purpose\nProvides the group weights for a location\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -170,7 +176,7 @@
                 "summary": "Add a single group weight.",
                 "description": "# Purpose\nAllows a client to add a single group weight.\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -238,7 +244,7 @@
                 "summary": "Get the breeding values for a certain location",
                 "description": "# Purpose\nProvides the animal breeding values for a location\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -252,6 +258,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -277,7 +289,7 @@
                 "summary": "Get the conformation score events for a certain location",
                 "description": "# Purpose\nProvides the animal conformation score events for a location\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -291,6 +303,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -314,7 +332,7 @@
                 "summary": "Add a single new conformation score.",
                 "description": "# Purpose\nAllows a client to add a single conformation score.\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -382,7 +400,7 @@
                 "summary": "Get the type classification events for a certain location",
                 "description": "# Purpose\nProvides the animal type classification events for a location\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -396,6 +414,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -419,7 +443,7 @@
                 "summary": "Add a single new type classificatione.",
                 "description": "# Purpose\nAllows a client to add a single type classification.\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -487,7 +511,7 @@
                 "summary": "Add an array of weights.",
                 "description": "# Purpose \nAllows a client to add a collection of weights.\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -562,7 +586,7 @@
                 "summary": "Add an array of weights.",
                 "description": "# Purpose \nAllows a client to add a collection of group weights.\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -637,7 +661,7 @@
                 "summary": "Add an array of conformation-scores.",
                 "description": "# Purpose \nAllows a client to add a collection of conformation scores.\n",
                 "tags": [
-                    "ADE-1.4-performance"
+                    "ADE-1.5-performance"
                 ],
                 "parameters": [
                     {
@@ -796,6 +820,24 @@
                 "schema": {
                     "type": "string",
                     "format": "date-time"
+                }
+            },
+            "animal-scheme": {
+                "name": "animal-scheme",
+                "in": "query",
+                "description": "The scheme identifying the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "query",
+                "description": "The unique identifier of the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
                 }
             }
         },
