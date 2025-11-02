@@ -794,7 +794,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "description": "Successful. The response contains a copy of the event, as modified by the server.",
                         "content": {
                             "application/json": {
                                 "schema": {
