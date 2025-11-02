@@ -1745,7 +1745,7 @@
             "post": {
                 "operationId": "post-batch-remark-events",
                 "summary": "Add an array of animal remark events.",
-                "description": "# Purpose \nAllows a client to add a collection ofanimal remark events.\n",
+                "description": "# Purpose \nAllows a client to add a collection of animal remark events.\n",
                 "tags": [
                     "ADE-1.5-management"
                 ],
