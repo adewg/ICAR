@@ -3,7 +3,7 @@
     "info": {
         "title": "Milk recording and lactation information API Specifications",
         "description": "Specifications for messages that support dairy milking visits, lactation, and related information.",
-        "version": "1.4",
+        "version": "1.5",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.4-milk",
+            "name": "ADE-1.5-milk",
             "description": "Milking-related messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
                 "summary": "Get the milking-visits for a certain location",
                 "description": "# Purpose\nProvides the animal milking-visits for a location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -71,7 +71,7 @@
                 "summary": "Add a single new milking-visits.",
                 "description": "# Purpose\nAllows a client to add a single milking-visits.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -139,7 +139,7 @@
                 "summary": "Get the test-day for a certain location",
                 "description": "# Purpose\nProvides the animal test-day for a location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -182,7 +182,7 @@
                 "summary": "Add a single new test-day.",
                 "description": "# Purpose\nAllows a client to add a single test-day.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -250,7 +250,7 @@
                 "summary": "Get the test-day-result for a certain location",
                 "description": "# Purpose\nProvides the animal test-day-result for a location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -293,7 +293,7 @@
                 "summary": "Add a single new test-day-result.",
                 "description": "# Purpose\nAllows a client to add a single test-day-result.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -361,7 +361,7 @@
                 "summary": "Get the daily milking averages for a certain location",
                 "description": "# Purpose\nProvides the animal daily milking averages for a location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -406,7 +406,7 @@
                 "summary": "Get the milk predictions for a certain location",
                 "description": "# Purpose\nProvides the milk predictions for a location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -451,7 +451,7 @@
                 "summary": "Get the lactations for a certain location",
                 "description": "# Purpose\nProvides the animal lactation for a location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -490,7 +490,7 @@
                 "summary": "Get the lactation status observations for a certain location",
                 "description": "# Purpose\nProvides the animal lactation status observations for a location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -533,7 +533,7 @@
                 "summary": "Add a single new lactation status observation event.",
                 "description": "# Purpose\nAllows a client to add a single lactation status observation event.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -601,7 +601,7 @@
                 "summary": "Get the milking-withdrawals for a certain location",
                 "description": "# Purpose\nProvides the milking-withdrawals for a certain location\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -646,7 +646,7 @@
                 "summary": "Add a single new milking-visits event",
                 "description": "# Purpose \nAllows a client to add a collection of milking visits.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -721,7 +721,7 @@
                 "summary": "Add batch of test-days.",
                 "description": "# Purpose \nAllows a client to add a collection of test-days.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -796,7 +796,7 @@
                 "summary": "Add an array of test-day-results.",
                 "description": "# Purpose \nAllows a client to add a collection of test-day-result.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
@@ -871,7 +871,7 @@
                 "summary": "Add an array of lactation status observations.",
                 "description": "# Purpose \nAllows a client to add a collection of lactation status observations.\n",
                 "tags": [
-                    "ADE-1.4-milk"
+                    "ADE-1.5-milk"
                 ],
                 "parameters": [
                     {
