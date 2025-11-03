@@ -3,7 +3,7 @@ name: Bundle JSON Schemas
 on:
   push:
     branches:
-      - bundle-schema-job-fix
+      - ADE-1
 
 jobs:
   bundle-schemas:
