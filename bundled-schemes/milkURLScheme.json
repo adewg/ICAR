@@ -1,0 +1,2259 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Milk recording and lactation information API Specifications",
+    "description": "Specifications for messages that support dairy milking visits, lactation, and related information.",
+    "version": "1.5",
+    "contact": {
+      "name": "Animal Data Exchange Working Group",
+      "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
+      "email": "icar@icar.org"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://icar-ade.standard.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ADE-1.5-milk",
+      "description": "Milking-related messages approved by the working group"
+    }
+  ],
+  "paths": {
+    "/locations/{location-scheme}/{location-id}/milking-visits": {
+      "get": {
+        "operationId": "get-milking-visits",
+        "summary": "Get the milking-visits for a certain location",
+        "description": "# Purpose\nProvides the animal milking-visits for a location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkingVisitEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-milking-visits",
+        "summary": "Add a single new milking-visits.",
+        "description": "# Purpose\nAllows a client to add a single milking-visits.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The milking-visits to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMilkingVisitEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkingVisitEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/test-days": {
+      "get": {
+        "operationId": "get-test-day",
+        "summary": "Get the test-day for a certain location",
+        "description": "# Purpose\nProvides the animal test-day for a location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTestDayCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-test-day",
+        "summary": "Add a single new test-day.",
+        "description": "# Purpose\nAllows a client to add a single test-day.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The test-day to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarTestDayResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTestDayResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/test-day-results": {
+      "get": {
+        "operationId": "get-test-day-result",
+        "summary": "Get the test-day-result for a certain location",
+        "description": "# Purpose\nProvides the animal test-day-result for a location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTestDayResultEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-test-day-result",
+        "summary": "Add a single new test-day-result.",
+        "description": "# Purpose\nAllows a client to add a single test-day-result.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The test-day-result to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarTestDayResultEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarTestDayResultEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/daily-milking-averages": {
+      "get": {
+        "operationId": "get-daily-milking-averages",
+        "summary": "Get the daily milking averages for a certain location",
+        "description": "# Purpose\nProvides the animal daily milking averages for a location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarDailyMilkingAveragesCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milk-predictions": {
+      "get": {
+        "operationId": "get-milk-predictions",
+        "summary": "Get the milk predictions for a certain location",
+        "description": "# Purpose\nProvides the milk predictions for a location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the milk predictions for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMilkPredictionsCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/lactations": {
+      "get": {
+        "operationId": "get-lactations",
+        "summary": "Get the lactations for a certain location",
+        "description": "# Purpose\nProvides the animal lactation for a location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLactationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/lactation-status-observations": {
+      "get": {
+        "operationId": "get-lactation-status-observations",
+        "summary": "Get the lactation status observations for a certain location",
+        "description": "# Purpose\nProvides the animal lactation status observations for a location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the diagnoses for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLactationStatusObservedEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-lactation-status-observation",
+        "summary": "Add a single new lactation status observation event.",
+        "description": "# Purpose\nAllows a client to add a single lactation status observation event.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The lactation-status-observation to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarLactationStatusObservedEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLactationStatusObservedEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/milking-withdrawals": {
+      "get": {
+        "operationId": "get-existing-milking-withdrawals",
+        "summary": "Get the milking-withdrawals for a certain location",
+        "description": "# Purpose\nProvides the milking-withdrawals for a certain location\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the withdrawals for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarWithdrawalEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/milking-visits": {
+      "post": {
+        "operationId": "post-batch-milking-visits",
+        "summary": "Add a single new milking-visits event",
+        "description": "# Purpose \nAllows a client to add a collection of milking visits.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of {milking-visits:node} to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMilkingVisitEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/test-days": {
+      "post": {
+        "operationId": "post-batch-test-days",
+        "summary": "Add batch of test-days.",
+        "description": "# Purpose \nAllows a client to add a collection of test-days.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of test-days to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarTestDayArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/test-day-results": {
+      "post": {
+        "operationId": "post-batch-test-day-results",
+        "summary": "Add an array of test-day-results.",
+        "description": "# Purpose \nAllows a client to add a collection of test-day-result.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of test day results to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarTestDayResultEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/lactation-status-observations": {
+      "post": {
+        "operationId": "post-batch-lactation-status-observations",
+        "summary": "Add an array of lactation status observations.",
+        "description": "# Purpose \nAllows a client to add a collection of lactation status observations.\n",
+        "tags": [
+          "ADE-1.5-milk"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of lactation status observations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarLactationStatusObservedEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "batchResults": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarBatchResult"
+        }
+      },
+      "icarMilkingVisitEventResource": {
+        "description": "Event for recording milking visit",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "milkingStartingDateTime",
+              "milkingMilkWeight"
+            ],
+            "properties": {
+              "milkingStartingDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC date time of the start of milking (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "milkingDuration": {
+                "$ref": "#/components/schemas/icarMilkDurationType"
+              },
+              "milkingVisitDuration": {
+                "$ref": "#/components/schemas/icarMilkDurationType"
+              },
+              "milkingType": {
+                "description": "This code allows organisations to distinguish between manual and automated milking.",
+                "$ref": "#/components/schemas/icarMilkingTypeCode"
+              },
+              "milkingMilkWeight": {
+                "description": "A certified milking weight that complies with the ICAR guidelines.",
+                "$ref": "#/components/schemas/icarMilkingMilkWeightType"
+              },
+              "milkingComplete": {
+                "type": "boolean",
+                "description": "indication whether this milking was completed normally."
+              },
+              "milkingParlourUnit": {
+                "type": "string",
+                "description": "The milking parlour unit where the milking took place."
+              },
+              "milkingBoxNumber": {
+                "type": "string",
+                "description": "The milking box number where the milking took place."
+              },
+              "milkingDeviceId": {
+                "type": "string",
+                "description": "The ID of the device where the milking took place."
+              },
+              "measureDeviceId": {
+                "type": "string",
+                "description": "The ID of the device where the measurement of the milking took place"
+              },
+              "milkingShiftLocalStartDate": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The ISO8601 date in local time zone to which this milking shift belongs. A time component is not expected or required."
+              },
+              "milkingShiftNumber": {
+                "type": "integer",
+                "description": "For milkings supervised by humans, this number represents the shift within a local date in which this milking visit occurred."
+              },
+              "quarterMilkings": {
+                "description": "A set of milking results for up to four quarters in dairy cows, or two teats for sheep or goats.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarQuarterMilkingType"
+                }
+              },
+              "animalMilkingSample": {
+                "description": "An array of zero or more sample/bottle details if the animal is milk tested at this milking.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarAnimalMilkingSampleType"
+                }
+              },
+              "milkCharacteristics": {
+                "description": "An array of milk characteristics other than certified milk weight. See icarMilkCharacteristicsType for documentation.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMilkCharacteristicsType"
+                }
+              },
+              "milkingRemarks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMilkingRemarksType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "icarMilkingVisitEventCollection": {
+        "description": "Represents a collection of animal milking visit events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMilkingVisitEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case milking visit events."
+              }
+            }
+          }
+        ]
+      },
+      "icarMilkingVisitEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMilkingVisitEventResource"
+        }
+      },
+      "icarTestDayResource": {
+        "description": "Information about test day for milk sampling.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "beginDate",
+              "endDate"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for this test day."
+              },
+              "beginDate": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC datetime of the beginning of the milk sampling (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "endDate": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC datetime of the end of the milk sampling (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              }
+            }
+          }
+        ]
+      },
+      "icarTestDayCollection": {
+        "description": "Represents a collection of test days. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarTestDayResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case test days."
+              }
+            }
+          }
+        ]
+      },
+      "icarTestDayArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarTestDayResource"
+        }
+      },
+      "icarTestDayResultEventResource": {
+        "description": "Event for representing test day result",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "milkWeight24Hours": {
+                "$ref": "#/components/schemas/icarMilkingMilkWeightType"
+              },
+              "testDayCode": {
+                "$ref": "#/components/schemas/icarTestDayCodeType"
+              },
+              "milkCharacteristics": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMilkCharacteristicsType"
+                }
+              },
+              "predictedProductionOnTestDay": {
+                "$ref": "#/components/schemas/icarMilkingPredictionType"
+              }
+            }
+          }
+        ]
+      },
+      "icarTestDayResultEventCollection": {
+        "description": "Represents a collection of test day result events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarTestDayResultEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case test day result events."
+              }
+            }
+          }
+        ]
+      },
+      "icarTestDayResultEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarTestDayResultEventResource"
+        }
+      },
+      "icarDailyMilkingAveragesCollection": {
+        "description": "Represents a collection of daily milking averages per animal. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarDailyMilkingAveragesResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case test day result events."
+              }
+            }
+          }
+        ]
+      },
+      "icarMilkPredictionsCollection": {
+        "description": "Represents a collection of milk predictions per animal. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMilkPredictionResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case milk prediction events."
+              }
+            }
+          }
+        ]
+      },
+      "icarLactationCollection": {
+        "description": "Represents a collection of lactations. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarLactationResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case lactations."
+              }
+            }
+          }
+        ]
+      },
+      "icarLactationStatusObservedEventResource": {
+        "description": "This event records an observed lactation status without necessarily a parturition, drying off, or other event.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "observedStatus": {
+                "$ref": "#/components/schemas/icarAnimalLactationStatusType",
+                "description": "The lactation status at the time of observation."
+              }
+            }
+          }
+        ]
+      },
+      "icarLactationStatusObservedEventCollection": {
+        "description": "Represents a collection of animal lactation status observation events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarLactationStatusObservedEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case lactation status events."
+              }
+            }
+          }
+        ]
+      },
+      "icarLactationStatusObservedEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarLactationStatusObservedEventResource"
+        }
+      },
+      "icarWithdrawalEventCollection": {
+        "description": "Represents a collection of withdrawals. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarWithdrawalEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case lactation status events."
+              }
+            }
+          }
+        ]
+      },
+      "icarBatchResultSeverityType": {
+        "description": "Severity code to distinguish warnings and errors.",
+        "type": "string",
+        "enum": [
+          "Information",
+          "Warning",
+          "Error"
+        ]
+      },
+      "icarResponseMessageResource": {
+        "description": "An RFC7807 compliant problem response for JSON APIs.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Machine readable URI or code that defines the type of error or warning."
+          },
+          "severity": {
+            "$ref": "#/components/schemas/icarBatchResultSeverityType",
+            "description": "Distinguish errors, warnings, and informational messages."
+          },
+          "status": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "The HTTP status code applicable to this problem.",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
+          },
+          "instance": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "A URI reference or internal JSON document reference to the specific data item that caused the problem."
+          }
+        }
+      },
+      "icarErrorCollection": {
+        "description": "A collection of RFC7807 compliant problem responses for JSON APIs.",
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarResponseMessageResource"
+            }
+          }
+        }
+      },
+      "icarResourceCollection": {
+        "description": "Base class for a collection of items such as animals, devices, or events. Use allOf to add an items array of the right type.",
+        "type": "object",
+        "properties": {
+          "view": {
+            "type": "object",
+            "description": "Information about the current view or page of the collection",
+            "properties": {
+              "totalItems": {
+                "type": "integer",
+                "description": "Provides the number of items in the collection, if known."
+              },
+              "totalPages": {
+                "type": "integer",
+                "description": "Provides the number of pages in the collection, if known."
+              },
+              "pageSize": {
+                "type": "integer",
+                "description": "If non-zero, specifies the default number of items returned per page."
+              },
+              "currentPage": {
+                "type": "integer",
+                "description": "Optionally identifies the current page for display purposes, if returned."
+              },
+              "first": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the first page of the collection. Link relation: first."
+              },
+              "next": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the next page of the collection, if any. Link relation: next."
+              },
+              "prev": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the previous page of the collection, if any. Link relation: prev."
+              },
+              "last": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the last page of the collection, if any. Link relation: last."
+              }
+            }
+          }
+        }
+      },
+      "icarDateTimeType": {
+        "description": "A particular point in the progression of time. Shall be UTC format with Z, specified in RFC3339 (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+        "type": "string",
+        "format": "date-time"
+      },
+      "icarMetaDataType": {
+        "description": "Generic meta data on this event",
+        "type": "object",
+        "required": [
+          "source",
+          "modified"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Source where data is retrieved from. URI  or reverse DNS that identifies the source system."
+          },
+          "sourceId": {
+            "type": "string",
+            "description": "Unique Id within Source (e.g. UUID, IRI, URI, or composite ID if needed) for the resource in the original source system. \n Systems should generate (if needed), store, and return sourceId if at all possible.\nICAR ADE working group intend to make use of metadata, source and sourceId mandatory in the next major release (2.0)."
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Boolean value indicating if this resource has been deleted in the source system."
+          },
+          "modified": {
+            "$ref": "#/components/schemas/icarDateTimeType",
+            "description": "RFC3339 UTC date/time of last modification (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+          },
+          "created": {
+            "description": "RFC3339 UTC date/time of creation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          },
+          "creator": {
+            "type": "string",
+            "description": "Person or organisation who created the object"
+          },
+          "validFrom": {
+            "description": "RFC3339 UTC start of period when the resource is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          },
+          "validTo": {
+            "description": "RFC3339 UTC end of the period when the resoure is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          }
+        }
+      },
+      "icarIdentifierType": {
+        "description": "Identifies a resource.",
+        "type": "object",
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identification for the resource issued under the auspices of the scheme."
+          },
+          "scheme": {
+            "type": "string",
+            "description": "The identifier (in reverse domain format) of an official scheme that manages unique identifiers."
+          }
+        }
+      },
+      "icarLocationIdentifierType": {
+        "description": "Location identifier based on a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarResource": {
+        "description": "Base class for a resource, defining self-link and meta data. Resources should use AllOf to incorporate this class.",
+        "type": "object",
+        "discriminator": {
+          "propertyName": "resourceType"
+        },
+        "required": [
+          "resourceType"
+        ],
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "description": "Uniform resource identifier (URI) or shortname of the logical resourceType. The ResourceType catalog defines the set of allowed resourceTypes."
+          },
+          "@self": {
+            "type": "string",
+            "description": "Uniform resource identifier (URI) of the resource (rel=self)."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/icarMetaDataType",
+            "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation.\n Systems should maintain and provide meta data if at all possible.\nICAR ADE working group intend meta to be required in the next major release of ADE."
+          },
+          "location": {
+            "$ref": "#/components/schemas/icarLocationIdentifierType",
+            "description": "Unique location scheme and identifier combination."
+          }
+        }
+      },
+      "icarTraitLabelIdentifierType": {
+        "description": "Trait identifier based on a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarEventCoreResource": {
+        "description": "Core schema for representing an event.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this event."
+              },
+              "eventDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
+              },
+              "traitLabel": {
+                "$ref": "#/components/schemas/icarTraitLabelIdentifierType",
+                "description": "If the event represents a formal trait, identifies the recording system and trait."
+              },
+              "responsible": {
+                "type": "string",
+                "description": "Use if an observation is manually recorded, or an event is carried out or authorised by a person. SHOULD be a person object."
+              },
+              "contemporaryGroup": {
+                "type": "string",
+                "description": "For manually recorded events, record any contemporary group code that would affect statistical analysis."
+              },
+              "remark": {
+                "type": "string",
+                "description": "A comment or remark field for additional user-specified information about the event."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalIdentifierType": {
+        "description": "Identifies an animal using a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarAnimalEventCoreResource": {
+        "description": "Extends icarEventCoreResource to add a single individual animal identifier.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "animal"
+            ],
+            "properties": {
+              "animal": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              }
+            }
+          }
+        ]
+      },
+      "icarMilkDurationType": {
+        "description": "The length in time of the milking",
+        "type": "object",
+        "properties": {
+          "unitCode": {
+            "type": "string",
+            "description": "UN/CEFACT Common Code for Units of Measurement.",
+            "enum": [
+              "SEC",
+              "MIN"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "icarMilkingTypeCode": {
+        "description": "The type of milking (manual or automated)",
+        "type": "string",
+        "enum": [
+          "Manual",
+          "Automated"
+        ]
+      },
+      "icarMilkingMilkWeightType": {
+        "description": "The amount of milk milked",
+        "type": "object",
+        "required": [
+          "unitCode",
+          "value"
+        ],
+        "properties": {
+          "unitCode": {
+            "type": "string",
+            "description": "UN/CEFACT Common Code for Units of Measurement.",
+            "enum": [
+              "KGM"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "icarBottleIdentifierType": {
+        "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode",
+        "type": "string",
+        "enum": [
+          "BRC",
+          "RFD"
+        ]
+      },
+      "icarValidSampleFillingIndicatorType": {
+        "description": "Validity of sample based on milk volume: 0=success (>80% expected milk), 1=incomplete (< 20% expected milk), 2=completed (with between 20-80% expected milk).",
+        "type": "string",
+        "enum": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "icarQuarterMilkingSampleType": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "bottleIdentifierType": {
+            "$ref": "#/components/schemas/icarBottleIdentifierType",
+            "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode"
+          },
+          "rackNumber": {
+            "type": "string",
+            "description": "Number of the sample rack"
+          },
+          "bottlePosition": {
+            "type": "string",
+            "description": "Position of the bottle in the sample rack"
+          },
+          "bottleIdentifier": {
+            "type": "string",
+            "description": "Bottle identifier read from barcode or RFID"
+          },
+          "validSampleFillingIndicator": {
+            "$ref": "#/components/schemas/icarValidSampleFillingIndicatorType",
+            "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list"
+          },
+          "operator": {
+            "type": "string",
+            "description": "The operator that took the sample"
+          }
+        }
+      },
+      "icarMilkCharacteristicsType": {
+        "description": "Characteristics of the milk produced.",
+        "type": "object",
+        "required": [
+          "characteristic",
+          "value"
+        ],
+        "properties": {
+          "characteristic": {
+            "type": "string",
+            "description": "Treat this field as an enum, with the list and units in https://github.com/adewg/ICAR/blob/ADE-1/enums/icarMilkCharacteristicCodeType.json."
+          },
+          "value": {
+            "type": "string",
+            "description": "the value of the characteristic measured"
+          },
+          "unit": {
+            "type": "string",
+            "description": "Use the units for characteristics in https://github.com/adewg/ICAR/blob/ADE-1/enums/icarMilkCharacteristicCodeType.json. Only override when your units for a characteristic are different. Use UN/CEFACT codes."
+          },
+          "measuringDevice": {
+            "type": "string",
+            "description": "a more readable device class ID that contains manufacturer, device, hardware and software versions in a way that is similar to the USB specification. This will need more investigation."
+          }
+        }
+      },
+      "icarQuarterMilkingType": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "icarQuarterId": {
+            "type": "string",
+            "description": "the unique id of the quarter milking",
+            "enum": [
+              "LF",
+              "RF",
+              "LR",
+              "RR"
+            ]
+          },
+          "xposition": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Optional milking robot X position. Vendors may choose not to provide this."
+          },
+          "yposition": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Optional milking robot Y position. Vendors may choose not to provide this."
+          },
+          "zposition": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Optional milking robot Z position. Vendors may choose not to provide this."
+          },
+          "quarterMilkingDuration": {
+            "$ref": "#/components/schemas/icarMilkDurationType"
+          },
+          "quarterMilkingWeight": {
+            "$ref": "#/components/schemas/icarMilkingMilkWeightType"
+          },
+          "icarQuarterMilkingSample": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarQuarterMilkingSampleType"
+            }
+          },
+          "icarQuarterCharacteristics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarMilkCharacteristicsType"
+            }
+          }
+        }
+      },
+      "icarAnimalMilkingSampleType": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "bottleIdentifierType": {
+            "$ref": "#/components/schemas/icarBottleIdentifierType",
+            "description": "The type of bottle identifiertype according to ICAR_BottleIdentifierCode"
+          },
+          "rackNumber": {
+            "type": "string",
+            "description": "Number of the sample rack"
+          },
+          "bottlePosition": {
+            "type": "string",
+            "description": "Position of the bottle in the sample rack"
+          },
+          "bottleIdentifier": {
+            "type": "string",
+            "description": "Bottle identifier read from barcode or RFID"
+          },
+          "validSampleFillingIndicator": {
+            "$ref": "#/components/schemas/icarValidSampleFillingIndicatorType",
+            "description": "Indicator of valid sample filling according to ICAR_ValidSampleFillingIndicatorCode list"
+          },
+          "operator": {
+            "type": "string",
+            "description": "The operator that took the sample"
+          }
+        }
+      },
+      "icarMilkingRemarksType": {
+        "description": "Enumeration for different possible milking-remarks.",
+        "type": "string",
+        "enum": [
+          "AnimalSick",
+          "MilkingIncomplete",
+          "TeatSeparated",
+          "MilkedSeparately",
+          "SamplingFailed"
+        ]
+      },
+      "icarTestDayCodeType": {
+        "description": "The test day code, indicating a status of the cow on the test day.",
+        "type": "string",
+        "enum": [
+          "Dry",
+          "SamplingImpossible",
+          "Sick"
+        ]
+      },
+      "icarMilkingPredictionType": {
+        "description": "The amount of milk, fat and protein milked in a defined period of time",
+        "type": "object",
+        "required": [
+          "milkWeight"
+        ],
+        "properties": {
+          "milkWeight": {
+            "$ref": "#/components/schemas/icarMilkingMilkWeightType"
+          },
+          "fatWeight": {
+            "$ref": "#/components/schemas/icarMilkingMilkWeightType"
+          },
+          "proteinWeight": {
+            "$ref": "#/components/schemas/icarMilkingMilkWeightType"
+          },
+          "hours": {
+            "type": "number",
+            "description": "The number of hours in which the mentioned milk, fat and protein were produced. Most commonly used is a 24 hours production."
+          }
+        }
+      },
+      "icarDateType": {
+        "description": "A particular day.",
+        "type": "string",
+        "format": "date"
+      },
+      "icarTraitAmountType": {
+        "description": "",
+        "type": "object",
+        "required": [
+          "unitCode",
+          "value"
+        ],
+        "properties": {
+          "unitCode": {
+            "type": "string",
+            "description": "UN/CEFACT Common Code for Units of Measurement.",
+            "enum": [
+              "KGM",
+              "LBR"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "icarDailyMilkingAveragesResource": {
+        "description": "Resource containing daily averages calculated from milking visit of a single animal",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "location",
+              "animal",
+              "averageDate"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this event."
+              },
+              "animal": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              },
+              "averageDate": {
+                "$ref": "#/components/schemas/icarDateType",
+                "description": "The date on which the average has been calculated."
+              },
+              "milkYieldAvg24h": {
+                "$ref": "#/components/schemas/icarTraitAmountType",
+                "description": "The average-amount of milk produced within 24h."
+              },
+              "milkYieldAvg7days": {
+                "$ref": "#/components/schemas/icarTraitAmountType",
+                "description": "The average-amount of milk produced within 7 days."
+              }
+            }
+          }
+        ]
+      },
+      "icarMilkPredictionResource": {
+        "description": "This returns a prediction of the expected milk, fat and protein for a cow for the remaining the lactation. A prediction of this production on the next testday is included and it also gives indication of when the peak production is reached. The eventDateTime for this event is the date of the prediction is made.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "averagePredictedProduction": {
+                "$ref": "#/components/schemas/icarMilkingPredictionType"
+              },
+              "daysInMilkAtLactationPeak": {
+                "type": "integer",
+                "description": "The days in milk in a lactation when the peak production is expected to occur."
+              },
+              "lactationPeakProduction": {
+                "$ref": "#/components/schemas/icarMilkingPredictionType"
+              },
+              "predictedProductionNextMR": {
+                "$ref": "#/components/schemas/icarMilkingPredictionType"
+              }
+            }
+          }
+        ]
+      },
+      "icarLactationType": {
+        "description": "Enumeration for lactation type.",
+        "type": "string",
+        "enum": [
+          "Normal",
+          "100Days",
+          "200Days",
+          "305Days",
+          "365Days"
+        ]
+      },
+      "icarMilkRecordingProtocolType": {
+        "description": "Enumeration for the milk recording protocol.",
+        "type": "string",
+        "enum": [
+          "A-OfficialMRORepresentative",
+          "B-HerdOwnerOrNominee",
+          "C-Both"
+        ]
+      },
+      "icarMilkRecordingSchemeType": {
+        "description": "Enumeration for the milk recording scheme",
+        "type": "string",
+        "enum": [
+          "AllMilkingsAtTestday",
+          "AllMilkingsInPeriod",
+          "OneMilkingAtTestday"
+        ]
+      },
+      "icarMilkingsPerDayType": {
+        "description": "Enumeration for the milkings per day.",
+        "type": "string",
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "Robot"
+        ]
+      },
+      "icarMilkSamplingSchemeType": {
+        "description": "Enumeration for the different milk sampling schemes.",
+        "type": "string",
+        "enum": [
+          "ProportionalSizeSamplingOfAllMilkings",
+          "ConstantSizeSamplingOfAllMilkings",
+          "AlternateSampling",
+          "CorrectedSampling",
+          "OneMilkingSampleInAMS",
+          "MulitpleMilkingSampleInAMS"
+        ]
+      },
+      "icarMilkSamplingMomentType": {
+        "description": "Enumeration for different possible milk sampling moments.",
+        "type": "string",
+        "enum": [
+          "Composite",
+          "Morning",
+          "Evening"
+        ]
+      },
+      "icarMilkingType": {
+        "description": "Enumeration for different possible types of milking.",
+        "type": "string",
+        "enum": [
+          "OfficialMilkResultSuppliedByMRO",
+          "MeasureByICARApprovedEquipment",
+          "MeasureByNotApprovedEquipment"
+        ]
+      },
+      "icarMilkRecordingMethodType": {
+        "description": "milk recording method information.",
+        "type": "object",
+        "properties": {
+          "milkRecordingProtocol": {
+            "$ref": "#/components/schemas/icarMilkRecordingProtocolType",
+            "description": "Protocol A: Official MRO representative, Protocol B: Herd owner or its nominee, Protocol C: Official MRO representative or herd owner or its nominee."
+          },
+          "milkRecordingScheme": {
+            "$ref": "#/components/schemas/icarMilkRecordingSchemeType",
+            "description": "all milkings at testday, all milkings in period, one milking at testday."
+          },
+          "milkingsPerDay": {
+            "$ref": "#/components/schemas/icarMilkingsPerDayType",
+            "description": "1 per day, 2, 3, 4, Continuous Milkings (e.g. robotic milking)."
+          },
+          "milkSamplingScheme": {
+            "$ref": "#/components/schemas/icarMilkSamplingSchemeType",
+            "description": "proportional size sampling of all milkings, constant size sampling of all milkings, sampling of one milking at alternating moments (Alternative Sampling), sampling of one milking at the same moments (Corrected Sampling), sampling of one milking at changing moments (AMS), sampling of multiple milkings at changing moments (AMS)."
+          },
+          "recordingInterval": {
+            "type": "number",
+            "description": "A number in days of the interval between milk recordings. In case of e.g.4 weeks, use 30."
+          },
+          "milkSamplingMoment": {
+            "$ref": "#/components/schemas/icarMilkSamplingMomentType",
+            "description": "Composite = composite sample from morning and evening, Morning, Evening."
+          },
+          "icarCertified": {
+            "type": "boolean",
+            "description": "indicates whether this information is certified by ICAR"
+          },
+          "milkingType": {
+            "$ref": "#/components/schemas/icarMilkingType",
+            "description": "Official milk result supplied by milk recording organisation, Measure by ICAR approved equipment, Measure by not approved equipment"
+          }
+        }
+      },
+      "icarLactationResource": {
+        "description": "Lactation information of an animal.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "animal"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this event."
+              },
+              "animal": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              },
+              "beginDate": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC date of the beginning of the lactation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "endDate": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC end date of the the lactation. This occurs when the animal is dried off, dies or calves again."
+              },
+              "parity": {
+                "type": "number",
+                "description": "The parity of the animal during this lactation."
+              },
+              "lactationLength": {
+                "type": "number",
+                "description": "The length of the lactation until this moment."
+              },
+              "milkAmount": {
+                "$ref": "#/components/schemas/icarTraitAmountType",
+                "description": "The amount of milk produced in this lactation."
+              },
+              "fatAmount": {
+                "$ref": "#/components/schemas/icarTraitAmountType",
+                "description": "The amount of fat produced in this lactation."
+              },
+              "proteinAmount": {
+                "$ref": "#/components/schemas/icarTraitAmountType",
+                "description": "The amount of protein produced in this lactation."
+              },
+              "lactosisAmount": {
+                "$ref": "#/components/schemas/icarTraitAmountType",
+                "description": "The amount of lactosis produced in this lactation."
+              },
+              "lastTestDay": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RCF3339 UTC date of the last test day in the lactation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "lactationType": {
+                "$ref": "#/components/schemas/icarLactationType",
+                "description": "This type of lactation based on lactation length that is delivered."
+              },
+              "milkRecordingMethod": {
+                "$ref": "#/components/schemas/icarMilkRecordingMethodType"
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalLactationStatusType": {
+        "description": "Enumeration for different possible lactation status of an animal.",
+        "type": "string",
+        "enum": [
+          "Dry",
+          "Lead",
+          "Fresh",
+          "Early",
+          "Lactating"
+        ]
+      },
+      "icarWithdrawalProductType": {
+        "description": "Categorises the types of products to which withdrawal periods may apply. These categories are generalised from NOAH/ACVM/FDA/Codex Alimentus.",
+        "type": "string",
+        "enum": [
+          "Meat",
+          "Milk",
+          "Eggs",
+          "Honey",
+          "Velvet",
+          "Fibre",
+          "Other"
+        ]
+      },
+      "icarWithdrawalEventResource": {
+        "description": "A withdrawal resource used to indicate that product should be separated (e.g. colostrum from newly lactating cows).",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "eventDateTime",
+              "productType"
+            ],
+            "properties": {
+              "endDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
+              },
+              "productType": {
+                "$ref": "#/components/schemas/icarWithdrawalProductType",
+                "description": "Product or food item affected by this withdrawal."
+              }
+            }
+          }
+        ]
+      },
+      "icarBatchResult": {
+        "description": "Returned by a batch POST event to return identity (meta), errors, and warnings for a resource.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier created in the system for this event. SHOULD be a UUID."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/icarMetaDataType",
+            "description": "Metadata for the posted resource. Allows specification of the source, source Id to synchronise data."
+          },
+          "messages": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "description": "An array of errors for this resource. The messages array may be unspecified OR null.",
+            "items": {
+              "$ref": "#/components/schemas/icarResponseMessageResource"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "location-scheme": {
+        "name": "location-scheme",
+        "in": "path",
+        "description": "The scheme id for the location identifier.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "location-id": {
+        "name": "location-id",
+        "in": "path",
+        "description": "The unique identifier for the location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "meta-modified-from": {
+        "name": "meta-modified-from",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "meta-modified-to": {
+        "name": "meta-modified-to",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "animal-scheme": {
+        "name": "animal-scheme",
+        "in": "query",
+        "description": "The scheme identifying the animal.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "animal-id": {
+        "name": "animal-id",
+        "in": "query",
+        "description": "The unique identifier of the animal.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "responses": {
+      "default": {
+        "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/icarErrorCollection"
+            }
+          }
+        }
+      }
+    }
+  }
+}
