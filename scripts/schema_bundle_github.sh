@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Check if npm is installed
 if ! command -v npm &> /dev/null; then
@@ -19,9 +19,9 @@ schemas=(
     "sortingURLScheme.json"
 )
 
-BundledSchemasPath="../bundled-schemes"
-UrlSchemesPath="../url-schemes"
-CombineSchemeConfigPath="../scripts/combine-schemes.json"
+BundledSchemasPath="bundled-schemes"
+UrlSchemesPath="url-schemes"
+CombineSchemeConfigPath="scripts/combine-schemes.json"
 
 # Remove old bundled schemas
 if [ -d "$BundledSchemasPath" ]; then
