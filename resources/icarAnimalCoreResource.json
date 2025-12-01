@@ -15,7 +15,11 @@
         "identifier": {
           "$ref": "../types/icarAnimalIdentifierType.json",
           "description": "Unique animal scheme and identifier combination."
-        },        
+        },
+        "status": {
+          "$ref": "../enums/icarAnimalStatusType.json",
+          "description": "On-farm status of the animal (such as alive, dead, off-farm)."
+        },
         "lactationStatus": {
           "$ref": "../enums/icarAnimalLactationStatusType.json",
           "description": "Lactation status of the animal."

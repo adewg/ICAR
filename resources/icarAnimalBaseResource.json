@@ -71,10 +71,6 @@
             "$ref": "../types/icarParentageType.json"
           }
         },
-        "status": {
-          "$ref": "../enums/icarAnimalStatusType.json",
-          "description": "On-farm status of the animal (such as alive, dead, off-farm)."
-        },
         "healthStatus": {
           "$ref": "../enums/icarAnimalHealthStatusType.json",
           "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled)."
