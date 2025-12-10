@@ -5247,35 +5247,16 @@
         ]
       },
       "icarProductionPurposeType": {
-        "description": "Defines the primary product that for which this animal is bred or kept.\\nIf animals are kept for breeding or live trade (sale), specify the end purpose of that breeding/trade.\\n\n - Meat corresponds to UNSPC 50111500 Minimally processed meat and poultry products\\n - Milk corresponds to UNSPC 50203200 Raw milk products from live animals\\n - Wool corresponds to UNSPC 11131506 Unprocessed wool",
+        "description": "Defines the primary product that for which this animal is bred or kept.\\nIf animals are kept for breeding or live trade (sale), specify the end purpose of that breeding/trade.\\n\n - Meat corresponds to UNSPC 50111500 Minimally processed meat and poultry products\\n - Milk corresponds to UNSPC 50203200 Raw milk products from live animals\\n - Wool corresponds to UNSPC 11131506 Unprocessed wool.\\n Suckler - used to breastfeed calves.\\n Breeding - bulls used for semen production.\\n",
         "type": "string",
         "enum": [
           "Meat",
           "Milk",
-          "Wool"
-        ]
-      },
-      "icarAnimalStatusType": {
-        "description": "Defines the status of the animal either absolutely and/or with reference to the location on which it is recorded\\nOff-farm signifies that the animal is no longer recorded at the location.",
-        "type": "string",
-        "enum": [
-          "Alive",
-          "Dead",
-          "OffFarm",
-          "Unknown"
-        ]
-      },
-      "icarAnimalReproductionStatusType": {
-        "description": "Enumeration for different possible reproduction status of an animal.",
-        "type": "string",
-        "enum": [
-          "Open",
-          "Inseminated",
-          "Pregnant",
-          "NotPregnant",
-          "Birthed",
-          "DoNotBreed",
-          "PregnantMultipleFoetus"
+          "Wool",
+          "Suckler",
+          "Breeding",
+          "Research",
+          "Pet"
         ]
       },
       "icarAnimalRelationType": {
@@ -5329,8 +5310,8 @@
           "ToBeCulled"
         ]
       },
-      "icarAnimalCoreResource": {
-        "description": "Core schema for representing animal",
+      "icarAnimalBaseResource": {
+        "description": "Base schema containing all common properties for animal and progeny resources.",
         "allOf": [
           {
             "$ref": "#/components/schemas/icarResource"
@@ -5338,15 +5319,10 @@
           {
             "type": "object",
             "required": [
-              "identifier",
               "specie",
               "gender"
             ],
             "properties": {
-              "identifier": {
-                "$ref": "#/components/schemas/icarAnimalIdentifierType",
-                "description": "Unique animal scheme and identifier combination."
-              },
               "alternativeIdentifiers": {
                 "type": "array",
                 "items": {
@@ -5398,18 +5374,6 @@
                 "$ref": "#/components/schemas/icarProductionPurposeType",
                 "description": "Primary production purpose for which animals are bred."
               },
-              "status": {
-                "$ref": "#/components/schemas/icarAnimalStatusType",
-                "description": "On-farm status of the animal (such as alive, dead, off-farm)."
-              },
-              "reproductionStatus": {
-                "$ref": "#/components/schemas/icarAnimalReproductionStatusType",
-                "description": "Reproduction status of the animal."
-              },
-              "lactationStatus": {
-                "$ref": "#/components/schemas/icarAnimalLactationStatusType",
-                "description": "Lactation status of the animal."
-              },
               "parentage": {
                 "type": "array",
                 "description": "Parents of the animal.  The array can handle multiple generations by specifying the parent of a parent.",
@@ -5420,6 +5384,61 @@
               "healthStatus": {
                 "$ref": "#/components/schemas/icarAnimalHealthStatusType",
                 "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled)."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalStatusType": {
+        "description": "Defines the status of the animal either absolutely and/or with reference to the location on which it is recorded\\nOff-farm signifies that the animal is no longer recorded at the location.",
+        "type": "string",
+        "enum": [
+          "Alive",
+          "Dead",
+          "OffFarm",
+          "Unknown"
+        ]
+      },
+      "icarAnimalReproductionStatusType": {
+        "description": "Enumeration for different possible reproduction status of an animal.",
+        "type": "string",
+        "enum": [
+          "Open",
+          "Inseminated",
+          "Pregnant",
+          "NotPregnant",
+          "Birthed",
+          "DoNotBreed",
+          "PregnantMultipleFoetus"
+        ]
+      },
+      "icarAnimalCoreResource": {
+        "description": "Core schema for representing animal",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalBaseResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "identifier"
+            ],
+            "properties": {
+              "identifier": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              },
+              "status": {
+                "$ref": "#/components/schemas/icarAnimalStatusType",
+                "description": "On-farm status of the animal (such as alive, dead, off-farm)."
+              },
+              "lactationStatus": {
+                "$ref": "#/components/schemas/icarAnimalLactationStatusType",
+                "description": "Lactation status of the animal."
+              },
+              "reproductionStatus": {
+                "$ref": "#/components/schemas/icarAnimalReproductionStatusType",
+                "description": "Reproduction status of the animal."
               }
             }
           }
@@ -5471,13 +5490,15 @@
         ]
       },
       "icarDeathDisposalMethodType": {
-        "description": "Enumeration for disposal method. Not specified in previous ADE data dictionary, required by some schemes.",
+        "description": "Enumeration for disposal method. Not specified in previous ADE data dictionary, required by some schemes.\n OnPremise- burial or leaving carcass on site.\n ApprovedService- collected for disposal by an approved service provider.\n Consumption- by wild animals, people on farm, or working dogs",
         "type": "string",
         "enum": [
           "ApprovedService",
           "Consumption",
           "OnPremise",
-          "Other"
+          "Other",
+          "Cremation",
+          "Research"
         ]
       },
       "PostalAddress": {
@@ -6852,66 +6873,14 @@
         "description": "Schema for representing progeny details",
         "allOf": [
           {
-            "$ref": "#/components/schemas/icarResource"
+            "$ref": "#/components/schemas/icarAnimalBaseResource"
           },
           {
             "type": "object",
-            "required": [
-              "specie",
-              "gender"
-            ],
             "properties": {
               "identifier": {
-                "description": "Unique animal scheme and identifier combination.",
-                "anyOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "$ref": "#/components/schemas/icarAnimalIdentifierType"
-                  }
-                ]
-              },
-              "alternativeIdentifiers": {
-                "anyOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/icarAnimalIdentifierType"
-                    }
-                  }
-                ],
-                "description": "Alternative identifiers for the animal. Here, also temporary identifiers, e.g. transponders or animal numbers, can be listed."
-              },
-              "specie": {
-                "$ref": "#/components/schemas/icarAnimalSpecieType",
-                "description": "Species of the animal."
-              },
-              "gender": {
-                "$ref": "#/components/schemas/icarAnimalGenderType",
-                "description": "Gender of the animal."
-              },
-              "managementTag": {
-                "anyOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
-                "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
-              },
-              "name": {
-                "type": "string",
-                "description": "Name given by the farmer for this animal."
-              },
-              "officialName": {
-                "type": "string",
-                "description": "Official herdbook name."
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
               },
               "taggingDate": {
                 "description": "Progeny tagging date in RFC3339 UTC (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
