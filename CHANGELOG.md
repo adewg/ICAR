@@ -1,8 +1,19 @@
 # Changelog
 
-## [v1.5.0](https://github.com/adewg/ICAR/tree/HEAD)
+## [v1.5.1](https://github.com/adewg/ICAR/tree/HEAD)
 
-[Full Changelog](https://github.com/adewg/ICAR/compare/v1.4.1...HEAD)
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.5.0...HEAD)
+
+**Closed issues:**
+
+- Add further enumerated values to icarProductionPurposeType [\#566](https://github.com/adewg/ICAR/issues/566)
+- Animal Disposal Types Mapping [\#565](https://github.com/adewg/ICAR/issues/565)
+- Add parents and other attributes in parturition icarProgenyDetailsResource [\#564](https://github.com/adewg/ICAR/issues/564)
+- Prepare for a small ADE 1.5 release [\#536](https://github.com/adewg/ICAR/issues/536)
+
+## [v1.5.0](https://github.com/adewg/ICAR/tree/v1.5.0) (2025-11-04)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.4.1...v1.5.0)
 
 **Closed issues:**
 
@@ -34,6 +45,9 @@
 
 **Merged pull requests:**
 
+- Merge from Develop - schema bundling fixes and changelog [\#574](https://github.com/adewg/ICAR/pull/574) ([cookeac](https://github.com/cookeac))
+- Bundle schema job fix [\#573](https://github.com/adewg/ICAR/pull/573) ([AlexeyHardCode](https://github.com/AlexeyHardCode))
+- Update changelog for v1.5.0 [\#572](https://github.com/adewg/ICAR/pull/572) ([cookeac](https://github.com/cookeac))
 - Fix typo: regurgiating → regurgitating in observation summary metrics [\#571](https://github.com/adewg/ICAR/pull/571) ([Copilot](https://github.com/apps/copilot-swe-agent))
 - Fix spelling errors in identifier type names [\#570](https://github.com/adewg/ICAR/pull/570) ([Copilot](https://github.com/apps/copilot-swe-agent))
 - Merge from Develop branch for ADE 1.5 release [\#569](https://github.com/adewg/ICAR/pull/569) ([cookeac](https://github.com/cookeac))

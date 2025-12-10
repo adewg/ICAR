@@ -1,0 +1,81 @@
+{
+  "description": "Base schema containing all common properties for animal and progeny resources.",
+
+  "allOf": [{
+      "$ref": "../resources/icarResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "specie",
+        "gender"
+      ],
+      
+      "properties": {        
+        "alternativeIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarAnimalIdentifierType.json"
+          },
+          "description": "Alternative identifiers for the animal. Here, also temporary identifiers, e.g. transponders or animal numbers, can be listed."
+        },
+        "specie": {
+          "$ref": "../enums/icarAnimalSpecieType.json",
+          "description": "Species of the animal."
+        },
+        "gender": {
+          "$ref": "../enums/icarAnimalGenderType.json",
+          "description": "Gender of the animal."
+        },
+        "birthDate": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "RFC3339 UTC date/time of birth (see https://ijmacd.github.io/rfc3339-iso8601/ for how to use)."
+        },
+        "primaryBreed": {
+          "$ref": "../types/icarBreedIdentifierType.json",
+          "description": "ICAR Breed code for the animal."
+        },
+        "breedFractions": {
+          "$ref": "../types/icarBreedFractionsType.json",
+          "description": "Breed fractions for the animal."
+        },
+        "coatColor": {
+          "type": "string",
+          "description": "Colour of the animal's coat, using the conventions for that breed."
+        },
+        "coatColorIdentifier": {
+          "$ref": "../types/icarCoatColorIdentifierType.json",
+          "description": "Colour of the animal's coat using a national or breed-defined scheme and identifier combination."
+        },
+        "managementTag": {
+          "type": "string",
+          "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name given by the farmer for this animal."
+        },
+        "officialName": {
+          "type": "string",
+          "description": "Official herdbook name."
+        },
+        "productionPurpose": {
+          "$ref": "../enums/icarProductionPurposeType.json",
+          "description": "Primary production purpose for which animals are bred."
+        },
+        "parentage": {
+          "type": "array",
+          "description": "Parents of the animal.  The array can handle multiple generations by specifying the parent of a parent.",
+          "items": {
+            "$ref": "../types/icarParentageType.json"
+          }
+        },
+        "healthStatus": {
+          "$ref": "../enums/icarAnimalHealthStatusType.json",
+          "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled)."
+        }
+      }
+    }
+  ]
+}
