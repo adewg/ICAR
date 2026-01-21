@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Check if npm is installed
 if ! command -v npm &> /dev/null; then
@@ -19,9 +19,9 @@ schemas=(
     "sortingURLScheme.json"
 )
 
-BundledSchemasPath="../bundled-schemes"
-UrlSchemesPath="../url-schemes"
-CombineSchemeConfigPath="../scripts/combine-schemes.json"
+BundledSchemasPath="bundled-schemes"
+UrlSchemesPath="url-schemes"
+CombineSchemeConfigPath="scripts/combine-schemes.json"
 
 # Remove old bundled schemas
 if [ -d "$BundledSchemasPath" ]; then
@@ -63,7 +63,7 @@ if [ -d "$UrlSchemesPath" ]; then
         if npx --yes openapi-merge-cli --config "$CombineSchemeConfigPath"; then
             echo "Schemes combined successfully."
             # replace 3.0.3 with 3.1.0 in bundled-schemes/combinedURLScheme.json file
-            sed -i '' 's/"openapi": "3.0.3"/"openapi": "3.1.0"/' "$BundledSchemasPath/combinedURLScheme.json"
+            sed -i 's/"openapi": "3\.0\.3"/"openapi": "3.1.0"/' "$BundledSchemasPath/combinedURLScheme.json"
             echo "Specification patched properly to openapi 3.1.0."
         else
             echo "Failed to combine schemes."

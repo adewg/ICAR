@@ -1,5 +1,5 @@
 {
-  "description": "Enumeration for disposal method. Not specified in previous ADE data dictionary, required by some schemes.",
+  "description": "Enumeration for disposal method. Not specified in previous ADE data dictionary, required by some schemes.\n OnPremise- burial or leaving carcass on site.\n ApprovedService- collected for disposal by an approved service provider.\n Consumption- by wild animals, people on farm, or working dogs",
 
   "type": "string",
 
@@ -7,6 +7,8 @@
     "ApprovedService",
     "Consumption",
     "OnPremise",
-    "Other"
+    "Other",
+    "Cremation",
+    "Research"
   ]
 }

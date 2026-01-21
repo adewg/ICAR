@@ -890,7 +890,7 @@
                 ],
                 "requestBody": {
                     "required": true,
-                    "description": "The device to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "description": "The remark event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -901,7 +901,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "description": "Successful. The response contains a copy of the event, as modified by the server.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1027,7 +1027,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Successful. The response contains a copy of the resource, as modifed by the server.",
+                        "description": "Successful. The response contains a copy of the resource, as modified by the server.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1745,7 +1745,7 @@
             "post": {
                 "operationId": "post-batch-remark-events",
                 "summary": "Add an array of animal remark events.",
-                "description": "# Purpose \nAllows a client to add a collection ofanimal remark events.\n",
+                "description": "# Purpose \nAllows a client to add a collection of animal remark events.\n",
                 "tags": [
                     "ADE-1.5-management"
                 ],
