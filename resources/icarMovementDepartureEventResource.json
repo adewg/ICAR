@@ -10,7 +10,7 @@
       "properties": {
         "departureKind": {
           "$ref": "../enums/icarDepartureKindType.json",
-          "description": "Identifies the kind of departure of the animal from the holding."
+          "description": "Identifies the kind (method) of departure of the animal from the holding."
         },
         "departureReason": {
           "$ref": "../enums/icarDepartureReasonType.json",
@@ -26,6 +26,10 @@
           "items": {
             "$ref": "../types/icarReasonIdentifierType.json"
           }
+        },
+        "diagnosisCode": {
+            "$ref": "../types/icarDiagnosisIdentifierType.json",
+            "description": "Used with 'Health' reason to expand on health reasons for departure. Use ICAR (https://www.icar.org/guidelines/icar-central-health-key/) or VENOM coding scheme."
         }
       }
     }

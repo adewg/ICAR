@@ -21,7 +21,18 @@
                 "consignment": {
                     "$ref": "../types/icarConsignmentType.json",
                     "description": "Consignment information about origin, destination, and transport."
-                }
+                },
+                "extendedReasons": {
+                    "description": "Extended reason codes why these animals have departed.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarReasonIdentifierType.json"
+                    }
+                },
+                "diagnosisCode": {
+                    "$ref": "../types/icarDiagnosisIdentifierType.json",
+                    "description": "Used with 'Health' reason to expand on health reasons for departure. Use ICAR (https://www.icar.org/guidelines/icar-central-health-key/) or VENOM coding scheme."
+                }                
             }
         }
     ]
