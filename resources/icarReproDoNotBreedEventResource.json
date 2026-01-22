@@ -12,12 +12,20 @@
           "description": "Set this attribute to true if the animal should not be bred, false if it may now be bred.",
           "default": true
         },
+        "reason": {
+          "$ref": "../enums/icarDepartureReasonType.json",
+          "description": "Identifies the reason for not breeding the animal (very similar to departure reasons, hence same code list)."
+        },
         "extendedReasons": {
           "description": "Extended reason codes why this animal should not be bred.",
           "type": "array",
           "items": {
             "$ref": "../types/icarReasonIdentifierType.json"
           }
+        },
+        "diagnosisCode": {
+            "$ref": "../types/icarDiagnosisIdentifierType.json",
+            "description": "Used with 'Health' reason to expand on health reasons for not breeding. Use ICAR (https://www.icar.org/guidelines/icar-central-health-key/) or VENOM coding scheme."
         }
       }
     }

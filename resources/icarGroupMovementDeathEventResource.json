@@ -36,7 +36,18 @@
                 "deathMethod": {
                     "$ref": "../enums/icarDeathMethodType.json",
                     "description": "Defines the MEANS of death, including an accident, natural causes, or euthanised."
-                }
+                },
+                "extendedReasons": {
+                    "description": "Extended reason codes why these animals have died.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "../types/icarReasonIdentifierType.json"
+                    }
+                },
+                "diagnosisCode": {
+                    "$ref": "../types/icarDiagnosisIdentifierType.json",
+                    "description": "Used with 'Health' reason to expand on health reasons for death. Use ICAR (https://www.icar.org/guidelines/icar-central-health-key/) or VENOM coding scheme."
+                }  
             }
         }
     ]
