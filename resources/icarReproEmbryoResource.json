@@ -45,6 +45,10 @@
         "sireURI": {
           "type": "string",
           "description": "URI to an AnimalCoreResource for the sire."
+        },
+        "sirePrimaryBreed": {
+          "$ref": "../types/icarBreedIdentifierType.json",
+          "description": "ICAR Breed code for the sire. The usage of this property is not reasonable if more than one sire is provided."
         }
       }
     }
