@@ -5,17 +5,9 @@
   
     "enum": [
         "LegsFrontLeft",
-        "InnerToeFrontLeft",
-        "OuterToeFrontLeft",
         "LegsFrontRight",
-        "InnerToeFrontRight",
-        "OuterToeFrontRight",
         "LegsRearLeft",
-        "InnerToeRearLeft",
-        "OuterToeRearLeft",
         "LegsRearRight",
-        "InnerToeRearRight",
-        "OuterToeRearRight",
         "UdderFrontLeft",
         "UdderFrontRight",
         "UdderRearLeft",
@@ -28,6 +20,14 @@
         "Mouth",
         "Back",
         "Testes",
-        "Other"
+        "Other",
+        "InnerToeFrontLeft",
+        "OuterToeFrontLeft",
+        "InnerToeFrontRight",
+        "OuterToeFrontRight",
+        "InnerToeRearLeft",
+        "OuterToeRearLeft",
+        "InnerToeRearRight",
+        "OuterToeRearRight"
     ]
   }
