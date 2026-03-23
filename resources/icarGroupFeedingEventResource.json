@@ -1,6 +1,7 @@
 {
     "description": "Event for recording group or mob feeding. Allowances represent averages so this cannot be used to populate individual animal events.",
     "type": "object",
+    "required": ["eventDateTime", "location"],
     "allOf": [
         {
             "$ref": "../resources/icarGroupEventCoreResource.json"

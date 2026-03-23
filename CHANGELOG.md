@@ -1,8 +1,91 @@
 # Changelog
 
-## [v1.4.1](https://github.com/adewg/ICAR/tree/HEAD)
+## [v1.5.1](https://github.com/adewg/ICAR/tree/HEAD)
 
-[Full Changelog](https://github.com/adewg/ICAR/compare/v1.4.0...HEAD)
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.5.0...HEAD)
+
+**Closed issues:**
+
+- Add further enumerated values to icarProductionPurposeType [\#566](https://github.com/adewg/ICAR/issues/566)
+- Animal Disposal Types Mapping [\#565](https://github.com/adewg/ICAR/issues/565)
+- Add parents and other attributes in parturition icarProgenyDetailsResource [\#564](https://github.com/adewg/ICAR/issues/564)
+- Prepare for a small ADE 1.5 release [\#536](https://github.com/adewg/ICAR/issues/536)
+
+## [v1.5.0](https://github.com/adewg/ICAR/tree/v1.5.0) (2025-11-04)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.4.1...v1.5.0)
+
+**Closed issues:**
+
+- "specie" should be "species" [\#557](https://github.com/adewg/ICAR/issues/557)
+- milkWeight required in milk-predictions API [\#552](https://github.com/adewg/ICAR/issues/552)
+- combinedURLScheme.json is incorrectly labeled as a openapi 3.0.3 specification [\#548](https://github.com/adewg/ICAR/issues/548)
+- Add Support for Canadian Animal Identification Systems \(CFIA\) [\#542](https://github.com/adewg/ICAR/issues/542)
+- group-feeding vs group-feedings path inconsistency [\#540](https://github.com/adewg/ICAR/issues/540)
+- icarGroupFeedingEventResource missing 'required' specification [\#539](https://github.com/adewg/ICAR/issues/539)
+- Add schemes to Identifier schemes [\#537](https://github.com/adewg/ICAR/issues/537)
+- Cater for on-animal devices by adding animal identifier to icarDeviceResource [\#534](https://github.com/adewg/ICAR/issues/534)
+- Extend causes for Attentions [\#528](https://github.com/adewg/ICAR/issues/528)
+- Add a script to create a merged \(flattened\) single file JSON schema to make it easy for new developers [\#523](https://github.com/adewg/ICAR/issues/523)
+- Introduce Freemartin to icarAnimalGenderType [\#522](https://github.com/adewg/ICAR/issues/522)
+- Standardise durations for observation summary metrics \(months/minutes confusion\) [\#517](https://github.com/adewg/ICAR/issues/517)
+- Add "Euthanized" to icarDeathMethod [\#515](https://github.com/adewg/ICAR/issues/515)
+- Add POST API method to ObservationSummaryResource [\#510](https://github.com/adewg/ICAR/issues/510)
+- Support remarks on animals other than as part of other events \(solution: remark event\) [\#508](https://github.com/adewg/ICAR/issues/508)
+- Add resourceTypeCatalog entry for ObservationSummaryResource [\#506](https://github.com/adewg/ICAR/issues/506)
+- Mismatch for required and optional fields compared to defintions from main website [\#502](https://github.com/adewg/ICAR/issues/502)
+- Add conformation traits compliant with updated Guidelines section 5 [\#501](https://github.com/adewg/ICAR/issues/501)
+- Fix schema problem with nullable reference types \(dates\) in icarMetaDataType. [\#497](https://github.com/adewg/ICAR/issues/497)
+- Merge OpenAPI specifications to fix issue with code generation \(OpenAPI 3.1\) [\#495](https://github.com/adewg/ICAR/issues/495)
+- Distinguish insemination carried out by farmer from breeding organisation [\#494](https://github.com/adewg/ICAR/issues/494)
+- Request movement- and reproduction-history of a single animal [\#493](https://github.com/adewg/ICAR/issues/493)
+- ICAR version number in Json [\#491](https://github.com/adewg/ICAR/issues/491)
+- Additional UN/CEFACT medicine units for TU \(tube\) and EA \(each - for things like boluses\) [\#487](https://github.com/adewg/ICAR/issues/487)
+- Resource for individual animal observation statistics [\#465](https://github.com/adewg/ICAR/issues/465)
+
+**Merged pull requests:**
+
+- Merge from Develop - schema bundling fixes and changelog [\#574](https://github.com/adewg/ICAR/pull/574) ([cookeac](https://github.com/cookeac))
+- Bundle schema job fix [\#573](https://github.com/adewg/ICAR/pull/573) ([AlexeyHardCode](https://github.com/AlexeyHardCode))
+- Update changelog for v1.5.0 [\#572](https://github.com/adewg/ICAR/pull/572) ([cookeac](https://github.com/cookeac))
+- Fix typo: regurgiating → regurgitating in observation summary metrics [\#571](https://github.com/adewg/ICAR/pull/571) ([Copilot](https://github.com/apps/copilot-swe-agent))
+- Fix spelling errors in identifier type names [\#570](https://github.com/adewg/ICAR/pull/570) ([Copilot](https://github.com/apps/copilot-swe-agent))
+- Merge from Develop branch for ADE 1.5 release [\#569](https://github.com/adewg/ICAR/pull/569) ([cookeac](https://github.com/cookeac))
+- Update readme and URL schemes to 1.5 [\#568](https://github.com/adewg/ICAR/pull/568) ([cookeac](https://github.com/cookeac))
+- Revert "allOf" around referenced schemas [\#567](https://github.com/adewg/ICAR/pull/567) ([cookeac](https://github.com/cookeac))
+- Deprecate group-feeding in favour of group-feedings [\#558](https://github.com/adewg/ICAR/pull/558) ([cookeac](https://github.com/cookeac))
+- Update icarAnimalIdentifierType.md [\#551](https://github.com/adewg/ICAR/pull/551) ([lbelanger-lactanet](https://github.com/lbelanger-lactanet))
+- Update icarLocationIdentifierType.md [\#550](https://github.com/adewg/ICAR/pull/550) ([lbelanger-lactanet](https://github.com/lbelanger-lactanet))
+- Fix combine schema metadata [\#549](https://github.com/adewg/ICAR/pull/549) ([jrobichaud](https://github.com/jrobichaud))
+- 534\_device\_animal\_simplistic [\#546](https://github.com/adewg/ICAR/pull/546) ([cookeac](https://github.com/cookeac))
+- 539\_group\_feedings\_required [\#545](https://github.com/adewg/ICAR/pull/545) ([cookeac](https://github.com/cookeac))
+- Add support for Canadian animal identification systems \(CFIA\) [\#544](https://github.com/adewg/ICAR/pull/544) ([cookeac](https://github.com/cookeac))
+- Fix minor typo in type classification event ressource [\#541](https://github.com/adewg/ICAR/pull/541) ([jrobichaud](https://github.com/jrobichaud))
+- 537 danish identifier codes [\#538](https://github.com/adewg/ICAR/pull/538) ([cookeac](https://github.com/cookeac))
+- Update icarMetricTypeIdentifier.md [\#532](https://github.com/adewg/ICAR/pull/532) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Update icarCarcassMetricIdentifierType.md [\#531](https://github.com/adewg/ICAR/pull/531) ([cookeac](https://github.com/cookeac))
+- add AnimalTemperatureIncrease and Decrease to attention causes [\#529](https://github.com/adewg/ICAR/pull/529) ([KrennKristof](https://github.com/KrennKristof))
+- Update identifier-types.md [\#527](https://github.com/adewg/ICAR/pull/527) ([cookeac](https://github.com/cookeac))
+- Filter events by animal-id [\#525](https://github.com/adewg/ICAR/pull/525) ([AlexeyHardCode](https://github.com/AlexeyHardCode))
+- Add Euthanized to icarDeathMethodType [\#524](https://github.com/adewg/ICAR/pull/524) ([cookeac](https://github.com/cookeac))
+- Update icarAnimalGenderType.json [\#521](https://github.com/adewg/ICAR/pull/521) ([Busfi3ld](https://github.com/Busfi3ld))
+- Add POST methods for icarObservationSummaryResource [\#520](https://github.com/adewg/ICAR/pull/520) ([cookeac](https://github.com/cookeac))
+- Add resource type catalog entry for icarObservationSummaryResource and icarRemarkEventResource [\#519](https://github.com/adewg/ICAR/pull/519) ([cookeac](https://github.com/cookeac))
+- Standardise icarDurationType enum to use ISO8601 period syntax [\#518](https://github.com/adewg/ICAR/pull/518) ([cookeac](https://github.com/cookeac))
+- Add remark event resource \(508\) [\#516](https://github.com/adewg/ICAR/pull/516) ([cookeac](https://github.com/cookeac))
+- Add New Zealand participant codes for location scheme [\#514](https://github.com/adewg/ICAR/pull/514) ([troygNZ](https://github.com/troygNZ))
+- Add FrontFeetOrientation \#501 [\#512](https://github.com/adewg/ICAR/pull/512) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Develop [\#511](https://github.com/adewg/ICAR/pull/511) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
+- Bundle schemes for code generation [\#509](https://github.com/adewg/ICAR/pull/509) ([mtech-ashelepaev](https://github.com/mtech-ashelepaev))
+- Update icarLocationIdentifierType.md [\#503](https://github.com/adewg/ICAR/pull/503) ([Busfi3ld](https://github.com/Busfi3ld))
+- Add doItYourself to insemination [\#500](https://github.com/adewg/ICAR/pull/500) ([cookeac](https://github.com/cookeac))
+- fix nullable reference [\#496](https://github.com/adewg/ICAR/pull/496) ([damare](https://github.com/damare))
+- Add TU and EA to uncefactDoseUnitsType [\#488](https://github.com/adewg/ICAR/pull/488) ([cookeac](https://github.com/cookeac))
+- 465 animal observation summary [\#486](https://github.com/adewg/ICAR/pull/486) ([cookeac](https://github.com/cookeac))
+
+## [v1.4.1](https://github.com/adewg/ICAR/tree/v1.4.1) (2024-08-08)
+
+[Full Changelog](https://github.com/adewg/ICAR/compare/v1.4.0...v1.4.1)
 
 **Closed issues:**
 
@@ -13,6 +96,10 @@
 
 **Merged pull requests:**
 
+- Merge from Develop for 1.4.1 point release [\#484](https://github.com/adewg/ICAR/pull/484) ([cookeac](https://github.com/cookeac))
+- Sorting command with multiple sorting sites [\#483](https://github.com/adewg/ICAR/pull/483) ([NedapLivestockManagement](https://github.com/NedapLivestockManagement))
+- Bring over Readme from ADE-1 \(1.4\) [\#482](https://github.com/adewg/ICAR/pull/482) ([cookeac](https://github.com/cookeac))
+- Add extended reason codes [\#481](https://github.com/adewg/ICAR/pull/481) ([cookeac](https://github.com/cookeac))
 - Update README.md for 1.4 [\#480](https://github.com/adewg/ICAR/pull/480) ([cookeac](https://github.com/cookeac))
 
 ## [v1.4.0](https://github.com/adewg/ICAR/tree/v1.4.0) (2024-05-21)
@@ -338,8 +425,8 @@
 - Add Calving Ease to fix \#185 [\#208](https://github.com/adewg/ICAR/pull/208) ([cookeac](https://github.com/cookeac))
 - Add unknown gender, add consignment+method to death [\#204](https://github.com/adewg/ICAR/pull/204) ([cookeac](https://github.com/cookeac))
 - Correct example URL scheme [\#201](https://github.com/adewg/ICAR/pull/201) ([cookeac](https://github.com/cookeac))
-- Management tag [\#200](https://github.com/adewg/ICAR/pull/200) ([thomasd-gea](https://github.com/thomasd-gea))
-- Feed storages [\#198](https://github.com/adewg/ICAR/pull/198) ([thomasd-gea](https://github.com/thomasd-gea))
+- Management tag [\#200](https://github.com/adewg/ICAR/pull/200) ([ghost](https://github.com/ghost))
+- Feed storages [\#198](https://github.com/adewg/ICAR/pull/198) ([ghost](https://github.com/ghost))
 - Add sourceId to icarMetaDataType [\#197](https://github.com/adewg/ICAR/pull/197) ([cookeac](https://github.com/cookeac))
 - PR to develop branch for schemata definitions [\#196](https://github.com/adewg/ICAR/pull/196) ([ahokkonen](https://github.com/ahokkonen))
 - issue 130 recommended filter parameter names [\#187](https://github.com/adewg/ICAR/pull/187) ([alamers](https://github.com/alamers))
@@ -347,7 +434,7 @@
 - Develop [\#182](https://github.com/adewg/ICAR/pull/182) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
 - Fixed reference in icarDailyFeedReportCollection [\#181](https://github.com/adewg/ICAR/pull/181) ([ahokkonen](https://github.com/ahokkonen))
 - Feed API's first version [\#176](https://github.com/adewg/ICAR/pull/176) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
-- Added Time Zone ID to Location [\#175](https://github.com/adewg/ICAR/pull/175) ([thomasd-gea](https://github.com/thomasd-gea))
+- Added Time Zone ID to Location [\#175](https://github.com/adewg/ICAR/pull/175) ([ghost](https://github.com/ghost))
 - Correct icarMedicineResource syntax [\#169](https://github.com/adewg/ICAR/pull/169) ([cookeac](https://github.com/cookeac))
 - Correct so branches are only MAJOR versions + Develop [\#165](https://github.com/adewg/ICAR/pull/165) ([cookeac](https://github.com/cookeac))
 - Update from ADE-1-1 \(v1.1.1\) [\#162](https://github.com/adewg/ICAR/pull/162) ([cookeac](https://github.com/cookeac))
@@ -399,8 +486,8 @@
 - Add DoNotBreed to Repro status [\#146](https://github.com/adewg/ICAR/pull/146) ([cookeac](https://github.com/cookeac))
 - Corrected linting errors and file names [\#145](https://github.com/adewg/ICAR/pull/145) ([cookeac](https://github.com/cookeac))
 - creation of a do-not-breed event [\#143](https://github.com/adewg/ICAR/pull/143) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
-- Added animal status [\#142](https://github.com/adewg/ICAR/pull/142) ([thomasd-gea](https://github.com/thomasd-gea))
-- Added animalSetJoin and animalSetLeave events [\#141](https://github.com/adewg/ICAR/pull/141) ([thomasd-gea](https://github.com/thomasd-gea))
+- Added animal status [\#142](https://github.com/adewg/ICAR/pull/142) ([ghost](https://github.com/ghost))
+- Added animalSetJoin and animalSetLeave events [\#141](https://github.com/adewg/ICAR/pull/141) ([ghost](https://github.com/ghost))
 - Gestations API issue https://github.com/adewg/ICAR/issues/121 [\#137](https://github.com/adewg/ICAR/pull/137) ([erwinspeybroeck](https://github.com/erwinspeybroeck))
 - Additional changes for conformation score [\#136](https://github.com/adewg/ICAR/pull/136) ([ahokkonen](https://github.com/ahokkonen))
 - Add animal health diagnosis, treatment, and treatment program events [\#134](https://github.com/adewg/ICAR/pull/134) ([cookeac](https://github.com/cookeac))

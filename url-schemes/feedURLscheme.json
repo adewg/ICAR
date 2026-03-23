@@ -3,7 +3,7 @@
     "info": {
         "title": "Feed-related events and messages API Specifications",
         "description": "Specifications for messages that support livestock feeding and feed management.",
-        "version": "1.4",
+        "version": "1.5",
         "contact": {
             "name": "Animal Data Exchange Working Group",
             "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
@@ -17,7 +17,7 @@
     ],
     "tags": [
         {
-            "name": "ADE-1.4-feed",
+            "name": "ADE-1.5-feed",
             "description": "Feeding messages approved by the working group"
         }
     ],
@@ -28,7 +28,7 @@
                 "summary": "Get the feeds for a certain location",
                 "description": "# Purpose\nProvides the animal feeds for a location\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -65,7 +65,7 @@
                 "summary": "Add a single new feed.",
                 "description": "# Purpose\nAllows a client to add a single feed.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -133,7 +133,7 @@
                 "summary": "Get the rations for a certain location",
                 "description": "# Purpose\nProvides the animal rations for a location\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -170,7 +170,7 @@
                 "summary": "Add a single new ration.",
                 "description": "# Purpose\nAllows a client to add a single ration.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -238,7 +238,7 @@
                 "summary": "Get the feed intake events for a certain location",
                 "description": "# Purpose\nProvides the animal feed intake events for a location\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -252,6 +252,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -275,7 +281,7 @@
                 "summary": "Add a single new feed intake event.",
                 "description": "# Purpose\nAllows a client to add a single feed intake event.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -343,7 +349,7 @@
                 "summary": "Get the feed recommendations for a certain location",
                 "description": "# Purpose\nProvides the animal feed recommendations for a location\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -357,6 +363,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/animal-id"
                     }
                 ],
                 "responses": {
@@ -380,7 +392,7 @@
                 "summary": "Add a single new feed recommendation.",
                 "description": "# Purpose\nAllows a client to add a single feed recommendation.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -448,7 +460,7 @@
                 "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. If you need feed-reports for AnimalSets please refer to the WIKI pages : https://github.com/adewg/ICAR/wiki/Feed-Reporting",
                 "description": "# Purpose\nProvides the feed reports for animal on a location\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -493,7 +505,7 @@
                 "summary": "Get the feed storage devices for a certain location",
                 "description": "# Purpose\nProvides the animal feed storage devices for a location\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -535,7 +547,7 @@
                 "summary": "Add a single new feed storage.",
                 "description": "# Purpose\nAllows a client to add a single feed-storage.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -603,7 +615,7 @@
                 "summary": "Get the feed inventory transactions that relate to a certain location",
                 "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -652,7 +664,7 @@
                 "summary": "Add a single new feed inventory transaction.",
                 "description": "# Purpose\nAllows a client to add a single feed inventory transaction.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -717,10 +729,11 @@
         "/locations/{location-scheme}/{location-id}/group-feeding": {
             "get": {
                 "operationId": "get-group-feeding",
-                "summary": "Get the group feeding events for a certain location",
-                "description": "# Purpose\nProvides the group feeding events for a location\n",
+                "deprecated": true,
+                "summary": "Get the group feeding events for a certain location. Deprecated - use /group-feedings instead.",
+                "description": "# Purpose\nProvides the group feeding events for a location\nDeprecated - use /group-feedings instead.",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -754,10 +767,116 @@
             },
             "post": {
                 "operationId": "post-single-group-feeding",
+                "deprecated": true,
+                "summary": "Add a single new group feeding event. Deprecated - use /group-feedings instead.",
+                "description": "# Purpose\nAllows a client to add a single group feeding event.\nDeprecated - use /group-feedings instead.",
+                "tags": [
+                    "ADE-1.5-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "The group feeding event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains a copy of the event, as modified by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created. The Location header contains the URI to the new resource.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains the URI to the new resource."
+                            }
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                        "headers": {
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "Contains a URI to query creation status."
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            }
+        },        
+        "/locations/{location-scheme}/{location-id}/group-feedings": {
+            "get": {
+                "operationId": "get-group-feedings",
+                "summary": "Get the group feeding events for a certain location",
+                "description": "# Purpose\nProvides the group feeding events for a location\n",
+                "tags": [
+                    "ADE-1.5-feed"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/meta-modified-to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful. The response contains the resources for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarGroupFeedingEventCollection"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-single-group-feedings",
                 "summary": "Add a single new group feeding event.",
                 "description": "# Purpose\nAllows a client to add a single group feeding event.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -825,7 +944,7 @@
                 "summary": "Add an array of feeds.",
                 "description": "# Purpose \nAllows a client to add a collection of feeds.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -900,7 +1019,7 @@
                 "summary": "Add an array of rations.",
                 "description": "# Purpose \nAllows a client to add a collection of rations.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -975,7 +1094,7 @@
                 "summary": "Add an array of feed intake events.",
                 "description": "# Purpose \nAllows a client to add a collection of feed intake events.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -1050,7 +1169,7 @@
                 "summary": "Add an array of feed recommendations.",
                 "description": "# Purpose \nAllows a client to add a collection of feed recommendations.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -1125,7 +1244,7 @@
                 "summary": "Add an array of feed storages.",
                 "description": "# Purpose \nAllows a client to add a collection of feed storages.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -1200,7 +1319,7 @@
                 "summary": "Add an array of feed inventory transactions.",
                 "description": "# Purpose \nAllows a client to add a collection of feed inventory transactions.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -1275,7 +1394,7 @@
                 "summary": "Add an array of group feeding events.",
                 "description": "# Purpose \nAllows a client to add a collection of group feeding events.\n",
                 "tags": [
-                    "ADE-1.4-feed"
+                    "ADE-1.5-feed"
                 ],
                 "parameters": [
                     {
@@ -1522,17 +1641,34 @@
                 "schema": {
                   "type": "string"
                 }
-              },
-              "identifier-id": {
+            },
+            "identifier-id": {
                 "name": "identifier-id",
                 "in": "query",
                 "description": "The unique identifier within a scheme.",
                 "required": false,
                 "schema": {
-                  "type": "string"
+                    "type": "string"
                 }
-              }
-        
+            },
+            "animal-scheme": {
+                "name": "animal-scheme",
+                "in": "query",
+                "description": "The scheme identifying the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "animal-id": {
+                "name": "animal-id",
+                "in": "query",
+                "description": "The unique identifier of the animal.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            }
         },
         "responses": {
           "default": {

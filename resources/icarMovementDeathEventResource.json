@@ -42,6 +42,10 @@
           "items": {
             "$ref": "../types/icarReasonIdentifierType.json"
           }
+        },
+        "diagnosisCode": {
+            "$ref": "../types/icarDiagnosisIdentifierType.json",
+            "description": "Used with 'Health' reason to expand on health reasons for death. Use ICAR (https://www.icar.org/guidelines/icar-central-health-key/) or VENOM coding scheme."
         }        
       }
     }
