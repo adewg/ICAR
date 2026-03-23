@@ -1996,7 +1996,7 @@
     },
     "/locations/{location-scheme}/{location-id}/schemata":{
       "get": {
-        "operationId": "get-schemata",
+        "operationId": "get-location-schemata",
         "summary": "Get the list of schemata/schema types supported",
         "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
         "tags": [
@@ -2033,7 +2033,7 @@
     },
     "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}":{
       "get": {
-        "operationId": "get-schema-types",
+        "operationId": "get-location-schema-types",
         "summary": "Get the list of schema type schemes",
         "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
         "tags": [
@@ -2076,7 +2076,7 @@
     },
     "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}/{scheme}":{
       "get": {
-        "operationId": "get-scheme-values",
+        "operationId": "get-location-scheme-values",
         "summary": "Get the list of values for specidif sheme",
         "description": "# Purpose\nProvides a list of scheme values for specific scheme\n",
         "tags": [
