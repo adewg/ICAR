@@ -1888,6 +1888,112 @@
         }
       }
     },
+    "/schemata":{
+      "get": {
+        "operationId": "get-schemata",
+        "summary": "Get the list of schemata/schema types supported",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "tags": [
+          "ADE-1.5-scheme"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the suppoted schemata for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                },
+                "examples": {
+                  "schemata": {
+                    "$ref": "#/components/examples/schemata"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/schemata/{scheme-type}":{
+      "get": {
+        "operationId": "get-schema-types",
+        "summary": "Get the list of schema type schemes",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "tags": [
+          "ADE-1.5-scheme"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/scheme-type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the suppoted scheme for specific scheme type for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                },
+                "examples": {
+                  "breeds": {
+                    "$ref": "#/components/examples/schemata-breeds"
+                  },
+                  "locations": {
+                    "$ref": "#/components/examples/schemata-locations"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/schemata/{scheme-type}/{scheme}":{
+      "get": {
+        "operationId": "get-scheme-values",
+        "summary": "Get the list of values for specidif sheme",
+        "description": "# Purpose\nProvides a list of scheme values for specific scheme\n",
+        "tags": [
+          "ADE-1.5-scheme"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/scheme-type"
+          },
+          {
+            "$ref": "#/components/parameters/scheme"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the suppoted scheme for specific scheme type for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarSchemeValueCollection"
+                },
+                "examples": {
+                  "breeds-interbull": {
+                    "$ref": "#/components/examples/schemata-breeds-interbull"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
     "/locations/{location-scheme}/{location-id}/schemata":{
       "get": {
         "operationId": "get-schemata",
