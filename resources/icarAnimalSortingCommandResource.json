@@ -12,6 +12,10 @@
         "validFrom"
       ],
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this sort command, supporting update/deletion etc."
+        },
         "animal": {
           "$ref": "../types/icarAnimalIdentifierType.json",
           "description": "Unique animal scheme and identifier combination."
