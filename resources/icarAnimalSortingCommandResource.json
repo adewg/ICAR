@@ -37,7 +37,7 @@
         },
         "shiftNumber": {
           "type": "integer",
-          "description": "For manual sorting or sorting within an activity such as milking, this number represents the shift within a the validity period in which this sorting command should be active (optional)."
+          "description": "For manual sorting or sorting within an activity such as milking, this number represents the shift within the validity period in which this sorting command should be active (optional)."
         }
       }
     }
