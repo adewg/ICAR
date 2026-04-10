@@ -47,8 +47,13 @@
           "description": "URI to an AnimalCoreResource for the sire."
         },
         "gender": {
-          "$ref": "../enums/icarAnimalGenderType.json",
-          "nullable": true,
+          "anyOf": [{
+              "type": "null"
+            },
+            {
+              "$ref": "../enums/icarAnimalGenderType.json"
+            }
+          ],
           "description": "The gender of the embryo, if known. Optional."
         }
       }
