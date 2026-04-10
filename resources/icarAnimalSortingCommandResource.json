@@ -35,9 +35,13 @@
           "$ref": "../types/icarDateTimeType.json",
           "description": "Specifies until when the sort command should be active. Could be left empty, when the sorting should be ongoing (until replaced). RFC3339 UTC date time (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
         },
-        "shiftNumber": {
-          "type": "integer",
-          "description": "For manual sorting or sorting within an activity such as milking, this number represents the shift within the validity period in which this sorting command should be active (optional)."
+        "shiftNumbers": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "description": "For manual sorting or sorting within an activity such as milking, this array represents the shifts within the validity period in which this sorting command should be active (optional)."
         }
       }
     }
