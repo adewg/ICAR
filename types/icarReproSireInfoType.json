@@ -1,5 +1,5 @@
 {
-  "description": "Describes sire information related to a reproductive event.",
+  "description": "Describes sire information used in reproductive contexts.",
 
   "type": "object",
 
