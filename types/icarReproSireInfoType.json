@@ -21,7 +21,7 @@
     },
     "sirePrimaryBreed": {
       "$ref": "../types/icarBreedIdentifierType.json",
-      "description": "ICAR Breed code for the sire. The usage of this property is not reasonable if more than one sire is provided."
+      "description": "ICAR Breed code for the sire referenced by the sireIdentifiers. If more than one sire is identified, do not specify the breed unless all sires have the same primary breed."
     }
   }
 }
