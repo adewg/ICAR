@@ -34,6 +34,16 @@
         "donorURI": {
           "type": "string",
           "description": "URI to an AnimalCoreResource for the donor dam."
+        },
+        "gender": {
+          "anyOf": [{
+              "type": "null"
+            },
+            {
+              "$ref": "../enums/icarAnimalGenderType.json"
+            }
+          ],
+          "description": "The gender of the embryo, if known. Optional."
         }
       }
     }
