@@ -1,0 +1,3334 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Feed-related events and messages API Specifications",
+    "description": "Specifications for messages that support livestock feeding and feed management.",
+    "version": "1.5",
+    "contact": {
+      "name": "Animal Data Exchange Working Group",
+      "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
+      "email": "icar@icar.org"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://icar-ade.standard.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ADE-1.5-feed",
+      "description": "Feeding messages approved by the working group"
+    }
+  ],
+  "paths": {
+    "/locations/{location-scheme}/{location-id}/feeds": {
+      "get": {
+        "operationId": "get-feeds",
+        "summary": "Get the feeds for a certain location",
+        "description": "# Purpose\nProvides the animal feeds for a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the resources for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-feed",
+        "summary": "Add a single new feed.",
+        "description": "# Purpose\nAllows a client to add a single feed.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The feed to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/rations": {
+      "get": {
+        "operationId": "get-rations",
+        "summary": "Get the rations for a certain location",
+        "description": "# Purpose\nProvides the animal rations for a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the resources for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarRationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-ration",
+        "summary": "Add a single new ration.",
+        "description": "# Purpose\nAllows a client to add a single ration.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The ration to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarRationResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarRationResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-intakes": {
+      "get": {
+        "operationId": "get-feed-intakes",
+        "summary": "Get the feed intake events for a certain location",
+        "description": "# Purpose\nProvides the animal feed intake events for a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the resources for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedIntakeEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-feed-intake",
+        "summary": "Add a single new feed intake event.",
+        "description": "# Purpose\nAllows a client to add a single feed intake event.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The feed intake event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-recommendations": {
+      "get": {
+        "operationId": "get-feed-recommendations",
+        "summary": "Get the feed recommendations for a certain location",
+        "description": "# Purpose\nProvides the animal feed recommendations for a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the resources for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedRecommendationCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-feed-recommendation",
+        "summary": "Add a single new feed recommendation.",
+        "description": "# Purpose\nAllows a client to add a single feed recommendation.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The feed recommendation to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedRecommendationResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedRecommendationResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-reports": {
+      "get": {
+        "operationId": "get-Feed-Report",
+        "summary": "Get the feed reports for animals on a certain location for a certain period. One can use the report-start- and report-end-date-time paramters to get a daily feed report. If you need feed-reports for AnimalSets please refer to the WIKI pages : https://github.com/adewg/ICAR/wiki/Feed-Reporting",
+        "description": "# Purpose\nProvides the feed reports for animal on a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/report-start-date-time"
+          },
+          {
+            "$ref": "#/components/parameters/report-end-date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed reports for animals on the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedReportCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-storages": {
+      "get": {
+        "operationId": "get-feed-storages",
+        "summary": "Get the feed storage devices for a certain location",
+        "description": "# Purpose\nProvides the animal feed storage devices for a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the resources for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedStorageCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/feed-storages"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-feed-storage",
+        "summary": "Add a single new feed storage.",
+        "description": "# Purpose\nAllows a client to add a single feed-storage.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The feed storage to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedStorageResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedStorageResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/feed-inventory-transactions": {
+      "get": {
+        "operationId": "get-feed-inventory-transactions",
+        "summary": "Get the feed inventory transactions that relate to a certain location",
+        "description": "# Purpose\nProvides the feed inventory transactions relating to a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/date-from"
+          },
+          {
+            "$ref": "#/components/parameters/date-to"
+          },
+          {
+            "$ref": "#/components/parameters/identifier-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/identifier-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the feed inventory transactions for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedTransactionCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-feed-inventory-transaction",
+        "summary": "Add a single new feed inventory transaction.",
+        "description": "# Purpose\nAllows a client to add a single feed inventory transaction.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The feed inventory transaction to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedTransactionResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarFeedTransactionResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-feeding": {
+      "get": {
+        "operationId": "get-group-feeding",
+        "deprecated": true,
+        "summary": "Get the group feeding events for a certain location. Deprecated - use /group-feedings instead.",
+        "description": "# Purpose\nProvides the group feeding events for a location\nDeprecated - use /group-feedings instead.",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the resources for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupFeedingEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-group-feeding",
+        "deprecated": true,
+        "summary": "Add a single new group feeding event. Deprecated - use /group-feedings instead.",
+        "description": "# Purpose\nAllows a client to add a single group feeding event.\nDeprecated - use /group-feedings instead.",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The group feeding event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modified by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-feedings": {
+      "get": {
+        "operationId": "get-group-feedings",
+        "summary": "Get the group feeding events for a certain location",
+        "description": "# Purpose\nProvides the group feeding events for a location\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the resources for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupFeedingEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-group-feedings",
+        "summary": "Add a single new group feeding event.",
+        "description": "# Purpose\nAllows a client to add a single group feeding event.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The group feeding event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/feeds": {
+      "post": {
+        "operationId": "post-batch-feeds",
+        "summary": "Add an array of feeds.",
+        "description": "# Purpose \nAllows a client to add a collection of feeds.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of feeds to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/rations": {
+      "post": {
+        "operationId": "post-batch-rations",
+        "summary": "Add an array of rations.",
+        "description": "# Purpose \nAllows a client to add a collection of rations.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of rations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarRationArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/feed-intakes": {
+      "post": {
+        "operationId": "post-batch-feed-intakes",
+        "summary": "Add an array of feed intake events.",
+        "description": "# Purpose \nAllows a client to add a collection of feed intake events.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of feed intake events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedIntakeEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/feed-recommendations": {
+      "post": {
+        "operationId": "post-batch-feed-recommendations",
+        "summary": "Add an array of feed recommendations.",
+        "description": "# Purpose \nAllows a client to add a collection of feed recommendations.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of feed recommendations to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedRecommendationArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/feed-storages": {
+      "post": {
+        "operationId": "post-batch-feed-storages",
+        "summary": "Add an array of feed storages.",
+        "description": "# Purpose \nAllows a client to add a collection of feed storages.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of feed storages to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedStorageArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/feed-inventory-transactions": {
+      "post": {
+        "operationId": "post-batch-feed-inventory-transactions",
+        "summary": "Add an array of feed inventory transactions.",
+        "description": "# Purpose \nAllows a client to add a collection of feed inventory transactions.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of feed inventory transactions to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarFeedTransactionArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/group-feedings": {
+      "post": {
+        "operationId": "post-batch-group-feedings",
+        "summary": "Add an array of group feeding events.",
+        "description": "# Purpose \nAllows a client to add a collection of group feeding events.\n",
+        "tags": [
+          "ADE-1.5-feed"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of group feeding events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupFeedingEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "batchResults": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarBatchResult"
+        }
+      },
+      "icarFeedResource": {
+        "description": "Feeds available on a location.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this resource."
+              },
+              "category": {
+                "$ref": "#/components/schemas/icarFeedCategoryType",
+                "description": "The scheme and the id of the category of the feed."
+              },
+              "type": {
+                "$ref": "#/components/schemas/icarFeedIdentifierType",
+                "description": "The scheme and the id of the type of the feed. ICAR recommends the use of the list of the scheme org.fao"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the feed as it is known on the location."
+              },
+              "properties": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedPropertyType"
+                }
+              },
+              "active": {
+                "type": "boolean",
+                "description": "indicates whether the feed is or was available on the location."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedCollection": {
+        "description": "Represents a collection of feeds. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case feeds."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarFeedResource"
+        }
+      },
+      "icarRationResource": {
+        "description": "Rations defined on a location.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/components/schemas/icarRationIdType",
+                "description": "Unique identifier in the source system for this resource."
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the feed as it is known on the location."
+              },
+              "feeds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedsInRationType"
+                }
+              },
+              "active": {
+                "type": "boolean",
+                "description": "indicates whether the ration is or was available on the location."
+              }
+            }
+          }
+        ]
+      },
+      "icarRationCollection": {
+        "description": "Represents a collection of rations. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarRationResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case rations."
+              }
+            }
+          }
+        ]
+      },
+      "icarRationArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarRationResource"
+        }
+      },
+      "icarFeedIntakeEventResource": {
+        "description": "Event for recording a feed intake",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "feedingStartingDateTime",
+              "feedVisitDuration"
+            ],
+            "properties": {
+              "feedingStartingDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC moment the feeding started (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "feedVisitDuration": {
+                "$ref": "#/components/schemas/icarFeedDurationType"
+              },
+              "consumedFeed": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarConsumedFeedType"
+                }
+              },
+              "consumedRation": {
+                "$ref": "#/components/schemas/icarConsumedRationType",
+                "description": "The eventual ration that has been consumed"
+              },
+              "device": {
+                "$ref": "#/components/schemas/icarDeviceReferenceType",
+                "description": "Optional information about the device used for the feeding."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedIntakeEventCollection": {
+        "description": "Represents a collection of feed intakes. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case feed intakes."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedIntakeEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarFeedIntakeEventResource"
+        }
+      },
+      "icarFeedRecommendationResource": {
+        "description": "An overview of the recommended feeding of animals",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "animal"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/components/schemas/icarFeedRecommendationIdType",
+                "description": "Unique identifier in the source system for this recommendation."
+              },
+              "animal": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              },
+              "recommendationDateTime ": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC timestamp of the recommendation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "startDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC date of the beginning of the recommendation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "endDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC end date of the recommendation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "recommendedFeed": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarRecommendedFeedType"
+                }
+              },
+              "recommendedRation": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarRecommendedRationType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedRecommendationCollection": {
+        "description": "Represents a collection of feed recommendations. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedRecommendationResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case feed recommendations."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedRecommendationArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarFeedRecommendationResource"
+        }
+      },
+      "icarFeedStorageResource": {
+        "description": "Describes the feed storage device on a certain location.",
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarDeviceResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "feedId": {
+                "type": "string",
+                "description": "Unique identifier of the feed that is stored in this device."
+              },
+              "capacity": {
+                "$ref": "#/components/schemas/icarFeedQuantityType",
+                "description": "The amount of feed that can be stored in this device."
+              },
+              "quantityAvailable": {
+                "$ref": "#/components/schemas/icarFeedQuantityType",
+                "description": "The amount of feed that is currently stored in this device and is available for feeding."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedStorageCollection": {
+        "description": "Represents a collection of feed storage devices. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedStorageResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case feed storage devices."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedStorageArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarFeedStorageResource"
+        }
+      },
+      "icarFeedReportCollection": {
+        "description": "Represents a collection of feed reports. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedReportResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case feed reports."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedTransactionResource": {
+        "description": "An inventory transaction resource for a feed product.",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarInventoryTransactionType"
+          },
+          {
+            "type": "object",
+            "required": [
+              "product"
+            ],
+            "properties": {
+              "product": {
+                "$ref": "#/components/schemas/icarFeedReferenceType",
+                "description": "The feed product in this transaction."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedTransactionCollection": {
+        "description": "Represents a collection of feed inventory transactions. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarFeedTransactionResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case inventory transactions."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedTransactionArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarFeedTransactionResource"
+        }
+      },
+      "icarGroupFeedingEventResource": {
+        "description": "Event for recording group or mob feeding. Allowances represent averages so this cannot be used to populate individual animal events.",
+        "type": "object",
+        "required": [
+          "eventDateTime",
+          "location"
+        ],
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarGroupEventCoreResource"
+          }
+        ],
+        "properties": {
+          "feedingEndDateTime": {
+            "$ref": "#/components/schemas/icarDateTimeType",
+            "description": "The RFC3339 UTC moment from which animals could no longer consume the feed (eventDateTime represents the start of feed availability)."
+          },
+          "feedPerAnimal": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarConsumedFeedType",
+              "description": "Gives the feed offered to and consumed per animal (average)."
+            }
+          },
+          "feedTotal": {
+            "description": "Gives the feed offered to and consumed (total for all animals).",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarConsumedFeedType"
+            }
+          },
+          "rationPerAnimal": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarConsumedRationType",
+              "description": "Gives the ration offered to and consumed per animal (average)."
+            }
+          },
+          "rationTotal": {
+            "description": "Gives the feed offered to and consumed (total for all animals).",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarConsumedRationType"
+            }
+          },
+          "device": {
+            "$ref": "#/components/schemas/icarDeviceReferenceType",
+            "description": "Optional information about a device used for the feeding, if relevant."
+          }
+        }
+      },
+      "icarGroupFeedingEventCollection": {
+        "description": "Represents a collection of feed intakes. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case group feeding events."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupFeedingEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarGroupFeedingEventResource"
+        }
+      },
+      "icarBatchResultSeverityType": {
+        "description": "Severity code to distinguish warnings and errors.",
+        "type": "string",
+        "enum": [
+          "Information",
+          "Warning",
+          "Error"
+        ]
+      },
+      "icarResponseMessageResource": {
+        "description": "An RFC7807 compliant problem response for JSON APIs.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Machine readable URI or code that defines the type of error or warning."
+          },
+          "severity": {
+            "$ref": "#/components/schemas/icarBatchResultSeverityType",
+            "description": "Distinguish errors, warnings, and informational messages."
+          },
+          "status": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "The HTTP status code applicable to this problem.",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
+          },
+          "instance": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "A URI reference or internal JSON document reference to the specific data item that caused the problem."
+          }
+        }
+      },
+      "icarErrorCollection": {
+        "description": "A collection of RFC7807 compliant problem responses for JSON APIs.",
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarResponseMessageResource"
+            }
+          }
+        }
+      },
+      "icarResourceCollection": {
+        "description": "Base class for a collection of items such as animals, devices, or events. Use allOf to add an items array of the right type.",
+        "type": "object",
+        "properties": {
+          "view": {
+            "type": "object",
+            "description": "Information about the current view or page of the collection",
+            "properties": {
+              "totalItems": {
+                "type": "integer",
+                "description": "Provides the number of items in the collection, if known."
+              },
+              "totalPages": {
+                "type": "integer",
+                "description": "Provides the number of pages in the collection, if known."
+              },
+              "pageSize": {
+                "type": "integer",
+                "description": "If non-zero, specifies the default number of items returned per page."
+              },
+              "currentPage": {
+                "type": "integer",
+                "description": "Optionally identifies the current page for display purposes, if returned."
+              },
+              "first": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the first page of the collection. Link relation: first."
+              },
+              "next": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the next page of the collection, if any. Link relation: next."
+              },
+              "prev": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the previous page of the collection, if any. Link relation: prev."
+              },
+              "last": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the last page of the collection, if any. Link relation: last."
+              }
+            }
+          }
+        }
+      },
+      "icarDateTimeType": {
+        "description": "A particular point in the progression of time. Shall be UTC format with Z, specified in RFC3339 (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+        "type": "string",
+        "format": "date-time"
+      },
+      "icarMetaDataType": {
+        "description": "Generic meta data on this event",
+        "type": "object",
+        "required": [
+          "source",
+          "modified"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Source where data is retrieved from. URI  or reverse DNS that identifies the source system."
+          },
+          "sourceId": {
+            "type": "string",
+            "description": "Unique Id within Source (e.g. UUID, IRI, URI, or composite ID if needed) for the resource in the original source system. \n Systems should generate (if needed), store, and return sourceId if at all possible.\nICAR ADE working group intend to make use of metadata, source and sourceId mandatory in the next major release (2.0)."
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Boolean value indicating if this resource has been deleted in the source system."
+          },
+          "modified": {
+            "$ref": "#/components/schemas/icarDateTimeType",
+            "description": "RFC3339 UTC date/time of last modification (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+          },
+          "created": {
+            "description": "RFC3339 UTC date/time of creation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          },
+          "creator": {
+            "type": "string",
+            "description": "Person or organisation who created the object"
+          },
+          "validFrom": {
+            "description": "RFC3339 UTC start of period when the resource is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          },
+          "validTo": {
+            "description": "RFC3339 UTC end of the period when the resoure is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          }
+        }
+      },
+      "icarIdentifierType": {
+        "description": "Identifies a resource.",
+        "type": "object",
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identification for the resource issued under the auspices of the scheme."
+          },
+          "scheme": {
+            "type": "string",
+            "description": "The identifier (in reverse domain format) of an official scheme that manages unique identifiers."
+          }
+        }
+      },
+      "icarLocationIdentifierType": {
+        "description": "Location identifier based on a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarResource": {
+        "description": "Base class for a resource, defining self-link and meta data. Resources should use AllOf to incorporate this class.",
+        "type": "object",
+        "discriminator": {
+          "propertyName": "resourceType"
+        },
+        "required": [
+          "resourceType"
+        ],
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "description": "Uniform resource identifier (URI) or shortname of the logical resourceType. The ResourceType catalog defines the set of allowed resourceTypes."
+          },
+          "@self": {
+            "type": "string",
+            "description": "Uniform resource identifier (URI) of the resource (rel=self)."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/icarMetaDataType",
+            "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation.\n Systems should maintain and provide meta data if at all possible.\nICAR ADE working group intend meta to be required in the next major release of ADE."
+          },
+          "location": {
+            "$ref": "#/components/schemas/icarLocationIdentifierType",
+            "description": "Unique location scheme and identifier combination."
+          }
+        }
+      },
+      "icarFeedCategoryType": {
+        "description": "Enumeration for feed categories. Each category can have more detail in a type specification.",
+        "type": "string",
+        "enum": [
+          "Concentrate",
+          "Roughage",
+          "Additives",
+          "Other"
+        ]
+      },
+      "icarFeedIdentifierType": {
+        "description": "Provides a scheme + identifier mechanism for feed types (see location-scheme.md for the icar list for scheme fao.org).).",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarPropertyIdentifierType": {
+        "description": "Provides a scheme + identifier mechanism for feed properties (see location-scheme.md for the icar list for scheme icar.org).",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "uncefactMassUnitsType": {
+        "description": "Mass units for weight from UN/CEFACT trade facilitation recommendation 20.\r\n Kilogram, Gram, Pound, Metric Tonne, Microgram, Miligram, Ounce, Pound net.",
+        "type": "string",
+        "enum": [
+          "KGM",
+          "GRM",
+          "LBR",
+          "TNE",
+          "MC",
+          "MGM",
+          "ONZ",
+          "PN"
+        ]
+      },
+      "icarMethodType": {
+        "description": "Enumeration for the method with which a value was determined.",
+        "type": "string",
+        "enum": [
+          "Analyzed",
+          "Derived"
+        ]
+      },
+      "icarFeedPropertyType": {
+        "description": "property of the feed.",
+        "type": "object",
+        "properties": {
+          "propertyIdentifier": {
+            "$ref": "#/components/schemas/icarPropertyIdentifierType",
+            "description": "identifies the property of the feed"
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "description": "the value of the property."
+          },
+          "units": {
+            "$ref": "#/components/schemas/uncefactMassUnitsType",
+            "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
+          },
+          "method": {
+            "$ref": "#/components/schemas/icarMethodType",
+            "description": "The method to come to the value of the property"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the property (used on the location)."
+          }
+        }
+      },
+      "icarRationIdType": {
+        "type": "string"
+      },
+      "icarFeedsInRationType": {
+        "description": "Feeds that are added to a specific ration.",
+        "type": "object",
+        "properties": {
+          "feedId": {
+            "$ref": "#/components/schemas/icarFeedIdentifierType",
+            "description": "identifies the feed"
+          },
+          "percentage": {
+            "type": "number",
+            "format": "double",
+            "description": "the percentage of the feed in the ration."
+          }
+        }
+      },
+      "icarTraitLabelIdentifierType": {
+        "description": "Trait identifier based on a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarEventCoreResource": {
+        "description": "Core schema for representing an event.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this event."
+              },
+              "eventDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
+              },
+              "traitLabel": {
+                "$ref": "#/components/schemas/icarTraitLabelIdentifierType",
+                "description": "If the event represents a formal trait, identifies the recording system and trait."
+              },
+              "responsible": {
+                "type": "string",
+                "description": "Use if an observation is manually recorded, or an event is carried out or authorised by a person. SHOULD be a person object."
+              },
+              "contemporaryGroup": {
+                "type": "string",
+                "description": "For manually recorded events, record any contemporary group code that would affect statistical analysis."
+              },
+              "remark": {
+                "type": "string",
+                "description": "A comment or remark field for additional user-specified information about the event."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalIdentifierType": {
+        "description": "Identifies an animal using a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarAnimalEventCoreResource": {
+        "description": "Extends icarEventCoreResource to add a single individual animal identifier.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "animal"
+            ],
+            "properties": {
+              "animal": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedDurationType": {
+        "description": "The length in time of the feeding",
+        "type": "object",
+        "properties": {
+          "unitCode": {
+            "type": "string",
+            "description": "UN/CEFACT Common Code for Units of Measurement.",
+            "enum": [
+              "SEC",
+              "MIN"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "description": "The duration of the feeding in the units specified."
+          }
+        }
+      },
+      "icarFeedQuantityType": {
+        "description": "The amount of feed",
+        "type": "object",
+        "required": [
+          "unitCode",
+          "value"
+        ],
+        "properties": {
+          "unitCode": {
+            "$ref": "#/components/schemas/uncefactMassUnitsType",
+            "description": "Units specified in UN/CEFACT 3-letter form. Default if not specified is KGM."
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "description": "The feed quantity in the units specified."
+          }
+        }
+      },
+      "icarCostType": {
+        "description": "The amount of costs",
+        "type": "object",
+        "required": [
+          "currency",
+          "value"
+        ],
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "The currency of the cost expressed using the ISO 4217 3-character code (such as AUD, GBP, USD, EUR)."
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "description": "The costs in the units specified."
+          }
+        }
+      },
+      "icarConsumedFeedType": {
+        "description": "gives the consumed feed and the amount the animal/group was entitled to. Amounts are real weights",
+        "type": "object",
+        "required": [
+          "feedId"
+        ],
+        "properties": {
+          "feedId": {
+            "$ref": "#/components/schemas/icarFeedIdentifierType",
+            "description": "The identifier for the feed consumed"
+          },
+          "entitlement": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of feed the animal/group was entitled to receive"
+          },
+          "delivered": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of feed the animal/group received. If not present, it can be assumed that the delivered will be equal to entitlement"
+          },
+          "feedConsumption": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of feed the animal/group has consumed"
+          },
+          "dryMatterPercentage": {
+            "type": "number",
+            "description": "The dry matter content of the feed provided or consumed, expressed as a percentage."
+          },
+          "totalCost": {
+            "$ref": "#/components/schemas/icarCostType",
+            "description": "Total cost applied to this feeding. Based on the delivered or entitled amount"
+          }
+        }
+      },
+      "icarConsumedRationType": {
+        "description": "Gives the consumed amount of a mixed ration, and the amount the animal/group was entitled to. Amounts are real weights.",
+        "type": "object",
+        "required": [
+          "rationId"
+        ],
+        "properties": {
+          "rationId": {
+            "$ref": "#/components/schemas/icarRationIdType",
+            "description": "The identifier for the ration consumed"
+          },
+          "entitlement": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of feed the animal/group was entitled to receive"
+          },
+          "delivered": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of feed the animal/group received. If not present, it can be assumed that the delivered will be equal to entitlement"
+          },
+          "feedConsumption": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of feed the animal/group has consumed"
+          },
+          "dryMatterPercentage": {
+            "type": "number",
+            "description": "The dry matter content of the ration provided or consumed, expressed as a percentage."
+          },
+          "totalCost": {
+            "$ref": "#/components/schemas/icarCostType",
+            "description": "Total cost applied to this feeding. Based on the delivered or entitled amount"
+          }
+        }
+      },
+      "icarResourceReferenceType": {
+        "description": "Defines a reference to another resource.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "string",
+            "description": "Deprecated. Tells us the type of the referenced resource object (eg. icarAnimalCore)."
+          },
+          "@id": {
+            "type": "string",
+            "format": "uri",
+            "description": "Deprecated - use href and identifier. Uniform resource idendentifier (URI) of the referenced resource."
+          },
+          "@type": {
+            "type": "string",
+            "description": "Deprecated - use reltype. Specifies whether this is a single resource Link or a Collection."
+          },
+          "identifier": {
+            "$ref": "#/components/schemas/icarIdentifierType",
+            "description": "Provides the identifier of the referenced resource."
+          },
+          "reltype": {
+            "type": "string",
+            "description": "Defines the relationship between the current resource and the referenced resource. Defined in well-known/relationshipCatalog.md"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "description": "Where provided, this is the URI to the referenced resource."
+          }
+        }
+      },
+      "icarDeviceRegistrationIdentifierType": {
+        "description": "A device registration scheme and ID that identifies a registered device. The primary scheme used should be `org.icar`.",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarDeviceReferenceType": {
+        "description": "Device reference details.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceReferenceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "description": "ICAR registered device model, which represents manufacturer, model, hardware and software versions."
+              },
+              "serial": {
+                "type": "string",
+                "description": "Optionally, the serial number of the device."
+              },
+              "manufacturerName": {
+                "type": "string",
+                "description": "The manufacturer of the device. This is called `manufacturerName` to distinguish it from the manufacturer-specific parameters in icarDevice."
+              },
+              "registration": {
+                "$ref": "#/components/schemas/icarDeviceRegistrationIdentifierType",
+                "description": "A registration identifier for the device (most devices should eventually have a registration issued by `org.icar` or other entity)."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedRecommendationIdType": {
+        "type": "string"
+      },
+      "icarRecommendedFeedType": {
+        "description": "Gives the recommendation to be fed to an animal or group of animals of a certain feed.",
+        "type": "object",
+        "properties": {
+          "feedId": {
+            "$ref": "#/components/schemas/icarFeedIdentifierType",
+            "description": "The identifier for the feed recommended"
+          },
+          "entitlement": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of feed the animal is recommended to reveive"
+          }
+        }
+      },
+      "icarRecommendedRationType": {
+        "description": "Gives the recommendation to be fed to an animal or group of animals of a certain ration.",
+        "type": "object",
+        "properties": {
+          "rationId": {
+            "$ref": "#/components/schemas/icarRationIdType",
+            "description": "The identifier for the ration recommended"
+          },
+          "entitlement": {
+            "$ref": "#/components/schemas/icarFeedQuantityType",
+            "description": "The amount of this ration the animal is recommended to receive"
+          }
+        }
+      },
+      "icarFeedReportResource": {
+        "description": "Reporting the feed consumed during a certain time period",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "animals": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarAnimalIdentifierType"
+                },
+                "description": "As per JSON-LD Hydra syntax, animals provides the array of animals part of the feeding report. This could also be a report for one animal."
+              },
+              "reportStartDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC moment the period of the reporting started (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "reportEndDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The RFC3339 UTC moment the period of the reporting ended (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+              },
+              "feedVisitDuration": {
+                "$ref": "#/components/schemas/icarFeedDurationType"
+              },
+              "consumedFeed": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarConsumedFeedType"
+                }
+              },
+              "consumedRation": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarConsumedRationType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "icarMessageType": {
+        "description": "Enumeration of the ICAR messages. These can be used to identify supported capabilities or functions.",
+        "type": "string",
+        "enum": [
+          "MilkingVisits",
+          "TestDayResults",
+          "Births",
+          "Deaths",
+          "Arrivals",
+          "Departures",
+          "Animals",
+          "PregnancyChecks",
+          "Heats",
+          "DryingOffs",
+          "Inseminations",
+          "Abortions",
+          "Parturitions",
+          "MatingRecommendations",
+          "Devices",
+          "Weights",
+          "Locations",
+          "AnimalSetJoins",
+          "AnimalSetLeaves",
+          "ProgenyDetails",
+          "BreedingValues",
+          "FeedIntakes",
+          "FeedReports",
+          "FeedRecommendations",
+          "Rations",
+          "FeedStorages",
+          "Gestations",
+          "DoNotBreedInstructions",
+          "ReproductionStatusObservations",
+          "Lactations",
+          "LactationStatusObservations",
+          "Withdrawals",
+          "DailyMilkingAverages",
+          "Diagnoses",
+          "Treatments",
+          "TreatmentPrograms",
+          "HealthStatusObservations",
+          "ConformationScores",
+          "TypeClassifications",
+          "Statistics",
+          "Schemes",
+          "Embryos",
+          "SemenStraws",
+          "Flushings",
+          "GroupTreatments",
+          "GroupBirths",
+          "GroupArrivals",
+          "GroupDepartures",
+          "GroupDeaths",
+          "GroupWeights",
+          "Other"
+        ]
+      },
+      "icarDeviceManufacturerType": {
+        "description": "Describes the devices on a certain location.",
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique id of the manufacturer. Domain name/url --> lely.com, …"
+          },
+          "deviceType": {
+            "type": "string",
+            "description": "A device type registered within the database proposed by the Sensor Working Group. This could be a UUID but we prefer a meaningful string."
+          },
+          "deviceName": {
+            "type": "string",
+            "description": "Name given to the device by the manufacturer."
+          },
+          "deviceDescription": {
+            "type": "string",
+            "description": "Description of the device by the manufacturer."
+          },
+          "deviceConfiguration": {
+            "type": "string",
+            "description": "Configuration of the device."
+          }
+        }
+      },
+      "icarDeviceResource": {
+        "description": "This resource is used to describe an instance of a device at a location.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier on location level in the source system for this device."
+              },
+              "serial": {
+                "type": "string",
+                "description": "Optionally, the serial number of the device."
+              },
+              "name": {
+                "type": "string",
+                "description": "Name given to the device by the farmer."
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the device by the farmer."
+              },
+              "softwareVersion": {
+                "type": "string",
+                "description": "Version of the software installed on the device."
+              },
+              "hardwareVersion": {
+                "type": "string",
+                "description": "Version of the hardware installed in the device."
+              },
+              "isActive": {
+                "type": "boolean",
+                "description": "Indicates whether the device is active at this moment."
+              },
+              "supportedMessages": {
+                "type": "array",
+                "description": "Identifies message types supported for the device",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "messages": {
+                      "$ref": "#/components/schemas/icarMessageType"
+                    }
+                  }
+                }
+              },
+              "manufacturer": {
+                "$ref": "#/components/schemas/icarDeviceManufacturerType",
+                "description": "The device data as defined by the manufacturer."
+              },
+              "registration": {
+                "$ref": "#/components/schemas/icarDeviceRegistrationIdentifierType",
+                "description": "A registration identifier for the device (most devices should eventually have a registration issued by `org.icar` or other entity)."
+              },
+              "animal": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "If specified, contains the identifier of an animal that the device is currently associated with."
+              }
+            }
+          }
+        ]
+      },
+      "icarInventoryTransactionKindType": {
+        "description": "Defines the kinds of inventory transaction, which can represent items received, disposed of (including sale or destruction), used, counted in a stocktake or calculated on hand.",
+        "type": "string",
+        "enum": [
+          "Receipt",
+          "Disposal",
+          "OnHand",
+          "Produce",
+          "StockTake",
+          "Use"
+        ]
+      },
+      "icarInventoryTransactionType": {
+        "description": "Inventory Transaction defines a transaction on a product inventory where the transaction may be a receipt, disposal, on hand, stocktake, use",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "transactionKind",
+              "quantity",
+              "units"
+            ],
+            "properties": {
+              "transactionKind": {
+                "$ref": "#/components/schemas/icarInventoryTransactionKindType",
+                "description": "Identifies the transaction kind."
+              },
+              "quantity": {
+                "type": "number",
+                "description": "The overall volume, weight or count of the product in the transaction in the units defined."
+              },
+              "units": {
+                "description": "The units of the quantity specified.  Where applicable it is recommended that uncefact mass and volume units are used.",
+                "type": "string"
+              },
+              "supplierName": {
+                "type": "string",
+                "description": "The supplier of the product in this transaction.  This is particularly relevant if the transaction is a receipt."
+              },
+              "expiryDate": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "The expiry date of the product supplied in the transaction."
+              },
+              "totalCost": {
+                "type": "number",
+                "description": "Total cost applied to this transaction"
+              },
+              "currency": {
+                "type": "string",
+                "description": "The currency of the cost expressed using the ISO 4217 3-character code (such as AUD, GBP, USD, EUR)."
+              },
+              "packSize": {
+                "type": "number",
+                "description": "The volume or weight of the product in a pack in the units defined. Especially relevant for Vet Medicines."
+              },
+              "numberOfPacks": {
+                "type": "number",
+                "description": "The number of packs of the product in the transaction. Especially relevant for Vet Medicines. Could be a decimal number for a part-pack."
+              }
+            }
+          }
+        ]
+      },
+      "icarProductIdentifierType": {
+        "description": "Provides a scheme + identifier mechanism for product types.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarProductFamilyType": {
+        "description": "Defines the families of products",
+        "type": "string",
+        "enum": [
+          "Animal Feeds",
+          "Animal Reproductive Products",
+          "Veterinary Supplies",
+          "Seed and Plant Material",
+          "Fertilisers and Nutrients",
+          "Pest Control Products",
+          "Other Animal Products",
+          "Milking Supplies",
+          "Fencing Supplies",
+          "Water System Supplies",
+          "Fuel",
+          "Other"
+        ]
+      },
+      "icarProductReferenceType": {
+        "description": "Product Reference refers to a specific product. It is based on the generalised resource reference type.",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceReferenceType"
+          },
+          {
+            "type": "object",
+            "required": [
+              "identifier",
+              "family"
+            ],
+            "properties": {
+              "identifiers": {
+                "type": "array",
+                "description": "An array of product identifiers. This allows a product to have multiple identifiers for manufacturers, distributors, official registrations, etc.",
+                "items": {
+                  "$ref": "#/components/schemas/icarProductIdentifierType"
+                }
+              },
+              "family": {
+                "$ref": "#/components/schemas/icarProductFamilyType",
+                "description": "The product family to which this product belongs."
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the product."
+              },
+              "gtin": {
+                "type": "string",
+                "description": "GS1 global trade item number."
+              },
+              "unspc": {
+                "type": "string",
+                "description": "UN service and product code (the code, not the accompanying description)."
+              }
+            }
+          }
+        ]
+      },
+      "icarFeedReferenceType": {
+        "description": "Feed Reference defines a feed product.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarProductReferenceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "category": {
+                "$ref": "#/components/schemas/icarFeedCategoryType",
+                "description": "Defines the category of the feed product."
+              },
+              "type": {
+                "$ref": "#/components/schemas/icarFeedIdentifierType",
+                "description": "The scheme + id identifying the type of feed."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupEventMethodType": {
+        "description": "Defines how the set of animals in a group event is defined.",
+        "type": "string",
+        "enum": [
+          "ExistingAnimalSet",
+          "EmbeddedAnimalSet",
+          "InventoryClassification",
+          "EmbeddedAnimalSetAndInventoryClassification"
+        ]
+      },
+      "icarAnimalSpecieType": {
+        "description": "Enumeration for species of animal using English names. Previous ADE definitions used a mixture of English and Genus names.",
+        "type": "string",
+        "enum": [
+          "Buffalo",
+          "Cattle",
+          "Deer",
+          "Elk",
+          "Goat",
+          "Horse",
+          "Pig",
+          "Sheep"
+        ]
+      },
+      "icarAnimalGenderType": {
+        "description": "Enumeration for sex of animal using species-independent English names. Includes neuter/cryptorchid variations.",
+        "type": "string",
+        "enum": [
+          "Female",
+          "FemaleNeuter",
+          "Freemartin",
+          "Male",
+          "MaleCryptorchid",
+          "MaleNeuter",
+          "Unknown"
+        ]
+      },
+      "icarBreedIdentifierType": {
+        "description": "Identifies a breed using a scheme and ID. Allows country or species-specific breeds that are a superset of the ICAR list.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarAnimalReproductionStatusType": {
+        "description": "Enumeration for different possible reproduction status of an animal.",
+        "type": "string",
+        "enum": [
+          "Open",
+          "Inseminated",
+          "Pregnant",
+          "NotPregnant",
+          "Birthed",
+          "DoNotBreed",
+          "PregnantMultipleFoetus"
+        ]
+      },
+      "icarAnimalLactationStatusType": {
+        "description": "Enumeration for different possible lactation status of an animal.",
+        "type": "string",
+        "enum": [
+          "Dry",
+          "Lead",
+          "Fresh",
+          "Early",
+          "Lactating"
+        ]
+      },
+      "icarProductionPurposeType": {
+        "description": "Defines the primary product that for which this animal is bred or kept.\\nIf animals are kept for breeding or live trade (sale), specify the end purpose of that breeding/trade.\\n\n - Meat corresponds to UNSPC 50111500 Minimally processed meat and poultry products\\n - Milk corresponds to UNSPC 50203200 Raw milk products from live animals\\n - Wool corresponds to UNSPC 11131506 Unprocessed wool.\\n Suckler - used to breastfeed calves.\\n Breeding - bulls used for semen production.\\n",
+        "type": "string",
+        "enum": [
+          "Meat",
+          "Milk",
+          "Wool",
+          "Suckler",
+          "Breeding",
+          "Research",
+          "Pet"
+        ]
+      },
+      "icarInventoryClassificationType": {
+        "type": "object",
+        "description": "This type is used to categorise animals by shared characteristics - so you can say the equivalent of 200 x 2-year-old in-calf Jersey heifers.",
+        "required": [
+          "name",
+          "species"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for this inventory grouping."
+          },
+          "count": {
+            "type": "number",
+            "description": "The count or number of animals in this inventory classification."
+          },
+          "species": {
+            "$ref": "#/components/schemas/icarAnimalSpecieType",
+            "description": "The species of animals."
+          },
+          "sex": {
+            "$ref": "#/components/schemas/icarAnimalGenderType",
+            "description": "The sex of animals."
+          },
+          "primaryBreed": {
+            "$ref": "#/components/schemas/icarBreedIdentifierType",
+            "description": "Primary breed defined using an identifier and scheme."
+          },
+          "birthPeriod": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^(([0-9]{4})|([0-9]{4}-[0-1][0-9])|([0-9]{4}-[0-1][0-9]-[0-3][0-9](Z?)(/|--)[0-9]{4}-[0-1][0-9]-[0-3][0-9](Z?)))$",
+            "description": "The range of birth dates. Use YYYY (all one year), YYYY-MM (one month), or two RFC3339 date-times separated by / to represent a range."
+          },
+          "reproductiveStatus": {
+            "$ref": "#/components/schemas/icarAnimalReproductionStatusType",
+            "description": "The reproductive/pregnancy status of animals."
+          },
+          "lactationStatus": {
+            "$ref": "#/components/schemas/icarAnimalLactationStatusType",
+            "description": "The lactation status of animals."
+          },
+          "productionPurposes": {
+            "type": "array",
+            "description": "Array of production purposes.",
+            "items": {
+              "$ref": "#/components/schemas/icarProductionPurposeType"
+            }
+          },
+          "reference": {
+            "type": "string",
+            "description": "An external reference (identifier or name) to further identify the group of animals."
+          }
+        }
+      },
+      "icarSetPurposeType": {
+        "description": "Describes the purpose of a set of animals.",
+        "type": "string",
+        "enum": [
+          "Enclosure",
+          "Feeding",
+          "Finishing",
+          "Growing",
+          "Health",
+          "Lactation",
+          "Movement",
+          "Rearing",
+          "Reproduction",
+          "Session",
+          "Other"
+        ]
+      },
+      "icarAnimalSetResource": {
+        "description": "Core schema for representing animal sets (often called groups or sessions).",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "member"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this animal set."
+              },
+              "name": {
+                "type": "string",
+                "description": "Human readable name of the set."
+              },
+              "reference": {
+                "type": "string",
+                "description": "This property can be used by parties for any other reference information used to synchronise systems or display to the user."
+              },
+              "purpose": {
+                "$ref": "#/components/schemas/icarSetPurposeType",
+                "description": "Purpose of the animal set."
+              },
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarAnimalIdentifierType"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case animals assigned to the set."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalSetReferenceType": {
+        "description": "References an animal set through its unique ID in the source system, optionally also specifying its URL (@ID).",
+        "required": [
+          "identifier"
+        ],
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceReferenceType"
+          }
+        ]
+      },
+      "icarGroupEventCoreResource": {
+        "description": "Extends icarEventCoreResource to support event observations on groups of animals.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "groupMethod"
+            ],
+            "properties": {
+              "groupMethod": {
+                "$ref": "#/components/schemas/icarGroupEventMethodType",
+                "description": "Indicates whether the event references an existing animal set, has an embedded animal set, or an inventory classification."
+              },
+              "countObserved": {
+                "type": "integer",
+                "description": "Summarises the number of animals observed in the event. Generally the number of animals in the group, but sometimes a sample."
+              },
+              "inventoryClassification": {
+                "$ref": "#/components/schemas/icarInventoryClassificationType",
+                "description": "Describe the group of animals by their characteristics rather than animal identifiers."
+              },
+              "embeddedAnimalSet": {
+                "$ref": "#/components/schemas/icarAnimalSetResource",
+                "description": "Specifies the set of animals as a list of member animal identifiers."
+              },
+              "animalSetReference": {
+                "$ref": "#/components/schemas/icarAnimalSetReferenceType",
+                "description": "Reference an existing animal set by ID and optionally URI"
+              }
+            }
+          }
+        ]
+      },
+      "icarBatchResult": {
+        "description": "Returned by a batch POST event to return identity (meta), errors, and warnings for a resource.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier created in the system for this event. SHOULD be a UUID."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/icarMetaDataType",
+            "description": "Metadata for the posted resource. Allows specification of the source, source Id to synchronise data."
+          },
+          "messages": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "description": "An array of errors for this resource. The messages array may be unspecified OR null.",
+            "items": {
+              "$ref": "#/components/schemas/icarResponseMessageResource"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "location-scheme": {
+        "name": "location-scheme",
+        "in": "path",
+        "description": "The scheme id for the location identifier.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "location-id": {
+        "name": "location-id",
+        "in": "path",
+        "description": "The unique identifier for the location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "meta-modified-from": {
+        "name": "meta-modified-from",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "meta-modified-to": {
+        "name": "meta-modified-to",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "report-start-date-time": {
+        "name": "report-start-date-time",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request based on the event date time.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "report-end-date-time": {
+        "name": "report-end-date-time",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request based on the event date time.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "date-from": {
+        "name": "date-to",
+        "in": "query",
+        "description": "The end of the date range for the period for which data is needed, the date inclusive.",
+        "schema": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "date-to": {
+        "name": "date-from",
+        "in": "query",
+        "description": "The start of the date range for the period for which data is needed, the date inclusive.",
+        "schema": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "identifier-scheme": {
+        "name": "identifier-scheme",
+        "in": "query",
+        "description": "The scheme for an identifier.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "identifier-id": {
+        "name": "identifier-id",
+        "in": "query",
+        "description": "The unique identifier within a scheme.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "animal-scheme": {
+        "name": "animal-scheme",
+        "in": "query",
+        "description": "The scheme identifying the animal.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "animal-id": {
+        "name": "animal-id",
+        "in": "query",
+        "description": "The unique identifier of the animal.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "responses": {
+      "default": {
+        "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/icarErrorCollection"
+            }
+          }
+        }
+      }
+    },
+    "examples": {
+      "feed-storages": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [
+            {
+              "id": "276031231231234",
+              "name": "My first silo",
+              "feedId": "a8f5944e-de92-4768-a1ff-392e15a2195e",
+              "capacity": {
+                "value": 50000,
+                "unitCode": "KGM"
+              },
+              "quantityAvailable": {
+                "value": 28765,
+                "unitCode": "KGM"
+              },
+              "meta": {
+                "source": "source",
+                "creator": "creator",
+                "modified": "2020-01-29T08:49:06.1314223+00:00",
+                "created": "2020-01-29T08:49:06.1314223+00:00"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

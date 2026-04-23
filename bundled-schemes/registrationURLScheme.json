@@ -1,0 +1,3567 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Animal Registration and Movement API Specifications",
+    "description": "Specifications for messages that support livestock movement information and registration (sometimes called I&R).",
+    "version": "1.5",
+    "contact": {
+      "name": "Animal Data Exchange Working Group",
+      "url": "https://www.icar.org/index.php/technical-bodies/working-groups/animal-data-exchange-wg/",
+      "email": "icar@icar.org"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://icar-ade.standard.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ADE-1.5-registration",
+      "description": "Registration and movement messages approved by the working group"
+    }
+  ],
+  "paths": {
+    "/locations": {
+      "get": {
+        "operationId": "get-locations",
+        "summary": "Get available schema/id combinations for locations.",
+        "description": "# Purpose\nProvide a list of available locations.\nShould return only those combinations the user currently logged in has access to.",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the available locations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarLocationCollection"
+                },
+                "examples": {
+                  "base": {
+                    "$ref": "#/components/examples/locations"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/animals": {
+      "get": {
+        "operationId": "get-animals",
+        "summary": "Get the animals for a certain location",
+        "description": "# Purpose\nProvides the animals on a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the animals for the given location",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalCoreCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-animal",
+        "summary": "Add a single animal resource.",
+        "description": "# Purpose  \nAllows a client to add a single animal resource. Many servers do not support adding animals, requiring a registration event instead.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The animal to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarAnimalCoreResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarAnimalCoreResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/births": {
+      "get": {
+        "operationId": "get-births",
+        "summary": "Get the births for a certain location",
+        "description": "# Purpose\nProvides the animal birth records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the birth or initial registration events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementBirthEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-birth",
+        "summary": "Add a single new birth or initial registration event",
+        "description": "# Purpose  \nAllows a client to add a single animal birth or initial registration event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The birth event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementBirthEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementBirthEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-births": {
+      "get": {
+        "operationId": "get-group-births",
+        "summary": "Get the group birth or registration events for a certain location",
+        "description": "# Purpose\nProvides the group birth records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the birth or initial registration events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementBirthEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-group-birth",
+        "summary": "Add one group birth or registration event",
+        "description": "# Purpose  \nAllows a client to add one group birth or registration event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementBirthEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementBirthEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-deaths": {
+      "get": {
+        "operationId": "get-group-deaths",
+        "summary": "Get the group death events for a certain location",
+        "description": "# Purpose\nProvides the group death records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the group death events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementDeathEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-group-death",
+        "summary": "Add one group death event",
+        "description": "# Purpose  \nAllows a client to add a group death event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The death event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementDeathEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementDeathEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/deaths": {
+      "get": {
+        "operationId": "get-deaths",
+        "summary": "Get the deaths for a certain location",
+        "description": "# Purpose\nProvides the animal death records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the death events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementDeathEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-death",
+        "summary": "Add a single new death event",
+        "description": "# Purpose  \nAllows a client to add a single animal death event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The death event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementDeathEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementDeathEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/arrivals": {
+      "get": {
+        "operationId": "get-arrivals",
+        "summary": "Get the arrivals for a certain location",
+        "description": "# Purpose\nProvides the animal arrival records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the arrival events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementArrivalEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-arrival",
+        "summary": "Add a single new arrival event",
+        "description": "# Purpose  \nAllows a client to add a single animal arrival event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The arrival event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementArrivalEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementArrivalEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-arrivals": {
+      "get": {
+        "operationId": "get-group-arrivals",
+        "summary": "Get the group arrival events for a certain location",
+        "description": "# Purpose\nProvides the group arrival records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the arrival events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementArrivalEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-group-arrival",
+        "summary": "Add a group arrival event",
+        "description": "# Purpose  \nAllows a client to add a group arrival event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The arrival event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementArrivalEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementArrivalEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/departures": {
+      "get": {
+        "operationId": "get-departures",
+        "summary": "Get the departures for a certain location",
+        "description": "# Purpose\nProvides the animal departure records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          },
+          {
+            "$ref": "#/components/parameters/animal-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/animal-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the departure events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementDepartureEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-departure",
+        "summary": "Add a single new departure event",
+        "description": "# Purpose  \nAllows a client to add a single animal departure event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The departure event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-departures": {
+      "get": {
+        "operationId": "get-group-departures",
+        "summary": "Get the group departure events for a certain location",
+        "description": "# Purpose\nProvides the group departure records for a location\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the group departure events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementDepartureEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      },
+      "post": {
+        "operationId": "post-single-group-departure",
+        "summary": "Add a group departure event",
+        "description": "# Purpose  \nAllows a client to add a group departure event.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The departure event to create. \nA client MAY fill in the *Id* field with a client-generated UUID and the server MAY use this *Id*.\nIf the server does not use the client-specified *ID* field it shall issue its own *ID* for the resource.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementDepartureEventResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupMovementDepartureEventResource"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains the URI to the new resource.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the new resource."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/animals": {
+      "post": {
+        "operationId": "post-batch-animals",
+        "summary": "Add an array of animal resources",
+        "description": "# Purpose  \nAllows a client to add a collection of animal resources. Many servers do not support adding animals, requiring registration events instead.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of animal resources to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarAnimalCoreResourceArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/births": {
+      "post": {
+        "operationId": "post-batch-births",
+        "summary": "Add an array of birth or initial registration events",
+        "description": "# Purpose  \nAllows a client to add a collection of animal birth events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of birth events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementBirthEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/group-births": {
+      "post": {
+        "operationId": "post-batch-group-births",
+        "summary": "Add an array of group birth or initial registration events",
+        "description": "# Purpose  \nAllows a client to add an array of group birth events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The array of group birth events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementBirthEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/deaths": {
+      "post": {
+        "operationId": "post-batch-deaths",
+        "summary": "Add an array of death events",
+        "description": "# Purpose  \nAllows a client to add a collection of animal death events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of death events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementDeathEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/group-deaths": {
+      "post": {
+        "operationId": "post-batch-group-deaths",
+        "summary": "Add an array of group death events",
+        "description": "# Purpose  \nAllows a client to add an array of group death events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The array of group death events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementDeathEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/arrivals": {
+      "post": {
+        "operationId": "post-batch-arrivals",
+        "summary": "Add an array of arrival events",
+        "description": "# Purpose  \nAllows a client to add a collection of animal arrival events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of arrival events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementArrivalEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/group-arrivals": {
+      "post": {
+        "operationId": "post-batch-group-arrivals",
+        "summary": "Add an array of group arrival events",
+        "description": "# Purpose  \nAllows a client to add an array of group arrival events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The array of group arrival events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementArrivalEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/departures": {
+      "post": {
+        "operationId": "post-batch-departures",
+        "summary": "Add an array of departure events",
+        "description": "# Purpose  \nAllows a client to add a collection of animal departure events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The collection of departure events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarMovementDepartureEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batches/locations/{location-scheme}/{location-id}/group-departures": {
+      "post": {
+        "operationId": "post-batch-group-departures",
+        "summary": "Add an array of group departure events",
+        "description": "# Purpose  \nAllows a client to add an array of group departure events.\n",
+        "tags": [
+          "ADE-1.5-registration"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "The array of group departure events to create. \nA client MAY fill in resource *Id*s with a client-generated UUID and the server MAY use these *Id*s.\nIf the server does not use the client-specified *Id* field it shall issue its own *Id*s for the resources.\nA client SHALL ensure that the *meta.source* and *meta.sourceId* fields are filled by the client.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/icarGroupMovementDepartureEventArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains a set of batch results, which may include warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains the URI to the results."
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": "Contains a URI to query creation status."
+              }
+            }
+          },
+          "default": {
+            "description": "The response contains a set of batch results, which may include errors and warnings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batchResults"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "batchResults": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarBatchResult"
+        }
+      },
+      "icarLocationCollection": {
+        "description": "Represents a collection of locations. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarLocationResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case locations."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalCoreCollection": {
+        "description": "Represents a collection of animals. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarAnimalCoreResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case animals."
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementBirthEventCollection": {
+        "description": "Represents a collection of animal birth events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMovementBirthEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case birth events."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementBirthEventCollection": {
+        "description": "Represents a collection of group animal registration (birth) events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarGroupMovementBirthEventResource"
+                },
+                "description": "Provides the array of objects, in this case birth events."
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementDeathEventCollection": {
+        "description": "Represents a collection of animal death events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMovementDeathEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case death events."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementDeathEventCollection": {
+        "description": "Represents a collection of group death events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarGroupMovementDeathEventResource"
+                },
+                "description": "Provides the array of objects, in this case death events."
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementArrivalEventCollection": {
+        "description": "Represents a collection of animal arrival events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMovementArrivalEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case arrival events."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementArrivalEventCollection": {
+        "description": "Represents a collection of group arrival events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarGroupMovementArrivalEventResource"
+                },
+                "description": "Provides the array of objects, in this case arrival events."
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementDepartureEventCollection": {
+        "description": "Represents a collection of animal departure events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case departure events."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementDepartureEventCollection": {
+        "description": "Represents a collection of group departure events. Based on icarResourceCollection to provide paging etc.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceCollection"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarGroupMovementDepartureEventResource"
+                },
+                "description": "Provides the array of objects, in this case departure events."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalCoreResource": {
+        "description": "Core schema for representing animal",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalBaseResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "identifier"
+            ],
+            "properties": {
+              "identifier": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              },
+              "status": {
+                "$ref": "#/components/schemas/icarAnimalStatusType",
+                "description": "On-farm status of the animal (such as alive, dead, off-farm)."
+              },
+              "lactationStatus": {
+                "$ref": "#/components/schemas/icarAnimalLactationStatusType",
+                "description": "Lactation status of the animal."
+              },
+              "reproductionStatus": {
+                "$ref": "#/components/schemas/icarAnimalReproductionStatusType",
+                "description": "Reproduction status of the animal."
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementBirthEventResource": {
+        "description": "Event for recording animal birth",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "location"
+            ],
+            "properties": {
+              "registrationReason": {
+                "$ref": "#/components/schemas/icarRegistrationReasonType",
+                "description": "Identifies whether this is a birth or a registration event"
+              },
+              "animalDetail": {
+                "$ref": "#/components/schemas/icarAnimalCoreResource",
+                "description": "Core animal details.  Can be used if the animal has not already been defined on the holding."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementBirthEventResource": {
+        "description": "Extends icarGroupEventCoreResource to provide a group animal registration event (named Birth for consistency only).",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarGroupEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "location",
+              "groupMethod",
+              "registrationReason"
+            ],
+            "properties": {
+              "registrationReason": {
+                "$ref": "#/components/schemas/icarRegistrationReasonType",
+                "description": "Identifies whether this is a birth or registration event"
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementDeathEventResource": {
+        "description": "Event for recording animal death on farm.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "deathReason": {
+                "$ref": "#/components/schemas/icarDeathReasonType",
+                "description": "Coded reasons for death including disease, parturition complications, consumption by humans or animals."
+              },
+              "explanation": {
+                "type": "string",
+                "description": "Free text explanation of the reason for death."
+              },
+              "disposalMethod": {
+                "$ref": "#/components/schemas/icarDeathDisposalMethodType",
+                "description": "Coded disposal methods including approved service, consumption by humans or animals, etc."
+              },
+              "disposalOperator": {
+                "type": "string",
+                "description": "Disposal operator official name (should really be schema.org/organization)."
+              },
+              "disposalReference": {
+                "type": "string",
+                "description": "Reference (receipt, docket, or ID) for disposal."
+              },
+              "consignment": {
+                "$ref": "#/components/schemas/icarConsignmentType",
+                "description": "Identifies the consignment of the animal from the holding."
+              },
+              "deathMethod": {
+                "$ref": "#/components/schemas/icarDeathMethodType",
+                "description": "Defines the method of death, including an accident, natural causes, or euthanised."
+              },
+              "extendedReasons": {
+                "description": "Extended reason codes why this animal has died.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarReasonIdentifierType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementDeathEventResource": {
+        "description": "Extends icarGroupEventCoreResource to provide a group death event.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarGroupEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "location",
+              "groupMethod",
+              "deathMethod"
+            ],
+            "properties": {
+              "deathreason": {
+                "$ref": "#/components/schemas/icarDeathReasonType",
+                "description": "Coded reason for death - this is the CAUSE, compared to the MEANS."
+              },
+              "explanation": {
+                "type": "string",
+                "description": "Free text explanation of the reason for death."
+              },
+              "disposalMethod": {
+                "$ref": "#/components/schemas/icarDeathDisposalMethodType",
+                "description": "Coded disposal methods including approved service, consumption by humans or animals, etc."
+              },
+              "disposalOperator": {
+                "type": "string",
+                "description": "Disposal operator official name (should really be schema.org/organization)."
+              },
+              "disposalReference": {
+                "type": "string",
+                "description": "Reference (receipt, docket, or ID) for disposal."
+              },
+              "consignment": {
+                "$ref": "#/components/schemas/icarConsignmentType",
+                "description": "Where disposal is by transport, a consignment record may be required."
+              },
+              "deathMethod": {
+                "$ref": "#/components/schemas/icarDeathMethodType",
+                "description": "Defines the MEANS of death, including an accident, natural causes, or euthanised."
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementArrivalEventResource": {
+        "description": "Event for recording animal arrival",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "arrivalReason": {
+                "$ref": "#/components/schemas/icarArrivalReasonType",
+                "description": "Reason the animal arrived on the holding."
+              },
+              "animalDetail": {
+                "$ref": "#/components/schemas/icarAnimalCoreResource",
+                "description": "Core animal details. Can be used if the animal has not already been defined on the holding."
+              },
+              "animalState": {
+                "$ref": "#/components/schemas/icarAnimalStateType",
+                "description": "State information about an animal."
+              },
+              "consignment": {
+                "$ref": "#/components/schemas/icarConsignmentType",
+                "description": "Identifies the consignment of the animal to the holding."
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementArrivalEventResource": {
+        "description": "Extends icarGroupEventCoreResource to provide a group movement arrival event.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarGroupEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "location",
+              "groupMethod",
+              "arrivalReason"
+            ],
+            "properties": {
+              "arrivalReason": {
+                "$ref": "#/components/schemas/icarArrivalReasonType",
+                "description": "Reason the group of animals arrived on the holding."
+              },
+              "consignment": {
+                "$ref": "#/components/schemas/icarConsignmentType",
+                "description": "Identifies the consignment of the group of animals to the holding."
+              }
+            }
+          }
+        ]
+      },
+      "icarMovementDepartureEventResource": {
+        "description": "Event for recording live animal departure.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarAnimalEventCoreResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "departureKind": {
+                "$ref": "#/components/schemas/icarDepartureKindType",
+                "description": "Identifies the kind of departure of the animal from the holding."
+              },
+              "departureReason": {
+                "$ref": "#/components/schemas/icarDepartureReasonType",
+                "description": "Identifies the reason for the departure of the animal from the holding."
+              },
+              "consignment": {
+                "$ref": "#/components/schemas/icarConsignmentType",
+                "description": "Identifies the consignment of the animal from the holding."
+              },
+              "extendedReasons": {
+                "description": "Extended reason codes why this animal has departed.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarReasonIdentifierType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "icarGroupMovementDepartureEventResource": {
+        "description": "Extends icarGroupEventCoreResource to provide a group movement departure event.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarGroupEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "location",
+              "groupMethod",
+              "departureKind"
+            ],
+            "properties": {
+              "departureKind": {
+                "$ref": "#/components/schemas/icarDepartureKindType",
+                "description": "Coded description of the type of departure (e.g. sale, agistment, other)."
+              },
+              "departureReason": {
+                "$ref": "#/components/schemas/icarDepartureReasonType",
+                "description": "Coded description of the reason why the animals are departing."
+              },
+              "consignment": {
+                "$ref": "#/components/schemas/icarConsignmentType",
+                "description": "Consignment information about origin, destination, and transport."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalCoreResourceArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarAnimalCoreResource"
+        }
+      },
+      "icarMovementBirthEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementBirthEventResource"
+        }
+      },
+      "icarGroupMovementBirthEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarGroupMovementBirthEventResource"
+        }
+      },
+      "icarMovementDeathEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementDeathEventResource"
+        }
+      },
+      "icarGroupMovementDeathEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarGroupMovementDeathEventResource"
+        }
+      },
+      "icarMovementArrivalEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementArrivalEventResource"
+        }
+      },
+      "icarGroupMovementArrivalEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarGroupMovementArrivalEventResource"
+        }
+      },
+      "icarMovementDepartureEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarMovementDepartureEventResource"
+        }
+      },
+      "icarGroupMovementDepartureEventArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/icarGroupMovementDepartureEventResource"
+        }
+      },
+      "icarBatchResultSeverityType": {
+        "description": "Severity code to distinguish warnings and errors.",
+        "type": "string",
+        "enum": [
+          "Information",
+          "Warning",
+          "Error"
+        ]
+      },
+      "icarResponseMessageResource": {
+        "description": "An RFC7807 compliant problem response for JSON APIs.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Machine readable URI or code that defines the type of error or warning."
+          },
+          "severity": {
+            "$ref": "#/components/schemas/icarBatchResultSeverityType",
+            "description": "Distinguish errors, warnings, and informational messages."
+          },
+          "status": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "The HTTP status code applicable to this problem.",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized."
+          },
+          "instance": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "A URI reference or internal JSON document reference to the specific data item that caused the problem."
+          }
+        }
+      },
+      "icarErrorCollection": {
+        "description": "A collection of RFC7807 compliant problem responses for JSON APIs.",
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/icarResponseMessageResource"
+            }
+          }
+        }
+      },
+      "icarResourceCollection": {
+        "description": "Base class for a collection of items such as animals, devices, or events. Use allOf to add an items array of the right type.",
+        "type": "object",
+        "properties": {
+          "view": {
+            "type": "object",
+            "description": "Information about the current view or page of the collection",
+            "properties": {
+              "totalItems": {
+                "type": "integer",
+                "description": "Provides the number of items in the collection, if known."
+              },
+              "totalPages": {
+                "type": "integer",
+                "description": "Provides the number of pages in the collection, if known."
+              },
+              "pageSize": {
+                "type": "integer",
+                "description": "If non-zero, specifies the default number of items returned per page."
+              },
+              "currentPage": {
+                "type": "integer",
+                "description": "Optionally identifies the current page for display purposes, if returned."
+              },
+              "first": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the first page of the collection. Link relation: first."
+              },
+              "next": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the next page of the collection, if any. Link relation: next."
+              },
+              "prev": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the previous page of the collection, if any. Link relation: prev."
+              },
+              "last": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link to the last page of the collection, if any. Link relation: last."
+              }
+            }
+          }
+        }
+      },
+      "icarDateTimeType": {
+        "description": "A particular point in the progression of time. Shall be UTC format with Z, specified in RFC3339 (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+        "type": "string",
+        "format": "date-time"
+      },
+      "icarMetaDataType": {
+        "description": "Generic meta data on this event",
+        "type": "object",
+        "required": [
+          "source",
+          "modified"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Source where data is retrieved from. URI  or reverse DNS that identifies the source system."
+          },
+          "sourceId": {
+            "type": "string",
+            "description": "Unique Id within Source (e.g. UUID, IRI, URI, or composite ID if needed) for the resource in the original source system. \n Systems should generate (if needed), store, and return sourceId if at all possible.\nICAR ADE working group intend to make use of metadata, source and sourceId mandatory in the next major release (2.0)."
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Boolean value indicating if this resource has been deleted in the source system."
+          },
+          "modified": {
+            "$ref": "#/components/schemas/icarDateTimeType",
+            "description": "RFC3339 UTC date/time of last modification (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+          },
+          "created": {
+            "description": "RFC3339 UTC date/time of creation (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          },
+          "creator": {
+            "type": "string",
+            "description": "Person or organisation who created the object"
+          },
+          "validFrom": {
+            "description": "RFC3339 UTC start of period when the resource is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          },
+          "validTo": {
+            "description": "RFC3339 UTC end of the period when the resoure is valid (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/icarDateTimeType"
+              }
+            ]
+          }
+        }
+      },
+      "icarIdentifierType": {
+        "description": "Identifies a resource.",
+        "type": "object",
+        "required": [
+          "id",
+          "scheme"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identification for the resource issued under the auspices of the scheme."
+          },
+          "scheme": {
+            "type": "string",
+            "description": "The identifier (in reverse domain format) of an official scheme that manages unique identifiers."
+          }
+        }
+      },
+      "icarLocationIdentifierType": {
+        "description": "Location identifier based on a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarResource": {
+        "description": "Base class for a resource, defining self-link and meta data. Resources should use AllOf to incorporate this class.",
+        "type": "object",
+        "discriminator": {
+          "propertyName": "resourceType"
+        },
+        "required": [
+          "resourceType"
+        ],
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "description": "Uniform resource identifier (URI) or shortname of the logical resourceType. The ResourceType catalog defines the set of allowed resourceTypes."
+          },
+          "@self": {
+            "type": "string",
+            "description": "Uniform resource identifier (URI) of the resource (rel=self)."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/icarMetaDataType",
+            "description": "Meta-data for the resource. Mandatory if you wish to support synchronisation.\n Systems should maintain and provide meta data if at all possible.\nICAR ADE working group intend meta to be required in the next major release of ADE."
+          },
+          "location": {
+            "$ref": "#/components/schemas/icarLocationIdentifierType",
+            "description": "Unique location scheme and identifier combination."
+          }
+        }
+      },
+      "icarLocationResource": {
+        "description": "A location scheme / location id combination.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "identifier"
+            ],
+            "properties": {
+              "identifier": {
+                "$ref": "#/components/schemas/icarLocationIdentifierType",
+                "description": "Unique location scheme and identifier combination."
+              },
+              "alternativeIdentifiers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarLocationIdentifierType"
+                },
+                "description": "Alternative identifiers for the location. Must be a 1:1 mapping, meaning that when querying resources with an alternative identifier (instead of the 'main' identifier), the response may not be different."
+              },
+              "name": {
+                "type": "string",
+                "description": "The human readable name of the location."
+              },
+              "timeZoneId": {
+                "type": "string",
+                "description": "The time zone ID of the location according to the IANA time zone database (https://www.iana.org/time-zones), e.g. Europe/Paris. Can be used to convert UTC times in events, resources etc. back to the locations time zone while also taking daylight saving times into account."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalIdentifierType": {
+        "description": "Identifies an animal using a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarAnimalSpecieType": {
+        "description": "Enumeration for species of animal using English names. Previous ADE definitions used a mixture of English and Genus names.",
+        "type": "string",
+        "enum": [
+          "Buffalo",
+          "Cattle",
+          "Deer",
+          "Elk",
+          "Goat",
+          "Horse",
+          "Pig",
+          "Sheep"
+        ]
+      },
+      "icarAnimalGenderType": {
+        "description": "Enumeration for sex of animal using species-independent English names. Includes neuter/cryptorchid variations.",
+        "type": "string",
+        "enum": [
+          "Female",
+          "FemaleNeuter",
+          "Freemartin",
+          "Male",
+          "MaleCryptorchid",
+          "MaleNeuter",
+          "Unknown"
+        ]
+      },
+      "icarBreedIdentifierType": {
+        "description": "Identifies a breed using a scheme and ID. Allows country or species-specific breeds that are a superset of the ICAR list.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarBreedFractionsType": {
+        "description": "Defines the breeds of the animal by fraction expressed as a denominator and, for each breed, a numerator.",
+        "type": "object",
+        "required": [
+          "denominator"
+        ],
+        "properties": {
+          "denominator": {
+            "type": "integer",
+            "description": "The denominator of breed fractions - for instance 16, 64, or 100."
+          },
+          "fractions": {
+            "type": "array",
+            "description": "The numerators of breed fractions for each breed proportion.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "breed": {
+                  "$ref": "#/components/schemas/icarBreedIdentifierType",
+                  "description": "The breed for this breed fraction using a scheme and id."
+                },
+                "fraction": {
+                  "type": "number",
+                  "format": "double",
+                  "description": "The proportion of the denominator that this breed comprises."
+                }
+              }
+            }
+          }
+        }
+      },
+      "icarCoatColorIdentifierType": {
+        "description": "Coat color identifier based on a scheme and Id.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarProductionPurposeType": {
+        "description": "Defines the primary product that for which this animal is bred or kept.\\nIf animals are kept for breeding or live trade (sale), specify the end purpose of that breeding/trade.\\n\n - Meat corresponds to UNSPC 50111500 Minimally processed meat and poultry products\\n - Milk corresponds to UNSPC 50203200 Raw milk products from live animals\\n - Wool corresponds to UNSPC 11131506 Unprocessed wool.\\n Suckler - used to breastfeed calves.\\n Breeding - bulls used for semen production.\\n",
+        "type": "string",
+        "enum": [
+          "Meat",
+          "Milk",
+          "Wool",
+          "Suckler",
+          "Breeding",
+          "Research",
+          "Pet"
+        ]
+      },
+      "icarAnimalRelationType": {
+        "description": "Enumeration for parent relationships - genetic is the default, recipient and adoptive (foster) are alternatives.",
+        "type": "string",
+        "enum": [
+          "Genetic",
+          "Recipient",
+          "Adoptive"
+        ]
+      },
+      "icarParentageType": {
+        "description": "Use this type to define a parent of an animal.",
+        "type": "object",
+        "required": [
+          "parentOf",
+          "gender",
+          "identifier"
+        ],
+        "properties": {
+          "parentOf": {
+            "$ref": "#/components/schemas/icarAnimalIdentifierType",
+            "description": "References the child of this parent (allowing you to build multi-generation pedigrees)."
+          },
+          "gender": {
+            "$ref": "#/components/schemas/icarAnimalGenderType",
+            "description": "Specifies Male or Female gender so you can recognise Sire or Dam."
+          },
+          "relation": {
+            "$ref": "#/components/schemas/icarAnimalRelationType",
+            "description": "Identifies type of parent: Genetic (default), Recipient, Adoptive (Foster/Rearing)."
+          },
+          "identifier": {
+            "$ref": "#/components/schemas/icarAnimalIdentifierType",
+            "description": "Unique animal scheme and identifier combination."
+          },
+          "officialName": {
+            "type": "string",
+            "description": "Official herdbook name."
+          }
+        }
+      },
+      "icarAnimalHealthStatusType": {
+        "description": "Defines the health-status of the animal.",
+        "type": "string",
+        "enum": [
+          "Healthy",
+          "Suspicious",
+          "Ill",
+          "InTreatment",
+          "ToBeCulled"
+        ]
+      },
+      "icarAnimalBaseResource": {
+        "description": "Base schema containing all common properties for animal and progeny resources.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "specie",
+              "gender"
+            ],
+            "properties": {
+              "alternativeIdentifiers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarAnimalIdentifierType"
+                },
+                "description": "Alternative identifiers for the animal. Here, also temporary identifiers, e.g. transponders or animal numbers, can be listed."
+              },
+              "specie": {
+                "$ref": "#/components/schemas/icarAnimalSpecieType",
+                "description": "Species of the animal."
+              },
+              "gender": {
+                "$ref": "#/components/schemas/icarAnimalGenderType",
+                "description": "Gender of the animal."
+              },
+              "birthDate": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "RFC3339 UTC date/time of birth (see https://ijmacd.github.io/rfc3339-iso8601/ for how to use)."
+              },
+              "primaryBreed": {
+                "$ref": "#/components/schemas/icarBreedIdentifierType",
+                "description": "ICAR Breed code for the animal."
+              },
+              "breedFractions": {
+                "$ref": "#/components/schemas/icarBreedFractionsType",
+                "description": "Breed fractions for the animal."
+              },
+              "coatColor": {
+                "type": "string",
+                "description": "Colour of the animal's coat, using the conventions for that breed."
+              },
+              "coatColorIdentifier": {
+                "$ref": "#/components/schemas/icarCoatColorIdentifierType",
+                "description": "Colour of the animal's coat using a national or breed-defined scheme and identifier combination."
+              },
+              "managementTag": {
+                "type": "string",
+                "description": "The identifier used by the farmer in day to day operations. In many cases this could be the animal number."
+              },
+              "name": {
+                "type": "string",
+                "description": "Name given by the farmer for this animal."
+              },
+              "officialName": {
+                "type": "string",
+                "description": "Official herdbook name."
+              },
+              "productionPurpose": {
+                "$ref": "#/components/schemas/icarProductionPurposeType",
+                "description": "Primary production purpose for which animals are bred."
+              },
+              "parentage": {
+                "type": "array",
+                "description": "Parents of the animal.  The array can handle multiple generations by specifying the parent of a parent.",
+                "items": {
+                  "$ref": "#/components/schemas/icarParentageType"
+                }
+              },
+              "healthStatus": {
+                "$ref": "#/components/schemas/icarAnimalHealthStatusType",
+                "description": "Health status of the animal (such as Healthy, Suspicious, Ill, InTreatment, ToBeCulled)."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalStatusType": {
+        "description": "Defines the status of the animal either absolutely and/or with reference to the location on which it is recorded\\nOff-farm signifies that the animal is no longer recorded at the location.",
+        "type": "string",
+        "enum": [
+          "Alive",
+          "Dead",
+          "OffFarm",
+          "Unknown"
+        ]
+      },
+      "icarAnimalLactationStatusType": {
+        "description": "Enumeration for different possible lactation status of an animal.",
+        "type": "string",
+        "enum": [
+          "Dry",
+          "Lead",
+          "Fresh",
+          "Early",
+          "Lactating"
+        ]
+      },
+      "icarAnimalReproductionStatusType": {
+        "description": "Enumeration for different possible reproduction status of an animal.",
+        "type": "string",
+        "enum": [
+          "Open",
+          "Inseminated",
+          "Pregnant",
+          "NotPregnant",
+          "Birthed",
+          "DoNotBreed",
+          "PregnantMultipleFoetus"
+        ]
+      },
+      "icarTraitLabelIdentifierType": {
+        "description": "Trait identifier based on a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarEventCoreResource": {
+        "description": "Core schema for representing an event.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this event."
+              },
+              "eventDateTime": {
+                "$ref": "#/components/schemas/icarDateTimeType",
+                "description": "RFC3339 UTC date and time (see https://ijmacd.github.io/rfc3339-iso8601/)."
+              },
+              "traitLabel": {
+                "$ref": "#/components/schemas/icarTraitLabelIdentifierType",
+                "description": "If the event represents a formal trait, identifies the recording system and trait."
+              },
+              "responsible": {
+                "type": "string",
+                "description": "Use if an observation is manually recorded, or an event is carried out or authorised by a person. SHOULD be a person object."
+              },
+              "contemporaryGroup": {
+                "type": "string",
+                "description": "For manually recorded events, record any contemporary group code that would affect statistical analysis."
+              },
+              "remark": {
+                "type": "string",
+                "description": "A comment or remark field for additional user-specified information about the event."
+              }
+            }
+          }
+        ]
+      },
+      "icarAnimalEventCoreResource": {
+        "description": "Extends icarEventCoreResource to add a single individual animal identifier.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "animal"
+            ],
+            "properties": {
+              "animal": {
+                "$ref": "#/components/schemas/icarAnimalIdentifierType",
+                "description": "Unique animal scheme and identifier combination."
+              }
+            }
+          }
+        ]
+      },
+      "icarRegistrationReasonType": {
+        "description": "Enumeration for registration reason: Born, or Registered (induct existing animal).",
+        "type": "string",
+        "enum": [
+          "Born",
+          "Registered"
+        ]
+      },
+      "icarGroupEventMethodType": {
+        "description": "Defines how the set of animals in a group event is defined.",
+        "type": "string",
+        "enum": [
+          "ExistingAnimalSet",
+          "EmbeddedAnimalSet",
+          "InventoryClassification",
+          "EmbeddedAnimalSetAndInventoryClassification"
+        ]
+      },
+      "icarInventoryClassificationType": {
+        "type": "object",
+        "description": "This type is used to categorise animals by shared characteristics - so you can say the equivalent of 200 x 2-year-old in-calf Jersey heifers.",
+        "required": [
+          "name",
+          "species"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for this inventory grouping."
+          },
+          "count": {
+            "type": "number",
+            "description": "The count or number of animals in this inventory classification."
+          },
+          "species": {
+            "$ref": "#/components/schemas/icarAnimalSpecieType",
+            "description": "The species of animals."
+          },
+          "sex": {
+            "$ref": "#/components/schemas/icarAnimalGenderType",
+            "description": "The sex of animals."
+          },
+          "primaryBreed": {
+            "$ref": "#/components/schemas/icarBreedIdentifierType",
+            "description": "Primary breed defined using an identifier and scheme."
+          },
+          "birthPeriod": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^(([0-9]{4})|([0-9]{4}-[0-1][0-9])|([0-9]{4}-[0-1][0-9]-[0-3][0-9](Z?)(/|--)[0-9]{4}-[0-1][0-9]-[0-3][0-9](Z?)))$",
+            "description": "The range of birth dates. Use YYYY (all one year), YYYY-MM (one month), or two RFC3339 date-times separated by / to represent a range."
+          },
+          "reproductiveStatus": {
+            "$ref": "#/components/schemas/icarAnimalReproductionStatusType",
+            "description": "The reproductive/pregnancy status of animals."
+          },
+          "lactationStatus": {
+            "$ref": "#/components/schemas/icarAnimalLactationStatusType",
+            "description": "The lactation status of animals."
+          },
+          "productionPurposes": {
+            "type": "array",
+            "description": "Array of production purposes.",
+            "items": {
+              "$ref": "#/components/schemas/icarProductionPurposeType"
+            }
+          },
+          "reference": {
+            "type": "string",
+            "description": "An external reference (identifier or name) to further identify the group of animals."
+          }
+        }
+      },
+      "icarSetPurposeType": {
+        "description": "Describes the purpose of a set of animals.",
+        "type": "string",
+        "enum": [
+          "Enclosure",
+          "Feeding",
+          "Finishing",
+          "Growing",
+          "Health",
+          "Lactation",
+          "Movement",
+          "Rearing",
+          "Reproduction",
+          "Session",
+          "Other"
+        ]
+      },
+      "icarAnimalSetResource": {
+        "description": "Core schema for representing animal sets (often called groups or sessions).",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "member"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier in the source system for this animal set."
+              },
+              "name": {
+                "type": "string",
+                "description": "Human readable name of the set."
+              },
+              "reference": {
+                "type": "string",
+                "description": "This property can be used by parties for any other reference information used to synchronise systems or display to the user."
+              },
+              "purpose": {
+                "$ref": "#/components/schemas/icarSetPurposeType",
+                "description": "Purpose of the animal set."
+              },
+              "member": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/icarAnimalIdentifierType"
+                },
+                "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case animals assigned to the set."
+              }
+            }
+          }
+        ]
+      },
+      "icarResourceReferenceType": {
+        "description": "Defines a reference to another resource.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "string",
+            "description": "Deprecated. Tells us the type of the referenced resource object (eg. icarAnimalCore)."
+          },
+          "@id": {
+            "type": "string",
+            "format": "uri",
+            "description": "Deprecated - use href and identifier. Uniform resource idendentifier (URI) of the referenced resource."
+          },
+          "@type": {
+            "type": "string",
+            "description": "Deprecated - use reltype. Specifies whether this is a single resource Link or a Collection."
+          },
+          "identifier": {
+            "$ref": "#/components/schemas/icarIdentifierType",
+            "description": "Provides the identifier of the referenced resource."
+          },
+          "reltype": {
+            "type": "string",
+            "description": "Defines the relationship between the current resource and the referenced resource. Defined in well-known/relationshipCatalog.md"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "description": "Where provided, this is the URI to the referenced resource."
+          }
+        }
+      },
+      "icarAnimalSetReferenceType": {
+        "description": "References an animal set through its unique ID in the source system, optionally also specifying its URL (@ID).",
+        "required": [
+          "identifier"
+        ],
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarResourceReferenceType"
+          }
+        ]
+      },
+      "icarGroupEventCoreResource": {
+        "description": "Extends icarEventCoreResource to support event observations on groups of animals.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarEventCoreResource"
+          },
+          {
+            "type": "object",
+            "required": [
+              "groupMethod"
+            ],
+            "properties": {
+              "groupMethod": {
+                "$ref": "#/components/schemas/icarGroupEventMethodType",
+                "description": "Indicates whether the event references an existing animal set, has an embedded animal set, or an inventory classification."
+              },
+              "countObserved": {
+                "type": "integer",
+                "description": "Summarises the number of animals observed in the event. Generally the number of animals in the group, but sometimes a sample."
+              },
+              "inventoryClassification": {
+                "$ref": "#/components/schemas/icarInventoryClassificationType",
+                "description": "Describe the group of animals by their characteristics rather than animal identifiers."
+              },
+              "embeddedAnimalSet": {
+                "$ref": "#/components/schemas/icarAnimalSetResource",
+                "description": "Specifies the set of animals as a list of member animal identifiers."
+              },
+              "animalSetReference": {
+                "$ref": "#/components/schemas/icarAnimalSetReferenceType",
+                "description": "Reference an existing animal set by ID and optionally URI"
+              }
+            }
+          }
+        ]
+      },
+      "icarDeathReasonType": {
+        "description": "Enumeration for death reason. Not specified in previous ADE data dictionary.",
+        "type": "string",
+        "enum": [
+          "Missing",
+          "Parturition",
+          "Disease",
+          "Accident",
+          "Consumption",
+          "Culled",
+          "Other",
+          "Unknown",
+          "Age",
+          "Mastitis",
+          "Production",
+          "LegOrClaw",
+          "MilkingAbility",
+          "Nutrition",
+          "Fertility"
+        ]
+      },
+      "icarDeathDisposalMethodType": {
+        "description": "Enumeration for disposal method. Not specified in previous ADE data dictionary, required by some schemes.\n OnPremise- burial or leaving carcass on site.\n ApprovedService- collected for disposal by an approved service provider.\n Consumption- by wild animals, people on farm, or working dogs",
+        "type": "string",
+        "enum": [
+          "ApprovedService",
+          "Consumption",
+          "OnPremise",
+          "Other",
+          "Cremation",
+          "Research"
+        ]
+      },
+      "PostalAddress": {
+        "title": "PostalAddress - from schema.org",
+        "description": "An address object from schema.org (see https://schema.org/PostalAddress).",
+        "type": "object",
+        "properties": {
+          "addressCountry": {
+            "description": "The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.",
+            "type": "string"
+          },
+          "addressLocality": {
+            "description": "The locality in which the street address is, and which is in the region. For example, Mountain View.",
+            "type": "string"
+          },
+          "addressRegion": {
+            "description": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level Administrative division",
+            "type": "string"
+          },
+          "postOfficeBoxNumber": {
+            "description": "The post office box number for PO box addresses.",
+            "type": "string"
+          },
+          "postalCode": {
+            "description": "The postal code. For example, 94043.",
+            "type": "string"
+          },
+          "streetAddress": {
+            "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
+            "type": "string"
+          }
+        }
+      },
+      "icarOrganizationIdentityType": {
+        "description": "The identity of an organization in livestock supply chains. Based on a minimal set of identifiers from schema.org/organization.",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the organisation"
+          },
+          "leiCode": {
+            "description": "An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.",
+            "type": "string"
+          },
+          "globalLocationNumber": {
+            "description": "The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.",
+            "type": "string"
+          },
+          "uri": {
+            "description": "A uniform resource identifier that is the unique reference or for this organisation, such as its web site.",
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "icarOrganizationIdentifierType": {
+        "description": "Scheme and identifier based mechanism for identifying organisations, including registered establishments and scheme memberships.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarOrganizationType": {
+        "description": "Details for an organization that support its role in livestock systems or supply chains. Conceptually extends schema.org/organization.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarOrganizationIdentityType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "establishmentIdentifiers": {
+                "type": "array",
+                "description": "Scheme and identifier combinations that provide official registrations for a business or establishment",
+                "items": {
+                  "$ref": "#/components/schemas/icarOrganizationIdentifierType"
+                }
+              },
+              "address": {
+                "$ref": "#/components/schemas/PostalAddress",
+                "description": "Postal address or physical address in postal format, including country. Optional as this may already be specified in a consignment."
+              },
+              "parentOrganization": {
+                "description": "The larger organization that this organization is a sub-organization of, if any.",
+                "$ref": "#/components/schemas/icarOrganizationIdentityType"
+              },
+              "membershipIdentifiers": {
+                "type": "array",
+                "description": "Scheme and identifier combinations that identity membership in programmes",
+                "items": {
+                  "$ref": "#/components/schemas/icarOrganizationIdentifierType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "icarInterestedPartyType": {
+        "description": "Identifies the interests an organization has in an entity, for example in a consignment or in a processingLot. Extends the organization object.",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarOrganizationType"
+          },
+          {
+            "required": [
+              "interests"
+            ],
+            "properties": {
+              "interests": {
+                "type": "array",
+                "description": "Identifies the type of interest that the party has in a consignment or animal.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "icarDeclarationIdentifierType": {
+        "description": "A scheme and ID combination that uniquely identifies a claim or declaration in an assurance programme or equivalent.",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarConsignmentDeclarationType": {
+        "description": "A Consignment Declaration provides a claim or declaration, usually by the source of animals, regarding the assurance or other status of animals in the consignment.",
+        "type": "object",
+        "properties": {
+          "declarationId": {
+            "description": "Identifies the specific declaration being made using a scheme and an id.",
+            "$ref": "#/components/schemas/icarDeclarationIdentifierType"
+          },
+          "declaredValue": {
+            "type": "string",
+            "description": "The value of the declaration."
+          }
+        }
+      },
+      "icarConsignmentType": {
+        "description": "Consignment information for a movement (arrival, departure).",
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/icarIdentifierType",
+            "description": "Official identifier for the movement."
+          },
+          "originLocation": {
+            "$ref": "#/components/schemas/icarLocationIdentifierType",
+            "description": "The location of the origin of the consignment expressed as a scheme and id."
+          },
+          "originAddress": {
+            "description": "Origin address for movement.",
+            "type": "string",
+            "deprecated": true
+          },
+          "originPostalAddress": {
+            "description": "A structured, schema.org-style address for the origin location.",
+            "$ref": "#/components/schemas/PostalAddress"
+          },
+          "originOrganization": {
+            "description": "The organisational details of the origin, including any necessary identifiers.",
+            "$ref": "#/components/schemas/icarOrganizationType"
+          },
+          "destinationLocation": {
+            "$ref": "#/components/schemas/icarLocationIdentifierType",
+            "description": "The location of the destination of the consignment expressed as a scheme and id."
+          },
+          "destinationAddress": {
+            "description": "Destination address for movement.",
+            "type": "string",
+            "deprecated": true
+          },
+          "destinationPostalAddress": {
+            "description": "A structured, schema.org-style address for the destination location.",
+            "$ref": "#/components/schemas/PostalAddress"
+          },
+          "destinationOrganization": {
+            "description": "The organisational details of the destination, including any necessary identifiers.",
+            "$ref": "#/components/schemas/icarOrganizationType"
+          },
+          "loadingDateTime": {
+            "$ref": "#/components/schemas/icarDateTimeType",
+            "description": "RFC3339 UTC date and time animals were loaded for transport (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+          },
+          "unloadingDateTime": {
+            "$ref": "#/components/schemas/icarDateTimeType",
+            "description": "RFC3339 UTC date and time animals were unloaded after transport (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+          },
+          "expectedDuration": {
+            "type": "number",
+            "description": "Expected duration of transportation in hours."
+          },
+          "transportOperator": {
+            "type": "string",
+            "description": "Transport operator official name (should really be schema.org/organization)."
+          },
+          "vehicle": {
+            "type": "string",
+            "description": "Identification of the vehicle (for example, licence plate)."
+          },
+          "transportReference": {
+            "type": "string",
+            "description": "Shipping or transporter reference."
+          },
+          "isolationFacilityUsed": {
+            "type": "boolean",
+            "description": "True if an isolation facility was used for the movement."
+          },
+          "farmAssuranceReference": {
+            "$ref": "#/components/schemas/icarIdentifierType",
+            "description": "Identification reference of a farm assurance operation."
+          },
+          "countConsigned": {
+            "type": "integer",
+            "description": "The number of animals despatched or consigned from the origin."
+          },
+          "countReceived": {
+            "type": "integer",
+            "description": "The number of animals received at the destination."
+          },
+          "hoursOffFeed": {
+            "type": "integer",
+            "description": "The number of hours since animals in the consignment had access to feed."
+          },
+          "hoursOffWater": {
+            "type": "integer",
+            "description": "The number of hours since animals in the consignment had access to water."
+          },
+          "references": {
+            "type": "array",
+            "description": "References associated with the consignment. These may be additional to the single transport reference (for instance, to support multi-mode transport).",
+            "items": {
+              "$ref": "#/components/schemas/icarIdentifierType"
+            }
+          },
+          "interestedParties": {
+            "type": "array",
+            "description": "Identifies the parties and their interests in the consignment.",
+            "items": {
+              "$ref": "#/components/schemas/icarInterestedPartyType"
+            }
+          },
+          "declarations": {
+            "type": "array",
+            "description": "Country, species or scheme -specific declarations for the consignment.",
+            "items": {
+              "$ref": "#/components/schemas/icarConsignmentDeclarationType"
+            }
+          }
+        }
+      },
+      "icarDeathMethodType": {
+        "description": "Enumeration for method of death.\n Note: Some organisations will use Euthanized and Culled as synonyms. Culling may be euthanasia for disease control purposes.\n Culling is also used to describe live animal departures (out of this scope).",
+        "type": "string",
+        "enum": [
+          "Perished",
+          "Slaughter",
+          "Culled",
+          "Theft",
+          "Lost",
+          "Accident",
+          "Euthanized",
+          "Other"
+        ]
+      },
+      "icarReasonIdentifierType": {
+        "description": "Extended reason identifier based on a scheme and ID.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/icarIdentifierType"
+          }
+        ]
+      },
+      "icarArrivalReasonType": {
+        "description": "Enumeration for arrival reason. Not specified in previous ADE data dictionary.",
+        "type": "string",
+        "enum": [
+          "Purchase",
+          "InternalTransfer",
+          "Imported",
+          "StudService",
+          "StudServiceReturn",
+          "Slaughter",
+          "Agistment",
+          "AgistmentReturn",
+          "Show",
+          "ShowReturn",
+          "Sale",
+          "SaleReturn",
+          "Other"
+        ]
+      },
+      "icarDateType": {
+        "description": "A particular day.",
+        "type": "string",
+        "format": "date"
+      },
+      "icarAnimalStateType": {
+        "description": "State information about an animal",
+        "type": "object",
+        "properties": {
+          "currentLactationParity": {
+            "type": "number",
+            "description": "The current parity of the animal."
+          },
+          "lastCalvingDate": {
+            "$ref": "#/components/schemas/icarDateType",
+            "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+          },
+          "lastInseminationDate": {
+            "$ref": "#/components/schemas/icarDateType",
+            "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+          },
+          "lastDryingOffDate": {
+            "$ref": "#/components/schemas/icarDateType",
+            "description": "RFC3339 UTC date (see https://ijmacd.github.io/rfc3339-iso8601/)."
+          }
+        }
+      },
+      "icarDepartureKindType": {
+        "description": "Enumeration for the kind of departure. Type of destination or transfer.",
+        "type": "string",
+        "enum": [
+          "InternalTransfer",
+          "Export",
+          "Slaughter",
+          "Newborn",
+          "StudService",
+          "StudServiceReturn",
+          "Agistment",
+          "AgistmentReturn",
+          "Show",
+          "ShowReturn",
+          "Sale",
+          "SaleReturn",
+          "Other"
+        ]
+      },
+      "icarDepartureReasonType": {
+        "description": "Enumeration for departure cause. Not specified in previous ADE data dictionary.",
+        "type": "string",
+        "enum": [
+          "Age",
+          "Superfluous",
+          "Slaughter",
+          "Sale",
+          "Newborn",
+          "LegOrClaw",
+          "Nutrition",
+          "Parturition",
+          "Mastitis",
+          "Fertility",
+          "Health",
+          "Production",
+          "MilkingAbility",
+          "BadType",
+          "Behaviour",
+          "Other",
+          "Unknown"
+        ]
+      },
+      "icarBatchResult": {
+        "description": "Returned by a batch POST event to return identity (meta), errors, and warnings for a resource.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier created in the system for this event. SHOULD be a UUID."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/icarMetaDataType",
+            "description": "Metadata for the posted resource. Allows specification of the source, source Id to synchronise data."
+          },
+          "messages": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "description": "An array of errors for this resource. The messages array may be unspecified OR null.",
+            "items": {
+              "$ref": "#/components/schemas/icarResponseMessageResource"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "location-scheme": {
+        "name": "location-scheme",
+        "in": "path",
+        "description": "The scheme id for the location identifier.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "location-id": {
+        "name": "location-id",
+        "in": "path",
+        "description": "The unique identifier for the location.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "meta-modified-from": {
+        "name": "meta-modified-from",
+        "in": "query",
+        "description": "The start of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "meta-modified-to": {
+        "name": "meta-modified-to",
+        "in": "query",
+        "description": "The end of the date-time range for the data to get in the request.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "animal-scheme": {
+        "name": "animal-scheme",
+        "in": "query",
+        "description": "The scheme identifying the animal.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "animal-id": {
+        "name": "animal-id",
+        "in": "query",
+        "description": "The unique identifier of the animal.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "examples": {
+      "locations": {
+        "value": {
+          "view": {
+            "totalItems": 1,
+            "totalPages": 1,
+            "pageSize": 10,
+            "currentPage": 1
+          },
+          "member": [
+            {
+              "identifier": {
+                "id": "276031231231234",
+                "scheme": "eu.farmId"
+              },
+              "name": "My little farm",
+              "timeZoneId": "Europe/Paris",
+              "meta": {
+                "source": "source",
+                "creator": "creator",
+                "modified": "2020-01-29T08:49:06.1314223+00:00",
+                "created": "2020-01-29T08:49:06.1314223+00:00"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "responses": {
+      "default": {
+        "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/icarErrorCollection"
+            }
+          }
+        }
+      }
+    }
+  }
+}
