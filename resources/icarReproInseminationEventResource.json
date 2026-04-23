@@ -1,8 +1,12 @@
 {
   "description": "Event for recording natural or artificial insemination, including embryo transfer.",
 
-  "allOf": [{
+  "allOf": [
+    {
       "$ref": "../resources/icarAnimalEventCoreResource.json"
+    },
+    {
+      "$ref": "../types/icarReproSireInfoType.json"
     },
     {
       "type": "object",
@@ -18,25 +22,6 @@
         },
         "inseminationType": {
           "$ref": "../enums/icarReproInseminationType.json"
-        },
-        "sireIdentifiers": {
-          "type": "array",
-          "items": {
-            "$ref": "../types/icarAnimalIdentifierType.json"
-          },
-          "description": "Unique scheme/identifier combinations for the sire, including official ID and Herdbook."
-        },
-        "sireOfficialName": {
-          "type": "string",
-          "description": "Official herdbook name of the sire."
-        },
-        "sireURI": {
-          "type": "string",
-          "description": "URI to an AnimalCoreResource for the sire."
-        },
-        "sirePrimaryBreed": {
-          "$ref": "../types/icarBreedIdentifierType.json",
-          "description": "ICAR Breed code for the sire. The usage of this property is not reasonable if more than one sire is provided."
         },
         "straw": {
           "$ref": "../resources/icarReproSemenStrawResource.json",

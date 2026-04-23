@@ -1,8 +1,12 @@
 {
   "description": "Describes a semen straw",
 
-  "allOf": [{
+  "allOf": [
+    {
       "$ref": "../resources/icarResource.json"
+    },
+    {
+      "$ref": "../types/icarReproSireInfoType.json"
     },
     {
       "type": "object",
@@ -23,25 +27,6 @@
         "dateCollected": {
           "description": "RFC3339 UTC date/time of collection (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
           "$ref": "../types/icarDateTimeType.json"
-        },
-        "sireIdentifiers": {
-          "type": "array",
-          "items": {
-            "$ref": "../types/icarAnimalIdentifierType.json"
-          },
-          "description": "One or more unique scheme/identifier combinations for the sire."
-        },
-        "sireOfficialName": {
-          "type": "string",
-          "description": "Official herdbook name of the sire."
-        },
-        "sireURI": {
-          "type": "string",
-          "description": "URI to an AnimalCoreResource for the sire."
-        },
-        "sirePrimaryBreed": {
-          "$ref": "../types/icarBreedIdentifierType.json",
-          "description": "ICAR Breed code for the sire. The usage of this property is not reasonable if more than one sire is provided."
         },
         "preservationType": {
           "$ref": "../enums/icarReproSemenPreservationType.json",
