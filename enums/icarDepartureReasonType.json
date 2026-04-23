@@ -1,8 +1,7 @@
 {
-  "description": "Enumeration for departure cause. Not specified in previous ADE data dictionary.",
+  "description": "Reasons for departure. See docs/reason-code-guidance.md. Combine with diagnosisCode for health and disease reasons.",
 
   "type": "string",
-
   "enum": [
     "Age",
     "Superfluous",
@@ -20,6 +19,13 @@
     "BadType",
     "Behaviour",
     "Other",
-    "Unknown"
+    "Unknown",
+    "Metabolic",
+    "MaternalAbility",
+    "ReproductiveFailure",
+    "BreedingIndex",
+    "BodyCondition",
+    "Oral",
+    "Accident"
   ]
 }

@@ -1,8 +1,12 @@
 {
   "description": "Describes an implanted embryo.",
 
-  "allOf": [{
+  "allOf": [
+    {
       "$ref": "../resources/icarResource.json"
+    },
+    {
+      "$ref": "../types/icarReproSireInfoType.json"
     },
     {
       "type": "object",
@@ -30,31 +34,6 @@
         "donorURI": {
           "type": "string",
           "description": "URI to an AnimalCoreResource for the donor dam."
-        },
-        "sireIdentifiers": {
-          "type": "array",
-          "items": {
-            "$ref": "../types/icarAnimalIdentifierType.json"
-          },
-          "description": "One or more unique scheme/identifier combinations for the sire."
-        },
-        "sireOfficialName": {
-          "type": "string",
-          "description": "Official herdbook name of the sire."
-        },
-        "sireURI": {
-          "type": "string",
-          "description": "URI to an AnimalCoreResource for the sire."
-        },
-        "gender": {
-          "anyOf": [{
-              "type": "null"
-            },
-            {
-              "$ref": "../enums/icarAnimalGenderType.json"
-            }
-          ],
-          "description": "The gender of the embryo, if known. Optional."
         }
       }
     }

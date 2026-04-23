@@ -4,7 +4,7 @@
     "type": "string",
   
     "enum": [
-       "LegsFrontLeft",
+        "LegsFrontLeft",
         "LegsFrontRight",
         "LegsRearLeft",
         "LegsRearRight",
@@ -20,6 +20,14 @@
         "Mouth",
         "Back",
         "Testes",
-        "Other"
+        "Other",
+        "InnerToeFrontLeft",
+        "OuterToeFrontLeft",
+        "InnerToeFrontRight",
+        "OuterToeFrontRight",
+        "InnerToeRearLeft",
+        "OuterToeRearLeft",
+        "InnerToeRearRight",
+        "OuterToeRearRight"
     ]
   }

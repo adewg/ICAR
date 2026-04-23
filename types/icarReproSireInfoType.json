@@ -1,0 +1,27 @@
+{
+  "description": "Describes sire information used in reproductive contexts.",
+
+  "type": "object",
+
+  "properties": {
+    "sireIdentifiers": {
+      "type": "array",
+      "items": {
+        "$ref": "../types/icarAnimalIdentifierType.json"
+      },
+      "description": "One or more unique scheme/identifier combinations for the sire."
+    },
+    "sireOfficialName": {
+      "type": "string",
+      "description": "Official herdbook name of the sire."
+    },
+    "sireURI": {
+      "type": "string",
+      "description": "URI to an AnimalCoreResource for the sire."
+    },
+    "sirePrimaryBreed": {
+      "$ref": "../types/icarBreedIdentifierType.json",
+      "description": "ICAR Breed code for the sire referenced by the sireIdentifiers. If more than one sire is identified, do not specify the breed unless all sires have the same primary breed."
+    }
+  }
+}
