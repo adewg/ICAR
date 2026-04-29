@@ -1890,9 +1890,9 @@
     },
     "/schemata":{
       "get": {
-        "operationId": "get-schemata",
-        "summary": "Get the list of schemata/schema types supported",
-        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "operationId": "get-org-schemata",
+        "summary": "Get the list of organisation schemata/schema types supported",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported by an organisation.\n",
         "tags": [
           "ADE-1.5-scheme"
         ],
@@ -1920,9 +1920,9 @@
     },
     "/schemata/{scheme-type}":{
       "get": {
-        "operationId": "get-schema-types",
-        "summary": "Get the list of schema type schemes",
-        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "operationId": "get-org-schema-types",
+        "summary": "Get the list of organisation schema type schemes",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported by an organisation.\n",
         "tags": [
           "ADE-1.5-scheme"
         ],
@@ -1958,9 +1958,9 @@
     },
     "/schemata/{scheme-type}/{scheme}":{
       "get": {
-        "operationId": "get-scheme-values",
+        "operationId": "get-org-scheme-values",
         "summary": "Get the list of values for specific scheme",
-        "description": "# Purpose\nProvides a list of scheme values for specific scheme\n",
+        "description": "# Purpose\nProvides a list of scheme values for specific scheme of an organisation.\n",
         "tags": [
           "ADE-1.5-scheme"
         ],
@@ -1996,9 +1996,9 @@
     },
     "/locations/{location-scheme}/{location-id}/schemata":{
       "get": {
-        "operationId": "get-location-schemata",
-        "summary": "Get the list of schemata/schema types supported",
-        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "operationId": "get-schemata",
+        "summary": "Get the list of schemata/schema types supported for a location",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported for a location.\n",
         "tags": [
           "ADE-1.5-scheme"
         ],
@@ -2033,9 +2033,9 @@
     },
     "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}":{
       "get": {
-        "operationId": "get-location-schema-types",
-        "summary": "Get the list of schema type schemes",
-        "description": "# Purpose\nProvides a list of schemata/schema types supported.\n",
+        "operationId": "get-schema-types",
+        "summary": "Get the list of schema type schemes of a location",
+        "description": "# Purpose\nProvides a list of schemata/schema types supported for a location.\n",
         "tags": [
           "ADE-1.5-scheme"
         ],
@@ -2076,9 +2076,9 @@
     },
     "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}/{scheme}":{
       "get": {
-        "operationId": "get-location-scheme-values",
-        "summary": "Get the list of values for specific scheme",
-        "description": "# Purpose\nProvides a list of scheme values for specific scheme\n",
+        "operationId": "get-scheme-values",
+        "summary": "Get the list of values for specific scheme of a location",
+        "description": "# Purpose\nProvides a list of scheme values for specific scheme for a location.\n",
         "tags": [
           "ADE-1.5-scheme"
         ],
