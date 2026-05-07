@@ -1066,196 +1066,199 @@
                 }
             }
         },
-        "/locations/{location-scheme}/{location-id}/schemata":{
+        "/locations/{location-scheme}/{location-id}/schemata": {
             "get": {
                 "operationId": "get-schemata",
                 "summary": "Get the list of schemata/schema types supported for a location",
                 "description": "# Purpose\nProvides a list of schemata/schema types supported for a location.\n",
                 "tags": [
-                "ADE-1.5-management"
+                    "ADE-1.5-management"
                 ],
-                "parameters": [{
-                    "$ref": "#/components/parameters/location-scheme"
-                },
-                {
-                    "$ref": "#/components/parameters/location-id"
-                }
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    }
                 ],
                 "responses": {
-                "200": {
-                    "description": "Successful. The response contains the suppoted schemata for the given location.",
-                    "content": {
-                    "application/json": {
-                        "schema": {
-                        "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                    "200": {
+                        "description": "Successful. The response contains the supported schemata for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                                }
+                            }
                         }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
                     }
-                    }
-                },
-                "default": {
-                    "$ref": "#/components/responses/default"
-                }
                 }
             }
         },
-        "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}":{
+        "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}": {
             "get": {
                 "operationId": "get-schema-types",
                 "summary": "Get the list of schema type schemes of a location",
                 "description": "# Purpose\nProvides a list of schemata/schema types supported for a location.\n",
                 "tags": [
-                "ADE-1.5-management"
+                    "ADE-1.5-management"
                 ],
-                "parameters": [{
-                    "$ref": "#/components/parameters/location-scheme"
-                },
-                {
-                    "$ref": "#/components/parameters/location-id"
-                },
-                {
-                    "$ref": "#/components/parameters/scheme-type"
-                }
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/scheme-type"
+                    }
                 ],
                 "responses": {
-                "200": {
-                    "description": "Successful. The response contains the suppoted scheme for specific scheme type for the given location.",
-                    "content": {
-                    "application/json": {
-                        "schema": {
-                        "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                    "200": {
+                        "description": "Successful. The response contains the supported schemes for the specified scheme type for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                                }
+                            }
                         }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
                     }
-                    }
-                },
-                "default": {
-                    "$ref": "#/components/responses/default"
-                }
                 }
             }
         },
-        "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}/{scheme}":{
+        "/locations/{location-scheme}/{location-id}/schemata/{scheme-type}/{scheme}": {
             "get": {
                 "operationId": "get-scheme-values",
                 "summary": "Get the list of values for specific scheme of a location",
                 "description": "# Purpose\nProvides a list of scheme values for specific scheme for a location.\n",
                 "tags": [
-                "ADE-1.5-management"
+                    "ADE-1.5-management"
                 ],
-                "parameters": [{
-                    "$ref": "#/components/parameters/location-scheme"
-                },
-                {
-                    "$ref": "#/components/parameters/location-id"
-                },
-                {
-                    "$ref": "#/components/parameters/scheme-type"
-                },
-                {
-                    "$ref": "#/components/parameters/scheme"
-                }
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/location-scheme"
+                    },
+                    {
+                        "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/scheme-type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/scheme"
+                    }
                 ],
                 "responses": {
-                "200": {
-                    "description": "Successful. The response contains the suppoted scheme for specific scheme type for the given location.",
-                    "content": {
-                    "application/json": {
-                        "schema": {
-                        "$ref": "#/components/schemas/icarSchemeValueCollection"
+                    "200": {
+                        "description": "Successful. The response contains the supported scheme values for the specified scheme and scheme type for the given location.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarSchemeValueCollection"
+                                }
+                            }
                         }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
                     }
-                    }
-                },
-                "default": {
-                    "$ref": "#/components/responses/default"
-                }
                 }
             }
-        },       
-        "/schemata":{
+        },
+        "/schemata": {
             "get": {
                 "operationId": "get-org-schemata",
                 "summary": "Get the list of organisation schemata/schema types supported",
                 "description": "# Purpose\nProvides a list of schemata/schema types supported by an organisation.\n",
                 "tags": [
-                "ADE-1.5-management"
+                    "ADE-1.5-management"
                 ],
                 "responses": {
-                "200": {
-                    "description": "Successful. The response contains the supported schemata.",
-                    "content": {
-                    "application/json": {
-                        "schema": {
-                        "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                    "200": {
+                        "description": "Successful. The response contains the supported schemata.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                                }
+                            }
                         }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
                     }
-                    }
-                },
-                "default": {
-                    "$ref": "#/components/responses/default"
-                }
                 }
             }
         },
-        "/schemata/{scheme-type}":{
+        "/schemata/{scheme-type}": {
             "get": {
                 "operationId": "get-org-schema-types",
                 "summary": "Get the list of organisation schema type schemes",
                 "description": "# Purpose\nProvides a list of schemata/schema types supported by an organisation.\n",
                 "tags": [
-                "ADE-1.5-management"
+                    "ADE-1.5-management"
                 ],
                 "parameters": [
-                {
-                    "$ref": "#/components/parameters/scheme-type"
-                }
+                    {
+                        "$ref": "#/components/parameters/scheme-type"
+                    }
                 ],
                 "responses": {
-                "200": {
-                    "description": "Successful. The response contains the supported schemes for the specified scheme type.",
-                    "content": {
-                    "application/json": {
-                        "schema": {
-                        "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                    "200": {
+                        "description": "Successful. The response contains the supported schemes for the specified scheme type.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarSchemeTypeCollection"
+                                }
+                            }
                         }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
                     }
-                    }
-                },
-                "default": {
-                    "$ref": "#/components/responses/default"
-                }
                 }
             }
         },
-        "/schemata/{scheme-type}/{scheme}":{
+        "/schemata/{scheme-type}/{scheme}": {
             "get": {
                 "operationId": "get-org-scheme-values",
                 "summary": "Get the list of values for specific scheme",
                 "description": "# Purpose\nProvides a list of scheme values for specific scheme of an organisation.\n",
                 "tags": [
-                "ADE-1.5-management"
+                    "ADE-1.5-management"
                 ],
                 "parameters": [
-                {
-                    "$ref": "#/components/parameters/scheme-type"
-                },
-                {
-                    "$ref": "#/components/parameters/scheme"
-                }
+                    {
+                        "$ref": "#/components/parameters/scheme-type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/scheme"
+                    }
                 ],
                 "responses": {
-                "200": {
-                    "description": "Successful. The response contains the values for the specified scheme and scheme type.",
-                    "content": {
-                    "application/json": {
-                        "schema": {
-                        "$ref": "#/components/schemas/icarSchemeValueCollection"
+                    "200": {
+                        "description": "Successful. The response contains the values for the specified scheme and scheme type.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/icarSchemeValueCollection"
+                                }
+                            }
                         }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/default"
                     }
-                    }
-                },
-                "default": {
-                    "$ref": "#/components/responses/default"
-                }
                 }
             }
         },
