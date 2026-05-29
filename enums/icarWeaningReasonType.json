@@ -1,0 +1,13 @@
+{
+  "description": "Reasons for weaning.",
+
+  "type": "string",
+  "enum": [
+    "Age",
+    "Feed",
+    "Weight",
+    "Condition",
+    "Sale",
+    "Health"
+  ]
+}
