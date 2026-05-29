@@ -2874,6 +2874,82 @@
           }
         }
       }
+    },
+    "/locations/{location-scheme}/{location-id}/weaning-events": {
+      "get": {
+        "operationId": "get-weaning-events",
+        "summary": "Get the weaning events for individual animals at a certain location",
+        "description": "# Purpose\nProvides the weaning events for individual animals recorded for a location\n",
+        "tags": [
+          "ADE-1.5-management"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the weaning events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarWeaningEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
+    },
+    "/locations/{location-scheme}/{location-id}/group-weaning-events": {
+      "get": {
+        "operationId": "get-group-weaning-events",
+        "summary": "Get the weaning events for groups of animals at a certain location",
+        "description": "# Purpose\nProvides the weaning events for groups of animals recorded for a location\n",
+        "tags": [
+          "ADE-1.5-management"
+        ],
+        "parameters": [{
+            "$ref": "#/components/parameters/location-scheme"
+          },
+          {
+            "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-from"
+          },
+          {
+            "$ref": "#/components/parameters/meta-modified-to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful. The response contains the group weaning events for the given location.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/icarGroupWeaningEventCollection"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/default"
+          }
+        }
+      }
     }    
   },
   "components": {
@@ -3069,6 +3145,12 @@
       },
       "icarRemarkEventCollection": {
         "$ref": "../collections/icarRemarkEventCollection.json"
+      },
+      "icarWeaningEventCollection": {
+        "$ref": "../collections/icarWeaningEventCollection.json"
+      },
+      "icarGroupWeaningEventCollection": {
+        "$ref": "../collections/icarGroupWeaningEventCollection.json"
       }
     },
     "parameters": {

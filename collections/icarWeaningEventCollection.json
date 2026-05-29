@@ -1,0 +1,21 @@
+{
+  "description": "Represents a collection of weaning events for individual animals.",
+
+  "allOf": [{
+      "$ref": "../collections/icarResourceCollection.json"
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "../resources/icarWeaningEventResource.json"
+          },
+          "description": "As per JSON-LD Hydra syntax, member provides the array of objects, in this case weaning events."
+        }
+      }
+    }
+  ]
+}
