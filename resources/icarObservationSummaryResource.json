@@ -21,7 +21,11 @@
             "items": {
               "$ref": "../types/icarObservationStatisticsType.json"
             }
-          }                   
+          },
+          "device": {
+            "$ref": "../types/icarDeviceReferenceType.json",
+            "description": "Identifies the device that recorded the observations."
+          }
         }
       }
     ]
