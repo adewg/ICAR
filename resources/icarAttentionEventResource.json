@@ -3,7 +3,7 @@
   
     "allOf": [
       {
-        "$ref": "../resources/icarAnimalEventCoreResource.json"
+        "$ref": "../resources/icarEventCoreResource.json"
       },
       {
         "type": "object",
@@ -11,6 +11,10 @@
         "required" : ["category", "causes"],
 
         "properties": {
+            "animal": {
+                "$ref": "../types/icarAnimalIdentifierType.json",
+                "description": "Unique animal scheme and identifier combination."
+            },
             "alertEndDateTime": {
                  "anyOf": [
                      {"type": "null"},
