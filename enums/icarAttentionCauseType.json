@@ -38,6 +38,13 @@
       "OverWeight",
       "AtTargetWeight",
       "Other",
-      "Undefined"
+      "Undefined",
+      "AttachedIncorrectly",
+      "InvalidPosition",
+      "BackToFront",
+      "NeverSentData",
+      "StoppedSendingData",
+      "InsufficientData",
+      "NoAnimalLinked"
     ]
   }

@@ -9,6 +9,7 @@
 - Add further enumerated values to icarProductionPurposeType [\#566](https://github.com/adewg/ICAR/issues/566)
 - Animal Disposal Types Mapping [\#565](https://github.com/adewg/ICAR/issues/565)
 - Add parents and other attributes in parturition icarProgenyDetailsResource [\#564](https://github.com/adewg/ICAR/issues/564)
+- Add device cause types for attentions [\#632](https://github.com/adewg/ICAR/issues/632)
 - Prepare for a small ADE 1.5 release [\#536](https://github.com/adewg/ICAR/issues/536)
 
 ## [v1.5.0](https://github.com/adewg/ICAR/tree/v1.5.0) (2025-11-04)
