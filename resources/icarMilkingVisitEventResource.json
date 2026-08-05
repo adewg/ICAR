@@ -59,6 +59,10 @@
           "type": "integer",
           "description": "For milkings supervised by humans, this number represents the shift within a local date in which this milking visit occurred." 
         },
+        "milkDestination": {
+          "description": "The destination of the milk from this milking visit.",
+          "$ref": "../enums/icarMilkDestinationType.json"
+        },
         "quarterMilkings": {
           "description": "A set of milking results for up to four quarters in dairy cows, or two teats for sheep or goats.",
           "type": "array",
