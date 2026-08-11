@@ -40,6 +40,20 @@
               {"type": "null"},
               {"$ref": "../types/icarMassMeasureType.json"}
           ]
+        },
+        "deathDate": {
+          "description": "Progeny death date in RFC3339 UTC (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance).",
+          "anyOf": [
+              {"type": "null"},
+              {"$ref": "../types/icarDateTimeType.json"}
+          ]
+        },
+        "disposalMethod": {
+          "description": "Coded disposal methods including approved service, consumption by humans or animals, etc.",
+          "anyOf": [
+              {"type": "null"},
+              {"$ref": "../enums/icarDeathDisposalMethodType.json"}
+          ]
         }
       }
     }
