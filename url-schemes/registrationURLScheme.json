@@ -85,11 +85,8 @@
                     "200": {
                         "description": "Successful. The response contains the animals for the given location",
                         "headers": {
-                            "X-ADE-AcceptVersion": {
-                                "description": "The version of the ADE accepted by the client",
-                                "schema": {
-                                    "type": "string"
-                                }
+                            "X-ADE-Version": {
+                                "$ref": "#/components/headers/X-ADE-Version"
                             }
                         },
                         "content": {
