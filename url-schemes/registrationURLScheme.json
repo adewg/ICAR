@@ -38,6 +38,11 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains the available locations.",
+                        "headers": {
+                            "X-ADE-Version": {
+                                "$ref": "#/components/headers/X-ADE-Version"
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
