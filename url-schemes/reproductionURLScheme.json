@@ -2083,11 +2083,11 @@
                     }
                 },
                 "content": {
-                "application/json": {
-                    "schema": {
-                    "$ref": "../collections/icarErrorCollection.json"
+                    "application/json": {
+                        "schema": {
+                        "$ref": "../collections/icarErrorCollection.json"
+                        }
                     }
-                }
                 }
             },
             "batchdefault":
