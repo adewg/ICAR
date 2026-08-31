@@ -48,11 +48,22 @@
                     },
                     {
                         "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains the resources for the given location.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -79,6 +90,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
@@ -95,6 +109,14 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -104,28 +126,10 @@
                         }
                     },
                     "201": {
-                        "description": "Created. The Location header contains the URI to the new resource.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the new resource."
-                            }
-                        }
+                        "$ref": "#/components/responses/createdresponse"
                     },
                     "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
+                        "$ref": "#/components/responses/acceptedresponse"
                     },
                     "default": {
                         "$ref": "#/components/responses/default"
@@ -153,11 +157,22 @@
                     },
                     {
                         "$ref": "#/components/parameters/meta-modified-to"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains the resources for the given location.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -184,6 +199,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
@@ -200,6 +218,14 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -209,28 +235,10 @@
                         }
                     },
                     "201": {
-                        "description": "Created. The Location header contains the URI to the new resource.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the new resource."
-                            }
-                        }
+                        "$ref": "#/components/responses/createdresponse"
                     },
                     "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
+                        "$ref": "#/components/responses/acceptedresponse"
                     },
                     "default": {
                         "$ref": "#/components/responses/default"
@@ -264,11 +272,22 @@
                     },
                     {
                         "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains the resources for the given location.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -308,12 +327,23 @@
                         "$ref": "#/components/parameters/animal-scheme"
                     },
                     {
-                        "$ref": "#/components/parameters/animal-id"
+                    "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains the resources for the given location.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -340,6 +370,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
@@ -356,6 +389,14 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -365,28 +406,10 @@
                         }
                     },
                     "201": {
-                        "description": "Created. The Location header contains the URI to the new resource.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the new resource."
-                            }
-                        }
+                        "$ref": "#/components/responses/createdresponse"
                     },
                     "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
+                        "$ref": "#/components/responses/acceptedresponse"
                     },
                     "default": {
                         "$ref": "#/components/responses/default"
@@ -420,11 +443,22 @@
                     },
                     {
                         "$ref": "#/components/parameters/animal-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains the resources for the given location.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -451,6 +485,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
@@ -467,6 +504,14 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains a copy of the event, as modifed by the server.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -476,28 +521,10 @@
                         }
                     },
                     "201": {
-                        "description": "Created. The Location header contains the URI to the new resource.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the new resource."
-                            }
-                        }
+                        "$ref": "#/components/responses/createdresponse"
                     },
                     "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
+                        "$ref": "#/components/responses/acceptedresponse"
                     },
                     "default": {
                         "$ref": "#/components/responses/default"
@@ -519,6 +546,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
@@ -535,6 +565,14 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -544,38 +582,13 @@
                         }
                     },
                     "201": {
-                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the results."
-                            }
-                        }
+                        "$ref": "#/components/responses/createdresponse"
                     },
                     "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
+                        "$ref": "#/components/responses/acceptedresponse"
                     },
                     "default": {
-                        "description": "The response contains a set of batch results, which may include errors and warnings.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/batchResults"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/batchdefault"
                     }
                 }
             }
@@ -594,6 +607,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
@@ -610,6 +626,14 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -619,38 +643,13 @@
                         }
                     },
                     "201": {
-                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the results."
-                            }
-                        }
+                        "$ref": "#/components/responses/createdresponse"
                     },
                     "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
+                        "$ref": "#/components/responses/acceptedresponse"
                     },
                     "default": {
-                        "description": "The response contains a set of batch results, which may include errors and warnings.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/batchResults"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/batchdefault"
                     }
                 }
             }
@@ -669,6 +668,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
@@ -685,6 +687,14 @@
                 "responses": {
                     "200": {
                         "description": "Successful. The response contains a set of batch results, which may include warnings.",
+                        "headers": {
+                            "X-ADE-AcceptVersion": {
+                                "description": "The version of the ADE accepted by the client.",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -694,38 +704,13 @@
                         }
                     },
                     "201": {
-                        "description": "Created. The Location header contains URI to retrieve a set of batch results, which may include warnings.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains the URI to the results."
-                            }
-                        }
+                        "$ref": "#/components/responses/createdresponse"
                     },
                     "202": {
-                        "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
-                        "headers": {
-                            "Location": {
-                                "schema": {
-                                    "type": "string",
-                                    "format": "uri"
-                                },
-                                "description": "Contains a URI to query creation status."
-                            }
-                        }
+                        "$ref": "#/components/responses/acceptedresponse"
                     },
                     "default": {
-                        "description": "The response contains a set of batch results, which may include errors and warnings.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/batchResults"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/batchdefault"
                     }
                 }
             }
@@ -785,7 +770,24 @@
                 }
             }
         },
+        "headers": {
+            "X-ADE-Version": {
+                "description": "The version of the ADE specification.",
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
         "parameters": {
+            "X-ADE-AcceptVersion": {
+                "name": "X-ADE-AcceptVersion",
+                "in": "header",
+                "description": "The version of the ADE specification that the client accepts.",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
             "location-scheme": {
                 "name": "location-scheme",
                 "in": "path",
@@ -842,16 +844,67 @@
             }
         },
         "responses": {
-          "default": {
-            "description": "An error has occured while handling the request. Check the content of the message for the error details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../collections/icarErrorCollection.json"
+            "default": {
+                "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+                "headers": {
+                    "X-ADE-Version": {
+                        "$ref": "#/components/headers/X-ADE-Version"
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                        "$ref": "../collections/icarErrorCollection.json"
+                        }
+                    }
                 }
-              }
+            },
+            "batchdefault":
+            {
+                "description": "The response contains a set of batch results, which may include errors and warnings.",
+                "headers": {
+                    "X-ADE-Version": {
+                        "$ref": "#/components/headers/X-ADE-Version"
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                        "$ref": "#/components/schemas/batchResults"
+                        }
+                    }
+                }
+            },
+            "createdresponse": {
+                "description": "Created. The Location header contains the URI to the new resource.",
+                "headers": {
+                    "Location": {
+                        "schema": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "description": "Contains the URI to the new resource."
+                    },
+                    "X-ADE-Version": {
+                        "$ref": "#/components/headers/X-ADE-Version"
+                    }
+                }
+            },
+            "acceptedresponse": {
+                "description": "Accepted. The Location header contains a URI that the client can query for processing status.",
+                "headers": {
+                    "Location": {
+                        "schema": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "description": "Contains a URI to query creation status."
+                    },
+                    "X-ADE-Version": {
+                        "$ref": "#/components/headers/X-ADE-Version"
+                    }
+                }
             }
-          }
         }
     }
 }
