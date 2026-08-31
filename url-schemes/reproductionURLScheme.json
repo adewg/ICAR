@@ -2078,12 +2078,9 @@
             "default": {
                 "description": "An error has occured while handling the request. Check the content of the message for the error details.",
                 "headers": {
-                "X-ADE-AcceptVersion": {
-                    "description": "The version of the API to accept.",
-                    "schema": {
-                    "type": "string"
+                    "X-ADE-Version": {
+                        "$ref": "#/components/headers/X-ADE-Version"
                     }
-                }
                 },
                 "content": {
                 "application/json": {
@@ -2100,7 +2097,7 @@
                     "X-ADE-Version": {
                         "$ref": "#/components/headers/X-ADE-Version"
                     }
-                    },
+                },
                 "content": {
                 "application/json": {
                     "schema": {
