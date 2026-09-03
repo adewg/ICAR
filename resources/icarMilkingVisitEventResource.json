@@ -92,7 +92,7 @@
         },
         "detachTime": {
           "$ref": "../types/icarDateTimeType.json",
-          "description": "The RFC3339 UTC date and time when the milking unit was detached."
+          "description": "The RFC3339 UTC date and time when the cluster or milking unit was detached."
         }
       }
     }
