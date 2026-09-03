@@ -671,6 +671,9 @@
           },
           {
             "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/X-ADE-AcceptVersion"
           }
         ],
         "responses": {
@@ -860,6 +863,9 @@
           },
           {
             "$ref": "#/components/parameters/identifier-id"
+          },
+          {
+            "$ref": "#/components/parameters/X-ADE-AcceptVersion"
           }
         ],
         "responses": {

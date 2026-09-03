@@ -287,6 +287,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/location-id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ADE-AcceptVersion"
                     }
                 ],
                 "requestBody": {
