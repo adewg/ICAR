@@ -1,6 +1,5 @@
 {
-  "description": "The type of marker used in pregnancy check or equivalent reproductive tests (typically analysing blood, milk, urine, or saliva).",
-  "$comment": "Developers should know this is deliberately scoped to reproductive test markers rather than all possible biological tests.",
+  "description": "The marker used in pregnancy check / equivalent reproductive tests (blood, milk, urine, or saliva). Deliberately scoped to repro only.",
 
   "type": "string",
 
