@@ -49,6 +49,10 @@
                 "comment": {
                     "type": "string",
                     "description": "A comment recorded about the treatment or its outcome."
+                },
+                "commonProcedure": {
+                    "$ref": "../enums/icarTreatmentCommonProcedureType.json",
+                    "description": "A structured procedure reference from the list of common procedures."
                 }
             }
         }
