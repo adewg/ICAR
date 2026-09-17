@@ -32,7 +32,11 @@
         "remark": {
           "type": "string",
           "description": "A comment or remark field for additional user-specified information about the event."
-        }        
+        },
+        "device": {
+          "$ref": "../types/icarDeviceReferenceType.json",
+          "description": "Identifies the device that is raising or recording the event."
+        }
       }
     }
   ]
