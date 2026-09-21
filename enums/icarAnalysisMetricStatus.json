@@ -1,0 +1,12 @@
+{
+    "type": "string",
+    "description": "Status values for use with icarAnalysisResultType.",
+    "enum": [
+        "completed",
+        "belowLimit",
+        "aboveLimit",
+        "failed",
+        "scheduled",
+        "inProgress"
+    ]
+}
