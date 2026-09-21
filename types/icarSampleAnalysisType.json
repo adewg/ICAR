@@ -1,0 +1,49 @@
+{
+    "description": "Defines a sample analysis, which may include multiple results.",
+    "type": "object",
+    "required": [
+        "analysedBy",
+        "results"
+    ],
+    "properties": {
+        "requestedBy": {
+            "$ref" : "../types/icarOrganizationType.json",
+            "description": "The party requesting the analysis."
+        },
+        "sentBy": {
+            "$ref" : "../types/icarOrganizationType.json",
+            "description": "The party sending the sample for analysis."
+        },
+        "analysedBy": {
+            "$ref" : "../types/icarOrganizationType.json",
+            "description": "The laboratory or other party responsible for carrying out the analysis."
+        },
+        "sampleExternalIdentifier": {
+            "type": "string",
+            "description": "External identifier of the sample being analysed (provided by the requesting or sending party)."
+        },
+        "sampleInternalIdentifier": {
+            "type": "string",
+            "description": "Internal identifier of the sample being analysed (used within the analysing organization)."
+        },
+        "sampleSessionIdentifier": {
+            "type": "string",
+            "description": "Identifier of the sample session or batch associated with the analysis."
+        },
+        "samplingDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "Date and time when the sample was collected."
+        },
+        "receiptDateTime": {
+            "$ref": "../types/icarDateTimeType.json",
+            "description": "Date and time when the sample was received for analysis."
+        },
+        "results": {
+            "type": "array",
+            "items": {
+                "$ref": "../types/icarAnalysisMetricType.json"
+            },
+            "description": "List of results obtained from the sample analysis."
+        }
+    }
+}

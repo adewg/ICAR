@@ -1,0 +1,70 @@
+{
+    "description": "Defines a single result of an analysis. Used for laboratory or similar analyses.",
+    "type": "object",
+    "required": [
+        "name",
+        "status"
+    ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Human readable description of the metric."
+        },
+        "status": {
+            "$ref": "../enums/icarAnalysisMetricStatus.json",
+            "description": "Status of the analysis result."
+        },
+        "characteristic": {
+            "type": "string",
+            "description": "The characteristic of the metric, often an abbreviation."
+        },
+        "metric": {
+            "$ref": "../types/icarMetricType.json",
+            "description": "The metric that this result represents. See well-known/icarMetricType.md and well-known/MilkMetrics.md"
+        },
+        "method": {
+            "type": "string",
+            "description": "The test method employed. Where feasible, use a URI to source specification or standard."
+        },
+        "rawValue": {
+            "type": "string",
+            "description": "Value of the test result as supplied before standardising to ICAR standard units"
+        },
+        "rawUnit": {
+            "type": "string",
+            "description": "Units of the test result as supplied before standardising to ICAR standard units"
+        },
+        "value": {
+            "type": "number",
+            "description": "Value of the test result converted to standard units"
+        },
+        "displayUnit": {
+            "type": "string",
+            "description": "The unit of the test result as displayed to users, which may differ from UN/CEFACT or SI names."
+        },
+        "unit": {
+            "type": "string",
+            "description": "Units of the value, standardised using UN/CEFACT by ICAR convention."
+        },
+        "denominatorUnit": {
+            "type": "string",
+            "description": "Units of the denominator for the metric, standardised using UN/CEFACT by ICAR convention, if applicable."
+        },
+        "resolution": {
+            "type": "number",
+            "description": "The smallest measurement difference that can be discriminated by the analyser. Specified in Units, for instance 0.5 (kilograms)."
+        },
+        "errorStatistic": {
+            "type": "number",
+            "description": "Error statistics (see OGC QR)"
+        },
+        "qualitativeGrade": {
+            "type": "string",
+            "description": "A textual or descriptive grade for the result."
+        },
+        "limit": {
+            "type": "number",
+            "description": "Numeric threshold of limit used with statuses 'belowLimit' and 'aboveLimit'"
+        }
+    }
+}
