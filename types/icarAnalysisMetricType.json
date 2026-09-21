@@ -20,7 +20,7 @@
         },
         "metric": {
             "$ref": "../types/icarMetricType.json",
-            "description": "The metric that this result represents. See well-known/icarMetricType.md and well-known/icarMilkMetrics.md"
+            "description": "The metric that this result represents. See well-known/icarMetricType.md and well-known/MilkMetrics.md"
         },
         "method": {
             "type": "string",
