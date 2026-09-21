@@ -15,7 +15,7 @@
                 },
                 "procedure": {
                     "type": "string",
-                    "description": "Medicine application method or a non-medicine procedure."
+                    "description": "Medicine application method or a non-medicine procedure. If you use a common procedure, use that attribute instead of this one."
                 },
                 "batches": {
                     "type": "array",
@@ -49,6 +49,10 @@
                 "comment": {
                     "type": "string",
                     "description": "A comment recorded about the treatment or its outcome."
+                },
+                "commonProcedure": {
+                    "$ref": "../enums/icarTreatmentCommonProcedureType.json",
+                    "description": "A structured procedure reference from the list of common procedures. May be used in conjunction with a medicine if needed."
                 }
             }
         }
