@@ -42,13 +42,17 @@
             "type": "string",
             "description": "The unit of the test result as displayed to users, which may differ from UN/CEFACT or SI names."
         },
-        "unit": {
+        "unitOfMeasureCode": {
             "type": "string",
-            "description": "Units of the value, standardised using UN/CEFACT by ICAR convention."
+            "description": "Code representing the unit of measure, using QUDT URI (qudt.org)."
+        },
+        "unitUNCEFACT": {
+            "type": "string",
+            "description": "Units of the value, using UN/CEFACT Rec 20  by ICAR convention."
         },
         "denominatorUnit": {
             "type": "string",
-            "description": "Units of the denominator for the metric, standardised using UN/CEFACT by ICAR convention, if applicable."
+            "description": "Units of the denominator for the metric, using UN/CEFACT Rec 20 by ICAR convention, if applicable."
         },
         "resolution": {
             "type": "number",
