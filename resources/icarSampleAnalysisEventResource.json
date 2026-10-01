@@ -1,0 +1,12 @@
+{
+    "description": "A sample analysis event associated with an animal.",
+
+    "allOf": [
+        {
+            "$ref": "../resources/icarAnimalEventCoreResource.json"
+        },
+        {
+            "$ref": "../types/icarSampleAnalysisType.json"
+        }
+    ]
+} 
