@@ -29,10 +29,6 @@
           "consumedRation": {
             "$ref": "../types/icarConsumedRationType.json",
             "description": "The eventual ration that has been consumed"
-          },
-          "device": {
-            "$ref": "../types/icarDeviceReferenceType.json",
-            "description": "Optional information about the device used for the feeding."
           }
         }
       }
