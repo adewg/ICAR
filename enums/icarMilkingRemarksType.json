@@ -8,6 +8,9 @@
     "MilkingIncomplete",
     "TeatSeparated",
     "MilkedSeparately",
-    "SamplingFailed"
+    "SamplingFailed",
+    "ManuallyIdentified",
+    "ManuallyDetached",
+    "Reattached"
   ]
 }
