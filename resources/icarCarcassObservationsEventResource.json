@@ -30,10 +30,6 @@
                 "carcassState": {
                     "description": "Indicates whether the observation event is on the hot or cold (chilled) carcass.",
                     "$ref": "../enums/icarCarcassStateType.json"
-                },
-                "device": {
-                    "description": "Identifies the device used for performing the observations in this event.",
-                    "$ref": "../resources/icarDeviceResource.json"
                 }
             }
         }
