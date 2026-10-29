@@ -1,0 +1,7 @@
+{
+  "description": "Uniquely identifies a device using a scheme and ID. Device providers should register their scheme with a PR to https://github.com/adewg/ICAR/blob/ADE-1/well-known/icarDeviceIdentifierType.md",
+
+  "allOf": [{
+    "$ref": "../types/icarIdentifierType.json"
+  }]
+}

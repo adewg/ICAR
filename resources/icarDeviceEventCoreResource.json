@@ -1,0 +1,21 @@
+{
+  "description": "Extends icarEventCoreResource to add a device identifier. Extend this event for device alerts and statistics.",
+
+  "allOf": [
+    {
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": ["deviceIdentifier"],
+
+      "properties": {
+        "deviceIdentifier": {
+          "$ref": "../types/icarDeviceIdentifierType.json",
+          "description": "Unique device scheme and identifier combination."
+        }
+      }
+    }
+  ]
+}
