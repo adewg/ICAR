@@ -41,6 +41,7 @@ foreach ($Schema in $Schemas) {
         Write-Output "Bundling $InputFile..."
         try {
             & npx --yes @redocly/cli bundle $InputFile -o $OutputFile
+            & node "$PSScriptRoot/inline_header_refs.js" $OutputFile
             Write-Output "Bundled $InputFile to $OutputFile successfully."
         } catch {
             Write-Error "Failed to bundle $InputFile. Error: $_"
