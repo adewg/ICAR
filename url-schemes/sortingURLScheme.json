@@ -36,11 +36,19 @@
           },
           {
             "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/X-ADE-AcceptVersion"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the resources for the given location.",
+            "headers": {
+              "X-ADE-Version": {
+                "$ref": "#/components/headers/X-ADE-Version"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -75,11 +83,19 @@
           },
           {
             "$ref": "#/components/parameters/animal-id"
+          },
+          {
+            "$ref": "#/components/parameters/X-ADE-AcceptVersion"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the resources for the given location.",
+            "headers": {
+              "X-ADE-Version": {
+                "$ref": "#/components/headers/X-ADE-Version"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -112,11 +128,19 @@
           },
           {
             "$ref": "#/components/parameters/animal-id"
+          },
+          {
+            "$ref": "#/components/parameters/X-ADE-AcceptVersion"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful."
+            "description": "Successful.",
+            "headers": {
+              "X-ADE-Version": {
+                "$ref": "#/components/headers/X-ADE-Version"
+              }
+            }
           },
           "default": {
             "$ref": "#/components/responses/default"
@@ -138,11 +162,19 @@
           },
           {
             "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/X-ADE-AcceptVersion"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful. The response contains the resources for the given location.",
+            "headers": {
+              "X-ADE-Version": {
+                "$ref": "#/components/headers/X-ADE-Version"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -169,6 +201,9 @@
           },
           {
             "$ref": "#/components/parameters/location-id"
+          },
+          {
+            "$ref": "#/components/parameters/X-ADE-AcceptVersion"
           }
         ],
         "requestBody": {
@@ -185,6 +220,11 @@
         "responses": {
           "200": {
             "description": "Successful. The response contains a copy of the event, as modified by the server.",
+            "headers": {
+              "X-ADE-Version": {
+                "$ref": "#/components/headers/X-ADE-Version"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -202,6 +242,9 @@
                   "format": "uri"
                 },
                 "description": "Contains the URI to the new resource."
+              },
+              "X-ADE-Version": {
+                "$ref": "#/components/headers/X-ADE-Version"
               }
             }
           },
@@ -214,6 +257,9 @@
                   "format": "uri"
                 },
                 "description": "Contains a URI to query creation status."
+              },
+              "X-ADE-Version": {
+                "$ref": "#/components/headers/X-ADE-Version"
               }
             }
           },
@@ -237,6 +283,14 @@
       },
       "icarAnimalSortingCommandResource": {
         "$ref": "../resources/icarAnimalSortingCommandResource.json"
+      }
+    },
+    "headers": {
+      "X-ADE-Version": {
+        "description": "The version of the ADE specification.",
+        "schema": {
+          "type": "string"
+        }
       }
     },
     "parameters": {
@@ -275,11 +329,25 @@
         "schema": {
           "type": "string"
         }
+      },
+      "X-ADE-AcceptVersion": {
+        "name": "X-ADE-AcceptVersion",
+        "in": "header",
+        "description": "The version of the ADE specification that the client accepts.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
       }
     },
     "responses": {
       "default": {
         "description": "An error has occured while handling the request. Check the content of the message for the error details.",
+        "headers": {
+          "X-ADE-Version": {
+            "$ref": "#/components/headers/X-ADE-Version"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
