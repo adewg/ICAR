@@ -12,10 +12,6 @@
           "$ref": "../types/icarMassMeasureType.json",
           "description": "The weight measurement, including units and resolution."
         },
-        "device": {
-          "$ref": "../types/icarDeviceReferenceType.json",
-          "description": "Optional information about the device used for the measurement."
-        },
         "timeOffFeed": {
           "type": "number",
           "description": "Hours of curfew or withholding feed prior to weighing to standardise gut fill."

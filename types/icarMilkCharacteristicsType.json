@@ -21,9 +21,14 @@
       "type": "string",
       "description": "Use the units for characteristics in https://github.com/adewg/ICAR/blob/ADE-1/enums/icarMilkCharacteristicCodeType.json. Only override when your units for a characteristic are different. Use UN/CEFACT codes."
     },
+    "device": {
+      "$ref": "../types/icarDeviceReferenceType.json",
+      "description": "Identifies the device that is raising or recording the event."
+    },
     "measuringDevice": {
       "type": "string",
-      "description": "a more readable device class ID that contains manufacturer, device, hardware and software versions in a way that is similar to the USB specification. This will need more investigation."
+      "deprecated": true,
+      "description": "Deprecated. Use device instead."
     }
   }
 }

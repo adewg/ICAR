@@ -35,6 +35,10 @@
         "remark": {
             "description": "The reason if there is an issue with the observation",
             "type": "string"
+        },
+        "device": {
+          "$ref": "../types/icarDeviceReferenceType.json",
+          "description": "Identifies the device that is raising or recording the event."
         }
     }
 }

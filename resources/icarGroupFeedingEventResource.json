@@ -40,10 +40,6 @@
             "items": {
                 "$ref": "../types/icarConsumedRationType.json"
             }            
-        },
-        "device": {
-            "$ref": "../types/icarDeviceReferenceType.json",
-            "description": "Optional information about a device used for the feeding, if relevant."
         }
     }
 }
