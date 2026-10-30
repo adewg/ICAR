@@ -42,6 +42,9 @@ foreach ($Schema in $Schemas) {
         try {
             & npx --yes @redocly/cli bundle $InputFile -o $OutputFile
             & node "$PSScriptRoot/inline_header_refs.js" $OutputFile
+            if ($LASTEXITCODE -ne 0) {
+                throw "Header inlining failed for $OutputFile (exit code $LASTEXITCODE)."
+            }
             Write-Output "Bundled $InputFile to $OutputFile successfully."
         } catch {
             Write-Error "Failed to bundle $InputFile. Error: $_"
