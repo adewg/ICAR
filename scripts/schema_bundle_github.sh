@@ -45,7 +45,7 @@ for schema in "${schemas[@]}"; do
     if [[ -f "$input_file" ]]; then
         echo "Bundling $input_file..."
         # Run openapi-generator-cli to bundle the file
-        if npx --yes @redocly/cli bundle "$input_file" -o "$output_file"; then
+        if npx --yes @redocly/cli bundle "$input_file" -o "$output_file" && node "$(dirname "$0")/inline_header_refs.js" "$output_file"; then
             echo "Bundled $input_file to $output_file successfully."
         else
             echo "Failed to bundle $input_file." >&2
