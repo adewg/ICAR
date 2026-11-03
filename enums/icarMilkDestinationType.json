@@ -1,0 +1,14 @@
+{
+    "description": "Define the destination of milk from a cluster (or in the future, even a quarter)",
+    "type": "string",
+    "enum" : [
+        "MilkTank",
+        "Separation1",
+        "Separation2",
+        "Discard",
+        "Colostrum",
+        "Transition",
+        "Progeny",
+        "Treatment"
+    ]
+}

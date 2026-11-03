@@ -1,0 +1,24 @@
+{
+  "description": "Enumeration with a structured set of common livestock treatment procedures. These can be used in a treatment event alongside or without medicines.",
+
+  "type": "string",
+
+  "enum": [
+    "Branding",
+    "Castration",
+    "CoatClipping",
+    "Disbudding",
+    "Dehorning",
+    "DeviceApplication",
+    "EarNotching",
+    "FootBathing",
+    "FootTrimming",
+    "Microchipping",
+    "Mulesing",
+    "Shearing",
+    "SynchronizationImplant",
+    "TailDocking",
+    "Tattooing",
+    "Vaccination"
+  ]
+}

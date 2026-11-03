@@ -1,0 +1,11 @@
+{
+  "description": "The marker used in pregnancy check / equivalent reproductive tests (blood, milk, urine, or saliva). Deliberately scoped to repro only.",
+
+  "type": "string",
+
+  "enum": [
+    "PAG",
+    "Progesterone"
+  ]
+}
+

@@ -38,6 +38,9 @@
         "$ref": "../types/icarQuarterMilkingSampleType.json"
       }
     },
+    "milkDestination": {
+      "$ref": "../enums/icarMilkDestinationType.json"
+    },
     "icarQuarterCharacteristics": {
       "type": "array",
       "items": {

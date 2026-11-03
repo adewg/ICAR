@@ -12,6 +12,10 @@
         "validFrom"
       ],
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this sort command, supporting update/deletion etc."
+        },
         "animal": {
           "$ref": "../types/icarAnimalIdentifierType.json",
           "description": "Unique animal scheme and identifier combination."
@@ -30,6 +34,14 @@
         "validTo": {
           "$ref": "../types/icarDateTimeType.json",
           "description": "Specifies until when the sort command should be active. Could be left empty, when the sorting should be ongoing (until replaced). RFC3339 UTC date time (see https://ijmacd.github.io/rfc3339-iso8601/ for format guidance)."
+        },
+        "shiftNumbers": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "description": "For manual sorting or sorting within an activity such as milking, this array represents the shifts within the validity period in which this sorting command should be active (optional)."
         }
       }
     }

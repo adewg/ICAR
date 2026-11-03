@@ -40,6 +40,7 @@ GroupMovementBirthEvent | **icarGroupMovementBirthEventResource** | icar:GroupMo
 GroupMovementDeathEvent | **icarGroupMovementDeathEventResource** | icar:GroupMovementDeathEvent | icarGroupMovementDeathEventResource.json
 GroupMovementDepartureEvent | **icarGroupMovementDepartureEventResource** | icar:GroupMovementDepartureEvent | icarGroupMovementDepartureEventResource.json
 GroupTreatmentEvent | **icarGroupTreatmentEventResource** | icar:GroupTreatmentEvent | icarGroupTreatmentEventResource.json
+GroupWeaningEvent | **icarGroupWeaningEventResource** | icar:GroupWeaningEvent | icarGroupWeaningEventResource.json
 GroupWeightEvent | **icarGroupWeightEventResource** | icar:GroupWeightEvent | icarGroupWeightEventResource.json
 HealthStatusObservedEvent | **icarHealthStatusObservedEventResource** | icar:HealthStatusObservedEvent | icarHealthStatusObservedEventResource.json
 InventoryTransaction | **icarInventoryTransactionResource** | icar:InventoryTransaction | icarInventoryTransactionResource.json
@@ -79,6 +80,7 @@ TestDayResult | **icarTestDayResultResource** | icar:TestDayResult | icarTestDay
 TreatmentEvent | **icarTreatmentEventResource** | icar:TreatmentEvent | icarTreatmentEventResource.json
 TreatmentProgramEvent | **icarTreatmentProgramEventResource** | icar:TreatmentProgramEvent | icarTreatmentProgramEventResource.json
 TypeClassificationEvent | **icarTypeClassificationEventResource** | icar:TypeClassificationEvent | icarTypeClassificationEventResource.json
+WeaningEvent | **icarWeaningEventResource** | icar:WeaningEvent | icarWeaningEventResource.json
 WeightEvent | **icarWeightEventResource** | icar:WeightEvent | icarWeightEventResource.json
 WithdrawalEvent | **icarWithdrawalEventResource** | icar:WithdrawalEvent | icarWithdrawalEventResource.json
 

@@ -1,5 +1,5 @@
 {
-    "description": "Defines an alert for an animal that may require attention.",
+    "description": "Defines an alert for an animal or device that may require attention.",
   
     "allOf": [
       {

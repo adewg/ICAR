@@ -17,6 +17,12 @@
         "AVGFLWR",
         "MAXFLWR",
         "WEIGHT",
-        "TEMPERATURE"
+        "TEMPERATURE",
+        "15SECFLWR",
+        "30SECFLWR",
+        "60SECFLWR",
+        "120SECFLWR",
+        "LOWFLWR",
+        "2MINWEIGHT"
     ]
 }

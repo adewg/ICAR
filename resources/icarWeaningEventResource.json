@@ -1,0 +1,31 @@
+{
+  "description": "This event records that an individual animal was weaned from its dam.",
+
+  "allOf": [
+    {
+      "$ref": "../resources/icarAnimalEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "properties": {
+        "weaningReason": {
+          "$ref": "../enums/icarWeaningReasonType.json",
+          "description": "The reason for weaning."
+        },
+        "weaningMethod": {
+          "$ref": "../enums/icarWeaningMethodType.json",
+          "description": "The method used for weaning."
+        },
+        "ageInMonths": {
+          "type": "integer",
+          "description": "The age of the animal in months at the time of weaning."
+        },
+        "rearingDam": {
+          "$ref": "../types/icarAnimalIdentifierType.json",
+          "description": "The dam from whom the progeny was weaned."
+        }
+      }
+    }
+  ]
+}

@@ -7,6 +7,9 @@
             "$ref": "../types/icarInventoryTransactionType.json"
         },
         {
+            "$ref": "../resources/icarEventCoreResource.json"
+        },
+        {
             "type": "object",
 
             "required": [

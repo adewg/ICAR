@@ -1,0 +1,12 @@
+{
+  "description": "Methods for weaning.",
+
+  "type": "string",
+  "enum": [
+    "Yards",
+    "Paddock",
+    "Creep",
+    "Natural",
+    "Other"
+  ]
+}

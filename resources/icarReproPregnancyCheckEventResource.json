@@ -12,6 +12,10 @@
           "$ref": "../enums/icarReproPregnancyMethodType.json",
           "description": "Method by which diagnosis was carried out."
         },
+        "marker": {
+          "$ref": "../enums/icarReproTestMarkerType.json",
+          "description": "Marker used in the reproductive test. Not specified means unknown or recorded before this attribute was available."
+        },
         "result": {
           "$ref": "../enums/icarReproPregnancyResultType.json",
           "description": "Result - unknown, empty, pregnant."
