@@ -15,5 +15,7 @@ Add more metrics when required (check for duplicates first) and submit with a Pu
 | WalkingTime | MIN | Time spent walking measured over a time period. |
 | MilkingVisitCount | ACT | Number of milking visits observed in a time period. |
 | RumenPHRange | - | Range or Amplitude difference between minimum and maximum pH over a period. |
+| Refusal | EA | The number of times a cow is refused to be milked by the robot (see interval). |
+| Interval | MIN | The interval a cow is allowed to be milked again by the robot after last milking. |
 
 
