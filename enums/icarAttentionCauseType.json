@@ -45,6 +45,8 @@
       "NeverSentData",
       "StoppedSendingData",
       "InsufficientData",
-      "NoAnimalLinked"
+      "NoAnimalLinked",
+      "ElevatedSCC",
+      "ElevatedConductivity"  
     ]
   }
